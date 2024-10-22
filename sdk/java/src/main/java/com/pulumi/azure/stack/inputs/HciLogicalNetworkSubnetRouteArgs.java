@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class HciLogicalNetworkSubnetRouteArgs extends com.pulumi.resources.ResourceArgs {
@@ -33,15 +35,15 @@ public final class HciLogicalNetworkSubnetRouteArgs extends com.pulumi.resources
      * The name of the route. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return The name of the route. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -112,7 +114,7 @@ public final class HciLogicalNetworkSubnetRouteArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -151,9 +153,6 @@ public final class HciLogicalNetworkSubnetRouteArgs extends com.pulumi.resources
         public HciLogicalNetworkSubnetRouteArgs build() {
             if ($.addressPrefix == null) {
                 throw new MissingRequiredPropertyException("HciLogicalNetworkSubnetRouteArgs", "addressPrefix");
-            }
-            if ($.name == null) {
-                throw new MissingRequiredPropertyException("HciLogicalNetworkSubnetRouteArgs", "name");
             }
             if ($.nextHopIpAddress == null) {
                 throw new MissingRequiredPropertyException("HciLogicalNetworkSubnetRouteArgs", "nextHopIpAddress");

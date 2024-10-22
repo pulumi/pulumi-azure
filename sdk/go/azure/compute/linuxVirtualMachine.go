@@ -199,7 +199,7 @@ type LinuxVirtualMachine struct {
 	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrOutput `pulumi:"identity"`
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -402,7 +402,7 @@ type linuxVirtualMachineState struct {
 	GalleryApplications []LinuxVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -550,7 +550,7 @@ type LinuxVirtualMachineState struct {
 	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -702,7 +702,7 @@ type linuxVirtualMachineArgs struct {
 	GalleryApplications []LinuxVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -841,7 +841,7 @@ type LinuxVirtualMachineArgs struct {
 	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
-	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
+	// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -1134,7 +1134,7 @@ func (o LinuxVirtualMachineOutput) Identity() LinuxVirtualMachineIdentityPtrOutp
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineIdentityPtrOutput { return v.Identity }).(LinuxVirtualMachineIdentityPtrOutput)
 }
 
-// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`.
+// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
 func (o LinuxVirtualMachineOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }

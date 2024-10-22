@@ -15,8 +15,57 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ServerCustomerManagedKey',
     'ServerIdentity',
 ]
+
+@pulumi.output_type
+class ServerCustomerManagedKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerCustomerManagedKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerCustomerManagedKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: str,
+                 user_assigned_identity_id: str):
+        """
+        :param str key_vault_key_id: The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+        :param str user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
 
 @pulumi.output_type
 class ServerIdentity(dict):

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.fluidrelay.inputs;
 
+import com.pulumi.azure.fluidrelay.inputs.ServerCustomerManagedKeyArgs;
 import com.pulumi.azure.fluidrelay.inputs.ServerIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,6 +18,13 @@ import javax.annotation.Nullable;
 public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerState Empty = new ServerState();
+
+    @Import(name="customerManagedKey")
+    private @Nullable Output<ServerCustomerManagedKeyArgs> customerManagedKey;
+
+    public Optional<Output<ServerCustomerManagedKeyArgs>> customerManagedKey() {
+        return Optional.ofNullable(this.customerManagedKey);
+    }
 
     /**
      * The Fluid tenantId for this server.
@@ -201,6 +209,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     private ServerState() {}
 
     private ServerState(ServerState $) {
+        this.customerManagedKey = $.customerManagedKey;
         this.frsTenantId = $.frsTenantId;
         this.identity = $.identity;
         this.location = $.location;
@@ -231,6 +240,15 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ServerState defaults) {
             $ = new ServerState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder customerManagedKey(@Nullable Output<ServerCustomerManagedKeyArgs> customerManagedKey) {
+            $.customerManagedKey = customerManagedKey;
+            return this;
+        }
+
+        public Builder customerManagedKey(ServerCustomerManagedKeyArgs customerManagedKey) {
+            return customerManagedKey(Output.of(customerManagedKey));
         }
 
         /**

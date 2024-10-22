@@ -11,6 +11,7 @@ import com.pulumi.azure.containerapp.outputs.GetAppSecret;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplate;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,11 @@ public final class GetAppResult {
     private String latestRevisionFqdn;
     private String latestRevisionName;
     private String location;
+    /**
+     * @return The max inactive revisions for this Container App.
+     * 
+     */
+    private Integer maxInactiveRevisions;
     /**
      * @return Name for the IP restriction rule.
      * 
@@ -134,6 +140,13 @@ public final class GetAppResult {
         return this.location;
     }
     /**
+     * @return The max inactive revisions for this Container App.
+     * 
+     */
+    public Integer maxInactiveRevisions() {
+        return this.maxInactiveRevisions;
+    }
+    /**
      * @return Name for the IP restriction rule.
      * 
      */
@@ -207,6 +220,7 @@ public final class GetAppResult {
         private String latestRevisionFqdn;
         private String latestRevisionName;
         private String location;
+        private Integer maxInactiveRevisions;
         private String name;
         private List<String> outboundIpAddresses;
         private List<GetAppRegistry> registries;
@@ -228,6 +242,7 @@ public final class GetAppResult {
     	      this.latestRevisionFqdn = defaults.latestRevisionFqdn;
     	      this.latestRevisionName = defaults.latestRevisionName;
     	      this.location = defaults.location;
+    	      this.maxInactiveRevisions = defaults.maxInactiveRevisions;
     	      this.name = defaults.name;
     	      this.outboundIpAddresses = defaults.outboundIpAddresses;
     	      this.registries = defaults.registries;
@@ -318,6 +333,14 @@ public final class GetAppResult {
               throw new MissingRequiredPropertyException("GetAppResult", "location");
             }
             this.location = location;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxInactiveRevisions(Integer maxInactiveRevisions) {
+            if (maxInactiveRevisions == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "maxInactiveRevisions");
+            }
+            this.maxInactiveRevisions = maxInactiveRevisions;
             return this;
         }
         @CustomType.Setter
@@ -415,6 +438,7 @@ public final class GetAppResult {
             _resultValue.latestRevisionFqdn = latestRevisionFqdn;
             _resultValue.latestRevisionName = latestRevisionName;
             _resultValue.location = location;
+            _resultValue.maxInactiveRevisions = maxInactiveRevisions;
             _resultValue.name = name;
             _resultValue.outboundIpAddresses = outboundIpAddresses;
             _resultValue.registries = registries;

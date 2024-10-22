@@ -154,7 +154,7 @@ export class AlertPrometheusRuleGroup extends pulumi.CustomResource {
      */
     public readonly ruleGroupEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A `rule` block as defined below.
+     * One or more `rule` blocks as defined below.
      */
     public readonly rules!: pulumi.Output<outputs.monitoring.AlertPrometheusRuleGroupRule[]>;
     /**
@@ -249,7 +249,7 @@ export interface AlertPrometheusRuleGroupState {
      */
     ruleGroupEnabled?: pulumi.Input<boolean>;
     /**
-     * A `rule` block as defined below.
+     * One or more `rule` blocks as defined below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRule>[]>;
     /**
@@ -295,7 +295,7 @@ export interface AlertPrometheusRuleGroupArgs {
      */
     ruleGroupEnabled?: pulumi.Input<boolean>;
     /**
-     * A `rule` block as defined below.
+     * One or more `rule` blocks as defined below.
      */
     rules: pulumi.Input<pulumi.Input<inputs.monitoring.AlertPrometheusRuleGroupRule>[]>;
     /**

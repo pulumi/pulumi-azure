@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DnsPrefixPrivateCluster { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
@@ -684,7 +684,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DnsPrefixPrivateCluster { get; set; }
 
         /// <summary>
-        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
@@ -1117,7 +1117,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DnsPrefixPrivateCluster { get; set; }
 
         /// <summary>
-        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }

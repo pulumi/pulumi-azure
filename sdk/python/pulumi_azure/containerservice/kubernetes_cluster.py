@@ -98,7 +98,7 @@ class KubernetesClusterArgs:
                > **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
                
                In addition, one of either `identity` or `service_principal` blocks must be specified.
-        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
                
                > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
@@ -471,7 +471,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "edge_zone")
 
@@ -1107,7 +1107,7 @@ class _KubernetesClusterState:
                > **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
                
                In addition, one of either `identity` or `service_principal` blocks must be specified.
-        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
                
@@ -1515,7 +1515,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "edge_zone")
 
@@ -2316,7 +2316,7 @@ class KubernetesCluster(pulumi.CustomResource):
                > **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
                
                In addition, one of either `identity` or `service_principal` blocks must be specified.
-        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
                
                > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
@@ -2715,7 +2715,7 @@ class KubernetesCluster(pulumi.CustomResource):
                > **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
                
                In addition, one of either `identity` or `service_principal` blocks must be specified.
-        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
                
@@ -3011,7 +3011,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="edgeZone")
     def edge_zone(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "edge_zone")
 

@@ -72,6 +72,10 @@ export interface GetAppResult {
     readonly latestRevisionName: string;
     readonly location: string;
     /**
+     * The max inactive revisions for this Container App.
+     */
+    readonly maxInactiveRevisions: number;
+    /**
      * Name for the IP restriction rule.
      */
     readonly name: string;

@@ -1946,7 +1946,7 @@ type HciLogicalNetworkSubnet struct {
 	IpAllocationMethod string `pulumi:"ipAllocationMethod"`
 	// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
 	IpPools []HciLogicalNetworkSubnetIpPool `pulumi:"ipPools"`
-	// One or more `route` block as defined above. Changing this forces a new resource to be created.
+	// A `route` block as defined above. Changing this forces a new resource to be created.
 	Routes []HciLogicalNetworkSubnetRoute `pulumi:"routes"`
 	// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
 	VlanId *int `pulumi:"vlanId"`
@@ -1970,7 +1970,7 @@ type HciLogicalNetworkSubnetArgs struct {
 	IpAllocationMethod pulumi.StringInput `pulumi:"ipAllocationMethod"`
 	// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
 	IpPools HciLogicalNetworkSubnetIpPoolArrayInput `pulumi:"ipPools"`
-	// One or more `route` block as defined above. Changing this forces a new resource to be created.
+	// A `route` block as defined above. Changing this forces a new resource to be created.
 	Routes HciLogicalNetworkSubnetRouteArrayInput `pulumi:"routes"`
 	// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
 	VlanId pulumi.IntPtrInput `pulumi:"vlanId"`
@@ -2068,7 +2068,7 @@ func (o HciLogicalNetworkSubnetOutput) IpPools() HciLogicalNetworkSubnetIpPoolAr
 	return o.ApplyT(func(v HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetIpPool { return v.IpPools }).(HciLogicalNetworkSubnetIpPoolArrayOutput)
 }
 
-// One or more `route` block as defined above. Changing this forces a new resource to be created.
+// A `route` block as defined above. Changing this forces a new resource to be created.
 func (o HciLogicalNetworkSubnetOutput) Routes() HciLogicalNetworkSubnetRouteArrayOutput {
 	return o.ApplyT(func(v HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetRoute { return v.Routes }).(HciLogicalNetworkSubnetRouteArrayOutput)
 }
@@ -2132,7 +2132,7 @@ func (o HciLogicalNetworkSubnetPtrOutput) IpPools() HciLogicalNetworkSubnetIpPoo
 	}).(HciLogicalNetworkSubnetIpPoolArrayOutput)
 }
 
-// One or more `route` block as defined above. Changing this forces a new resource to be created.
+// A `route` block as defined above. Changing this forces a new resource to be created.
 func (o HciLogicalNetworkSubnetPtrOutput) Routes() HciLogicalNetworkSubnetRouteArrayOutput {
 	return o.ApplyT(func(v *HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetRoute {
 		if v == nil {
@@ -2262,7 +2262,7 @@ type HciLogicalNetworkSubnetRoute struct {
 	// The Address in CIDR notation. Changing this forces a new resource to be created.
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The IPv4 address of the next hop. Changing this forces a new resource to be created.
 	NextHopIpAddress string `pulumi:"nextHopIpAddress"`
 }
@@ -2282,7 +2282,7 @@ type HciLogicalNetworkSubnetRouteArgs struct {
 	// The Address in CIDR notation. Changing this forces a new resource to be created.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
 	// The name of the route. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The IPv4 address of the next hop. Changing this forces a new resource to be created.
 	NextHopIpAddress pulumi.StringInput `pulumi:"nextHopIpAddress"`
 }
@@ -2344,8 +2344,8 @@ func (o HciLogicalNetworkSubnetRouteOutput) AddressPrefix() pulumi.StringOutput 
 }
 
 // The name of the route. Changing this forces a new resource to be created.
-func (o HciLogicalNetworkSubnetRouteOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HciLogicalNetworkSubnetRoute) string { return v.Name }).(pulumi.StringOutput)
+func (o HciLogicalNetworkSubnetRouteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnetRoute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The IPv4 address of the next hop. Changing this forces a new resource to be created.

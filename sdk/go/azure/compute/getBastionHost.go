@@ -78,7 +78,8 @@ type LookupBastionHostResult struct {
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of scale units provisioned for the Bastion Host.
-	ScaleUnits              int  `pulumi:"scaleUnits"`
+	ScaleUnits int `pulumi:"scaleUnits"`
+	// Is Session Recording feature enabled for the Bastion Host.
 	SessionRecordingEnabled bool `pulumi:"sessionRecordingEnabled"`
 	// Is Shareable Link feature enabled for the Bastion Host.
 	ShareableLinkEnabled bool `pulumi:"shareableLinkEnabled"`
@@ -185,6 +186,7 @@ func (o LookupBastionHostResultOutput) ScaleUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupBastionHostResult) int { return v.ScaleUnits }).(pulumi.IntOutput)
 }
 
+// Is Session Recording feature enabled for the Bastion Host.
 func (o LookupBastionHostResultOutput) SessionRecordingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBastionHostResult) bool { return v.SessionRecordingEnabled }).(pulumi.BoolOutput)
 }

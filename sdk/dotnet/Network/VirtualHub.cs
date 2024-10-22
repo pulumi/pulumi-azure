@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Network
         public Output<int> VirtualRouterAsn { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         /// </summary>
         [Output("virtualRouterAutoScaleMinCapacity")]
         public Output<int?> VirtualRouterAutoScaleMinCapacity { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         /// </summary>
         [Input("virtualRouterAutoScaleMinCapacity")]
         public Input<int>? VirtualRouterAutoScaleMinCapacity { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? VirtualRouterAsn { get; set; }
 
         /// <summary>
-        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        /// Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         /// </summary>
         [Input("virtualRouterAutoScaleMinCapacity")]
         public Input<int>? VirtualRouterAutoScaleMinCapacity { get; set; }

@@ -107,6 +107,8 @@ type App struct {
 	LatestRevisionName pulumi.StringOutput `pulumi:"latestRevisionName"`
 	// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum of inactive revisions allowed for this Container App.
+	MaxInactiveRevisions pulumi.IntPtrOutput `pulumi:"maxInactiveRevisions"`
 	// The name for this Container App. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
@@ -195,6 +197,8 @@ type appState struct {
 	LatestRevisionName *string `pulumi:"latestRevisionName"`
 	// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 	Location *string `pulumi:"location"`
+	// The maximum of inactive revisions allowed for this Container App.
+	MaxInactiveRevisions *int `pulumi:"maxInactiveRevisions"`
 	// The name for this Container App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
@@ -234,6 +238,8 @@ type AppState struct {
 	LatestRevisionName pulumi.StringPtrInput
 	// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 	Location pulumi.StringPtrInput
+	// The maximum of inactive revisions allowed for this Container App.
+	MaxInactiveRevisions pulumi.IntPtrInput
 	// The name for this Container App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
@@ -269,6 +275,8 @@ type appArgs struct {
 	Identity *AppIdentity `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress *AppIngress `pulumi:"ingress"`
+	// The maximum of inactive revisions allowed for this Container App.
+	MaxInactiveRevisions *int `pulumi:"maxInactiveRevisions"`
 	// The name for this Container App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `registry` block as detailed below.
@@ -299,6 +307,8 @@ type AppArgs struct {
 	Identity AppIdentityPtrInput
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrInput
+	// The maximum of inactive revisions allowed for this Container App.
+	MaxInactiveRevisions pulumi.IntPtrInput
 	// The name for this Container App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `registry` block as detailed below.
@@ -444,6 +454,11 @@ func (o AppOutput) LatestRevisionName() pulumi.StringOutput {
 // The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 func (o AppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The maximum of inactive revisions allowed for this Container App.
+func (o AppOutput) MaxInactiveRevisions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.IntPtrOutput { return v.MaxInactiveRevisions }).(pulumi.IntPtrOutput)
 }
 
 // The name for this Container App. Changing this forces a new resource to be created.

@@ -32542,8 +32542,6 @@ export namespace containerservice {
         applicationSecurityGroupIds?: string[];
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: {[key: string]: string};
     }
@@ -33324,8 +33322,6 @@ export namespace containerservice {
         applicationSecurityGroupIds?: string[];
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: {[key: string]: string};
     }
@@ -40822,6 +40818,17 @@ export namespace extendedlocation {
 }
 
 export namespace fluidrelay {
+    export interface ServerCustomerManagedKey {
+        /**
+         * The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+         */
+        keyVaultKeyId: string;
+        /**
+         * The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+         */
+        userAssignedIdentityId: string;
+    }
+
     export interface ServerIdentity {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
@@ -51004,7 +51011,7 @@ export namespace mssql {
         /**
          * The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
          */
-        backupIntervalInHours?: number;
+        backupIntervalInHours: number;
         /**
          * Point In Time Restore configuration. Value has to be between `1` and `35`.
          */
@@ -58015,6 +58022,239 @@ export namespace operationalinsights {
 
 }
 
+export namespace oracle {
+    export interface CloudVmClusterDataCollectionOptions {
+        /**
+         * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
+         */
+        diagnosticsEventsEnabled: boolean;
+        /**
+         * Indicates whether health monitoring is enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling health monitoring allows Oracle to collect diagnostic data and share it with its operations and support personnel. You may also receive notifications for some events. Collecting health diagnostics enables Oracle to provide proactive support and enhanced service for your system. Optionally enable health monitoring while provisioning a system. You can also disable or enable health monitoring anytime using the `UpdateVmCluster`, `UpdateCloudVmCluster` or `updateDbsystem` API.
+         */
+        healthMonitoringEnabled: boolean;
+        /**
+         * Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API.
+         */
+        incidentLogsEnabled: boolean;
+    }
+
+    export interface ExadataInfrastructureMaintenanceWindow {
+        /**
+         * Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+         */
+        daysOfWeeks: string[];
+        /**
+         * The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+         */
+        hoursOfDays: number[];
+        /**
+         * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+         */
+        leadTimeInWeeks: number;
+        /**
+         * Months during the year when maintenance should be performed.
+         */
+        months: string[];
+        /**
+         * Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+         */
+        patchingMode: string;
+        /**
+         * The maintenance window scheduling preference.
+         */
+        preference: string;
+        /**
+         * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+         */
+        weeksOfMonths: number[];
+    }
+
+    export interface GetCloudVmClusterDataCollectionOption {
+        /**
+         * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
+         */
+        diagnosticsEventsEnabled: boolean;
+        /**
+         * Indicates whether health monitoring is enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling health monitoring allows Oracle to collect diagnostic data and share it with its operations and support personnel. You may also receive notifications for some events. Collecting health diagnostics enables Oracle to provide proactive support and enhanced service for your system. Optionally enable health monitoring while provisioning a system. You can also disable or enable health monitoring anytime using the `UpdateVmCluster`, `UpdateCloudVmCluster` or `updateDbsystem` API.
+         */
+        healthMonitoringEnabled: boolean;
+        /**
+         * Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API.
+         */
+        incidentLogsEnabled: boolean;
+    }
+
+    export interface GetCloudVmClusterIormConfigCach {
+        /**
+         * A `dbPlans` block as defined above.
+         */
+        dbPlans: outputs.oracle.GetCloudVmClusterIormConfigCachDbPlan[];
+        /**
+         * Additional information about the current `lifecycleState`.
+         */
+        lifecycleDetails: string;
+        /**
+         * The current state of IORM configuration for the Exadata DB system.
+         */
+        lifecycleState: string;
+        /**
+         * The current value for the IORM objective. The default is `AUTO`.
+         */
+        objective: string;
+    }
+
+    export interface GetCloudVmClusterIormConfigCachDbPlan {
+        /**
+         * The database name. For the default `DbPlan`, the `dbName` is `default`.
+         */
+        dbName: string;
+        /**
+         * The flash cache limit for this database. This value is internally configured based on the share value assigned to the database.
+         */
+        flashCacheLimit: string;
+        /**
+         * The relative priority of this database.
+         */
+        share: number;
+    }
+
+    export interface GetDbServersDbServer {
+        /**
+         * The list of [OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Virtual Machines associated with the DB Server.
+         */
+        autonomousVirtualMachineDs: string[];
+        /**
+         * The list of [OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous VM Clusters associated with the DB Server.
+         */
+        autonomousVmClusterIds: string[];
+        /**
+         * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+         */
+        compartmentId: string;
+        /**
+         * The number of CPU cores enabled on the DB Server.
+         */
+        cpuCoreCount: number;
+        /**
+         * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Db nodes associated with the DB Server.
+         */
+        dbNodeIds: string[];
+        /**
+         * The allocated local node storage in GBs on the DB Server.
+         */
+        dbNodeStorageSizeInGbs: number;
+        /**
+         * The user-friendly name for the DB Server. The name does not need to be unique.
+         */
+        displayName: string;
+        /**
+         * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
+         */
+        exadataInfrastructureId: string;
+        /**
+         * Additional information about the current lifecycle state.
+         */
+        lifecycleDetails: string;
+        /**
+         * The current state of the DB Server.
+         */
+        lifecycleState: string;
+        /**
+         * The total number of CPU cores available.
+         */
+        maxCpuCount: number;
+        /**
+         * The total local node storage available in GBs.
+         */
+        maxDbNodeStorageInGbs: number;
+        /**
+         * The total memory available in GBs.
+         */
+        maxMemoryInGbs: number;
+        /**
+         * The allocated memory in GBs on the DB Server.
+         */
+        memorySizeInGbs: number;
+        /**
+         * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB Server.
+         */
+        ocid: string;
+        provisioningState: string;
+        /**
+         * The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
+         */
+        shape: string;
+        /**
+         * The date and time that the DB Server was created.
+         */
+        timeCreated: string;
+        /**
+         * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the VM Clusters associated with the DB Server.
+         */
+        vmClusterIds: string[];
+    }
+
+    export interface GetExadataInfrastructureEstimatedPatchingTime {
+        /**
+         * The estimated time required in minutes for database server patching.
+         */
+        estimatedDbServerPatchingTime: number;
+        /**
+         * The estimated time required in minutes for network switch patching.
+         */
+        estimatedNetworkSwitchesPatchingTime: number;
+        /**
+         * The estimated time required in minutes for storage server patching.
+         */
+        estimatedStorageServerPatchingTime: number;
+        /**
+         * The estimated total time required in minutes for all patching operations.
+         */
+        totalEstimatedPatchingTime: number;
+    }
+
+    export interface GetExadataInfrastructureMaintenanceWindow {
+        /**
+         * If true, enables the configuration of a custom action timeout (waiting period) between database servers patching operations.
+         */
+        customActionTimeoutEnabled: boolean;
+        customActionTimeoutInMins: number;
+        /**
+         * Days during the week when maintenance should be performed.
+         */
+        daysOfWeeks: string[];
+        /**
+         * The window of hours during the day when maintenance should be performed.
+         */
+        hoursOfDays: number[];
+        /**
+         * Lead time window allows user to set a lead time to prepare for a down time.
+         */
+        leadTimeInWeeks: number;
+        /**
+         * If true, enables the monthly patching option.
+         */
+        monthlyPatchingEnabled: boolean;
+        /**
+         * A `months` block as defined below.
+         */
+        months: string[];
+        /**
+         * Cloud Exadata Infrastructure node patching method.
+         */
+        patchingMode: string;
+        /**
+         * The maintenance window scheduling preference.
+         */
+        preference: string;
+        /**
+         * Weeks during the month when maintenance should be performed.
+         */
+        weeksOfMonths: number[];
+    }
+
+}
+
 export namespace orbital {
     export interface ContactProfileLink {
         /**
@@ -62969,7 +63209,7 @@ export namespace stack {
          */
         ipPools?: outputs.stack.HciLogicalNetworkSubnetIpPool[];
         /**
-         * One or more `route` block as defined above. Changing this forces a new resource to be created.
+         * A `route` block as defined above. Changing this forces a new resource to be created.
          */
         routes?: outputs.stack.HciLogicalNetworkSubnetRoute[];
         /**
@@ -62997,7 +63237,7 @@ export namespace stack {
         /**
          * The name of the route. Changing this forces a new resource to be created.
          */
-        name: string;
+        name?: string;
         /**
          * The IPv4 address of the next hop. Changing this forces a new resource to be created.
          */

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.HciLogicalNetworkSubnetIpPool> IpPools;
         /// <summary>
-        /// One or more `route` block as defined above. Changing this forces a new resource to be created.
+        /// A `route` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HciLogicalNetworkSubnetRoute> Routes;
         /// <summary>

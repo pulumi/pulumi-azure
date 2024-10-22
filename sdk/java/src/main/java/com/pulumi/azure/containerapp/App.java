@@ -16,6 +16,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -220,6 +221,20 @@ public class App extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The maximum of inactive revisions allowed for this Container App.
+     * 
+     */
+    @Export(name="maxInactiveRevisions", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> maxInactiveRevisions;
+
+    /**
+     * @return The maximum of inactive revisions allowed for this Container App.
+     * 
+     */
+    public Output<Optional<Integer>> maxInactiveRevisions() {
+        return Codegen.optional(this.maxInactiveRevisions);
     }
     /**
      * The name for this Container App. Changing this forces a new resource to be created.

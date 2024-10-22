@@ -16,9 +16,12 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.containerapp.CustomDomain("example", {
  *     name: std.trimprefix({
- *         input: exampleAzurermDnsTxtRecord.fqdn,
+ *         input: api.fqdn,
  *         prefix: "asuid.",
- *     }).then(invoke => invoke.result),
+ *     }).then(invoke => std.trimsuffix({
+ *         input: invoke.result,
+ *         suffix: ".",
+ *     })).then(invoke => invoke.result),
  *     containerAppId: exampleAzurermContainerApp.id,
  * });
  * ```

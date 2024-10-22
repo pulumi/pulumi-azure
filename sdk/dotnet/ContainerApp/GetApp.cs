@@ -132,6 +132,10 @@ namespace Pulumi.Azure.ContainerApp
         public readonly string LatestRevisionName;
         public readonly string Location;
         /// <summary>
+        /// The max inactive revisions for this Container App.
+        /// </summary>
+        public readonly int MaxInactiveRevisions;
+        /// <summary>
         /// Name for the IP restriction rule.
         /// </summary>
         public readonly string Name;
@@ -182,6 +186,8 @@ namespace Pulumi.Azure.ContainerApp
 
             string location,
 
+            int maxInactiveRevisions,
+
             string name,
 
             ImmutableArray<string> outboundIpAddresses,
@@ -209,6 +215,7 @@ namespace Pulumi.Azure.ContainerApp
             LatestRevisionFqdn = latestRevisionFqdn;
             LatestRevisionName = latestRevisionName;
             Location = location;
+            MaxInactiveRevisions = maxInactiveRevisions;
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
             Registries = registries;

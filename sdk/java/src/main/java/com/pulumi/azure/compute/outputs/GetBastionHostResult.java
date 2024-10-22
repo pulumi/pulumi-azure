@@ -61,6 +61,10 @@ public final class GetBastionHostResult {
      * 
      */
     private Integer scaleUnits;
+    /**
+     * @return Is Session Recording feature enabled for the Bastion Host.
+     * 
+     */
     private Boolean sessionRecordingEnabled;
     /**
      * @return Is Shareable Link feature enabled for the Bastion Host.
@@ -150,6 +154,10 @@ public final class GetBastionHostResult {
     public Integer scaleUnits() {
         return this.scaleUnits;
     }
+    /**
+     * @return Is Session Recording feature enabled for the Bastion Host.
+     * 
+     */
     public Boolean sessionRecordingEnabled() {
         return this.sessionRecordingEnabled;
     }

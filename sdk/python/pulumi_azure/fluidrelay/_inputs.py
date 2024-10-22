@@ -15,11 +15,63 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ServerCustomerManagedKeyArgs',
+    'ServerCustomerManagedKeyArgsDict',
     'ServerIdentityArgs',
     'ServerIdentityArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ServerCustomerManagedKeyArgsDict(TypedDict):
+        key_vault_key_id: pulumi.Input[str]
+        """
+        The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+        """
+        user_assigned_identity_id: pulumi.Input[str]
+        """
+        The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+elif False:
+    ServerCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerCustomerManagedKeyArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[str],
+                 user_assigned_identity_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_vault_key_id: The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+        :param pulumi.Input[str] user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[str]:
+        """
+        The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> pulumi.Input[str]:
+        """
+        The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 if not MYPY:
     class ServerIdentityArgsDict(TypedDict):

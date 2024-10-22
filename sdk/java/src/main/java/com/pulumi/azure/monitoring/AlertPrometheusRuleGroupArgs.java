@@ -126,14 +126,14 @@ public final class AlertPrometheusRuleGroupArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `rule` block as defined below.
+     * One or more `rule` blocks as defined below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<AlertPrometheusRuleGroupRuleArgs>> rules;
 
     /**
-     * @return A `rule` block as defined below.
+     * @return One or more `rule` blocks as defined below.
      * 
      */
     public Output<List<AlertPrometheusRuleGroupRuleArgs>> rules() {
@@ -351,7 +351,7 @@ public final class AlertPrometheusRuleGroupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rules A `rule` block as defined below.
+         * @param rules One or more `rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class AlertPrometheusRuleGroupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rules A `rule` block as defined below.
+         * @param rules One or more `rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class AlertPrometheusRuleGroupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rules A `rule` block as defined below.
+         * @param rules One or more `rule` blocks as defined below.
          * 
          * @return builder
          * 

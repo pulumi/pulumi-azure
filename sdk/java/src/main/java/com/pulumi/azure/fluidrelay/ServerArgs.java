@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.fluidrelay;
 
+import com.pulumi.azure.fluidrelay.inputs.ServerCustomerManagedKeyArgs;
 import com.pulumi.azure.fluidrelay.inputs.ServerIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -17,6 +18,13 @@ import javax.annotation.Nullable;
 public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerArgs Empty = new ServerArgs();
+
+    @Import(name="customerManagedKey")
+    private @Nullable Output<ServerCustomerManagedKeyArgs> customerManagedKey;
+
+    public Optional<Output<ServerCustomerManagedKeyArgs>> customerManagedKey() {
+        return Optional.ofNullable(this.customerManagedKey);
+    }
 
     /**
      * An `identity` block as defined below.
@@ -111,6 +119,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     private ServerArgs() {}
 
     private ServerArgs(ServerArgs $) {
+        this.customerManagedKey = $.customerManagedKey;
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
@@ -135,6 +144,15 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ServerArgs defaults) {
             $ = new ServerArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder customerManagedKey(@Nullable Output<ServerCustomerManagedKeyArgs> customerManagedKey) {
+            $.customerManagedKey = customerManagedKey;
+            return this;
+        }
+
+        public Builder customerManagedKey(ServerCustomerManagedKeyArgs customerManagedKey) {
+            return customerManagedKey(Output.of(customerManagedKey));
         }
 
         /**

@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Stack.Inputs
         private InputList<Inputs.HciLogicalNetworkSubnetRouteArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` block as defined above. Changing this forces a new resource to be created.
+        /// A `route` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.HciLogicalNetworkSubnetRouteArgs> Routes
         {

@@ -5967,8 +5967,6 @@ if not MYPY:
         node_public_ip_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
 elif False:
     KubernetesClusterDefaultNodePoolNodeNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -5983,8 +5981,6 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs']]] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         if allowed_host_ports is not None:
             pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
@@ -6022,8 +6018,6 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
     def node_public_ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -9674,8 +9668,6 @@ if not MYPY:
         node_public_ip_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
 elif False:
     KubernetesClusterNodePoolNodeNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -9690,8 +9682,6 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs']]] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         if allowed_host_ports is not None:
             pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
@@ -9729,8 +9719,6 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
     def node_public_ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         return pulumi.get(self, "node_public_ip_tags")
 

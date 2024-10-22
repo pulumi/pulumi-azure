@@ -112,7 +112,7 @@ type KubernetesCluster struct {
 	//
 	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
-	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -384,7 +384,7 @@ type kubernetesClusterState struct {
 	//
 	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
-	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
@@ -614,7 +614,7 @@ type KubernetesClusterState struct {
 	//
 	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
-	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
@@ -846,7 +846,7 @@ type kubernetesClusterArgs struct {
 	//
 	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
-	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should HTTP Application Routing be enabled?
 	//
@@ -1055,7 +1055,7 @@ type KubernetesClusterArgs struct {
 	//
 	// In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
-	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Should HTTP Application Routing be enabled?
 	//
@@ -1396,7 +1396,7 @@ func (o KubernetesClusterOutput) DnsPrefixPrivateCluster() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DnsPrefixPrivateCluster }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }

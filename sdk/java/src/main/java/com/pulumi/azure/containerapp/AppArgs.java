@@ -12,6 +12,7 @@ import com.pulumi.azure.containerapp.inputs.AppTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +83,21 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<AppIngressArgs>> ingress() {
         return Optional.ofNullable(this.ingress);
+    }
+
+    /**
+     * The maximum of inactive revisions allowed for this Container App.
+     * 
+     */
+    @Import(name="maxInactiveRevisions")
+    private @Nullable Output<Integer> maxInactiveRevisions;
+
+    /**
+     * @return The maximum of inactive revisions allowed for this Container App.
+     * 
+     */
+    public Optional<Output<Integer>> maxInactiveRevisions() {
+        return Optional.ofNullable(this.maxInactiveRevisions);
     }
 
     /**
@@ -215,6 +231,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         this.dapr = $.dapr;
         this.identity = $.identity;
         this.ingress = $.ingress;
+        this.maxInactiveRevisions = $.maxInactiveRevisions;
         this.name = $.name;
         this.registries = $.registries;
         this.resourceGroupName = $.resourceGroupName;
@@ -325,6 +342,27 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ingress(AppIngressArgs ingress) {
             return ingress(Output.of(ingress));
+        }
+
+        /**
+         * @param maxInactiveRevisions The maximum of inactive revisions allowed for this Container App.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxInactiveRevisions(@Nullable Output<Integer> maxInactiveRevisions) {
+            $.maxInactiveRevisions = maxInactiveRevisions;
+            return this;
+        }
+
+        /**
+         * @param maxInactiveRevisions The maximum of inactive revisions allowed for this Container App.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxInactiveRevisions(Integer maxInactiveRevisions) {
+            return maxInactiveRevisions(Output.of(maxInactiveRevisions));
         }
 
         /**

@@ -200,6 +200,8 @@ if typing.TYPE_CHECKING:
     notificationhub = __notificationhub
     import pulumi_azure.operationalinsights as __operationalinsights
     operationalinsights = __operationalinsights
+    import pulumi_azure.oracle as __oracle
+    oracle = __oracle
     import pulumi_azure.orbital as __orbital
     orbital = __orbital
     import pulumi_azure.paloalto as __paloalto
@@ -362,6 +364,7 @@ else:
     nginx = _utilities.lazy_import('pulumi_azure.nginx')
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
     operationalinsights = _utilities.lazy_import('pulumi_azure.operationalinsights')
+    oracle = _utilities.lazy_import('pulumi_azure.oracle')
     orbital = _utilities.lazy_import('pulumi_azure.orbital')
     paloalto = _utilities.lazy_import('pulumi_azure.paloalto')
     pim = _utilities.lazy_import('pulumi_azure.pim')
@@ -3945,6 +3948,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "devcenter/attachedNetwork",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/attachedNetwork:AttachedNetwork": "AttachedNetwork"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "devcenter/catalog",
   "fqn": "pulumi_azure.devcenter",
   "classes": {
@@ -6965,6 +6976,22 @@ _utilities.register(
   "fqn": "pulumi_azure.operationalinsights",
   "classes": {
    "azure:operationalinsights/queryPackQuery:QueryPackQuery": "QueryPackQuery"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "oracle/cloudVmCluster",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/cloudVmCluster:CloudVmCluster": "CloudVmCluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "oracle/exadataInfrastructure",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/exadataInfrastructure:ExadataInfrastructure": "ExadataInfrastructure"
   }
  },
  {

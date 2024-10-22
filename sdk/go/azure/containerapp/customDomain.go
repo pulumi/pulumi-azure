@@ -29,15 +29,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeTrimprefix, err := std.Trimprefix(ctx, &std.TrimprefixArgs{
-//				Input:  exampleAzurermDnsTxtRecord.Fqdn,
-//				Prefix: "asuid.",
+//			invokeTrimsuffix, err := std.Trimsuffix(ctx, &std.TrimsuffixArgs{
+//				Input: std.Trimprefix(ctx, &std.TrimprefixArgs{
+//					Input:  api.Fqdn,
+//					Prefix: "asuid.",
+//				}, nil).Result,
+//				Suffix: ".",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
-//				Name:           pulumi.String(invokeTrimprefix.Result),
+//				Name:           pulumi.String(invokeTrimsuffix.Result),
 //				ContainerAppId: pulumi.Any(exampleAzurermContainerApp.Id),
 //			})
 //			if err != nil {

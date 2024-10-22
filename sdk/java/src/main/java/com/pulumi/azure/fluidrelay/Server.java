@@ -6,6 +6,7 @@ package com.pulumi.azure.fluidrelay;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.fluidrelay.ServerArgs;
 import com.pulumi.azure.fluidrelay.inputs.ServerState;
+import com.pulumi.azure.fluidrelay.outputs.ServerCustomerManagedKey;
 import com.pulumi.azure.fluidrelay.outputs.ServerIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -75,6 +76,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:fluidrelay/server:Server")
 public class Server extends com.pulumi.resources.CustomResource {
+    @Export(name="customerManagedKey", refs={ServerCustomerManagedKey.class}, tree="[0]")
+    private Output</* @Nullable */ ServerCustomerManagedKey> customerManagedKey;
+
+    public Output<Optional<ServerCustomerManagedKey>> customerManagedKey() {
+        return Codegen.optional(this.customerManagedKey);
+    }
     /**
      * The Fluid tenantId for this server.
      * 

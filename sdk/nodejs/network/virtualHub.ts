@@ -110,7 +110,7 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualRouterAsn!: pulumi.Output<number>;
     /**
-     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      */
     public readonly virtualRouterAutoScaleMinCapacity!: pulumi.Output<number | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface VirtualHubState {
      */
     virtualRouterAsn?: pulumi.Input<number>;
     /**
-     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      */
     virtualRouterAutoScaleMinCapacity?: pulumi.Input<number>;
     /**
@@ -267,7 +267,7 @@ export interface VirtualHubArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      */
     virtualRouterAutoScaleMinCapacity?: pulumi.Input<number>;
     /**

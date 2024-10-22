@@ -139,7 +139,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly dnsPrefixPrivateCluster!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
@@ -633,7 +633,7 @@ export interface KubernetesClusterState {
      */
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
     /**
-     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     edgeZone?: pulumi.Input<string>;
     /**
@@ -965,7 +965,7 @@ export interface KubernetesClusterArgs {
      */
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
     /**
-     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     edgeZone?: pulumi.Input<string>;
     /**

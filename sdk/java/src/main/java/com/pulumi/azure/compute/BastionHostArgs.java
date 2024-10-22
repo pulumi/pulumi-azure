@@ -38,7 +38,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     @Import(name="fileCopyEnabled")
@@ -47,7 +47,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     public Optional<Output<Boolean>> fileCopyEnabled() {
@@ -72,7 +72,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     @Import(name="ipConnectEnabled")
@@ -81,7 +81,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     public Optional<Output<Boolean>> ipConnectEnabled() {
@@ -91,7 +91,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     @Import(name="kerberosEnabled")
@@ -100,7 +100,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     public Optional<Output<Boolean>> kerberosEnabled() {
@@ -155,7 +155,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      * 
-     * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+     * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
      * 
      */
     @Import(name="scaleUnits")
@@ -164,7 +164,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      * 
-     * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+     * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
      * 
      */
     public Optional<Output<Integer>> scaleUnits() {
@@ -193,7 +193,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     @Import(name="shareableLinkEnabled")
@@ -202,7 +202,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     public Optional<Output<Boolean>> shareableLinkEnabled() {
@@ -246,7 +246,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     @Import(name="tunnelingEnabled")
@@ -255,7 +255,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      * 
-     * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+     * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
      * 
      */
     public Optional<Output<Boolean>> tunnelingEnabled() {
@@ -339,7 +339,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fileCopyEnabled Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fileCopyEnabled Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipConnectEnabled Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipConnectEnabled Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param kerberosEnabled Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param kerberosEnabled Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param scaleUnits The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
          * 
-         * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+         * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param scaleUnits The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
          * 
-         * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+         * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param shareableLinkEnabled Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param shareableLinkEnabled Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tunnelingEnabled Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tunnelingEnabled Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
          * 
-         * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+         * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
          * 
          * @return builder
          * 

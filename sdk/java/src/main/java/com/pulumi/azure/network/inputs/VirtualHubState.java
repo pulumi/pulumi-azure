@@ -170,14 +170,14 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      * 
      */
     @Import(name="virtualRouterAutoScaleMinCapacity")
     private @Nullable Output<Integer> virtualRouterAutoScaleMinCapacity;
 
     /**
-     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      * 
      */
     public Optional<Output<Integer>> virtualRouterAutoScaleMinCapacity() {
@@ -471,7 +471,7 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class VirtualHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+         * @param virtualRouterAutoScaleMinCapacity Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
          * 
          * @return builder
          * 

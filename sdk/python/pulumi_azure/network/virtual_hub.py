@@ -41,7 +41,7 @@ class VirtualHubArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
-        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -164,7 +164,7 @@ class VirtualHubArgs:
     @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
     def virtual_router_auto_scale_min_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         """
         return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
 
@@ -213,7 +213,7 @@ class _VirtualHubState:
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[int] virtual_router_asn: The Autonomous System Number of the Virtual Hub BGP router.
-        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: The IP addresses of the Virtual Hub BGP router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -368,7 +368,7 @@ class _VirtualHubState:
     @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
     def virtual_router_auto_scale_min_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         """
         return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
 
@@ -459,7 +459,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
-        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -589,7 +589,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[int] virtual_router_asn: The Autonomous System Number of the Virtual Hub BGP router.
-        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: The IP addresses of the Virtual Hub BGP router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -696,7 +696,7 @@ class VirtualHub(pulumi.CustomResource):
     @pulumi.getter(name="virtualRouterAutoScaleMinCapacity")
     def virtual_router_auto_scale_min_capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+        Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
         """
         return pulumi.get(self, "virtual_router_auto_scale_min_capacity")
 

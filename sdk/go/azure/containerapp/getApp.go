@@ -73,6 +73,8 @@ type LookupAppResult struct {
 	LatestRevisionFqdn string          `pulumi:"latestRevisionFqdn"`
 	LatestRevisionName string          `pulumi:"latestRevisionName"`
 	Location           string          `pulumi:"location"`
+	// The max inactive revisions for this Container App.
+	MaxInactiveRevisions int `pulumi:"maxInactiveRevisions"`
 	// Name for the IP restriction rule.
 	Name                string   `pulumi:"name"`
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
@@ -176,6 +178,11 @@ func (o LookupAppResultOutput) LatestRevisionName() pulumi.StringOutput {
 
 func (o LookupAppResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max inactive revisions for this Container App.
+func (o LookupAppResultOutput) MaxInactiveRevisions() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupAppResult) int { return v.MaxInactiveRevisions }).(pulumi.IntOutput)
 }
 
 // Name for the IP restriction rule.

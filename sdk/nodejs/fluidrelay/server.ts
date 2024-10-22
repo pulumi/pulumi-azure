@@ -62,6 +62,7 @@ export class Server extends pulumi.CustomResource {
         return obj['__pulumiType'] === Server.__pulumiType;
     }
 
+    public readonly customerManagedKey!: pulumi.Output<outputs.fluidrelay.ServerCustomerManagedKey | undefined>;
     /**
      * The Fluid tenantId for this server.
      */
@@ -124,6 +125,7 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["frsTenantId"] = state ? state.frsTenantId : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -141,6 +143,7 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -165,6 +168,7 @@ export class Server extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Server resources.
  */
 export interface ServerState {
+    customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey>;
     /**
      * The Fluid tenantId for this server.
      */
@@ -219,6 +223,7 @@ export interface ServerState {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey>;
     /**
      * An `identity` block as defined below.
      */

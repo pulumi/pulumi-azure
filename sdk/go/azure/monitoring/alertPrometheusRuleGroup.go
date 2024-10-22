@@ -151,7 +151,7 @@ type AlertPrometheusRuleGroup struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
 	RuleGroupEnabled pulumi.BoolPtrOutput `pulumi:"ruleGroupEnabled"`
-	// A `rule` block as defined below.
+	// One or more `rule` blocks as defined below.
 	Rules AlertPrometheusRuleGroupRuleArrayOutput `pulumi:"rules"`
 	// Specifies the resource ID of the Azure Monitor Workspace.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
@@ -212,7 +212,7 @@ type alertPrometheusRuleGroupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
 	RuleGroupEnabled *bool `pulumi:"ruleGroupEnabled"`
-	// A `rule` block as defined below.
+	// One or more `rule` blocks as defined below.
 	Rules []AlertPrometheusRuleGroupRule `pulumi:"rules"`
 	// Specifies the resource ID of the Azure Monitor Workspace.
 	Scopes []string `pulumi:"scopes"`
@@ -235,7 +235,7 @@ type AlertPrometheusRuleGroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
 	RuleGroupEnabled pulumi.BoolPtrInput
-	// A `rule` block as defined below.
+	// One or more `rule` blocks as defined below.
 	Rules AlertPrometheusRuleGroupRuleArrayInput
 	// Specifies the resource ID of the Azure Monitor Workspace.
 	Scopes pulumi.StringArrayInput
@@ -262,7 +262,7 @@ type alertPrometheusRuleGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
 	RuleGroupEnabled *bool `pulumi:"ruleGroupEnabled"`
-	// A `rule` block as defined below.
+	// One or more `rule` blocks as defined below.
 	Rules []AlertPrometheusRuleGroupRule `pulumi:"rules"`
 	// Specifies the resource ID of the Azure Monitor Workspace.
 	Scopes []string `pulumi:"scopes"`
@@ -286,7 +286,7 @@ type AlertPrometheusRuleGroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
 	RuleGroupEnabled pulumi.BoolPtrInput
-	// A `rule` block as defined below.
+	// One or more `rule` blocks as defined below.
 	Rules AlertPrometheusRuleGroupRuleArrayInput
 	// Specifies the resource ID of the Azure Monitor Workspace.
 	Scopes pulumi.StringArrayInput
@@ -416,7 +416,7 @@ func (o AlertPrometheusRuleGroupOutput) RuleGroupEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *AlertPrometheusRuleGroup) pulumi.BoolPtrOutput { return v.RuleGroupEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `rule` block as defined below.
+// One or more `rule` blocks as defined below.
 func (o AlertPrometheusRuleGroupOutput) Rules() AlertPrometheusRuleGroupRuleArrayOutput {
 	return o.ApplyT(func(v *AlertPrometheusRuleGroup) AlertPrometheusRuleGroupRuleArrayOutput { return v.Rules }).(AlertPrometheusRuleGroupRuleArrayOutput)
 }

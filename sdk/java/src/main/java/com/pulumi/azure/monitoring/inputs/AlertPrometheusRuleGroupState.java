@@ -125,14 +125,14 @@ public final class AlertPrometheusRuleGroupState extends com.pulumi.resources.Re
     }
 
     /**
-     * A `rule` block as defined below.
+     * One or more `rule` blocks as defined below.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<AlertPrometheusRuleGroupRuleArgs>> rules;
 
     /**
-     * @return A `rule` block as defined below.
+     * @return One or more `rule` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertPrometheusRuleGroupRuleArgs>>> rules() {
@@ -350,7 +350,7 @@ public final class AlertPrometheusRuleGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rules A `rule` block as defined below.
+         * @param rules One or more `rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class AlertPrometheusRuleGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rules A `rule` block as defined below.
+         * @param rules One or more `rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class AlertPrometheusRuleGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rules A `rule` block as defined below.
+         * @param rules One or more `rule` blocks as defined below.
          * 
          * @return builder
          * 

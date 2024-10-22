@@ -26,8 +26,6 @@ public final class KubernetesClusterNodePoolNodeNetworkProfile {
     /**
      * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
-     * 
      */
     private @Nullable Map<String,String> nodePublicIpTags;
 
@@ -48,8 +46,6 @@ public final class KubernetesClusterNodePoolNodeNetworkProfile {
     }
     /**
      * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
      * 
      */
     public Map<String,String> nodePublicIpTags() {
