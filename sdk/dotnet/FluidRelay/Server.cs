@@ -49,6 +49,9 @@ namespace Pulumi.Azure.FluidRelay
     [AzureResourceType("azure:fluidrelay/server:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {
+        [Output("customerManagedKey")]
+        public Output<Outputs.ServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
+
         /// <summary>
         /// The Fluid tenantId for this server.
         /// </summary>
@@ -172,6 +175,9 @@ namespace Pulumi.Azure.FluidRelay
 
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customerManagedKey")]
+        public Input<Inputs.ServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -222,6 +228,9 @@ namespace Pulumi.Azure.FluidRelay
 
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
+        [Input("customerManagedKey")]
+        public Input<Inputs.ServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
+
         /// <summary>
         /// The Fluid tenantId for this server.
         /// </summary>

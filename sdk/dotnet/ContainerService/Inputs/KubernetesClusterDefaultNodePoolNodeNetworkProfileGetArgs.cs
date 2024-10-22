@@ -41,8 +41,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         /// </summary>
         public InputMap<string> NodePublicIpTags
         {

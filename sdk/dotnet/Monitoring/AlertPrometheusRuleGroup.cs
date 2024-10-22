@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<bool?> RuleGroupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// One or more `rule` blocks as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.AlertPrometheusRuleGroupRule>> Rules { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AlertPrometheusRuleGroupRuleArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// One or more `rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertPrometheusRuleGroupRuleArgs> Rules
         {
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AlertPrometheusRuleGroupRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// One or more `rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertPrometheusRuleGroupRuleGetArgs> Rules
         {

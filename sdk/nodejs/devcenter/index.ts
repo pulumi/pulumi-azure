@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AttachedNetworkArgs, AttachedNetworkState } from "./attachedNetwork";
+export type AttachedNetwork = import("./attachedNetwork").AttachedNetwork;
+export const AttachedNetwork: typeof import("./attachedNetwork").AttachedNetwork = null as any;
+utilities.lazyLoad(exports, ["AttachedNetwork"], () => require("./attachedNetwork"));
+
 export { CatalogArgs, CatalogState } from "./catalog";
 export type Catalog = import("./catalog").Catalog;
 export const Catalog: typeof import("./catalog").Catalog = null as any;
@@ -50,6 +55,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:devcenter/attachedNetwork:AttachedNetwork":
+                return new AttachedNetwork(name, <any>undefined, { urn })
             case "azure:devcenter/catalog:Catalog":
                 return new Catalog(name, <any>undefined, { urn })
             case "azure:devcenter/devBoxDefinition:DevBoxDefinition":
@@ -71,6 +78,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "devcenter/attachedNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/catalog", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/devBoxDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/devCenter", _module)

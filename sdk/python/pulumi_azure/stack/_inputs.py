@@ -1535,7 +1535,7 @@ if not MYPY:
         """
         routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgsDict']]]]
         """
-        One or more `route` block as defined above. Changing this forces a new resource to be created.
+        A `route` block as defined above. Changing this forces a new resource to be created.
         """
         vlan_id: NotRequired[pulumi.Input[int]]
         """
@@ -1556,7 +1556,7 @@ class HciLogicalNetworkSubnetArgs:
         :param pulumi.Input[str] ip_allocation_method: The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] address_prefix: The address prefix in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgs']]] ip_pools: One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgs']]] routes: One or more `route` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgs']]] routes: A `route` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vlan_id: The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
@@ -1609,7 +1609,7 @@ class HciLogicalNetworkSubnetArgs:
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgs']]]]:
         """
-        One or more `route` block as defined above. Changing this forces a new resource to be created.
+        A `route` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "routes")
 
@@ -1686,13 +1686,13 @@ if not MYPY:
         """
         The Address in CIDR notation. Changing this forces a new resource to be created.
         """
-        name: pulumi.Input[str]
-        """
-        The name of the route. Changing this forces a new resource to be created.
-        """
         next_hop_ip_address: pulumi.Input[str]
         """
         The IPv4 address of the next hop. Changing this forces a new resource to be created.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the route. Changing this forces a new resource to be created.
         """
 elif False:
     HciLogicalNetworkSubnetRouteArgsDict: TypeAlias = Mapping[str, Any]
@@ -1701,16 +1701,17 @@ elif False:
 class HciLogicalNetworkSubnetRouteArgs:
     def __init__(__self__, *,
                  address_prefix: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 next_hop_ip_address: pulumi.Input[str]):
+                 next_hop_ip_address: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] address_prefix: The Address in CIDR notation. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] next_hop_ip_address: The IPv4 address of the next hop. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "address_prefix", address_prefix)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -1725,18 +1726,6 @@ class HciLogicalNetworkSubnetRouteArgs:
         pulumi.set(self, "address_prefix", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the route. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="nextHopIpAddress")
     def next_hop_ip_address(self) -> pulumi.Input[str]:
         """
@@ -1747,5 +1736,17 @@ class HciLogicalNetworkSubnetRouteArgs:
     @next_hop_ip_address.setter
     def next_hop_ip_address(self, value: pulumi.Input[str]):
         pulumi.set(self, "next_hop_ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

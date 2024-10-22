@@ -434,18 +434,18 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return this.secondaryWriteKeys;
     }
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
      * 
-     * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * @return The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
      * 
-     * &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {

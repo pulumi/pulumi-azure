@@ -154,6 +154,9 @@ class GetBastionHostResult:
     @property
     @pulumi.getter(name="sessionRecordingEnabled")
     def session_recording_enabled(self) -> bool:
+        """
+        Is Session Recording feature enabled for the Bastion Host.
+        """
         return pulumi.get(self, "session_recording_enabled")
 
     @property

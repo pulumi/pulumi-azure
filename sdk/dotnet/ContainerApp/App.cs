@@ -129,6 +129,12 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum of inactive revisions allowed for this Container App.
+        /// </summary>
+        [Output("maxInactiveRevisions")]
+        public Output<int?> MaxInactiveRevisions { get; private set; } = null!;
+
+        /// <summary>
         /// The name for this Container App. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -258,6 +264,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("ingress")]
         public Input<Inputs.AppIngressArgs>? Ingress { get; set; }
+
+        /// <summary>
+        /// The maximum of inactive revisions allowed for this Container App.
+        /// </summary>
+        [Input("maxInactiveRevisions")]
+        public Input<int>? MaxInactiveRevisions { get; set; }
 
         /// <summary>
         /// The name for this Container App. Changing this forces a new resource to be created.
@@ -396,6 +408,12 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The maximum of inactive revisions allowed for this Container App.
+        /// </summary>
+        [Input("maxInactiveRevisions")]
+        public Input<int>? MaxInactiveRevisions { get; set; }
 
         /// <summary>
         /// The name for this Container App. Changing this forces a new resource to be created.

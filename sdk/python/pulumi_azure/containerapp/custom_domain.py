@@ -212,8 +212,9 @@ class CustomDomain(pulumi.CustomResource):
         import pulumi_std as std
 
         example = azure.containerapp.CustomDomain("example",
-            name=std.trimprefix(input=example_azurerm_dns_txt_record["fqdn"],
-                prefix="asuid.").result,
+            name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
+                    prefix="asuid.").result,
+                suffix=".").result,
             container_app_id=example_azurerm_container_app["id"])
         ```
 
@@ -253,8 +254,9 @@ class CustomDomain(pulumi.CustomResource):
         import pulumi_std as std
 
         example = azure.containerapp.CustomDomain("example",
-            name=std.trimprefix(input=example_azurerm_dns_txt_record["fqdn"],
-                prefix="asuid.").result,
+            name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
+                    prefix="asuid.").result,
+                suffix=".").result,
             container_app_id=example_azurerm_container_app["id"])
         ```
 

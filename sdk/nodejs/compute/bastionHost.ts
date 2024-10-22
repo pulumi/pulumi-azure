@@ -99,7 +99,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     public readonly fileCopyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -109,13 +109,13 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     public readonly ipConnectEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -133,7 +133,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      *
-     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
+     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard` or `Premium`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
     public readonly scaleUnits!: pulumi.Output<number | undefined>;
     /**
@@ -145,7 +145,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     public readonly shareableLinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -161,7 +161,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     public readonly tunnelingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface BastionHostState {
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     fileCopyEnabled?: pulumi.Input<boolean>;
     /**
@@ -250,13 +250,13 @@ export interface BastionHostState {
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
      * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
@@ -274,7 +274,7 @@ export interface BastionHostState {
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      *
-     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
+     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard` or `Premium`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
     scaleUnits?: pulumi.Input<number>;
     /**
@@ -286,7 +286,7 @@ export interface BastionHostState {
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
@@ -302,7 +302,7 @@ export interface BastionHostState {
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     tunnelingEnabled?: pulumi.Input<boolean>;
     /**
@@ -322,7 +322,7 @@ export interface BastionHostArgs {
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     fileCopyEnabled?: pulumi.Input<boolean>;
     /**
@@ -332,13 +332,13 @@ export interface BastionHostArgs {
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
      * Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `kerberosEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
@@ -356,7 +356,7 @@ export interface BastionHostArgs {
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      *
-     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
+     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard` or `Premium`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
     scaleUnits?: pulumi.Input<number>;
     /**
@@ -368,7 +368,7 @@ export interface BastionHostArgs {
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
@@ -384,7 +384,7 @@ export interface BastionHostArgs {
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      *
-     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
+     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard` or `Premium`.
      */
     tunnelingEnabled?: pulumi.Input<boolean>;
     /**

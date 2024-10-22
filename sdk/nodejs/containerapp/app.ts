@@ -117,6 +117,10 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
     /**
+     * The maximum of inactive revisions allowed for this Container App.
+     */
+    public readonly maxInactiveRevisions!: pulumi.Output<number | undefined>;
+    /**
      * The name for this Container App. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -176,6 +180,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["latestRevisionFqdn"] = state ? state.latestRevisionFqdn : undefined;
             resourceInputs["latestRevisionName"] = state ? state.latestRevisionName : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["maxInactiveRevisions"] = state ? state.maxInactiveRevisions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             resourceInputs["registries"] = state ? state.registries : undefined;
@@ -203,6 +208,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["dapr"] = args ? args.dapr : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ingress"] = args ? args.ingress : undefined;
+            resourceInputs["maxInactiveRevisions"] = args ? args.maxInactiveRevisions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["registries"] = args ? args.registries : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -260,6 +266,10 @@ export interface AppState {
      * The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The maximum of inactive revisions allowed for this Container App.
+     */
+    maxInactiveRevisions?: pulumi.Input<number>;
     /**
      * The name for this Container App. Changing this forces a new resource to be created.
      */
@@ -320,6 +330,10 @@ export interface AppArgs {
      * An `ingress` block as detailed below.
      */
     ingress?: pulumi.Input<inputs.containerapp.AppIngress>;
+    /**
+     * The maximum of inactive revisions allowed for this Container App.
+     */
+    maxInactiveRevisions?: pulumi.Input<number>;
     /**
      * The name for this Container App. Changing this forces a new resource to be created.
      */

@@ -246,14 +246,14 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.ruleGroupEnabled);
     }
     /**
-     * A `rule` block as defined below.
+     * One or more `rule` blocks as defined below.
      * 
      */
     @Export(name="rules", refs={List.class,AlertPrometheusRuleGroupRule.class}, tree="[0,1]")
     private Output<List<AlertPrometheusRuleGroupRule>> rules;
 
     /**
-     * @return A `rule` block as defined below.
+     * @return One or more `rule` blocks as defined below.
      * 
      */
     public Output<List<AlertPrometheusRuleGroupRule>> rules() {

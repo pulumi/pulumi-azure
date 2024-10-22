@@ -22,6 +22,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 customer_managed_key: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']] = None,
                  identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,8 @@ class ServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -59,6 +62,15 @@ class ServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]:
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter
@@ -124,6 +136,7 @@ class ServerArgs:
 @pulumi.input_type
 class _ServerState:
     def __init__(__self__, *,
+                 customer_managed_key: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']] = None,
                  frs_tenant_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -151,6 +164,8 @@ class _ServerState:
         :param pulumi.Input[str] storage_sku: Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Fluid Relay Server.
         """
+        if customer_managed_key is not None:
+            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if frs_tenant_id is not None:
             pulumi.set(__self__, "frs_tenant_id", frs_tenant_id)
         if identity is not None:
@@ -175,6 +190,15 @@ class _ServerState:
             pulumi.set(__self__, "storage_sku", storage_sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]:
+        return pulumi.get(self, "customer_managed_key")
+
+    @customer_managed_key.setter
+    def customer_managed_key(self, value: Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]):
+        pulumi.set(self, "customer_managed_key", value)
 
     @property
     @pulumi.getter(name="frsTenantId")
@@ -326,6 +350,7 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_managed_key: Optional[pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -415,6 +440,7 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_managed_key: Optional[pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -430,6 +456,7 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerArgs.__new__(ServerArgs)
 
+            __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -456,6 +483,7 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_key: Optional[pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
             frs_tenant_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -492,6 +520,7 @@ class Server(pulumi.CustomResource):
 
         __props__ = _ServerState.__new__(_ServerState)
 
+        __props__.__dict__["customer_managed_key"] = customer_managed_key
         __props__.__dict__["frs_tenant_id"] = frs_tenant_id
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -505,6 +534,11 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["storage_sku"] = storage_sku
         __props__.__dict__["tags"] = tags
         return Server(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customerManagedKey")
+    def customer_managed_key(self) -> pulumi.Output[Optional['outputs.ServerCustomerManagedKey']]:
+        return pulumi.get(self, "customer_managed_key")
 
     @property
     @pulumi.getter(name="frsTenantId")

@@ -32,7 +32,7 @@ public final class HciLogicalNetworkSubnet {
      */
     private @Nullable List<HciLogicalNetworkSubnetIpPool> ipPools;
     /**
-     * @return One or more `route` block as defined above. Changing this forces a new resource to be created.
+     * @return A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<HciLogicalNetworkSubnetRoute> routes;
@@ -65,7 +65,7 @@ public final class HciLogicalNetworkSubnet {
         return this.ipPools == null ? List.of() : this.ipPools;
     }
     /**
-     * @return One or more `route` block as defined above. Changing this forces a new resource to be created.
+     * @return A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public List<HciLogicalNetworkSubnetRoute> routes() {

@@ -12,58 +12,6 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Logical Network.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-rg",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleHciLogicalNetwork = new Azure.Stack.HciLogicalNetwork("example", new()
-    ///     {
-    ///         Name = "example-hci-ln",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         CustomLocationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
-    ///         VirtualSwitchName = "ConvergedSwitch(managementcompute)",
-    ///         DnsServers = new[]
-    ///         {
-    ///             "10.0.0.7",
-    ///             "10.0.0.8",
-    ///         },
-    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
-    ///         {
-    ///             IpAllocationMethod = "Static",
-    ///             AddressPrefix = "10.0.0.0/24",
-    ///             Routes = new[]
-    ///             {
-    ///                 new Azure.Stack.Inputs.HciLogicalNetworkSubnetRouteArgs
-    ///                 {
-    ///                     Name = "example-route",
-    ///                     AddressPrefix = "0.0.0.0/0",
-    ///                     NextHopIpAddress = "10.0.20.1",
-    ///                 },
-    ///             },
-    ///             VlanId = 123,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.

@@ -149,6 +149,7 @@ const (
 	azureNginx                 = "Nginx"                 // Nginx
 	azureNotificationHub       = "NotificationHub"       // Notification Hub
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
+	azureOracle                = "Oracle"                // Oracle
 	azureOrbital               = "Orbital"               // Orbital
 	azurePaloAlto              = "PaloAlto"              // PaloAlto
 	azurePim                   = "Pim"                   // Privileged Identity Management
@@ -312,6 +313,7 @@ var moduleMap = map[string]string{
 	// Ignored: azureOperationalInsights. The token prefix log_ maps into either
 	// azureOperationalInsights or azureLogInsights. Its not clear which from the
 	// token.
+	"oracle":      azureOracle,
 	"orbital":     azureOrbital,
 	"palo_alto":   azurePaloAlto,
 	"pim":         "Pim",

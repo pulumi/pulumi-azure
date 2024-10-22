@@ -21,8 +21,8 @@ namespace Pulumi.Azure.Stack.Inputs
         /// <summary>
         /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The IPv4 address of the next hop. Changing this forces a new resource to be created.

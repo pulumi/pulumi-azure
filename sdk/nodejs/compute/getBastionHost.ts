@@ -85,6 +85,9 @@ export interface GetBastionHostResult {
      * The number of scale units provisioned for the Bastion Host.
      */
     readonly scaleUnits: number;
+    /**
+     * Is Session Recording feature enabled for the Bastion Host.
+     */
     readonly sessionRecordingEnabled: boolean;
     /**
      * Is Shareable Link feature enabled for the Bastion Host.

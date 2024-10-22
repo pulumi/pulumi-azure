@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class HciLogicalNetworkSubnetRoute {
@@ -19,7 +21,7 @@ public final class HciLogicalNetworkSubnetRoute {
      * @return The name of the route. Changing this forces a new resource to be created.
      * 
      */
-    private String name;
+    private @Nullable String name;
     /**
      * @return The IPv4 address of the next hop. Changing this forces a new resource to be created.
      * 
@@ -38,8 +40,8 @@ public final class HciLogicalNetworkSubnetRoute {
      * @return The name of the route. Changing this forces a new resource to be created.
      * 
      */
-    public String name() {
-        return this.name;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
     /**
      * @return The IPv4 address of the next hop. Changing this forces a new resource to be created.
@@ -59,7 +61,7 @@ public final class HciLogicalNetworkSubnetRoute {
     @CustomType.Builder
     public static final class Builder {
         private String addressPrefix;
-        private String name;
+        private @Nullable String name;
         private String nextHopIpAddress;
         public Builder() {}
         public Builder(HciLogicalNetworkSubnetRoute defaults) {
@@ -78,10 +80,8 @@ public final class HciLogicalNetworkSubnetRoute {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("HciLogicalNetworkSubnetRoute", "name");
-            }
+        public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

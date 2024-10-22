@@ -60,6 +60,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
+	CustomerManagedKey ServerCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// The Fluid tenantId for this server.
 	FrsTenantId pulumi.StringOutput `pulumi:"frsTenantId"`
 	// An `identity` block as defined below.
@@ -124,6 +125,7 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	CustomerManagedKey *ServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The Fluid tenantId for this server.
 	FrsTenantId *string `pulumi:"frsTenantId"`
 	// An `identity` block as defined below.
@@ -151,6 +153,7 @@ type serverState struct {
 }
 
 type ServerState struct {
+	CustomerManagedKey ServerCustomerManagedKeyPtrInput
 	// The Fluid tenantId for this server.
 	FrsTenantId pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -182,6 +185,7 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
+	CustomerManagedKey *ServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// An `identity` block as defined below.
 	Identity *ServerIdentity `pulumi:"identity"`
 	// The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -198,6 +202,7 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	CustomerManagedKey ServerCustomerManagedKeyPtrInput
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrInput
 	// The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -297,6 +302,10 @@ func (o ServerOutput) ToServerOutput() ServerOutput {
 
 func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return o
+}
+
+func (o ServerOutput) CustomerManagedKey() ServerCustomerManagedKeyPtrOutput {
+	return o.ApplyT(func(v *Server) ServerCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(ServerCustomerManagedKeyPtrOutput)
 }
 
 // The Fluid tenantId for this server.

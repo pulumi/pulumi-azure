@@ -27,7 +27,7 @@ class GetAppResult:
     """
     A collection of values returned by getApp.
     """
-    def __init__(__self__, container_app_environment_id=None, custom_domain_verification_id=None, daprs=None, id=None, identities=None, ingresses=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, name=None, outbound_ip_addresses=None, registries=None, resource_group_name=None, revision_mode=None, secrets=None, tags=None, templates=None, workload_profile_name=None):
+    def __init__(__self__, container_app_environment_id=None, custom_domain_verification_id=None, daprs=None, id=None, identities=None, ingresses=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, max_inactive_revisions=None, name=None, outbound_ip_addresses=None, registries=None, resource_group_name=None, revision_mode=None, secrets=None, tags=None, templates=None, workload_profile_name=None):
         if container_app_environment_id and not isinstance(container_app_environment_id, str):
             raise TypeError("Expected argument 'container_app_environment_id' to be a str")
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -55,6 +55,9 @@ class GetAppResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if max_inactive_revisions and not isinstance(max_inactive_revisions, int):
+            raise TypeError("Expected argument 'max_inactive_revisions' to be a int")
+        pulumi.set(__self__, "max_inactive_revisions", max_inactive_revisions)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -144,6 +147,14 @@ class GetAppResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="maxInactiveRevisions")
+    def max_inactive_revisions(self) -> int:
+        """
+        The max inactive revisions for this Container App.
+        """
+        return pulumi.get(self, "max_inactive_revisions")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -225,6 +236,7 @@ class AwaitableGetAppResult(GetAppResult):
             latest_revision_fqdn=self.latest_revision_fqdn,
             latest_revision_name=self.latest_revision_name,
             location=self.location,
+            max_inactive_revisions=self.max_inactive_revisions,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
             registries=self.registries,
@@ -272,6 +284,7 @@ def get_app(name: Optional[str] = None,
         latest_revision_fqdn=pulumi.get(__ret__, 'latest_revision_fqdn'),
         latest_revision_name=pulumi.get(__ret__, 'latest_revision_name'),
         location=pulumi.get(__ret__, 'location'),
+        max_inactive_revisions=pulumi.get(__ret__, 'max_inactive_revisions'),
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
         registries=pulumi.get(__ret__, 'registries'),
@@ -316,6 +329,7 @@ def get_app_output(name: Optional[pulumi.Input[str]] = None,
         latest_revision_fqdn=pulumi.get(__response__, 'latest_revision_fqdn'),
         latest_revision_name=pulumi.get(__response__, 'latest_revision_name'),
         location=pulumi.get(__response__, 'location'),
+        max_inactive_revisions=pulumi.get(__response__, 'max_inactive_revisions'),
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
         registries=pulumi.get(__response__, 'registries'),

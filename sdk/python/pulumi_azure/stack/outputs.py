@@ -1257,7 +1257,7 @@ class HciLogicalNetworkSubnet(dict):
         :param str ip_allocation_method: The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
         :param str address_prefix: The address prefix in CIDR notation. Changing this forces a new resource to be created.
         :param Sequence['HciLogicalNetworkSubnetIpPoolArgs'] ip_pools: One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
-        :param Sequence['HciLogicalNetworkSubnetRouteArgs'] routes: One or more `route` block as defined above. Changing this forces a new resource to be created.
+        :param Sequence['HciLogicalNetworkSubnetRouteArgs'] routes: A `route` block as defined above. Changing this forces a new resource to be created.
         :param int vlan_id: The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
@@ -1298,7 +1298,7 @@ class HciLogicalNetworkSubnet(dict):
     @pulumi.getter
     def routes(self) -> Optional[Sequence['outputs.HciLogicalNetworkSubnetRoute']]:
         """
-        One or more `route` block as defined above. Changing this forces a new resource to be created.
+        A `route` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "routes")
 
@@ -1363,16 +1363,17 @@ class HciLogicalNetworkSubnetRoute(dict):
 
     def __init__(__self__, *,
                  address_prefix: str,
-                 name: str,
-                 next_hop_ip_address: str):
+                 next_hop_ip_address: str,
+                 name: Optional[str] = None):
         """
         :param str address_prefix: The Address in CIDR notation. Changing this forces a new resource to be created.
-        :param str name: The name of the route. Changing this forces a new resource to be created.
         :param str next_hop_ip_address: The IPv4 address of the next hop. Changing this forces a new resource to be created.
+        :param str name: The name of the route. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "address_prefix", address_prefix)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -1383,20 +1384,20 @@ class HciLogicalNetworkSubnetRoute(dict):
         return pulumi.get(self, "address_prefix")
 
     @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the route. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @property
     @pulumi.getter(name="nextHopIpAddress")
     def next_hop_ip_address(self) -> str:
         """
         The IPv4 address of the next hop. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "next_hop_ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the route. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

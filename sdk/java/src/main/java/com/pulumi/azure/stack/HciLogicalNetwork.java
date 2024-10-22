@@ -65,12 +65,8 @@ import javax.annotation.Nullable;
  *             .subnet(HciLogicalNetworkSubnetArgs.builder()
  *                 .ipAllocationMethod("Static")
  *                 .addressPrefix("10.0.0.0/24")
- *                 .routes(HciLogicalNetworkSubnetRouteArgs.builder()
- *                     .name("example-route")
- *                     .addressPrefix("0.0.0.0/0")
- *                     .nextHopIpAddress("10.0.20.1")
- *                     .build())
  *                 .vlanId(123)
+ *                 .route(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());

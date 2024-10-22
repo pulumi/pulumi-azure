@@ -27,9 +27,13 @@ namespace Pulumi.Azure.ContainerApp
     ///     {
     ///         Name = Std.Trimprefix.Invoke(new()
     ///         {
-    ///             Input = exampleAzurermDnsTxtRecord.Fqdn,
+    ///             Input = api.Fqdn,
     ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
+    ///         {
+    ///             Input = invoke.Result,
+    ///             Suffix = ".",
+    ///         })).Apply(invoke =&gt; invoke.Result),
     ///         ContainerAppId = exampleAzurermContainerApp.Id,
     ///     });
     /// 

@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Stack.Outputs
         /// <summary>
         /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
         /// The IPv4 address of the next hop. Changing this forces a new resource to be created.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Stack.Outputs
         private HciLogicalNetworkSubnetRoute(
             string addressPrefix,
 
-            string name,
+            string? name,
 
             string nextHopIpAddress)
         {

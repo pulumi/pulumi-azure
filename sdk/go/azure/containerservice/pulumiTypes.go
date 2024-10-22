@@ -8915,8 +8915,6 @@ type KubernetesClusterDefaultNodePoolNodeNetworkProfile struct {
 	// A list of Application Security Group IDs which should be associated with this Node Pool.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -8937,8 +8935,6 @@ type KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs struct {
 	// A list of Application Security Group IDs which should be associated with this Node Pool.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -9034,8 +9030,6 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ApplicationSec
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
 		return v.NodePublicIpTags
@@ -9087,8 +9081,6 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) Application
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -15340,8 +15332,6 @@ type KubernetesClusterNodePoolNodeNetworkProfile struct {
 	// A list of Application Security Group IDs which should be associated with this Node Pool.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -15362,8 +15352,6 @@ type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
 	// A list of Application Security Group IDs which should be associated with this Node Pool.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -15457,8 +15445,6 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ApplicationSecurityGr
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) map[string]string { return v.NodePublicIpTags }).(pulumi.StringMapOutput)
 }
@@ -15508,8 +15494,6 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ApplicationSecurit
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {

@@ -42,32 +42,32 @@ class BastionHostArgs:
         :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
-               > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+               > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -130,7 +130,7 @@ class BastionHostArgs:
         """
         Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "file_copy_enabled")
 
@@ -156,7 +156,7 @@ class BastionHostArgs:
         """
         Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "ip_connect_enabled")
 
@@ -170,7 +170,7 @@ class BastionHostArgs:
         """
         Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -208,7 +208,7 @@ class BastionHostArgs:
         """
         The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 
-        > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         """
         return pulumi.get(self, "scale_units")
 
@@ -236,7 +236,7 @@ class BastionHostArgs:
         """
         Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "shareable_link_enabled")
 
@@ -276,7 +276,7 @@ class BastionHostArgs:
         """
         Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "tunneling_enabled")
 
@@ -322,33 +322,33 @@ class _BastionHostState:
         :param pulumi.Input[str] dns_name: The FQDN for the Bastion Host.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
-               > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+               > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
         """
         if copy_paste_enabled is not None:
@@ -414,7 +414,7 @@ class _BastionHostState:
         """
         Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "file_copy_enabled")
 
@@ -440,7 +440,7 @@ class _BastionHostState:
         """
         Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "ip_connect_enabled")
 
@@ -454,7 +454,7 @@ class _BastionHostState:
         """
         Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -504,7 +504,7 @@ class _BastionHostState:
         """
         The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 
-        > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         """
         return pulumi.get(self, "scale_units")
 
@@ -532,7 +532,7 @@ class _BastionHostState:
         """
         Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "shareable_link_enabled")
 
@@ -572,7 +572,7 @@ class _BastionHostState:
         """
         Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "tunneling_enabled")
 
@@ -668,33 +668,33 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
-               > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+               > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
         """
         ...
@@ -846,33 +846,33 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name: The FQDN for the Bastion Host.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[Union['BastionHostIpConfigurationArgs', 'BastionHostIpConfigurationArgsDict']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[bool] kerberos_enabled: Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
                
-               > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+               > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         :param pulumi.Input[bool] session_recording_enabled: Is Session Recording feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `session_recording_enabled` is only supported when `sku` is `Premium`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tunneling_enabled: Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
                
-               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+               > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -919,7 +919,7 @@ class BastionHost(pulumi.CustomResource):
         """
         Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "file_copy_enabled")
 
@@ -937,7 +937,7 @@ class BastionHost(pulumi.CustomResource):
         """
         Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "ip_connect_enabled")
 
@@ -947,7 +947,7 @@ class BastionHost(pulumi.CustomResource):
         """
         Is Kerberos authentication feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `kerberos_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "kerberos_enabled")
 
@@ -981,7 +981,7 @@ class BastionHost(pulumi.CustomResource):
         """
         The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 
-        > **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+        > **Note:** `scale_units` only can be changed when `sku` is `Standard` or `Premium`. `scale_units` is always `2` when `sku` is `Basic`.
         """
         return pulumi.get(self, "scale_units")
 
@@ -1001,7 +1001,7 @@ class BastionHost(pulumi.CustomResource):
         """
         Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "shareable_link_enabled")
 
@@ -1029,7 +1029,7 @@ class BastionHost(pulumi.CustomResource):
         """
         Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
 
-        > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+        > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         """
         return pulumi.get(self, "tunneling_enabled")
 

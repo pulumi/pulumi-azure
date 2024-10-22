@@ -230,9 +230,9 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
      *
-     * > **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -369,9 +369,9 @@ export interface ConfigurationStoreState {
      */
     secondaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStoreSecondaryWriteKey>[]>;
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
      *
-     * > **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -431,9 +431,9 @@ export interface ConfigurationStoreArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+     * The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
      *
-     * > **Note:** Azure does not allow a downgrade from `standard` to `free`.
+     * > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**

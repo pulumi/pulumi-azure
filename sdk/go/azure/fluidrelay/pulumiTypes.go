@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ServerCustomerManagedKey struct {
+	// The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// ServerCustomerManagedKeyInput is an input type that accepts ServerCustomerManagedKeyArgs and ServerCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `ServerCustomerManagedKeyInput` via:
+//
+//	ServerCustomerManagedKeyArgs{...}
+type ServerCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToServerCustomerManagedKeyOutput() ServerCustomerManagedKeyOutput
+	ToServerCustomerManagedKeyOutputWithContext(context.Context) ServerCustomerManagedKeyOutput
+}
+
+type ServerCustomerManagedKeyArgs struct {
+	// The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (ServerCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (i ServerCustomerManagedKeyArgs) ToServerCustomerManagedKeyOutput() ServerCustomerManagedKeyOutput {
+	return i.ToServerCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i ServerCustomerManagedKeyArgs) ToServerCustomerManagedKeyOutputWithContext(ctx context.Context) ServerCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCustomerManagedKeyOutput)
+}
+
+func (i ServerCustomerManagedKeyArgs) ToServerCustomerManagedKeyPtrOutput() ServerCustomerManagedKeyPtrOutput {
+	return i.ToServerCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i ServerCustomerManagedKeyArgs) ToServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) ServerCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCustomerManagedKeyOutput).ToServerCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// ServerCustomerManagedKeyPtrInput is an input type that accepts ServerCustomerManagedKeyArgs, ServerCustomerManagedKeyPtr and ServerCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `ServerCustomerManagedKeyPtrInput` via:
+//
+//	        ServerCustomerManagedKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToServerCustomerManagedKeyPtrOutput() ServerCustomerManagedKeyPtrOutput
+	ToServerCustomerManagedKeyPtrOutputWithContext(context.Context) ServerCustomerManagedKeyPtrOutput
+}
+
+type serverCustomerManagedKeyPtrType ServerCustomerManagedKeyArgs
+
+func ServerCustomerManagedKeyPtr(v *ServerCustomerManagedKeyArgs) ServerCustomerManagedKeyPtrInput {
+	return (*serverCustomerManagedKeyPtrType)(v)
+}
+
+func (*serverCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *serverCustomerManagedKeyPtrType) ToServerCustomerManagedKeyPtrOutput() ServerCustomerManagedKeyPtrOutput {
+	return i.ToServerCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *serverCustomerManagedKeyPtrType) ToServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) ServerCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerCustomerManagedKeyPtrOutput)
+}
+
+type ServerCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (ServerCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (o ServerCustomerManagedKeyOutput) ToServerCustomerManagedKeyOutput() ServerCustomerManagedKeyOutput {
+	return o
+}
+
+func (o ServerCustomerManagedKeyOutput) ToServerCustomerManagedKeyOutputWithContext(ctx context.Context) ServerCustomerManagedKeyOutput {
+	return o
+}
+
+func (o ServerCustomerManagedKeyOutput) ToServerCustomerManagedKeyPtrOutput() ServerCustomerManagedKeyPtrOutput {
+	return o.ToServerCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ServerCustomerManagedKeyOutput) ToServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) ServerCustomerManagedKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCustomerManagedKey) *ServerCustomerManagedKey {
+		return &v
+	}).(ServerCustomerManagedKeyPtrOutput)
+}
+
+// The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+func (o ServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+func (o ServerCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerCustomerManagedKey) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type ServerCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (o ServerCustomerManagedKeyPtrOutput) ToServerCustomerManagedKeyPtrOutput() ServerCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o ServerCustomerManagedKeyPtrOutput) ToServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) ServerCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o ServerCustomerManagedKeyPtrOutput) Elem() ServerCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *ServerCustomerManagedKey) ServerCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret ServerCustomerManagedKey
+		return ret
+	}).(ServerCustomerManagedKeyOutput)
+}
+
+// The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+func (o ServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+func (o ServerCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -208,8 +364,12 @@ func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerCustomerManagedKeyInput)(nil)).Elem(), ServerCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerCustomerManagedKeyPtrInput)(nil)).Elem(), ServerCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityInput)(nil)).Elem(), ServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityPtrInput)(nil)).Elem(), ServerIdentityArgs{})
+	pulumi.RegisterOutputType(ServerCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(ServerCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 }

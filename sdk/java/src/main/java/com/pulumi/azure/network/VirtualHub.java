@@ -227,14 +227,14 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
         return this.virtualRouterAsn;
     }
     /**
-     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      * 
      */
     @Export(name="virtualRouterAutoScaleMinCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> virtualRouterAutoScaleMinCapacity;
 
     /**
-     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
+     * @return Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      * 
      */
     public Output<Optional<Integer>> virtualRouterAutoScaleMinCapacity() {

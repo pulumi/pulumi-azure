@@ -66,14 +66,14 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `route` block as defined above. Changing this forces a new resource to be created.
+     * A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="routes")
     private @Nullable Output<List<HciLogicalNetworkSubnetRouteArgs>> routes;
 
     /**
-     * @return One or more `route` block as defined above. Changing this forces a new resource to be created.
+     * @return A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<HciLogicalNetworkSubnetRouteArgs>>> routes() {
@@ -197,7 +197,7 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param routes One or more `route` block as defined above. Changing this forces a new resource to be created.
+         * @param routes A `route` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param routes One or more `route` block as defined above. Changing this forces a new resource to be created.
+         * @param routes A `route` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param routes One or more `route` block as defined above. Changing this forces a new resource to be created.
+         * @param routes A `route` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

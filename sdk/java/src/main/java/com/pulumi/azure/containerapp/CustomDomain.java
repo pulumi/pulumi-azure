@@ -48,9 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomDomain("example", CustomDomainArgs.builder()
- *             .name(StdFunctions.trimprefix(TrimprefixArgs.builder()
- *                 .input(exampleAzurermDnsTxtRecord.fqdn())
- *                 .prefix("asuid.")
+ *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
+ *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
+ *                     .input(api.fqdn())
+ *                     .prefix("asuid.")
+ *                     .build()).result())
+ *                 .suffix(".")
  *                 .build()).result())
  *             .containerAppId(exampleAzurermContainerApp.id())
  *             .build());

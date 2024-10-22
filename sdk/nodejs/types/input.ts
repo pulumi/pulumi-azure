@@ -24235,8 +24235,6 @@ export namespace containerservice {
         applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -25017,8 +25015,6 @@ export namespace containerservice {
         applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -31718,6 +31714,17 @@ export namespace extendedlocation {
 }
 
 export namespace fluidrelay {
+    export interface ServerCustomerManagedKey {
+        /**
+         * The Key Vault Key Id that will be used to encrypt the Fluid Relay Server.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+         */
+        userAssignedIdentityId: pulumi.Input<string>;
+    }
+
     export interface ServerIdentity {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
@@ -44954,6 +44961,55 @@ export namespace operationalinsights {
     }
 }
 
+export namespace oracle {
+    export interface CloudVmClusterDataCollectionOptions {
+        /**
+         * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
+         */
+        diagnosticsEventsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether health monitoring is enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling health monitoring allows Oracle to collect diagnostic data and share it with its operations and support personnel. You may also receive notifications for some events. Collecting health diagnostics enables Oracle to provide proactive support and enhanced service for your system. Optionally enable health monitoring while provisioning a system. You can also disable or enable health monitoring anytime using the `UpdateVmCluster`, `UpdateCloudVmCluster` or `updateDbsystem` API.
+         */
+        healthMonitoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API.
+         */
+        incidentLogsEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface ExadataInfrastructureMaintenanceWindow {
+        /**
+         * Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+         */
+        daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+         */
+        hoursOfDays?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+         */
+        leadTimeInWeeks?: pulumi.Input<number>;
+        /**
+         * Months during the year when maintenance should be performed.
+         */
+        months?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+         */
+        patchingMode?: pulumi.Input<string>;
+        /**
+         * The maintenance window scheduling preference.
+         */
+        preference?: pulumi.Input<string>;
+        /**
+         * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+         */
+        weeksOfMonths?: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+}
+
 export namespace orbital {
     export interface ContactProfileLink {
         /**
@@ -48968,7 +49024,7 @@ export namespace stack {
          */
         ipPools?: pulumi.Input<pulumi.Input<inputs.stack.HciLogicalNetworkSubnetIpPool>[]>;
         /**
-         * One or more `route` block as defined above. Changing this forces a new resource to be created.
+         * A `route` block as defined above. Changing this forces a new resource to be created.
          */
         routes?: pulumi.Input<pulumi.Input<inputs.stack.HciLogicalNetworkSubnetRoute>[]>;
         /**
@@ -48996,7 +49052,7 @@ export namespace stack {
         /**
          * The name of the route. Changing this forces a new resource to be created.
          */
-        name: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
         /**
          * The IPv4 address of the next hop. Changing this forces a new resource to be created.
          */

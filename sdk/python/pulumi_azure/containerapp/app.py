@@ -28,6 +28,7 @@ class AppArgs:
                  dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
                  identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
                  ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
+                 max_inactive_revisions: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
@@ -42,6 +43,7 @@ class AppArgs:
         :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
         :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
         :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
+        :param pulumi.Input[int] max_inactive_revisions: The maximum of inactive revisions allowed for this Container App.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
@@ -60,6 +62,8 @@ class AppArgs:
             pulumi.set(__self__, "identity", identity)
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
+        if max_inactive_revisions is not None:
+            pulumi.set(__self__, "max_inactive_revisions", max_inactive_revisions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if registries is not None:
@@ -156,6 +160,18 @@ class AppArgs:
         pulumi.set(self, "ingress", value)
 
     @property
+    @pulumi.getter(name="maxInactiveRevisions")
+    def max_inactive_revisions(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum of inactive revisions allowed for this Container App.
+        """
+        return pulumi.get(self, "max_inactive_revisions")
+
+    @max_inactive_revisions.setter
+    def max_inactive_revisions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_inactive_revisions", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -229,6 +245,7 @@ class _AppState:
                  latest_revision_fqdn: Optional[pulumi.Input[str]] = None,
                  latest_revision_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_inactive_revisions: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
@@ -248,6 +265,7 @@ class _AppState:
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
         :param pulumi.Input[str] location: The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
+        :param pulumi.Input[int] max_inactive_revisions: The maximum of inactive revisions allowed for this Container App.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
         :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
@@ -276,6 +294,8 @@ class _AppState:
             pulumi.set(__self__, "latest_revision_name", latest_revision_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_inactive_revisions is not None:
+            pulumi.set(__self__, "max_inactive_revisions", max_inactive_revisions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if outbound_ip_addresses is not None:
@@ -390,6 +410,18 @@ class _AppState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxInactiveRevisions")
+    def max_inactive_revisions(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum of inactive revisions allowed for this Container App.
+        """
+        return pulumi.get(self, "max_inactive_revisions")
+
+    @max_inactive_revisions.setter
+    def max_inactive_revisions(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_inactive_revisions", value)
 
     @property
     @pulumi.getter
@@ -511,6 +543,7 @@ class App(pulumi.CustomResource):
                  dapr: Optional[pulumi.Input[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
                  ingress: Optional[pulumi.Input[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
+                 max_inactive_revisions: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -572,6 +605,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Union['AppDaprArgs', 'AppDaprArgsDict']] dapr: A `dapr` block as detailed below.
         :param pulumi.Input[Union['AppIdentityArgs', 'AppIdentityArgsDict']] identity: An `identity` block as detailed below.
         :param pulumi.Input[Union['AppIngressArgs', 'AppIngressArgsDict']] ingress: An `ingress` block as detailed below.
+        :param pulumi.Input[int] max_inactive_revisions: The maximum of inactive revisions allowed for this Container App.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -654,6 +688,7 @@ class App(pulumi.CustomResource):
                  dapr: Optional[pulumi.Input[Union['AppDaprArgs', 'AppDaprArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['AppIdentityArgs', 'AppIdentityArgsDict']]] = None,
                  ingress: Optional[pulumi.Input[Union['AppIngressArgs', 'AppIngressArgsDict']]] = None,
+                 max_inactive_revisions: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -677,6 +712,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["dapr"] = dapr
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ingress"] = ingress
+            __props__.__dict__["max_inactive_revisions"] = max_inactive_revisions
             __props__.__dict__["name"] = name
             __props__.__dict__["registries"] = registries
             if resource_group_name is None and not opts.urn:
@@ -716,6 +752,7 @@ class App(pulumi.CustomResource):
             latest_revision_fqdn: Optional[pulumi.Input[str]] = None,
             latest_revision_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            max_inactive_revisions: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]]] = None,
@@ -740,6 +777,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
         :param pulumi.Input[str] location: The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
+        :param pulumi.Input[int] max_inactive_revisions: The maximum of inactive revisions allowed for this Container App.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppRegistryArgs', 'AppRegistryArgsDict']]]] registries: A `registry` block as detailed below.
@@ -764,6 +802,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["latest_revision_fqdn"] = latest_revision_fqdn
         __props__.__dict__["latest_revision_name"] = latest_revision_name
         __props__.__dict__["location"] = location
+        __props__.__dict__["max_inactive_revisions"] = max_inactive_revisions
         __props__.__dict__["name"] = name
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["registries"] = registries
@@ -838,6 +877,14 @@ class App(pulumi.CustomResource):
         The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxInactiveRevisions")
+    def max_inactive_revisions(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum of inactive revisions allowed for this Container App.
+        """
+        return pulumi.get(self, "max_inactive_revisions")
 
     @property
     @pulumi.getter

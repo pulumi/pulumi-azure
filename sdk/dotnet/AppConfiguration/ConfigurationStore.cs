@@ -288,9 +288,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryWriteKey>> SecondaryWriteKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
         /// 
-        /// &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+        /// &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -420,9 +420,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
         /// 
-        /// &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+        /// &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -574,9 +574,9 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
         /// 
-        /// &gt; **Note:** Azure does not allow a downgrade from `standard` to `free`.
+        /// &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

@@ -152,6 +152,9 @@ namespace Pulumi.Azure.Compute
         /// The number of scale units provisioned for the Bastion Host.
         /// </summary>
         public readonly int ScaleUnits;
+        /// <summary>
+        /// Is Session Recording feature enabled for the Bastion Host.
+        /// </summary>
         public readonly bool SessionRecordingEnabled;
         /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host.

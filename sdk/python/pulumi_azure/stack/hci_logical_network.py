@@ -303,40 +303,6 @@ class HciLogicalNetwork(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Logical Network.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
-            name="example-hci-ln",
-            resource_group_name=example.name,
-            location=example.location,
-            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
-            virtual_switch_name="ConvergedSwitch(managementcompute)",
-            dns_servers=[
-                "10.0.0.7",
-                "10.0.0.8",
-            ],
-            subnet={
-                "ip_allocation_method": "Static",
-                "address_prefix": "10.0.0.0/24",
-                "routes": [{
-                    "name": "example-route",
-                    "address_prefix": "0.0.0.0/0",
-                    "next_hop_ip_address": "10.0.20.1",
-                }],
-                "vlan_id": 123,
-            },
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.
@@ -364,40 +330,6 @@ class HciLogicalNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Logical Network.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
-            name="example-hci-ln",
-            resource_group_name=example.name,
-            location=example.location,
-            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
-            virtual_switch_name="ConvergedSwitch(managementcompute)",
-            dns_servers=[
-                "10.0.0.7",
-                "10.0.0.8",
-            ],
-            subnet={
-                "ip_allocation_method": "Static",
-                "address_prefix": "10.0.0.0/24",
-                "routes": [{
-                    "name": "example-route",
-                    "address_prefix": "0.0.0.0/0",
-                    "next_hop_ip_address": "10.0.20.1",
-                }],
-                "vlan_id": 123,
-            },
-            tags={
-                "foo": "bar",
-            })
-        ```
 
         ## Import
 

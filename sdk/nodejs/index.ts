@@ -109,6 +109,7 @@ import * as newrelic from "./newrelic";
 import * as nginx from "./nginx";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
+import * as oracle from "./oracle";
 import * as orbital from "./orbital";
 import * as paloalto from "./paloalto";
 import * as pim from "./pim";
@@ -240,6 +241,7 @@ export {
     nginx,
     notificationhub,
     operationalinsights,
+    oracle,
     orbital,
     paloalto,
     pim,
