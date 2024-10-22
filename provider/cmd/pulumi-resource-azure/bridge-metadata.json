@@ -6302,6 +6302,10 @@
                     }
                 }
             },
+            "azurerm_dev_center_attached_network": {
+                "current": "azure:devcenter/attachedNetwork:AttachedNetwork",
+                "majorVersion": 6
+            },
             "azurerm_dev_center_catalog": {
                 "current": "azure:devcenter/catalog:Catalog",
                 "majorVersion": 6,
@@ -7939,6 +7943,9 @@
                 "current": "azure:fluidrelay/server:Server",
                 "majorVersion": 6,
                 "fields": {
+                    "customer_managed_key": {
+                        "maxItemsOne": true
+                    },
                     "identity": {
                         "maxItemsOne": true,
                         "elem": {
@@ -15441,6 +15448,52 @@
             "azurerm_notification_hub_namespace": {
                 "current": "azure:notificationhub/namespace:Namespace",
                 "majorVersion": 6
+            },
+            "azurerm_oracle_cloud_vm_cluster": {
+                "current": "azure:oracle/cloudVmCluster:CloudVmCluster",
+                "majorVersion": 6,
+                "fields": {
+                    "data_collection_options": {
+                        "maxItemsOne": true
+                    },
+                    "db_servers": {
+                        "maxItemsOne": false
+                    },
+                    "ssh_public_keys": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_exadata_infrastructure": {
+                "current": "azure:oracle/exadataInfrastructure:ExadataInfrastructure",
+                "majorVersion": 6,
+                "fields": {
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    },
+                    "maintenance_window": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": false
+                                },
+                                "hours_of_day": {
+                                    "maxItemsOne": false
+                                },
+                                "months": {
+                                    "maxItemsOne": false
+                                },
+                                "weeks_of_month": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_orbital_contact": {
                 "current": "azure:orbital/contact:Contact",
@@ -27944,6 +27997,99 @@
                     }
                 }
             },
+            "azurerm_oracle_cloud_vm_cluster": {
+                "current": "azure:oracle/getCloudVmCluster:getCloudVmCluster",
+                "majorVersion": 6,
+                "fields": {
+                    "compute_nodes": {
+                        "maxItemsOne": false
+                    },
+                    "data_collection_options": {
+                        "maxItemsOne": false
+                    },
+                    "db_servers": {
+                        "maxItemsOne": false
+                    },
+                    "iorm_config_cache": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "db_plans": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "scan_ip_ids": {
+                        "maxItemsOne": false
+                    },
+                    "ssh_public_keys": {
+                        "maxItemsOne": false
+                    },
+                    "vip_ods": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_db_servers": {
+                "current": "azure:oracle/getDbServers:getDbServers",
+                "majorVersion": 6,
+                "fields": {
+                    "db_servers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "autonomous_virtual_machine_ds": {
+                                    "maxItemsOne": false
+                                },
+                                "autonomous_vm_cluster_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "db_node_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "vm_cluster_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_oracle_exadata_infrastructure": {
+                "current": "azure:oracle/getExadataInfrastructure:getExadataInfrastructure",
+                "majorVersion": 6,
+                "fields": {
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    },
+                    "estimated_patching_time": {
+                        "maxItemsOne": false
+                    },
+                    "maintenance_window": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": false
+                                },
+                                "hours_of_day": {
+                                    "maxItemsOne": false
+                                },
+                                "months": {
+                                    "maxItemsOne": false
+                                },
+                                "weeks_of_month": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_orchestrated_virtual_machine_scale_set": {
                 "current": "azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet",
                 "majorVersion": 6,
@@ -30351,6 +30497,11 @@
                 "renames": [
                     "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"
                 ]
+            },
+            "azurerm_stack_hci_logical_network": {
+                "maxItemsOneOverrides": {
+                    "subnet.$.route": false
+                }
             },
             "azurerm_virtual_machine_restore_point_collection": {
                 "renames": [

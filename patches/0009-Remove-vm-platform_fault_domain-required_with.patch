@@ -6,10 +6,10 @@ Subject: [PATCH] Remove vm platform_fault_domain required_with
 Applies to both Windows and Linux.
 
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index 2a27490e54..86ef2beec9 100644
+index a92e1ec8bd..a5f7996bdc 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
-@@ -371,7 +371,6 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
+@@ -372,7 +372,6 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
  				Optional:     true,
  				Default:      -1,
  				ForceNew:     true,
