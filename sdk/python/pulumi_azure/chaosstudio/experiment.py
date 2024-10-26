@@ -315,7 +315,7 @@ class Experiment(pulumi.CustomResource):
                         "urn": example_capability.capability_urn,
                         "selector_name": "Selector1",
                         "parameters": {
-                            "abrupt_shutdown": "false",
+                            "abruptShutdown": "false",
                         },
                         "action_type": "continuous",
                         "duration": "PT10M",
@@ -427,7 +427,7 @@ class Experiment(pulumi.CustomResource):
                         "urn": example_capability.capability_urn,
                         "selector_name": "Selector1",
                         "parameters": {
-                            "abrupt_shutdown": "false",
+                            "abruptShutdown": "false",
                         },
                         "action_type": "continuous",
                         "duration": "PT10M",
