@@ -18,10 +18,14 @@ from . import outputs
 __all__ = [
     'CloudVmClusterDataCollectionOptions',
     'ExadataInfrastructureMaintenanceWindow',
+    'GetAdbsCharacterSetsCharacterSetResult',
+    'GetAdbsNationalCharacterSetsCharacterSetResult',
     'GetCloudVmClusterDataCollectionOptionResult',
     'GetCloudVmClusterIormConfigCachResult',
     'GetCloudVmClusterIormConfigCachDbPlanResult',
+    'GetDbNodesDbNodeResult',
     'GetDbServersDbServerResult',
+    'GetDbSystemShapesDbSystemShapeResult',
     'GetExadataInfrastructureEstimatedPatchingTimeResult',
     'GetExadataInfrastructureMaintenanceWindowResult',
 ]
@@ -207,6 +211,42 @@ class ExadataInfrastructureMaintenanceWindow(dict):
 
 
 @pulumi.output_type
+class GetAdbsCharacterSetsCharacterSetResult(dict):
+    def __init__(__self__, *,
+                 character_set: str):
+        """
+        :param str character_set: A valid Oracle character set.
+        """
+        pulumi.set(__self__, "character_set", character_set)
+
+    @property
+    @pulumi.getter(name="characterSet")
+    def character_set(self) -> str:
+        """
+        A valid Oracle character set.
+        """
+        return pulumi.get(self, "character_set")
+
+
+@pulumi.output_type
+class GetAdbsNationalCharacterSetsCharacterSetResult(dict):
+    def __init__(__self__, *,
+                 character_set: str):
+        """
+        :param str character_set: A valid Oracle national character set.
+        """
+        pulumi.set(__self__, "character_set", character_set)
+
+    @property
+    @pulumi.getter(name="characterSet")
+    def character_set(self) -> str:
+        """
+        A valid Oracle national character set.
+        """
+        return pulumi.get(self, "character_set")
+
+
+@pulumi.output_type
 class GetCloudVmClusterDataCollectionOptionResult(dict):
     def __init__(__self__, *,
                  diagnostics_events_enabled: bool,
@@ -338,6 +378,243 @@ class GetCloudVmClusterIormConfigCachDbPlanResult(dict):
 
 
 @pulumi.output_type
+class GetDbNodesDbNodeResult(dict):
+    def __init__(__self__, *,
+                 additional_details: str,
+                 backup_ip_id: str,
+                 backup_vnic2_id: str,
+                 backup_vnic_id: str,
+                 cpu_core_count: int,
+                 db_node_storage_size_in_gbs: int,
+                 db_server_id: str,
+                 db_system_id: str,
+                 fault_domain: str,
+                 host_ip_id: str,
+                 hostname: str,
+                 lifecycle_details: str,
+                 lifecycle_state: str,
+                 maintenance_type: str,
+                 memory_size_in_gbs: int,
+                 ocid: str,
+                 software_storage_size_in_gb: int,
+                 time_created: str,
+                 time_maintenance_window_end: str,
+                 time_maintenance_window_start: str,
+                 vnic2_id: str,
+                 vnic_id: str):
+        """
+        :param str additional_details: Additional information about the planned maintenance.
+        :param str backup_ip_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+        :param str backup_vnic_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup VNIC.
+        :param int cpu_core_count: The number of CPU cores enabled on the DB node.
+        :param int db_node_storage_size_in_gbs: The allocated local node storage in GBs on the DB node.
+        :param str db_server_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ExaCC DB server associated with the database node.
+        :param str db_system_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
+        :param str fault_domain: The name of the Fault Domain the instance is contained in.
+        :param str host_ip_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+        :param str lifecycle_details: Information about the current lifecycle details.
+        :param str lifecycle_state: Information about the current lifecycle state.
+        :param str maintenance_type: The type of database node maintenance.
+        :param int memory_size_in_gbs: The allocated memory in GBs on the DB Node.
+        :param str ocid: The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB node.
+        :param int software_storage_size_in_gb: The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
+        :param str time_created: The date and time that the DB node was created.
+        :param str time_maintenance_window_end: End date and time of maintenance window.
+        :param str time_maintenance_window_start: Start date and time of maintenance window.
+        :param str vnic_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+        """
+        pulumi.set(__self__, "additional_details", additional_details)
+        pulumi.set(__self__, "backup_ip_id", backup_ip_id)
+        pulumi.set(__self__, "backup_vnic2_id", backup_vnic2_id)
+        pulumi.set(__self__, "backup_vnic_id", backup_vnic_id)
+        pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+        pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
+        pulumi.set(__self__, "db_server_id", db_server_id)
+        pulumi.set(__self__, "db_system_id", db_system_id)
+        pulumi.set(__self__, "fault_domain", fault_domain)
+        pulumi.set(__self__, "host_ip_id", host_ip_id)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "lifecycle_details", lifecycle_details)
+        pulumi.set(__self__, "lifecycle_state", lifecycle_state)
+        pulumi.set(__self__, "maintenance_type", maintenance_type)
+        pulumi.set(__self__, "memory_size_in_gbs", memory_size_in_gbs)
+        pulumi.set(__self__, "ocid", ocid)
+        pulumi.set(__self__, "software_storage_size_in_gb", software_storage_size_in_gb)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "time_maintenance_window_end", time_maintenance_window_end)
+        pulumi.set(__self__, "time_maintenance_window_start", time_maintenance_window_start)
+        pulumi.set(__self__, "vnic2_id", vnic2_id)
+        pulumi.set(__self__, "vnic_id", vnic_id)
+
+    @property
+    @pulumi.getter(name="additionalDetails")
+    def additional_details(self) -> str:
+        """
+        Additional information about the planned maintenance.
+        """
+        return pulumi.get(self, "additional_details")
+
+    @property
+    @pulumi.getter(name="backupIpId")
+    def backup_ip_id(self) -> str:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+        """
+        return pulumi.get(self, "backup_ip_id")
+
+    @property
+    @pulumi.getter(name="backupVnic2Id")
+    def backup_vnic2_id(self) -> str:
+        return pulumi.get(self, "backup_vnic2_id")
+
+    @property
+    @pulumi.getter(name="backupVnicId")
+    def backup_vnic_id(self) -> str:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup VNIC.
+        """
+        return pulumi.get(self, "backup_vnic_id")
+
+    @property
+    @pulumi.getter(name="cpuCoreCount")
+    def cpu_core_count(self) -> int:
+        """
+        The number of CPU cores enabled on the DB node.
+        """
+        return pulumi.get(self, "cpu_core_count")
+
+    @property
+    @pulumi.getter(name="dbNodeStorageSizeInGbs")
+    def db_node_storage_size_in_gbs(self) -> int:
+        """
+        The allocated local node storage in GBs on the DB node.
+        """
+        return pulumi.get(self, "db_node_storage_size_in_gbs")
+
+    @property
+    @pulumi.getter(name="dbServerId")
+    def db_server_id(self) -> str:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ExaCC DB server associated with the database node.
+        """
+        return pulumi.get(self, "db_server_id")
+
+    @property
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> str:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
+        """
+        return pulumi.get(self, "db_system_id")
+
+    @property
+    @pulumi.getter(name="faultDomain")
+    def fault_domain(self) -> str:
+        """
+        The name of the Fault Domain the instance is contained in.
+        """
+        return pulumi.get(self, "fault_domain")
+
+    @property
+    @pulumi.getter(name="hostIpId")
+    def host_ip_id(self) -> str:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+        """
+        return pulumi.get(self, "host_ip_id")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> str:
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="lifecycleDetails")
+    def lifecycle_details(self) -> str:
+        """
+        Information about the current lifecycle details.
+        """
+        return pulumi.get(self, "lifecycle_details")
+
+    @property
+    @pulumi.getter(name="lifecycleState")
+    def lifecycle_state(self) -> str:
+        """
+        Information about the current lifecycle state.
+        """
+        return pulumi.get(self, "lifecycle_state")
+
+    @property
+    @pulumi.getter(name="maintenanceType")
+    def maintenance_type(self) -> str:
+        """
+        The type of database node maintenance.
+        """
+        return pulumi.get(self, "maintenance_type")
+
+    @property
+    @pulumi.getter(name="memorySizeInGbs")
+    def memory_size_in_gbs(self) -> int:
+        """
+        The allocated memory in GBs on the DB Node.
+        """
+        return pulumi.get(self, "memory_size_in_gbs")
+
+    @property
+    @pulumi.getter
+    def ocid(self) -> str:
+        """
+        The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB node.
+        """
+        return pulumi.get(self, "ocid")
+
+    @property
+    @pulumi.getter(name="softwareStorageSizeInGb")
+    def software_storage_size_in_gb(self) -> int:
+        """
+        The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
+        """
+        return pulumi.get(self, "software_storage_size_in_gb")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        The date and time that the DB node was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter(name="timeMaintenanceWindowEnd")
+    def time_maintenance_window_end(self) -> str:
+        """
+        End date and time of maintenance window.
+        """
+        return pulumi.get(self, "time_maintenance_window_end")
+
+    @property
+    @pulumi.getter(name="timeMaintenanceWindowStart")
+    def time_maintenance_window_start(self) -> str:
+        """
+        Start date and time of maintenance window.
+        """
+        return pulumi.get(self, "time_maintenance_window_start")
+
+    @property
+    @pulumi.getter(name="vnic2Id")
+    def vnic2_id(self) -> str:
+        return pulumi.get(self, "vnic2_id")
+
+    @property
+    @pulumi.getter(name="vnicId")
+    def vnic_id(self) -> str:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+        """
+        return pulumi.get(self, "vnic_id")
+
+
+@pulumi.output_type
 class GetDbServersDbServerResult(dict):
     def __init__(__self__, *,
                  autonomous_virtual_machine_ds: Sequence[str],
@@ -355,7 +632,6 @@ class GetDbServersDbServerResult(dict):
                  max_memory_in_gbs: int,
                  memory_size_in_gbs: int,
                  ocid: str,
-                 provisioning_state: str,
                  shape: str,
                  time_created: str,
                  vm_cluster_ids: Sequence[str]):
@@ -394,7 +670,6 @@ class GetDbServersDbServerResult(dict):
         pulumi.set(__self__, "max_memory_in_gbs", max_memory_in_gbs)
         pulumi.set(__self__, "memory_size_in_gbs", memory_size_in_gbs)
         pulumi.set(__self__, "ocid", ocid)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "shape", shape)
         pulumi.set(__self__, "time_created", time_created)
         pulumi.set(__self__, "vm_cluster_ids", vm_cluster_ids)
@@ -520,11 +795,6 @@ class GetDbServersDbServerResult(dict):
         return pulumi.get(self, "ocid")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter
     def shape(self) -> str:
         """
@@ -547,6 +817,233 @@ class GetDbServersDbServerResult(dict):
         The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the VM Clusters associated with the DB Server.
         """
         return pulumi.get(self, "vm_cluster_ids")
+
+
+@pulumi.output_type
+class GetDbSystemShapesDbSystemShapeResult(dict):
+    def __init__(__self__, *,
+                 available_core_count: int,
+                 available_core_count_per_node: int,
+                 available_data_storage_in_tbs: int,
+                 available_data_storage_per_server_in_tbs: int,
+                 available_db_node_per_node_in_gbs: int,
+                 available_db_node_storage_in_gbs: int,
+                 available_memory_in_gbs: int,
+                 available_memory_per_node_in_gbs: int,
+                 core_count_increment: int,
+                 maximum_node_count: int,
+                 maximum_storage_count: int,
+                 minimum_core_count: int,
+                 minimum_core_count_per_node: int,
+                 minimum_data_storage_in_tbs: int,
+                 minimum_db_node_storage_per_node_in_gbs: int,
+                 minimum_memory_per_node_in_gbs: int,
+                 minimum_node_count: int,
+                 minimum_storage_count: int,
+                 runtime_minimum_core_count: int,
+                 shape_family: str):
+        """
+        :param int available_core_count: The maximum number of CPU cores that can be enabled on the DB system for this shape.
+        :param int available_core_count_per_node: The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
+        :param int available_data_storage_in_tbs: The maximum data storage that can be enabled for this shape.
+        :param int available_data_storage_per_server_in_tbs: The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.
+        :param int available_db_node_per_node_in_gbs: The maximum DB Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+        :param int available_db_node_storage_in_gbs: The maximum DB Node storage that can be enabled for this shape.
+        :param int available_memory_in_gbs: The maximum memory that can be enabled for this shape.
+        :param int available_memory_per_node_in_gbs: The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+        :param int core_count_increment: The discrete number by which the CPU core count for this shape can be increased or decreased.
+        :param int maximum_node_count: The maximum number of compute servers available for this shape.
+        :param int maximum_storage_count: The maximum number of Exadata storage servers available for the Exadata infrastructure.
+        :param int minimum_core_count: The minimum number of CPU cores that can be enabled on the DB system for this shape.
+        :param int minimum_core_count_per_node: The minimum number of CPU cores that can be enabled per node for this shape.
+        :param int minimum_data_storage_in_tbs: The minimum data storage that need be allocated for this shape.
+        :param int minimum_db_node_storage_per_node_in_gbs: The minimum DB Node storage that need be allocated per node for this shape.
+        :param int minimum_memory_per_node_in_gbs: The minimum memory that need be allocated per node for this shape.
+        :param int minimum_node_count: The minimum number of compute servers available for this shape.
+        :param int minimum_storage_count: The minimum number of Exadata storage servers available for the Exadata infrastructure.
+        :param int runtime_minimum_core_count: The runtime minimum number of compute servers available for this shape.
+        :param str shape_family: The family of the shape used for the DB system.
+        """
+        pulumi.set(__self__, "available_core_count", available_core_count)
+        pulumi.set(__self__, "available_core_count_per_node", available_core_count_per_node)
+        pulumi.set(__self__, "available_data_storage_in_tbs", available_data_storage_in_tbs)
+        pulumi.set(__self__, "available_data_storage_per_server_in_tbs", available_data_storage_per_server_in_tbs)
+        pulumi.set(__self__, "available_db_node_per_node_in_gbs", available_db_node_per_node_in_gbs)
+        pulumi.set(__self__, "available_db_node_storage_in_gbs", available_db_node_storage_in_gbs)
+        pulumi.set(__self__, "available_memory_in_gbs", available_memory_in_gbs)
+        pulumi.set(__self__, "available_memory_per_node_in_gbs", available_memory_per_node_in_gbs)
+        pulumi.set(__self__, "core_count_increment", core_count_increment)
+        pulumi.set(__self__, "maximum_node_count", maximum_node_count)
+        pulumi.set(__self__, "maximum_storage_count", maximum_storage_count)
+        pulumi.set(__self__, "minimum_core_count", minimum_core_count)
+        pulumi.set(__self__, "minimum_core_count_per_node", minimum_core_count_per_node)
+        pulumi.set(__self__, "minimum_data_storage_in_tbs", minimum_data_storage_in_tbs)
+        pulumi.set(__self__, "minimum_db_node_storage_per_node_in_gbs", minimum_db_node_storage_per_node_in_gbs)
+        pulumi.set(__self__, "minimum_memory_per_node_in_gbs", minimum_memory_per_node_in_gbs)
+        pulumi.set(__self__, "minimum_node_count", minimum_node_count)
+        pulumi.set(__self__, "minimum_storage_count", minimum_storage_count)
+        pulumi.set(__self__, "runtime_minimum_core_count", runtime_minimum_core_count)
+        pulumi.set(__self__, "shape_family", shape_family)
+
+    @property
+    @pulumi.getter(name="availableCoreCount")
+    def available_core_count(self) -> int:
+        """
+        The maximum number of CPU cores that can be enabled on the DB system for this shape.
+        """
+        return pulumi.get(self, "available_core_count")
+
+    @property
+    @pulumi.getter(name="availableCoreCountPerNode")
+    def available_core_count_per_node(self) -> int:
+        """
+        The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
+        """
+        return pulumi.get(self, "available_core_count_per_node")
+
+    @property
+    @pulumi.getter(name="availableDataStorageInTbs")
+    def available_data_storage_in_tbs(self) -> int:
+        """
+        The maximum data storage that can be enabled for this shape.
+        """
+        return pulumi.get(self, "available_data_storage_in_tbs")
+
+    @property
+    @pulumi.getter(name="availableDataStoragePerServerInTbs")
+    def available_data_storage_per_server_in_tbs(self) -> int:
+        """
+        The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.
+        """
+        return pulumi.get(self, "available_data_storage_per_server_in_tbs")
+
+    @property
+    @pulumi.getter(name="availableDbNodePerNodeInGbs")
+    def available_db_node_per_node_in_gbs(self) -> int:
+        """
+        The maximum DB Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+        """
+        return pulumi.get(self, "available_db_node_per_node_in_gbs")
+
+    @property
+    @pulumi.getter(name="availableDbNodeStorageInGbs")
+    def available_db_node_storage_in_gbs(self) -> int:
+        """
+        The maximum DB Node storage that can be enabled for this shape.
+        """
+        return pulumi.get(self, "available_db_node_storage_in_gbs")
+
+    @property
+    @pulumi.getter(name="availableMemoryInGbs")
+    def available_memory_in_gbs(self) -> int:
+        """
+        The maximum memory that can be enabled for this shape.
+        """
+        return pulumi.get(self, "available_memory_in_gbs")
+
+    @property
+    @pulumi.getter(name="availableMemoryPerNodeInGbs")
+    def available_memory_per_node_in_gbs(self) -> int:
+        """
+        The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+        """
+        return pulumi.get(self, "available_memory_per_node_in_gbs")
+
+    @property
+    @pulumi.getter(name="coreCountIncrement")
+    def core_count_increment(self) -> int:
+        """
+        The discrete number by which the CPU core count for this shape can be increased or decreased.
+        """
+        return pulumi.get(self, "core_count_increment")
+
+    @property
+    @pulumi.getter(name="maximumNodeCount")
+    def maximum_node_count(self) -> int:
+        """
+        The maximum number of compute servers available for this shape.
+        """
+        return pulumi.get(self, "maximum_node_count")
+
+    @property
+    @pulumi.getter(name="maximumStorageCount")
+    def maximum_storage_count(self) -> int:
+        """
+        The maximum number of Exadata storage servers available for the Exadata infrastructure.
+        """
+        return pulumi.get(self, "maximum_storage_count")
+
+    @property
+    @pulumi.getter(name="minimumCoreCount")
+    def minimum_core_count(self) -> int:
+        """
+        The minimum number of CPU cores that can be enabled on the DB system for this shape.
+        """
+        return pulumi.get(self, "minimum_core_count")
+
+    @property
+    @pulumi.getter(name="minimumCoreCountPerNode")
+    def minimum_core_count_per_node(self) -> int:
+        """
+        The minimum number of CPU cores that can be enabled per node for this shape.
+        """
+        return pulumi.get(self, "minimum_core_count_per_node")
+
+    @property
+    @pulumi.getter(name="minimumDataStorageInTbs")
+    def minimum_data_storage_in_tbs(self) -> int:
+        """
+        The minimum data storage that need be allocated for this shape.
+        """
+        return pulumi.get(self, "minimum_data_storage_in_tbs")
+
+    @property
+    @pulumi.getter(name="minimumDbNodeStoragePerNodeInGbs")
+    def minimum_db_node_storage_per_node_in_gbs(self) -> int:
+        """
+        The minimum DB Node storage that need be allocated per node for this shape.
+        """
+        return pulumi.get(self, "minimum_db_node_storage_per_node_in_gbs")
+
+    @property
+    @pulumi.getter(name="minimumMemoryPerNodeInGbs")
+    def minimum_memory_per_node_in_gbs(self) -> int:
+        """
+        The minimum memory that need be allocated per node for this shape.
+        """
+        return pulumi.get(self, "minimum_memory_per_node_in_gbs")
+
+    @property
+    @pulumi.getter(name="minimumNodeCount")
+    def minimum_node_count(self) -> int:
+        """
+        The minimum number of compute servers available for this shape.
+        """
+        return pulumi.get(self, "minimum_node_count")
+
+    @property
+    @pulumi.getter(name="minimumStorageCount")
+    def minimum_storage_count(self) -> int:
+        """
+        The minimum number of Exadata storage servers available for the Exadata infrastructure.
+        """
+        return pulumi.get(self, "minimum_storage_count")
+
+    @property
+    @pulumi.getter(name="runtimeMinimumCoreCount")
+    def runtime_minimum_core_count(self) -> int:
+        """
+        The runtime minimum number of compute servers available for this shape.
+        """
+        return pulumi.get(self, "runtime_minimum_core_count")
+
+    @property
+    @pulumi.getter(name="shapeFamily")
+    def shape_family(self) -> str:
+        """
+        The family of the shape used for the DB system.
+        """
+        return pulumi.get(self, "shape_family")
 
 
 @pulumi.output_type

@@ -15018,7 +15018,7 @@ export namespace automation {
          */
         day: pulumi.Input<string>;
         /**
-         * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         * Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
          */
         occurrence: pulumi.Input<number>;
     }
@@ -21634,7 +21634,7 @@ export namespace consumption {
          */
         threshold: pulumi.Input<number>;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
          */
         thresholdType?: pulumi.Input<string>;
     }
@@ -21719,7 +21719,7 @@ export namespace consumption {
          */
         threshold: pulumi.Input<number>;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
          */
         thresholdType?: pulumi.Input<string>;
     }
@@ -21804,7 +21804,7 @@ export namespace consumption {
          */
         threshold: pulumi.Input<number>;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
          */
         thresholdType?: pulumi.Input<string>;
     }
@@ -22162,7 +22162,7 @@ export namespace containerapp {
          */
         host?: pulumi.Input<string>;
         /**
-         * The time in seconds to wait after the container has started before the probe is started.
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
          */
         initialDelay?: pulumi.Input<number>;
         /**
@@ -22204,7 +22204,7 @@ export namespace containerapp {
 
     export interface AppTemplateContainerReadinessProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold?: pulumi.Input<number>;
         /**
@@ -22215,6 +22215,10 @@ export namespace containerapp {
          * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host?: pulumi.Input<string>;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: pulumi.Input<number>;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -22254,7 +22258,7 @@ export namespace containerapp {
 
     export interface AppTemplateContainerStartupProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold?: pulumi.Input<number>;
         /**
@@ -22265,6 +22269,10 @@ export namespace containerapp {
          * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host?: pulumi.Input<string>;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: pulumi.Input<number>;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -22842,6 +22850,10 @@ export namespace containerapp {
          */
         host?: pulumi.Input<string>;
         /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: pulumi.Input<number>;
+        /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
         intervalSeconds?: pulumi.Input<number>;
@@ -22891,6 +22903,10 @@ export namespace containerapp {
          * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host?: pulumi.Input<string>;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: pulumi.Input<number>;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -41641,7 +41657,7 @@ export namespace network {
          */
         pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean>;
         /**
-         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
          */
         port?: pulumi.Input<number>;
         /**
@@ -41878,17 +41894,17 @@ export namespace network {
 
     export interface ApplicationGatewaySku {
         /**
-         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
          */
         capacity?: pulumi.Input<number>;
         /**
-         * The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+         * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
          */
         name: pulumi.Input<string>;
         /**
-         * The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
          *
-         * !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+         * !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
          */
         tier: pulumi.Input<string>;
     }
@@ -50741,6 +50757,32 @@ export namespace trafficmanager {
          * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace videoindexer {
+    export interface AccountIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Video Indexer Account. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AccountStorage {
+        /**
+         * The ID of the storage account to be associated with the Video Indexer Account. Changing this forces a new Video Indexer Account to be created.
+         */
+        storageAccountId: pulumi.Input<string>;
+        /**
+         * The reference to the user assigned identity to use to access the Storage Account.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 }
 

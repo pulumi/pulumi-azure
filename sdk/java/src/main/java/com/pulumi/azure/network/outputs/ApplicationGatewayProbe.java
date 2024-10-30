@@ -56,7 +56,7 @@ public final class ApplicationGatewayProbe {
      */
     private @Nullable Boolean pickHostNameFromBackendHttpSettings;
     /**
-     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
      * 
      */
     private @Nullable Integer port;
@@ -134,7 +134,7 @@ public final class ApplicationGatewayProbe {
         return Optional.ofNullable(this.pickHostNameFromBackendHttpSettings);
     }
     /**
-     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
      * 
      */
     public Optional<Integer> port() {

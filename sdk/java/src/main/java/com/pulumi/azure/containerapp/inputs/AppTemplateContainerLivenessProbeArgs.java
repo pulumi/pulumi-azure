@@ -65,14 +65,14 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
     }
 
     /**
-     * The time in seconds to wait after the container has started before the probe is started.
+     * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
      * 
      */
     @Import(name="initialDelay")
     private @Nullable Output<Integer> initialDelay;
 
     /**
-     * @return The time in seconds to wait after the container has started before the probe is started.
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
      * 
      */
     public Optional<Output<Integer>> initialDelay() {
@@ -276,7 +276,7 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param initialDelay The time in seconds to wait after the container has started before the probe is started.
+         * @param initialDelay The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
         }
 
         /**
-         * @param initialDelay The time in seconds to wait after the container has started before the probe is started.
+         * @param initialDelay The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
          * 
          * @return builder
          * 

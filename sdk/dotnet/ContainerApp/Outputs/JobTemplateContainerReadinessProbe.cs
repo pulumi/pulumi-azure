@@ -26,6 +26,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
+        /// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        /// </summary>
+        public readonly int? InitialDelay;
+        /// <summary>
         /// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         /// </summary>
         public readonly int? IntervalSeconds;
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string? host,
 
+            int? initialDelay,
+
             int? intervalSeconds,
 
             string? path,
@@ -73,6 +79,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             FailureCountThreshold = failureCountThreshold;
             Headers = headers;
             Host = host;
+            InitialDelay = initialDelay;
             IntervalSeconds = intervalSeconds;
             Path = path;
             Port = port;

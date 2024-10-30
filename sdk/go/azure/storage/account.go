@@ -384,6 +384,8 @@ type Account struct {
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	//
+	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
 	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
@@ -683,6 +685,8 @@ type accountState struct {
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	//
+	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
@@ -935,6 +939,8 @@ type AccountState struct {
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	//
+	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
@@ -1047,6 +1053,8 @@ type accountArgs struct {
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	//
+	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
@@ -1156,6 +1164,8 @@ type AccountArgs struct {
 	// A `staticWebsite` block as defined below.
 	//
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	//
+	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
@@ -1815,6 +1825,8 @@ func (o AccountOutput) SharedAccessKeyEnabled() pulumi.BoolPtrOutput {
 // A `staticWebsite` block as defined below.
 //
 // > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+//
+// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
 func (o AccountOutput) StaticWebsite() AccountStaticWebsitePtrOutput {
 	return o.ApplyT(func(v *Account) AccountStaticWebsitePtrOutput { return v.StaticWebsite }).(AccountStaticWebsitePtrOutput)
 }

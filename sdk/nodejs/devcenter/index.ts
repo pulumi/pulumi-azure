@@ -50,6 +50,11 @@ export type ProjectEnvironmentType = import("./projectEnvironmentType").ProjectE
 export const ProjectEnvironmentType: typeof import("./projectEnvironmentType").ProjectEnvironmentType = null as any;
 utilities.lazyLoad(exports, ["ProjectEnvironmentType"], () => require("./projectEnvironmentType"));
 
+export { ProjectPoolArgs, ProjectPoolState } from "./projectPool";
+export type ProjectPool = import("./projectPool").ProjectPool;
+export const ProjectPool: typeof import("./projectPool").ProjectPool = null as any;
+utilities.lazyLoad(exports, ["ProjectPool"], () => require("./projectPool"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -73,6 +78,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType":
                 return new ProjectEnvironmentType(name, <any>undefined, { urn })
+            case "azure:devcenter/projectPool:ProjectPool":
+                return new ProjectPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -87,3 +94,4 @@ pulumi.runtime.registerResourceModule("azure", "devcenter/gallery", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/networkConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/project", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/projectEnvironmentType", _module)
+pulumi.runtime.registerResourceModule("azure", "devcenter/projectPool", _module)

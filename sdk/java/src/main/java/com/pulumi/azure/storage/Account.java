@@ -1711,6 +1711,8 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
      * 
+     * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+     * 
      */
     @Export(name="staticWebsite", refs={AccountStaticWebsite.class}, tree="[0]")
     private Output</* @Nullable */ AccountStaticWebsite> staticWebsite;
@@ -1719,6 +1721,8 @@ public class Account extends com.pulumi.resources.CustomResource {
      * @return A `static_website` block as defined below.
      * 
      * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+     * 
+     * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
      */
     public Output<Optional<AccountStaticWebsite>> staticWebsite() {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly string Day;
         /// <summary>
-        /// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        /// Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         /// </summary>
         public readonly int Occurrence;
 

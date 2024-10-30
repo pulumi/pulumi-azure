@@ -52,7 +52,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				OsType:            pulumi.String("Linux"),
-//				SkuName:           pulumi.String("Y1"),
+//				SkuName:           pulumi.String("B1"),
 //			})
 //			if err != nil {
 //				return err

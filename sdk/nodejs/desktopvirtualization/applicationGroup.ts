@@ -89,7 +89,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
      */
     public readonly defaultDesktopDisplayName!: pulumi.Output<string | undefined>;
     /**
@@ -178,7 +178,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
  */
 export interface ApplicationGroupState {
     /**
-     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
      */
     defaultDesktopDisplayName?: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface ApplicationGroupState {
  */
 export interface ApplicationGroupArgs {
     /**
-     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
      */
     defaultDesktopDisplayName?: pulumi.Input<string>;
     /**

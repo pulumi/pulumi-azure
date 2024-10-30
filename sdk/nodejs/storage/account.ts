@@ -565,6 +565,8 @@ export class Account extends pulumi.CustomResource {
      * A `staticWebsite` block as defined below.
      *
      * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+     *
+     * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      */
     public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite | undefined>;
     /**
@@ -1289,6 +1291,8 @@ export interface AccountState {
      * A `staticWebsite` block as defined below.
      *
      * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+     *
+     * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**
@@ -1474,6 +1478,8 @@ export interface AccountArgs {
      * A `staticWebsite` block as defined below.
      *
      * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+     *
+     * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**

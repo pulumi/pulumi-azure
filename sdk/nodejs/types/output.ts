@@ -20567,7 +20567,7 @@ export namespace automation {
          */
         day: string;
         /**
-         * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         * Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
          */
         occurrence: number;
     }
@@ -28646,7 +28646,7 @@ export namespace consumption {
          */
         threshold: number;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
          */
         thresholdType?: string;
     }
@@ -28731,7 +28731,7 @@ export namespace consumption {
          */
         threshold: number;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
          */
         thresholdType?: string;
     }
@@ -28816,7 +28816,7 @@ export namespace consumption {
          */
         threshold: number;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
          */
         thresholdType?: string;
     }
@@ -29424,7 +29424,7 @@ export namespace containerapp {
          */
         host?: string;
         /**
-         * The time in seconds to wait after the container has started before the probe is started.
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
          */
         initialDelay?: number;
         /**
@@ -29466,7 +29466,7 @@ export namespace containerapp {
 
     export interface AppTemplateContainerReadinessProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold?: number;
         /**
@@ -29477,6 +29477,10 @@ export namespace containerapp {
          * The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host?: string;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: number;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -29516,7 +29520,7 @@ export namespace containerapp {
 
     export interface AppTemplateContainerStartupProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold?: number;
         /**
@@ -29527,6 +29531,10 @@ export namespace containerapp {
          * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host?: string;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: number;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -30077,7 +30085,7 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainerLivenessProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold: number;
         /**
@@ -30089,7 +30097,7 @@ export namespace containerapp {
          */
         host: string;
         /**
-         * The time in seconds to wait after the container has started before the probe is started.
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
          */
         initialDelay: number;
         /**
@@ -30131,7 +30139,7 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainerReadinessProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold: number;
         /**
@@ -30142,6 +30150,10 @@ export namespace containerapp {
          * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host: string;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay: number;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -30181,7 +30193,7 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainerStartupProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
          */
         failureCountThreshold: number;
         /**
@@ -30192,6 +30204,10 @@ export namespace containerapp {
          * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host: string;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay: number;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -30674,6 +30690,10 @@ export namespace containerapp {
          */
         host?: string;
         /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: number;
+        /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
         intervalSeconds?: number;
@@ -30723,6 +30743,10 @@ export namespace containerapp {
          * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
          */
         host?: string;
+        /**
+         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         */
+        initialDelay?: number;
         /**
          * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
          */
@@ -52777,7 +52801,7 @@ export namespace network {
          */
         pickHostNameFromBackendHttpSettings?: boolean;
         /**
-         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
          */
         port?: number;
         /**
@@ -53014,17 +53038,17 @@ export namespace network {
 
     export interface ApplicationGatewaySku {
         /**
-         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
          */
         capacity?: number;
         /**
-         * The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+         * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
          */
         name: string;
         /**
-         * The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
          *
-         * !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+         * !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
          */
         tier: string;
     }
@@ -58069,6 +58093,20 @@ export namespace oracle {
         weeksOfMonths: number[];
     }
 
+    export interface GetAdbsCharacterSetsCharacterSet {
+        /**
+         * A valid Oracle character set.
+         */
+        characterSet: string;
+    }
+
+    export interface GetAdbsNationalCharacterSetsCharacterSet {
+        /**
+         * A valid Oracle national character set.
+         */
+        characterSet: string;
+    }
+
     export interface GetCloudVmClusterDataCollectionOption {
         /**
          * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
@@ -58116,6 +58154,88 @@ export namespace oracle {
          * The relative priority of this database.
          */
         share: number;
+    }
+
+    export interface GetDbNodesDbNode {
+        /**
+         * Additional information about the planned maintenance.
+         */
+        additionalDetails: string;
+        /**
+         * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+         */
+        backupIpId: string;
+        backupVnic2Id: string;
+        /**
+         * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup VNIC.
+         */
+        backupVnicId: string;
+        /**
+         * The number of CPU cores enabled on the DB node.
+         */
+        cpuCoreCount: number;
+        /**
+         * The allocated local node storage in GBs on the DB node.
+         */
+        dbNodeStorageSizeInGbs: number;
+        /**
+         * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ExaCC DB server associated with the database node.
+         */
+        dbServerId: string;
+        /**
+         * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
+         */
+        dbSystemId: string;
+        /**
+         * The name of the Fault Domain the instance is contained in.
+         */
+        faultDomain: string;
+        /**
+         * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+         */
+        hostIpId: string;
+        hostname: string;
+        /**
+         * Information about the current lifecycle details.
+         */
+        lifecycleDetails: string;
+        /**
+         * Information about the current lifecycle state.
+         */
+        lifecycleState: string;
+        /**
+         * The type of database node maintenance.
+         */
+        maintenanceType: string;
+        /**
+         * The allocated memory in GBs on the DB Node.
+         */
+        memorySizeInGbs: number;
+        /**
+         * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB node.
+         */
+        ocid: string;
+        /**
+         * The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
+         */
+        softwareStorageSizeInGb: number;
+        /**
+         * The date and time that the DB node was created.
+         */
+        timeCreated: string;
+        /**
+         * End date and time of maintenance window.
+         */
+        timeMaintenanceWindowEnd: string;
+        /**
+         * Start date and time of maintenance window.
+         */
+        timeMaintenanceWindowStart: string;
+        vnic2Id: string;
+        /**
+         * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+         */
+        vnicId: string;
     }
 
     export interface GetDbServersDbServer {
@@ -58179,7 +58299,6 @@ export namespace oracle {
          * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB Server.
          */
         ocid: string;
-        provisioningState: string;
         /**
          * The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
          */
@@ -58192,6 +58311,89 @@ export namespace oracle {
          * The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the VM Clusters associated with the DB Server.
          */
         vmClusterIds: string[];
+    }
+
+    export interface GetDbSystemShapesDbSystemShape {
+        /**
+         * The maximum number of CPU cores that can be enabled on the DB system for this shape.
+         */
+        availableCoreCount: number;
+        /**
+         * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
+         */
+        availableCoreCountPerNode: number;
+        /**
+         * The maximum data storage that can be enabled for this shape.
+         */
+        availableDataStorageInTbs: number;
+        /**
+         * The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.
+         */
+        availableDataStoragePerServerInTbs: number;
+        /**
+         * The maximum DB Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+         */
+        availableDbNodePerNodeInGbs: number;
+        /**
+         * The maximum DB Node storage that can be enabled for this shape.
+         */
+        availableDbNodeStorageInGbs: number;
+        /**
+         * The maximum memory that can be enabled for this shape.
+         */
+        availableMemoryInGbs: number;
+        /**
+         * The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+         */
+        availableMemoryPerNodeInGbs: number;
+        /**
+         * The discrete number by which the CPU core count for this shape can be increased or decreased.
+         */
+        coreCountIncrement: number;
+        /**
+         * The maximum number of compute servers available for this shape.
+         */
+        maximumNodeCount: number;
+        /**
+         * The maximum number of Exadata storage servers available for the Exadata infrastructure.
+         */
+        maximumStorageCount: number;
+        /**
+         * The minimum number of CPU cores that can be enabled on the DB system for this shape.
+         */
+        minimumCoreCount: number;
+        /**
+         * The minimum number of CPU cores that can be enabled per node for this shape.
+         */
+        minimumCoreCountPerNode: number;
+        /**
+         * The minimum data storage that need be allocated for this shape.
+         */
+        minimumDataStorageInTbs: number;
+        /**
+         * The minimum DB Node storage that need be allocated per node for this shape.
+         */
+        minimumDbNodeStoragePerNodeInGbs: number;
+        /**
+         * The minimum memory that need be allocated per node for this shape.
+         */
+        minimumMemoryPerNodeInGbs: number;
+        /**
+         * The minimum number of compute servers available for this shape.
+         */
+        minimumNodeCount: number;
+        /**
+         * The minimum number of Exadata storage servers available for the Exadata infrastructure.
+         */
+        minimumStorageCount: number;
+        /**
+         * The runtime minimum number of compute servers available for this shape.
+         */
+        runtimeMinimumCoreCount: number;
+        /**
+         * The family of the shape used for the DB system.
+         */
+        shapeFamily: string;
     }
 
     export interface GetExadataInfrastructureEstimatedPatchingTime {
@@ -65125,6 +65327,33 @@ export namespace trafficmanager {
          * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: string;
+    }
+
+}
+
+export namespace videoindexer {
+    export interface AccountIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Video Indexer Account. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
+        type: string;
+    }
+
+    export interface AccountStorage {
+        /**
+         * The ID of the storage account to be associated with the Video Indexer Account. Changing this forces a new Video Indexer Account to be created.
+         */
+        storageAccountId: string;
+        /**
+         * The reference to the user assigned identity to use to access the Storage Account.
+         */
+        userAssignedIdentityId?: string;
     }
 
 }

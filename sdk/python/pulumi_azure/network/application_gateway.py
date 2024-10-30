@@ -79,7 +79,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]] private_link_configurations: One or more `private_link_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
@@ -430,7 +430,7 @@ class ApplicationGatewayArgs:
     @pulumi.getter(name="rewriteRuleSets")
     def rewrite_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]]:
         """
-        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         """
         return pulumi.get(self, "rewrite_rule_sets")
 
@@ -611,7 +611,7 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
@@ -974,7 +974,7 @@ class _ApplicationGatewayState:
     @pulumi.getter(name="rewriteRuleSets")
     def rewrite_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]]:
         """
-        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         """
         return pulumi.get(self, "rewrite_rule_sets")
 
@@ -1256,7 +1256,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRedirectConfigurationArgs', 'ApplicationGatewayRedirectConfigurationArgsDict']]]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRequestRoutingRuleArgs', 'ApplicationGatewayRequestRoutingRuleArgsDict']]]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRewriteRuleSetArgs', 'ApplicationGatewayRewriteRuleSetArgsDict']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRewriteRuleSetArgs', 'ApplicationGatewayRewriteRuleSetArgsDict']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         :param pulumi.Input[Union['ApplicationGatewaySkuArgs', 'ApplicationGatewaySkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewaySslCertificateArgs', 'ApplicationGatewaySslCertificateArgsDict']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Union['ApplicationGatewaySslPolicyArgs', 'ApplicationGatewaySslPolicyArgsDict']] ssl_policy: a `ssl_policy` block as defined below.
@@ -1547,7 +1547,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRedirectConfigurationArgs', 'ApplicationGatewayRedirectConfigurationArgsDict']]]] redirect_configurations: One or more `redirect_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRequestRoutingRuleArgs', 'ApplicationGatewayRequestRoutingRuleArgsDict']]]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRewriteRuleSetArgs', 'ApplicationGatewayRewriteRuleSetArgsDict']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayRewriteRuleSetArgs', 'ApplicationGatewayRewriteRuleSetArgsDict']]]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         :param pulumi.Input[Union['ApplicationGatewaySkuArgs', 'ApplicationGatewaySkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewaySslCertificateArgs', 'ApplicationGatewaySslCertificateArgsDict']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[Union['ApplicationGatewaySslPolicyArgs', 'ApplicationGatewaySslPolicyArgsDict']] ssl_policy: a `ssl_policy` block as defined below.
@@ -1789,7 +1789,7 @@ class ApplicationGateway(pulumi.CustomResource):
     @pulumi.getter(name="rewriteRuleSets")
     def rewrite_rule_sets(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSet']]]:
         """
-        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         """
         return pulumi.get(self, "rewrite_rule_sets")
 

@@ -214,7 +214,7 @@ type ApplicationGateway struct {
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayOutput `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayOutput `pulumi:"rewriteRuleSets"`
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySkuOutput `pulumi:"sku"`
@@ -343,7 +343,7 @@ type applicationGatewayState struct {
 	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets []ApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
 	// A `sku` block as defined below.
 	Sku *ApplicationGatewaySku `pulumi:"sku"`
@@ -416,7 +416,7 @@ type ApplicationGatewayState struct {
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayInput
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySkuPtrInput
@@ -491,7 +491,7 @@ type applicationGatewayArgs struct {
 	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets []ApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySku `pulumi:"sku"`
@@ -563,7 +563,7 @@ type ApplicationGatewayArgs struct {
 	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayInput
 	// A `sku` block as defined below.
 	Sku ApplicationGatewaySkuInput
@@ -813,7 +813,7 @@ func (o ApplicationGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
 func (o ApplicationGatewayOutput) RewriteRuleSets() ApplicationGatewayRewriteRuleSetArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRewriteRuleSetArrayOutput { return v.RewriteRuleSets }).(ApplicationGatewayRewriteRuleSetArrayOutput)
 }

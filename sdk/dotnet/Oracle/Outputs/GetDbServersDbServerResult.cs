@@ -73,7 +73,6 @@ namespace Pulumi.Azure.Oracle.Outputs
         /// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB Server.
         /// </summary>
         public readonly string Ocid;
-        public readonly string ProvisioningState;
         /// <summary>
         /// The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
         /// </summary>
@@ -119,8 +118,6 @@ namespace Pulumi.Azure.Oracle.Outputs
 
             string ocid,
 
-            string provisioningState,
-
             string shape,
 
             string timeCreated,
@@ -142,7 +139,6 @@ namespace Pulumi.Azure.Oracle.Outputs
             MaxMemoryInGbs = maxMemoryInGbs;
             MemorySizeInGbs = memorySizeInGbs;
             Ocid = ocid;
-            ProvisioningState = provisioningState;
             Shape = shape;
             TimeCreated = timeCreated;
             VmClusterIds = vmClusterIds;

@@ -63,7 +63,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
         :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] zone_redundant_enabled: Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
@@ -325,7 +325,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -416,7 +416,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -681,7 +681,7 @@ class _ManagedInstanceState:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -820,7 +820,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -995,7 +995,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1173,7 +1173,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         """
         return pulumi.get(self, "storage_account_type")
 

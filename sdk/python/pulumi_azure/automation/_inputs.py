@@ -1697,7 +1697,7 @@ if not MYPY:
         """
         occurrence: pulumi.Input[int]
         """
-        Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         """
 elif False:
     SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -1709,7 +1709,7 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
                  occurrence: pulumi.Input[int]):
         """
         :param pulumi.Input[str] day: Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-        :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "occurrence", occurrence)
@@ -1730,7 +1730,7 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
     @pulumi.getter
     def occurrence(self) -> pulumi.Input[int]:
         """
-        Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         """
         return pulumi.get(self, "occurrence")
 

@@ -374,14 +374,14 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     @Import(name="rewriteRuleSets")
     private @Nullable Output<List<ApplicationGatewayRewriteRuleSetArgs>> rewriteRuleSets;
 
     /**
-     * @return One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     * @return One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRewriteRuleSetArgs>>> rewriteRuleSets() {
@@ -1181,7 +1181,7 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
          * 
          * @return builder
          * 
@@ -1192,7 +1192,7 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
          * 
          * @return builder
          * 
@@ -1202,7 +1202,7 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+         * @param rewriteRuleSets One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
          * 
          * @return builder
          * 

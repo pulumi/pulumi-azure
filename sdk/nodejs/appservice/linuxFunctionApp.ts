@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     osType: "Linux",
- *     skuName: "Y1",
+ *     skuName: "B1",
  * });
  * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
  *     name: "example-linux-function-app",

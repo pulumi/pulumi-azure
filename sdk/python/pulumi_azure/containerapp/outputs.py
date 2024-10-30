@@ -1326,7 +1326,7 @@ class AppTemplateContainerLivenessProbe(dict):
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
         :param Sequence['AppTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -1395,7 +1395,7 @@ class AppTemplateContainerLivenessProbe(dict):
     @pulumi.getter(name="initialDelay")
     def initial_delay(self) -> Optional[int]:
         """
-        The time in seconds to wait after the container has started before the probe is started.
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         """
         return pulumi.get(self, "initial_delay")
 
@@ -1468,6 +1468,8 @@ class AppTemplateContainerReadinessProbe(dict):
         suggest = None
         if key == "failureCountThreshold":
             suggest = "failure_count_threshold"
+        elif key == "initialDelay":
+            suggest = "initial_delay"
         elif key == "intervalSeconds":
             suggest = "interval_seconds"
         elif key == "successCountThreshold":
@@ -1490,6 +1492,7 @@ class AppTemplateContainerReadinessProbe(dict):
                  failure_count_threshold: Optional[int] = None,
                  headers: Optional[Sequence['outputs.AppTemplateContainerReadinessProbeHeader']] = None,
                  host: Optional[str] = None,
+                 initial_delay: Optional[int] = None,
                  interval_seconds: Optional[int] = None,
                  path: Optional[str] = None,
                  success_count_threshold: Optional[int] = None,
@@ -1497,9 +1500,10 @@ class AppTemplateContainerReadinessProbe(dict):
         """
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param Sequence['AppTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param int success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
@@ -1513,6 +1517,8 @@ class AppTemplateContainerReadinessProbe(dict):
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -1542,7 +1548,7 @@ class AppTemplateContainerReadinessProbe(dict):
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> Optional[int]:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -1561,6 +1567,14 @@ class AppTemplateContainerReadinessProbe(dict):
         The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[int]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -1631,6 +1645,8 @@ class AppTemplateContainerStartupProbe(dict):
         suggest = None
         if key == "failureCountThreshold":
             suggest = "failure_count_threshold"
+        elif key == "initialDelay":
+            suggest = "initial_delay"
         elif key == "intervalSeconds":
             suggest = "interval_seconds"
         elif key == "terminationGracePeriodSeconds":
@@ -1653,6 +1669,7 @@ class AppTemplateContainerStartupProbe(dict):
                  failure_count_threshold: Optional[int] = None,
                  headers: Optional[Sequence['outputs.AppTemplateContainerStartupProbeHeader']] = None,
                  host: Optional[str] = None,
+                 initial_delay: Optional[int] = None,
                  interval_seconds: Optional[int] = None,
                  path: Optional[str] = None,
                  termination_grace_period_seconds: Optional[int] = None,
@@ -1660,9 +1677,10 @@ class AppTemplateContainerStartupProbe(dict):
         """
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param Sequence['AppTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -1676,6 +1694,8 @@ class AppTemplateContainerStartupProbe(dict):
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -1705,7 +1725,7 @@ class AppTemplateContainerStartupProbe(dict):
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> Optional[int]:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -1724,6 +1744,14 @@ class AppTemplateContainerStartupProbe(dict):
         The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[int]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -3725,6 +3753,8 @@ class JobTemplateContainerReadinessProbe(dict):
         suggest = None
         if key == "failureCountThreshold":
             suggest = "failure_count_threshold"
+        elif key == "initialDelay":
+            suggest = "initial_delay"
         elif key == "intervalSeconds":
             suggest = "interval_seconds"
         elif key == "successCountThreshold":
@@ -3747,6 +3777,7 @@ class JobTemplateContainerReadinessProbe(dict):
                  failure_count_threshold: Optional[int] = None,
                  headers: Optional[Sequence['outputs.JobTemplateContainerReadinessProbeHeader']] = None,
                  host: Optional[str] = None,
+                 initial_delay: Optional[int] = None,
                  interval_seconds: Optional[int] = None,
                  path: Optional[str] = None,
                  success_count_threshold: Optional[int] = None,
@@ -3757,6 +3788,7 @@ class JobTemplateContainerReadinessProbe(dict):
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
         :param Sequence['JobTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param int success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
@@ -3770,6 +3802,8 @@ class JobTemplateContainerReadinessProbe(dict):
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -3818,6 +3852,14 @@ class JobTemplateContainerReadinessProbe(dict):
         The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[int]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -3888,6 +3930,8 @@ class JobTemplateContainerStartupProbe(dict):
         suggest = None
         if key == "failureCountThreshold":
             suggest = "failure_count_threshold"
+        elif key == "initialDelay":
+            suggest = "initial_delay"
         elif key == "intervalSeconds":
             suggest = "interval_seconds"
         elif key == "terminationGracePeriodSeconds":
@@ -3910,6 +3954,7 @@ class JobTemplateContainerStartupProbe(dict):
                  failure_count_threshold: Optional[int] = None,
                  headers: Optional[Sequence['outputs.JobTemplateContainerStartupProbeHeader']] = None,
                  host: Optional[str] = None,
+                 initial_delay: Optional[int] = None,
                  interval_seconds: Optional[int] = None,
                  path: Optional[str] = None,
                  termination_grace_period_seconds: Optional[int] = None,
@@ -3920,6 +3965,7 @@ class JobTemplateContainerStartupProbe(dict):
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
         :param Sequence['JobTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -3933,6 +3979,8 @@ class JobTemplateContainerStartupProbe(dict):
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -3981,6 +4029,14 @@ class JobTemplateContainerStartupProbe(dict):
         The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[int]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -5158,10 +5214,10 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
                  timeout: int,
                  transport: str):
         """
-        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param Sequence['GetAppTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The path in the container at which to mount this volume.
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -5184,7 +5240,7 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> int:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -5208,7 +5264,7 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
     @pulumi.getter(name="initialDelay")
     def initial_delay(self) -> int:
         """
-        The time in seconds to wait after the container has started before the probe is started.
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         """
         return pulumi.get(self, "initial_delay")
 
@@ -5296,6 +5352,7 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
                  failure_count_threshold: int,
                  headers: Sequence['outputs.GetAppTemplateContainerReadinessProbeHeaderResult'],
                  host: str,
+                 initial_delay: int,
                  interval_seconds: int,
                  path: str,
                  port: int,
@@ -5303,9 +5360,10 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
                  timeout: int,
                  transport: str):
         """
-        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param Sequence['GetAppTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The path in the container at which to mount this volume.
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -5316,6 +5374,7 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
         pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
         pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "initial_delay", initial_delay)
         pulumi.set(__self__, "interval_seconds", interval_seconds)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
@@ -5327,7 +5386,7 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> int:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -5346,6 +5405,14 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
         The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> int:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -5431,6 +5498,7 @@ class GetAppTemplateContainerStartupProbeResult(dict):
                  failure_count_threshold: int,
                  headers: Sequence['outputs.GetAppTemplateContainerStartupProbeHeaderResult'],
                  host: str,
+                 initial_delay: int,
                  interval_seconds: int,
                  path: str,
                  port: int,
@@ -5438,9 +5506,10 @@ class GetAppTemplateContainerStartupProbeResult(dict):
                  timeout: int,
                  transport: str):
         """
-        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param Sequence['GetAppTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The path in the container at which to mount this volume.
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -5451,6 +5520,7 @@ class GetAppTemplateContainerStartupProbeResult(dict):
         pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
         pulumi.set(__self__, "headers", headers)
         pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "initial_delay", initial_delay)
         pulumi.set(__self__, "interval_seconds", interval_seconds)
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
@@ -5462,7 +5532,7 @@ class GetAppTemplateContainerStartupProbeResult(dict):
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> int:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -5481,6 +5551,14 @@ class GetAppTemplateContainerStartupProbeResult(dict):
         The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> int:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
 
     @property
     @pulumi.getter(name="intervalSeconds")

@@ -1679,7 +1679,7 @@ if not MYPY:
         """
         initial_delay: NotRequired[pulumi.Input[int]]
         """
-        The time in seconds to wait after the container has started before the probe is started.
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         """
         interval_seconds: NotRequired[pulumi.Input[int]]
         """
@@ -1719,7 +1719,7 @@ class AppTemplateContainerLivenessProbeArgs:
         :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
-        :param pulumi.Input[int] initial_delay: The time in seconds to wait after the container has started before the probe is started.
+        :param pulumi.Input[int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         :param pulumi.Input[str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param pulumi.Input[int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -1808,7 +1808,7 @@ class AppTemplateContainerLivenessProbeArgs:
     @pulumi.getter(name="initialDelay")
     def initial_delay(self) -> Optional[pulumi.Input[int]]:
         """
-        The time in seconds to wait after the container has started before the probe is started.
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         """
         return pulumi.get(self, "initial_delay")
 
@@ -1927,7 +1927,7 @@ if not MYPY:
         """
         failure_count_threshold: NotRequired[pulumi.Input[int]]
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgsDict']]]]
         """
@@ -1936,6 +1936,10 @@ if not MYPY:
         host: NotRequired[pulumi.Input[str]]
         """
         The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        initial_delay: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         """
         interval_seconds: NotRequired[pulumi.Input[int]]
         """
@@ -1964,6 +1968,7 @@ class AppTemplateContainerReadinessProbeArgs:
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 initial_delay: Optional[pulumi.Input[int]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  success_count_threshold: Optional[pulumi.Input[int]] = None,
@@ -1971,9 +1976,10 @@ class AppTemplateContainerReadinessProbeArgs:
         """
         :param pulumi.Input[int] port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param pulumi.Input[str] transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param pulumi.Input[int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[str] path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param pulumi.Input[int] success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
@@ -1987,6 +1993,8 @@ class AppTemplateContainerReadinessProbeArgs:
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -2024,7 +2032,7 @@ class AppTemplateContainerReadinessProbeArgs:
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -2055,6 +2063,18 @@ class AppTemplateContainerReadinessProbeArgs:
     @host.setter
     def host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @initial_delay.setter
+    def initial_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay", value)
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -2167,7 +2187,7 @@ if not MYPY:
         """
         failure_count_threshold: NotRequired[pulumi.Input[int]]
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgsDict']]]]
         """
@@ -2176,6 +2196,10 @@ if not MYPY:
         host: NotRequired[pulumi.Input[str]]
         """
         The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        initial_delay: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         """
         interval_seconds: NotRequired[pulumi.Input[int]]
         """
@@ -2204,6 +2228,7 @@ class AppTemplateContainerStartupProbeArgs:
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 initial_delay: Optional[pulumi.Input[int]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  termination_grace_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -2211,9 +2236,10 @@ class AppTemplateContainerStartupProbeArgs:
         """
         :param pulumi.Input[int] port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param pulumi.Input[str] transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
-        :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param pulumi.Input[int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param pulumi.Input[int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -2227,6 +2253,8 @@ class AppTemplateContainerStartupProbeArgs:
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -2264,7 +2292,7 @@ class AppTemplateContainerStartupProbeArgs:
     @pulumi.getter(name="failureCountThreshold")
     def failure_count_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         """
         return pulumi.get(self, "failure_count_threshold")
 
@@ -2295,6 +2323,18 @@ class AppTemplateContainerStartupProbeArgs:
     @host.setter
     def host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @initial_delay.setter
+    def initial_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay", value)
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -4889,6 +4929,10 @@ if not MYPY:
         """
         The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
+        initial_delay: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
         interval_seconds: NotRequired[pulumi.Input[int]]
         """
         How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -4916,6 +4960,7 @@ class JobTemplateContainerReadinessProbeArgs:
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeHeaderArgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 initial_delay: Optional[pulumi.Input[int]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  success_count_threshold: Optional[pulumi.Input[int]] = None,
@@ -4926,6 +4971,7 @@ class JobTemplateContainerReadinessProbeArgs:
         :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeHeaderArgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param pulumi.Input[int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[str] path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param pulumi.Input[int] success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
@@ -4939,6 +4985,8 @@ class JobTemplateContainerReadinessProbeArgs:
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -5007,6 +5055,18 @@ class JobTemplateContainerReadinessProbeArgs:
     @host.setter
     def host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @initial_delay.setter
+    def initial_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay", value)
 
     @property
     @pulumi.getter(name="intervalSeconds")
@@ -5129,6 +5189,10 @@ if not MYPY:
         """
         The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         """
+        initial_delay: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
         interval_seconds: NotRequired[pulumi.Input[int]]
         """
         How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -5156,6 +5220,7 @@ class JobTemplateContainerStartupProbeArgs:
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeHeaderArgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 initial_delay: Optional[pulumi.Input[int]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  termination_grace_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -5166,6 +5231,7 @@ class JobTemplateContainerStartupProbeArgs:
         :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeHeaderArgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param pulumi.Input[int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         :param pulumi.Input[int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -5179,6 +5245,8 @@ class JobTemplateContainerStartupProbeArgs:
             pulumi.set(__self__, "headers", headers)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if initial_delay is not None:
+            pulumi.set(__self__, "initial_delay", initial_delay)
         if interval_seconds is not None:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
@@ -5247,6 +5315,18 @@ class JobTemplateContainerStartupProbeArgs:
     @host.setter
     def host(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @initial_delay.setter
+    def initial_delay(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay", value)
 
     @property
     @pulumi.getter(name="intervalSeconds")

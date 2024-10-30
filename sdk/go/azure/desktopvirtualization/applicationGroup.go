@@ -97,7 +97,7 @@ import (
 type ApplicationGroup struct {
 	pulumi.CustomResourceState
 
-	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 	DefaultDesktopDisplayName pulumi.StringPtrOutput `pulumi:"defaultDesktopDisplayName"`
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -156,7 +156,7 @@ func GetApplicationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationGroup resources.
 type applicationGroupState struct {
-	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 	DefaultDesktopDisplayName *string `pulumi:"defaultDesktopDisplayName"`
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description *string `pulumi:"description"`
@@ -177,7 +177,7 @@ type applicationGroupState struct {
 }
 
 type ApplicationGroupState struct {
-	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 	DefaultDesktopDisplayName pulumi.StringPtrInput
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description pulumi.StringPtrInput
@@ -202,7 +202,7 @@ func (ApplicationGroupState) ElementType() reflect.Type {
 }
 
 type applicationGroupArgs struct {
-	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 	DefaultDesktopDisplayName *string `pulumi:"defaultDesktopDisplayName"`
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description *string `pulumi:"description"`
@@ -224,7 +224,7 @@ type applicationGroupArgs struct {
 
 // The set of arguments for constructing a ApplicationGroup resource.
 type ApplicationGroupArgs struct {
-	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+	// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 	DefaultDesktopDisplayName pulumi.StringPtrInput
 	// Option to set a description for the Virtual Desktop Application Group.
 	Description pulumi.StringPtrInput
@@ -331,7 +331,7 @@ func (o ApplicationGroupOutput) ToApplicationGroupOutputWithContext(ctx context.
 	return o
 }
 
-// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
 func (o ApplicationGroupOutput) DefaultDesktopDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.DefaultDesktopDisplayName }).(pulumi.StringPtrOutput)
 }

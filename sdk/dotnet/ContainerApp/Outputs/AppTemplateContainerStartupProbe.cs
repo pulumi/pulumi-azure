@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplateContainerStartupProbe
     {
         /// <summary>
-        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         /// </summary>
         public readonly int? FailureCountThreshold;
         /// <summary>
@@ -25,6 +25,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        /// </summary>
+        public readonly int? InitialDelay;
         /// <summary>
         /// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         /// </summary>
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string? host,
 
+            int? initialDelay,
+
             int? intervalSeconds,
 
             string? path,
@@ -73,6 +79,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             FailureCountThreshold = failureCountThreshold;
             Headers = headers;
             Host = host;
+            InitialDelay = initialDelay;
             IntervalSeconds = intervalSeconds;
             Path = path;
             Port = port;

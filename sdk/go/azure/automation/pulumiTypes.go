@@ -3406,7 +3406,7 @@ func (o SoftwareUpdateConfigurationSchedulePtrOutput) TimeZone() pulumi.StringPt
 type SoftwareUpdateConfigurationScheduleMonthlyOccurrence struct {
 	// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 	Day string `pulumi:"day"`
-	// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+	// Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
 	Occurrence int `pulumi:"occurrence"`
 }
 
@@ -3424,7 +3424,7 @@ type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceInput interface {
 type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs struct {
 	// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 	Day pulumi.StringInput `pulumi:"day"`
-	// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+	// Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
 	Occurrence pulumi.IntInput `pulumi:"occurrence"`
 }
 
@@ -3510,7 +3510,7 @@ func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) Day() pulumi
 	return o.ApplyT(func(v SoftwareUpdateConfigurationScheduleMonthlyOccurrence) string { return v.Day }).(pulumi.StringOutput)
 }
 
-// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+// Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
 func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationScheduleMonthlyOccurrence) int { return v.Occurrence }).(pulumi.IntOutput)
 }
@@ -3549,7 +3549,7 @@ func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) Day() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+// Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
 func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrencePtrOutput) Occurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationScheduleMonthlyOccurrence) *int {
 		if v == nil {

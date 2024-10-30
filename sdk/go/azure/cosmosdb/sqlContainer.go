@@ -119,7 +119,9 @@ type SqlContainer struct {
 	PartitionKeyKind pulumi.StringPtrOutput `pulumi:"partitionKeyKind"`
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths pulumi.StringArrayOutput `pulumi:"partitionKeyPaths"`
-	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	//
+	// > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
 	PartitionKeyVersion pulumi.IntPtrOutput `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -193,7 +195,9 @@ type sqlContainerState struct {
 	PartitionKeyKind *string `pulumi:"partitionKeyKind"`
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths []string `pulumi:"partitionKeyPaths"`
-	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	//
+	// > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -226,7 +230,9 @@ type SqlContainerState struct {
 	PartitionKeyKind pulumi.StringPtrInput
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths pulumi.StringArrayInput
-	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	//
+	// > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -263,7 +269,9 @@ type sqlContainerArgs struct {
 	PartitionKeyKind *string `pulumi:"partitionKeyKind"`
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths []string `pulumi:"partitionKeyPaths"`
-	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	//
+	// > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -297,7 +305,9 @@ type SqlContainerArgs struct {
 	PartitionKeyKind pulumi.StringPtrInput
 	// A list of partition key paths. Changing this forces a new resource to be created.
 	PartitionKeyPaths pulumi.StringArrayInput
-	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+	//
+	// > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -446,7 +456,9 @@ func (o SqlContainerOutput) PartitionKeyPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.StringArrayOutput { return v.PartitionKeyPaths }).(pulumi.StringArrayOutput)
 }
 
-// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+//
+// > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
 func (o SqlContainerOutput) PartitionKeyVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.IntPtrOutput { return v.PartitionKeyVersion }).(pulumi.IntPtrOutput)
 }

@@ -65,6 +65,21 @@ public final class JobTemplateContainerReadinessProbeArgs extends com.pulumi.res
     }
 
     /**
+     * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * 
+     */
+    @Import(name="initialDelay")
+    private @Nullable Output<Integer> initialDelay;
+
+    /**
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * 
+     */
+    public Optional<Output<Integer>> initialDelay() {
+        return Optional.ofNullable(this.initialDelay);
+    }
+
+    /**
      * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
      * 
      */
@@ -160,6 +175,7 @@ public final class JobTemplateContainerReadinessProbeArgs extends com.pulumi.res
         this.failureCountThreshold = $.failureCountThreshold;
         this.headers = $.headers;
         this.host = $.host;
+        this.initialDelay = $.initialDelay;
         this.intervalSeconds = $.intervalSeconds;
         this.path = $.path;
         this.port = $.port;
@@ -257,6 +273,27 @@ public final class JobTemplateContainerReadinessProbeArgs extends com.pulumi.res
          */
         public Builder host(String host) {
             return host(Output.of(host));
+        }
+
+        /**
+         * @param initialDelay The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialDelay(@Nullable Output<Integer> initialDelay) {
+            $.initialDelay = initialDelay;
+            return this;
+        }
+
+        /**
+         * @param initialDelay The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialDelay(Integer initialDelay) {
+            return initialDelay(Output.of(initialDelay));
         }
 
         /**

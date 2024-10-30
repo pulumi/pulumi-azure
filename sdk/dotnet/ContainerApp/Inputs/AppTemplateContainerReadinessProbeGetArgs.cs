@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class AppTemplateContainerReadinessProbeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         /// </summary>
         [Input("failureCountThreshold")]
         public Input<int>? FailureCountThreshold { get; set; }
@@ -35,6 +35,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
+
+        /// <summary>
+        /// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        /// </summary>
+        [Input("initialDelay")]
+        public Input<int>? InitialDelay { get; set; }
 
         /// <summary>
         /// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`

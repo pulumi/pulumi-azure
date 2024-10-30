@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutonomousDatabaseArgs, AutonomousDatabaseState } from "./autonomousDatabase";
+export type AutonomousDatabase = import("./autonomousDatabase").AutonomousDatabase;
+export const AutonomousDatabase: typeof import("./autonomousDatabase").AutonomousDatabase = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabase"], () => require("./autonomousDatabase"));
+
 export { CloudVmClusterArgs, CloudVmClusterState } from "./cloudVmCluster";
 export type CloudVmCluster = import("./cloudVmCluster").CloudVmCluster;
 export const CloudVmCluster: typeof import("./cloudVmCluster").CloudVmCluster = null as any;
@@ -15,26 +20,58 @@ export type ExadataInfrastructure = import("./exadataInfrastructure").ExadataInf
 export const ExadataInfrastructure: typeof import("./exadataInfrastructure").ExadataInfrastructure = null as any;
 utilities.lazyLoad(exports, ["ExadataInfrastructure"], () => require("./exadataInfrastructure"));
 
+export { GetAdbsCharacterSetsArgs, GetAdbsCharacterSetsResult, GetAdbsCharacterSetsOutputArgs } from "./getAdbsCharacterSets";
+export const getAdbsCharacterSets: typeof import("./getAdbsCharacterSets").getAdbsCharacterSets = null as any;
+export const getAdbsCharacterSetsOutput: typeof import("./getAdbsCharacterSets").getAdbsCharacterSetsOutput = null as any;
+utilities.lazyLoad(exports, ["getAdbsCharacterSets","getAdbsCharacterSetsOutput"], () => require("./getAdbsCharacterSets"));
+
+export { GetAdbsNationalCharacterSetsArgs, GetAdbsNationalCharacterSetsResult, GetAdbsNationalCharacterSetsOutputArgs } from "./getAdbsNationalCharacterSets";
+export const getAdbsNationalCharacterSets: typeof import("./getAdbsNationalCharacterSets").getAdbsNationalCharacterSets = null as any;
+export const getAdbsNationalCharacterSetsOutput: typeof import("./getAdbsNationalCharacterSets").getAdbsNationalCharacterSetsOutput = null as any;
+utilities.lazyLoad(exports, ["getAdbsNationalCharacterSets","getAdbsNationalCharacterSetsOutput"], () => require("./getAdbsNationalCharacterSets"));
+
+export { GetAutonomousDatabaseArgs, GetAutonomousDatabaseResult, GetAutonomousDatabaseOutputArgs } from "./getAutonomousDatabase";
+export const getAutonomousDatabase: typeof import("./getAutonomousDatabase").getAutonomousDatabase = null as any;
+export const getAutonomousDatabaseOutput: typeof import("./getAutonomousDatabase").getAutonomousDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabase","getAutonomousDatabaseOutput"], () => require("./getAutonomousDatabase"));
+
 export { GetCloudVmClusterArgs, GetCloudVmClusterResult, GetCloudVmClusterOutputArgs } from "./getCloudVmCluster";
 export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmCluster = null as any;
 export const getCloudVmClusterOutput: typeof import("./getCloudVmCluster").getCloudVmClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudVmCluster","getCloudVmClusterOutput"], () => require("./getCloudVmCluster"));
+
+export { GetDbNodesArgs, GetDbNodesResult, GetDbNodesOutputArgs } from "./getDbNodes";
+export const getDbNodes: typeof import("./getDbNodes").getDbNodes = null as any;
+export const getDbNodesOutput: typeof import("./getDbNodes").getDbNodesOutput = null as any;
+utilities.lazyLoad(exports, ["getDbNodes","getDbNodesOutput"], () => require("./getDbNodes"));
 
 export { GetDbServersArgs, GetDbServersResult, GetDbServersOutputArgs } from "./getDbServers";
 export const getDbServers: typeof import("./getDbServers").getDbServers = null as any;
 export const getDbServersOutput: typeof import("./getDbServers").getDbServersOutput = null as any;
 utilities.lazyLoad(exports, ["getDbServers","getDbServersOutput"], () => require("./getDbServers"));
 
+export { GetDbSystemShapesArgs, GetDbSystemShapesResult, GetDbSystemShapesOutputArgs } from "./getDbSystemShapes";
+export const getDbSystemShapes: typeof import("./getDbSystemShapes").getDbSystemShapes = null as any;
+export const getDbSystemShapesOutput: typeof import("./getDbSystemShapes").getDbSystemShapesOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSystemShapes","getDbSystemShapesOutput"], () => require("./getDbSystemShapes"));
+
 export { GetExadataInfrastructureArgs, GetExadataInfrastructureResult, GetExadataInfrastructureOutputArgs } from "./getExadataInfrastructure";
 export const getExadataInfrastructure: typeof import("./getExadataInfrastructure").getExadataInfrastructure = null as any;
 export const getExadataInfrastructureOutput: typeof import("./getExadataInfrastructure").getExadataInfrastructureOutput = null as any;
 utilities.lazyLoad(exports, ["getExadataInfrastructure","getExadataInfrastructureOutput"], () => require("./getExadataInfrastructure"));
+
+export { GetGiVersionsArgs, GetGiVersionsResult, GetGiVersionsOutputArgs } from "./getGiVersions";
+export const getGiVersions: typeof import("./getGiVersions").getGiVersions = null as any;
+export const getGiVersionsOutput: typeof import("./getGiVersions").getGiVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getGiVersions","getGiVersionsOutput"], () => require("./getGiVersions"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:oracle/autonomousDatabase:AutonomousDatabase":
+                return new AutonomousDatabase(name, <any>undefined, { urn })
             case "azure:oracle/cloudVmCluster:CloudVmCluster":
                 return new CloudVmCluster(name, <any>undefined, { urn })
             case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
@@ -44,5 +81,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/cloudVmCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/exadataInfrastructure", _module)

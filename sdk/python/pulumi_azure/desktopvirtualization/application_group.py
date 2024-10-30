@@ -33,7 +33,7 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
@@ -96,7 +96,7 @@ class ApplicationGroupArgs:
     @pulumi.getter(name="defaultDesktopDisplayName")
     def default_desktop_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         """
         return pulumi.get(self, "default_desktop_display_name")
 
@@ -179,7 +179,7 @@ class _ApplicationGroupState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApplicationGroup resources.
-        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
@@ -212,7 +212,7 @@ class _ApplicationGroupState:
     @pulumi.getter(name="defaultDesktopDisplayName")
     def default_desktop_display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         """
         return pulumi.get(self, "default_desktop_display_name")
 
@@ -385,7 +385,7 @@ class ApplicationGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
@@ -526,7 +526,7 @@ class ApplicationGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
@@ -555,7 +555,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="defaultDesktopDisplayName")
     def default_desktop_display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+        Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         """
         return pulumi.get(self, "default_desktop_display_name")
 

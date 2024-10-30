@@ -1205,7 +1205,7 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
                  occurrence: int):
         """
         :param str day: Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-        :param int occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        :param int occurrence: Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "occurrence", occurrence)
@@ -1222,7 +1222,7 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
     @pulumi.getter
     def occurrence(self) -> int:
         """
-        Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         """
         return pulumi.get(self, "occurrence")
 
