@@ -485,7 +485,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             pre_task={
                 "source": example_run_book.name,
                 "parameters": {
-                    "compute_r__name": "Foo",
+                    "COMPUTER_NAME": "Foo",
                 },
             },
             duration="PT2H2M2S")
@@ -565,7 +565,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             pre_task={
                 "source": example_run_book.name,
                 "parameters": {
-                    "compute_r__name": "Foo",
+                    "COMPUTER_NAME": "Foo",
                 },
             },
             duration="PT2H2M2S")
