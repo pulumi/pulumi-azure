@@ -6367,6 +6367,10 @@
                     }
                 }
             },
+            "azurerm_dev_center_project_pool": {
+                "current": "azure:devcenter/projectPool:ProjectPool",
+                "majorVersion": 6
+            },
             "azurerm_dev_test_global_vm_shutdown_schedule": {
                 "current": "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule",
                 "majorVersion": 6,
@@ -15449,6 +15453,15 @@
                 "current": "azure:notificationhub/namespace:Namespace",
                 "majorVersion": 6
             },
+            "azurerm_oracle_autonomous_database": {
+                "current": "azure:oracle/autonomousDatabase:AutonomousDatabase",
+                "majorVersion": 6,
+                "fields": {
+                    "customer_contacts": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/cloudVmCluster:CloudVmCluster",
                 "majorVersion": 6,
@@ -20159,6 +20172,25 @@
             "azurerm_user_assigned_identity_legacy": {
                 "current": "azure:msi/userAssignedIdentity:UserAssignedIdentity",
                 "majorVersion": 6
+            },
+            "azurerm_video_indexer_account": {
+                "current": "azure:videoindexer/account:Account",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "storage": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_virtual_desktop_application": {
                 "current": "azure:desktopvirtualization/application:Application",
@@ -27997,6 +28029,45 @@
                     }
                 }
             },
+            "azurerm_oracle_adbs_character_sets": {
+                "current": "azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets",
+                "majorVersion": 6,
+                "fields": {
+                    "character_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_adbs_national_character_sets": {
+                "current": "azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets",
+                "majorVersion": 6,
+                "fields": {
+                    "character_sets": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_autonomous_database": {
+                "current": "azure:oracle/getAutonomousDatabase:getAutonomousDatabase",
+                "majorVersion": 6,
+                "fields": {
+                    "allowed_ips": {
+                        "maxItemsOne": false
+                    },
+                    "available_upgrade_versions": {
+                        "maxItemsOne": false
+                    },
+                    "peer_db_ids": {
+                        "maxItemsOne": false
+                    },
+                    "provisionable_cpus": {
+                        "maxItemsOne": false
+                    },
+                    "supported_regions_to_clone_to": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/getCloudVmCluster:getCloudVmCluster",
                 "majorVersion": 6,
@@ -28031,6 +28102,15 @@
                     }
                 }
             },
+            "azurerm_oracle_db_nodes": {
+                "current": "azure:oracle/getDbNodes:getDbNodes",
+                "majorVersion": 6,
+                "fields": {
+                    "db_nodes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_oracle_db_servers": {
                 "current": "azure:oracle/getDbServers:getDbServers",
                 "majorVersion": 6,
@@ -28053,6 +28133,15 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_oracle_db_system_shapes": {
+                "current": "azure:oracle/getDbSystemShapes:getDbSystemShapes",
+                "majorVersion": 6,
+                "fields": {
+                    "db_system_shapes": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -28086,6 +28175,15 @@
                         }
                     },
                     "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_gi_versions": {
+                "current": "azure:oracle/getGiVersions:getGiVersions",
+                "majorVersion": 6,
+                "fields": {
+                    "versions": {
                         "maxItemsOne": false
                     }
                 }

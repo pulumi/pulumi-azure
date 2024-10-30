@@ -1140,10 +1140,10 @@ index b10dc1693a..bfc5dfcfd7 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_sql_container.html.markdown b/website/docs/r/cosmosdb_sql_container.html.markdown
-index a89fc754f8..bdaf77a373 100644
+index e2564dfabc..3e517b4bad 100644
 --- a/website/docs/r/cosmosdb_sql_container.html.markdown
 +++ b/website/docs/r/cosmosdb_sql_container.html.markdown
-@@ -75,11 +75,11 @@ The following arguments are supported:
+@@ -77,11 +77,11 @@ The following arguments are supported:
  
  * `unique_key` - (Optional) One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
  
