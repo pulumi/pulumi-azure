@@ -31,7 +31,7 @@ public final class AppTemplateContainerLivenessProbe {
      */
     private @Nullable String host;
     /**
-     * @return The time in seconds to wait after the container has started before the probe is started.
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
      * 
      */
     private @Nullable Integer initialDelay;
@@ -89,7 +89,7 @@ public final class AppTemplateContainerLivenessProbe {
         return Optional.ofNullable(this.host);
     }
     /**
-     * @return The time in seconds to wait after the container has started before the probe is started.
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
      * 
      */
     public Optional<Integer> initialDelay() {

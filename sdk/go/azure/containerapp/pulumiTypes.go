@@ -2220,7 +2220,7 @@ type AppTemplateContainerLivenessProbe struct {
 	Headers []AppTemplateContainerLivenessProbeHeader `pulumi:"headers"`
 	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host *string `pulumi:"host"`
-	// The time in seconds to wait after the container has started before the probe is started.
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
 	InitialDelay *int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
@@ -2254,7 +2254,7 @@ type AppTemplateContainerLivenessProbeArgs struct {
 	Headers AppTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
 	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The time in seconds to wait after the container has started before the probe is started.
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
 	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
@@ -2336,7 +2336,7 @@ func (o AppTemplateContainerLivenessProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The time in seconds to wait after the container has started before the probe is started.
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
 func (o AppTemplateContainerLivenessProbeOutput) InitialDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
 }
@@ -2498,12 +2498,14 @@ func (o AppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntIn
 }
 
 type AppTemplateContainerReadinessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []AppTemplateContainerReadinessProbeHeader `pulumi:"headers"`
 	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host *string `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay *int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
 	// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -2530,12 +2532,14 @@ type AppTemplateContainerReadinessProbeInput interface {
 }
 
 type AppTemplateContainerReadinessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers AppTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
 	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
 	// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -2601,7 +2605,7 @@ func (o AppTemplateContainerReadinessProbeOutput) ToAppTemplateContainerReadines
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o AppTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerReadinessProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -2616,6 +2620,11 @@ func (o AppTemplateContainerReadinessProbeOutput) Headers() AppTemplateContainer
 // The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 func (o AppTemplateContainerReadinessProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerReadinessProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+func (o AppTemplateContainerReadinessProbeOutput) InitialDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppTemplateContainerReadinessProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
 }
 
 // How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -2775,12 +2784,14 @@ func (o AppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntI
 }
 
 type AppTemplateContainerStartupProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold *int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []AppTemplateContainerStartupProbeHeader `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host *string `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay *int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
 	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -2807,12 +2818,14 @@ type AppTemplateContainerStartupProbeInput interface {
 }
 
 type AppTemplateContainerStartupProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntPtrInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers AppTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
 	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -2878,7 +2891,7 @@ func (o AppTemplateContainerStartupProbeOutput) ToAppTemplateContainerStartupPro
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o AppTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerStartupProbe) *int { return v.FailureCountThreshold }).(pulumi.IntPtrOutput)
 }
@@ -2891,6 +2904,11 @@ func (o AppTemplateContainerStartupProbeOutput) Headers() AppTemplateContainerSt
 // The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 func (o AppTemplateContainerStartupProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerStartupProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+func (o AppTemplateContainerStartupProbeOutput) InitialDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppTemplateContainerStartupProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
 }
 
 // How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -6842,6 +6860,8 @@ type JobTemplateContainerReadinessProbe struct {
 	Headers []JobTemplateContainerReadinessProbeHeader `pulumi:"headers"`
 	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host *string `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay *int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
 	// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -6874,6 +6894,8 @@ type JobTemplateContainerReadinessProbeArgs struct {
 	Headers JobTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
 	// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
 	// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -6954,6 +6976,11 @@ func (o JobTemplateContainerReadinessProbeOutput) Headers() JobTemplateContainer
 // The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 func (o JobTemplateContainerReadinessProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+func (o JobTemplateContainerReadinessProbeOutput) InitialDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerReadinessProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
 }
 
 // How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -7119,6 +7146,8 @@ type JobTemplateContainerStartupProbe struct {
 	Headers []JobTemplateContainerStartupProbeHeader `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host *string `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay *int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds *int `pulumi:"intervalSeconds"`
 	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -7151,6 +7180,8 @@ type JobTemplateContainerStartupProbeArgs struct {
 	Headers JobTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringPtrInput `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay pulumi.IntPtrInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
 	// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -7229,6 +7260,11 @@ func (o JobTemplateContainerStartupProbeOutput) Headers() JobTemplateContainerSt
 // The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 func (o JobTemplateContainerStartupProbeOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+func (o JobTemplateContainerStartupProbeOutput) InitialDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.InitialDelay }).(pulumi.IntPtrOutput)
 }
 
 // How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -9727,13 +9763,13 @@ func (o GetAppTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) GetAppTe
 }
 
 type GetAppTemplateContainerLivenessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []GetAppTemplateContainerLivenessProbeHeader `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host string `pulumi:"host"`
-	// The time in seconds to wait after the container has started before the probe is started.
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
 	InitialDelay int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds int `pulumi:"intervalSeconds"`
@@ -9761,13 +9797,13 @@ type GetAppTemplateContainerLivenessProbeInput interface {
 }
 
 type GetAppTemplateContainerLivenessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers GetAppTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The time in seconds to wait after the container has started before the probe is started.
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
 	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
@@ -9834,7 +9870,7 @@ func (o GetAppTemplateContainerLivenessProbeOutput) ToGetAppTemplateContainerLiv
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o GetAppTemplateContainerLivenessProbeOutput) FailureCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
 }
@@ -9851,7 +9887,7 @@ func (o GetAppTemplateContainerLivenessProbeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The time in seconds to wait after the container has started before the probe is started.
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
 func (o GetAppTemplateContainerLivenessProbeOutput) InitialDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
 }
@@ -10013,12 +10049,14 @@ func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.In
 }
 
 type GetAppTemplateContainerReadinessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []GetAppTemplateContainerReadinessProbeHeader `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host string `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds int `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
@@ -10045,12 +10083,14 @@ type GetAppTemplateContainerReadinessProbeInput interface {
 }
 
 type GetAppTemplateContainerReadinessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers GetAppTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringInput `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
@@ -10116,7 +10156,7 @@ func (o GetAppTemplateContainerReadinessProbeOutput) ToGetAppTemplateContainerRe
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o GetAppTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
 }
@@ -10131,6 +10171,11 @@ func (o GetAppTemplateContainerReadinessProbeOutput) Headers() GetAppTemplateCon
 // The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 func (o GetAppTemplateContainerReadinessProbeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+func (o GetAppTemplateContainerReadinessProbeOutput) InitialDelay() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
 }
 
 // How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -10290,12 +10335,14 @@ func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.I
 }
 
 type GetAppTemplateContainerStartupProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []GetAppTemplateContainerStartupProbeHeader `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host string `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay int `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds int `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
@@ -10322,12 +10369,14 @@ type GetAppTemplateContainerStartupProbeInput interface {
 }
 
 type GetAppTemplateContainerStartupProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers GetAppTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
 	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 	Host pulumi.StringInput `pulumi:"host"`
+	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
 	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
 	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
@@ -10393,7 +10442,7 @@ func (o GetAppTemplateContainerStartupProbeOutput) ToGetAppTemplateContainerStar
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
 func (o GetAppTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
 }
@@ -10408,6 +10457,11 @@ func (o GetAppTemplateContainerStartupProbeOutput) Headers() GetAppTemplateConta
 // The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
 func (o GetAppTemplateContainerStartupProbeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+func (o GetAppTemplateContainerStartupProbeOutput) InitialDelay() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
 }
 
 // How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`

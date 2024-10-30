@@ -1362,7 +1362,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             os_type="Linux",
-            sku_name="Y1")
+            sku_name="B1")
         example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
             name="example-linux-function-app",
             resource_group_name=example.name,
@@ -1457,7 +1457,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             os_type="Linux",
-            sku_name="Y1")
+            sku_name="B1")
         example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
             name="example-linux-function-app",
             resource_group_name=example.name,

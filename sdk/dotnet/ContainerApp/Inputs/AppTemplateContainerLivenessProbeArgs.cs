@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// The time in seconds to wait after the container has started before the probe is started.
+        /// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         /// </summary>
         [Input("initialDelay")]
         public Input<int>? InitialDelay { get; set; }

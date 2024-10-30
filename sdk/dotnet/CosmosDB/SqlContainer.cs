@@ -159,7 +159,9 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<string>> PartitionKeyPaths { get; private set; } = null!;
 
         /// <summary>
-        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        /// 
+        /// &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         /// </summary>
         [Output("partitionKeyVersion")]
         public Output<int?> PartitionKeyVersion { get; private set; } = null!;
@@ -297,7 +299,9 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        /// 
+        /// &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         /// </summary>
         [Input("partitionKeyVersion")]
         public Input<int>? PartitionKeyVersion { get; set; }
@@ -403,7 +407,9 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        /// 
+        /// &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         /// </summary>
         [Input("partitionKeyVersion")]
         public Input<int>? PartitionKeyVersion { get; set; }

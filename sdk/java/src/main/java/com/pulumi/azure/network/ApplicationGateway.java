@@ -512,14 +512,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     @Export(name="rewriteRuleSets", refs={List.class,ApplicationGatewayRewriteRuleSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayRewriteRuleSet>> rewriteRuleSets;
 
     /**
-     * @return One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     * @return One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      * 
      */
     public Output<Optional<List<ApplicationGatewayRewriteRuleSet>>> rewriteRuleSets() {

@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         /// </summary>
         [Output("rewriteRuleSets")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSet>> RewriteRuleSets { get; private set; } = null!;
@@ -622,7 +622,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs>? _rewriteRuleSets;
 
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs> RewriteRuleSets
         {
@@ -962,7 +962,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs>? _rewriteRuleSets;
 
         /// <summary>
-        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs> RewriteRuleSets
         {

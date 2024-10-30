@@ -17,14 +17,14 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
     public static final ApplicationGroupState Empty = new ApplicationGroupState();
 
     /**
-     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at &#39;Loading Client&#39;.
      * 
      */
     @Import(name="defaultDesktopDisplayName")
     private @Nullable Output<String> defaultDesktopDisplayName;
 
     /**
-     * @return Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+     * @return Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at &#39;Loading Client&#39;.
      * 
      */
     public Optional<Output<String>> defaultDesktopDisplayName() {
@@ -184,7 +184,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultDesktopDisplayName Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+         * @param defaultDesktopDisplayName Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at &#39;Loading Client&#39;.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultDesktopDisplayName Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
+         * @param defaultDesktopDisplayName Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at &#39;Loading Client&#39;.
          * 
          * @return builder
          * 

@@ -50,7 +50,9 @@ class SqlContainerArgs:
         :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+               
+               > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -217,7 +219,9 @@ class SqlContainerArgs:
     @pulumi.getter(name="partitionKeyVersion")
     def partition_key_version(self) -> Optional[pulumi.Input[int]]:
         """
-        Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+
+        > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_version")
 
@@ -281,7 +285,9 @@ class _SqlContainerState:
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+               
+               > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
@@ -441,7 +447,9 @@ class _SqlContainerState:
     @pulumi.getter(name="partitionKeyVersion")
     def partition_key_version(self) -> Optional[pulumi.Input[int]]:
         """
-        Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+
+        > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_version")
 
@@ -573,7 +581,9 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+               
+               > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
@@ -740,7 +750,9 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+               
+               > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
@@ -851,7 +863,9 @@ class SqlContainer(pulumi.CustomResource):
     @pulumi.getter(name="partitionKeyVersion")
     def partition_key_version(self) -> pulumi.Output[Optional[int]]:
         """
-        Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+        Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+
+        > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         """
         return pulumi.get(self, "partition_key_version")
 

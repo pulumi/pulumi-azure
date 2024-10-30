@@ -17,7 +17,7 @@ public final class SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
      */
     private String day;
     /**
-     * @return Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+     * @return Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
      * 
      */
     private Integer occurrence;
@@ -31,7 +31,7 @@ public final class SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
         return this.day;
     }
     /**
-     * @return Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+     * @return Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
      * 
      */
     public Integer occurrence() {

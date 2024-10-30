@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:oracle/autonomousDatabase:AutonomousDatabase":
+		r = &AutonomousDatabase{}
 	case "azure:oracle/cloudVmCluster:CloudVmCluster":
 		r = &CloudVmCluster{}
 	case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"oracle/autonomousDatabase",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"oracle/cloudVmCluster",

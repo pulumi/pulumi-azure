@@ -124,6 +124,8 @@ class AccountArgs:
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
                
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+               
+               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -653,6 +655,8 @@ class AccountArgs:
         A `static_website` block as defined below.
 
         > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+
+        > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         """
         return pulumi.get(self, "static_website")
 
@@ -937,6 +941,8 @@ class _AccountState:
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
                
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+               
+               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -2477,6 +2483,8 @@ class _AccountState:
         A `static_website` block as defined below.
 
         > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+
+        > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         """
         return pulumi.get(self, "static_website")
 
@@ -2690,6 +2698,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']] static_website: A `static_website` block as defined below.
                
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+               
+               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -3213,6 +3223,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']] static_website: A `static_website` block as defined below.
                
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+               
+               > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         :param pulumi.Input[str] table_encryption_key_type: The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
                
                > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
@@ -4220,6 +4232,8 @@ class Account(pulumi.CustomResource):
         A `static_website` block as defined below.
 
         > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+
+        > **Note:** If `static_website` is specified, the service will automatically create a `storage.Container` named `$web`.
         """
         return pulumi.get(self, "static_website")
 

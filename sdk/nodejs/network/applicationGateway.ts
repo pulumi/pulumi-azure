@@ -220,7 +220,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
     public readonly rewriteRuleSets!: pulumi.Output<outputs.network.ApplicationGatewayRewriteRuleSet[] | undefined>;
     /**
@@ -479,7 +479,7 @@ export interface ApplicationGatewayState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
     rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
     /**
@@ -619,7 +619,7 @@ export interface ApplicationGatewayArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+     * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
     rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
     /**

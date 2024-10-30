@@ -408,7 +408,7 @@ type BudgetManagementGroupNotification struct {
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold int `pulumi:"threshold"`
-	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 	ThresholdType *string `pulumi:"thresholdType"`
 }
 
@@ -432,7 +432,7 @@ type BudgetManagementGroupNotificationArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold pulumi.IntInput `pulumi:"threshold"`
-	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
@@ -507,7 +507,7 @@ func (o BudgetManagementGroupNotificationOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v BudgetManagementGroupNotification) int { return v.Threshold }).(pulumi.IntOutput)
 }
 
-// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 func (o BudgetManagementGroupNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetManagementGroupNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }
@@ -1089,7 +1089,7 @@ type BudgetResourceGroupNotification struct {
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold int `pulumi:"threshold"`
-	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 	ThresholdType *string `pulumi:"thresholdType"`
 }
 
@@ -1119,7 +1119,7 @@ type BudgetResourceGroupNotificationArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold pulumi.IntInput `pulumi:"threshold"`
-	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
@@ -1206,7 +1206,7 @@ func (o BudgetResourceGroupNotificationOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v BudgetResourceGroupNotification) int { return v.Threshold }).(pulumi.IntOutput)
 }
 
-// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 func (o BudgetResourceGroupNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }
@@ -1788,7 +1788,7 @@ type BudgetSubscriptionNotification struct {
 	Operator string `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold int `pulumi:"threshold"`
-	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 	ThresholdType *string `pulumi:"thresholdType"`
 }
 
@@ -1818,7 +1818,7 @@ type BudgetSubscriptionNotificationArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 	Threshold pulumi.IntInput `pulumi:"threshold"`
-	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+	// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
@@ -1905,7 +1905,7 @@ func (o BudgetSubscriptionNotificationOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v BudgetSubscriptionNotification) int { return v.Threshold }).(pulumi.IntOutput)
 }
 
-// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
 func (o BudgetSubscriptionNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
 }

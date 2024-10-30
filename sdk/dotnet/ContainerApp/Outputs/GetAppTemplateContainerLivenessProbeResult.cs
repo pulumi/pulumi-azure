@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class GetAppTemplateContainerLivenessProbeResult
     {
         /// <summary>
-        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
         /// </summary>
         public readonly int FailureCountThreshold;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// The time in seconds to wait after the container has started before the probe is started.
+        /// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         /// </summary>
         public readonly int InitialDelay;
         /// <summary>

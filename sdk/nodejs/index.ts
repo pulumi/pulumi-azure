@@ -140,6 +140,7 @@ import * as synapse from "./synapse";
 import * as systemcenter from "./systemcenter";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
+import * as videoindexer from "./videoindexer";
 import * as voice from "./voice";
 import * as waf from "./waf";
 import * as webpubsub from "./webpubsub";
@@ -272,6 +273,7 @@ export {
     systemcenter,
     trafficmanager,
     types,
+    videoindexer,
     voice,
     waf,
     webpubsub,

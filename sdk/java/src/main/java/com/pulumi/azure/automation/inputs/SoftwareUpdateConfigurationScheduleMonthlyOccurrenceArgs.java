@@ -31,14 +31,14 @@ public final class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs exte
     }
 
     /**
-     * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+     * Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
      * 
      */
     @Import(name="occurrence", required=true)
     private Output<Integer> occurrence;
 
     /**
-     * @return Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+     * @return Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
      * 
      */
     public Output<Integer> occurrence() {
@@ -92,7 +92,7 @@ public final class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs exte
         }
 
         /**
-         * @param occurrence Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         * @param occurrence Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs exte
         }
 
         /**
-         * @param occurrence Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         * @param occurrence Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
          * 
          * @return builder
          * 

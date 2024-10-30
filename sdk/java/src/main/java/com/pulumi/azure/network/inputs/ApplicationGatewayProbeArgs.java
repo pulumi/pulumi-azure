@@ -140,14 +140,14 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+     * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+     * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -403,7 +403,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param port Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+         * @param port Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param port Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+         * @param port Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
          * 
          * @return builder
          * 

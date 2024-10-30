@@ -134,7 +134,9 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly partitionKeyPaths!: pulumi.Output<string[]>;
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     *
+     * > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      */
     public readonly partitionKeyVersion!: pulumi.Output<number | undefined>;
     /**
@@ -258,7 +260,9 @@ export interface SqlContainerState {
      */
     partitionKeyPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     *
+     * > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      */
     partitionKeyVersion?: pulumi.Input<number>;
     /**
@@ -322,7 +326,9 @@ export interface SqlContainerArgs {
      */
     partitionKeyPaths: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     *
+     * > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      */
     partitionKeyVersion?: pulumi.Input<number>;
     /**

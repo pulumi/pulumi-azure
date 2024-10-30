@@ -179,6 +179,7 @@ const (
 	azureSynapse               = "Synapse"               // Synapse
 	azureSystemCenter          = "SystemCenter"          // SystemCenter
 	azureVideoAnalyzer         = "VideoAnalyzer"         // Video Analyzer
+	azureVideoIndexer          = "VideoIndexer"          // Video Indexer
 	azureVoice                 = "Voice"                 // Voice
 	azureWaf                   = "Waf"                   // WAF
 	azureWebPubSub             = "WebPubSub"             // Web PubSub
@@ -356,6 +357,7 @@ var moduleMap = map[string]string{
 	"system_center":            azureSystemCenter,
 	"express_route":            azureExpressRoute,
 	"custom_extended_location": azureExtendedLocation,
+	"video_indexer":            azureVideoIndexer,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
@@ -2741,6 +2743,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dev_center_catalog": {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
+			"azurerm_oracle_autonomous_database": {
+				Docs: &tfbridge.DocInfo{Source: "oracle_autonomous_database_regular.html.markdown"},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_location": {Tok: azureDataSource(azureCore, "getLocation")},
@@ -3220,7 +3225,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app":                          {Tok: azureDataSource(azureContainerApp, "getApp")},
 			"azurerm_ip_groups":                              {Tok: azureDataSource(azureNetwork, "getIpGroups")},
 
-			"azurerm_nginx_configuration": {Tok: azureDataSource(azureNginx, "getConfiguration"), Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"azurerm_nginx_configuration":        {Tok: azureDataSource(azureNginx, "getConfiguration"), Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"azurerm_oracle_autonomous_database": {Docs: &tfbridge.DocInfo{Source: "oracle_autonomous_database_regular.html.markdown"}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",

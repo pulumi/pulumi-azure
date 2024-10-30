@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Project{}
 	case "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType":
 		r = &ProjectEnvironmentType{}
+	case "azure:devcenter/projectPool:ProjectPool":
+		r = &ProjectPool{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"devcenter/projectEnvironmentType",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"devcenter/projectPool",
 		&module{version},
 	)
 }

@@ -128,7 +128,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string?> StorageAccountType { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

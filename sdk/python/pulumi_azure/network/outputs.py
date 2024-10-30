@@ -1662,7 +1662,7 @@ class ApplicationGatewayProbe(dict):
         :param 'ApplicationGatewayProbeMatchArgs' match: A `match` block as defined above.
         :param int minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
         :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
-        :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "name", name)
@@ -1775,7 +1775,7 @@ class ApplicationGatewayProbe(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
         """
         return pulumi.get(self, "port")
 
@@ -2602,11 +2602,11 @@ class ApplicationGatewaySku(dict):
                  tier: str,
                  capacity: Optional[int] = None):
         """
-        :param str name: The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
-        :param str tier: The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+        :param str name: The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+        :param str tier: The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
                
-               !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
-        :param int capacity: The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+               !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+        :param int capacity: The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -2617,7 +2617,7 @@ class ApplicationGatewaySku(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+        The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
         """
         return pulumi.get(self, "name")
 
@@ -2625,9 +2625,9 @@ class ApplicationGatewaySku(dict):
     @pulumi.getter
     def tier(self) -> str:
         """
-        The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
+        The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
 
-        !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+        !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
         """
         return pulumi.get(self, "tier")
 
@@ -2635,7 +2635,7 @@ class ApplicationGatewaySku(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+        The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
         """
         return pulumi.get(self, "capacity")
 

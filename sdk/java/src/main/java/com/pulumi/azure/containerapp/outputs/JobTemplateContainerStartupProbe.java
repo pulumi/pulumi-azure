@@ -31,6 +31,11 @@ public final class JobTemplateContainerStartupProbe {
      */
     private @Nullable String host;
     /**
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * 
+     */
+    private @Nullable Integer initialDelay;
+    /**
      * @return How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
      * 
      */
@@ -82,6 +87,13 @@ public final class JobTemplateContainerStartupProbe {
      */
     public Optional<String> host() {
         return Optional.ofNullable(this.host);
+    }
+    /**
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * 
+     */
+    public Optional<Integer> initialDelay() {
+        return Optional.ofNullable(this.initialDelay);
     }
     /**
      * @return How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -138,6 +150,7 @@ public final class JobTemplateContainerStartupProbe {
         private @Nullable Integer failureCountThreshold;
         private @Nullable List<JobTemplateContainerStartupProbeHeader> headers;
         private @Nullable String host;
+        private @Nullable Integer initialDelay;
         private @Nullable Integer intervalSeconds;
         private @Nullable String path;
         private Integer port;
@@ -150,6 +163,7 @@ public final class JobTemplateContainerStartupProbe {
     	      this.failureCountThreshold = defaults.failureCountThreshold;
     	      this.headers = defaults.headers;
     	      this.host = defaults.host;
+    	      this.initialDelay = defaults.initialDelay;
     	      this.intervalSeconds = defaults.intervalSeconds;
     	      this.path = defaults.path;
     	      this.port = defaults.port;
@@ -177,6 +191,12 @@ public final class JobTemplateContainerStartupProbe {
         public Builder host(@Nullable String host) {
 
             this.host = host;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder initialDelay(@Nullable Integer initialDelay) {
+
+            this.initialDelay = initialDelay;
             return this;
         }
         @CustomType.Setter
@@ -224,6 +244,7 @@ public final class JobTemplateContainerStartupProbe {
             _resultValue.failureCountThreshold = failureCountThreshold;
             _resultValue.headers = headers;
             _resultValue.host = host;
+            _resultValue.initialDelay = initialDelay;
             _resultValue.intervalSeconds = intervalSeconds;
             _resultValue.path = path;
             _resultValue.port = port;

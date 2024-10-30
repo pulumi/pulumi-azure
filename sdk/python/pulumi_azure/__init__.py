@@ -260,6 +260,8 @@ if typing.TYPE_CHECKING:
     systemcenter = __systemcenter
     import pulumi_azure.trafficmanager as __trafficmanager
     trafficmanager = __trafficmanager
+    import pulumi_azure.videoindexer as __videoindexer
+    videoindexer = __videoindexer
     import pulumi_azure.voice as __voice
     voice = __voice
     import pulumi_azure.waf as __waf
@@ -394,6 +396,7 @@ else:
     synapse = _utilities.lazy_import('pulumi_azure.synapse')
     systemcenter = _utilities.lazy_import('pulumi_azure.systemcenter')
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
+    videoindexer = _utilities.lazy_import('pulumi_azure.videoindexer')
     voice = _utilities.lazy_import('pulumi_azure.voice')
     waf = _utilities.lazy_import('pulumi_azure.waf')
     webpubsub = _utilities.lazy_import('pulumi_azure.webpubsub')
@@ -4020,6 +4023,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "devcenter/projectPool",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/projectPool:ProjectPool": "ProjectPool"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "devtest/globalVMShutdownSchedule",
   "fqn": "pulumi_azure.devtest",
   "classes": {
@@ -6980,6 +6991,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "oracle/autonomousDatabase",
+  "fqn": "pulumi_azure.oracle",
+  "classes": {
+   "azure:oracle/autonomousDatabase:AutonomousDatabase": "AutonomousDatabase"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "oracle/cloudVmCluster",
   "fqn": "pulumi_azure.oracle",
   "classes": {
@@ -8864,6 +8883,14 @@ _utilities.register(
   "fqn": "pulumi_azure.trafficmanager",
   "classes": {
    "azure:trafficmanager/profile:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "videoindexer/account",
+  "fqn": "pulumi_azure.videoindexer",
+  "classes": {
+   "azure:videoindexer/account:Account": "Account"
   }
  },
  {

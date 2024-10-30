@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAppTemplateContainerReadinessProbe {
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
      * 
      */
     private Integer failureCountThreshold;
@@ -28,6 +28,11 @@ public final class GetAppTemplateContainerReadinessProbe {
      * 
      */
     private String host;
+    /**
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * 
+     */
+    private Integer initialDelay;
     /**
      * @return How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
      * 
@@ -61,7 +66,7 @@ public final class GetAppTemplateContainerReadinessProbe {
 
     private GetAppTemplateContainerReadinessProbe() {}
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
      * 
      */
     public Integer failureCountThreshold() {
@@ -80,6 +85,13 @@ public final class GetAppTemplateContainerReadinessProbe {
      */
     public String host() {
         return this.host;
+    }
+    /**
+     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * 
+     */
+    public Integer initialDelay() {
+        return this.initialDelay;
     }
     /**
      * @return How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -136,6 +148,7 @@ public final class GetAppTemplateContainerReadinessProbe {
         private Integer failureCountThreshold;
         private List<GetAppTemplateContainerReadinessProbeHeader> headers;
         private String host;
+        private Integer initialDelay;
         private Integer intervalSeconds;
         private String path;
         private Integer port;
@@ -148,6 +161,7 @@ public final class GetAppTemplateContainerReadinessProbe {
     	      this.failureCountThreshold = defaults.failureCountThreshold;
     	      this.headers = defaults.headers;
     	      this.host = defaults.host;
+    	      this.initialDelay = defaults.initialDelay;
     	      this.intervalSeconds = defaults.intervalSeconds;
     	      this.path = defaults.path;
     	      this.port = defaults.port;
@@ -181,6 +195,14 @@ public final class GetAppTemplateContainerReadinessProbe {
               throw new MissingRequiredPropertyException("GetAppTemplateContainerReadinessProbe", "host");
             }
             this.host = host;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder initialDelay(Integer initialDelay) {
+            if (initialDelay == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerReadinessProbe", "initialDelay");
+            }
+            this.initialDelay = initialDelay;
             return this;
         }
         @CustomType.Setter
@@ -236,6 +258,7 @@ public final class GetAppTemplateContainerReadinessProbe {
             _resultValue.failureCountThreshold = failureCountThreshold;
             _resultValue.headers = headers;
             _resultValue.host = host;
+            _resultValue.initialDelay = initialDelay;
             _resultValue.intervalSeconds = intervalSeconds;
             _resultValue.path = path;
             _resultValue.port = port;

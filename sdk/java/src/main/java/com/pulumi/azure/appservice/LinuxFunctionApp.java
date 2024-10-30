@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .osType("Linux")
- *             .skuName("Y1")
+ *             .skuName("B1")
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()

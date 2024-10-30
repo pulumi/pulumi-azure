@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Automation.Inputs
         public Input<string> Day { get; set; } = null!;
 
         /// <summary>
-        /// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        /// Occurrence of the week within the month. Must be between `1` and `4`. `-1` for last week within the month.
         /// </summary>
         [Input("occurrence", required: true)]
         public Input<int> Occurrence { get; set; } = null!;

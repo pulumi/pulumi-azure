@@ -87,7 +87,6 @@ public final class GetDbServersDbServer {
      * 
      */
     private String ocid;
-    private String provisioningState;
     /**
      * @return The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
      * 
@@ -210,9 +209,6 @@ public final class GetDbServersDbServer {
     public String ocid() {
         return this.ocid;
     }
-    public String provisioningState() {
-        return this.provisioningState;
-    }
     /**
      * @return The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
      * 
@@ -259,7 +255,6 @@ public final class GetDbServersDbServer {
         private Integer maxMemoryInGbs;
         private Integer memorySizeInGbs;
         private String ocid;
-        private String provisioningState;
         private String shape;
         private String timeCreated;
         private List<String> vmClusterIds;
@@ -281,7 +276,6 @@ public final class GetDbServersDbServer {
     	      this.maxMemoryInGbs = defaults.maxMemoryInGbs;
     	      this.memorySizeInGbs = defaults.memorySizeInGbs;
     	      this.ocid = defaults.ocid;
-    	      this.provisioningState = defaults.provisioningState;
     	      this.shape = defaults.shape;
     	      this.timeCreated = defaults.timeCreated;
     	      this.vmClusterIds = defaults.vmClusterIds;
@@ -417,14 +411,6 @@ public final class GetDbServersDbServer {
             return this;
         }
         @CustomType.Setter
-        public Builder provisioningState(String provisioningState) {
-            if (provisioningState == null) {
-              throw new MissingRequiredPropertyException("GetDbServersDbServer", "provisioningState");
-            }
-            this.provisioningState = provisioningState;
-            return this;
-        }
-        @CustomType.Setter
         public Builder shape(String shape) {
             if (shape == null) {
               throw new MissingRequiredPropertyException("GetDbServersDbServer", "shape");
@@ -468,7 +454,6 @@ public final class GetDbServersDbServer {
             _resultValue.maxMemoryInGbs = maxMemoryInGbs;
             _resultValue.memorySizeInGbs = memorySizeInGbs;
             _resultValue.ocid = ocid;
-            _resultValue.provisioningState = provisioningState;
             _resultValue.shape = shape;
             _resultValue.timeCreated = timeCreated;
             _resultValue.vmClusterIds = vmClusterIds;

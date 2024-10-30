@@ -60,7 +60,7 @@ type ManagedInstance struct {
 	ServicePrincipalType pulumi.StringPtrOutput `pulumi:"servicePrincipalType"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntOutput `pulumi:"storageSizeInGb"`
@@ -177,7 +177,7 @@ type managedInstanceState struct {
 	ServicePrincipalType *string `pulumi:"servicePrincipalType"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName *string `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
@@ -228,7 +228,7 @@ type ManagedInstanceState struct {
 	ServicePrincipalType pulumi.StringPtrInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringPtrInput
-	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntPtrInput
@@ -279,7 +279,7 @@ type managedInstanceArgs struct {
 	ServicePrincipalType *string `pulumi:"servicePrincipalType"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName string `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb int `pulumi:"storageSizeInGb"`
@@ -327,7 +327,7 @@ type ManagedInstanceArgs struct {
 	ServicePrincipalType pulumi.StringPtrInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringInput
-	// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntInput
@@ -515,7 +515,7 @@ func (o ManagedInstanceOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
 func (o ManagedInstanceOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }

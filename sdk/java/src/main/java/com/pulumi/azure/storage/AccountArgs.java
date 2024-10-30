@@ -604,6 +604,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
      * 
+     * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+     * 
      */
     @Import(name="staticWebsite")
     private @Nullable Output<AccountStaticWebsiteArgs> staticWebsite;
@@ -612,6 +614,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
      * @return A `static_website` block as defined below.
      * 
      * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+     * 
+     * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
      */
     public Optional<Output<AccountStaticWebsiteArgs>> staticWebsite() {
@@ -1493,6 +1497,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
          * 
+         * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+         * 
          * @return builder
          * 
          */
@@ -1505,6 +1511,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          * @param staticWebsite A `static_website` block as defined below.
          * 
          * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+         * 
+         * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
          * 
          * @return builder
          * 

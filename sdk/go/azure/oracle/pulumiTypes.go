@@ -339,6 +339,200 @@ func (o ExadataInfrastructureMaintenanceWindowArrayOutput) Index(i pulumi.IntInp
 	}).(ExadataInfrastructureMaintenanceWindowOutput)
 }
 
+type GetAdbsCharacterSetsCharacterSet struct {
+	// A valid Oracle character set.
+	CharacterSet string `pulumi:"characterSet"`
+}
+
+// GetAdbsCharacterSetsCharacterSetInput is an input type that accepts GetAdbsCharacterSetsCharacterSetArgs and GetAdbsCharacterSetsCharacterSetOutput values.
+// You can construct a concrete instance of `GetAdbsCharacterSetsCharacterSetInput` via:
+//
+//	GetAdbsCharacterSetsCharacterSetArgs{...}
+type GetAdbsCharacterSetsCharacterSetInput interface {
+	pulumi.Input
+
+	ToGetAdbsCharacterSetsCharacterSetOutput() GetAdbsCharacterSetsCharacterSetOutput
+	ToGetAdbsCharacterSetsCharacterSetOutputWithContext(context.Context) GetAdbsCharacterSetsCharacterSetOutput
+}
+
+type GetAdbsCharacterSetsCharacterSetArgs struct {
+	// A valid Oracle character set.
+	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
+}
+
+func (GetAdbsCharacterSetsCharacterSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAdbsCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (i GetAdbsCharacterSetsCharacterSetArgs) ToGetAdbsCharacterSetsCharacterSetOutput() GetAdbsCharacterSetsCharacterSetOutput {
+	return i.ToGetAdbsCharacterSetsCharacterSetOutputWithContext(context.Background())
+}
+
+func (i GetAdbsCharacterSetsCharacterSetArgs) ToGetAdbsCharacterSetsCharacterSetOutputWithContext(ctx context.Context) GetAdbsCharacterSetsCharacterSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAdbsCharacterSetsCharacterSetOutput)
+}
+
+// GetAdbsCharacterSetsCharacterSetArrayInput is an input type that accepts GetAdbsCharacterSetsCharacterSetArray and GetAdbsCharacterSetsCharacterSetArrayOutput values.
+// You can construct a concrete instance of `GetAdbsCharacterSetsCharacterSetArrayInput` via:
+//
+//	GetAdbsCharacterSetsCharacterSetArray{ GetAdbsCharacterSetsCharacterSetArgs{...} }
+type GetAdbsCharacterSetsCharacterSetArrayInput interface {
+	pulumi.Input
+
+	ToGetAdbsCharacterSetsCharacterSetArrayOutput() GetAdbsCharacterSetsCharacterSetArrayOutput
+	ToGetAdbsCharacterSetsCharacterSetArrayOutputWithContext(context.Context) GetAdbsCharacterSetsCharacterSetArrayOutput
+}
+
+type GetAdbsCharacterSetsCharacterSetArray []GetAdbsCharacterSetsCharacterSetInput
+
+func (GetAdbsCharacterSetsCharacterSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAdbsCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (i GetAdbsCharacterSetsCharacterSetArray) ToGetAdbsCharacterSetsCharacterSetArrayOutput() GetAdbsCharacterSetsCharacterSetArrayOutput {
+	return i.ToGetAdbsCharacterSetsCharacterSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetAdbsCharacterSetsCharacterSetArray) ToGetAdbsCharacterSetsCharacterSetArrayOutputWithContext(ctx context.Context) GetAdbsCharacterSetsCharacterSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAdbsCharacterSetsCharacterSetArrayOutput)
+}
+
+type GetAdbsCharacterSetsCharacterSetOutput struct{ *pulumi.OutputState }
+
+func (GetAdbsCharacterSetsCharacterSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAdbsCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (o GetAdbsCharacterSetsCharacterSetOutput) ToGetAdbsCharacterSetsCharacterSetOutput() GetAdbsCharacterSetsCharacterSetOutput {
+	return o
+}
+
+func (o GetAdbsCharacterSetsCharacterSetOutput) ToGetAdbsCharacterSetsCharacterSetOutputWithContext(ctx context.Context) GetAdbsCharacterSetsCharacterSetOutput {
+	return o
+}
+
+// A valid Oracle character set.
+func (o GetAdbsCharacterSetsCharacterSetOutput) CharacterSet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAdbsCharacterSetsCharacterSet) string { return v.CharacterSet }).(pulumi.StringOutput)
+}
+
+type GetAdbsCharacterSetsCharacterSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAdbsCharacterSetsCharacterSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAdbsCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (o GetAdbsCharacterSetsCharacterSetArrayOutput) ToGetAdbsCharacterSetsCharacterSetArrayOutput() GetAdbsCharacterSetsCharacterSetArrayOutput {
+	return o
+}
+
+func (o GetAdbsCharacterSetsCharacterSetArrayOutput) ToGetAdbsCharacterSetsCharacterSetArrayOutputWithContext(ctx context.Context) GetAdbsCharacterSetsCharacterSetArrayOutput {
+	return o
+}
+
+func (o GetAdbsCharacterSetsCharacterSetArrayOutput) Index(i pulumi.IntInput) GetAdbsCharacterSetsCharacterSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAdbsCharacterSetsCharacterSet {
+		return vs[0].([]GetAdbsCharacterSetsCharacterSet)[vs[1].(int)]
+	}).(GetAdbsCharacterSetsCharacterSetOutput)
+}
+
+type GetAdbsNationalCharacterSetsCharacterSet struct {
+	// A valid Oracle national character set.
+	CharacterSet string `pulumi:"characterSet"`
+}
+
+// GetAdbsNationalCharacterSetsCharacterSetInput is an input type that accepts GetAdbsNationalCharacterSetsCharacterSetArgs and GetAdbsNationalCharacterSetsCharacterSetOutput values.
+// You can construct a concrete instance of `GetAdbsNationalCharacterSetsCharacterSetInput` via:
+//
+//	GetAdbsNationalCharacterSetsCharacterSetArgs{...}
+type GetAdbsNationalCharacterSetsCharacterSetInput interface {
+	pulumi.Input
+
+	ToGetAdbsNationalCharacterSetsCharacterSetOutput() GetAdbsNationalCharacterSetsCharacterSetOutput
+	ToGetAdbsNationalCharacterSetsCharacterSetOutputWithContext(context.Context) GetAdbsNationalCharacterSetsCharacterSetOutput
+}
+
+type GetAdbsNationalCharacterSetsCharacterSetArgs struct {
+	// A valid Oracle national character set.
+	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
+}
+
+func (GetAdbsNationalCharacterSetsCharacterSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (i GetAdbsNationalCharacterSetsCharacterSetArgs) ToGetAdbsNationalCharacterSetsCharacterSetOutput() GetAdbsNationalCharacterSetsCharacterSetOutput {
+	return i.ToGetAdbsNationalCharacterSetsCharacterSetOutputWithContext(context.Background())
+}
+
+func (i GetAdbsNationalCharacterSetsCharacterSetArgs) ToGetAdbsNationalCharacterSetsCharacterSetOutputWithContext(ctx context.Context) GetAdbsNationalCharacterSetsCharacterSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAdbsNationalCharacterSetsCharacterSetOutput)
+}
+
+// GetAdbsNationalCharacterSetsCharacterSetArrayInput is an input type that accepts GetAdbsNationalCharacterSetsCharacterSetArray and GetAdbsNationalCharacterSetsCharacterSetArrayOutput values.
+// You can construct a concrete instance of `GetAdbsNationalCharacterSetsCharacterSetArrayInput` via:
+//
+//	GetAdbsNationalCharacterSetsCharacterSetArray{ GetAdbsNationalCharacterSetsCharacterSetArgs{...} }
+type GetAdbsNationalCharacterSetsCharacterSetArrayInput interface {
+	pulumi.Input
+
+	ToGetAdbsNationalCharacterSetsCharacterSetArrayOutput() GetAdbsNationalCharacterSetsCharacterSetArrayOutput
+	ToGetAdbsNationalCharacterSetsCharacterSetArrayOutputWithContext(context.Context) GetAdbsNationalCharacterSetsCharacterSetArrayOutput
+}
+
+type GetAdbsNationalCharacterSetsCharacterSetArray []GetAdbsNationalCharacterSetsCharacterSetInput
+
+func (GetAdbsNationalCharacterSetsCharacterSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAdbsNationalCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (i GetAdbsNationalCharacterSetsCharacterSetArray) ToGetAdbsNationalCharacterSetsCharacterSetArrayOutput() GetAdbsNationalCharacterSetsCharacterSetArrayOutput {
+	return i.ToGetAdbsNationalCharacterSetsCharacterSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetAdbsNationalCharacterSetsCharacterSetArray) ToGetAdbsNationalCharacterSetsCharacterSetArrayOutputWithContext(ctx context.Context) GetAdbsNationalCharacterSetsCharacterSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAdbsNationalCharacterSetsCharacterSetArrayOutput)
+}
+
+type GetAdbsNationalCharacterSetsCharacterSetOutput struct{ *pulumi.OutputState }
+
+func (GetAdbsNationalCharacterSetsCharacterSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (o GetAdbsNationalCharacterSetsCharacterSetOutput) ToGetAdbsNationalCharacterSetsCharacterSetOutput() GetAdbsNationalCharacterSetsCharacterSetOutput {
+	return o
+}
+
+func (o GetAdbsNationalCharacterSetsCharacterSetOutput) ToGetAdbsNationalCharacterSetsCharacterSetOutputWithContext(ctx context.Context) GetAdbsNationalCharacterSetsCharacterSetOutput {
+	return o
+}
+
+// A valid Oracle national character set.
+func (o GetAdbsNationalCharacterSetsCharacterSetOutput) CharacterSet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAdbsNationalCharacterSetsCharacterSet) string { return v.CharacterSet }).(pulumi.StringOutput)
+}
+
+type GetAdbsNationalCharacterSetsCharacterSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAdbsNationalCharacterSetsCharacterSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAdbsNationalCharacterSetsCharacterSet)(nil)).Elem()
+}
+
+func (o GetAdbsNationalCharacterSetsCharacterSetArrayOutput) ToGetAdbsNationalCharacterSetsCharacterSetArrayOutput() GetAdbsNationalCharacterSetsCharacterSetArrayOutput {
+	return o
+}
+
+func (o GetAdbsNationalCharacterSetsCharacterSetArrayOutput) ToGetAdbsNationalCharacterSetsCharacterSetArrayOutputWithContext(ctx context.Context) GetAdbsNationalCharacterSetsCharacterSetArrayOutput {
+	return o
+}
+
+func (o GetAdbsNationalCharacterSetsCharacterSetArrayOutput) Index(i pulumi.IntInput) GetAdbsNationalCharacterSetsCharacterSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAdbsNationalCharacterSetsCharacterSet {
+		return vs[0].([]GetAdbsNationalCharacterSetsCharacterSet)[vs[1].(int)]
+	}).(GetAdbsNationalCharacterSetsCharacterSetOutput)
+}
+
 type GetCloudVmClusterDataCollectionOption struct {
 	// Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
 	DiagnosticsEventsEnabled bool `pulumi:"diagnosticsEventsEnabled"`
@@ -693,6 +887,283 @@ func (o GetCloudVmClusterIormConfigCachDbPlanArrayOutput) Index(i pulumi.IntInpu
 	}).(GetCloudVmClusterIormConfigCachDbPlanOutput)
 }
 
+type GetDbNodesDbNode struct {
+	// Additional information about the planned maintenance.
+	AdditionalDetails string `pulumi:"additionalDetails"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+	BackupIpId    string `pulumi:"backupIpId"`
+	BackupVnic2Id string `pulumi:"backupVnic2Id"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup VNIC.
+	BackupVnicId string `pulumi:"backupVnicId"`
+	// The number of CPU cores enabled on the DB node.
+	CpuCoreCount int `pulumi:"cpuCoreCount"`
+	// The allocated local node storage in GBs on the DB node.
+	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ExaCC DB server associated with the database node.
+	DbServerId string `pulumi:"dbServerId"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
+	DbSystemId string `pulumi:"dbSystemId"`
+	// The name of the Fault Domain the instance is contained in.
+	FaultDomain string `pulumi:"faultDomain"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+	HostIpId string `pulumi:"hostIpId"`
+	Hostname string `pulumi:"hostname"`
+	// Information about the current lifecycle details.
+	LifecycleDetails string `pulumi:"lifecycleDetails"`
+	// Information about the current lifecycle state.
+	LifecycleState string `pulumi:"lifecycleState"`
+	// The type of database node maintenance.
+	MaintenanceType string `pulumi:"maintenanceType"`
+	// The allocated memory in GBs on the DB Node.
+	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
+	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB node.
+	Ocid string `pulumi:"ocid"`
+	// The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
+	SoftwareStorageSizeInGb int `pulumi:"softwareStorageSizeInGb"`
+	// The date and time that the DB node was created.
+	TimeCreated string `pulumi:"timeCreated"`
+	// End date and time of maintenance window.
+	TimeMaintenanceWindowEnd string `pulumi:"timeMaintenanceWindowEnd"`
+	// Start date and time of maintenance window.
+	TimeMaintenanceWindowStart string `pulumi:"timeMaintenanceWindowStart"`
+	Vnic2Id                    string `pulumi:"vnic2Id"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+	VnicId string `pulumi:"vnicId"`
+}
+
+// GetDbNodesDbNodeInput is an input type that accepts GetDbNodesDbNodeArgs and GetDbNodesDbNodeOutput values.
+// You can construct a concrete instance of `GetDbNodesDbNodeInput` via:
+//
+//	GetDbNodesDbNodeArgs{...}
+type GetDbNodesDbNodeInput interface {
+	pulumi.Input
+
+	ToGetDbNodesDbNodeOutput() GetDbNodesDbNodeOutput
+	ToGetDbNodesDbNodeOutputWithContext(context.Context) GetDbNodesDbNodeOutput
+}
+
+type GetDbNodesDbNodeArgs struct {
+	// Additional information about the planned maintenance.
+	AdditionalDetails pulumi.StringInput `pulumi:"additionalDetails"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+	BackupIpId    pulumi.StringInput `pulumi:"backupIpId"`
+	BackupVnic2Id pulumi.StringInput `pulumi:"backupVnic2Id"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup VNIC.
+	BackupVnicId pulumi.StringInput `pulumi:"backupVnicId"`
+	// The number of CPU cores enabled on the DB node.
+	CpuCoreCount pulumi.IntInput `pulumi:"cpuCoreCount"`
+	// The allocated local node storage in GBs on the DB node.
+	DbNodeStorageSizeInGbs pulumi.IntInput `pulumi:"dbNodeStorageSizeInGbs"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ExaCC DB server associated with the database node.
+	DbServerId pulumi.StringInput `pulumi:"dbServerId"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
+	DbSystemId pulumi.StringInput `pulumi:"dbSystemId"`
+	// The name of the Fault Domain the instance is contained in.
+	FaultDomain pulumi.StringInput `pulumi:"faultDomain"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+	HostIpId pulumi.StringInput `pulumi:"hostIpId"`
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// Information about the current lifecycle details.
+	LifecycleDetails pulumi.StringInput `pulumi:"lifecycleDetails"`
+	// Information about the current lifecycle state.
+	LifecycleState pulumi.StringInput `pulumi:"lifecycleState"`
+	// The type of database node maintenance.
+	MaintenanceType pulumi.StringInput `pulumi:"maintenanceType"`
+	// The allocated memory in GBs on the DB Node.
+	MemorySizeInGbs pulumi.IntInput `pulumi:"memorySizeInGbs"`
+	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB node.
+	Ocid pulumi.StringInput `pulumi:"ocid"`
+	// The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
+	SoftwareStorageSizeInGb pulumi.IntInput `pulumi:"softwareStorageSizeInGb"`
+	// The date and time that the DB node was created.
+	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+	// End date and time of maintenance window.
+	TimeMaintenanceWindowEnd pulumi.StringInput `pulumi:"timeMaintenanceWindowEnd"`
+	// Start date and time of maintenance window.
+	TimeMaintenanceWindowStart pulumi.StringInput `pulumi:"timeMaintenanceWindowStart"`
+	Vnic2Id                    pulumi.StringInput `pulumi:"vnic2Id"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+	VnicId pulumi.StringInput `pulumi:"vnicId"`
+}
+
+func (GetDbNodesDbNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (i GetDbNodesDbNodeArgs) ToGetDbNodesDbNodeOutput() GetDbNodesDbNodeOutput {
+	return i.ToGetDbNodesDbNodeOutputWithContext(context.Background())
+}
+
+func (i GetDbNodesDbNodeArgs) ToGetDbNodesDbNodeOutputWithContext(ctx context.Context) GetDbNodesDbNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbNodesDbNodeOutput)
+}
+
+// GetDbNodesDbNodeArrayInput is an input type that accepts GetDbNodesDbNodeArray and GetDbNodesDbNodeArrayOutput values.
+// You can construct a concrete instance of `GetDbNodesDbNodeArrayInput` via:
+//
+//	GetDbNodesDbNodeArray{ GetDbNodesDbNodeArgs{...} }
+type GetDbNodesDbNodeArrayInput interface {
+	pulumi.Input
+
+	ToGetDbNodesDbNodeArrayOutput() GetDbNodesDbNodeArrayOutput
+	ToGetDbNodesDbNodeArrayOutputWithContext(context.Context) GetDbNodesDbNodeArrayOutput
+}
+
+type GetDbNodesDbNodeArray []GetDbNodesDbNodeInput
+
+func (GetDbNodesDbNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (i GetDbNodesDbNodeArray) ToGetDbNodesDbNodeArrayOutput() GetDbNodesDbNodeArrayOutput {
+	return i.ToGetDbNodesDbNodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbNodesDbNodeArray) ToGetDbNodesDbNodeArrayOutputWithContext(ctx context.Context) GetDbNodesDbNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbNodesDbNodeArrayOutput)
+}
+
+type GetDbNodesDbNodeOutput struct{ *pulumi.OutputState }
+
+func (GetDbNodesDbNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (o GetDbNodesDbNodeOutput) ToGetDbNodesDbNodeOutput() GetDbNodesDbNodeOutput {
+	return o
+}
+
+func (o GetDbNodesDbNodeOutput) ToGetDbNodesDbNodeOutputWithContext(ctx context.Context) GetDbNodesDbNodeOutput {
+	return o
+}
+
+// Additional information about the planned maintenance.
+func (o GetDbNodesDbNodeOutput) AdditionalDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.AdditionalDetails }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+func (o GetDbNodesDbNodeOutput) BackupIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupIpId }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) BackupVnic2Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupVnic2Id }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup VNIC.
+func (o GetDbNodesDbNodeOutput) BackupVnicId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupVnicId }).(pulumi.StringOutput)
+}
+
+// The number of CPU cores enabled on the DB node.
+func (o GetDbNodesDbNodeOutput) CpuCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.CpuCoreCount }).(pulumi.IntOutput)
+}
+
+// The allocated local node storage in GBs on the DB node.
+func (o GetDbNodesDbNodeOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ExaCC DB server associated with the database node.
+func (o GetDbNodesDbNodeOutput) DbServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.DbServerId }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
+func (o GetDbNodesDbNodeOutput) DbSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.DbSystemId }).(pulumi.StringOutput)
+}
+
+// The name of the Fault Domain the instance is contained in.
+func (o GetDbNodesDbNodeOutput) FaultDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.FaultDomain }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host IP address associated with the database node. Use this OCID with either the [GetPrivateIp](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp) or the [GetPublicIpByPrivateIpId](https://docs.cloud.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId) API to get the IP address needed to make a database connection.
+func (o GetDbNodesDbNodeOutput) HostIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.HostIpId }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// Information about the current lifecycle details.
+func (o GetDbNodesDbNodeOutput) LifecycleDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.LifecycleDetails }).(pulumi.StringOutput)
+}
+
+// Information about the current lifecycle state.
+func (o GetDbNodesDbNodeOutput) LifecycleState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.LifecycleState }).(pulumi.StringOutput)
+}
+
+// The type of database node maintenance.
+func (o GetDbNodesDbNodeOutput) MaintenanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.MaintenanceType }).(pulumi.StringOutput)
+}
+
+// The allocated memory in GBs on the DB Node.
+func (o GetDbNodesDbNodeOutput) MemorySizeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
+}
+
+// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB node.
+func (o GetDbNodesDbNodeOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+// The size (in GB) of the block storage volume allocation for the DB system. This attribute applies only for virtual machine DB systems.
+func (o GetDbNodesDbNodeOutput) SoftwareStorageSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.SoftwareStorageSizeInGb }).(pulumi.IntOutput)
+}
+
+// The date and time that the DB node was created.
+func (o GetDbNodesDbNodeOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// End date and time of maintenance window.
+func (o GetDbNodesDbNodeOutput) TimeMaintenanceWindowEnd() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeMaintenanceWindowEnd }).(pulumi.StringOutput)
+}
+
+// Start date and time of maintenance window.
+func (o GetDbNodesDbNodeOutput) TimeMaintenanceWindowStart() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeMaintenanceWindowStart }).(pulumi.StringOutput)
+}
+
+func (o GetDbNodesDbNodeOutput) Vnic2Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Vnic2Id }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC.
+func (o GetDbNodesDbNodeOutput) VnicId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.VnicId }).(pulumi.StringOutput)
+}
+
+type GetDbNodesDbNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbNodesDbNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbNodesDbNode)(nil)).Elem()
+}
+
+func (o GetDbNodesDbNodeArrayOutput) ToGetDbNodesDbNodeArrayOutput() GetDbNodesDbNodeArrayOutput {
+	return o
+}
+
+func (o GetDbNodesDbNodeArrayOutput) ToGetDbNodesDbNodeArrayOutputWithContext(ctx context.Context) GetDbNodesDbNodeArrayOutput {
+	return o
+}
+
+func (o GetDbNodesDbNodeArrayOutput) Index(i pulumi.IntInput) GetDbNodesDbNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbNodesDbNode {
+		return vs[0].([]GetDbNodesDbNode)[vs[1].(int)]
+	}).(GetDbNodesDbNodeOutput)
+}
+
 type GetDbServersDbServer struct {
 	// The list of [OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Virtual Machines associated with the DB Server.
 	AutonomousVirtualMachineDs []string `pulumi:"autonomousVirtualMachineDs"`
@@ -723,8 +1194,7 @@ type GetDbServersDbServer struct {
 	// The allocated memory in GBs on the DB Server.
 	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB Server.
-	Ocid              string `pulumi:"ocid"`
-	ProvisioningState string `pulumi:"provisioningState"`
+	Ocid string `pulumi:"ocid"`
 	// The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
 	Shape string `pulumi:"shape"`
 	// The date and time that the DB Server was created.
@@ -774,8 +1244,7 @@ type GetDbServersDbServerArgs struct {
 	// The allocated memory in GBs on the DB Server.
 	MemorySizeInGbs pulumi.IntInput `pulumi:"memorySizeInGbs"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the DB Server.
-	Ocid              pulumi.StringInput `pulumi:"ocid"`
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	Ocid pulumi.StringInput `pulumi:"ocid"`
 	// The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
 	Shape pulumi.StringInput `pulumi:"shape"`
 	// The date and time that the DB Server was created.
@@ -910,10 +1379,6 @@ func (o GetDbServersDbServerOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Ocid }).(pulumi.StringOutput)
 }
 
-func (o GetDbServersDbServerOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
 // The shape of the DB Server. The shape determines the amount of CPU, storage, and memory resources available.
 func (o GetDbServersDbServerOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Shape }).(pulumi.StringOutput)
@@ -947,6 +1412,274 @@ func (o GetDbServersDbServerArrayOutput) Index(i pulumi.IntInput) GetDbServersDb
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbServersDbServer {
 		return vs[0].([]GetDbServersDbServer)[vs[1].(int)]
 	}).(GetDbServersDbServerOutput)
+}
+
+type GetDbSystemShapesDbSystemShape struct {
+	// The maximum number of CPU cores that can be enabled on the DB system for this shape.
+	AvailableCoreCount int `pulumi:"availableCoreCount"`
+	// The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
+	AvailableCoreCountPerNode int `pulumi:"availableCoreCountPerNode"`
+	// The maximum data storage that can be enabled for this shape.
+	AvailableDataStorageInTbs int `pulumi:"availableDataStorageInTbs"`
+	// The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.
+	AvailableDataStoragePerServerInTbs int `pulumi:"availableDataStoragePerServerInTbs"`
+	// The maximum DB Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+	AvailableDbNodePerNodeInGbs int `pulumi:"availableDbNodePerNodeInGbs"`
+	// The maximum DB Node storage that can be enabled for this shape.
+	AvailableDbNodeStorageInGbs int `pulumi:"availableDbNodeStorageInGbs"`
+	// The maximum memory that can be enabled for this shape.
+	AvailableMemoryInGbs int `pulumi:"availableMemoryInGbs"`
+	// The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+	AvailableMemoryPerNodeInGbs int `pulumi:"availableMemoryPerNodeInGbs"`
+	// The discrete number by which the CPU core count for this shape can be increased or decreased.
+	CoreCountIncrement int `pulumi:"coreCountIncrement"`
+	// The maximum number of compute servers available for this shape.
+	MaximumNodeCount int `pulumi:"maximumNodeCount"`
+	// The maximum number of Exadata storage servers available for the Exadata infrastructure.
+	MaximumStorageCount int `pulumi:"maximumStorageCount"`
+	// The minimum number of CPU cores that can be enabled on the DB system for this shape.
+	MinimumCoreCount int `pulumi:"minimumCoreCount"`
+	// The minimum number of CPU cores that can be enabled per node for this shape.
+	MinimumCoreCountPerNode int `pulumi:"minimumCoreCountPerNode"`
+	// The minimum data storage that need be allocated for this shape.
+	MinimumDataStorageInTbs int `pulumi:"minimumDataStorageInTbs"`
+	// The minimum DB Node storage that need be allocated per node for this shape.
+	MinimumDbNodeStoragePerNodeInGbs int `pulumi:"minimumDbNodeStoragePerNodeInGbs"`
+	// The minimum memory that need be allocated per node for this shape.
+	MinimumMemoryPerNodeInGbs int `pulumi:"minimumMemoryPerNodeInGbs"`
+	// The minimum number of compute servers available for this shape.
+	MinimumNodeCount int `pulumi:"minimumNodeCount"`
+	// The minimum number of Exadata storage servers available for the Exadata infrastructure.
+	MinimumStorageCount int `pulumi:"minimumStorageCount"`
+	// The runtime minimum number of compute servers available for this shape.
+	RuntimeMinimumCoreCount int `pulumi:"runtimeMinimumCoreCount"`
+	// The family of the shape used for the DB system.
+	ShapeFamily string `pulumi:"shapeFamily"`
+}
+
+// GetDbSystemShapesDbSystemShapeInput is an input type that accepts GetDbSystemShapesDbSystemShapeArgs and GetDbSystemShapesDbSystemShapeOutput values.
+// You can construct a concrete instance of `GetDbSystemShapesDbSystemShapeInput` via:
+//
+//	GetDbSystemShapesDbSystemShapeArgs{...}
+type GetDbSystemShapesDbSystemShapeInput interface {
+	pulumi.Input
+
+	ToGetDbSystemShapesDbSystemShapeOutput() GetDbSystemShapesDbSystemShapeOutput
+	ToGetDbSystemShapesDbSystemShapeOutputWithContext(context.Context) GetDbSystemShapesDbSystemShapeOutput
+}
+
+type GetDbSystemShapesDbSystemShapeArgs struct {
+	// The maximum number of CPU cores that can be enabled on the DB system for this shape.
+	AvailableCoreCount pulumi.IntInput `pulumi:"availableCoreCount"`
+	// The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
+	AvailableCoreCountPerNode pulumi.IntInput `pulumi:"availableCoreCountPerNode"`
+	// The maximum data storage that can be enabled for this shape.
+	AvailableDataStorageInTbs pulumi.IntInput `pulumi:"availableDataStorageInTbs"`
+	// The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.
+	AvailableDataStoragePerServerInTbs pulumi.IntInput `pulumi:"availableDataStoragePerServerInTbs"`
+	// The maximum DB Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+	AvailableDbNodePerNodeInGbs pulumi.IntInput `pulumi:"availableDbNodePerNodeInGbs"`
+	// The maximum DB Node storage that can be enabled for this shape.
+	AvailableDbNodeStorageInGbs pulumi.IntInput `pulumi:"availableDbNodeStorageInGbs"`
+	// The maximum memory that can be enabled for this shape.
+	AvailableMemoryInGbs pulumi.IntInput `pulumi:"availableMemoryInGbs"`
+	// The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+	AvailableMemoryPerNodeInGbs pulumi.IntInput `pulumi:"availableMemoryPerNodeInGbs"`
+	// The discrete number by which the CPU core count for this shape can be increased or decreased.
+	CoreCountIncrement pulumi.IntInput `pulumi:"coreCountIncrement"`
+	// The maximum number of compute servers available for this shape.
+	MaximumNodeCount pulumi.IntInput `pulumi:"maximumNodeCount"`
+	// The maximum number of Exadata storage servers available for the Exadata infrastructure.
+	MaximumStorageCount pulumi.IntInput `pulumi:"maximumStorageCount"`
+	// The minimum number of CPU cores that can be enabled on the DB system for this shape.
+	MinimumCoreCount pulumi.IntInput `pulumi:"minimumCoreCount"`
+	// The minimum number of CPU cores that can be enabled per node for this shape.
+	MinimumCoreCountPerNode pulumi.IntInput `pulumi:"minimumCoreCountPerNode"`
+	// The minimum data storage that need be allocated for this shape.
+	MinimumDataStorageInTbs pulumi.IntInput `pulumi:"minimumDataStorageInTbs"`
+	// The minimum DB Node storage that need be allocated per node for this shape.
+	MinimumDbNodeStoragePerNodeInGbs pulumi.IntInput `pulumi:"minimumDbNodeStoragePerNodeInGbs"`
+	// The minimum memory that need be allocated per node for this shape.
+	MinimumMemoryPerNodeInGbs pulumi.IntInput `pulumi:"minimumMemoryPerNodeInGbs"`
+	// The minimum number of compute servers available for this shape.
+	MinimumNodeCount pulumi.IntInput `pulumi:"minimumNodeCount"`
+	// The minimum number of Exadata storage servers available for the Exadata infrastructure.
+	MinimumStorageCount pulumi.IntInput `pulumi:"minimumStorageCount"`
+	// The runtime minimum number of compute servers available for this shape.
+	RuntimeMinimumCoreCount pulumi.IntInput `pulumi:"runtimeMinimumCoreCount"`
+	// The family of the shape used for the DB system.
+	ShapeFamily pulumi.StringInput `pulumi:"shapeFamily"`
+}
+
+func (GetDbSystemShapesDbSystemShapeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (i GetDbSystemShapesDbSystemShapeArgs) ToGetDbSystemShapesDbSystemShapeOutput() GetDbSystemShapesDbSystemShapeOutput {
+	return i.ToGetDbSystemShapesDbSystemShapeOutputWithContext(context.Background())
+}
+
+func (i GetDbSystemShapesDbSystemShapeArgs) ToGetDbSystemShapesDbSystemShapeOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbSystemShapesDbSystemShapeOutput)
+}
+
+// GetDbSystemShapesDbSystemShapeArrayInput is an input type that accepts GetDbSystemShapesDbSystemShapeArray and GetDbSystemShapesDbSystemShapeArrayOutput values.
+// You can construct a concrete instance of `GetDbSystemShapesDbSystemShapeArrayInput` via:
+//
+//	GetDbSystemShapesDbSystemShapeArray{ GetDbSystemShapesDbSystemShapeArgs{...} }
+type GetDbSystemShapesDbSystemShapeArrayInput interface {
+	pulumi.Input
+
+	ToGetDbSystemShapesDbSystemShapeArrayOutput() GetDbSystemShapesDbSystemShapeArrayOutput
+	ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(context.Context) GetDbSystemShapesDbSystemShapeArrayOutput
+}
+
+type GetDbSystemShapesDbSystemShapeArray []GetDbSystemShapesDbSystemShapeInput
+
+func (GetDbSystemShapesDbSystemShapeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (i GetDbSystemShapesDbSystemShapeArray) ToGetDbSystemShapesDbSystemShapeArrayOutput() GetDbSystemShapesDbSystemShapeArrayOutput {
+	return i.ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDbSystemShapesDbSystemShapeArray) ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDbSystemShapesDbSystemShapeArrayOutput)
+}
+
+type GetDbSystemShapesDbSystemShapeOutput struct{ *pulumi.OutputState }
+
+func (GetDbSystemShapesDbSystemShapeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOutput() GetDbSystemShapesDbSystemShapeOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeOutput {
+	return o
+}
+
+// The maximum number of CPU cores that can be enabled on the DB system for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCount }).(pulumi.IntOutput)
+}
+
+// The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCountPerNode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCountPerNode }).(pulumi.IntOutput)
+}
+
+// The maximum data storage that can be enabled for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStorageInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStorageInTbs }).(pulumi.IntOutput)
+}
+
+// The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStoragePerServerInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStoragePerServerInTbs }).(pulumi.IntOutput)
+}
+
+// The maximum DB Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodePerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodePerNodeInGbs }).(pulumi.IntOutput)
+}
+
+// The maximum DB Node storage that can be enabled for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodeStorageInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodeStorageInGbs }).(pulumi.IntOutput)
+}
+
+// The maximum memory that can be enabled for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryInGbs }).(pulumi.IntOutput)
+}
+
+// The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryPerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryPerNodeInGbs }).(pulumi.IntOutput)
+}
+
+// The discrete number by which the CPU core count for this shape can be increased or decreased.
+func (o GetDbSystemShapesDbSystemShapeOutput) CoreCountIncrement() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.CoreCountIncrement }).(pulumi.IntOutput)
+}
+
+// The maximum number of compute servers available for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MaximumNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaximumNodeCount }).(pulumi.IntOutput)
+}
+
+// The maximum number of Exadata storage servers available for the Exadata infrastructure.
+func (o GetDbSystemShapesDbSystemShapeOutput) MaximumStorageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaximumStorageCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of CPU cores that can be enabled on the DB system for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumCoreCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of CPU cores that can be enabled per node for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumCoreCountPerNode() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumCoreCountPerNode }).(pulumi.IntOutput)
+}
+
+// The minimum data storage that need be allocated for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumDataStorageInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumDataStorageInTbs }).(pulumi.IntOutput)
+}
+
+// The minimum DB Node storage that need be allocated per node for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumDbNodeStoragePerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumDbNodeStoragePerNodeInGbs }).(pulumi.IntOutput)
+}
+
+// The minimum memory that need be allocated per node for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumMemoryPerNodeInGbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumMemoryPerNodeInGbs }).(pulumi.IntOutput)
+}
+
+// The minimum number of compute servers available for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumNodeCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of Exadata storage servers available for the Exadata infrastructure.
+func (o GetDbSystemShapesDbSystemShapeOutput) MinimumStorageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumStorageCount }).(pulumi.IntOutput)
+}
+
+// The runtime minimum number of compute servers available for this shape.
+func (o GetDbSystemShapesDbSystemShapeOutput) RuntimeMinimumCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.RuntimeMinimumCoreCount }).(pulumi.IntOutput)
+}
+
+// The family of the shape used for the DB system.
+func (o GetDbSystemShapesDbSystemShapeOutput) ShapeFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeFamily }).(pulumi.StringOutput)
+}
+
+type GetDbSystemShapesDbSystemShapeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDbSystemShapesDbSystemShapeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDbSystemShapesDbSystemShape)(nil)).Elem()
+}
+
+func (o GetDbSystemShapesDbSystemShapeArrayOutput) ToGetDbSystemShapesDbSystemShapeArrayOutput() GetDbSystemShapesDbSystemShapeArrayOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeArrayOutput) ToGetDbSystemShapesDbSystemShapeArrayOutputWithContext(ctx context.Context) GetDbSystemShapesDbSystemShapeArrayOutput {
+	return o
+}
+
+func (o GetDbSystemShapesDbSystemShapeArrayOutput) Index(i pulumi.IntInput) GetDbSystemShapesDbSystemShapeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbSystemShapesDbSystemShape {
+		return vs[0].([]GetDbSystemShapesDbSystemShape)[vs[1].(int)]
+	}).(GetDbSystemShapesDbSystemShapeOutput)
 }
 
 type GetExadataInfrastructureEstimatedPatchingTime struct {
@@ -1255,14 +1988,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterDataCollectionOptionsPtrInput)(nil)).Elem(), CloudVmClusterDataCollectionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), ExadataInfrastructureMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExadataInfrastructureMaintenanceWindowArrayInput)(nil)).Elem(), ExadataInfrastructureMaintenanceWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionArrayInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeInput)(nil)).Elem(), GetDbNodesDbNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbNodesDbNodeArrayInput)(nil)).Elem(), GetDbNodesDbNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerInput)(nil)).Elem(), GetDbServersDbServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerArrayInput)(nil)).Elem(), GetDbServersDbServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbSystemShapesDbSystemShapeInput)(nil)).Elem(), GetDbSystemShapesDbSystemShapeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDbSystemShapesDbSystemShapeArrayInput)(nil)).Elem(), GetDbSystemShapesDbSystemShapeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureEstimatedPatchingTimeInput)(nil)).Elem(), GetExadataInfrastructureEstimatedPatchingTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureEstimatedPatchingTimeArrayInput)(nil)).Elem(), GetExadataInfrastructureEstimatedPatchingTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), GetExadataInfrastructureMaintenanceWindowArgs{})
@@ -1271,14 +2012,22 @@ func init() {
 	pulumi.RegisterOutputType(CloudVmClusterDataCollectionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ExadataInfrastructureMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(ExadataInfrastructureMaintenanceWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetOutput{})
+	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetArrayOutput{})
+	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetOutput{})
+	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanArrayOutput{})
+	pulumi.RegisterOutputType(GetDbNodesDbNodeOutput{})
+	pulumi.RegisterOutputType(GetDbNodesDbNodeArrayOutput{})
 	pulumi.RegisterOutputType(GetDbServersDbServerOutput{})
 	pulumi.RegisterOutputType(GetDbServersDbServerArrayOutput{})
+	pulumi.RegisterOutputType(GetDbSystemShapesDbSystemShapeOutput{})
+	pulumi.RegisterOutputType(GetDbSystemShapesDbSystemShapeArrayOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureEstimatedPatchingTimeOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureEstimatedPatchingTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureMaintenanceWindowOutput{})

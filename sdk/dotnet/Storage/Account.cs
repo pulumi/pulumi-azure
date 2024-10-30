@@ -795,6 +795,8 @@ namespace Pulumi.Azure.Storage
         /// A `static_website` block as defined below.
         /// 
         /// &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+        /// 
+        /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Output("staticWebsite")]
         public Output<Outputs.AccountStaticWebsite?> StaticWebsite { get; private set; } = null!;
@@ -1105,6 +1107,8 @@ namespace Pulumi.Azure.Storage
         /// A `static_website` block as defined below.
         /// 
         /// &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+        /// 
+        /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Input("staticWebsite")]
         public Input<Inputs.AccountStaticWebsiteArgs>? StaticWebsite { get; set; }
@@ -1866,6 +1870,8 @@ namespace Pulumi.Azure.Storage
         /// A `static_website` block as defined below.
         /// 
         /// &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+        /// 
+        /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Input("staticWebsite")]
         public Input<Inputs.AccountStaticWebsiteGetArgs>? StaticWebsite { get; set; }

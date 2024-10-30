@@ -261,7 +261,7 @@ if not MYPY:
         """
         threshold_type: NotRequired[pulumi.Input[str]]
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
 elif False:
     BudgetManagementGroupNotificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -279,7 +279,7 @@ class BudgetManagementGroupNotificationArgs:
         :param pulumi.Input[str] operator: The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
         :param pulumi.Input[int] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
         :param pulumi.Input[bool] enabled: Should the notification be enabled? Defaults to `true`.
-        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "operator", operator)
@@ -341,7 +341,7 @@ class BudgetManagementGroupNotificationArgs:
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         return pulumi.get(self, "threshold_type")
 
@@ -623,7 +623,7 @@ if not MYPY:
         """
         threshold_type: NotRequired[pulumi.Input[str]]
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
 elif False:
     BudgetResourceGroupNotificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -647,7 +647,7 @@ class BudgetResourceGroupNotificationArgs:
         :param pulumi.Input[bool] enabled: Should the notification be enabled? Defaults to `true`.
                
                > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
-        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -740,7 +740,7 @@ class BudgetResourceGroupNotificationArgs:
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         return pulumi.get(self, "threshold_type")
 
@@ -1022,7 +1022,7 @@ if not MYPY:
         """
         threshold_type: NotRequired[pulumi.Input[str]]
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
 elif False:
     BudgetSubscriptionNotificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1046,7 +1046,7 @@ class BudgetSubscriptionNotificationArgs:
         :param pulumi.Input[bool] enabled: Should the notification be enabled? Defaults to `true`.
                
                > **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
-        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -1139,7 +1139,7 @@ class BudgetSubscriptionNotificationArgs:
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         """
         return pulumi.get(self, "threshold_type")
 

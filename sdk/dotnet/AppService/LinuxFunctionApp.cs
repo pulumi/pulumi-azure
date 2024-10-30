@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         OsType = "Linux",
-    ///         SkuName = "Y1",
+    ///         SkuName = "B1",
     ///     });
     /// 
     ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("example", new()

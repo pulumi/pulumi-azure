@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         public Input<int> Threshold { get; set; } = null!;
 
         /// <summary>
-        /// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
+        /// The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
         /// </summary>
         [Input("thresholdType")]
         public Input<string>? ThresholdType { get; set; }

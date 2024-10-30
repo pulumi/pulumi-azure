@@ -255,14 +255,18 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return this.partitionKeyPaths;
     }
     /**
-     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * 
+     * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
      * 
      */
     @Export(name="partitionKeyVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> partitionKeyVersion;
 
     /**
-     * @return Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * @return Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
+     * 
+     * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> partitionKeyVersion() {
