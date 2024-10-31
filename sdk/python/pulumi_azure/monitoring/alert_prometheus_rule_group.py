@@ -433,7 +433,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                         "time_to_resolve": "PT10M",
                     },
                     "annotations": {
-                        "annotation_name": "annotationValue",
+                        "annotationName": "annotationValue",
                     },
                     "labels": {
                         "team": "prod",
@@ -538,7 +538,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                         "time_to_resolve": "PT10M",
                     },
                     "annotations": {
-                        "annotation_name": "annotationValue",
+                        "annotationName": "annotationValue",
                     },
                     "labels": {
                         "team": "prod",
