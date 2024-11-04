@@ -20,6 +20,16 @@ public final class KubernetesClusterAutoScalerProfile {
      */
     private @Nullable Boolean balanceSimilarNodeGroups;
     /**
+     * @return Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean daemonsetEvictionForEmptyNodesEnabled;
+    /**
+     * @return Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean daemonsetEvictionForOccupiedNodesEnabled;
+    /**
      * @return Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
      * 
      */
@@ -29,6 +39,11 @@ public final class KubernetesClusterAutoScalerProfile {
      * 
      */
     private @Nullable String expander;
+    /**
+     * @return Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean ignoreDaemonsetsUtilizationEnabled;
     /**
      * @return Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
      * 
@@ -109,6 +124,20 @@ public final class KubernetesClusterAutoScalerProfile {
         return Optional.ofNullable(this.balanceSimilarNodeGroups);
     }
     /**
+     * @return Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> daemonsetEvictionForEmptyNodesEnabled() {
+        return Optional.ofNullable(this.daemonsetEvictionForEmptyNodesEnabled);
+    }
+    /**
+     * @return Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> daemonsetEvictionForOccupiedNodesEnabled() {
+        return Optional.ofNullable(this.daemonsetEvictionForOccupiedNodesEnabled);
+    }
+    /**
      * @return Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
      * 
      */
@@ -121,6 +150,13 @@ public final class KubernetesClusterAutoScalerProfile {
      */
     public Optional<String> expander() {
         return Optional.ofNullable(this.expander);
+    }
+    /**
+     * @return Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> ignoreDaemonsetsUtilizationEnabled() {
+        return Optional.ofNullable(this.ignoreDaemonsetsUtilizationEnabled);
     }
     /**
      * @return Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
@@ -231,8 +267,11 @@ public final class KubernetesClusterAutoScalerProfile {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean balanceSimilarNodeGroups;
+        private @Nullable Boolean daemonsetEvictionForEmptyNodesEnabled;
+        private @Nullable Boolean daemonsetEvictionForOccupiedNodesEnabled;
         private @Nullable String emptyBulkDeleteMax;
         private @Nullable String expander;
+        private @Nullable Boolean ignoreDaemonsetsUtilizationEnabled;
         private @Nullable String maxGracefulTerminationSec;
         private @Nullable String maxNodeProvisioningTime;
         private @Nullable Integer maxUnreadyNodes;
@@ -251,8 +290,11 @@ public final class KubernetesClusterAutoScalerProfile {
         public Builder(KubernetesClusterAutoScalerProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.balanceSimilarNodeGroups = defaults.balanceSimilarNodeGroups;
+    	      this.daemonsetEvictionForEmptyNodesEnabled = defaults.daemonsetEvictionForEmptyNodesEnabled;
+    	      this.daemonsetEvictionForOccupiedNodesEnabled = defaults.daemonsetEvictionForOccupiedNodesEnabled;
     	      this.emptyBulkDeleteMax = defaults.emptyBulkDeleteMax;
     	      this.expander = defaults.expander;
+    	      this.ignoreDaemonsetsUtilizationEnabled = defaults.ignoreDaemonsetsUtilizationEnabled;
     	      this.maxGracefulTerminationSec = defaults.maxGracefulTerminationSec;
     	      this.maxNodeProvisioningTime = defaults.maxNodeProvisioningTime;
     	      this.maxUnreadyNodes = defaults.maxUnreadyNodes;
@@ -276,6 +318,18 @@ public final class KubernetesClusterAutoScalerProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder daemonsetEvictionForEmptyNodesEnabled(@Nullable Boolean daemonsetEvictionForEmptyNodesEnabled) {
+
+            this.daemonsetEvictionForEmptyNodesEnabled = daemonsetEvictionForEmptyNodesEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder daemonsetEvictionForOccupiedNodesEnabled(@Nullable Boolean daemonsetEvictionForOccupiedNodesEnabled) {
+
+            this.daemonsetEvictionForOccupiedNodesEnabled = daemonsetEvictionForOccupiedNodesEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder emptyBulkDeleteMax(@Nullable String emptyBulkDeleteMax) {
 
             this.emptyBulkDeleteMax = emptyBulkDeleteMax;
@@ -285,6 +339,12 @@ public final class KubernetesClusterAutoScalerProfile {
         public Builder expander(@Nullable String expander) {
 
             this.expander = expander;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ignoreDaemonsetsUtilizationEnabled(@Nullable Boolean ignoreDaemonsetsUtilizationEnabled) {
+
+            this.ignoreDaemonsetsUtilizationEnabled = ignoreDaemonsetsUtilizationEnabled;
             return this;
         }
         @CustomType.Setter
@@ -374,8 +434,11 @@ public final class KubernetesClusterAutoScalerProfile {
         public KubernetesClusterAutoScalerProfile build() {
             final var _resultValue = new KubernetesClusterAutoScalerProfile();
             _resultValue.balanceSimilarNodeGroups = balanceSimilarNodeGroups;
+            _resultValue.daemonsetEvictionForEmptyNodesEnabled = daemonsetEvictionForEmptyNodesEnabled;
+            _resultValue.daemonsetEvictionForOccupiedNodesEnabled = daemonsetEvictionForOccupiedNodesEnabled;
             _resultValue.emptyBulkDeleteMax = emptyBulkDeleteMax;
             _resultValue.expander = expander;
+            _resultValue.ignoreDaemonsetsUtilizationEnabled = ignoreDaemonsetsUtilizationEnabled;
             _resultValue.maxGracefulTerminationSec = maxGracefulTerminationSec;
             _resultValue.maxNodeProvisioningTime = maxNodeProvisioningTime;
             _resultValue.maxUnreadyNodes = maxUnreadyNodes;

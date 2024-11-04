@@ -44,6 +44,7 @@ class AccountArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
@@ -112,6 +113,8 @@ class AccountArgs:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
@@ -366,6 +369,15 @@ class AccountArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
+
+    @property
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -499,6 +511,7 @@ class _AccountState:
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
@@ -600,6 +613,8 @@ class _AccountState:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
@@ -872,6 +887,15 @@ class _AccountState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
 
     @property
     @pulumi.getter(name="minimalTlsVersion")
@@ -1200,6 +1224,7 @@ class Account(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1471,6 +1496,7 @@ class Account(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  mongo_server_version: Optional[pulumi.Input[str]] = None,
                  multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1518,6 +1544,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
             __props__.__dict__["mongo_server_version"] = mongo_server_version
             __props__.__dict__["multiple_write_locations_enabled"] = multiple_write_locations_enabled
@@ -1584,6 +1611,7 @@ class Account(pulumi.CustomResource):
             kind: Optional[pulumi.Input[str]] = None,
             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
             minimal_tls_version: Optional[pulumi.Input[str]] = None,
             mongo_server_version: Optional[pulumi.Input[str]] = None,
             multiple_write_locations_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1672,6 +1700,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["minimal_tls_version"] = minimal_tls_version
         __props__.__dict__["mongo_server_version"] = mongo_server_version
         __props__.__dict__["multiple_write_locations_enabled"] = multiple_write_locations_enabled
@@ -1830,6 +1859,11 @@ class Account(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "managed_hsm_key_id")
 
     @property
     @pulumi.getter(name="minimalTlsVersion")

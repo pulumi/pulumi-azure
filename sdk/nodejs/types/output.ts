@@ -10502,7 +10502,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -12630,7 +12630,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -15626,7 +15626,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -17686,7 +17686,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -26575,6 +26575,17 @@ export namespace compute {
         regularPercentageAboveBase?: number;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetSkuProfile {
+        /**
+         * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+         */
+        allocationStrategy: string;
+        /**
+         * Specifies the VM sizes for the virtual machine scale set.
+         */
+        vmSizes: string[];
+    }
+
     export interface OrchestratedVirtualMachineScaleSetSourceImageReference {
         /**
          * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
@@ -32133,6 +32144,14 @@ export namespace containerservice {
          */
         balanceSimilarNodeGroups?: boolean;
         /**
+         * Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+         */
+        daemonsetEvictionForEmptyNodesEnabled?: boolean;
+        /**
+         * Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+         */
+        daemonsetEvictionForOccupiedNodesEnabled?: boolean;
+        /**
          * Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
          */
         emptyBulkDeleteMax: string;
@@ -32140,6 +32159,10 @@ export namespace containerservice {
          * Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
          */
         expander?: string;
+        /**
+         * Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+         */
+        ignoreDaemonsetsUtilizationEnabled?: boolean;
         /**
          * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
          */
@@ -33103,6 +33126,10 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
+        /**
+         * The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+         */
+        backendPoolType?: string;
         /**
          * The outcome (resource IDs) of the specified arguments.
          */
@@ -34587,7 +34614,7 @@ export namespace cosmosdb {
          */
         tier: string;
         /**
-         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`.
          *
          * > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
@@ -53065,11 +53092,13 @@ export namespace network {
          */
         id: string;
         /**
-         * The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+         * The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+         *
+         * > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
          *
          * > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
          *
-         * > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+         * > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
          */
         keyVaultSecretId?: string;
         /**
@@ -53174,11 +53203,13 @@ export namespace network {
          */
         id: string;
         /**
-         * The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+         * The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+         *
+         * > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
          *
          * > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
          *
-         * > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+         * > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
          */
         keyVaultSecretId?: string;
         /**
@@ -63446,6 +63477,21 @@ export namespace stack {
         nextHopIpAddress: string;
     }
 
+    export interface HciMarketplaceGalleryImageIdentifier {
+        /**
+         * The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+         */
+        offer: string;
+        /**
+         * The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+         */
+        publisher: string;
+        /**
+         * The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+         */
+        sku: string;
+    }
+
 }
 
 export namespace storage {
@@ -65444,7 +65490,7 @@ export namespace waf {
          */
         operator: string;
         /**
-         * A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+         * A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
          */
         transforms?: string[];
     }
@@ -65563,6 +65609,10 @@ export namespace waf {
          * Describes if the policy is in enabled state or disabled state. Defaults to `true`.
          */
         enabled?: boolean;
+        /**
+         * Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+         */
+        fileUploadEnforcement: boolean;
         /**
          * The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
          */

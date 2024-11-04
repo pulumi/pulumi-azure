@@ -20,10 +20,20 @@ export type HciDeploymentSetting = import("./hciDeploymentSetting").HciDeploymen
 export const HciDeploymentSetting: typeof import("./hciDeploymentSetting").HciDeploymentSetting = null as any;
 utilities.lazyLoad(exports, ["HciDeploymentSetting"], () => require("./hciDeploymentSetting"));
 
+export { HciExtensionArgs, HciExtensionState } from "./hciExtension";
+export type HciExtension = import("./hciExtension").HciExtension;
+export const HciExtension: typeof import("./hciExtension").HciExtension = null as any;
+utilities.lazyLoad(exports, ["HciExtension"], () => require("./hciExtension"));
+
 export { HciLogicalNetworkArgs, HciLogicalNetworkState } from "./hciLogicalNetwork";
 export type HciLogicalNetwork = import("./hciLogicalNetwork").HciLogicalNetwork;
 export const HciLogicalNetwork: typeof import("./hciLogicalNetwork").HciLogicalNetwork = null as any;
 utilities.lazyLoad(exports, ["HciLogicalNetwork"], () => require("./hciLogicalNetwork"));
+
+export { HciMarketplaceGalleryImageArgs, HciMarketplaceGalleryImageState } from "./hciMarketplaceGalleryImage";
+export type HciMarketplaceGalleryImage = import("./hciMarketplaceGalleryImage").HciMarketplaceGalleryImage;
+export const HciMarketplaceGalleryImage: typeof import("./hciMarketplaceGalleryImage").HciMarketplaceGalleryImage = null as any;
+utilities.lazyLoad(exports, ["HciMarketplaceGalleryImage"], () => require("./hciMarketplaceGalleryImage"));
 
 export { HciStoragePathArgs, HciStoragePathState } from "./hciStoragePath";
 export type HciStoragePath = import("./hciStoragePath").HciStoragePath;
@@ -44,8 +54,12 @@ const _module = {
                 return new HciCluster(name, <any>undefined, { urn })
             case "azure:stack/hciDeploymentSetting:HciDeploymentSetting":
                 return new HciDeploymentSetting(name, <any>undefined, { urn })
+            case "azure:stack/hciExtension:HciExtension":
+                return new HciExtension(name, <any>undefined, { urn })
             case "azure:stack/hciLogicalNetwork:HciLogicalNetwork":
                 return new HciLogicalNetwork(name, <any>undefined, { urn })
+            case "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage":
+                return new HciMarketplaceGalleryImage(name, <any>undefined, { urn })
             case "azure:stack/hciStoragePath:HciStoragePath":
                 return new HciStoragePath(name, <any>undefined, { urn })
             case "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk":
@@ -57,6 +71,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "stack/hciCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciDeploymentSetting", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciLogicalNetwork", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciMarketplaceGalleryImage", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciStoragePath", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciVirtualHardDisk", _module)

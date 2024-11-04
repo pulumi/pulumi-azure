@@ -47,7 +47,7 @@ class EnvironmentArgs:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -164,7 +164,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
@@ -274,7 +274,7 @@ class _EnvironmentState:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -432,7 +432,7 @@ class _EnvironmentState:
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
@@ -617,7 +617,7 @@ class Environment(pulumi.CustomResource):
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -775,7 +775,7 @@ class Environment(pulumi.CustomResource):
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -888,7 +888,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 

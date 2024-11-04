@@ -128,6 +128,20 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.connectionString);
     }
     /**
+     * The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     * 
+     */
+    @Export(name="credentialName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> credentialName;
+
+    /**
+     * @return The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     * 
+     */
+    public Output<Optional<String>> credentialName() {
+        return Codegen.optional(this.credentialName);
+    }
+    /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */

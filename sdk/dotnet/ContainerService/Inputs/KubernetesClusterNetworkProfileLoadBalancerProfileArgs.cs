@@ -12,6 +12,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterNetworkProfileLoadBalancerProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        /// </summary>
+        [Input("backendPoolType")]
+        public Input<string>? BackendPoolType { get; set; }
+
         [Input("effectiveOutboundIps")]
         private InputList<string>? _effectiveOutboundIps;
 

@@ -32,7 +32,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string? Tier;
         /// <summary>
-        /// The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+        /// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
         /// 
         /// &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         /// </summary>

@@ -292,6 +292,20 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+     * 
+     */
+    @Export(name="ocid", refs={String.class}, tree="[0]")
+    private Output<String> ocid;
+
+    /**
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+     * 
+     */
+    public Output<String> ocid() {
+        return this.ocid;
+    }
+    /**
      * The name of the Resource Group where the Cloud VM Cluster should exist.
      * 
      */

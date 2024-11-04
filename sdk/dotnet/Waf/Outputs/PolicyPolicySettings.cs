@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        /// </summary>
+        public readonly bool? FileUploadEnforcement;
+        /// <summary>
         /// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
         /// </summary>
         public readonly int? FileUploadLimitInMb;
@@ -54,6 +58,8 @@ namespace Pulumi.Azure.Waf.Outputs
         private PolicyPolicySettings(
             bool? enabled,
 
+            bool? fileUploadEnforcement,
+
             int? fileUploadLimitInMb,
 
             int? jsChallengeCookieExpirationInMinutes,
@@ -71,6 +77,7 @@ namespace Pulumi.Azure.Waf.Outputs
             int? requestBodyInspectLimitInKb)
         {
             Enabled = enabled;
+            FileUploadEnforcement = fileUploadEnforcement;
             FileUploadLimitInMb = fileUploadLimitInMb;
             JsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             LogScrubbing = logScrubbing;

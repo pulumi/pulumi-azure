@@ -136,6 +136,10 @@ type OrchestratedVirtualMachineScaleSet struct {
 	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
 	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
+	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	SkuProfile OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput `pulumi:"skuProfile"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
@@ -269,6 +273,10 @@ type orchestratedVirtualMachineScaleSetState struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName *string `pulumi:"skuName"`
+	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	SkuProfile *OrchestratedVirtualMachineScaleSetSkuProfile `pulumi:"skuProfile"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
@@ -360,6 +368,10 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName pulumi.StringPtrInput
+	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	SkuProfile OrchestratedVirtualMachineScaleSetSkuProfilePtrInput
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
@@ -455,6 +467,10 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName *string `pulumi:"skuName"`
+	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	SkuProfile *OrchestratedVirtualMachineScaleSetSkuProfile `pulumi:"skuProfile"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
@@ -545,6 +561,10 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName pulumi.StringPtrInput
+	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	SkuProfile OrchestratedVirtualMachineScaleSetSkuProfilePtrInput
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
@@ -823,6 +843,15 @@ func (o OrchestratedVirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.
 // The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 func (o OrchestratedVirtualMachineScaleSetOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
+}
+
+// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+func (o OrchestratedVirtualMachineScaleSetOutput) SkuProfile() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+		return v.SkuProfile
+	}).(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput)
 }
 
 // The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.

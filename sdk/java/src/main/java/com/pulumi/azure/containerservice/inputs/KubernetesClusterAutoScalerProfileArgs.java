@@ -34,6 +34,36 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
     }
 
     /**
+     * Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+     * 
+     */
+    @Import(name="daemonsetEvictionForEmptyNodesEnabled")
+    private @Nullable Output<Boolean> daemonsetEvictionForEmptyNodesEnabled;
+
+    /**
+     * @return Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> daemonsetEvictionForEmptyNodesEnabled() {
+        return Optional.ofNullable(this.daemonsetEvictionForEmptyNodesEnabled);
+    }
+
+    /**
+     * Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+     * 
+     */
+    @Import(name="daemonsetEvictionForOccupiedNodesEnabled")
+    private @Nullable Output<Boolean> daemonsetEvictionForOccupiedNodesEnabled;
+
+    /**
+     * @return Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> daemonsetEvictionForOccupiedNodesEnabled() {
+        return Optional.ofNullable(this.daemonsetEvictionForOccupiedNodesEnabled);
+    }
+
+    /**
      * Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
      * 
      */
@@ -61,6 +91,21 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
      */
     public Optional<Output<String>> expander() {
         return Optional.ofNullable(this.expander);
+    }
+
+    /**
+     * Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+     * 
+     */
+    @Import(name="ignoreDaemonsetsUtilizationEnabled")
+    private @Nullable Output<Boolean> ignoreDaemonsetsUtilizationEnabled;
+
+    /**
+     * @return Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreDaemonsetsUtilizationEnabled() {
+        return Optional.ofNullable(this.ignoreDaemonsetsUtilizationEnabled);
     }
 
     /**
@@ -277,8 +322,11 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
 
     private KubernetesClusterAutoScalerProfileArgs(KubernetesClusterAutoScalerProfileArgs $) {
         this.balanceSimilarNodeGroups = $.balanceSimilarNodeGroups;
+        this.daemonsetEvictionForEmptyNodesEnabled = $.daemonsetEvictionForEmptyNodesEnabled;
+        this.daemonsetEvictionForOccupiedNodesEnabled = $.daemonsetEvictionForOccupiedNodesEnabled;
         this.emptyBulkDeleteMax = $.emptyBulkDeleteMax;
         this.expander = $.expander;
+        this.ignoreDaemonsetsUtilizationEnabled = $.ignoreDaemonsetsUtilizationEnabled;
         this.maxGracefulTerminationSec = $.maxGracefulTerminationSec;
         this.maxNodeProvisioningTime = $.maxNodeProvisioningTime;
         this.maxUnreadyNodes = $.maxUnreadyNodes;
@@ -335,6 +383,48 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         }
 
         /**
+         * @param daemonsetEvictionForEmptyNodesEnabled Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daemonsetEvictionForEmptyNodesEnabled(@Nullable Output<Boolean> daemonsetEvictionForEmptyNodesEnabled) {
+            $.daemonsetEvictionForEmptyNodesEnabled = daemonsetEvictionForEmptyNodesEnabled;
+            return this;
+        }
+
+        /**
+         * @param daemonsetEvictionForEmptyNodesEnabled Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daemonsetEvictionForEmptyNodesEnabled(Boolean daemonsetEvictionForEmptyNodesEnabled) {
+            return daemonsetEvictionForEmptyNodesEnabled(Output.of(daemonsetEvictionForEmptyNodesEnabled));
+        }
+
+        /**
+         * @param daemonsetEvictionForOccupiedNodesEnabled Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daemonsetEvictionForOccupiedNodesEnabled(@Nullable Output<Boolean> daemonsetEvictionForOccupiedNodesEnabled) {
+            $.daemonsetEvictionForOccupiedNodesEnabled = daemonsetEvictionForOccupiedNodesEnabled;
+            return this;
+        }
+
+        /**
+         * @param daemonsetEvictionForOccupiedNodesEnabled Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daemonsetEvictionForOccupiedNodesEnabled(Boolean daemonsetEvictionForOccupiedNodesEnabled) {
+            return daemonsetEvictionForOccupiedNodesEnabled(Output.of(daemonsetEvictionForOccupiedNodesEnabled));
+        }
+
+        /**
          * @param emptyBulkDeleteMax Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
          * 
          * @return builder
@@ -374,6 +464,27 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
          */
         public Builder expander(String expander) {
             return expander(Output.of(expander));
+        }
+
+        /**
+         * @param ignoreDaemonsetsUtilizationEnabled Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreDaemonsetsUtilizationEnabled(@Nullable Output<Boolean> ignoreDaemonsetsUtilizationEnabled) {
+            $.ignoreDaemonsetsUtilizationEnabled = ignoreDaemonsetsUtilizationEnabled;
+            return this;
+        }
+
+        /**
+         * @param ignoreDaemonsetsUtilizationEnabled Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreDaemonsetsUtilizationEnabled(Boolean ignoreDaemonsetsUtilizationEnabled) {
+            return ignoreDaemonsetsUtilizationEnabled(Output.of(ignoreDaemonsetsUtilizationEnabled));
         }
 
         /**

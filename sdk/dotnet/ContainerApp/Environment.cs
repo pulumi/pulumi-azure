@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }

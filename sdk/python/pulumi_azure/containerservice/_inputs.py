@@ -3852,6 +3852,14 @@ if not MYPY:
         """
         Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
         """
+        daemonset_eviction_for_empty_nodes_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+        """
+        daemonset_eviction_for_occupied_nodes_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+        """
         empty_bulk_delete_max: NotRequired[pulumi.Input[str]]
         """
         Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
@@ -3859,6 +3867,10 @@ if not MYPY:
         expander: NotRequired[pulumi.Input[str]]
         """
         Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
+        """
+        ignore_daemonsets_utilization_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
         """
         max_graceful_termination_sec: NotRequired[pulumi.Input[str]]
         """
@@ -3923,8 +3935,11 @@ elif False:
 class KubernetesClusterAutoScalerProfileArgs:
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[pulumi.Input[bool]] = None,
+                 daemonset_eviction_for_empty_nodes_enabled: Optional[pulumi.Input[bool]] = None,
+                 daemonset_eviction_for_occupied_nodes_enabled: Optional[pulumi.Input[bool]] = None,
                  empty_bulk_delete_max: Optional[pulumi.Input[str]] = None,
                  expander: Optional[pulumi.Input[str]] = None,
+                 ignore_daemonsets_utilization_enabled: Optional[pulumi.Input[bool]] = None,
                  max_graceful_termination_sec: Optional[pulumi.Input[str]] = None,
                  max_node_provisioning_time: Optional[pulumi.Input[str]] = None,
                  max_unready_nodes: Optional[pulumi.Input[int]] = None,
@@ -3941,8 +3956,11 @@ class KubernetesClusterAutoScalerProfileArgs:
                  skip_nodes_with_system_pods: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+        :param pulumi.Input[bool] daemonset_eviction_for_empty_nodes_enabled: Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+        :param pulumi.Input[bool] daemonset_eviction_for_occupied_nodes_enabled: Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
         :param pulumi.Input[str] empty_bulk_delete_max: Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
         :param pulumi.Input[str] expander: Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
+        :param pulumi.Input[bool] ignore_daemonsets_utilization_enabled: Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
         :param pulumi.Input[str] max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         :param pulumi.Input[str] max_node_provisioning_time: Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
         :param pulumi.Input[int] max_unready_nodes: Maximum Number of allowed unready nodes. Defaults to `3`.
@@ -3960,10 +3978,16 @@ class KubernetesClusterAutoScalerProfileArgs:
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if daemonset_eviction_for_empty_nodes_enabled is not None:
+            pulumi.set(__self__, "daemonset_eviction_for_empty_nodes_enabled", daemonset_eviction_for_empty_nodes_enabled)
+        if daemonset_eviction_for_occupied_nodes_enabled is not None:
+            pulumi.set(__self__, "daemonset_eviction_for_occupied_nodes_enabled", daemonset_eviction_for_occupied_nodes_enabled)
         if empty_bulk_delete_max is not None:
             pulumi.set(__self__, "empty_bulk_delete_max", empty_bulk_delete_max)
         if expander is not None:
             pulumi.set(__self__, "expander", expander)
+        if ignore_daemonsets_utilization_enabled is not None:
+            pulumi.set(__self__, "ignore_daemonsets_utilization_enabled", ignore_daemonsets_utilization_enabled)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
         if max_node_provisioning_time is not None:
@@ -4006,6 +4030,30 @@ class KubernetesClusterAutoScalerProfileArgs:
         pulumi.set(self, "balance_similar_node_groups", value)
 
     @property
+    @pulumi.getter(name="daemonsetEvictionForEmptyNodesEnabled")
+    def daemonset_eviction_for_empty_nodes_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+        """
+        return pulumi.get(self, "daemonset_eviction_for_empty_nodes_enabled")
+
+    @daemonset_eviction_for_empty_nodes_enabled.setter
+    def daemonset_eviction_for_empty_nodes_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "daemonset_eviction_for_empty_nodes_enabled", value)
+
+    @property
+    @pulumi.getter(name="daemonsetEvictionForOccupiedNodesEnabled")
+    def daemonset_eviction_for_occupied_nodes_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+        """
+        return pulumi.get(self, "daemonset_eviction_for_occupied_nodes_enabled")
+
+    @daemonset_eviction_for_occupied_nodes_enabled.setter
+    def daemonset_eviction_for_occupied_nodes_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "daemonset_eviction_for_occupied_nodes_enabled", value)
+
+    @property
     @pulumi.getter(name="emptyBulkDeleteMax")
     def empty_bulk_delete_max(self) -> Optional[pulumi.Input[str]]:
         """
@@ -4028,6 +4076,18 @@ class KubernetesClusterAutoScalerProfileArgs:
     @expander.setter
     def expander(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expander", value)
+
+    @property
+    @pulumi.getter(name="ignoreDaemonsetsUtilizationEnabled")
+    def ignore_daemonsets_utilization_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+        """
+        return pulumi.get(self, "ignore_daemonsets_utilization_enabled")
+
+    @ignore_daemonsets_utilization_enabled.setter
+    def ignore_daemonsets_utilization_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_daemonsets_utilization_enabled", value)
 
     @property
     @pulumi.getter(name="maxGracefulTerminationSec")
@@ -8519,6 +8579,10 @@ class KubernetesClusterNetworkProfileArgs:
 
 if not MYPY:
     class KubernetesClusterNetworkProfileLoadBalancerProfileArgsDict(TypedDict):
+        backend_pool_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        """
         effective_outbound_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The outcome (resource IDs) of the specified arguments.
@@ -8559,6 +8623,7 @@ elif False:
 @pulumi.input_type
 class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
     def __init__(__self__, *,
+                 backend_pool_type: Optional[pulumi.Input[str]] = None,
                  effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_outbound_ip_count: Optional[pulumi.Input[int]] = None,
@@ -8567,6 +8632,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
                  outbound_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  outbound_ports_allocated: Optional[pulumi.Input[int]] = None):
         """
+        :param pulumi.Input[str] backend_pool_type: The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
         :param pulumi.Input[int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
         :param pulumi.Input[int] managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
@@ -8581,6 +8647,8 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
                > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
         :param pulumi.Input[int] outbound_ports_allocated: Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
         """
+        if backend_pool_type is not None:
+            pulumi.set(__self__, "backend_pool_type", backend_pool_type)
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
         if idle_timeout_in_minutes is not None:
@@ -8595,6 +8663,18 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
             pulumi.set(__self__, "outbound_ip_prefix_ids", outbound_ip_prefix_ids)
         if outbound_ports_allocated is not None:
             pulumi.set(__self__, "outbound_ports_allocated", outbound_ports_allocated)
+
+    @property
+    @pulumi.getter(name="backendPoolType")
+    def backend_pool_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        """
+        return pulumi.get(self, "backend_pool_type")
+
+    @backend_pool_type.setter
+    def backend_pool_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backend_pool_type", value)
 
     @property
     @pulumi.getter(name="effectiveOutboundIps")

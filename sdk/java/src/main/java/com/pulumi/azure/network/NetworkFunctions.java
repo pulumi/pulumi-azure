@@ -65,6 +65,8 @@ import com.pulumi.azure.network.inputs.GetVirtualHubRouteTablePlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayPlainArgs;
+import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
+import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringPlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkPlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualWanArgs;
 import com.pulumi.azure.network.inputs.GetVirtualWanPlainArgs;
@@ -102,6 +104,7 @@ import com.pulumi.azure.network.outputs.GetVirtualHubConnectionResult;
 import com.pulumi.azure.network.outputs.GetVirtualHubResult;
 import com.pulumi.azure.network.outputs.GetVirtualHubRouteTableResult;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayResult;
+import com.pulumi.azure.network.outputs.GetVirtualNetworkPeeringResult;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkResult;
 import com.pulumi.azure.network.outputs.GetVirtualWanResult;
 import com.pulumi.azure.network.outputs.GetVpnGatewayResult;
@@ -6088,6 +6091,206 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetVirtualNetworkGatewayResult> getVirtualNetworkGatewayPlain(GetVirtualNetworkGatewayPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", TypeShape.of(GetVirtualNetworkGatewayResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing virtual network peering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *             .name("vnet01")
+     *             .resourceGroupName("networking")
+     *             .build());
+     * 
+     *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
+     *             .name("peer-vnet01-to-vnet02")
+     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualNetworkPeeringResult> getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs args) {
+        return getVirtualNetworkPeering(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing virtual network peering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *             .name("vnet01")
+     *             .resourceGroupName("networking")
+     *             .build());
+     * 
+     *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
+     *             .name("peer-vnet01-to-vnet02")
+     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVirtualNetworkPeeringResult> getVirtualNetworkPeeringPlain(GetVirtualNetworkPeeringPlainArgs args) {
+        return getVirtualNetworkPeeringPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing virtual network peering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *             .name("vnet01")
+     *             .resourceGroupName("networking")
+     *             .build());
+     * 
+     *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
+     *             .name("peer-vnet01-to-vnet02")
+     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualNetworkPeeringResult> getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", TypeShape.of(GetVirtualNetworkPeeringResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing virtual network peering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkPeeringArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *             .name("vnet01")
+     *             .resourceGroupName("networking")
+     *             .build());
+     * 
+     *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
+     *             .name("peer-vnet01-to-vnet02")
+     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetVirtualNetworkPeeringResult> getVirtualNetworkPeeringPlain(GetVirtualNetworkPeeringPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", TypeShape.of(GetVirtualNetworkPeeringResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Virtual Wan.

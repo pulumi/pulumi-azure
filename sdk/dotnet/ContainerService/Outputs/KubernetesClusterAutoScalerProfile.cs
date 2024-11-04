@@ -18,6 +18,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? BalanceSimilarNodeGroups;
         /// <summary>
+        /// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+        /// </summary>
+        public readonly bool? DaemonsetEvictionForEmptyNodesEnabled;
+        /// <summary>
+        /// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+        /// </summary>
+        public readonly bool? DaemonsetEvictionForOccupiedNodesEnabled;
+        /// <summary>
         /// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
         /// </summary>
         public readonly string? EmptyBulkDeleteMax;
@@ -25,6 +33,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         /// </summary>
         public readonly string? Expander;
+        /// <summary>
+        /// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+        /// </summary>
+        public readonly bool? IgnoreDaemonsetsUtilizationEnabled;
         /// <summary>
         /// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         /// </summary>
@@ -86,9 +98,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterAutoScalerProfile(
             bool? balanceSimilarNodeGroups,
 
+            bool? daemonsetEvictionForEmptyNodesEnabled,
+
+            bool? daemonsetEvictionForOccupiedNodesEnabled,
+
             string? emptyBulkDeleteMax,
 
             string? expander,
+
+            bool? ignoreDaemonsetsUtilizationEnabled,
 
             string? maxGracefulTerminationSec,
 
@@ -119,8 +137,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
             bool? skipNodesWithSystemPods)
         {
             BalanceSimilarNodeGroups = balanceSimilarNodeGroups;
+            DaemonsetEvictionForEmptyNodesEnabled = daemonsetEvictionForEmptyNodesEnabled;
+            DaemonsetEvictionForOccupiedNodesEnabled = daemonsetEvictionForOccupiedNodesEnabled;
             EmptyBulkDeleteMax = emptyBulkDeleteMax;
             Expander = expander;
+            IgnoreDaemonsetsUtilizationEnabled = ignoreDaemonsetsUtilizationEnabled;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
             MaxNodeProvisioningTime = maxNodeProvisioningTime;
             MaxUnreadyNodes = maxUnreadyNodes;

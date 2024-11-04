@@ -375,6 +375,12 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
+    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedHsmKeyId;
+
+    public Output<Optional<String>> managedHsmKeyId() {
+        return Codegen.optional(this.managedHsmKeyId);
+    }
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      * 

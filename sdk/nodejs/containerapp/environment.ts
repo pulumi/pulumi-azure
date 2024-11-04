@@ -109,7 +109,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface EnvironmentState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
@@ -334,7 +334,7 @@ export interface EnvironmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**

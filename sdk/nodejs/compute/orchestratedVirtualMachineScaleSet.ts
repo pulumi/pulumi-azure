@@ -191,6 +191,12 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
+     * An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+     */
+    public readonly skuProfile!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetSkuProfile | undefined>;
+    /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
@@ -269,6 +275,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["skuProfile"] = state ? state.skuProfile : undefined;
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -312,6 +319,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["skuProfile"] = args ? args.skuProfile : undefined;
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -452,6 +460,12 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      */
     skuName?: pulumi.Input<string>;
+    /**
+     * An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+     */
+    skuProfile?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetSkuProfile>;
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
@@ -616,6 +630,12 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      */
     skuName?: pulumi.Input<string>;
+    /**
+     * An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+     */
+    skuProfile?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetSkuProfile>;
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */

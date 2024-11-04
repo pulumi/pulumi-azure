@@ -48,6 +48,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -96,6 +97,9 @@ class OrchestratedVirtualMachineScaleSetArgs:
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs'] sku_profile: An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
@@ -162,6 +166,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if sku_profile is not None:
+            pulumi.set(__self__, "sku_profile", sku_profile)
         if source_image_id is not None:
             pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
@@ -514,6 +520,20 @@ class OrchestratedVirtualMachineScaleSetArgs:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="skuProfile")
+    def sku_profile(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']]:
+        """
+        An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        """
+        return pulumi.get(self, "sku_profile")
+
+    @sku_profile.setter
+    def sku_profile(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']]):
+        pulumi.set(self, "sku_profile", value)
+
+    @property
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -634,6 +654,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -683,6 +704,9 @@ class _OrchestratedVirtualMachineScaleSetState:
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs'] sku_profile: An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
@@ -752,6 +776,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if sku_profile is not None:
+            pulumi.set(__self__, "sku_profile", sku_profile)
         if source_image_id is not None:
             pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
@@ -1106,6 +1132,20 @@ class _OrchestratedVirtualMachineScaleSetState:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="skuProfile")
+    def sku_profile(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']]:
+        """
+        An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        """
+        return pulumi.get(self, "sku_profile")
+
+    @sku_profile.setter
+    def sku_profile(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']]):
+        pulumi.set(self, "sku_profile", value)
+
+    @property
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1240,6 +1280,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1323,6 +1364,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']] sku_profile: An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
@@ -1419,6 +1463,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1466,6 +1511,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["single_placement_group"] = single_placement_group
             __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["sku_profile"] = sku_profile
             __props__.__dict__["source_image_id"] = source_image_id
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
@@ -1513,6 +1559,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
+            sku_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
             source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1567,6 +1614,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']] sku_profile: An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
@@ -1613,6 +1663,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["single_placement_group"] = single_placement_group
         __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["sku_profile"] = sku_profile
         __props__.__dict__["source_image_id"] = source_image_id
         __props__.__dict__["source_image_reference"] = source_image_reference
         __props__.__dict__["tags"] = tags
@@ -1850,6 +1901,16 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         """
         return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="skuProfile")
+    def sku_profile(self) -> pulumi.Output[Optional['outputs.OrchestratedVirtualMachineScaleSetSkuProfile']]:
+        """
+        An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        """
+        return pulumi.get(self, "sku_profile")
 
     @property
     @pulumi.getter(name="sourceImageId")

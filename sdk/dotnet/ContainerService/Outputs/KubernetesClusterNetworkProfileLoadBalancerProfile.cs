@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterNetworkProfileLoadBalancerProfile
     {
         /// <summary>
+        /// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+        /// </summary>
+        public readonly string? BackendPoolType;
+        /// <summary>
         /// The outcome (resource IDs) of the specified arguments.
         /// </summary>
         public readonly ImmutableArray<string> EffectiveOutboundIps;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private KubernetesClusterNetworkProfileLoadBalancerProfile(
+            string? backendPoolType,
+
             ImmutableArray<string> effectiveOutboundIps,
 
             int? idleTimeoutInMinutes,
@@ -64,6 +70,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? outboundPortsAllocated)
         {
+            BackendPoolType = backendPoolType;
             EffectiveOutboundIps = effectiveOutboundIps;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             ManagedOutboundIpCount = managedOutboundIpCount;

@@ -74,6 +74,8 @@ type LinkedServiceAzureSqlDatabase struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
+	// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+	CredentialName pulumi.StringPtrOutput `pulumi:"credentialName"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
@@ -137,6 +139,8 @@ type linkedServiceAzureSqlDatabaseState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+	CredentialName *string `pulumi:"credentialName"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
@@ -168,6 +172,8 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrInput
+	// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+	CredentialName pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service Azure SQL Database.
@@ -203,6 +209,8 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+	CredentialName *string `pulumi:"credentialName"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
@@ -235,6 +243,8 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrInput
+	// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+	CredentialName pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service Azure SQL Database.
@@ -359,6 +369,11 @@ func (o LinkedServiceAzureSqlDatabaseOutput) Annotations() pulumi.StringArrayOut
 // The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 func (o LinkedServiceAzureSqlDatabaseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabase) pulumi.StringPtrOutput { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+func (o LinkedServiceAzureSqlDatabaseOutput) CredentialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabase) pulumi.StringPtrOutput { return v.CredentialName }).(pulumi.StringPtrOutput)
 }
 
 // The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.

@@ -12481,6 +12481,162 @@ func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) RegularPercentag
 	}).(pulumi.IntPtrOutput)
 }
 
+type OrchestratedVirtualMachineScaleSetSkuProfile struct {
+	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// Specifies the VM sizes for the virtual machine scale set.
+	VmSizes []string `pulumi:"vmSizes"`
+}
+
+// OrchestratedVirtualMachineScaleSetSkuProfileInput is an input type that accepts OrchestratedVirtualMachineScaleSetSkuProfileArgs and OrchestratedVirtualMachineScaleSetSkuProfileOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSkuProfileInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetSkuProfileArgs{...}
+type OrchestratedVirtualMachineScaleSetSkuProfileInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetSkuProfileOutput() OrchestratedVirtualMachineScaleSetSkuProfileOutput
+	ToOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetSkuProfileOutput
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileArgs struct {
+	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// Specifies the VM sizes for the virtual machine scale set.
+	VmSizes pulumi.StringArrayInput `pulumi:"vmSizes"`
+}
+
+func (OrchestratedVirtualMachineScaleSetSkuProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileArgs) ToOrchestratedVirtualMachineScaleSetSkuProfileOutput() OrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileArgs) ToOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSkuProfileOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileArgs) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutput() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileArgs) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSkuProfileOutput).ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetSkuProfilePtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetSkuProfileArgs, OrchestratedVirtualMachineScaleSetSkuProfilePtr and OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSkuProfilePtrInput` via:
+//
+//	        OrchestratedVirtualMachineScaleSetSkuProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrchestratedVirtualMachineScaleSetSkuProfilePtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutput() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput
+	ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetSkuProfilePtrType OrchestratedVirtualMachineScaleSetSkuProfileArgs
+
+func OrchestratedVirtualMachineScaleSetSkuProfilePtr(v *OrchestratedVirtualMachineScaleSetSkuProfileArgs) OrchestratedVirtualMachineScaleSetSkuProfilePtrInput {
+	return (*orchestratedVirtualMachineScaleSetSkuProfilePtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetSkuProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetSkuProfilePtrType) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutput() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetSkuProfilePtrType) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetSkuProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) ToOrchestratedVirtualMachineScaleSetSkuProfileOutput() OrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) ToOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutput() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetSkuProfile) *OrchestratedVirtualMachineScaleSetSkuProfile {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput)
+}
+
+// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+// Specifies the VM sizes for the virtual machine scale set.
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) VmSizes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) []string { return v.VmSizes }).(pulumi.StringArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutput() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) ToOrchestratedVirtualMachineScaleSetSkuProfilePtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) Elem() OrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) OrchestratedVirtualMachineScaleSetSkuProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetSkuProfile
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetSkuProfileOutput)
+}
+
+// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the VM sizes for the virtual machine scale set.
+func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) VmSizes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VmSizes
+	}).(pulumi.StringArrayOutput)
+}
+
 type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
 	// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Offer string `pulumi:"offer"`
@@ -33078,6 +33234,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPlanPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMixInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPriorityMixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetPriorityMixPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetPriorityMixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfilePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{})
@@ -33486,6 +33644,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPlanPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPriorityMixOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfileOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput{})

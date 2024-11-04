@@ -122,7 +122,9 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> E { get; private set; } = null!;
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// 
+        /// &gt; **Note:** Removing this field from the config forces a new resource to be created.
         /// </summary>
         [Output("expirationDate")]
         public Output<string?> ExpirationDate { get; private set; } = null!;
@@ -284,7 +286,9 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Curve { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// 
+        /// &gt; **Note:** Removing this field from the config forces a new resource to be created.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -372,7 +376,9 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? E { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// 
+        /// &gt; **Note:** Removing this field from the config forces a new resource to be created.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }

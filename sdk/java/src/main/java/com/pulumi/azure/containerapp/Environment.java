@@ -212,14 +212,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
      */
     @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
 
     /**
-     * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
      */
     public Output<Optional<String>> logAnalyticsWorkspaceId() {

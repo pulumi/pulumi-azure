@@ -94,7 +94,7 @@ type Environment struct {
 	InternalLoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"internalLoadBalancerEnabled"`
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
@@ -182,7 +182,7 @@ type environmentState struct {
 	InternalLoadBalancerEnabled *bool `pulumi:"internalLoadBalancerEnabled"`
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
@@ -231,7 +231,7 @@ type EnvironmentState struct {
 	InternalLoadBalancerEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
@@ -278,7 +278,7 @@ type environmentArgs struct {
 	InternalLoadBalancerEnabled *bool `pulumi:"internalLoadBalancerEnabled"`
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
@@ -316,7 +316,7 @@ type EnvironmentArgs struct {
 	InternalLoadBalancerEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
@@ -469,7 +469,7 @@ func (o EnvironmentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 func (o EnvironmentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }

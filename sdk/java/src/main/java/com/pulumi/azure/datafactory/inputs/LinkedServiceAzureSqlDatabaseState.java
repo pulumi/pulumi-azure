@@ -66,6 +66,21 @@ public final class LinkedServiceAzureSqlDatabaseState extends com.pulumi.resourc
     }
 
     /**
+     * The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     * 
+     */
+    @Import(name="credentialName")
+    private @Nullable Output<String> credentialName;
+
+    /**
+     * @return The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     * 
+     */
+    public Optional<Output<String>> credentialName() {
+        return Optional.ofNullable(this.credentialName);
+    }
+
+    /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
@@ -236,6 +251,7 @@ public final class LinkedServiceAzureSqlDatabaseState extends com.pulumi.resourc
         this.additionalProperties = $.additionalProperties;
         this.annotations = $.annotations;
         this.connectionString = $.connectionString;
+        this.credentialName = $.credentialName;
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
         this.integrationRuntimeName = $.integrationRuntimeName;
@@ -338,6 +354,27 @@ public final class LinkedServiceAzureSqlDatabaseState extends com.pulumi.resourc
          */
         public Builder connectionString(String connectionString) {
             return connectionString(Output.of(connectionString));
+        }
+
+        /**
+         * @param credentialName The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialName(@Nullable Output<String> credentialName) {
+            $.credentialName = credentialName;
+            return this;
+        }
+
+        /**
+         * @param credentialName The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialName(String credentialName) {
+            return credentialName(Output.of(credentialName));
         }
 
         /**

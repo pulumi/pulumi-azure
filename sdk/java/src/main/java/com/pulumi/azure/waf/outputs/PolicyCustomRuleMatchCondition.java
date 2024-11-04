@@ -36,7 +36,7 @@ public final class PolicyCustomRuleMatchCondition {
      */
     private String operator;
     /**
-     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
      * 
      */
     private @Nullable List<String> transforms;
@@ -71,7 +71,7 @@ public final class PolicyCustomRuleMatchCondition {
         return this.operator;
     }
     /**
-     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
      * 
      */
     public List<String> transforms() {

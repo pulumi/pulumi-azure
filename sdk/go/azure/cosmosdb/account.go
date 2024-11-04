@@ -202,7 +202,8 @@ type Account struct {
 	Kind                          pulumi.StringPtrOutput        `pulumi:"kind"`
 	LocalAuthenticationDisabled   pulumi.BoolPtrOutput          `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location pulumi.StringOutput `pulumi:"location"`
+	Location        pulumi.StringOutput    `pulumi:"location"`
+	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	MinimalTlsVersion             pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	MongoServerVersion            pulumi.StringOutput    `pulumi:"mongoServerVersion"`
@@ -337,7 +338,8 @@ type accountState struct {
 	Kind                          *string              `pulumi:"kind"`
 	LocalAuthenticationDisabled   *bool                `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
+	Location        *string `pulumi:"location"`
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	MinimalTlsVersion             *string `pulumi:"minimalTlsVersion"`
 	MongoServerVersion            *string `pulumi:"mongoServerVersion"`
@@ -416,7 +418,8 @@ type AccountState struct {
 	Kind                          pulumi.StringPtrInput
 	LocalAuthenticationDisabled   pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
+	Location        pulumi.StringPtrInput
+	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	MinimalTlsVersion             pulumi.StringPtrInput
 	MongoServerVersion            pulumi.StringPtrInput
@@ -497,7 +500,8 @@ type accountArgs struct {
 	Kind                          *string              `pulumi:"kind"`
 	LocalAuthenticationDisabled   *bool                `pulumi:"localAuthenticationDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
+	Location        *string `pulumi:"location"`
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	MinimalTlsVersion             *string `pulumi:"minimalTlsVersion"`
 	MongoServerVersion            *string `pulumi:"mongoServerVersion"`
@@ -547,7 +551,8 @@ type AccountArgs struct {
 	Kind                          pulumi.StringPtrInput
 	LocalAuthenticationDisabled   pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
+	Location        pulumi.StringPtrInput
+	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 	MinimalTlsVersion             pulumi.StringPtrInput
 	MongoServerVersion            pulumi.StringPtrInput
@@ -749,6 +754,10 @@ func (o AccountOutput) LocalAuthenticationDisabled() pulumi.BoolPtrOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o AccountOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.

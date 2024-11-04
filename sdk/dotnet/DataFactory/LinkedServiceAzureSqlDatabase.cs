@@ -75,6 +75,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
+        /// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+        /// </summary>
+        [Output("credentialName")]
+        public Output<string?> CredentialName { get; private set; } = null!;
+
+        /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Output("dataFactoryId")]
@@ -217,6 +223,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
+        /// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+        /// </summary>
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
+
+        /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         /// </summary>
         [Input("dataFactoryId", required: true)]
@@ -325,6 +337,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+        /// </summary>
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.

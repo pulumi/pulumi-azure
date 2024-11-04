@@ -19,6 +19,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
+        /// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+        /// </summary>
+        [Input("daemonsetEvictionForEmptyNodesEnabled")]
+        public Input<bool>? DaemonsetEvictionForEmptyNodesEnabled { get; set; }
+
+        /// <summary>
+        /// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+        /// </summary>
+        [Input("daemonsetEvictionForOccupiedNodesEnabled")]
+        public Input<bool>? DaemonsetEvictionForOccupiedNodesEnabled { get; set; }
+
+        /// <summary>
         /// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
         /// </summary>
         [Input("emptyBulkDeleteMax")]
@@ -29,6 +41,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("expander")]
         public Input<string>? Expander { get; set; }
+
+        /// <summary>
+        /// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+        /// </summary>
+        [Input("ignoreDaemonsetsUtilizationEnabled")]
+        public Input<bool>? IgnoreDaemonsetsUtilizationEnabled { get; set; }
 
         /// <summary>
         /// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.LoadTest
         public Output<string> DataPlaneUri { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the resource. Changing this forces a new Load Test to be created.
+        /// Description of the resource.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.LoadTest
     public sealed class LoadTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the resource. Changing this forces a new Load Test to be created.
+        /// Description of the resource.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? DataPlaneUri { get; set; }
 
         /// <summary>
-        /// Description of the resource. Changing this forces a new Load Test to be created.
+        /// Description of the resource.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

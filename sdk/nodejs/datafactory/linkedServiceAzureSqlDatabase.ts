@@ -80,6 +80,10 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
      */
     public readonly connectionString!: pulumi.Output<string | undefined>;
     /**
+     * The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     */
+    public readonly credentialName!: pulumi.Output<string | undefined>;
+    /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
     public readonly dataFactoryId!: pulumi.Output<string>;
@@ -140,6 +144,7 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
             resourceInputs["connectionString"] = state ? state.connectionString : undefined;
+            resourceInputs["credentialName"] = state ? state.credentialName : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
@@ -159,6 +164,7 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
@@ -192,6 +198,10 @@ export interface LinkedServiceAzureSqlDatabaseState {
      * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     */
+    credentialName?: pulumi.Input<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
@@ -254,6 +264,10 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
      * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
     connectionString?: pulumi.Input<string>;
+    /**
+     * The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+     */
+    credentialName?: pulumi.Input<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */

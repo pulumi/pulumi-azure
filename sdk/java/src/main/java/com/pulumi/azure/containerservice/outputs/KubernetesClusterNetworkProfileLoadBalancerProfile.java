@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
     /**
+     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+     * 
+     */
+    private @Nullable String backendPoolType;
+    /**
      * @return The outcome (resource IDs) of the specified arguments.
      * 
      */
@@ -56,6 +61,13 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
     private @Nullable Integer outboundPortsAllocated;
 
     private KubernetesClusterNetworkProfileLoadBalancerProfile() {}
+    /**
+     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+     * 
+     */
+    public Optional<String> backendPoolType() {
+        return Optional.ofNullable(this.backendPoolType);
+    }
     /**
      * @return The outcome (resource IDs) of the specified arguments.
      * 
@@ -121,6 +133,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String backendPoolType;
         private @Nullable List<String> effectiveOutboundIps;
         private @Nullable Integer idleTimeoutInMinutes;
         private @Nullable Integer managedOutboundIpCount;
@@ -131,6 +144,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         public Builder() {}
         public Builder(KubernetesClusterNetworkProfileLoadBalancerProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.backendPoolType = defaults.backendPoolType;
     	      this.effectiveOutboundIps = defaults.effectiveOutboundIps;
     	      this.idleTimeoutInMinutes = defaults.idleTimeoutInMinutes;
     	      this.managedOutboundIpCount = defaults.managedOutboundIpCount;
@@ -140,6 +154,12 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
     	      this.outboundPortsAllocated = defaults.outboundPortsAllocated;
         }
 
+        @CustomType.Setter
+        public Builder backendPoolType(@Nullable String backendPoolType) {
+
+            this.backendPoolType = backendPoolType;
+            return this;
+        }
         @CustomType.Setter
         public Builder effectiveOutboundIps(@Nullable List<String> effectiveOutboundIps) {
 
@@ -193,6 +213,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         }
         public KubernetesClusterNetworkProfileLoadBalancerProfile build() {
             final var _resultValue = new KubernetesClusterNetworkProfileLoadBalancerProfile();
+            _resultValue.backendPoolType = backendPoolType;
             _resultValue.effectiveOutboundIps = effectiveOutboundIps;
             _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
             _resultValue.managedOutboundIpCount = managedOutboundIpCount;

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        /// </summary>
+        [Input("fileUploadEnforcement")]
+        public Input<bool>? FileUploadEnforcement { get; set; }
+
+        /// <summary>
         /// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
         /// </summary>
         [Input("fileUploadLimitInMb")]

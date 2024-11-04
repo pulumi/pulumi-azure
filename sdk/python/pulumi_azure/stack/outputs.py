@@ -33,6 +33,7 @@ __all__ = [
     'HciLogicalNetworkSubnet',
     'HciLogicalNetworkSubnetIpPool',
     'HciLogicalNetworkSubnetRoute',
+    'HciMarketplaceGalleryImageIdentifier',
     'GetHciClusterIdentityResult',
 ]
 
@@ -1398,6 +1399,46 @@ class HciLogicalNetworkSubnetRoute(dict):
         The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HciMarketplaceGalleryImageIdentifier(dict):
+    def __init__(__self__, *,
+                 offer: str,
+                 publisher: str,
+                 sku: str):
+        """
+        :param str offer: The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        :param str publisher: The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        :param str sku: The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> str:
+        """
+        The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        """
+        The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        return pulumi.get(self, "sku")
 
 
 @pulumi.output_type

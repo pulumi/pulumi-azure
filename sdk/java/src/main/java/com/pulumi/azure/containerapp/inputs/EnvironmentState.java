@@ -152,14 +152,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
      */
     @Import(name="logAnalyticsWorkspaceId")
     private @Nullable Output<String> logAnalyticsWorkspaceId;
 
     /**
-     * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+     * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
      */
     public Optional<Output<String>> logAnalyticsWorkspaceId() {
@@ -531,7 +531,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logAnalyticsWorkspaceId The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+         * @param logAnalyticsWorkspaceId The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logAnalyticsWorkspaceId The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
+         * @param logAnalyticsWorkspaceId The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
          * 
          * @return builder
          * 

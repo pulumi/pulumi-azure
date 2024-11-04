@@ -142,7 +142,6 @@ import javax.annotation.Nullable;
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .encryption(RegistryEncryptionArgs.builder()
- *                 .enabled(true)
  *                 .keyVaultKeyId(example.applyValue(getKeyResult -> getKeyResult.id()))
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())

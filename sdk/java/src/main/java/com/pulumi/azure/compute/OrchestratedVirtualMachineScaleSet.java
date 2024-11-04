@@ -17,6 +17,7 @@ import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsDisk
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfile;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetPlan;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetPriorityMix;
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetSkuProfile;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetSourceImageReference;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetTerminationNotification;
 import com.pulumi.core.Output;
@@ -499,6 +500,24 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      */
     public Output<Optional<String>> skuName() {
         return Codegen.optional(this.skuName);
+    }
+    /**
+     * An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+     * 
+     */
+    @Export(name="skuProfile", refs={OrchestratedVirtualMachineScaleSetSkuProfile.class}, tree="[0]")
+    private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetSkuProfile> skuProfile;
+
+    /**
+     * @return An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+     * 
+     */
+    public Output<Optional<OrchestratedVirtualMachineScaleSetSkuProfile>> skuProfile() {
+        return Codegen.optional(this.skuProfile);
     }
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.

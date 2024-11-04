@@ -34,14 +34,14 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the resource. Changing this forces a new Load Test to be created.
+     * Description of the resource.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the resource. Changing this forces a new Load Test to be created.
+     * @return Description of the resource.
      * 
      */
     public Optional<Output<String>> description() {
@@ -191,7 +191,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * @param description Description of the resource.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * @param description Description of the resource.
          * 
          * @return builder
          * 

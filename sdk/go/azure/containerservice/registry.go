@@ -64,6 +64,70 @@ import (
 //
 // ```
 //
+// ### Encryption)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Name:              pulumi.String("registry-uai"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
+//				Name:       "super-secret",
+//				KeyVaultId: existing.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+//				Name:              pulumi.String("containerRegistry1"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
+//				Identity: &containerservice.RegistryIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				Encryption: &containerservice.RegistryEncryptionArgs{
+//					KeyVaultKeyId:    pulumi.String(example.Id),
+//					IdentityClientId: exampleUserAssignedIdentity.ClientId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Attaching A Container Registry To A Kubernetes Cluster)
 //
 // ```go

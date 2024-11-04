@@ -117,7 +117,9 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly e!: pulumi.Output<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     *
+     * > **Note:** Removing this field from the config forces a new resource to be created.
      */
     public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
@@ -274,7 +276,9 @@ export interface KeyState {
      */
     e?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     *
+     * > **Note:** Removing this field from the config forces a new resource to be created.
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -358,7 +362,9 @@ export interface KeyArgs {
      */
     curve?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     *
+     * > **Note:** Removing this field from the config forces a new resource to be created.
      */
     expirationDate?: pulumi.Input<string>;
     /**

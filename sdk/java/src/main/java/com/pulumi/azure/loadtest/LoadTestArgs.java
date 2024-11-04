@@ -20,14 +20,14 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
     public static final LoadTestArgs Empty = new LoadTestArgs();
 
     /**
-     * Description of the resource. Changing this forces a new Load Test to be created.
+     * Description of the resource.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the resource. Changing this forces a new Load Test to be created.
+     * @return Description of the resource.
      * 
      */
     public Optional<Output<String>> description() {
@@ -155,7 +155,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * @param description Description of the resource.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * @param description Description of the resource.
          * 
          * @return builder
          * 

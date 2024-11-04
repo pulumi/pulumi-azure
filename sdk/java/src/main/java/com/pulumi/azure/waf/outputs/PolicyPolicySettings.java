@@ -20,6 +20,11 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Boolean enabled;
     /**
+     * @return Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * 
+     */
+    private @Nullable Boolean fileUploadEnforcement;
+    /**
      * @return The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
      * 
      */
@@ -67,6 +72,13 @@ public final class PolicyPolicySettings {
      */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+    /**
+     * @return Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * 
+     */
+    public Optional<Boolean> fileUploadEnforcement() {
+        return Optional.ofNullable(this.fileUploadEnforcement);
     }
     /**
      * @return The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
@@ -135,6 +147,7 @@ public final class PolicyPolicySettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
+        private @Nullable Boolean fileUploadEnforcement;
         private @Nullable Integer fileUploadLimitInMb;
         private @Nullable Integer jsChallengeCookieExpirationInMinutes;
         private @Nullable PolicyPolicySettingsLogScrubbing logScrubbing;
@@ -147,6 +160,7 @@ public final class PolicyPolicySettings {
         public Builder(PolicyPolicySettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.fileUploadEnforcement = defaults.fileUploadEnforcement;
     	      this.fileUploadLimitInMb = defaults.fileUploadLimitInMb;
     	      this.jsChallengeCookieExpirationInMinutes = defaults.jsChallengeCookieExpirationInMinutes;
     	      this.logScrubbing = defaults.logScrubbing;
@@ -161,6 +175,12 @@ public final class PolicyPolicySettings {
         public Builder enabled(@Nullable Boolean enabled) {
 
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder fileUploadEnforcement(@Nullable Boolean fileUploadEnforcement) {
+
+            this.fileUploadEnforcement = fileUploadEnforcement;
             return this;
         }
         @CustomType.Setter
@@ -214,6 +234,7 @@ public final class PolicyPolicySettings {
         public PolicyPolicySettings build() {
             final var _resultValue = new PolicyPolicySettings();
             _resultValue.enabled = enabled;
+            _resultValue.fileUploadEnforcement = fileUploadEnforcement;
             _resultValue.fileUploadLimitInMb = fileUploadLimitInMb;
             _resultValue.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             _resultValue.logScrubbing = logScrubbing;

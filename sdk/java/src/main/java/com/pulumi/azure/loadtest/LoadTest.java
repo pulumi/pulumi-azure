@@ -106,14 +106,14 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
         return this.dataPlaneUri;
     }
     /**
-     * Description of the resource. Changing this forces a new Load Test to be created.
+     * Description of the resource.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the resource. Changing this forces a new Load Test to be created.
+     * @return Description of the resource.
      * 
      */
     public Output<Optional<String>> description() {

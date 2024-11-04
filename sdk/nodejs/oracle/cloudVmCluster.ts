@@ -184,6 +184,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+     */
+    public /*out*/ readonly ocid!: pulumi.Output<string>;
+    /**
      * The name of the Resource Group where the Cloud VM Cluster should exist.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -243,6 +247,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["memorySizeInGbs"] = state ? state.memorySizeInGbs : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ocid"] = state ? state.ocid : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sparseDiskgroupEnabled"] = state ? state.sparseDiskgroupEnabled : undefined;
             resourceInputs["sshPublicKeys"] = state ? state.sshPublicKeys : undefined;
@@ -310,6 +315,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             resourceInputs["hostnameActual"] = undefined /*out*/;
+            resourceInputs["ocid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CloudVmCluster.__pulumiType, name, resourceInputs, opts);
@@ -392,6 +398,10 @@ export interface CloudVmClusterState {
      * The name which should be used for this Cloud VM Cluster.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+     */
+    ocid?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Cloud VM Cluster should exist.
      */
