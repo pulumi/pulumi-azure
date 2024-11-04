@@ -1,3 +1,0 @@
-name: azure-topic
-runtime: nodejs
-description: Work with Azure Service Bus Topics
