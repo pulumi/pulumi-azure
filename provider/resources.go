@@ -178,6 +178,7 @@ const (
 	azureStreamAnalytics       = "StreamAnalytics"       // StreamAnalytics
 	azureSynapse               = "Synapse"               // Synapse
 	azureSystemCenter          = "SystemCenter"          // SystemCenter
+	azureTrustedSigning        = "TrustedSigning"        // TrustedSigning
 	azureVideoAnalyzer         = "VideoAnalyzer"         // Video Analyzer
 	azureVideoIndexer          = "VideoIndexer"          // Video Indexer
 	azureVoice                 = "Voice"                 // Voice
@@ -355,6 +356,7 @@ var moduleMap = map[string]string{
 	"chaos_studio":             azureChaosStudio,
 	"redhat_openshift":         azureRedHatOpenShift,
 	"system_center":            azureSystemCenter,
+	"trusted_signing":          azureTrustedSigning,
 	"express_route":            azureExpressRoute,
 	"custom_extended_location": azureExtendedLocation,
 	"video_indexer":            azureVideoIndexer,
@@ -2974,6 +2976,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_virtual_network_gateway":            {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
+			"azurerm_virtual_network_peering":            {Tok: azureDataSource(azureNetwork, "getVirtualNetworkPeering")},
 			"azurerm_network_security_group":             {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
 			"azurerm_network_interface":                  {Tok: azureDataSource(azureNetwork, "getNetworkInterface")},
 			"azurerm_network_watcher":                    {Tok: azureDataSource(azureNetwork, "getNetworkWatcher")},

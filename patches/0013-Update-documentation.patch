@@ -997,7 +997,7 @@ index ed1f00c577..a4568c1ce0 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index caea0a5547..24ef646efd 100644
+index d847c69797..dc19703131 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1011,7 +1011,7 @@ index caea0a5547..24ef646efd 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index 64b2e38ac6..2eca0a52b4 100644
+index a2caed28ba..247137f83a 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1247,7 +1247,7 @@ index 57bd6350d7..475c3612b1 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown b/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown
-index 50191cc54d..d60be5528a 100644
+index 10bf80eccf..906cd35f7a 100644
 --- a/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1722,7 +1722,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index b07c98d470..3c63cb314e 100644
+index 07e4ab531d..3da8903e82 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1742,7 +1742,7 @@ index b07c98d470..3c63cb314e 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -360,7 +354,7 @@ A `default_node_pool` block supports the following:
+@@ -366,7 +360,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1751,7 +1751,7 @@ index b07c98d470..3c63cb314e 100644
  
  * `host_encryption_enabled` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -416,7 +410,7 @@ A `default_node_pool` block supports the following:
+@@ -422,7 +416,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1760,7 +1760,7 @@ index b07c98d470..3c63cb314e 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -440,7 +434,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -446,7 +440,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1769,7 +1769,7 @@ index b07c98d470..3c63cb314e 100644
  
  -> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -671,8 +665,6 @@ A `network_profile` block supports the following:
+@@ -677,8 +671,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1778,7 +1778,7 @@ index b07c98d470..3c63cb314e 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1037,19 +1029,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1045,19 +1037,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2383,7 +2383,7 @@ index e309cf6054..f8e08c7c38 100644
  -> **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
  
 diff --git a/website/docs/r/role_definition.html.markdown b/website/docs/r/role_definition.html.markdown
-index 299a7df471..694d38f903 100644
+index 7ecef7c850..d023c4f409 100644
 --- a/website/docs/r/role_definition.html.markdown
 +++ b/website/docs/r/role_definition.html.markdown
 @@ -20,7 +20,7 @@ data "azurerm_subscription" "primary" {
@@ -2395,7 +2395,7 @@ index 299a7df471..694d38f903 100644
  
    permissions {
      actions     = ["*"]
-@@ -90,4 +90,4 @@ Role Definitions can be imported using the `resource id`, e.g.
+@@ -120,4 +120,4 @@ Role Definitions can be imported using the `resource id`, e.g.
  terraform import azurerm_role_definition.example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
  ```
  
