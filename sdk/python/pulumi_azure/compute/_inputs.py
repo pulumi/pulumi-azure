@@ -163,6 +163,8 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetPlanArgsDict',
     'OrchestratedVirtualMachineScaleSetPriorityMixArgs',
     'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict',
+    'OrchestratedVirtualMachineScaleSetSkuProfileArgs',
+    'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict',
     'OrchestratedVirtualMachineScaleSetTerminationNotificationArgs',
@@ -7134,6 +7136,56 @@ class OrchestratedVirtualMachineScaleSetPriorityMixArgs:
     @regular_percentage_above_base.setter
     def regular_percentage_above_base(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "regular_percentage_above_base", value)
+
+
+if not MYPY:
+    class OrchestratedVirtualMachineScaleSetSkuProfileArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        """
+        vm_sizes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the VM sizes for the virtual machine scale set.
+        """
+elif False:
+    OrchestratedVirtualMachineScaleSetSkuProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
+    def __init__(__self__, *,
+                 allocation_strategy: pulumi.Input[str],
+                 vm_sizes: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vm_sizes: Specifies the VM sizes for the virtual machine scale set.
+        """
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        pulumi.set(__self__, "vm_sizes", vm_sizes)
+
+    @property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> pulumi.Input[str]:
+        """
+        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice` and `CapacityOptimized`.
+        """
+        return pulumi.get(self, "allocation_strategy")
+
+    @allocation_strategy.setter
+    def allocation_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "allocation_strategy", value)
+
+    @property
+    @pulumi.getter(name="vmSizes")
+    def vm_sizes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies the VM sizes for the virtual machine scale set.
+        """
+        return pulumi.get(self, "vm_sizes")
+
+    @vm_sizes.setter
+    def vm_sizes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "vm_sizes", value)
 
 
 if not MYPY:

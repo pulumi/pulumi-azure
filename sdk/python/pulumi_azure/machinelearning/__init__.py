@@ -14,5 +14,6 @@ from .get_workspace import *
 from .inference_cluster import *
 from .synapse_spark import *
 from .workspace import *
+from .workspace_network_outbound_rule_fqdn import *
 from ._inputs import *
 from . import outputs

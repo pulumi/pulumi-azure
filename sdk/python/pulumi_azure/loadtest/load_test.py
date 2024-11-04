@@ -31,7 +31,7 @@ class LoadTestArgs:
         """
         The set of arguments for constructing a LoadTest resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input['LoadTestEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -68,7 +68,7 @@ class LoadTestArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the resource. Changing this forces a new Load Test to be created.
+        Description of the resource.
         """
         return pulumi.get(self, "description")
 
@@ -151,7 +151,7 @@ class _LoadTestState:
         """
         Input properties used for looking up and filtering LoadTest resources.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
-        :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input['LoadTestEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -192,7 +192,7 @@ class _LoadTestState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the resource. Changing this forces a new Load Test to be created.
+        Description of the resource.
         """
         return pulumi.get(self, "description")
 
@@ -326,7 +326,7 @@ class LoadTest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -445,7 +445,7 @@ class LoadTest(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
-        :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         :param pulumi.Input[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -479,7 +479,7 @@ class LoadTest(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the resource. Changing this forces a new Load Test to be created.
+        Description of the resource.
         """
         return pulumi.get(self, "description")
 

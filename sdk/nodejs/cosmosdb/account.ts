@@ -183,6 +183,7 @@ export class Account extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      */
@@ -303,6 +304,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
             resourceInputs["minimalTlsVersion"] = state ? state.minimalTlsVersion : undefined;
             resourceInputs["mongoServerVersion"] = state ? state.mongoServerVersion : undefined;
             resourceInputs["multipleWriteLocationsEnabled"] = state ? state.multipleWriteLocationsEnabled : undefined;
@@ -365,6 +367,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
             resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
             resourceInputs["mongoServerVersion"] = args ? args.mongoServerVersion : undefined;
             resourceInputs["multipleWriteLocationsEnabled"] = args ? args.multipleWriteLocationsEnabled : undefined;
@@ -447,6 +450,7 @@ export interface AccountState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      */
@@ -575,6 +579,7 @@ export interface AccountArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      */

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+        /// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
 

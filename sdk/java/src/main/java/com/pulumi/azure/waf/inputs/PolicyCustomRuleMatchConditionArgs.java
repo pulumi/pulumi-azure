@@ -80,14 +80,14 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+     * A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
      * 
      */
     @Import(name="transforms")
     private @Nullable Output<List<String>> transforms;
 
     /**
-     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+     * @return A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
      * 
      */
     public Optional<Output<List<String>>> transforms() {
@@ -227,7 +227,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+         * @param transforms A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
          * 
          * @return builder
          * 

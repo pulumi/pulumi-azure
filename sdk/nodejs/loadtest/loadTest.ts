@@ -80,7 +80,7 @@ export class LoadTest extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataPlaneUri!: pulumi.Output<string>;
     /**
-     * Description of the resource. Changing this forces a new Load Test to be created.
+     * Description of the resource.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface LoadTestState {
      */
     dataPlaneUri?: pulumi.Input<string>;
     /**
-     * Description of the resource. Changing this forces a new Load Test to be created.
+     * Description of the resource.
      */
     description?: pulumi.Input<string>;
     /**
@@ -191,7 +191,7 @@ export interface LoadTestState {
  */
 export interface LoadTestArgs {
     /**
-     * Description of the resource. Changing this forces a new Load Test to be created.
+     * Description of the resource.
      */
     description?: pulumi.Input<string>;
     /**

@@ -139,6 +139,7 @@ import * as streamanalytics from "./streamanalytics";
 import * as synapse from "./synapse";
 import * as systemcenter from "./systemcenter";
 import * as trafficmanager from "./trafficmanager";
+import * as trustedsigning from "./trustedsigning";
 import * as types from "./types";
 import * as videoindexer from "./videoindexer";
 import * as voice from "./voice";
@@ -272,6 +273,7 @@ export {
     synapse,
     systemcenter,
     trafficmanager,
+    trustedsigning,
     types,
     videoindexer,
     voice,

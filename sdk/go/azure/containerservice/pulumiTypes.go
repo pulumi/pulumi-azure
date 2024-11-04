@@ -6094,10 +6094,16 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) AuthorizedIpRanges() p
 type KubernetesClusterAutoScalerProfile struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
+	// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+	DaemonsetEvictionForEmptyNodesEnabled *bool `pulumi:"daemonsetEvictionForEmptyNodesEnabled"`
+	// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+	DaemonsetEvictionForOccupiedNodesEnabled *bool `pulumi:"daemonsetEvictionForOccupiedNodesEnabled"`
 	// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
 	EmptyBulkDeleteMax *string `pulumi:"emptyBulkDeleteMax"`
 	// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 	Expander *string `pulumi:"expander"`
+	// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+	IgnoreDaemonsetsUtilizationEnabled *bool `pulumi:"ignoreDaemonsetsUtilizationEnabled"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec *string `pulumi:"maxGracefulTerminationSec"`
 	// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
@@ -6142,10 +6148,16 @@ type KubernetesClusterAutoScalerProfileInput interface {
 type KubernetesClusterAutoScalerProfileArgs struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups pulumi.BoolPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+	DaemonsetEvictionForEmptyNodesEnabled pulumi.BoolPtrInput `pulumi:"daemonsetEvictionForEmptyNodesEnabled"`
+	// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+	DaemonsetEvictionForOccupiedNodesEnabled pulumi.BoolPtrInput `pulumi:"daemonsetEvictionForOccupiedNodesEnabled"`
 	// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
 	EmptyBulkDeleteMax pulumi.StringPtrInput `pulumi:"emptyBulkDeleteMax"`
 	// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 	Expander pulumi.StringPtrInput `pulumi:"expander"`
+	// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+	IgnoreDaemonsetsUtilizationEnabled pulumi.BoolPtrInput `pulumi:"ignoreDaemonsetsUtilizationEnabled"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
 	// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
@@ -6258,6 +6270,16 @@ func (o KubernetesClusterAutoScalerProfileOutput) BalanceSimilarNodeGroups() pul
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.BalanceSimilarNodeGroups }).(pulumi.BoolPtrOutput)
 }
 
+// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+func (o KubernetesClusterAutoScalerProfileOutput) DaemonsetEvictionForEmptyNodesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.DaemonsetEvictionForEmptyNodesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+func (o KubernetesClusterAutoScalerProfileOutput) DaemonsetEvictionForOccupiedNodesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.DaemonsetEvictionForOccupiedNodesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
 func (o KubernetesClusterAutoScalerProfileOutput) EmptyBulkDeleteMax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.EmptyBulkDeleteMax }).(pulumi.StringPtrOutput)
@@ -6266,6 +6288,11 @@ func (o KubernetesClusterAutoScalerProfileOutput) EmptyBulkDeleteMax() pulumi.St
 // Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 func (o KubernetesClusterAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
+}
+
+// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+func (o KubernetesClusterAutoScalerProfileOutput) IgnoreDaemonsetsUtilizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.IgnoreDaemonsetsUtilizationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
@@ -6372,6 +6399,26 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) DaemonsetEvictionForEmptyNodesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DaemonsetEvictionForEmptyNodesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) DaemonsetEvictionForOccupiedNodesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DaemonsetEvictionForOccupiedNodesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) EmptyBulkDeleteMax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
@@ -6390,6 +6437,16 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) Expander() pulumi.StringPtr
 		}
 		return v.Expander
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) IgnoreDaemonsetsUtilizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreDaemonsetsUtilizationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
@@ -13702,6 +13759,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringAr
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
+	// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+	BackendPoolType *string `pulumi:"backendPoolType"`
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
 	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
@@ -13736,6 +13795,8 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
+	// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+	BackendPoolType pulumi.StringPtrInput `pulumi:"backendPoolType"`
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
 	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `100` inclusive. Defaults to `30`.
@@ -13835,6 +13896,11 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ToKubernetesCl
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput)
 }
 
+// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) BackendPoolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *string { return v.BackendPoolType }).(pulumi.StringPtrOutput)
+}
+
 // The outcome (resource IDs) of the specified arguments.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
@@ -13898,6 +13964,16 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() Kube
 		var ret KubernetesClusterNetworkProfileLoadBalancerProfile
 		return ret
 	}).(KubernetesClusterNetworkProfileLoadBalancerProfileOutput)
+}
+
+// The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) BackendPoolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackendPoolType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The outcome (resource IDs) of the specified arguments.

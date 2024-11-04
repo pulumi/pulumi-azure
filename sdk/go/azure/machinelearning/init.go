@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SynapseSpark{}
 	case "azure:machinelearning/workspace:Workspace":
 		r = &Workspace{}
+	case "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn":
+		r = &WorkspaceNetworkOutboundRuleFqdn{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"machinelearning/workspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"machinelearning/workspaceNetworkOutboundRuleFqdn",
 		&module{version},
 	)
 }

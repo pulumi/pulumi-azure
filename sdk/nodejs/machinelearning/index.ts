@@ -50,6 +50,11 @@ export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
+export { WorkspaceNetworkOutboundRuleFqdnArgs, WorkspaceNetworkOutboundRuleFqdnState } from "./workspaceNetworkOutboundRuleFqdn";
+export type WorkspaceNetworkOutboundRuleFqdn = import("./workspaceNetworkOutboundRuleFqdn").WorkspaceNetworkOutboundRuleFqdn;
+export const WorkspaceNetworkOutboundRuleFqdn: typeof import("./workspaceNetworkOutboundRuleFqdn").WorkspaceNetworkOutboundRuleFqdn = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNetworkOutboundRuleFqdn"], () => require("./workspaceNetworkOutboundRuleFqdn"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -71,6 +76,8 @@ const _module = {
                 return new SynapseSpark(name, <any>undefined, { urn })
             case "azure:machinelearning/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn":
+                return new WorkspaceNetworkOutboundRuleFqdn(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -84,3 +91,4 @@ pulumi.runtime.registerResourceModule("azure", "machinelearning/datastoreFilesha
 pulumi.runtime.registerResourceModule("azure", "machinelearning/inferenceCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/synapseSpark", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspace", _module)
+pulumi.runtime.registerResourceModule("azure", "machinelearning/workspaceNetworkOutboundRuleFqdn", _module)

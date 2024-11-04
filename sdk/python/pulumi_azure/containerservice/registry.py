@@ -777,6 +777,36 @@ class Registry(pulumi.CustomResource):
             ])
         ```
 
+        ### Encryption)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            name="registry-uai")
+        example = azure.keyvault.get_key(name="super-secret",
+            key_vault_id=existing["id"])
+        acr = azure.containerservice.Registry("acr",
+            name="containerRegistry1",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
+            encryption={
+                "key_vault_key_id": example.id,
+                "identity_client_id": example_user_assigned_identity.client_id,
+            })
+        ```
+
         ### Attaching A Container Registry To A Kubernetes Cluster)
 
         ```python
@@ -888,6 +918,36 @@ class Registry(pulumi.CustomResource):
                     "tags": {},
                 },
             ])
+        ```
+
+        ### Encryption)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            name="registry-uai")
+        example = azure.keyvault.get_key(name="super-secret",
+            key_vault_id=existing["id"])
+        acr = azure.containerservice.Registry("acr",
+            name="containerRegistry1",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="Premium",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
+            encryption={
+                "key_vault_key_id": example.id,
+                "identity_client_id": example_user_assigned_identity.client_id,
+            })
         ```
 
         ### Attaching A Container Registry To A Kubernetes Cluster)

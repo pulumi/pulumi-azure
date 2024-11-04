@@ -40,6 +40,41 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Encryption)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     name: "registry-uai",
+ * });
+ * const example = azure.keyvault.getKey({
+ *     name: "super-secret",
+ *     keyVaultId: existing.id,
+ * });
+ * const acr = new azure.containerservice.Registry("acr", {
+ *     name: "containerRegistry1",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Premium",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     encryption: {
+ *         keyVaultKeyId: example.then(example => example.id),
+ *         identityClientId: exampleUserAssignedIdentity.clientId,
+ *     },
+ * });
+ * ```
+ *
  * ### Attaching A Container Registry To A Kubernetes Cluster)
  *
  * ```typescript

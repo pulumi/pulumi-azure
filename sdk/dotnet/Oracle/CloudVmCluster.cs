@@ -237,6 +237,12 @@ namespace Pulumi.Azure.Oracle
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+        /// </summary>
+        [Output("ocid")]
+        public Output<string> Ocid { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Cloud VM Cluster should exist.
         /// </summary>
         [Output("resourceGroupName")]
@@ -607,6 +613,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+        /// </summary>
+        [Input("ocid")]
+        public Input<string>? Ocid { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Cloud VM Cluster should exist.

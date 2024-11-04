@@ -34,6 +34,21 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * 
+     */
+    @Import(name="fileUploadEnforcement")
+    private @Nullable Output<Boolean> fileUploadEnforcement;
+
+    /**
+     * @return Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * 
+     */
+    public Optional<Output<Boolean>> fileUploadEnforcement() {
+        return Optional.ofNullable(this.fileUploadEnforcement);
+    }
+
+    /**
      * The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
      * 
      */
@@ -157,6 +172,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
 
     private PolicyPolicySettingsArgs(PolicyPolicySettingsArgs $) {
         this.enabled = $.enabled;
+        this.fileUploadEnforcement = $.fileUploadEnforcement;
         this.fileUploadLimitInMb = $.fileUploadLimitInMb;
         this.jsChallengeCookieExpirationInMinutes = $.jsChallengeCookieExpirationInMinutes;
         this.logScrubbing = $.logScrubbing;
@@ -204,6 +220,27 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileUploadEnforcement(@Nullable Output<Boolean> fileUploadEnforcement) {
+            $.fileUploadEnforcement = fileUploadEnforcement;
+            return this;
+        }
+
+        /**
+         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileUploadEnforcement(Boolean fileUploadEnforcement) {
+            return fileUploadEnforcement(Output.of(fileUploadEnforcement));
         }
 
         /**

@@ -18,6 +18,21 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     public static final KubernetesClusterNetworkProfileLoadBalancerProfileArgs Empty = new KubernetesClusterNetworkProfileLoadBalancerProfileArgs();
 
     /**
+     * The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+     * 
+     */
+    @Import(name="backendPoolType")
+    private @Nullable Output<String> backendPoolType;
+
+    /**
+     * @return The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+     * 
+     */
+    public Optional<Output<String>> backendPoolType() {
+        return Optional.ofNullable(this.backendPoolType);
+    }
+
+    /**
      * The outcome (resource IDs) of the specified arguments.
      * 
      */
@@ -137,6 +152,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     private KubernetesClusterNetworkProfileLoadBalancerProfileArgs() {}
 
     private KubernetesClusterNetworkProfileLoadBalancerProfileArgs(KubernetesClusterNetworkProfileLoadBalancerProfileArgs $) {
+        this.backendPoolType = $.backendPoolType;
         this.effectiveOutboundIps = $.effectiveOutboundIps;
         this.idleTimeoutInMinutes = $.idleTimeoutInMinutes;
         this.managedOutboundIpCount = $.managedOutboundIpCount;
@@ -162,6 +178,27 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
 
         public Builder(KubernetesClusterNetworkProfileLoadBalancerProfileArgs defaults) {
             $ = new KubernetesClusterNetworkProfileLoadBalancerProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param backendPoolType The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendPoolType(@Nullable Output<String> backendPoolType) {
+            $.backendPoolType = backendPoolType;
+            return this;
+        }
+
+        /**
+         * @param backendPoolType The type of the managed inbound Load Balancer Backend Pool. Possible values are `NodeIP` and `NodeIPConfiguration`. Defaults to `NodeIPConfiguration`. See [the documentation](https://learn.microsoft.com/en-us/azure/aks/load-balancer-standard#change-the-inbound-pool-type) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendPoolType(String backendPoolType) {
+            return backendPoolType(Output.of(backendPoolType));
         }
 
         /**

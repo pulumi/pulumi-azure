@@ -8,7 +8,9 @@ import typing
 from .get_hci_cluster import *
 from .hci_cluster import *
 from .hci_deployment_setting import *
+from .hci_extension import *
 from .hci_logical_network import *
+from .hci_marketplace_gallery_image import *
 from .hci_storage_path import *
 from .hci_virtual_hard_disk import *
 from ._inputs import *

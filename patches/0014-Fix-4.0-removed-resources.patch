@@ -17,10 +17,10 @@ index c1bf344a2b..dee7927610 100644
  		"azurerm_databricks_virtual_network_peering":                  resourceDatabricksVirtualNetworkPeering(),
  	}
 diff --git a/internal/services/network/registration.go b/internal/services/network/registration.go
-index e3b217bfb4..c89871dbbe 100644
+index 400e039770..d2ee01b9e4 100644
 --- a/internal/services/network/registration.go
 +++ b/internal/services/network/registration.go
-@@ -128,7 +128,6 @@ func (r Registration) SupportedResources() map[string]*pluginsdk.Resource {
+@@ -129,7 +129,6 @@ func (r Registration) SupportedResources() map[string]*pluginsdk.Resource {
  		"azurerm_network_interface_nat_rule_association":                                 resourceNetworkInterfaceNatRuleAssociation(),
  		"azurerm_network_interface_security_group_association":                           resourceNetworkInterfaceSecurityGroupAssociation(),
  

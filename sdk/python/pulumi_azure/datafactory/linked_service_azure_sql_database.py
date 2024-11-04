@@ -25,6 +25,7 @@ class LinkedServiceAzureSqlDatabaseArgs:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  key_vault_connection_string: Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs']] = None,
@@ -41,6 +42,7 @@ class LinkedServiceAzureSqlDatabaseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        :param pulumi.Input[str] credential_name: The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs'] key_vault_connection_string: A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
@@ -59,6 +61,8 @@ class LinkedServiceAzureSqlDatabaseArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential_name is not None:
+            pulumi.set(__self__, "credential_name", credential_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
@@ -127,6 +131,18 @@ class LinkedServiceAzureSqlDatabaseArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential_name", value)
 
     @property
     @pulumi.getter
@@ -255,6 +271,7 @@ class _LinkedServiceAzureSqlDatabaseState:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -271,6 +288,7 @@ class _LinkedServiceAzureSqlDatabaseState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        :param pulumi.Input[str] credential_name: The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -289,6 +307,8 @@ class _LinkedServiceAzureSqlDatabaseState:
             pulumi.set(__self__, "annotations", annotations)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential_name is not None:
+            pulumi.set(__self__, "credential_name", credential_name)
         if data_factory_id is not None:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
@@ -347,6 +367,18 @@ class _LinkedServiceAzureSqlDatabaseState:
     @connection_string.setter
     def connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential_name", value)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -489,6 +521,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -536,6 +569,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        :param pulumi.Input[str] credential_name: The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -602,6 +636,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -625,6 +660,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["credential_name"] = credential_name
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
@@ -651,6 +687,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
+            credential_name: Optional[pulumi.Input[str]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -672,6 +709,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        :param pulumi.Input[str] credential_name: The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
@@ -691,6 +729,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["connection_string"] = connection_string
+        __props__.__dict__["credential_name"] = credential_name
         __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
         __props__.__dict__["integration_runtime_name"] = integration_runtime_name
@@ -727,6 +766,14 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
+        """
+        return pulumi.get(self, "credential_name")
 
     @property
     @pulumi.getter(name="dataFactoryId")

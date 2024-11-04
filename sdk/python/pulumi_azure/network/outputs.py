@@ -2674,11 +2674,13 @@ class ApplicationGatewaySslCertificate(dict):
                
                > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         :param str id: The ID of the Rewrite Rule Set
-        :param str key_vault_secret_id: The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+        :param str key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+               
+               > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
                
                > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
-               > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+               > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         :param str password: Password for the pfx file specified in data. Required if `data` is set.
         :param str public_cert_data: The Public Certificate Data associated with the SSL Certificate.
         """
@@ -2724,11 +2726,13 @@ class ApplicationGatewaySslCertificate(dict):
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> Optional[str]:
         """
-        The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+        The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+
+        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
         > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3095,11 +3099,13 @@ class ApplicationGatewayTrustedRootCertificate(dict):
         :param str name: The Name of the Trusted Root Certificate to use.
         :param str data: The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         :param str id: The ID of the Rewrite Rule Set
-        :param str key_vault_secret_id: The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+        :param str key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+               
+               > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
                
                > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
-               > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+               > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         pulumi.set(__self__, "name", name)
         if data is not None:
@@ -3137,11 +3143,13 @@ class ApplicationGatewayTrustedRootCertificate(dict):
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> Optional[str]:
         """
-        The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+        The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+
+        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
         > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 

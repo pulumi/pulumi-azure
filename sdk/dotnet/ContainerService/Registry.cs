@@ -55,6 +55,59 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
+    /// ### Encryption)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "registry-uai",
+    ///     });
+    /// 
+    ///     var example = Azure.KeyVault.GetKey.Invoke(new()
+    ///     {
+    ///         Name = "super-secret",
+    ///         KeyVaultId = existing.Id,
+    ///     });
+    /// 
+    ///     var acr = new Azure.ContainerService.Registry("acr", new()
+    ///     {
+    ///         Name = "containerRegistry1",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///         Identity = new Azure.ContainerService.Inputs.RegistryIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Encryption = new Azure.ContainerService.Inputs.RegistryEncryptionArgs
+    ///         {
+    ///             KeyVaultKeyId = example.Apply(getKeyResult =&gt; getKeyResult.Id),
+    ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Attaching A Container Registry To A Kubernetes Cluster)
     /// 
     /// ```csharp

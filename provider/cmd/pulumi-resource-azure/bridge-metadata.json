@@ -12909,6 +12909,10 @@
                     }
                 }
             },
+            "azurerm_machine_learning_workspace_network_outbound_rule_fqdn": {
+                "current": "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn",
+                "majorVersion": 6
+            },
             "azurerm_maintenance_assignment_dedicated_host": {
                 "current": "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost",
                 "majorVersion": 6
@@ -15687,6 +15691,16 @@
                     },
                     "priority_mix": {
                         "maxItemsOne": true
+                    },
+                    "sku_profile": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "vm_sizes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "source_image_reference": {
                         "maxItemsOne": true
@@ -18972,6 +18986,10 @@
                     }
                 }
             },
+            "azurerm_stack_hci_extension": {
+                "current": "azure:stack/hciExtension:HciExtension",
+                "majorVersion": 6
+            },
             "azurerm_stack_hci_logical_network": {
                 "current": "azure:stack/hciLogicalNetwork:HciLogicalNetwork",
                 "majorVersion": 6,
@@ -18991,6 +19009,15 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_stack_hci_marketplace_gallery_image": {
+                "current": "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage",
+                "majorVersion": 6,
+                "fields": {
+                    "identifier": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -20164,6 +20191,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_trusted_signing_account": {
+                "current": "azure:trustedsigning/account:Account",
+                "majorVersion": 6
             },
             "azurerm_user_assigned_identity": {
                 "current": "azure:authorization/userAssignedIdentity:UserAssignedIdentity",
@@ -29756,6 +29787,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_virtual_network_peering": {
+                "current": "azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering",
+                "majorVersion": 6
             },
             "azurerm_virtual_wan": {
                 "current": "azure:network/getVirtualWan:getVirtualWan",

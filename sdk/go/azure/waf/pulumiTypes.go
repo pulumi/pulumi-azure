@@ -191,7 +191,7 @@ type PolicyCustomRuleMatchCondition struct {
 	NegationCondition *bool `pulumi:"negationCondition"`
 	// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 	Operator string `pulumi:"operator"`
-	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -215,7 +215,7 @@ type PolicyCustomRuleMatchConditionArgs struct {
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
 	// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -292,7 +292,7 @@ func (o PolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
 func (o PolicyCustomRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -1334,6 +1334,8 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) Index(
 type PolicyPolicySettings struct {
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+	FileUploadEnforcement *bool `pulumi:"fileUploadEnforcement"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
 	// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
@@ -1366,6 +1368,8 @@ type PolicyPolicySettingsInput interface {
 type PolicyPolicySettingsArgs struct {
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+	FileUploadEnforcement pulumi.BoolPtrInput `pulumi:"fileUploadEnforcement"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
 	// Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
@@ -1466,6 +1470,11 @@ func (o PolicyPolicySettingsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+func (o PolicyPolicySettingsOutput) FileUploadEnforcement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.FileUploadEnforcement }).(pulumi.BoolPtrOutput)
+}
+
 // The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 func (o PolicyPolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
@@ -1537,6 +1546,16 @@ func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+func (o PolicyPolicySettingsPtrOutput) FileUploadEnforcement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FileUploadEnforcement
 	}).(pulumi.BoolPtrOutput)
 }
 

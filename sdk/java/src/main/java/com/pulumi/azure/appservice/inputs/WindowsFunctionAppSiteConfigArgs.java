@@ -347,14 +347,14 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * @return Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -1104,7 +1104,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param minimumTlsVersion Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param minimumTlsVersion Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1115,7 +1115,7 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param minimumTlsVersion Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param minimumTlsVersion Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 

@@ -420,6 +420,7 @@ class _CloudVmClusterState:
                  location: Optional[pulumi.Input[str]] = None,
                  memory_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -447,6 +448,7 @@ class _CloudVmClusterState:
         :param pulumi.Input[str] location: The Azure Region where the Cloud VM Cluster should exist.
         :param pulumi.Input[int] memory_size_in_gbs: The memory to be allocated in GBs.
         :param pulumi.Input[str] name: The name which should be used for this Cloud VM Cluster.
+        :param pulumi.Input[str] ocid: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cloud VM Cluster should exist.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -491,6 +493,8 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "memory_size_in_gbs", memory_size_in_gbs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ocid is not None:
+            pulumi.set(__self__, "ocid", ocid)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sparse_diskgroup_enabled is not None:
@@ -721,6 +725,18 @@ class _CloudVmClusterState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def ocid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+        """
+        return pulumi.get(self, "ocid")
+
+    @ocid.setter
+    def ocid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocid", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -1101,6 +1117,7 @@ class CloudVmCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_network_id'")
             __props__.__dict__["virtual_network_id"] = virtual_network_id
             __props__.__dict__["hostname_actual"] = None
+            __props__.__dict__["ocid"] = None
         super(CloudVmCluster, __self__).__init__(
             'azure:oracle/cloudVmCluster:CloudVmCluster',
             resource_name,
@@ -1129,6 +1146,7 @@ class CloudVmCluster(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             memory_size_in_gbs: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            ocid: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
             ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1161,6 +1179,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Cloud VM Cluster should exist.
         :param pulumi.Input[int] memory_size_in_gbs: The memory to be allocated in GBs.
         :param pulumi.Input[str] name: The name which should be used for this Cloud VM Cluster.
+        :param pulumi.Input[str] ocid: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cloud VM Cluster should exist.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -1191,6 +1210,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["memory_size_in_gbs"] = memory_size_in_gbs
         __props__.__dict__["name"] = name
+        __props__.__dict__["ocid"] = ocid
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sparse_diskgroup_enabled"] = sparse_diskgroup_enabled
         __props__.__dict__["ssh_public_keys"] = ssh_public_keys
@@ -1343,6 +1363,14 @@ class CloudVmCluster(pulumi.CustomResource):
         The name which should be used for this Cloud VM Cluster.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def ocid(self) -> pulumi.Output[str]:
+        """
+        The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+        """
+        return pulumi.get(self, "ocid")
 
     @property
     @pulumi.getter(name="resourceGroupName")

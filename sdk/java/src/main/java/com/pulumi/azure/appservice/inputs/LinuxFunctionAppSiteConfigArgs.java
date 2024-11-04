@@ -392,14 +392,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+     * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -1199,7 +1199,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 
@@ -1210,7 +1210,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * @param minimumTlsVersion The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          * 
          * @return builder
          * 

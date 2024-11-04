@@ -60,6 +60,8 @@ type CloudVmCluster struct {
 	MemorySizeInGbs pulumi.IntOutput `pulumi:"memorySizeInGbs"`
 	// The name which should be used for this Cloud VM Cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+	Ocid pulumi.StringOutput `pulumi:"ocid"`
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
@@ -175,6 +177,8 @@ type cloudVmClusterState struct {
 	MemorySizeInGbs *int `pulumi:"memorySizeInGbs"`
 	// The name which should be used for this Cloud VM Cluster.
 	Name *string `pulumi:"name"`
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+	Ocid *string `pulumi:"ocid"`
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
@@ -228,6 +232,8 @@ type CloudVmClusterState struct {
 	MemorySizeInGbs pulumi.IntPtrInput
 	// The name which should be used for this Cloud VM Cluster.
 	Name pulumi.StringPtrInput
+	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+	Ocid pulumi.StringPtrInput
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName pulumi.StringPtrInput
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
@@ -526,6 +532,11 @@ func (o CloudVmClusterOutput) MemorySizeInGbs() pulumi.IntOutput {
 // The name which should be used for this Cloud VM Cluster.
 func (o CloudVmClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+func (o CloudVmClusterOutput) Ocid() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Ocid }).(pulumi.StringOutput)
 }
 
 // The name of the Resource Group where the Cloud VM Cluster should exist.

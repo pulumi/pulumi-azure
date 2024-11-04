@@ -54,6 +54,7 @@ from .get_virtual_hub_connection import *
 from .get_virtual_hub_route_table import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
+from .get_virtual_network_peering import *
 from .get_virtual_wan import *
 from .get_vpn_gateway import *
 from .get_vpn_server_configuration import *

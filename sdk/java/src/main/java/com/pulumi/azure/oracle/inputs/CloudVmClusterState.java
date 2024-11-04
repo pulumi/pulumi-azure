@@ -292,6 +292,21 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+     * 
+     */
+    @Import(name="ocid")
+    private @Nullable Output<String> ocid;
+
+    /**
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+     * 
+     */
+    public Optional<Output<String>> ocid() {
+        return Optional.ofNullable(this.ocid);
+    }
+
+    /**
      * The name of the Resource Group where the Cloud VM Cluster should exist.
      * 
      */
@@ -417,6 +432,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         this.location = $.location;
         this.memorySizeInGbs = $.memorySizeInGbs;
         this.name = $.name;
+        this.ocid = $.ocid;
         this.resourceGroupName = $.resourceGroupName;
         this.sparseDiskgroupEnabled = $.sparseDiskgroupEnabled;
         this.sshPublicKeys = $.sshPublicKeys;
@@ -830,6 +846,27 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param ocid The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocid(@Nullable Output<String> ocid) {
+            $.ocid = ocid;
+            return this;
+        }
+
+        /**
+         * @param ocid The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocid(String ocid) {
+            return ocid(Output.of(ocid));
         }
 
         /**

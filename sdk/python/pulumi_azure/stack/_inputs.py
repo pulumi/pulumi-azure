@@ -49,6 +49,8 @@ __all__ = [
     'HciLogicalNetworkSubnetIpPoolArgsDict',
     'HciLogicalNetworkSubnetRouteArgs',
     'HciLogicalNetworkSubnetRouteArgsDict',
+    'HciMarketplaceGalleryImageIdentifierArgs',
+    'HciMarketplaceGalleryImageIdentifierArgsDict',
 ]
 
 MYPY = False
@@ -1748,5 +1750,74 @@ class HciLogicalNetworkSubnetRouteArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class HciMarketplaceGalleryImageIdentifierArgsDict(TypedDict):
+        offer: pulumi.Input[str]
+        """
+        The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        sku: pulumi.Input[str]
+        """
+        The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+elif False:
+    HciMarketplaceGalleryImageIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HciMarketplaceGalleryImageIdentifierArgs:
+    def __init__(__self__, *,
+                 offer: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 sku: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] offer: The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        :param pulumi.Input[str] publisher: The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        :param pulumi.Input[str] sku: The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> pulumi.Input[str]:
+        """
+        The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "offer", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input[str]:
+        """
+        The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku", value)
 
 

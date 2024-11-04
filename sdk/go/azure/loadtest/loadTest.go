@@ -79,7 +79,7 @@ type LoadTest struct {
 
 	// Resource data plane URI.
 	DataPlaneUri pulumi.StringOutput `pulumi:"dataPlaneUri"`
-	// Description of the resource. Changing this forces a new Load Test to be created.
+	// Description of the resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
 	Encryption LoadTestEncryptionPtrOutput `pulumi:"encryption"`
@@ -130,7 +130,7 @@ func GetLoadTest(ctx *pulumi.Context,
 type loadTestState struct {
 	// Resource data plane URI.
 	DataPlaneUri *string `pulumi:"dataPlaneUri"`
-	// Description of the resource. Changing this forces a new Load Test to be created.
+	// Description of the resource.
 	Description *string `pulumi:"description"`
 	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
 	Encryption *LoadTestEncryption `pulumi:"encryption"`
@@ -149,7 +149,7 @@ type loadTestState struct {
 type LoadTestState struct {
 	// Resource data plane URI.
 	DataPlaneUri pulumi.StringPtrInput
-	// Description of the resource. Changing this forces a new Load Test to be created.
+	// Description of the resource.
 	Description pulumi.StringPtrInput
 	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
 	Encryption LoadTestEncryptionPtrInput
@@ -170,7 +170,7 @@ func (LoadTestState) ElementType() reflect.Type {
 }
 
 type loadTestArgs struct {
-	// Description of the resource. Changing this forces a new Load Test to be created.
+	// Description of the resource.
 	Description *string `pulumi:"description"`
 	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
 	Encryption *LoadTestEncryption `pulumi:"encryption"`
@@ -188,7 +188,7 @@ type loadTestArgs struct {
 
 // The set of arguments for constructing a LoadTest resource.
 type LoadTestArgs struct {
-	// Description of the resource. Changing this forces a new Load Test to be created.
+	// Description of the resource.
 	Description pulumi.StringPtrInput
 	// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
 	Encryption LoadTestEncryptionPtrInput
@@ -296,7 +296,7 @@ func (o LoadTestOutput) DataPlaneUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.DataPlaneUri }).(pulumi.StringOutput)
 }
 
-// Description of the resource. Changing this forces a new Load Test to be created.
+// Description of the resource.
 func (o LoadTestOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTest) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

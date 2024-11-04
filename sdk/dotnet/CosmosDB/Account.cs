@@ -249,6 +249,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        [Output("managedHsmKeyId")]
+        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         /// </summary>
@@ -543,6 +546,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
+
         /// <summary>
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         /// </summary>
@@ -721,6 +727,9 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.

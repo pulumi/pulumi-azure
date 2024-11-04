@@ -235,6 +235,14 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
+        /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        /// </summary>
+        [Output("skuProfile")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetSkuProfile?> SkuProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// </summary>
         [Output("sourceImageId")]
@@ -531,6 +539,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
+        /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        /// </summary>
+        [Input("skuProfile")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileArgs>? SkuProfile { get; set; }
+
+        /// <summary>
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// </summary>
         [Input("sourceImageId")]
@@ -799,6 +815,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        /// </summary>
+        [Input("skuProfile")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileGetArgs>? SkuProfile { get; set; }
 
         /// <summary>
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.

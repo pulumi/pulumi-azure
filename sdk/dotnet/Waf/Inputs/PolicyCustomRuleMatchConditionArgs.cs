@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<string>? _transforms;
 
         /// <summary>
-        /// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+        /// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
         /// </summary>
         public InputList<string> Transforms
         {

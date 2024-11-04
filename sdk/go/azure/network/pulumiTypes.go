@@ -4219,11 +4219,13 @@ type ApplicationGatewaySslCertificate struct {
 	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+	// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
 	//
 	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
-	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Name of the SSL certificate that is unique within this Application Gateway
 	Name string `pulumi:"name"`
@@ -4251,11 +4253,13 @@ type ApplicationGatewaySslCertificateArgs struct {
 	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+	// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
 	//
 	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
-	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Name of the SSL certificate that is unique within this Application Gateway
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4328,11 +4332,13 @@ func (o ApplicationGatewaySslCertificateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+//
+// > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
 //
 // > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 //
-// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+// > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 func (o ApplicationGatewaySslCertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -5068,11 +5074,13 @@ type ApplicationGatewayTrustedRootCertificate struct {
 	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
 	//
 	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
-	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The Name of the Trusted Root Certificate to use.
 	Name string `pulumi:"name"`
@@ -5094,11 +5102,13 @@ type ApplicationGatewayTrustedRootCertificateArgs struct {
 	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+	//
+	// > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
 	//
 	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
-	// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+	// > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The Name of the Trusted Root Certificate to use.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5165,11 +5175,13 @@ func (o ApplicationGatewayTrustedRootCertificateOutput) Id() pulumi.StringPtrOut
 	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+//
+// > **NOTE:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
 //
 // > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 //
-// > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+// > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 func (o ApplicationGatewayTrustedRootCertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayTrustedRootCertificate) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }

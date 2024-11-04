@@ -260,6 +260,8 @@ if typing.TYPE_CHECKING:
     systemcenter = __systemcenter
     import pulumi_azure.trafficmanager as __trafficmanager
     trafficmanager = __trafficmanager
+    import pulumi_azure.trustedsigning as __trustedsigning
+    trustedsigning = __trustedsigning
     import pulumi_azure.videoindexer as __videoindexer
     videoindexer = __videoindexer
     import pulumi_azure.voice as __voice
@@ -396,6 +398,7 @@ else:
     synapse = _utilities.lazy_import('pulumi_azure.synapse')
     systemcenter = _utilities.lazy_import('pulumi_azure.systemcenter')
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
+    trustedsigning = _utilities.lazy_import('pulumi_azure.trustedsigning')
     videoindexer = _utilities.lazy_import('pulumi_azure.videoindexer')
     voice = _utilities.lazy_import('pulumi_azure.voice')
     waf = _utilities.lazy_import('pulumi_azure.waf')
@@ -5447,6 +5450,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "machinelearning/workspaceNetworkOutboundRuleFqdn",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn": "WorkspaceNetworkOutboundRuleFqdn"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "maintenance/assignmentDedicatedHost",
   "fqn": "pulumi_azure.maintenance",
   "classes": {
@@ -8223,10 +8234,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "stack/hciExtension",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciExtension:HciExtension": "HciExtension"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "stack/hciLogicalNetwork",
   "fqn": "pulumi_azure.stack",
   "classes": {
    "azure:stack/hciLogicalNetwork:HciLogicalNetwork": "HciLogicalNetwork"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "stack/hciMarketplaceGalleryImage",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage": "HciMarketplaceGalleryImage"
   }
  },
  {
@@ -8883,6 +8910,14 @@ _utilities.register(
   "fqn": "pulumi_azure.trafficmanager",
   "classes": {
    "azure:trafficmanager/profile:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "trustedsigning/account",
+  "fqn": "pulumi_azure.trustedsigning",
+  "classes": {
+   "azure:trustedsigning/account:Account": "Account"
   }
  },
  {

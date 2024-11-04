@@ -234,6 +234,13 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.location);
     }
 
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
+    }
+
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      * 
@@ -600,6 +607,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.kind = $.kind;
         this.localAuthenticationDisabled = $.localAuthenticationDisabled;
         this.location = $.location;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.minimalTlsVersion = $.minimalTlsVersion;
         this.mongoServerVersion = $.mongoServerVersion;
         this.multipleWriteLocationsEnabled = $.multipleWriteLocationsEnabled;
@@ -931,6 +939,15 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**

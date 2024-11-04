@@ -2373,6 +2373,181 @@ func (o HciLogicalNetworkSubnetRouteArrayOutput) Index(i pulumi.IntInput) HciLog
 	}).(HciLogicalNetworkSubnetRouteOutput)
 }
 
+type HciMarketplaceGalleryImageIdentifier struct {
+	// The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+	Offer string `pulumi:"offer"`
+	// The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+	Publisher string `pulumi:"publisher"`
+	// The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+	Sku string `pulumi:"sku"`
+}
+
+// HciMarketplaceGalleryImageIdentifierInput is an input type that accepts HciMarketplaceGalleryImageIdentifierArgs and HciMarketplaceGalleryImageIdentifierOutput values.
+// You can construct a concrete instance of `HciMarketplaceGalleryImageIdentifierInput` via:
+//
+//	HciMarketplaceGalleryImageIdentifierArgs{...}
+type HciMarketplaceGalleryImageIdentifierInput interface {
+	pulumi.Input
+
+	ToHciMarketplaceGalleryImageIdentifierOutput() HciMarketplaceGalleryImageIdentifierOutput
+	ToHciMarketplaceGalleryImageIdentifierOutputWithContext(context.Context) HciMarketplaceGalleryImageIdentifierOutput
+}
+
+type HciMarketplaceGalleryImageIdentifierArgs struct {
+	// The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+	Sku pulumi.StringInput `pulumi:"sku"`
+}
+
+func (HciMarketplaceGalleryImageIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciMarketplaceGalleryImageIdentifier)(nil)).Elem()
+}
+
+func (i HciMarketplaceGalleryImageIdentifierArgs) ToHciMarketplaceGalleryImageIdentifierOutput() HciMarketplaceGalleryImageIdentifierOutput {
+	return i.ToHciMarketplaceGalleryImageIdentifierOutputWithContext(context.Background())
+}
+
+func (i HciMarketplaceGalleryImageIdentifierArgs) ToHciMarketplaceGalleryImageIdentifierOutputWithContext(ctx context.Context) HciMarketplaceGalleryImageIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciMarketplaceGalleryImageIdentifierOutput)
+}
+
+func (i HciMarketplaceGalleryImageIdentifierArgs) ToHciMarketplaceGalleryImageIdentifierPtrOutput() HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return i.ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i HciMarketplaceGalleryImageIdentifierArgs) ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(ctx context.Context) HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciMarketplaceGalleryImageIdentifierOutput).ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(ctx)
+}
+
+// HciMarketplaceGalleryImageIdentifierPtrInput is an input type that accepts HciMarketplaceGalleryImageIdentifierArgs, HciMarketplaceGalleryImageIdentifierPtr and HciMarketplaceGalleryImageIdentifierPtrOutput values.
+// You can construct a concrete instance of `HciMarketplaceGalleryImageIdentifierPtrInput` via:
+//
+//	        HciMarketplaceGalleryImageIdentifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciMarketplaceGalleryImageIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToHciMarketplaceGalleryImageIdentifierPtrOutput() HciMarketplaceGalleryImageIdentifierPtrOutput
+	ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(context.Context) HciMarketplaceGalleryImageIdentifierPtrOutput
+}
+
+type hciMarketplaceGalleryImageIdentifierPtrType HciMarketplaceGalleryImageIdentifierArgs
+
+func HciMarketplaceGalleryImageIdentifierPtr(v *HciMarketplaceGalleryImageIdentifierArgs) HciMarketplaceGalleryImageIdentifierPtrInput {
+	return (*hciMarketplaceGalleryImageIdentifierPtrType)(v)
+}
+
+func (*hciMarketplaceGalleryImageIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciMarketplaceGalleryImageIdentifier)(nil)).Elem()
+}
+
+func (i *hciMarketplaceGalleryImageIdentifierPtrType) ToHciMarketplaceGalleryImageIdentifierPtrOutput() HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return i.ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *hciMarketplaceGalleryImageIdentifierPtrType) ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(ctx context.Context) HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciMarketplaceGalleryImageIdentifierPtrOutput)
+}
+
+type HciMarketplaceGalleryImageIdentifierOutput struct{ *pulumi.OutputState }
+
+func (HciMarketplaceGalleryImageIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciMarketplaceGalleryImageIdentifier)(nil)).Elem()
+}
+
+func (o HciMarketplaceGalleryImageIdentifierOutput) ToHciMarketplaceGalleryImageIdentifierOutput() HciMarketplaceGalleryImageIdentifierOutput {
+	return o
+}
+
+func (o HciMarketplaceGalleryImageIdentifierOutput) ToHciMarketplaceGalleryImageIdentifierOutputWithContext(ctx context.Context) HciMarketplaceGalleryImageIdentifierOutput {
+	return o
+}
+
+func (o HciMarketplaceGalleryImageIdentifierOutput) ToHciMarketplaceGalleryImageIdentifierPtrOutput() HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return o.ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o HciMarketplaceGalleryImageIdentifierOutput) ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(ctx context.Context) HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciMarketplaceGalleryImageIdentifier) *HciMarketplaceGalleryImageIdentifier {
+		return &v
+	}).(HciMarketplaceGalleryImageIdentifierPtrOutput)
+}
+
+// The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+func (o HciMarketplaceGalleryImageIdentifierOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v HciMarketplaceGalleryImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+// The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+func (o HciMarketplaceGalleryImageIdentifierOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v HciMarketplaceGalleryImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+func (o HciMarketplaceGalleryImageIdentifierOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v HciMarketplaceGalleryImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+type HciMarketplaceGalleryImageIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (HciMarketplaceGalleryImageIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciMarketplaceGalleryImageIdentifier)(nil)).Elem()
+}
+
+func (o HciMarketplaceGalleryImageIdentifierPtrOutput) ToHciMarketplaceGalleryImageIdentifierPtrOutput() HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return o
+}
+
+func (o HciMarketplaceGalleryImageIdentifierPtrOutput) ToHciMarketplaceGalleryImageIdentifierPtrOutputWithContext(ctx context.Context) HciMarketplaceGalleryImageIdentifierPtrOutput {
+	return o
+}
+
+func (o HciMarketplaceGalleryImageIdentifierPtrOutput) Elem() HciMarketplaceGalleryImageIdentifierOutput {
+	return o.ApplyT(func(v *HciMarketplaceGalleryImageIdentifier) HciMarketplaceGalleryImageIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret HciMarketplaceGalleryImageIdentifier
+		return ret
+	}).(HciMarketplaceGalleryImageIdentifierOutput)
+}
+
+// The offer of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+func (o HciMarketplaceGalleryImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciMarketplaceGalleryImageIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+func (o HciMarketplaceGalleryImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciMarketplaceGalleryImageIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+func (o HciMarketplaceGalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciMarketplaceGalleryImageIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetHciClusterIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -2519,6 +2694,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetIpPoolArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetIpPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciMarketplaceGalleryImageIdentifierInput)(nil)).Elem(), HciMarketplaceGalleryImageIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciMarketplaceGalleryImageIdentifierPtrInput)(nil)).Elem(), HciMarketplaceGalleryImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityInput)(nil)).Elem(), GetHciClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityArrayInput)(nil)).Elem(), GetHciClusterIdentityArray{})
 	pulumi.RegisterOutputType(HciClusterIdentityOutput{})
@@ -2551,6 +2728,8 @@ func init() {
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetIpPoolArrayOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteArrayOutput{})
+	pulumi.RegisterOutputType(HciMarketplaceGalleryImageIdentifierOutput{})
+	pulumi.RegisterOutputType(HciMarketplaceGalleryImageIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(GetHciClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetHciClusterIdentityArrayOutput{})
 }

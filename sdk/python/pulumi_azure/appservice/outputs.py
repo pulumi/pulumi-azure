@@ -8781,7 +8781,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param str linux_fx_version: The Linux FX Version
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
@@ -9075,7 +9075,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -16677,7 +16677,7 @@ class LinuxWebAppSiteConfig(dict):
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
         :param str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
@@ -16921,7 +16921,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -27753,7 +27753,7 @@ class WindowsFunctionAppSiteConfig(dict):
         :param Sequence['WindowsFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
@@ -28020,7 +28020,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -35370,7 +35370,7 @@ class WindowsWebAppSiteConfig(dict):
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
         :param str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
@@ -35629,7 +35629,7 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 

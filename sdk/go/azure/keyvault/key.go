@@ -120,7 +120,9 @@ type Key struct {
 	Curve pulumi.StringOutput `pulumi:"curve"`
 	// The RSA public exponent of this Key Vault Key.
 	E pulumi.StringOutput `pulumi:"e"`
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	//
+	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
@@ -203,7 +205,9 @@ type keyState struct {
 	Curve *string `pulumi:"curve"`
 	// The RSA public exponent of this Key Vault Key.
 	E *string `pulumi:"e"`
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	//
+	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
@@ -248,7 +252,9 @@ type KeyState struct {
 	Curve pulumi.StringPtrInput
 	// The RSA public exponent of this Key Vault Key.
 	E pulumi.StringPtrInput
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	//
+	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate pulumi.StringPtrInput
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts pulumi.StringArrayInput
@@ -295,7 +301,9 @@ func (KeyState) ElementType() reflect.Type {
 type keyArgs struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
 	Curve *string `pulumi:"curve"`
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	//
+	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
@@ -321,7 +329,9 @@ type keyArgs struct {
 type KeyArgs struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
 	Curve pulumi.StringPtrInput
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	//
+	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate pulumi.StringPtrInput
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts pulumi.StringArrayInput
@@ -440,7 +450,9 @@ func (o KeyOutput) E() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.E }).(pulumi.StringOutput)
 }
 
-// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+//
+// > **Note:** Removing this field from the config forces a new resource to be created.
 func (o KeyOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }

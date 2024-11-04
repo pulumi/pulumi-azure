@@ -157,14 +157,18 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.e;
     }
     /**
-     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * 
+     * &gt; **Note:** Removing this field from the config forces a new resource to be created.
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expirationDate;
 
     /**
-     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
+     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * 
+     * &gt; **Note:** Removing this field from the config forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> expirationDate() {

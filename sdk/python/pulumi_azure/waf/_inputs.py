@@ -253,7 +253,7 @@ if not MYPY:
         """
         transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+        A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
         """
 elif False:
     PolicyCustomRuleMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
@@ -271,7 +271,7 @@ class PolicyCustomRuleMatchConditionArgs:
         :param pulumi.Input[str] operator: Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of match values. This is **Required** when the `operator` is not `Any`.
         :param pulumi.Input[bool] negation_condition: Describes if this is negate condition or not
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
         """
         pulumi.set(__self__, "match_variables", match_variables)
         pulumi.set(__self__, "operator", operator)
@@ -334,7 +334,7 @@ class PolicyCustomRuleMatchConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+        A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`.
         """
         return pulumi.get(self, "transforms")
 
@@ -859,6 +859,10 @@ if not MYPY:
         """
         Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         """
+        file_upload_enforcement: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        """
         file_upload_limit_in_mb: NotRequired[pulumi.Input[int]]
         """
         The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
@@ -898,6 +902,7 @@ elif False:
 class PolicyPolicySettingsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 file_upload_enforcement: Optional[pulumi.Input[bool]] = None,
                  file_upload_limit_in_mb: Optional[pulumi.Input[int]] = None,
                  js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
                  log_scrubbing: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArgs']] = None,
@@ -908,6 +913,7 @@ class PolicyPolicySettingsArgs:
                  request_body_inspect_limit_in_kb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        :param pulumi.Input[bool] file_upload_enforcement: Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
         :param pulumi.Input[int] file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
         :param pulumi.Input[int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
         :param pulumi.Input['PolicyPolicySettingsLogScrubbingArgs'] log_scrubbing: One `log_scrubbing` block as defined below.
@@ -919,6 +925,8 @@ class PolicyPolicySettingsArgs:
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if file_upload_enforcement is not None:
+            pulumi.set(__self__, "file_upload_enforcement", file_upload_enforcement)
         if file_upload_limit_in_mb is not None:
             pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
         if js_challenge_cookie_expiration_in_minutes is not None:
@@ -947,6 +955,18 @@ class PolicyPolicySettingsArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="fileUploadEnforcement")
+    def file_upload_enforcement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        """
+        return pulumi.get(self, "file_upload_enforcement")
+
+    @file_upload_enforcement.setter
+    def file_upload_enforcement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "file_upload_enforcement", value)
 
     @property
     @pulumi.getter(name="fileUploadLimitInMb")

@@ -14,6 +14,7 @@ import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsDiskA
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfileArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetPlanArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetPriorityMixArgs;
+import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetSkuProfileArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs;
 import com.pulumi.core.Output;
@@ -464,6 +465,25 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
     }
 
     /**
+     * An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+     * 
+     */
+    @Import(name="skuProfile")
+    private @Nullable Output<OrchestratedVirtualMachineScaleSetSkuProfileArgs> skuProfile;
+
+    /**
+     * @return An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+     * 
+     */
+    public Optional<Output<OrchestratedVirtualMachineScaleSetSkuProfileArgs>> skuProfile() {
+        return Optional.ofNullable(this.skuProfile);
+    }
+
+    /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
@@ -610,6 +630,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         this.resourceGroupName = $.resourceGroupName;
         this.singlePlacementGroup = $.singlePlacementGroup;
         this.skuName = $.skuName;
+        this.skuProfile = $.skuProfile;
         this.sourceImageId = $.sourceImageId;
         this.sourceImageReference = $.sourceImageReference;
         this.tags = $.tags;
@@ -1256,6 +1277,31 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
          */
         public Builder skuName(String skuName) {
             return skuName(Output.of(skuName));
+        }
+
+        /**
+         * @param skuProfile An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuProfile(@Nullable Output<OrchestratedVirtualMachineScaleSetSkuProfileArgs> skuProfile) {
+            $.skuProfile = skuProfile;
+            return this;
+        }
+
+        /**
+         * @param skuProfile An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuProfile(OrchestratedVirtualMachineScaleSetSkuProfileArgs skuProfile) {
+            return skuProfile(Output.of(skuProfile));
         }
 
         /**
