@@ -17,62 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Logic App Integration Account Schema.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.logicapps.IntegrationAccount;
- * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
- * import com.pulumi.azure.logicapps.IntegrationAccountSchema;
- * import com.pulumi.azure.logicapps.IntegrationAccountSchemaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleIntegrationAccount = new IntegrationAccount("exampleIntegrationAccount", IntegrationAccountArgs.builder()
- *             .name("example-ia")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName("Basic")
- *             .build());
- * 
- *         var exampleIntegrationAccountSchema = new IntegrationAccountSchema("exampleIntegrationAccountSchema", IntegrationAccountSchemaArgs.builder()
- *             .name("example-ias")
- *             .resourceGroupName(example.name())
- *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input("testdata/integration_account_schema_content.xsd")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Logic App Integration Account Schemas can be imported using the `resource id`, e.g.

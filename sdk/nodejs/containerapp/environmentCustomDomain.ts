@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App Environment Custom Domain Suffix.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     name: "acctest-01",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     sku: "PerGB2018",
- *     retentionInDays: 30,
- * });
- * const exampleEnvironment = new azure.containerapp.Environment("example", {
- *     name: "my-environment",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- * });
- * const exampleEnvironmentCustomDomain = new azure.containerapp.EnvironmentCustomDomain("example", {
- *     containerAppEnvironmentId: exampleEnvironment.id,
- *     certificateBlobBase64: std.filebase64({
- *         input: "testacc.pfx",
- *     }).then(invoke => invoke.result),
- *     certificatePassword: "TestAcc",
- *     dnsSuffix: "acceptancetest.contoso.com",
- * });
- * ```
- *
  * ## Import
  *
  * A Container App Environment Custom Domain Suffix can be imported using the `resource id` of its parent container ontainer App Environment , e.g.

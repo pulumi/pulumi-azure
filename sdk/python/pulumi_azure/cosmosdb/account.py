@@ -1252,11 +1252,11 @@ class Account(pulumi.CustomResource):
         rg = azure.core.ResourceGroup("rg",
             name="sample-rg",
             location="westus")
-        ri = random.RandomInteger("ri",
+        ri = random.index.random_integer.RandomInteger("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
+            name=f"tfex-cosmos-db-{ri['result']}",
             location=example["location"],
             resource_group_name=example["name"],
             offer_type="Standard",
@@ -1291,44 +1291,6 @@ class Account(pulumi.CustomResource):
                     "failover_priority": 0,
                 },
             ])
-        ```
-
-        ## User Assigned Identity Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_azurerm_resource_group["name"],
-            location=example_azurerm_resource_group["location"],
-            name="example-resource")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-resource",
-            location=example_azurerm_resource_group["location"],
-            resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join_output(separator="=",
-                input=[
-                    "UserAssignedIdentity",
-                    example.id,
-                ]).apply(lambda invoke: invoke.result),
-            offer_type="Standard",
-            kind="MongoDB",
-            capabilities=[{
-                "name": "EnableMongo",
-            }],
-            consistency_policy={
-                "consistency_level": "Strong",
-            },
-            geo_locations=[{
-                "location": "westus",
-                "failover_priority": 0,
-            }],
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example.id],
-            })
         ```
 
         ## Import
@@ -1373,11 +1335,11 @@ class Account(pulumi.CustomResource):
         rg = azure.core.ResourceGroup("rg",
             name="sample-rg",
             location="westus")
-        ri = random.RandomInteger("ri",
+        ri = random.index.random_integer.RandomInteger("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
+            name=f"tfex-cosmos-db-{ri['result']}",
             location=example["location"],
             resource_group_name=example["name"],
             offer_type="Standard",
@@ -1412,44 +1374,6 @@ class Account(pulumi.CustomResource):
                     "failover_priority": 0,
                 },
             ])
-        ```
-
-        ## User Assigned Identity Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.authorization.UserAssignedIdentity("example",
-            resource_group_name=example_azurerm_resource_group["name"],
-            location=example_azurerm_resource_group["location"],
-            name="example-resource")
-        example_account = azure.cosmosdb.Account("example",
-            name="example-resource",
-            location=example_azurerm_resource_group["location"],
-            resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join_output(separator="=",
-                input=[
-                    "UserAssignedIdentity",
-                    example.id,
-                ]).apply(lambda invoke: invoke.result),
-            offer_type="Standard",
-            kind="MongoDB",
-            capabilities=[{
-                "name": "EnableMongo",
-            }],
-            consistency_policy={
-                "consistency_level": "Strong",
-            },
-            geo_locations=[{
-                "location": "westus",
-                "failover_priority": 0,
-            }],
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example.id],
-            })
         ```
 
         ## Import

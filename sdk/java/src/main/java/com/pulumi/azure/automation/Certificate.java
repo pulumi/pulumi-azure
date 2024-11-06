@@ -19,64 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Automation Certificate.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.automation.Account;
- * import com.pulumi.azure.automation.AccountArgs;
- * import com.pulumi.azure.automation.Certificate;
- * import com.pulumi.azure.automation.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("account1")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName("Basic")
- *             .build());
- * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("certificate1")
- *             .resourceGroupName(example.name())
- *             .automationAccountName(exampleAccount.name())
- *             .description("This is an example certificate")
- *             .base64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("certificate.pfx")
- *                 .build()).result())
- *             .exportable(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Automation Certificates can be imported using the `resource id`, e.g.

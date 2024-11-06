@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an IotHub Certificate.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: {
- *         name: "B1",
- *         capacity: 1,
- *     },
- * });
- * const exampleCertificate = new azure.iot.Certificate("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     iothubName: exampleIoTHub.name,
- *     isVerified: true,
- *     certificateContent: std.filebase64({
- *         input: "example.cer",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * IoTHub Certificates can be imported using the `resource id`, e.g.

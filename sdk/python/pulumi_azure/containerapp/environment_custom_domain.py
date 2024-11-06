@@ -169,34 +169,6 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
         """
         Manages a Container App Environment Custom Domain Suffix.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="my-environment",
-            location=example.location,
-            resource_group_name=example.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_environment_custom_domain = azure.containerapp.EnvironmentCustomDomain("example",
-            container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="testacc.pfx").result,
-            certificate_password="TestAcc",
-            dns_suffix="acceptancetest.contoso.com")
-        ```
-
         ## Import
 
         A Container App Environment Custom Domain Suffix can be imported using the `resource id` of its parent container ontainer App Environment , e.g.
@@ -220,34 +192,6 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Environment Custom Domain Suffix.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_environment = azure.containerapp.Environment("example",
-            name="my-environment",
-            location=example.location,
-            resource_group_name=example.name,
-            log_analytics_workspace_id=example_analytics_workspace.id)
-        example_environment_custom_domain = azure.containerapp.EnvironmentCustomDomain("example",
-            container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="testacc.pfx").result,
-            certificate_password="TestAcc",
-            dns_suffix="acceptancetest.contoso.com")
-        ```
 
         ## Import
 

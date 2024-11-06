@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Public Certificate.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "example-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     sku: {
- *         tier: "Standard",
- *         size: "S1",
- *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("example", {
- *     name: "example-app-service",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
- * });
- * const examplePublicCertificate = new azure.appservice.PublicCertificate("example", {
- *     resourceGroupName: example.name,
- *     appServiceName: exampleAppService.name,
- *     certificateName: "example-public-certificate",
- *     certificateLocation: "Unknown",
- *     blob: std.filebase64({
- *         input: "app_service_public_certificate.cer",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * App Service Public Certificates can be imported using the `resource id`, e.g.

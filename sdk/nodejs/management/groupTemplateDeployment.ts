@@ -68,47 +68,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = azure.management.getGroup({
- *     name: "00000000-0000-0000-0000-000000000000",
- * });
- * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("example", {
- *     name: "example",
- *     location: "West Europe",
- *     managementGroupId: example.then(example => example.id),
- *     templateContent: std.file({
- *         input: "templates/example-deploy-template.json",
- *     }).then(invoke => invoke.result),
- *     parametersContent: std.file({
- *         input: "templates/example-deploy-params.json",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = azure.management.getGroup({
- *     name: "00000000-0000-0000-0000-000000000000",
- * });
- * const exampleGetTemplateSpecVersion = azure.core.getTemplateSpecVersion({
- *     name: "exampleTemplateForManagementGroup",
- *     resourceGroupName: "exampleResourceGroup",
- *     version: "v1.0.9",
- * });
- * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("example", {
- *     name: "example",
- *     location: "West Europe",
- *     managementGroupId: example.then(example => example.id),
- *     templateSpecVersionId: exampleGetTemplateSpecVersion.then(exampleGetTemplateSpecVersion => exampleGetTemplateSpecVersion.id),
- * });
- * ```
- *
  * ## Import
  *
  * Management Group Template Deployments can be imported using the `resource id`, e.g.

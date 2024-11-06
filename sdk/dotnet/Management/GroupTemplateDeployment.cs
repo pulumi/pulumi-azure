@@ -82,69 +82,6 @@ namespace Pulumi.Azure.Management
     /// });
     /// ```
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Management.GetGroup.Invoke(new()
-    ///     {
-    ///         Name = "00000000-0000-0000-0000-000000000000",
-    ///     });
-    /// 
-    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = "West Europe",
-    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         TemplateContent = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "templates/example-deploy-template.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         ParametersContent = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "templates/example-deploy-params.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Azure.Management.GetGroup.Invoke(new()
-    ///     {
-    ///         Name = "00000000-0000-0000-0000-000000000000",
-    ///     });
-    /// 
-    ///     var exampleGetTemplateSpecVersion = Azure.Core.GetTemplateSpecVersion.Invoke(new()
-    ///     {
-    ///         Name = "exampleTemplateForManagementGroup",
-    ///         ResourceGroupName = "exampleResourceGroup",
-    ///         Version = "v1.0.9",
-    ///     });
-    /// 
-    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = "West Europe",
-    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         TemplateSpecVersionId = exampleGetTemplateSpecVersion.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Management Group Template Deployments can be imported using the `resource id`, e.g.

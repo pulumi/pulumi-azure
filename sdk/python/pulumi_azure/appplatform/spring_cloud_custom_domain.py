@@ -172,41 +172,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         """
         Manages an Azure Spring Cloud Custom Domain.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example = azure.dns.get_zone_output(name="mydomain.com",
-            resource_group_name=example_resource_group.name)
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="record1",
-            zone_name=example.name,
-            resource_group_name=example.resource_group_name,
-            ttl=300,
-            record=example_spring_cloud_app.fqdn)
-        example_spring_cloud_custom_domain = azure.appplatform.SpringCloudCustomDomain("example",
-            name=std.join_output(separator=".",
-                input=[
-                    example_c_name_record.name,
-                    example_c_name_record.zone_name,
-                ]).apply(lambda invoke: invoke.result),
-            spring_cloud_app_id=example_spring_cloud_app.id)
-        ```
-
         ## Import
 
         Spring Cloud Custom Domain can be imported using the `resource id`, e.g.
@@ -230,41 +195,6 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Custom Domain.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example",
-            location="West Europe")
-        example = azure.dns.get_zone_output(name="mydomain.com",
-            resource_group_name=example_resource_group.name)
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
-            resource_group_name=example_resource_group.name,
-            service_name=example_spring_cloud_service.name)
-        example_c_name_record = azure.dns.CNameRecord("example",
-            name="record1",
-            zone_name=example.name,
-            resource_group_name=example.resource_group_name,
-            ttl=300,
-            record=example_spring_cloud_app.fqdn)
-        example_spring_cloud_custom_domain = azure.appplatform.SpringCloudCustomDomain("example",
-            name=std.join_output(separator=".",
-                input=[
-                    example_c_name_record.name,
-                    example_c_name_record.zone_name,
-                ]).apply(lambda invoke: invoke.result),
-            spring_cloud_app_id=example_spring_cloud_app.id)
-        ```
 
         ## Import
 

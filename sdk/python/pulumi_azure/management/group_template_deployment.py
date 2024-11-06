@@ -378,35 +378,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         \"\"\")
         ```
 
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("example",
-            name="example",
-            location="West Europe",
-            management_group_id=example.id,
-            template_content=std.file(input="templates/example-deploy-template.json").result,
-            parameters_content=std.file(input="templates/example-deploy-params.json").result)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_get_template_spec_version = azure.core.get_template_spec_version(name="exampleTemplateForManagementGroup",
-            resource_group_name="exampleResourceGroup",
-            version="v1.0.9")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("example",
-            name="example",
-            location="West Europe",
-            management_group_id=example.id,
-            template_spec_version_id=example_get_template_spec_version.id)
-        ```
-
         ## Import
 
         Management Group Template Deployments can be imported using the `resource id`, e.g.
@@ -491,35 +462,6 @@ class GroupTemplateDeployment(pulumi.CustomResource):
           }
         }
         \"\"\")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("example",
-            name="example",
-            location="West Europe",
-            management_group_id=example.id,
-            template_content=std.file(input="templates/example-deploy-template.json").result,
-            parameters_content=std.file(input="templates/example-deploy-params.json").result)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
-        example_get_template_spec_version = azure.core.get_template_spec_version(name="exampleTemplateForManagementGroup",
-            resource_group_name="exampleResourceGroup",
-            version="v1.0.9")
-        example_group_template_deployment = azure.management.GroupTemplateDeployment("example",
-            name="example",
-            location="West Europe",
-            management_group_id=example.id,
-            template_spec_version_id=example_get_template_spec_version.id)
         ```
 
         ## Import

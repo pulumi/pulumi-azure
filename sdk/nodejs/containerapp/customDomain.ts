@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App Custom Domain.
  *
- * ### Managed Certificate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.containerapp.CustomDomain("example", {
- *     name: std.trimprefix({
- *         input: api.fqdn,
- *         prefix: "asuid.",
- *     }).then(invoke => std.trimsuffix({
- *         input: invoke.result,
- *         suffix: ".",
- *     })).then(invoke => invoke.result),
- *     containerAppId: exampleAzurermContainerApp.id,
- * });
- * ```
- *
  * ## Import
  *
  * A Container App Custom Domain can be imported using the `resource id`, e.g.

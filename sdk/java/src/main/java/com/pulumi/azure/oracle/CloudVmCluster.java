@@ -23,11 +23,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Cloud VM Cluster.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Cloud VM Clusters can be imported using the `resource id`, e.g.

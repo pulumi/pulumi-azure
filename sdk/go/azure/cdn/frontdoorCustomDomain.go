@@ -69,53 +69,6 @@ import (
 //
 // ```
 //
-// ## Example DNS Auth TXT Record Usage
-//
-// The name of your DNS TXT record should be in the format of `_dnsauth.<your_subdomain>`. So, for example, if we use the `hostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
-//				Separator: ".",
-//				Input: []string{
-//					"_dnsauth",
-//					"contoso",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String(invokeJoin.Result),
-//				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Ttl:               pulumi.Int(3600),
-//				Records: dns.TxtRecordRecordArray{
-//					&dns.TxtRecordRecordArgs{
-//						Value: pulumi.Any(exampleAzurermCdnFrontdoorCustomDomain.ValidationToken),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Example CNAME Record Usage
 //
 // !>**IMPORTANT:** You **must** include the `dependsOn` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.

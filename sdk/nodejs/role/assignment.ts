@@ -105,52 +105,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### ABAC Condition)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const primary = azure.core.getSubscription({});
- * const example = azure.core.getClientConfig({});
- * const builtin = azure.authorization.getRoleDefinition({
- *     name: "Reader",
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     roleDefinitionName: "Role Based Access Control Administrator",
- *     scope: primary.then(primary => primary.id),
- *     principalId: example.then(example => example.objectId),
- *     principalType: "ServicePrincipal",
- *     description: "Role Based Access Control Administrator role assignment with ABAC Condition.",
- *     conditionVersion: "2.0",
- *     condition: Promise.all([builtin.then(builtin => std.basename({
- *         input: builtin.roleDefinitionId,
- *     })), builtin.then(builtin => std.basename({
- *         input: builtin.roleDefinitionId,
- *     }))]).then(([invoke, invoke1]) => `(
- *  (
- *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
- *  )
- *  OR
- *  (
- *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke.result}}
- *  )
- * )
- * AND
- * (
- *  (
- *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})
- *  )
- *  OR
- *  (
- *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke1.result}}
- *  )
- * )
- * `),
- * });
- * ```
- *
  * ## Import
  *
  * Role Assignments can be imported using the `resource id`, e.g.

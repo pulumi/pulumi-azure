@@ -17,57 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Schema within an API Management Service.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
- * import com.pulumi.azure.apimanagement.ApiSchema;
- * import com.pulumi.azure.apimanagement.ApiSchemaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
- *             .name("search-api")
- *             .apiManagementName("search-api-management")
- *             .resourceGroupName("search-service")
- *             .revision("2")
- *             .build());
- * 
- *         var exampleApiSchema = new ApiSchema("exampleApiSchema", ApiSchemaArgs.builder()
- *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))
- *             .schemaId("example-schema")
- *             .contentType("application/vnd.ms-azure-apim.xsd+xml")
- *             .value(StdFunctions.file(FileArgs.builder()
- *                 .input("api_management_api_schema.xml")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * API Management API Schema&#39;s can be imported using the `resource id`, e.g.

@@ -14,50 +14,6 @@ import (
 
 // Manages an Attestation Provider.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/attestation"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "./example/cert.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = attestation.NewProvider(ctx, "example", &attestation.ProviderArgs{
-//				Name:                         pulumi.String("exampleprovider"),
-//				ResourceGroupName:            example.Name,
-//				Location:                     example.Location,
-//				PolicySigningCertificateData: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Attestation Providers can be imported using the `resource id`, e.g.

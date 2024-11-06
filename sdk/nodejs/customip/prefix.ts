@@ -38,37 +38,6 @@ import * as utilities from "../utilities";
  * ```
  *
  * *IPv6 custom prefix*
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const global = new azure.customip.Prefix("global", {
- *     name: "example-Global-CustomIPPrefix",
- *     location: test.location,
- *     resourceGroupName: test.name,
- *     cidr: "2001:db8:1::/48",
- *     roaValidityEndDate: "2199-12-12",
- *     wanValidationSignedMessage: "signed message for WAN validation",
- * });
- * const regional = new azure.customip.Prefix("regional", {
- *     name: "example-Regional-CustomIPPrefix",
- *     location: test.location,
- *     resourceGroupName: test.name,
- *     parentCustomIpPrefixId: global.id,
- *     cidr: global.cidr.apply(cidr => std.cidrsubnetOutput({
- *         input: cidr,
- *         newbits: 16,
- *         netnum: 1,
- *     })).apply(invoke => invoke.result),
- *     zones: ["1"],
- * });
- * ```
- *
  * ## Import
  *
  * A Custom IP Prefix can be imported using the `resource id`, e.g.

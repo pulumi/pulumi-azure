@@ -234,31 +234,6 @@ class GlobalSchema(pulumi.CustomResource):
         """
         Manages a Global Schema within an API Management Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
-            location=example.location,
-            resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_global_schema = azure.apimanagement.GlobalSchema("example",
-            schema_id="example-schema1",
-            api_management_name=example_service.name,
-            resource_group_name=example.name,
-            type="xml",
-            value=std.file(input="api_management_api_schema.xml").result)
-        ```
-
         ## Import
 
         API Management API Schema's can be imported using the `resource id`, e.g.
@@ -284,31 +259,6 @@ class GlobalSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Global Schema within an API Management Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-rg",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
-            location=example.location,
-            resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Consumption_0")
-        example_global_schema = azure.apimanagement.GlobalSchema("example",
-            schema_id="example-schema1",
-            api_management_name=example_service.name,
-            resource_group_name=example.name,
-            type="xml",
-            value=std.file(input="api_management_api_schema.xml").result)
-        ```
 
         ## Import
 

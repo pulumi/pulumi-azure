@@ -22,60 +22,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Installing and configuring the Azure Arc Agent on your Kubernetes Cluster to establish connectivity is outside the scope of this document. For more details refer to [Deploy agents to your cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview#deploy-agents-to-your-cluster) and [Connect an existing Kubernetes Cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#connect-an-existing-kubernetes-cluster). If you encounter issues connecting your Kubernetes Cluster to Azure Arc, we&#39;d recommend opening a ticket with Microsoft Support.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.arckubernetes.Cluster;
- * import com.pulumi.azure.arckubernetes.ClusterArgs;
- * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example-akcc")
- *             .resourceGroupName(example.name())
- *             .location("West Europe")
- *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("testdata/public.cer")
- *                 .build()).result())
- *             .identity(ClusterIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
- *             .tags(Map.of("ENV", "Test"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * &gt; **Note:** An extensive example on connecting the `azure.arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
- * 
  * ## Import
  * 
  * Arc Kubernetes Cluster can be imported using the `resource id`, e.g.

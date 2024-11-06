@@ -220,30 +220,6 @@ class PolicyFragment(pulumi.CustomResource):
         """
         Manages an Api Management Policy Fragment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
-            location=example.location,
-            resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_policy_fragment = azure.apimanagement.PolicyFragment("example",
-            api_management_id=example_service.id,
-            name="example-policy-fragment",
-            format="xml",
-            value=std.file(input="policy-fragment-1.xml").result)
-        ```
-
         ## Import
 
         Api Management Policy Fragments can be imported using the `resource id`, e.g.
@@ -272,30 +248,6 @@ class PolicyFragment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Api Management Policy Fragment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
-            location=example.location,
-            resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_policy_fragment = azure.apimanagement.PolicyFragment("example",
-            api_management_id=example_service.id,
-            name="example-policy-fragment",
-            format="xml",
-            value=std.file(input="policy-fragment-1.xml").result)
-        ```
 
         ## Import
 

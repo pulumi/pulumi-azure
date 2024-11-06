@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -71,18 +71,18 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var reader = new AzureAD.DirectoryRole("reader", new()
+    ///     var reader = new Azuread.Index.DirectoryRole.DirectoryRole("reader", new()
     ///     {
     ///         DisplayName = "Directory Readers",
     ///     });
     /// 
-    ///     var exampleDirectoryRoleMember = new AzureAD.DirectoryRoleMember("example", new()
+    ///     var exampleDirectoryRoleMember = new Azuread.Index.DirectoryRoleMember.DirectoryRoleMember("example", new()
     ///     {
     ///         RoleObjectId = reader.ObjectId,
-    ///         MemberObjectId = exampleManagedInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         MemberObjectId = exampleManagedInstance.Identity?.PrincipalId,
     ///     });
     /// 
-    ///     var admin = new AzureAD.User("admin", new()
+    ///     var admin = new Azuread.Index.User.User("admin", new()
     ///     {
     ///         UserPrincipalName = "ms.admin@example.com",
     ///         DisplayName = "Ms Admin",

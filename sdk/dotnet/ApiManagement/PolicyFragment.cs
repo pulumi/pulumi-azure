@@ -12,47 +12,6 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an Api Management Policy Fragment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
-    ///     {
-    ///         Name = "example-apim",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         PublisherName = "pub1",
-    ///         PublisherEmail = "pub1@email.com",
-    ///         SkuName = "Developer_1",
-    ///     });
-    /// 
-    ///     var examplePolicyFragment = new Azure.ApiManagement.PolicyFragment("example", new()
-    ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         Name = "example-policy-fragment",
-    ///         Format = "xml",
-    ///         Value = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "policy-fragment-1.xml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Api Management Policy Fragments can be imported using the `resource id`, e.g.

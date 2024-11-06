@@ -856,63 +856,6 @@ class CloudVmCluster(pulumi.CustomResource):
         """
         Manages a Cloud VM Cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_exadata_infrastructure = azure.oracle.ExadataInfrastructure("example",
-            name="example-exadata-infrastructure",
-            display_name="example-exadata-infrastructure",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            shape="Exadata.X9M",
-            storage_count=3,
-            compute_count=2,
-            zones=["3"])
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-virtual-network",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[{
-                "name": "delegation",
-                "service_delegation": {
-                    "actions": [
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    ],
-                    "name": "Oracle.Database/networkAttachments",
-                },
-            }])
-        example = azure.oracle.get_db_servers_output(resource_group_name=example_resource_group.name,
-            cloud_exadata_infrastructure_name=example_exadata_infrastructure.name)
-        example_cloud_vm_cluster = azure.oracle.CloudVmCluster("example",
-            name="example-cloud-vm-cluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            gi_version="23.0.0.0",
-            virtual_network_id=example_virtual_network.id,
-            license_model="BringYourOwnLicense",
-            db_servers=example.apply(lambda example: [obj.ocid for obj in example.db_servers]),
-            ssh_public_keys=[std.file(input="~/.ssh/id_rsa.pub").result],
-            display_name="example-cloud-vm-cluster",
-            cloud_exadata_infrastructure_id=example_exadata_infrastructure.id,
-            cpu_core_count=2,
-            hostname="hostname",
-            subnet_id=example_subnet.id)
-        ```
-
         ## Import
 
         Cloud VM Clusters can be imported using the `resource id`, e.g.
@@ -956,63 +899,6 @@ class CloudVmCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cloud VM Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_exadata_infrastructure = azure.oracle.ExadataInfrastructure("example",
-            name="example-exadata-infrastructure",
-            display_name="example-exadata-infrastructure",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            shape="Exadata.X9M",
-            storage_count=3,
-            compute_count=2,
-            zones=["3"])
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-virtual-network",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
-            delegations=[{
-                "name": "delegation",
-                "service_delegation": {
-                    "actions": [
-                        "Microsoft.Network/networkinterfaces/*",
-                        "Microsoft.Network/virtualNetworks/subnets/join/action",
-                    ],
-                    "name": "Oracle.Database/networkAttachments",
-                },
-            }])
-        example = azure.oracle.get_db_servers_output(resource_group_name=example_resource_group.name,
-            cloud_exadata_infrastructure_name=example_exadata_infrastructure.name)
-        example_cloud_vm_cluster = azure.oracle.CloudVmCluster("example",
-            name="example-cloud-vm-cluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            gi_version="23.0.0.0",
-            virtual_network_id=example_virtual_network.id,
-            license_model="BringYourOwnLicense",
-            db_servers=example.apply(lambda example: [obj.ocid for obj in example.db_servers]),
-            ssh_public_keys=[std.file(input="~/.ssh/id_rsa.pub").result],
-            display_name="example-cloud-vm-cluster",
-            cloud_exadata_infrastructure_id=example_exadata_infrastructure.id,
-            cpu_core_count=2,
-            hostname="hostname",
-            subnet_id=example_subnet.id)
-        ```
 
         ## Import
 

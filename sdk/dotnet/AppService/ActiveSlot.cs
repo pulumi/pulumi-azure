@@ -27,7 +27,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var server = new Random.RandomId("server");
+    ///     var server = new Random.Index.RandomId.RandomId("server");
     /// 
     ///     var example = new Azure.Core.ResourceGroup("example");
     /// 

@@ -23,18 +23,18 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
-//					"azi_id": pulumi.String("1"),
+//			server, err := index / randomId.NewRandomId(ctx, "server", &index/randomId.RandomIdArgs{
+//				Keepers: map[string]interface{}{
+//					"azi_id": 1,
 //				},
-//				ByteLength: pulumi.Int(8),
+//				ByteLength: 8,
 //			})
 //			if err != nil {
 //				return err

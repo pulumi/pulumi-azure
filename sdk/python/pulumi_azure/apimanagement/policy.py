@@ -141,34 +141,6 @@ class Policy(pulumi.CustomResource):
 
         > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
-            location=example.location,
-            resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("example",
-            name="example-apimg",
-            resource_group_name=example.name,
-            api_management_name=example_service.name,
-            display_name="ExampleProperty",
-            value="Example Value")
-        example_policy = azure.apimanagement.Policy("example",
-            api_management_id=example_service.id,
-            xml_content=std.file(input="example.xml").result)
-        ```
-
         ## Import
 
         API Management service Policys can be imported using the `resource id`, e.g.
@@ -193,34 +165,6 @@ class Policy(pulumi.CustomResource):
         Manages a API Management service Policy.
 
         > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_service = azure.apimanagement.Service("example",
-            name="example-apim",
-            location=example.location,
-            resource_group_name=example.name,
-            publisher_name="pub1",
-            publisher_email="pub1@email.com",
-            sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("example",
-            name="example-apimg",
-            resource_group_name=example.name,
-            api_management_name=example_service.name,
-            display_name="ExampleProperty",
-            value="Example Value")
-        example_policy = azure.apimanagement.Policy("example",
-            api_management_id=example_service.id,
-            xml_content=std.file(input="example.xml").result)
-        ```
 
         ## Import
 

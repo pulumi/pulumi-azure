@@ -17,53 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Container App Custom Domain.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Managed Certificate
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.containerapp.CustomDomain;
- * import com.pulumi.azure.containerapp.CustomDomainArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CustomDomain("example", CustomDomainArgs.builder()
- *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
- *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
- *                     .input(api.fqdn())
- *                     .prefix("asuid.")
- *                     .build()).result())
- *                 .suffix(".")
- *                 .build()).result())
- *             .containerAppId(exampleAzurermContainerApp.id())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * A Container App Custom Domain can be imported using the `resource id`, e.g.

@@ -21,7 +21,7 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Random.RandomString("example", new()
+    ///     var example = new Random.Index.RandomString.RandomString("example", new()
     ///     {
     ///         Length = 12,
     ///         Special = true,

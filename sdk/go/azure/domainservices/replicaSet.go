@@ -24,7 +24,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/domainservices"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,30 +120,30 @@ import (
 // if err != nil {
 // return err
 // }
-// dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
-// DisplayName: pulumi.String("aad-dc-administrators"),
-// SecurityEnabled: pulumi.Bool(true),
+// dcAdmins, err := index/group.NewGroup(ctx, "dc_admins", &index/group.GroupArgs{
+// DisplayName: "aad-dc-administrators",
+// SecurityEnabled: true,
 // })
 // if err != nil {
 // return err
 // }
-// admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-// UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.net"),
-// DisplayName: pulumi.String("DC Administrator"),
-// Password: pulumi.String("Pa55w0Rd!!1"),
+// admin, err := index/user.NewUser(ctx, "admin", &index/user.UserArgs{
+// UserPrincipalName: "dc-admin@hashicorp-example.net",
+// DisplayName: "DC Administrator",
+// Password: "Pa55w0Rd!!1",
 // })
 // if err != nil {
 // return err
 // }
-// _, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
+// _, err = index/groupMember.NewGroupMember(ctx, "admin", &index/groupMember.GroupMemberArgs{
 // GroupObjectId: dcAdmins.ObjectId,
 // MemberObjectId: admin.ObjectId,
 // })
 // if err != nil {
 // return err
 // }
-// example, err := azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
-// ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
+// example, err := index/servicePrincipal.NewServicePrincipal(ctx, "example", &index/servicePrincipal.ServicePrincipalArgs{
+// ApplicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36",
 // })
 // if err != nil {
 // return err

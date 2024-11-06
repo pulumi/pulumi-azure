@@ -7,52 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Gateway Certificate Authority.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     name: "example-apim",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     publisherName: "pub1",
- *     publisherEmail: "pub1@email.com",
- *     skuName: "Consumption_0",
- * });
- * const exampleGateway = new azure.apimanagement.Gateway("example", {
- *     name: "example-gateway",
- *     apiManagementId: exampleService.id,
- *     description: "Example API Management gateway",
- *     locationData: {
- *         name: "example name",
- *         city: "example city",
- *         district: "example district",
- *         region: "example region",
- *     },
- * });
- * const exampleCertificate = new azure.apimanagement.Certificate("example", {
- *     name: "example-cert",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: example.name,
- *     data: std.filebase64({
- *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
- * });
- * const exampleGatewayCertificateAuthority = new azure.apimanagement.GatewayCertificateAuthority("example", {
- *     apiManagementId: exampleService.id,
- *     certificateName: exampleCertificate.name,
- *     gatewayName: exampleGateway.name,
- *     isTrusted: true,
- * });
- * ```
- *
  * ## Import
  *
  * API Management Gateway Certificate Authority can be imported using the `resource id`, e.g.

@@ -19,67 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an IotHub Certificate.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.iot.IoTHub;
- * import com.pulumi.azure.iot.IoTHubArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
- * import com.pulumi.azure.iot.Certificate;
- * import com.pulumi.azure.iot.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku(IoTHubSkuArgs.builder()
- *                 .name("B1")
- *                 .capacity("1")
- *                 .build())
- *             .build());
- * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .iothubName(exampleIoTHub.name())
- *             .isVerified(true)
- *             .certificateContent(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("example.cer")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * IoTHub Certificates can be imported using the `resource id`, e.g.

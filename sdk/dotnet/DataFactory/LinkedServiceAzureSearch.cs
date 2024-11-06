@@ -12,58 +12,6 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///     });
-    /// 
-    ///     var exampleService = new Azure.Search.Service("example", new()
-    ///     {
-    ///         Name = "example-search-service",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "standard",
-    ///     });
-    /// 
-    ///     var test = new Azure.DataFactory.LinkedServiceAzureSearch("test", new()
-    ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = Std.Join.Invoke(new()
-    ///         {
-    ///             Separator = "",
-    ///             Input = new[]
-    ///             {
-    ///                 "https://",
-    ///                 exampleService.Name,
-    ///                 ".search.windows.net",
-    ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         SearchServiceKey = exampleService.PrimaryKey,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Factory Linked Service's can be imported using the `resource id`, e.g.

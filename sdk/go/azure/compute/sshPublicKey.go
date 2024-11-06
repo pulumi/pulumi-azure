@@ -14,42 +14,6 @@ import (
 
 // Manages a SSH Public Key.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = compute.NewSshPublicKey(ctx, "example", &compute.SshPublicKeyArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("West Europe"),
-//				PublicKey:         pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // SSH Public Keys can be imported using the `resource id`, e.g.

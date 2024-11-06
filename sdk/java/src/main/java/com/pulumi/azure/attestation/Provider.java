@@ -18,53 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an Attestation Provider.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.attestation.Provider;
- * import com.pulumi.azure.attestation.ProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleProvider = new Provider("exampleProvider", ProviderArgs.builder()
- *             .name("exampleprovider")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .policySigningCertificateData(StdFunctions.file(FileArgs.builder()
- *                 .input("./example/cert.pem")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Attestation Providers can be imported using the `resource id`, e.g.

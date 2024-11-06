@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var server = new RandomId("server", RandomIdArgs.builder()
- *             .keepers(Map.of("azi_id", 1))
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 

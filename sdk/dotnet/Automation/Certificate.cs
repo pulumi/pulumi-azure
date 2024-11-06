@@ -12,47 +12,6 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Azure.Automation.Account("example", new()
-    ///     {
-    ///         Name = "account1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Basic",
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.Automation.Certificate("example", new()
-    ///     {
-    ///         Name = "certificate1",
-    ///         ResourceGroupName = example.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
-    ///         Description = "This is an example certificate",
-    ///         Base64 = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "certificate.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Exportable = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Automation Certificates can be imported using the `resource id`, e.g.

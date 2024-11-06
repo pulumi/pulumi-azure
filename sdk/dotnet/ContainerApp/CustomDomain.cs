@@ -12,34 +12,6 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Container App Custom Domain.
     /// 
-    /// ### Managed Certificate
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.ContainerApp.CustomDomain("example", new()
-    ///     {
-    ///         Name = Std.Trimprefix.Invoke(new()
-    ///         {
-    ///             Input = api.Fqdn,
-    ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
-    ///         {
-    ///             Input = invoke.Result,
-    ///             Suffix = ".",
-    ///         })).Apply(invoke =&gt; invoke.Result),
-    ///         ContainerAppId = exampleAzurermContainerApp.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Container App Custom Domain can be imported using the `resource id`, e.g.

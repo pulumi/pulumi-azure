@@ -75,60 +75,6 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * *IPv6 custom prefix*
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.customip.Prefix;
- * import com.pulumi.azure.customip.PrefixArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var global = new Prefix("global", PrefixArgs.builder()
- *             .name("example-Global-CustomIPPrefix")
- *             .location(test.location())
- *             .resourceGroupName(test.name())
- *             .cidr("2001:db8:1::/48")
- *             .roaValidityEndDate("2199-12-12")
- *             .wanValidationSignedMessage("signed message for WAN validation")
- *             .build());
- * 
- *         var regional = new Prefix("regional", PrefixArgs.builder()
- *             .name("example-Regional-CustomIPPrefix")
- *             .location(test.location())
- *             .resourceGroupName(test.name())
- *             .parentCustomIpPrefixId(global.id())
- *             .cidr(global.cidr().applyValue(cidr -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
- *             .zones("1")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * A Custom IP Prefix can be imported using the `resource id`, e.g.

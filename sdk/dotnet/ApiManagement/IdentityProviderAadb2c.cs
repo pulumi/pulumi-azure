@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ApiManagement
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -39,12 +39,12 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApplication = new AzureAD.Application("example", new()
+    ///     var exampleApplication = new Azuread.Index.Application.Application("example", new()
     ///     {
     ///         DisplayName = "acctestam-example",
     ///     });
     /// 
-    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("example", new()
+    ///     var exampleApplicationPassword = new Azuread.Index.ApplicationPassword.ApplicationPassword("example", new()
     ///     {
     ///         ApplicationObjectId = exampleApplication.ObjectId,
     ///         EndDateRelative = "36h",

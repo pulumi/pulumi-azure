@@ -203,31 +203,6 @@ class IotHubCertificate(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service Certificate.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku={
-                "name": "S1",
-                "capacity": 1,
-            })
-        example_iot_hub_certificate = azure.iot.IotHubCertificate("example",
-            name="example",
-            resource_group_name=example.name,
-            iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=std.filebase64(input="example.cer").result)
-        ```
-
         ## Import
 
         IoTHub Device Provisioning Service Certificates can be imported using the `resource id`, e.g.
@@ -252,31 +227,6 @@ class IotHubCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Device Provisioning Service Certificate.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku={
-                "name": "S1",
-                "capacity": 1,
-            })
-        example_iot_hub_certificate = azure.iot.IotHubCertificate("example",
-            name="example",
-            resource_group_name=example.name,
-            iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=std.filebase64(input="example.cer").result)
-        ```
 
         ## Import
 

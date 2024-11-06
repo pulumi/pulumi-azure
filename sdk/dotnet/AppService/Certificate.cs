@@ -12,40 +12,6 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// This example provisions an App Service Certificate from a Local File.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCertificate = new Azure.AppService.Certificate("example", new()
-    ///     {
-    ///         Name = "example-cert",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         PfxBlob = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "certificate.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Password = "password123!",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// App Service Certificates can be imported using the `resource id`, e.g.

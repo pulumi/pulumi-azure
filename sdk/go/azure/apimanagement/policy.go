@@ -16,69 +16,6 @@ import (
 //
 // > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("pub1"),
-//				PublisherEmail:    pulumi.String("pub1@email.com"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewNamedValue(ctx, "example", &apimanagement.NamedValueArgs{
-//				Name:              pulumi.String("example-apimg"),
-//				ResourceGroupName: example.Name,
-//				ApiManagementName: exampleService.Name,
-//				DisplayName:       pulumi.String("ExampleProperty"),
-//				Value:             pulumi.String("Example Value"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "example.xml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewPolicy(ctx, "example", &apimanagement.PolicyArgs{
-//				ApiManagementId: exampleService.ID(),
-//				XmlContent:      pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management service Policys can be imported using the `resource id`, e.g.

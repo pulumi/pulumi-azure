@@ -12,45 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App Integration Account Schema.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
-    ///     {
-    ///         Name = "example-ia",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Basic",
-    ///     });
-    /// 
-    ///     var exampleIntegrationAccountSchema = new Azure.LogicApps.IntegrationAccountSchema("example", new()
-    ///     {
-    ///         Name = "example-ias",
-    ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///         Content = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "testdata/integration_account_schema_content.xsd",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Logic App Integration Account Schemas can be imported using the `resource id`, e.g.

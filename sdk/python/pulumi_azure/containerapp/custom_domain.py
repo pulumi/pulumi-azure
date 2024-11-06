@@ -204,20 +204,6 @@ class CustomDomain(pulumi.CustomResource):
         """
         Manages a Container App Custom Domain.
 
-        ### Managed Certificate
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.containerapp.CustomDomain("example",
-            name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
-            container_app_id=example_azurerm_container_app["id"])
-        ```
-
         ## Import
 
         A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -245,20 +231,6 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Custom Domain.
-
-        ### Managed Certificate
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.containerapp.CustomDomain("example",
-            name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
-            container_app_id=example_azurerm_container_app["id"])
-        ```
 
         ## Import
 

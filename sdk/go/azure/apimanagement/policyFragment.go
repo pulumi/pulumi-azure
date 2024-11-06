@@ -14,61 +14,6 @@ import (
 
 // Manages an Api Management Policy Fragment.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
-//				Name:              pulumi.String("example-apim"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				PublisherName:     pulumi.String("pub1"),
-//				PublisherEmail:    pulumi.String("pub1@email.com"),
-//				SkuName:           pulumi.String("Developer_1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "policy-fragment-1.xml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewPolicyFragment(ctx, "example", &apimanagement.PolicyFragmentArgs{
-//				ApiManagementId: exampleService.ID(),
-//				Name:            pulumi.String("example-policy-fragment"),
-//				Format:          pulumi.String("xml"),
-//				Value:           pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Api Management Policy Fragments can be imported using the `resource id`, e.g.

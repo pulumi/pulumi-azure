@@ -299,32 +299,6 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         """
         Manages an Automation Connection with type `AzureServicePrincipal`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="resourceGroup-example",
-            location="West Europe")
-        example = azure.core.get_client_config()
-        example_account = azure.automation.Account("example",
-            name="account-example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_connection_service_principal = azure.automation.ConnectionServicePrincipal("example",
-            name="connection-example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            application_id="00000000-0000-0000-0000-000000000000",
-            tenant_id=example.tenant_id,
-            subscription_id=example.subscription_id,
-            certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
-        ```
-
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -352,32 +326,6 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `AzureServicePrincipal`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="resourceGroup-example",
-            location="West Europe")
-        example = azure.core.get_client_config()
-        example_account = azure.automation.Account("example",
-            name="account-example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_connection_service_principal = azure.automation.ConnectionServicePrincipal("example",
-            name="connection-example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            application_id="00000000-0000-0000-0000-000000000000",
-            tenant_id=example.tenant_id,
-            subscription_id=example.subscription_id,
-            certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
-        ```
 
         ## Import
 

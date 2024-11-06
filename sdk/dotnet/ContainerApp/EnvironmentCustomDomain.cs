@@ -12,54 +12,6 @@ namespace Pulumi.Azure.ContainerApp
     /// <summary>
     /// Manages a Container App Environment Custom Domain Suffix.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
-    ///     {
-    ///         Name = "acctest-01",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "PerGB2018",
-    ///         RetentionInDays = 30,
-    ///     });
-    /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
-    ///     {
-    ///         Name = "my-environment",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///     });
-    /// 
-    ///     var exampleEnvironmentCustomDomain = new Azure.ContainerApp.EnvironmentCustomDomain("example", new()
-    ///     {
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "testacc.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         CertificatePassword = "TestAcc",
-    ///         DnsSuffix = "acceptancetest.contoso.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Container App Environment Custom Domain Suffix can be imported using the `resource id` of its parent container ontainer App Environment , e.g.

@@ -19,11 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Virtual Machine Restore Point.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Virtual Machine Restore Point can be imported using the `resource id`, e.g.

@@ -19,56 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an App Service certificate.
  * 
- * ## Example Usage
- * 
- * This example provisions an App Service Certificate from a Local File.
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appservice.Certificate;
- * import com.pulumi.azure.appservice.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("example-cert")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .pfxBlob(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("certificate.pfx")
- *                 .build()).result())
- *             .password("password123!")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * App Service Certificates can be imported using the `resource id`, e.g.

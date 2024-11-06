@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Api Management Policy Fragment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     name: "example-apim",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     publisherName: "pub1",
- *     publisherEmail: "pub1@email.com",
- *     skuName: "Developer_1",
- * });
- * const examplePolicyFragment = new azure.apimanagement.PolicyFragment("example", {
- *     apiManagementId: exampleService.id,
- *     name: "example-policy-fragment",
- *     format: "xml",
- *     value: std.file({
- *         input: "policy-fragment-1.xml",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Api Management Policy Fragments can be imported using the `resource id`, e.g.

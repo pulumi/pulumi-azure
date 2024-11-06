@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRandomUuid, err := random.NewRandomUuid(ctx, "example", nil)
+//			exampleRandomUuid, err := index / randomUuid.NewRandomUuid(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}

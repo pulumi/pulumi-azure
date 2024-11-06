@@ -14,53 +14,6 @@ import (
 
 // Manages an API Schema within an API Management Service.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-//				Name:              "search-api",
-//				ApiManagementName: "search-api-management",
-//				ResourceGroupName: "search-service",
-//				Revision:          "2",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "api_management_api_schema.xml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apimanagement.NewApiSchema(ctx, "example", &apimanagement.ApiSchemaArgs{
-//				ApiName:           pulumi.String(example.Name),
-//				ApiManagementName: pulumi.String(example.ApiManagementName),
-//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
-//				SchemaId:          pulumi.String("example-schema"),
-//				ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
-//				Value:             pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // API Management API Schema's can be imported using the `resource id`, e.g.

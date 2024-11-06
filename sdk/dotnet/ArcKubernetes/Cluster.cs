@@ -14,47 +14,6 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     /// &gt; **Note:** Installing and configuring the Azure Arc Agent on your Kubernetes Cluster to establish connectivity is outside the scope of this document. For more details refer to [Deploy agents to your cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-agent-overview#deploy-agents-to-your-cluster) and [Connect an existing Kubernetes Cluster](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#connect-an-existing-kubernetes-cluster). If you encounter issues connecting your Kubernetes Cluster to Azure Arc, we'd recommend opening a ticket with Microsoft Support.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("example", new()
-    ///     {
-    ///         Name = "example-akcc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "West Europe",
-    ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "testdata/public.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "ENV", "Test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **Note:** An extensive example on connecting the `azure.arckubernetes.Cluster` to an external kubernetes cluster can be found in the `./examples/arckubernetes` directory within the GitHub Repository.
-    /// 
     /// ## Import
     /// 
     /// Arc Kubernetes Cluster can be imported using the `resource id`, e.g.

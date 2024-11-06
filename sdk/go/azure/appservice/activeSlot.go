@@ -27,14 +27,14 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := random.NewRandomId(ctx, "server", nil)
+//			_, err := index / randomId.NewRandomId(ctx, "server", nil)
 //			if err != nil {
 //				return err
 //			}

@@ -235,35 +235,6 @@ class ConnectionCertificate(pulumi.CustomResource):
         """
         Manages an Automation Connection with type `Azure`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="resourceGroup-example",
-            location="West Europe")
-        example = azure.core.get_client_config()
-        example_account = azure.automation.Account("example",
-            name="account-example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_certificate = azure.automation.Certificate("example",
-            name="certificate-example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            base64=std.filebase64(input="certificate.pfx").result)
-        example_connection_certificate = azure.automation.ConnectionCertificate("example",
-            name="connection-example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            automation_certificate_name=example_certificate.name,
-            subscription_id=example.subscription_id)
-        ```
-
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -289,35 +260,6 @@ class ConnectionCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `Azure`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="resourceGroup-example",
-            location="West Europe")
-        example = azure.core.get_client_config()
-        example_account = azure.automation.Account("example",
-            name="account-example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="Basic")
-        example_certificate = azure.automation.Certificate("example",
-            name="certificate-example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            base64=std.filebase64(input="certificate.pfx").result)
-        example_connection_certificate = azure.automation.ConnectionCertificate("example",
-            name="connection-example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
-            automation_certificate_name=example_certificate.name,
-            subscription_id=example.subscription_id)
-        ```
 
         ## Import
 

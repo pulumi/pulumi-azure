@@ -54,52 +54,6 @@ namespace Pulumi.Azure.CustomIp
     /// ```
     /// 
     /// *IPv6 custom prefix*
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var @global = new Azure.CustomIp.Prefix("global", new()
-    ///     {
-    ///         Name = "example-Global-CustomIPPrefix",
-    ///         Location = test.Location,
-    ///         ResourceGroupName = test.Name,
-    ///         Cidr = "2001:db8:1::/48",
-    ///         RoaValidityEndDate = "2199-12-12",
-    ///         WanValidationSignedMessage = "signed message for WAN validation",
-    ///     });
-    /// 
-    ///     var regional = new Azure.CustomIp.Prefix("regional", new()
-    ///     {
-    ///         Name = "example-Regional-CustomIPPrefix",
-    ///         Location = test.Location,
-    ///         ResourceGroupName = test.Name,
-    ///         ParentCustomIpPrefixId = @global.Id,
-    ///         Cidr = @global.Cidr.Apply(cidr =&gt; Std.Cidrsubnet.Invoke(new()
-    ///         {
-    ///             Input = cidr,
-    ///             Newbits = 16,
-    ///             Netnum = 1,
-    ///         })).Apply(invoke =&gt; invoke.Result),
-    ///         Zones = new[]
-    ///         {
-    ///             "1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// A Custom IP Prefix can be imported using the `resource id`, e.g.

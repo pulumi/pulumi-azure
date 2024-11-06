@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var workspace = new RandomId("workspace", RandomIdArgs.builder()
- *             .keepers(Map.of("group_name", example.name()))
+ *             .keepers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .byteLength(8)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
- *             .name(workspace.hex().applyValue(hex -> String.format("k8s-workspace-%s", hex)))
+ *             .name(String.format("k8s-workspace-%s", workspace.hex()))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")

@@ -14,53 +14,6 @@ import (
 
 // Manages an App Service certificate.
 //
-// ## Example Usage
-//
-// This example provisions an App Service Certificate from a Local File.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate.pfx",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appservice.NewCertificate(ctx, "example", &appservice.CertificateArgs{
-//				Name:              pulumi.String("example-cert"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				PfxBlob:           pulumi.String(invokeFilebase64.Result),
-//				Password:          pulumi.String("password123!"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // App Service Certificates can be imported using the `resource id`, e.g.

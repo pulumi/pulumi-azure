@@ -19,11 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Container App Environment Certificate.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * A Container App Environment Certificate can be imported using the `resource id`, e.g.

@@ -7,50 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spring Cloud Custom Domain.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     name: "rg-example",
- *     location: "West Europe",
- * });
- * const example = azure.dns.getZoneOutput({
- *     name: "mydomain.com",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
- *     name: "example-springcloud",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
- *     name: "example-springcloudapp",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceName: exampleSpringCloudService.name,
- * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
- *     name: "record1",
- *     zoneName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
- *     ttl: 300,
- *     record: exampleSpringCloudApp.fqdn,
- * });
- * const exampleSpringCloudCustomDomain = new azure.appplatform.SpringCloudCustomDomain("example", {
- *     name: std.joinOutput({
- *         separator: ".",
- *         input: [
- *             exampleCNameRecord.name,
- *             exampleCNameRecord.zoneName,
- *         ],
- *     }).apply(invoke => invoke.result),
- *     springCloudAppId: exampleSpringCloudApp.id,
- * });
- * ```
- *
  * ## Import
  *
  * Spring Cloud Custom Domain can be imported using the `resource id`, e.g.

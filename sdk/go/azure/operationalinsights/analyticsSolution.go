@@ -25,7 +25,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,19 +39,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			workspace, err := random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
-//				Keepers: pulumi.StringMap{
+//			workspace, err := index / randomId.NewRandomId(ctx, "workspace", &index/randomId.RandomIdArgs{
+//				Keepers: map[string]interface{}{
 //					"group_name": example.Name,
 //				},
-//				ByteLength: pulumi.Int(8),
+//				ByteLength: 8,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Name: workspace.Hex.ApplyT(func(hex string) (string, error) {
-//					return fmt.Sprintf("k8s-workspace-%v", hex), nil
-//				}).(pulumi.StringOutput),
+//				Name:              pulumi.Sprintf("k8s-workspace-%v", workspace.Hex),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),

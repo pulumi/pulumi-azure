@@ -21,67 +21,6 @@ import * as utilities from "../utilities";
  *
  * > In this release there's a known issue where the `publicIpAddress` and `publicIpAddresses` fields may not be fully populated for Dynamic Public IP's.
  *
- * ## Example Usage
- *
- * This example provisions a basic Linux Virtual Machine on an internal network.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example-network",
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "internal",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
- * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     ipConfigurations: [{
- *         name: "internal",
- *         subnetId: exampleSubnet.id,
- *         privateIpAddressAllocation: "Dynamic",
- *     }],
- * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "example-machine",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_F2",
- *     adminUsername: "adminuser",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: std.file({
- *             input: "~/.ssh/id_rsa.pub",
- *         }).then(invoke => invoke.result),
- *     }],
- *     osDisk: {
- *         caching: "ReadWrite",
- *         storageAccountType: "Standard_LRS",
- *     },
- *     sourceImageReference: {
- *         publisher: "Canonical",
- *         offer: "0001-com-ubuntu-server-jammy",
- *         sku: "22_04-lts",
- *         version: "latest",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Linux Virtual Machines can be imported using the `resource id`, e.g.

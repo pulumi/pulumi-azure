@@ -17,65 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a Global Schema within an API Management Service.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.apimanagement.Service;
- * import com.pulumi.azure.apimanagement.ServiceArgs;
- * import com.pulumi.azure.apimanagement.GlobalSchema;
- * import com.pulumi.azure.apimanagement.GlobalSchemaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-rg")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example-apim")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .publisherName("pub1")
- *             .publisherEmail("pub1}{@literal @}{@code email.com")
- *             .skuName("Consumption_0")
- *             .build());
- * 
- *         var exampleGlobalSchema = new GlobalSchema("exampleGlobalSchema", GlobalSchemaArgs.builder()
- *             .schemaId("example-schema1")
- *             .apiManagementName(exampleService.name())
- *             .resourceGroupName(example.name())
- *             .type("xml")
- *             .value(StdFunctions.file(FileArgs.builder()
- *                 .input("api_management_api_schema.xml")
- *                 .build()).result())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * API Management API Schema&#39;s can be imported using the `resource id`, e.g.

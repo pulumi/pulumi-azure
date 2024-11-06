@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApplication = new azuread.Application("example", {displayName: "acctestam-example"});
- * const exampleApplicationPassword = new azuread.ApplicationPassword("example", {
+ * const exampleApplication = new azuread.index/application.Application("example", {displayName: "acctestam-example"});
+ * const exampleApplicationPassword = new azuread.index/applicationPassword.ApplicationPassword("example", {
  *     applicationObjectId: exampleApplication.objectId,
  *     endDateRelative: "36h",
  * });

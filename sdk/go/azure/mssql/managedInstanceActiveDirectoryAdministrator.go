@@ -24,7 +24,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,26 +82,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			reader, err := azuread.NewDirectoryRole(ctx, "reader", &azuread.DirectoryRoleArgs{
-//				DisplayName: pulumi.String("Directory Readers"),
+//			reader, err := index / directoryRole.NewDirectoryRole(ctx, "reader", &index/directoryRole.DirectoryRoleArgs{
+//				DisplayName: "Directory Readers",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuread.NewDirectoryRoleMember(ctx, "example", &azuread.DirectoryRoleMemberArgs{
-//				RoleObjectId: reader.ObjectId,
-//				MemberObjectId: pulumi.String(exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//			_, err = index / directoryRoleMember.NewDirectoryRoleMember(ctx, "example", &index/directoryRoleMember.DirectoryRoleMemberArgs{
+//				RoleObjectId:   reader.ObjectId,
+//				MemberObjectId: exampleManagedInstance.Identity.PrincipalId,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("ms.admin@example.com"),
-//				DisplayName:       pulumi.String("Ms Admin"),
-//				MailNickname:      pulumi.String("ms.admin"),
-//				Password:          pulumi.String("SecretP@sswd99!"),
+//			admin, err := index / user.NewUser(ctx, "admin", &index/user.UserArgs{
+//				UserPrincipalName: "ms.admin@example.com",
+//				DisplayName:       "Ms Admin",
+//				MailNickname:      "ms.admin",
+//				Password:          "SecretP@sswd99!",
 //			})
 //			if err != nil {
 //				return err

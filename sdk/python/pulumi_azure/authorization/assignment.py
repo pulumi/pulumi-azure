@@ -523,45 +523,6 @@ class Assignment(pulumi.CustomResource):
             principal_id=example.object_id)
         ```
 
-        ### ABAC Condition)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        primary = azure.core.get_subscription()
-        example = azure.core.get_client_config()
-        builtin = azure.authorization.get_role_definition(name="Reader")
-        example_assignment = azure.authorization.Assignment("example",
-            role_definition_name="Role Based Access Control Administrator",
-            scope=primary.id,
-            principal_id=example.object_id,
-            principal_type="ServicePrincipal",
-            description="Role Based Access Control Administrator role assignment with ABAC Condition.",
-            condition_version="2.0",
-            condition=f\"\"\"(
-         (
-          !(ActionMatches{{'Microsoft.Authorization/roleAssignments/write'}})
-         )
-         OR
-         (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
-         )
-        )
-        AND
-        (
-         (
-          !(ActionMatches{{'Microsoft.Authorization/roleAssignments/delete'}})
-         )
-         OR
-         (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
-         )
-        )
-        \"\"\")
-        ```
-
         ## Import
 
         Role Assignments can be imported using the `resource id`, e.g.
@@ -698,45 +659,6 @@ class Assignment(pulumi.CustomResource):
             scope=primary_azurerm_management_group["id"],
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example.object_id)
-        ```
-
-        ### ABAC Condition)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        primary = azure.core.get_subscription()
-        example = azure.core.get_client_config()
-        builtin = azure.authorization.get_role_definition(name="Reader")
-        example_assignment = azure.authorization.Assignment("example",
-            role_definition_name="Role Based Access Control Administrator",
-            scope=primary.id,
-            principal_id=example.object_id,
-            principal_type="ServicePrincipal",
-            description="Role Based Access Control Administrator role assignment with ABAC Condition.",
-            condition_version="2.0",
-            condition=f\"\"\"(
-         (
-          !(ActionMatches{{'Microsoft.Authorization/roleAssignments/write'}})
-         )
-         OR
-         (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
-         )
-        )
-        AND
-        (
-         (
-          !(ActionMatches{{'Microsoft.Authorization/roleAssignments/delete'}})
-         )
-         OR
-         (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
-         )
-        )
-        \"\"\")
         ```
 
         ## Import

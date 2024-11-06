@@ -28,8 +28,8 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/pim"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleStatic, err := time.NewStatic(ctx, "example", nil)
+//			exampleStatic, err := index / static.NewStatic(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -89,8 +89,8 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/pim"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -112,7 +112,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleStatic, err := time.NewStatic(ctx, "example", nil)
+//			exampleStatic, err := index / static.NewStatic(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}

@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Schema within an API Management Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = azure.apimanagement.getApi({
- *     name: "search-api",
- *     apiManagementName: "search-api-management",
- *     resourceGroupName: "search-service",
- *     revision: "2",
- * });
- * const exampleApiSchema = new azure.apimanagement.ApiSchema("example", {
- *     apiName: example.then(example => example.name),
- *     apiManagementName: example.then(example => example.apiManagementName),
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     schemaId: "example-schema",
- *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
- *     value: std.file({
- *         input: "api_management_api_schema.xml",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * API Management API Schema's can be imported using the `resource id`, e.g.

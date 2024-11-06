@@ -17,7 +17,7 @@ namespace Pulumi.Azure.DomainServices
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -113,26 +113,26 @@ namespace Pulumi.Azure.DomainServices
     ///         NetworkSecurityGroupId = deployNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var dcAdmins = new AzureAD.Group("dc_admins", new()
+    ///     var dcAdmins = new Azuread.Index.Group.Group("dc_admins", new()
     ///     {
     ///         DisplayName = "AAD DC Administrators",
     ///         SecurityEnabled = true,
     ///     });
     /// 
-    ///     var admin = new AzureAD.User("admin", new()
+    ///     var admin = new Azuread.Index.User.User("admin", new()
     ///     {
     ///         UserPrincipalName = "dc-admin@hashicorp-example.com",
     ///         DisplayName = "DC Administrator",
     ///         Password = "Pa55w0Rd!!1",
     ///     });
     /// 
-    ///     var adminGroupMember = new AzureAD.GroupMember("admin", new()
+    ///     var adminGroupMember = new Azuread.Index.GroupMember.GroupMember("admin", new()
     ///     {
     ///         GroupObjectId = dcAdmins.ObjectId,
     ///         MemberObjectId = admin.ObjectId,
     ///     });
     /// 
-    ///     var example = new AzureAD.ServicePrincipal("example", new()
+    ///     var example = new Azuread.Index.ServicePrincipal.ServicePrincipal("example", new()
     ///     {
     ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
     ///     });

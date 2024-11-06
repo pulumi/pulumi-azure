@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Arc Kubernetes Cluster Extension.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as std from "@pulumi/std";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleCluster = new azure.arckubernetes.Cluster("example", {
- *     name: "example-akcc",
- *     resourceGroupName: example.name,
- *     location: "West Europe",
- *     agentPublicKeyCertificate: std.filebase64({
- *         input: "testdata/public.cer",
- *     }).then(invoke => invoke.result),
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     tags: {
- *         ENV: "Test",
- *     },
- * });
- * const exampleClusterExtension = new azure.arckubernetes.ClusterExtension("example", {
- *     name: "example-ext",
- *     clusterId: exampleCluster.id,
- *     extensionType: "microsoft.flux",
- * });
- * ```
- *
  * ## Import
  *
  * Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.

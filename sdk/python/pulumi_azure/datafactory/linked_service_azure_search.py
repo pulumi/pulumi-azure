@@ -359,37 +359,6 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_service = azure.search.Service("example",
-            name="example-search-service",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="standard")
-        test = azure.datafactory.LinkedServiceAzureSearch("test",
-            name="example",
-            data_factory_id=example_factory.id,
-            url=std.join_output(separator="",
-                input=[
-                    "https://",
-                    example_service.name,
-                    ".search.windows.net",
-                ]).apply(lambda invoke: invoke.result),
-            search_service_key=example_service.primary_key)
-        ```
-
         ## Import
 
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
@@ -420,37 +389,6 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_std as std
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_service = azure.search.Service("example",
-            name="example-search-service",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="standard")
-        test = azure.datafactory.LinkedServiceAzureSearch("test",
-            name="example",
-            data_factory_id=example_factory.id,
-            url=std.join_output(separator="",
-                input=[
-                    "https://",
-                    example_service.name,
-                    ".search.windows.net",
-                ]).apply(lambda invoke: invoke.result),
-            search_service_key=example_service.primary_key)
-        ```
 
         ## Import
 

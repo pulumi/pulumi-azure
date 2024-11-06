@@ -137,69 +137,6 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Scaling Plan Host Pool Association.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example-virtualdesktop",
-            location="West Europe")
-        example = azuread.get_service_principal(display_name="Windows Virtual Desktop")
-        example_assignment = azure.authorization.Assignment("example",
-            scope=example_resource_group.id,
-            role_definition_name="Desktop Virtualization Power On Off Contributor",
-            principal_id=example.object_id)
-        example_host_pool = azure.desktopvirtualization.HostPool("example",
-            name="example-hostpool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Pooled",
-            validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("example",
-            name="example-scaling-plan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            friendly_name="Scaling Plan Test",
-            description="Test Scaling Plan",
-            time_zone="GMT Standard Time",
-            schedules=[{
-                "name": "Weekdays",
-                "days_of_weeks": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                ],
-                "ramp_up_start_time": "06:00",
-                "ramp_up_load_balancing_algorithm": "BreadthFirst",
-                "ramp_up_minimum_hosts_percent": 20,
-                "ramp_up_capacity_threshold_percent": 10,
-                "peak_start_time": "09:00",
-                "peak_load_balancing_algorithm": "BreadthFirst",
-                "ramp_down_start_time": "18:00",
-                "ramp_down_load_balancing_algorithm": "BreadthFirst",
-                "ramp_down_minimum_hosts_percent": 10,
-                "ramp_down_force_logoff_users": False,
-                "ramp_down_wait_time_minutes": 45,
-                "ramp_down_notification_message": "Please log of in the next 45 minutes...",
-                "ramp_down_capacity_threshold_percent": 5,
-                "ramp_down_stop_hosts_when": "ZeroSessions",
-                "off_peak_start_time": "22:00",
-                "off_peak_load_balancing_algorithm": "BreadthFirst",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
-        example_scaling_plan_host_pool_association = azure.desktopvirtualization.ScalingPlanHostPoolAssociation("example",
-            host_pool_id=example_host_pool.id,
-            scaling_plan_id=example_scaling_plan.id,
-            enabled=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
-
         ## Import
 
         Associations between Virtual Desktop Scaling Plans and Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -222,69 +159,6 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Scaling Plan Host Pool Association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_azuread as azuread
-
-        example_resource_group = azure.core.ResourceGroup("example",
-            name="rg-example-virtualdesktop",
-            location="West Europe")
-        example = azuread.get_service_principal(display_name="Windows Virtual Desktop")
-        example_assignment = azure.authorization.Assignment("example",
-            scope=example_resource_group.id,
-            role_definition_name="Desktop Virtualization Power On Off Contributor",
-            principal_id=example.object_id)
-        example_host_pool = azure.desktopvirtualization.HostPool("example",
-            name="example-hostpool",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            type="Pooled",
-            validate_environment=True,
-            load_balancer_type="BreadthFirst")
-        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("example",
-            name="example-scaling-plan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            friendly_name="Scaling Plan Test",
-            description="Test Scaling Plan",
-            time_zone="GMT Standard Time",
-            schedules=[{
-                "name": "Weekdays",
-                "days_of_weeks": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                ],
-                "ramp_up_start_time": "06:00",
-                "ramp_up_load_balancing_algorithm": "BreadthFirst",
-                "ramp_up_minimum_hosts_percent": 20,
-                "ramp_up_capacity_threshold_percent": 10,
-                "peak_start_time": "09:00",
-                "peak_load_balancing_algorithm": "BreadthFirst",
-                "ramp_down_start_time": "18:00",
-                "ramp_down_load_balancing_algorithm": "BreadthFirst",
-                "ramp_down_minimum_hosts_percent": 10,
-                "ramp_down_force_logoff_users": False,
-                "ramp_down_wait_time_minutes": 45,
-                "ramp_down_notification_message": "Please log of in the next 45 minutes...",
-                "ramp_down_capacity_threshold_percent": 5,
-                "ramp_down_stop_hosts_when": "ZeroSessions",
-                "off_peak_start_time": "22:00",
-                "off_peak_load_balancing_algorithm": "BreadthFirst",
-            }],
-            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
-        example_scaling_plan_host_pool_association = azure.desktopvirtualization.ScalingPlanHostPoolAssociation("example",
-            host_pool_id=example_host_pool.id,
-            scaling_plan_id=example_scaling_plan.id,
-            enabled=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
-        ```
 
         ## Import
 

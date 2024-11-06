@@ -83,55 +83,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Example DNS Auth TXT Record Usage
- * 
- * The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.dns.TxtRecord;
- * import com.pulumi.azure.dns.TxtRecordArgs;
- * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TxtRecord("example", TxtRecordArgs.builder()
- *             .name(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
- *                     "_dnsauth",
- *                     "contoso")
- *                 .build()).result())
- *             .zoneName(exampleAzurermDnsZone.name())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .ttl(3600)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAzurermCdnFrontdoorCustomDomain.validationToken())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Example CNAME Record Usage
  * 
  * !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.

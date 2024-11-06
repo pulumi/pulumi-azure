@@ -26,16 +26,16 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/proximity"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := random.NewRandomString(ctx, "example", &random.RandomStringArgs{
-//				Length:  pulumi.Int(12),
-//				Special: pulumi.Bool(true),
+//			example, err := index / randomString.NewRandomString(ctx, "example", &index/randomString.RandomStringArgs{
+//				Length:  12,
+//				Special: true,
 //			})
 //			if err != nil {
 //				return err
@@ -132,7 +132,7 @@ import (
 //				Location:                      exampleResourceGroup.Location,
 //				Size:                          pulumi.String("Standard_M8ms"),
 //				AdminUsername:                 pulumi.String(adminUsername),
-//				AdminPassword:                 pulumi.String(adminPassword),
+//				AdminPassword:                 pulumi.Any(adminPassword),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				ProximityPlacementGroupId:     examplePlacementGroup.ID(),
 //				AvailabilitySetId:             exampleAvailabilitySet.ID(),
