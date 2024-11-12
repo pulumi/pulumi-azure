@@ -100,7 +100,7 @@ def get_mpa_account_scope(billing_account_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                  customer_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMpaAccountScopeResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMpaAccountScopeResult]:
     """
     Use this data source to access an ID for your MPA Account billing scope.
 
@@ -122,7 +122,7 @@ def get_mpa_account_scope_output(billing_account_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
     __args__['customerName'] = customer_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:billing/getMpaAccountScope:getMpaAccountScope', __args__, opts=opts, typ=GetMpaAccountScopeResult)
     return __ret__.apply(lambda __response__: GetMpaAccountScopeResult(
         billing_account_name=pulumi.get(__response__, 'billing_account_name'),

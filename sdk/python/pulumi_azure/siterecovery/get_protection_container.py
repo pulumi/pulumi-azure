@@ -129,7 +129,7 @@ def get_protection_container_output(name: Optional[pulumi.Input[str]] = None,
                                     recovery_fabric_name: Optional[pulumi.Input[str]] = None,
                                     recovery_vault_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionContainerResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionContainerResult]:
     """
     Use this data source to access information about an existing site recovery services protection container.
 
@@ -156,7 +156,7 @@ def get_protection_container_output(name: Optional[pulumi.Input[str]] = None,
     __args__['recoveryFabricName'] = recovery_fabric_name
     __args__['recoveryVaultName'] = recovery_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:siterecovery/getProtectionContainer:getProtectionContainer', __args__, opts=opts, typ=GetProtectionContainerResult)
     return __ret__.apply(lambda __response__: GetProtectionContainerResult(
         id=pulumi.get(__response__, 'id'),

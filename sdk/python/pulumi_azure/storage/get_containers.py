@@ -113,7 +113,7 @@ def get_containers(name_prefix: Optional[str] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                           storage_account_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainersResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainersResult]:
     """
     Use this data source to access information about the existing Storage Containers within a Storage Account.
 
@@ -134,7 +134,7 @@ def get_containers_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = N
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
     __args__['storageAccountId'] = storage_account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getContainers:getContainers', __args__, opts=opts, typ=GetContainersResult)
     return __ret__.apply(lambda __response__: GetContainersResult(
         containers=pulumi.get(__response__, 'containers'),
