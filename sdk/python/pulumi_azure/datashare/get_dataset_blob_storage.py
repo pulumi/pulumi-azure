@@ -169,7 +169,7 @@ def get_dataset_blob_storage(data_share_id: Optional[str] = None,
         storage_accounts=pulumi.get(__ret__, 'storage_accounts'))
 def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetBlobStorageResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetBlobStorageResult]:
     """
     Use this data source to access information about an existing Data Share Blob Storage Dataset.
 
@@ -191,7 +191,7 @@ def get_dataset_blob_storage_output(data_share_id: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['dataShareId'] = data_share_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage', __args__, opts=opts, typ=GetDatasetBlobStorageResult)
     return __ret__.apply(lambda __response__: GetDatasetBlobStorageResult(
         container_name=pulumi.get(__response__, 'container_name'),
