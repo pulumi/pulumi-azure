@@ -4979,6 +4979,15 @@
                     }
                 }
             },
+            "azurerm_dashboard_grafana_managed_private_endpoint": {
+                "current": "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint",
+                "majorVersion": 6,
+                "fields": {
+                    "group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_data_factory": {
                 "current": "azure:datafactory/factory:Factory",
                 "majorVersion": 6,
@@ -5829,6 +5838,10 @@
                     }
                 }
             },
+            "azurerm_data_protection_backup_instance_mysql_flexible_server": {
+                "current": "azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer",
+                "majorVersion": 6
+            },
             "azurerm_data_protection_backup_instance_postgresql": {
                 "current": "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql",
                 "majorVersion": 6
@@ -6596,6 +6609,21 @@
                         "maxItemsOne": false
                     },
                     "soa_record": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_dynatrace_monitor": {
+                "current": "azure:dynatrace/monitor:Monitor",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true
+                    },
+                    "plan": {
+                        "maxItemsOne": true
+                    },
+                    "user": {
                         "maxItemsOne": true
                     }
                 }
@@ -13421,6 +13449,15 @@
                     }
                 }
             },
+            "azurerm_mongo_cluster": {
+                "current": "azure:cosmosdb/mongoCluster:MongoCluster",
+                "majorVersion": 6,
+                "fields": {
+                    "preview_features": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_monitor_aad_diagnostic_setting": {
                 "current": "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting",
                 "majorVersion": 6,
@@ -19021,6 +19058,18 @@
                     }
                 }
             },
+            "azurerm_stack_hci_network_interface": {
+                "current": "azure:stack/hciNetworkInterface:HciNetworkInterface",
+                "majorVersion": 6,
+                "fields": {
+                    "dns_servers": {
+                        "maxItemsOne": false
+                    },
+                    "ip_configuration": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_stack_hci_storage_path": {
                 "current": "azure:stack/hciStoragePath:HciStoragePath",
                 "majorVersion": 6
@@ -19297,6 +19346,44 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_storage_account_queue_properties": {
+                "current": "azure:storage/accountQueueProperties:AccountQueueProperties",
+                "majorVersion": 6,
+                "fields": {
+                    "cors_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_headers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                },
+                                "exposed_headers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "hour_metrics": {
+                        "maxItemsOne": true
+                    },
+                    "logging": {
+                        "maxItemsOne": true
+                    },
+                    "minute_metrics": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_storage_account_static_website": {
+                "current": "azure:storage/accountStaticWebsite:AccountStaticWebsite",
+                "majorVersion": 6
             },
             "azurerm_storage_blob": {
                 "current": "azure:storage/blob:Blob",
