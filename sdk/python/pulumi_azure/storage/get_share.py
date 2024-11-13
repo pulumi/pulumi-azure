@@ -161,7 +161,7 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
                      metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      storage_account_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """
     Use this data source to access information about an existing File Share.
 
@@ -189,7 +189,7 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
     __args__['metadata'] = metadata
     __args__['name'] = name
     __args__['storageAccountName'] = storage_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getShare:getShare', __args__, opts=opts, typ=GetShareResult)
     return __ret__.apply(lambda __response__: GetShareResult(
         acls=pulumi.get(__response__, 'acls'),

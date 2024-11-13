@@ -127,7 +127,7 @@ def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional
                                   netapp_account_id: Optional[pulumi.Input[str]] = None,
                                   system_assigned_identity_principal_id: Optional[pulumi.Input[Optional[str]]] = None,
                                   user_assigned_identity_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountEncryptionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountEncryptionResult]:
     """
     Use this data source to access information about an existing NetApp Account Encryption Resource.
 
@@ -152,7 +152,7 @@ def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional
     __args__['netappAccountId'] = netapp_account_id
     __args__['systemAssignedIdentityPrincipalId'] = system_assigned_identity_principal_id
     __args__['userAssignedIdentityId'] = user_assigned_identity_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getAccountEncryption:getAccountEncryption', __args__, opts=opts, typ=GetAccountEncryptionResult)
     return __ret__.apply(lambda __response__: GetAccountEncryptionResult(
         encryption_key=pulumi.get(__response__, 'encryption_key'),
