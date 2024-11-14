@@ -15,6 +15,16 @@ export type AccountNetworkRules = import("./accountNetworkRules").AccountNetwork
 export const AccountNetworkRules: typeof import("./accountNetworkRules").AccountNetworkRules = null as any;
 utilities.lazyLoad(exports, ["AccountNetworkRules"], () => require("./accountNetworkRules"));
 
+export { AccountQueuePropertiesArgs, AccountQueuePropertiesState } from "./accountQueueProperties";
+export type AccountQueueProperties = import("./accountQueueProperties").AccountQueueProperties;
+export const AccountQueueProperties: typeof import("./accountQueueProperties").AccountQueueProperties = null as any;
+utilities.lazyLoad(exports, ["AccountQueueProperties"], () => require("./accountQueueProperties"));
+
+export { AccountStaticWebsiteArgs, AccountStaticWebsiteState } from "./accountStaticWebsite";
+export type AccountStaticWebsite = import("./accountStaticWebsite").AccountStaticWebsite;
+export const AccountStaticWebsite: typeof import("./accountStaticWebsite").AccountStaticWebsite = null as any;
+utilities.lazyLoad(exports, ["AccountStaticWebsite"], () => require("./accountStaticWebsite"));
+
 export { BlobArgs, BlobState } from "./blob";
 export type Blob = import("./blob").Blob;
 export const Blob: typeof import("./blob").Blob = null as any;
@@ -240,6 +250,10 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure:storage/accountNetworkRules:AccountNetworkRules":
                 return new AccountNetworkRules(name, <any>undefined, { urn })
+            case "azure:storage/accountQueueProperties:AccountQueueProperties":
+                return new AccountQueueProperties(name, <any>undefined, { urn })
+            case "azure:storage/accountStaticWebsite:AccountStaticWebsite":
+                return new AccountStaticWebsite(name, <any>undefined, { urn })
             case "azure:storage/blob:Blob":
                 return new Blob(name, <any>undefined, { urn })
             case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
@@ -303,6 +317,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "storage/account", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/accountNetworkRules", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/accountQueueProperties", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/accountStaticWebsite", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/blob", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/blobInventoryPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/container", _module)

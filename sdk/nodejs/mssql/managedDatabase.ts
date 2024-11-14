@@ -103,6 +103,10 @@ export class ManagedDatabase extends pulumi.CustomResource {
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
     public readonly shortTermRetentionDays!: pulumi.Output<number | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ManagedDatabase resource with the given unique name, arguments, and options.
@@ -122,6 +126,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pointInTimeRestore"] = state ? state.pointInTimeRestore : undefined;
             resourceInputs["shortTermRetentionDays"] = state ? state.shortTermRetentionDays : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ManagedDatabaseArgs | undefined;
             if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
@@ -132,6 +137,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pointInTimeRestore"] = args ? args.pointInTimeRestore : undefined;
             resourceInputs["shortTermRetentionDays"] = args ? args.shortTermRetentionDays : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sql/managedDatabase:ManagedDatabase" }] };
@@ -164,6 +170,10 @@ export interface ManagedDatabaseState {
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
     shortTermRetentionDays?: pulumi.Input<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -190,4 +200,8 @@ export interface ManagedDatabaseArgs {
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
     shortTermRetentionDays?: pulumi.Input<number>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

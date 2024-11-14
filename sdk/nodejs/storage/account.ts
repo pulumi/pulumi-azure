@@ -390,6 +390,8 @@ export class Account extends pulumi.CustomResource {
      * A `queueProperties` block as defined below.
      *
      * > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+     *
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      */
     public readonly queueProperties!: pulumi.Output<outputs.storage.AccountQueueProperties>;
     /**
@@ -567,8 +569,10 @@ export class Account extends pulumi.CustomResource {
      * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
      *
      * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+     *
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      */
-    public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite | undefined>;
+    public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite>;
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
@@ -1116,6 +1120,8 @@ export interface AccountState {
      * A `queueProperties` block as defined below.
      *
      * > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+     *
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      */
     queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
     /**
@@ -1293,6 +1299,8 @@ export interface AccountState {
      * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
      *
      * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+     *
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**
@@ -1447,6 +1455,8 @@ export interface AccountArgs {
      * A `queueProperties` block as defined below.
      *
      * > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+     *
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      */
     queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
     /**
@@ -1480,6 +1490,8 @@ export interface AccountArgs {
      * > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
      *
      * > **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+     *
+     * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      */
     staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**

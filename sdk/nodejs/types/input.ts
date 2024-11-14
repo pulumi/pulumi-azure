@@ -18,6 +18,7 @@ export interface ProviderFeatures {
     recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService>;
     recoveryServicesVaults?: pulumi.Input<inputs.ProviderFeaturesRecoveryServicesVaults>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup>;
+    storage?: pulumi.Input<inputs.ProviderFeaturesStorage>;
     subscription?: pulumi.Input<inputs.ProviderFeaturesSubscription>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
     virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
@@ -116,6 +117,10 @@ export interface ProviderFeaturesRecoveryServicesVaults {
 
 export interface ProviderFeaturesResourceGroup {
     preventDeletionIfContainsResources?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesStorage {
+    dataPlaneAvailable?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesSubscription {
@@ -16949,6 +16954,8 @@ export namespace cdn {
         certificateType?: pulumi.Input<string>;
         /**
          * TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+         *
+         * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          */
         minimumTlsVersion?: pulumi.Input<string>;
     }
@@ -18088,7 +18095,7 @@ export namespace cognitive {
          */
         family?: pulumi.Input<string>;
         /**
-         * The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
+         * The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
          */
         name: pulumi.Input<string>;
         /**
@@ -29688,6 +29695,59 @@ export namespace domainservices {
          * Whether to enable legacy TLS v1 support. Defaults to `false`.
          */
         tlsV1Enabled?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace dynatrace {
+    export interface MonitorIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for the resource. Only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface MonitorPlan {
+        /**
+         * Different billing cycles. Possible values are `MONTHLY` and `WEEKLY`.
+         */
+        billingCycle?: pulumi.Input<string>;
+        /**
+         * Date when plan was applied.
+         */
+        effectiveDate?: pulumi.Input<string>;
+        /**
+         * Plan id as published by Dynatrace.
+         */
+        plan: pulumi.Input<string>;
+        /**
+         * Different usage type. Possible values are `PAYG` and `COMMITTED`.
+         */
+        usageType?: pulumi.Input<string>;
+    }
+
+    export interface MonitorUser {
+        /**
+         * Country of the user.
+         */
+        country: pulumi.Input<string>;
+        /**
+         * Email of the user used by Dynatrace for contacting them if needed.
+         */
+        email: pulumi.Input<string>;
+        /**
+         * First name of the user.
+         */
+        firstName: pulumi.Input<string>;
+        /**
+         * Last name of the user.
+         */
+        lastName: pulumi.Input<string>;
+        /**
+         * phone number of the user by Dynatrace for contacting them if needed.
+         */
+        phoneNumber: pulumi.Input<string>;
     }
 }
 
@@ -49068,6 +49128,8 @@ export namespace stack {
         ipAllocationMethod: pulumi.Input<string>;
         /**
          * One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+         *
+         * > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
          */
         ipPools?: pulumi.Input<pulumi.Input<inputs.stack.HciLogicalNetworkSubnetIpPool>[]>;
         /**
@@ -49119,6 +49181,25 @@ export namespace stack {
          * The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
          */
         sku: pulumi.Input<string>;
+    }
+
+    export interface HciNetworkInterfaceIpConfiguration {
+        /**
+         * The IPv4 address of the gateway for the Network Interface.
+         */
+        gateway?: pulumi.Input<string>;
+        /**
+         * The prefix length for the address of the Network Interface.
+         */
+        prefixLength?: pulumi.Input<string>;
+        /**
+         * The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
     }
 }
 
@@ -49431,10 +49512,6 @@ export namespace storage {
 
     export interface AccountQueuePropertiesHourMetrics {
         /**
-         * Indicates whether hour metrics are enabled for the Queue service.
-         */
-        enabled: pulumi.Input<boolean>;
-        /**
          * Indicates whether metrics should generate summary statistics for called API operations.
          */
         includeApis?: pulumi.Input<boolean>;
@@ -49472,10 +49549,6 @@ export namespace storage {
     }
 
     export interface AccountQueuePropertiesMinuteMetrics {
-        /**
-         * Indicates whether minute metrics are enabled for the Queue service.
-         */
-        enabled: pulumi.Input<boolean>;
         /**
          * Indicates whether metrics should generate summary statistics for called API operations.
          */
@@ -49943,7 +50016,7 @@ export namespace storage {
 
     export interface GetShareAclAccessPolicy {
         /**
-         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy is valid until.
          */
         expiry?: string;
         /**
@@ -49951,14 +50024,14 @@ export namespace storage {
          */
         permissions?: string;
         /**
-         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy is valid from.
          */
         start?: string;
     }
 
     export interface GetShareAclAccessPolicyArgs {
         /**
-         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy is valid until.
          */
         expiry?: pulumi.Input<string>;
         /**
@@ -49966,7 +50039,7 @@ export namespace storage {
          */
         permissions?: pulumi.Input<string>;
         /**
-         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy is valid from.
          */
         start?: pulumi.Input<string>;
     }
@@ -50236,7 +50309,7 @@ export namespace storage {
 
     export interface ShareAclAccessPolicy {
         /**
-         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy should be valid untilWhen using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         expiry?: pulumi.Input<string>;
         /**
@@ -50246,7 +50319,7 @@ export namespace storage {
          */
         permissions: pulumi.Input<string>;
         /**
-         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * The time at which this Access Policy should be valid from. When using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         start?: pulumi.Input<string>;
     }

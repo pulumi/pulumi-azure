@@ -97,6 +97,10 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     */
+    public readonly skuTier!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -127,6 +131,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             resourceInputs["prefixLength"] = state ? state.prefixLength : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
@@ -140,6 +145,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             resourceInputs["prefixLength"] = args ? args.prefixLength : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["ipPrefix"] = undefined /*out*/;
@@ -186,6 +192,10 @@ export interface PublicIpPrefixState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     */
+    skuTier?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -229,6 +239,10 @@ export interface PublicIpPrefixArgs {
      * > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     */
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

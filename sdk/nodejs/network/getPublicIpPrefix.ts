@@ -71,6 +71,10 @@ export interface GetPublicIpPrefixResult {
      */
     readonly sku: string;
     /**
+     * The SKU Tier of the Public IP.
+     */
+    readonly skuTier: string;
+    /**
      * A mapping of tags to assigned to the resource.
      */
     readonly tags: {[key: string]: string};

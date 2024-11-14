@@ -32,14 +32,14 @@ import * as utilities from "../utilities";
  * });
  * const exampleShare = new azure.storage.Share("example", {
  *     name: "sharename",
- *     storageAccountName: exampleAccount.name,
+ *     storageAccountId: exampleAccount.id,
  *     quota: 50,
  *     acls: [{
  *         id: "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
  *         accessPolicies: [{
  *             permissions: "rwdl",
- *             start: "2019-07-02T09:38:21.0000000Z",
- *             expiry: "2019-07-02T10:38:21.0000000Z",
+ *             start: "2019-07-02T09:38:21Z",
+ *             expiry: "2019-07-02T10:38:21Z",
  *         }],
  *     }],
  * });
@@ -47,10 +47,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Storage Shares can be imported using the `resource id`, e.g.
+ * Storage Shares can be imported using the `id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+ * $ pulumi import azure:storage/share:Share exampleShare /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myAccount/fileServices/default/shares/exampleShare
  * ```
  */
 export class Share extends pulumi.CustomResource {
@@ -115,12 +115,22 @@ export class Share extends pulumi.CustomResource {
     public readonly quota!: pulumi.Output<number>;
     /**
      * The Resource Manager ID of this File Share.
+     *
+     * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      */
     public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+     */
+    public readonly storageAccountName!: pulumi.Output<string | undefined>;
     /**
      * The URL of the File Share
      */
@@ -146,6 +156,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["quota"] = state ? state.quota : undefined;
             resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
@@ -153,15 +164,13 @@ export class Share extends pulumi.CustomResource {
             if ((!args || args.quota === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'quota'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
             resourceInputs["accessTier"] = args ? args.accessTier : undefined;
             resourceInputs["acls"] = args ? args.acls : undefined;
             resourceInputs["enabledProtocol"] = args ? args.enabledProtocol : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["quota"] = args ? args.quota : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
@@ -209,10 +218,20 @@ export interface ShareState {
     quota?: pulumi.Input<number>;
     /**
      * The Resource Manager ID of this File Share.
+     *
+     * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      */
     resourceManagerId?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     */
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -259,6 +278,14 @@ export interface ShareArgs {
     quota: pulumi.Input<number>;
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+     */
+    storageAccountName?: pulumi.Input<string>;
 }

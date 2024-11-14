@@ -65,6 +65,11 @@ export type GremlinGraph = import("./gremlinGraph").GremlinGraph;
 export const GremlinGraph: typeof import("./gremlinGraph").GremlinGraph = null as any;
 utilities.lazyLoad(exports, ["GremlinGraph"], () => require("./gremlinGraph"));
 
+export { MongoClusterArgs, MongoClusterState } from "./mongoCluster";
+export type MongoCluster = import("./mongoCluster").MongoCluster;
+export const MongoCluster: typeof import("./mongoCluster").MongoCluster = null as any;
+utilities.lazyLoad(exports, ["MongoCluster"], () => require("./mongoCluster"));
+
 export { MongoCollectionArgs, MongoCollectionState } from "./mongoCollection";
 export type MongoCollection = import("./mongoCollection").MongoCollection;
 export const MongoCollection: typeof import("./mongoCollection").MongoCollection = null as any;
@@ -175,6 +180,8 @@ const _module = {
                 return new GremlinDatabase(name, <any>undefined, { urn })
             case "azure:cosmosdb/gremlinGraph:GremlinGraph":
                 return new GremlinGraph(name, <any>undefined, { urn })
+            case "azure:cosmosdb/mongoCluster:MongoCluster":
+                return new MongoCluster(name, <any>undefined, { urn })
             case "azure:cosmosdb/mongoCollection:MongoCollection":
                 return new MongoCollection(name, <any>undefined, { urn })
             case "azure:cosmosdb/mongoDatabase:MongoDatabase":
@@ -223,6 +230,7 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/cassandraKeyspace", _mo
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/cassandraTable", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/gremlinDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/gremlinGraph", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoRoleDefinition", _module)

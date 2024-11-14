@@ -25,20 +25,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
- *     solutionName: "SecurityInsights",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleAlertRuleFusion = new azure.sentinel.AlertRuleFusion("example", {
- *     name: "example-fusion-alert-rule",
- *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     alertRuleTemplateGuid: "f71aba3d-28fb-450b-b192-4e76a83015c8",
  * });
  * ```
@@ -92,7 +81,7 @@ export class AlertRuleFusion extends pulumi.CustomResource {
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
     /**
-     * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -154,7 +143,7 @@ export interface AlertRuleFusionState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      */
     name?: pulumi.Input<string>;
     /**
@@ -180,7 +169,7 @@ export interface AlertRuleFusionArgs {
      */
     logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
-     * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      */
     name?: pulumi.Input<string>;
     /**

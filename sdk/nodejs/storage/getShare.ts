@@ -17,11 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.storage.getShare({
- *     name: "existing",
- *     storageAccountName: "existing",
+ * const example = azure.storage.getAccount({
+ *     name: "exampleaccount",
+ *     resourceGroupName: "examples",
  * });
- * export const id = example.then(example => example.id);
+ * const exampleGetShare = example.then(example => azure.storage.getShare({
+ *     name: "existing",
+ *     storageAccountId: example.id,
+ * }));
  * ```
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
@@ -30,6 +33,7 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
         "acls": args.acls,
         "metadata": args.metadata,
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -51,9 +55,15 @@ export interface GetShareArgs {
      */
     name: string;
     /**
-     * The name of the storage account.
+     * The ID of the storage account in which the share exists.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: string;
+    storageAccountId?: string;
+    /**
+     * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
+     */
+    storageAccountName?: string;
 }
 
 /**
@@ -77,8 +87,12 @@ export interface GetShareResult {
      * The quota of the File Share in GB.
      */
     readonly quota: number;
+    /**
+     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     */
     readonly resourceManagerId: string;
-    readonly storageAccountName: string;
+    readonly storageAccountId?: string;
+    readonly storageAccountName?: string;
 }
 /**
  * Use this data source to access information about an existing File Share.
@@ -91,11 +105,14 @@ export interface GetShareResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.storage.getShare({
- *     name: "existing",
- *     storageAccountName: "existing",
+ * const example = azure.storage.getAccount({
+ *     name: "exampleaccount",
+ *     resourceGroupName: "examples",
  * });
- * export const id = example.then(example => example.id);
+ * const exampleGetShare = example.then(example => azure.storage.getShare({
+ *     name: "existing",
+ *     storageAccountId: example.id,
+ * }));
  * ```
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
@@ -104,6 +121,7 @@ export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOpt
         "acls": args.acls,
         "metadata": args.metadata,
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -125,7 +143,13 @@ export interface GetShareOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the storage account.
+     * The ID of the storage account in which the share exists.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
+     */
+    storageAccountName?: pulumi.Input<string>;
 }
