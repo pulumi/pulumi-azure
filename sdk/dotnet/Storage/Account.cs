@@ -799,7 +799,7 @@ namespace Pulumi.Azure.Storage
         /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Output("staticWebsite")]
-        public Output<Outputs.AccountStaticWebsite?> StaticWebsite { get; private set; } = null!;
+        public Output<Outputs.AccountStaticWebsite> StaticWebsite { get; private set; } = null!;
 
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

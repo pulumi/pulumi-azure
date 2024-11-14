@@ -26,7 +26,7 @@ class GetPublicIpPrefixResult:
     """
     A collection of values returned by getPublicIpPrefix.
     """
-    def __init__(__self__, id=None, ip_prefix=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, tags=None, zones=None):
+    def __init__(__self__, id=None, ip_prefix=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, sku_tier=None, tags=None, zones=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,6 +48,9 @@ class GetPublicIpPrefixResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if sku_tier and not isinstance(sku_tier, str):
+            raise TypeError("Expected argument 'sku_tier' to be a str")
+        pulumi.set(__self__, "sku_tier", sku_tier)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -106,6 +109,14 @@ class GetPublicIpPrefixResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> str:
+        """
+        The SKU Tier of the Public IP.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -135,6 +146,7 @@ class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
             prefix_length=self.prefix_length,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
+            sku_tier=self.sku_tier,
             tags=self.tags,
             zones=self.zones)
 
@@ -176,6 +188,7 @@ def get_public_ip_prefix(name: Optional[str] = None,
         prefix_length=pulumi.get(__ret__, 'prefix_length'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
+        sku_tier=pulumi.get(__ret__, 'sku_tier'),
         tags=pulumi.get(__ret__, 'tags'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
@@ -214,5 +227,6 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
         prefix_length=pulumi.get(__response__, 'prefix_length'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         sku=pulumi.get(__response__, 'sku'),
+        sku_tier=pulumi.get(__response__, 'sku_tier'),
         tags=pulumi.get(__response__, 'tags'),
         zones=pulumi.get(__response__, 'zones')))

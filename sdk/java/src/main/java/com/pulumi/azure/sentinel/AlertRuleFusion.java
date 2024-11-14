@@ -34,9 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.AlertRuleFusion;
  * import com.pulumi.azure.sentinel.AlertRuleFusionArgs;
  * import java.util.List;
@@ -64,21 +63,12 @@ import javax.annotation.Nullable;
  *             .sku("PerGB2018")
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
- *             .solutionName("SecurityInsights")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher("Microsoft")
- *                 .product("OMSGallery/SecurityInsights")
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", LogAnalyticsWorkspaceOnboardingArgs.builder()
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleAlertRuleFusion = new AlertRuleFusion("exampleAlertRuleFusion", AlertRuleFusionArgs.builder()
- *             .name("example-fusion-alert-rule")
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .alertRuleTemplateGuid("f71aba3d-28fb-450b-b192-4e76a83015c8")
  *             .build());
  * 
@@ -142,16 +132,14 @@ public class AlertRuleFusion extends com.pulumi.resources.CustomResource {
         return this.logAnalyticsWorkspaceId;
     }
     /**
-     * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+     * @deprecated
+     * the `name` is deprecated and will be removed in v5.0 version of the provider.
      * 
      */
+    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

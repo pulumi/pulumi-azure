@@ -144,6 +144,20 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.domainNameLabel);
     }
     /**
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * 
+     */
+    @Export(name="domainNameLabelScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainNameLabelScope;
+
+    /**
+     * @return Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * 
+     */
+    public Output<Optional<String>> domainNameLabelScope() {
+        return Codegen.optional(this.domainNameLabelScope);
+    }
+    /**
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      * 
      */

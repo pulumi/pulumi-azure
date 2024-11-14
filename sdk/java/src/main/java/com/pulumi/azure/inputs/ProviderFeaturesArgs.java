@@ -15,6 +15,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesPostgresqlFlexibleServerArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServiceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServicesVaultsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesStorageArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesSubscriptionArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesVirtualMachineArgs;
@@ -114,6 +115,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.resourceGroup);
     }
 
+    @Import(name="storage")
+    private @Nullable Output<ProviderFeaturesStorageArgs> storage;
+
+    public Optional<Output<ProviderFeaturesStorageArgs>> storage() {
+        return Optional.ofNullable(this.storage);
+    }
+
     @Import(name="subscription")
     private @Nullable Output<ProviderFeaturesSubscriptionArgs> subscription;
 
@@ -157,6 +165,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.recoveryService = $.recoveryService;
         this.recoveryServicesVaults = $.recoveryServicesVaults;
         this.resourceGroup = $.resourceGroup;
+        this.storage = $.storage;
         this.subscription = $.subscription;
         this.templateDeployment = $.templateDeployment;
         this.virtualMachine = $.virtualMachine;
@@ -287,6 +296,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder resourceGroup(ProviderFeaturesResourceGroupArgs resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        public Builder storage(@Nullable Output<ProviderFeaturesStorageArgs> storage) {
+            $.storage = storage;
+            return this;
+        }
+
+        public Builder storage(ProviderFeaturesStorageArgs storage) {
+            return storage(Output.of(storage));
         }
 
         public Builder subscription(@Nullable Output<ProviderFeaturesSubscriptionArgs> subscription) {

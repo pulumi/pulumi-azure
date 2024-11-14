@@ -48,14 +48,14 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
+     * The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
+     * @return The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
      * 
      */
     public Output<String> name() {
@@ -163,7 +163,7 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
+         * @param name The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
+         * @param name The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
          * 
          * @return builder
          * 

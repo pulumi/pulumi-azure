@@ -13,12 +13,6 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountQueuePropertiesHourMetricsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether hour metrics are enabled for the Queue service.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
         /// Indicates whether metrics should generate summary statistics for called API operations.
         /// </summary>
         [Input("includeApis")]

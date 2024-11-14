@@ -26,6 +26,7 @@ type ProviderFeatures struct {
 	RecoveryService          *ProviderFeaturesRecoveryService          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   *ProviderFeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup            *ProviderFeaturesResourceGroup            `pulumi:"resourceGroup"`
+	Storage                  *ProviderFeaturesStorage                  `pulumi:"storage"`
 	Subscription             *ProviderFeaturesSubscription             `pulumi:"subscription"`
 	TemplateDeployment       *ProviderFeaturesTemplateDeployment       `pulumi:"templateDeployment"`
 	VirtualMachine           *ProviderFeaturesVirtualMachine           `pulumi:"virtualMachine"`
@@ -56,6 +57,7 @@ type ProviderFeaturesArgs struct {
 	RecoveryService          ProviderFeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   ProviderFeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup            ProviderFeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
+	Storage                  ProviderFeaturesStoragePtrInput                  `pulumi:"storage"`
 	Subscription             ProviderFeaturesSubscriptionPtrInput             `pulumi:"subscription"`
 	TemplateDeployment       ProviderFeaturesTemplateDeploymentPtrInput       `pulumi:"templateDeployment"`
 	VirtualMachine           ProviderFeaturesVirtualMachinePtrInput           `pulumi:"virtualMachine"`
@@ -185,6 +187,10 @@ func (o ProviderFeaturesOutput) RecoveryServicesVaults() ProviderFeaturesRecover
 
 func (o ProviderFeaturesOutput) ResourceGroup() ProviderFeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesResourceGroup { return v.ResourceGroup }).(ProviderFeaturesResourceGroupPtrOutput)
+}
+
+func (o ProviderFeaturesOutput) Storage() ProviderFeaturesStoragePtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesStorage { return v.Storage }).(ProviderFeaturesStoragePtrOutput)
 }
 
 func (o ProviderFeaturesOutput) Subscription() ProviderFeaturesSubscriptionPtrOutput {
@@ -333,6 +339,15 @@ func (o ProviderFeaturesPtrOutput) ResourceGroup() ProviderFeaturesResourceGroup
 		}
 		return v.ResourceGroup
 	}).(ProviderFeaturesResourceGroupPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) Storage() ProviderFeaturesStoragePtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesStorage {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(ProviderFeaturesStoragePtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) Subscription() ProviderFeaturesSubscriptionPtrOutput {
@@ -2208,6 +2223,139 @@ func (o ProviderFeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResourc
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ProviderFeaturesStorage struct {
+	DataPlaneAvailable *bool `pulumi:"dataPlaneAvailable"`
+}
+
+// ProviderFeaturesStorageInput is an input type that accepts ProviderFeaturesStorageArgs and ProviderFeaturesStorageOutput values.
+// You can construct a concrete instance of `ProviderFeaturesStorageInput` via:
+//
+//	ProviderFeaturesStorageArgs{...}
+type ProviderFeaturesStorageInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesStorageOutput() ProviderFeaturesStorageOutput
+	ToProviderFeaturesStorageOutputWithContext(context.Context) ProviderFeaturesStorageOutput
+}
+
+type ProviderFeaturesStorageArgs struct {
+	DataPlaneAvailable pulumi.BoolPtrInput `pulumi:"dataPlaneAvailable"`
+}
+
+func (ProviderFeaturesStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesStorage)(nil)).Elem()
+}
+
+func (i ProviderFeaturesStorageArgs) ToProviderFeaturesStorageOutput() ProviderFeaturesStorageOutput {
+	return i.ToProviderFeaturesStorageOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesStorageArgs) ToProviderFeaturesStorageOutputWithContext(ctx context.Context) ProviderFeaturesStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesStorageOutput)
+}
+
+func (i ProviderFeaturesStorageArgs) ToProviderFeaturesStoragePtrOutput() ProviderFeaturesStoragePtrOutput {
+	return i.ToProviderFeaturesStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesStorageArgs) ToProviderFeaturesStoragePtrOutputWithContext(ctx context.Context) ProviderFeaturesStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesStorageOutput).ToProviderFeaturesStoragePtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesStoragePtrInput is an input type that accepts ProviderFeaturesStorageArgs, ProviderFeaturesStoragePtr and ProviderFeaturesStoragePtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesStoragePtrInput` via:
+//
+//	        ProviderFeaturesStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderFeaturesStoragePtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesStoragePtrOutput() ProviderFeaturesStoragePtrOutput
+	ToProviderFeaturesStoragePtrOutputWithContext(context.Context) ProviderFeaturesStoragePtrOutput
+}
+
+type providerFeaturesStoragePtrType ProviderFeaturesStorageArgs
+
+func ProviderFeaturesStoragePtr(v *ProviderFeaturesStorageArgs) ProviderFeaturesStoragePtrInput {
+	return (*providerFeaturesStoragePtrType)(v)
+}
+
+func (*providerFeaturesStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesStorage)(nil)).Elem()
+}
+
+func (i *providerFeaturesStoragePtrType) ToProviderFeaturesStoragePtrOutput() ProviderFeaturesStoragePtrOutput {
+	return i.ToProviderFeaturesStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesStoragePtrType) ToProviderFeaturesStoragePtrOutputWithContext(ctx context.Context) ProviderFeaturesStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesStoragePtrOutput)
+}
+
+type ProviderFeaturesStorageOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesStorage)(nil)).Elem()
+}
+
+func (o ProviderFeaturesStorageOutput) ToProviderFeaturesStorageOutput() ProviderFeaturesStorageOutput {
+	return o
+}
+
+func (o ProviderFeaturesStorageOutput) ToProviderFeaturesStorageOutputWithContext(ctx context.Context) ProviderFeaturesStorageOutput {
+	return o
+}
+
+func (o ProviderFeaturesStorageOutput) ToProviderFeaturesStoragePtrOutput() ProviderFeaturesStoragePtrOutput {
+	return o.ToProviderFeaturesStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesStorageOutput) ToProviderFeaturesStoragePtrOutputWithContext(ctx context.Context) ProviderFeaturesStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesStorage) *ProviderFeaturesStorage {
+		return &v
+	}).(ProviderFeaturesStoragePtrOutput)
+}
+
+func (o ProviderFeaturesStorageOutput) DataPlaneAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesStorage) *bool { return v.DataPlaneAvailable }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesStorage)(nil)).Elem()
+}
+
+func (o ProviderFeaturesStoragePtrOutput) ToProviderFeaturesStoragePtrOutput() ProviderFeaturesStoragePtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesStoragePtrOutput) ToProviderFeaturesStoragePtrOutputWithContext(ctx context.Context) ProviderFeaturesStoragePtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesStoragePtrOutput) Elem() ProviderFeaturesStorageOutput {
+	return o.ApplyT(func(v *ProviderFeaturesStorage) ProviderFeaturesStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesStorage
+		return ret
+	}).(ProviderFeaturesStorageOutput)
+}
+
+func (o ProviderFeaturesStoragePtrOutput) DataPlaneAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesStorage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataPlaneAvailable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesSubscription struct {
 	PreventCancellationOnDestroy *bool `pulumi:"preventCancellationOnDestroy"`
 }
@@ -2857,6 +3005,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesRecoveryServicesVaultsPtrInput)(nil)).Elem(), ProviderFeaturesRecoveryServicesVaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesResourceGroupInput)(nil)).Elem(), ProviderFeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesResourceGroupPtrInput)(nil)).Elem(), ProviderFeaturesResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesStorageInput)(nil)).Elem(), ProviderFeaturesStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesStoragePtrInput)(nil)).Elem(), ProviderFeaturesStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesSubscriptionInput)(nil)).Elem(), ProviderFeaturesSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesSubscriptionPtrInput)(nil)).Elem(), ProviderFeaturesSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesTemplateDeploymentInput)(nil)).Elem(), ProviderFeaturesTemplateDeploymentArgs{})
@@ -2891,6 +3041,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesRecoveryServicesVaultsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesStorageOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesStoragePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesSubscriptionOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentOutput{})

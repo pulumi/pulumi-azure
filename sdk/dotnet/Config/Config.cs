@@ -346,6 +346,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryService? RecoveryService { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryServicesVaults? RecoveryServicesVaults { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesStorage? Storage { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesSubscription? Subscription { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachine? VirtualMachine { get; set; } = null!;
@@ -456,6 +457,11 @@ namespace Pulumi.Azure
              public class FeaturesResourceGroup
              {
                 public bool? PreventDeletionIfContainsResources { get; set; }
+            }
+
+             public class FeaturesStorage
+             {
+                public bool? DataPlaneAvailable { get; set; }
             }
 
              public class FeaturesSubscription

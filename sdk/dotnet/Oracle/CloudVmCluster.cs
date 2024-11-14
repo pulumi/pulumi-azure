@@ -189,6 +189,12 @@ namespace Pulumi.Azure.Oracle
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// </summary>
+        [Output("domain")]
+        public Output<string> Domain { get; private set; } = null!;
+
+        /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version.
         /// </summary>
         [Output("giVersion")]
@@ -249,6 +255,18 @@ namespace Pulumi.Azure.Oracle
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        /// </summary>
+        [Output("scanListenerPortTcp")]
+        public Output<int?> ScanListenerPortTcp { get; private set; } = null!;
+
+        /// <summary>
+        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        /// </summary>
+        [Output("scanListenerPortTcpSsl")]
+        public Output<int?> ScanListenerPortTcpSsl { get; private set; } = null!;
+
+        /// <summary>
         /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         /// </summary>
         [Output("sparseDiskgroupEnabled")]
@@ -283,6 +301,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Output("virtualNetworkId")]
         public Output<string> VirtualNetworkId { get; private set; } = null!;
+
+        /// <summary>
+        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// </summary>
+        [Output("zoneId")]
+        public Output<string> ZoneId { get; private set; } = null!;
 
 
         /// <summary>
@@ -397,6 +421,12 @@ namespace Pulumi.Azure.Oracle
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version.
         /// </summary>
         [Input("giVersion", required: true)]
@@ -445,6 +475,18 @@ namespace Pulumi.Azure.Oracle
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        /// </summary>
+        [Input("scanListenerPortTcp")]
+        public Input<int>? ScanListenerPortTcp { get; set; }
+
+        /// <summary>
+        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        /// </summary>
+        [Input("scanListenerPortTcpSsl")]
+        public Input<int>? ScanListenerPortTcpSsl { get; set; }
+
+        /// <summary>
         /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         /// </summary>
         [Input("sparseDiskgroupEnabled")]
@@ -491,6 +533,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("virtualNetworkId", required: true)]
         public Input<string> VirtualNetworkId { get; set; } = null!;
+
+        /// <summary>
+        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// </summary>
+        [Input("zoneId")]
+        public Input<string>? ZoneId { get; set; }
 
         public CloudVmClusterArgs()
         {
@@ -567,6 +615,12 @@ namespace Pulumi.Azure.Oracle
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version.
         /// </summary>
         [Input("giVersion")]
@@ -627,6 +681,18 @@ namespace Pulumi.Azure.Oracle
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        /// </summary>
+        [Input("scanListenerPortTcp")]
+        public Input<int>? ScanListenerPortTcp { get; set; }
+
+        /// <summary>
+        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        /// </summary>
+        [Input("scanListenerPortTcpSsl")]
+        public Input<int>? ScanListenerPortTcpSsl { get; set; }
+
+        /// <summary>
         /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         /// </summary>
         [Input("sparseDiskgroupEnabled")]
@@ -673,6 +739,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
+
+        /// <summary>
+        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// </summary>
+        [Input("zoneId")]
+        public Input<string>? ZoneId { get; set; }
 
         public CloudVmClusterState()
         {

@@ -38,13 +38,17 @@ class CloudVmClusterArgs:
                  data_storage_percentage: Optional[pulumi.Input[int]] = None,
                  data_storage_size_in_tbs: Optional[pulumi.Input[float]] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[int]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  local_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  memory_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scan_listener_port_tcp: Optional[pulumi.Input[int]] = None,
+                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[int]] = None,
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 time_zone: Optional[pulumi.Input[str]] = None):
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CloudVmCluster resource.
         :param pulumi.Input[str] cloud_exadata_infrastructure_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
@@ -64,13 +68,17 @@ class CloudVmClusterArgs:
         :param pulumi.Input[int] data_storage_percentage: The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         :param pulumi.Input[float] data_storage_size_in_tbs: The data disk group size to be allocated in TBs.
         :param pulumi.Input[int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs.
+        :param pulumi.Input[str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         :param pulumi.Input[bool] local_backup_enabled: If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
         :param pulumi.Input[str] location: The Azure Region where the Cloud VM Cluster should exist.
         :param pulumi.Input[int] memory_size_in_gbs: The memory to be allocated in GBs.
         :param pulumi.Input[str] name: The name which should be used for this Cloud VM Cluster.
+        :param pulumi.Input[int] scan_listener_port_tcp: The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        :param pulumi.Input[int] scan_listener_port_tcp_ssl: The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+        :param pulumi.Input[str] zone_id: The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         """
         pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         pulumi.set(__self__, "cpu_core_count", cpu_core_count)
@@ -95,6 +103,8 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "data_storage_size_in_tbs", data_storage_size_in_tbs)
         if db_node_storage_size_in_gbs is not None:
             pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if local_backup_enabled is not None:
             pulumi.set(__self__, "local_backup_enabled", local_backup_enabled)
         if location is not None:
@@ -103,12 +113,18 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "memory_size_in_gbs", memory_size_in_gbs)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scan_listener_port_tcp is not None:
+            pulumi.set(__self__, "scan_listener_port_tcp", scan_listener_port_tcp)
+        if scan_listener_port_tcp_ssl is not None:
+            pulumi.set(__self__, "scan_listener_port_tcp_ssl", scan_listener_port_tcp_ssl)
         if sparse_diskgroup_enabled is not None:
             pulumi.set(__self__, "sparse_diskgroup_enabled", sparse_diskgroup_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
+        if zone_id is not None:
+            pulumi.set(__self__, "zone_id", zone_id)
 
     @property
     @pulumi.getter(name="cloudExadataInfrastructureId")
@@ -315,6 +331,18 @@ class CloudVmClusterArgs:
         pulumi.set(self, "db_node_storage_size_in_gbs", value)
 
     @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
     @pulumi.getter(name="localBackupEnabled")
     def local_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -363,6 +391,30 @@ class CloudVmClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="scanListenerPortTcp")
+    def scan_listener_port_tcp(self) -> Optional[pulumi.Input[int]]:
+        """
+        The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        """
+        return pulumi.get(self, "scan_listener_port_tcp")
+
+    @scan_listener_port_tcp.setter
+    def scan_listener_port_tcp(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scan_listener_port_tcp", value)
+
+    @property
+    @pulumi.getter(name="scanListenerPortTcpSsl")
+    def scan_listener_port_tcp_ssl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        """
+        return pulumi.get(self, "scan_listener_port_tcp_ssl")
+
+    @scan_listener_port_tcp_ssl.setter
+    def scan_listener_port_tcp_ssl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scan_listener_port_tcp_ssl", value)
+
+    @property
     @pulumi.getter(name="sparseDiskgroupEnabled")
     def sparse_diskgroup_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -398,6 +450,18 @@ class CloudVmClusterArgs:
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
 
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        """
+        return pulumi.get(self, "zone_id")
+
+    @zone_id.setter
+    def zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_id", value)
+
 
 @pulumi.input_type
 class _CloudVmClusterState:
@@ -412,6 +476,7 @@ class _CloudVmClusterState:
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  gi_version: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  hostname_actual: Optional[pulumi.Input[str]] = None,
@@ -422,12 +487,15 @@ class _CloudVmClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  ocid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scan_listener_port_tcp: Optional[pulumi.Input[int]] = None,
+                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[int]] = None,
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
-                 virtual_network_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CloudVmCluster resources.
         :param pulumi.Input[str] backup_subnet_cidr: The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
@@ -440,6 +508,7 @@ class _CloudVmClusterState:
         :param pulumi.Input[int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_servers: The list of DB servers.
         :param pulumi.Input[str] display_name: The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+        :param pulumi.Input[str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         :param pulumi.Input[str] gi_version: A valid Oracle Grid Infrastructure (GI) software version.
         :param pulumi.Input[str] hostname: The hostname for the Cloud VM Cluster without suffix.
         :param pulumi.Input[str] hostname_actual: The hostname for the Cloud VM Cluster with suffix.
@@ -450,12 +519,15 @@ class _CloudVmClusterState:
         :param pulumi.Input[str] name: The name which should be used for this Cloud VM Cluster.
         :param pulumi.Input[str] ocid: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cloud VM Cluster should exist.
+        :param pulumi.Input[int] scan_listener_port_tcp: The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        :param pulumi.Input[int] scan_listener_port_tcp_ssl: The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the Cloud VM Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network associated with the Cloud VM Cluster.
+        :param pulumi.Input[str] zone_id: The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         """
         if backup_subnet_cidr is not None:
             pulumi.set(__self__, "backup_subnet_cidr", backup_subnet_cidr)
@@ -477,6 +549,8 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "db_servers", db_servers)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if gi_version is not None:
             pulumi.set(__self__, "gi_version", gi_version)
         if hostname is not None:
@@ -497,6 +571,10 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "ocid", ocid)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if scan_listener_port_tcp is not None:
+            pulumi.set(__self__, "scan_listener_port_tcp", scan_listener_port_tcp)
+        if scan_listener_port_tcp_ssl is not None:
+            pulumi.set(__self__, "scan_listener_port_tcp_ssl", scan_listener_port_tcp_ssl)
         if sparse_diskgroup_enabled is not None:
             pulumi.set(__self__, "sparse_diskgroup_enabled", sparse_diskgroup_enabled)
         if ssh_public_keys is not None:
@@ -509,6 +587,8 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "time_zone", time_zone)
         if virtual_network_id is not None:
             pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if zone_id is not None:
+            pulumi.set(__self__, "zone_id", zone_id)
 
     @property
     @pulumi.getter(name="backupSubnetCidr")
@@ -631,6 +711,18 @@ class _CloudVmClusterState:
         pulumi.set(self, "display_name", value)
 
     @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -751,6 +843,30 @@ class _CloudVmClusterState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="scanListenerPortTcp")
+    def scan_listener_port_tcp(self) -> Optional[pulumi.Input[int]]:
+        """
+        The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        """
+        return pulumi.get(self, "scan_listener_port_tcp")
+
+    @scan_listener_port_tcp.setter
+    def scan_listener_port_tcp(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scan_listener_port_tcp", value)
+
+    @property
+    @pulumi.getter(name="scanListenerPortTcpSsl")
+    def scan_listener_port_tcp_ssl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        """
+        return pulumi.get(self, "scan_listener_port_tcp_ssl")
+
+    @scan_listener_port_tcp_ssl.setter
+    def scan_listener_port_tcp_ssl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scan_listener_port_tcp_ssl", value)
+
+    @property
     @pulumi.getter(name="sparseDiskgroupEnabled")
     def sparse_diskgroup_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -822,6 +938,18 @@ class _CloudVmClusterState:
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
 
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        """
+        return pulumi.get(self, "zone_id")
+
+    @zone_id.setter
+    def zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_id", value)
+
 
 class CloudVmCluster(pulumi.CustomResource):
     @overload
@@ -838,6 +966,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  gi_version: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
@@ -846,12 +975,15 @@ class CloudVmCluster(pulumi.CustomResource):
                  memory_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scan_listener_port_tcp: Optional[pulumi.Input[int]] = None,
+                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[int]] = None,
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Cloud VM Cluster.
@@ -933,6 +1065,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_servers: The list of DB servers.
         :param pulumi.Input[str] display_name: The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+        :param pulumi.Input[str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         :param pulumi.Input[str] gi_version: A valid Oracle Grid Infrastructure (GI) software version.
         :param pulumi.Input[str] hostname: The hostname for the Cloud VM Cluster without suffix.
         :param pulumi.Input[str] license_model: The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
@@ -941,12 +1074,15 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[int] memory_size_in_gbs: The memory to be allocated in GBs.
         :param pulumi.Input[str] name: The name which should be used for this Cloud VM Cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cloud VM Cluster should exist.
+        :param pulumi.Input[int] scan_listener_port_tcp: The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        :param pulumi.Input[int] scan_listener_port_tcp_ssl: The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the Cloud VM Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network associated with the Cloud VM Cluster.
+        :param pulumi.Input[str] zone_id: The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         """
         ...
     @overload
@@ -1047,6 +1183,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  gi_version: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  license_model: Optional[pulumi.Input[str]] = None,
@@ -1055,12 +1192,15 @@ class CloudVmCluster(pulumi.CustomResource):
                  memory_size_in_gbs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scan_listener_port_tcp: Optional[pulumi.Input[int]] = None,
+                 scan_listener_port_tcp_ssl: Optional[pulumi.Input[int]] = None,
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1088,6 +1228,7 @@ class CloudVmCluster(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["domain"] = domain
             if gi_version is None and not opts.urn:
                 raise TypeError("Missing required property 'gi_version'")
             __props__.__dict__["gi_version"] = gi_version
@@ -1104,6 +1245,8 @@ class CloudVmCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scan_listener_port_tcp"] = scan_listener_port_tcp
+            __props__.__dict__["scan_listener_port_tcp_ssl"] = scan_listener_port_tcp_ssl
             __props__.__dict__["sparse_diskgroup_enabled"] = sparse_diskgroup_enabled
             if ssh_public_keys is None and not opts.urn:
                 raise TypeError("Missing required property 'ssh_public_keys'")
@@ -1116,6 +1259,7 @@ class CloudVmCluster(pulumi.CustomResource):
             if virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_id'")
             __props__.__dict__["virtual_network_id"] = virtual_network_id
+            __props__.__dict__["zone_id"] = zone_id
             __props__.__dict__["hostname_actual"] = None
             __props__.__dict__["ocid"] = None
         super(CloudVmCluster, __self__).__init__(
@@ -1138,6 +1282,7 @@ class CloudVmCluster(pulumi.CustomResource):
             db_node_storage_size_in_gbs: Optional[pulumi.Input[int]] = None,
             db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
+            domain: Optional[pulumi.Input[str]] = None,
             gi_version: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             hostname_actual: Optional[pulumi.Input[str]] = None,
@@ -1148,12 +1293,15 @@ class CloudVmCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             ocid: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            scan_listener_port_tcp: Optional[pulumi.Input[int]] = None,
+            scan_listener_port_tcp_ssl: Optional[pulumi.Input[int]] = None,
             sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
             ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
-            virtual_network_id: Optional[pulumi.Input[str]] = None) -> 'CloudVmCluster':
+            virtual_network_id: Optional[pulumi.Input[str]] = None,
+            zone_id: Optional[pulumi.Input[str]] = None) -> 'CloudVmCluster':
         """
         Get an existing CloudVmCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1171,6 +1319,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_servers: The list of DB servers.
         :param pulumi.Input[str] display_name: The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+        :param pulumi.Input[str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         :param pulumi.Input[str] gi_version: A valid Oracle Grid Infrastructure (GI) software version.
         :param pulumi.Input[str] hostname: The hostname for the Cloud VM Cluster without suffix.
         :param pulumi.Input[str] hostname_actual: The hostname for the Cloud VM Cluster with suffix.
@@ -1181,12 +1330,15 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Cloud VM Cluster.
         :param pulumi.Input[str] ocid: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud VM Cluster.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cloud VM Cluster should exist.
+        :param pulumi.Input[int] scan_listener_port_tcp: The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        :param pulumi.Input[int] scan_listener_port_tcp_ssl: The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the Cloud VM Cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network associated with the Cloud VM Cluster.
+        :param pulumi.Input[str] zone_id: The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1202,6 +1354,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["db_node_storage_size_in_gbs"] = db_node_storage_size_in_gbs
         __props__.__dict__["db_servers"] = db_servers
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["domain"] = domain
         __props__.__dict__["gi_version"] = gi_version
         __props__.__dict__["hostname"] = hostname
         __props__.__dict__["hostname_actual"] = hostname_actual
@@ -1212,12 +1365,15 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["ocid"] = ocid
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["scan_listener_port_tcp"] = scan_listener_port_tcp
+        __props__.__dict__["scan_listener_port_tcp_ssl"] = scan_listener_port_tcp_ssl
         __props__.__dict__["sparse_diskgroup_enabled"] = sparse_diskgroup_enabled
         __props__.__dict__["ssh_public_keys"] = ssh_public_keys
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["time_zone"] = time_zone
         __props__.__dict__["virtual_network_id"] = virtual_network_id
+        __props__.__dict__["zone_id"] = zone_id
         return CloudVmCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1301,6 +1457,14 @@ class CloudVmCluster(pulumi.CustomResource):
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[str]:
+        """
+        The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
     @pulumi.getter(name="giVersion")
     def gi_version(self) -> pulumi.Output[str]:
         """
@@ -1381,6 +1545,22 @@ class CloudVmCluster(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="scanListenerPortTcp")
+    def scan_listener_port_tcp(self) -> pulumi.Output[Optional[int]]:
+        """
+        The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        """
+        return pulumi.get(self, "scan_listener_port_tcp")
+
+    @property
+    @pulumi.getter(name="scanListenerPortTcpSsl")
+    def scan_listener_port_tcp_ssl(self) -> pulumi.Output[Optional[int]]:
+        """
+        The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        """
+        return pulumi.get(self, "scan_listener_port_tcp_ssl")
+
+    @property
     @pulumi.getter(name="sparseDiskgroupEnabled")
     def sparse_diskgroup_enabled(self) -> pulumi.Output[bool]:
         """
@@ -1427,4 +1607,12 @@ class CloudVmCluster(pulumi.CustomResource):
         The ID of the Virtual Network associated with the Cloud VM Cluster.
         """
         return pulumi.get(self, "virtual_network_id")
+
+    @property
+    @pulumi.getter(name="zoneId")
+    def zone_id(self) -> pulumi.Output[str]:
+        """
+        The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        """
+        return pulumi.get(self, "zone_id")
 

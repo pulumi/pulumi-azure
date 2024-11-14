@@ -1105,7 +1105,11 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
+     * @deprecated
+     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
     @Export(name="queueProperties", refs={AccountQueueProperties.class}, tree="[0]")
     private Output<AccountQueueProperties> queueProperties;
 
@@ -1713,9 +1717,13 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
+     * @deprecated
+     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
     @Export(name="staticWebsite", refs={AccountStaticWebsite.class}, tree="[0]")
-    private Output</* @Nullable */ AccountStaticWebsite> staticWebsite;
+    private Output<AccountStaticWebsite> staticWebsite;
 
     /**
      * @return A `static_website` block as defined below.
@@ -1725,8 +1733,8 @@ public class Account extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
      */
-    public Output<Optional<AccountStaticWebsite>> staticWebsite() {
-        return Codegen.optional(this.staticWebsite);
+    public Output<AccountStaticWebsite> staticWebsite() {
+        return this.staticWebsite;
     }
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

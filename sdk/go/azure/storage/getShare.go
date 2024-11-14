@@ -29,14 +29,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := storage.LookupShare(ctx, &storage.LookupShareArgs{
-//				Name:               "existing",
-//				StorageAccountName: "existing",
+//			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//				Name:              "exampleaccount",
+//				ResourceGroupName: pulumi.StringRef("examples"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", example.Id)
+//			_, err = storage.LookupShare(ctx, &storage.LookupShareArgs{
+//				Name:             "existing",
+//				StorageAccountId: pulumi.StringRef(example.Id),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -60,8 +66,12 @@ type LookupShareArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the share.
 	Name string `pulumi:"name"`
-	// The name of the storage account.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	// The ID of the storage account in which the share exists.
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // A collection of values returned by getShare.
@@ -74,9 +84,11 @@ type LookupShareResult struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	Name     string            `pulumi:"name"`
 	// The quota of the File Share in GB.
-	Quota              int    `pulumi:"quota"`
-	ResourceManagerId  string `pulumi:"resourceManagerId"`
-	StorageAccountName string `pulumi:"storageAccountName"`
+	Quota int `pulumi:"quota"`
+	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+	ResourceManagerId  string  `pulumi:"resourceManagerId"`
+	StorageAccountId   *string `pulumi:"storageAccountId"`
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 func LookupShareOutput(ctx *pulumi.Context, args LookupShareOutputArgs, opts ...pulumi.InvokeOption) LookupShareResultOutput {
@@ -106,8 +118,12 @@ type LookupShareOutputArgs struct {
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the share.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the storage account.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// The ID of the storage account in which the share exists.
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	// The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
 }
 
 func (LookupShareOutputArgs) ElementType() reflect.Type {
@@ -153,12 +169,17 @@ func (o LookupShareResultOutput) Quota() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupShareResult) int { return v.Quota }).(pulumi.IntOutput)
 }
 
+// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 func (o LookupShareResultOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupShareResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-func (o LookupShareResultOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupShareResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
+func (o LookupShareResultOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupShareResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupShareResultOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupShareResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -191,14 +191,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `default_node_pool` block as defined below.
+     * Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
      * 
      */
     @Import(name="defaultNodePool")
     private @Nullable Output<KubernetesClusterDefaultNodePoolArgs> defaultNodePool;
 
     /**
-     * @return A `default_node_pool` block as defined below.
+     * @return Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterDefaultNodePoolArgs>> defaultNodePool() {
@@ -1522,7 +1522,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultNodePool A `default_node_pool` block as defined below.
+         * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
          * 
          * @return builder
          * 
@@ -1533,7 +1533,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultNodePool A `default_node_pool` block as defined below.
+         * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
          * 
          * @return builder
          * 

@@ -27,9 +27,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storage.GetStorageContainer(ctx, &storage.GetStorageContainerArgs{
-//				Name:               "example-container-name",
-//				StorageAccountName: "example-storage-account-name",
+//			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//				Name:              "exampleaccount",
+//				ResourceGroupName: pulumi.StringRef("examples"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.GetStorageContainer(ctx, &storage.GetStorageContainerArgs{
+//				Name:             "example-container-name",
+//				StorageAccountId: pulumi.StringRef(example.Id),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -55,8 +62,12 @@ type GetStorageContainerArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container.
 	Name string `pulumi:"name"`
-	// The name of the Storage Account where the Container exists.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	// The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // A collection of values returned by getStorageContainer.
@@ -76,9 +87,10 @@ type GetStorageContainerResult struct {
 	// A mapping of MetaData for this Container.
 	Metadata map[string]string `pulumi:"metadata"`
 	Name     string            `pulumi:"name"`
-	// The Resource Manager ID of this Storage Container.
-	ResourceManagerId  string `pulumi:"resourceManagerId"`
-	StorageAccountName string `pulumi:"storageAccountName"`
+	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+	ResourceManagerId  string  `pulumi:"resourceManagerId"`
+	StorageAccountId   *string `pulumi:"storageAccountId"`
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 func GetStorageContainerOutput(ctx *pulumi.Context, args GetStorageContainerOutputArgs, opts ...pulumi.InvokeOption) GetStorageContainerResultOutput {
@@ -106,8 +118,12 @@ type GetStorageContainerOutputArgs struct {
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the Container.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Storage Account where the Container exists.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
 }
 
 func (GetStorageContainerOutputArgs) ElementType() reflect.Type {
@@ -168,13 +184,17 @@ func (o GetStorageContainerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStorageContainerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Resource Manager ID of this Storage Container.
+// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 func (o GetStorageContainerResultOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStorageContainerResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-func (o GetStorageContainerResultOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStorageContainerResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
+func (o GetStorageContainerResultOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetStorageContainerResultOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

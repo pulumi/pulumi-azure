@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HciLogicalNetwork{}
 	case "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage":
 		r = &HciMarketplaceGalleryImage{}
+	case "azure:stack/hciNetworkInterface:HciNetworkInterface":
+		r = &HciNetworkInterface{}
 	case "azure:stack/hciStoragePath:HciStoragePath":
 		r = &HciStoragePath{}
 	case "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk":
@@ -71,6 +73,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"stack/hciMarketplaceGalleryImage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"stack/hciNetworkInterface",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

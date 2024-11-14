@@ -112,6 +112,8 @@ if typing.TYPE_CHECKING:
     dns = __dns
     import pulumi_azure.domainservices as __domainservices
     domainservices = __domainservices
+    import pulumi_azure.dynatrace as __dynatrace
+    dynatrace = __dynatrace
     import pulumi_azure.elasticcloud as __elasticcloud
     elasticcloud = __elasticcloud
     import pulumi_azure.elasticsan as __elasticsan
@@ -324,6 +326,7 @@ else:
     digitaltwins = _utilities.lazy_import('pulumi_azure.digitaltwins')
     dns = _utilities.lazy_import('pulumi_azure.dns')
     domainservices = _utilities.lazy_import('pulumi_azure.domainservices')
+    dynatrace = _utilities.lazy_import('pulumi_azure.dynatrace')
     elasticcloud = _utilities.lazy_import('pulumi_azure.elasticcloud')
     elasticsan = _utilities.lazy_import('pulumi_azure.elasticsan')
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
@@ -3090,6 +3093,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cosmosdb/mongoCluster",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/mongoCluster:MongoCluster": "MongoCluster"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cosmosdb/mongoCollection",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
@@ -3262,6 +3273,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dashboard",
   "classes": {
    "azure:dashboard/grafana:Grafana": "Grafana"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dashboard/grafanaManagedPrivateEndpoint",
+  "fqn": "pulumi_azure.dashboard",
+  "classes": {
+   "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint": "GrafanaManagedPrivateEndpoint"
   }
  },
  {
@@ -3762,6 +3781,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupInstanceMysqlFlexibleServer",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer": "BackupInstanceMysqlFlexibleServer"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupInstancePostgresql",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -4230,6 +4257,14 @@ _utilities.register(
   "fqn": "pulumi_azure.domainservices",
   "classes": {
    "azure:domainservices/serviceTrust:ServiceTrust": "ServiceTrust"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dynatrace/monitor",
+  "fqn": "pulumi_azure.dynatrace",
+  "classes": {
+   "azure:dynatrace/monitor:Monitor": "Monitor"
   }
  },
  {
@@ -8258,6 +8293,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "stack/hciNetworkInterface",
+  "fqn": "pulumi_azure.stack",
+  "classes": {
+   "azure:stack/hciNetworkInterface:HciNetworkInterface": "HciNetworkInterface"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "stack/hciStoragePath",
   "fqn": "pulumi_azure.stack",
   "classes": {
@@ -8286,6 +8329,22 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/accountNetworkRules:AccountNetworkRules": "AccountNetworkRules"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/accountQueueProperties",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/accountQueueProperties:AccountQueueProperties": "AccountQueueProperties"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/accountStaticWebsite",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/accountStaticWebsite:AccountStaticWebsite": "AccountStaticWebsite"
   }
  },
  {

@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Account{}
 	case "azure:storage/accountNetworkRules:AccountNetworkRules":
 		r = &AccountNetworkRules{}
+	case "azure:storage/accountQueueProperties:AccountQueueProperties":
+		r = &AccountQueueProperties{}
+	case "azure:storage/accountStaticWebsite:AccountStaticWebsite":
+		r = &AccountStaticWebsite{}
 	case "azure:storage/blob:Blob":
 		r = &Blob{}
 	case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
@@ -102,6 +106,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/accountNetworkRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/accountQueueProperties",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/accountStaticWebsite",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

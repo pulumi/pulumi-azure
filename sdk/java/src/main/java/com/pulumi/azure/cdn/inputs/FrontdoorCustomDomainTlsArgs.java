@@ -52,12 +52,16 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     /**
      * TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
      * 
+     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+     * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
      * @return TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+     * 
+     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -139,6 +143,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         /**
          * @param minimumTlsVersion TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
          * 
+         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+         * 
          * @return builder
          * 
          */
@@ -149,6 +155,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
 
         /**
          * @param minimumTlsVersion TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+         * 
+         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          * 
          * @return builder
          * 

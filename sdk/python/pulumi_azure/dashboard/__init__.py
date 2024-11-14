@@ -8,5 +8,6 @@ import typing
 from .azurerm_portal_dashboard import *
 from .get_grafana import *
 from .grafana import *
+from .grafana_managed_private_endpoint import *
 from ._inputs import *
 from . import outputs

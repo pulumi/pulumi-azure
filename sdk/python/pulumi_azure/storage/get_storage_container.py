@@ -26,7 +26,7 @@ class GetStorageContainerResult:
     """
     A collection of values returned by getStorageContainer.
     """
-    def __init__(__self__, container_access_type=None, default_encryption_scope=None, encryption_scope_override_enabled=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
+    def __init__(__self__, container_access_type=None, default_encryption_scope=None, encryption_scope_override_enabled=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None):
         if container_access_type and not isinstance(container_access_type, str):
             raise TypeError("Expected argument 'container_access_type' to be a str")
         pulumi.set(__self__, "container_access_type", container_access_type)
@@ -54,6 +54,9 @@ class GetStorageContainerResult:
         if resource_manager_id and not isinstance(resource_manager_id, str):
             raise TypeError("Expected argument 'resource_manager_id' to be a str")
         pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -121,15 +124,18 @@ class GetStorageContainerResult:
 
     @property
     @pulumi.getter(name="resourceManagerId")
+    @_utilities.deprecated("""this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
     def resource_manager_id(self) -> str:
-        """
-        The Resource Manager ID of this Storage Container.
-        """
         return pulumi.get(self, "resource_manager_id")
 
     @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_account_id")
+
+    @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> Optional[str]:
         return pulumi.get(self, "storage_account_name")
 
 
@@ -148,11 +154,13 @@ class AwaitableGetStorageContainerResult(GetStorageContainerResult):
             metadata=self.metadata,
             name=self.name,
             resource_manager_id=self.resource_manager_id,
+            storage_account_id=self.storage_account_id,
             storage_account_name=self.storage_account_name)
 
 
 def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
                           name: Optional[str] = None,
+                          storage_account_id: Optional[str] = None,
                           storage_account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageContainerResult:
     """
@@ -164,18 +172,24 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_storage_container(name="example-container-name",
-        storage_account_name="example-storage-account-name")
+    example = azure.storage.get_account(name="exampleaccount",
+        resource_group_name="examples")
+    example_get_storage_container = azure.storage.get_storage_container(name="example-container-name",
+        storage_account_id=example.id)
     ```
 
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
-    :param str storage_account_name: The name of the Storage Account where the Container exists.
+    :param str storage_account_id: The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+           
+           > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+    :param str storage_account_name: The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
     __args__['metadata'] = metadata
     __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:storage/getStorageContainer:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult).value
@@ -190,10 +204,12 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
 def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
-                                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                                 storage_account_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                 storage_account_name: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageContainerResult]:
     """
     Use this data source to access information about an existing Storage Container.
@@ -204,18 +220,24 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_storage_container(name="example-container-name",
-        storage_account_name="example-storage-account-name")
+    example = azure.storage.get_account(name="exampleaccount",
+        resource_group_name="examples")
+    example_get_storage_container = azure.storage.get_storage_container(name="example-container-name",
+        storage_account_id=example.id)
     ```
 
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
-    :param str storage_account_name: The name of the Storage Account where the Container exists.
+    :param str storage_account_id: The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+           
+           > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+    :param str storage_account_name: The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
     __args__['metadata'] = metadata
     __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getStorageContainer:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult)
@@ -229,4 +251,5 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
         resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
         storage_account_name=pulumi.get(__response__, 'storage_account_name')))

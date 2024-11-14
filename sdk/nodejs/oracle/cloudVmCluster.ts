@@ -152,6 +152,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     */
+    public readonly domain!: pulumi.Output<string>;
+    /**
      * A valid Oracle Grid Infrastructure (GI) software version.
      */
     public readonly giVersion!: pulumi.Output<string>;
@@ -192,6 +196,14 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     */
+    public readonly scanListenerPortTcp!: pulumi.Output<number | undefined>;
+    /**
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     */
+    public readonly scanListenerPortTcpSsl!: pulumi.Output<number | undefined>;
+    /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
      */
     public readonly sparseDiskgroupEnabled!: pulumi.Output<boolean>;
@@ -215,6 +227,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      * The ID of the Virtual Network associated with the Cloud VM Cluster.
      */
     public readonly virtualNetworkId!: pulumi.Output<string>;
+    /**
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     */
+    public readonly zoneId!: pulumi.Output<string>;
 
     /**
      * Create a CloudVmCluster resource with the given unique name, arguments, and options.
@@ -239,6 +255,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["dbNodeStorageSizeInGbs"] = state ? state.dbNodeStorageSizeInGbs : undefined;
             resourceInputs["dbServers"] = state ? state.dbServers : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["giVersion"] = state ? state.giVersion : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["hostnameActual"] = state ? state.hostnameActual : undefined;
@@ -249,12 +266,15 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ocid"] = state ? state.ocid : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scanListenerPortTcp"] = state ? state.scanListenerPortTcp : undefined;
+            resourceInputs["scanListenerPortTcpSsl"] = state ? state.scanListenerPortTcpSsl : undefined;
             resourceInputs["sparseDiskgroupEnabled"] = state ? state.sparseDiskgroupEnabled : undefined;
             resourceInputs["sshPublicKeys"] = state ? state.sshPublicKeys : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["timeZone"] = state ? state.timeZone : undefined;
             resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as CloudVmClusterArgs | undefined;
             if ((!args || args.cloudExadataInfrastructureId === undefined) && !opts.urn) {
@@ -300,6 +320,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["dbNodeStorageSizeInGbs"] = args ? args.dbNodeStorageSizeInGbs : undefined;
             resourceInputs["dbServers"] = args ? args.dbServers : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["giVersion"] = args ? args.giVersion : undefined;
             resourceInputs["hostname"] = args ? args.hostname : undefined;
             resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
@@ -308,12 +329,15 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["memorySizeInGbs"] = args ? args.memorySizeInGbs : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scanListenerPortTcp"] = args ? args.scanListenerPortTcp : undefined;
+            resourceInputs["scanListenerPortTcpSsl"] = args ? args.scanListenerPortTcpSsl : undefined;
             resourceInputs["sparseDiskgroupEnabled"] = args ? args.sparseDiskgroupEnabled : undefined;
             resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["zoneId"] = args ? args.zoneId : undefined;
             resourceInputs["hostnameActual"] = undefined /*out*/;
             resourceInputs["ocid"] = undefined /*out*/;
         }
@@ -367,6 +391,10 @@ export interface CloudVmClusterState {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     */
+    domain?: pulumi.Input<string>;
+    /**
      * A valid Oracle Grid Infrastructure (GI) software version.
      */
     giVersion?: pulumi.Input<string>;
@@ -407,6 +435,14 @@ export interface CloudVmClusterState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     */
+    scanListenerPortTcp?: pulumi.Input<number>;
+    /**
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     */
+    scanListenerPortTcpSsl?: pulumi.Input<number>;
+    /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
      */
     sparseDiskgroupEnabled?: pulumi.Input<boolean>;
@@ -430,6 +466,10 @@ export interface CloudVmClusterState {
      * The ID of the Virtual Network associated with the Cloud VM Cluster.
      */
     virtualNetworkId?: pulumi.Input<string>;
+    /**
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     */
+    zoneId?: pulumi.Input<string>;
 }
 
 /**
@@ -477,6 +517,10 @@ export interface CloudVmClusterArgs {
      */
     displayName: pulumi.Input<string>;
     /**
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     */
+    domain?: pulumi.Input<string>;
+    /**
      * A valid Oracle Grid Infrastructure (GI) software version.
      */
     giVersion: pulumi.Input<string>;
@@ -509,6 +553,14 @@ export interface CloudVmClusterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     */
+    scanListenerPortTcp?: pulumi.Input<number>;
+    /**
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     */
+    scanListenerPortTcpSsl?: pulumi.Input<number>;
+    /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
      */
     sparseDiskgroupEnabled?: pulumi.Input<boolean>;
@@ -532,4 +584,8 @@ export interface CloudVmClusterArgs {
      * The ID of the Virtual Network associated with the Cloud VM Cluster.
      */
     virtualNetworkId: pulumi.Input<string>;
+    /**
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     */
+    zoneId?: pulumi.Input<string>;
 }

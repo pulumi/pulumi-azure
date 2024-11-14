@@ -17,6 +17,7 @@ from .get_sql_database import *
 from .get_sql_role_definition import *
 from .gremlin_database import *
 from .gremlin_graph import *
+from .mongo_cluster import *
 from .mongo_collection import *
 from .mongo_database import *
 from .mongo_role_definition import *

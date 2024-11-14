@@ -100,7 +100,7 @@ type KubernetesCluster struct {
 	CostAnalysisEnabled pulumi.BoolPtrOutput `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringOutput `pulumi:"currentKubernetesVersion"`
-	// A `defaultNodePool` block as defined below.
+	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
@@ -372,7 +372,7 @@ type kubernetesClusterState struct {
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion *string `pulumi:"currentKubernetesVersion"`
-	// A `defaultNodePool` block as defined below.
+	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -602,7 +602,7 @@ type KubernetesClusterState struct {
 	CostAnalysisEnabled pulumi.BoolPtrInput
 	// The current version running on the Azure Kubernetes Managed Cluster.
 	CurrentKubernetesVersion pulumi.StringPtrInput
-	// A `defaultNodePool` block as defined below.
+	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
@@ -834,7 +834,7 @@ type kubernetesClusterArgs struct {
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled *bool `pulumi:"costAnalysisEnabled"`
-	// A `defaultNodePool` block as defined below.
+	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -1043,7 +1043,7 @@ type KubernetesClusterArgs struct {
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
 	CostAnalysisEnabled pulumi.BoolPtrInput
-	// A `defaultNodePool` block as defined below.
+	// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput
@@ -1372,7 +1372,7 @@ func (o KubernetesClusterOutput) CurrentKubernetesVersion() pulumi.StringOutput 
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.CurrentKubernetesVersion }).(pulumi.StringOutput)
 }
 
-// A `defaultNodePool` block as defined below.
+// Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
 func (o KubernetesClusterOutput) DefaultNodePool() KubernetesClusterDefaultNodePoolOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterDefaultNodePoolOutput { return v.DefaultNodePool }).(KubernetesClusterDefaultNodePoolOutput)
 }

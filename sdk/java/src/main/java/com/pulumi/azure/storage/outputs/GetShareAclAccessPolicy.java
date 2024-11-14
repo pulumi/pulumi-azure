@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetShareAclAccessPolicy {
     /**
-     * @return The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid until.
      * 
      */
     private String expiry;
@@ -21,14 +21,14 @@ public final class GetShareAclAccessPolicy {
      */
     private String permissions;
     /**
-     * @return The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid from.
      * 
      */
     private String start;
 
     private GetShareAclAccessPolicy() {}
     /**
-     * @return The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid until.
      * 
      */
     public String expiry() {
@@ -42,7 +42,7 @@ public final class GetShareAclAccessPolicy {
         return this.permissions;
     }
     /**
-     * @return The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid from.
      * 
      */
     public String start() {

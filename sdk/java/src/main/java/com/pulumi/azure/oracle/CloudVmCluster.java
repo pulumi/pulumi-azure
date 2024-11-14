@@ -180,6 +180,20 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    @Export(name="domain", refs={String.class}, tree="[0]")
+    private Output<String> domain;
+
+    /**
+     * @return The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    public Output<String> domain() {
+        return this.domain;
+    }
+    /**
      * A valid Oracle Grid Infrastructure (GI) software version.
      * 
      */
@@ -320,6 +334,34 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * 
+     */
+    @Export(name="scanListenerPortTcp", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> scanListenerPortTcp;
+
+    /**
+     * @return The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * 
+     */
+    public Output<Optional<Integer>> scanListenerPortTcp() {
+        return Codegen.optional(this.scanListenerPortTcp);
+    }
+    /**
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * 
+     */
+    @Export(name="scanListenerPortTcpSsl", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> scanListenerPortTcpSsl;
+
+    /**
+     * @return The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * 
+     */
+    public Output<Optional<Integer>> scanListenerPortTcpSsl() {
+        return Codegen.optional(this.scanListenerPortTcpSsl);
+    }
+    /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
      * 
      */
@@ -402,6 +444,20 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> virtualNetworkId() {
         return this.virtualNetworkId;
+    }
+    /**
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    @Export(name="zoneId", refs={String.class}, tree="[0]")
+    private Output<String> zoneId;
+
+    /**
+     * @return The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    public Output<String> zoneId() {
+        return this.zoneId;
     }
 
     /**

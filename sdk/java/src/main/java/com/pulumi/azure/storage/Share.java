@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
  *             .name("sharename")
- *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountId(exampleAccount.id())
  *             .quota(50)
  *             .acls(ShareAclArgs.builder()
  *                 .id("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI")
  *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
  *                     .permissions("rwdl")
- *                     .start("2019-07-02T09:38:21.0000000Z")
- *                     .expiry("2019-07-02T10:38:21.0000000Z")
+ *                     .start("2019-07-02T09:38:21Z")
+ *                     .expiry("2019-07-02T10:38:21Z")
  *                     .build())
  *                 .build())
  *             .build());
@@ -90,10 +90,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Storage Shares can be imported using the `resource id`, e.g.
+ * Storage Shares can be imported using the `id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+ * $ pulumi import azure:storage/share:Share exampleShare /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myAccount/fileServices/default/shares/exampleShare
  * ```
  * 
  */
@@ -202,7 +202,11 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The Resource Manager ID of this File Share.
      * 
+     * @deprecated
+     * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
+     * 
      */
+    @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
     @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerId;
 
@@ -216,16 +220,38 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output<String> storageAccountName;
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageAccountId;
 
     /**
      * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * 
      */
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
+    public Output<Optional<String>> storageAccountId() {
+        return Codegen.optional(this.storageAccountId);
+    }
+    /**
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.
+     * 
+     */
+    @Deprecated /* This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider. */
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageAccountName;
+
+    /**
+     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     */
+    public Output<Optional<String>> storageAccountName() {
+        return Codegen.optional(this.storageAccountName);
     }
     /**
      * The URL of the File Share

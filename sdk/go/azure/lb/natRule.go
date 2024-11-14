@@ -18,6 +18,91 @@ import (
 //
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("LoadBalancerRG"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("PublicIPForLB"),
+//				Location:          pulumi.String("West US"),
+//				ResourceGroupName: example.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("TestLoadBalancer"),
+//				Location:          pulumi.String("West US"),
+//				ResourceGroupName: example.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              pulumi.String("PublicIPAddress"),
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
+//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				Name:           pulumi.String("be"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewNatRule(ctx, "example", &lb.NatRuleArgs{
+//				ResourceGroupName:           example.Name,
+//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				Name:                        pulumi.String("RDPAccess"),
+//				Protocol:                    pulumi.String("Tcp"),
+//				FrontendPort:                pulumi.Int(3389),
+//				BackendPort:                 pulumi.Int(3389),
+//				FrontendIpConfigurationName: pulumi.String("PublicIPAddress"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewNatRule(ctx, "example1", &lb.NatRuleArgs{
+//				ResourceGroupName:           example.Name,
+//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				Name:                        pulumi.String("RDPAccess"),
+//				Protocol:                    pulumi.String("Tcp"),
+//				FrontendPortStart:           pulumi.Int(3000),
+//				FrontendPortEnd:             pulumi.Int(3389),
+//				BackendPort:                 pulumi.Int(3389),
+//				BackendAddressPoolId:        exampleBackendAddressPool.ID(),
+//				FrontendIpConfigurationName: pulumi.String("PublicIPAddress"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Load Balancer NAT Rules can be imported using the `resource id`, e.g.

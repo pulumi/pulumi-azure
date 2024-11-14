@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleShare = new Azure.Storage.Share("example", new()
     ///     {
     ///         Name = "sharename",
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountId = exampleAccount.Id,
     ///         Quota = 50,
     ///         Acls = new[]
     ///         {
@@ -56,8 +56,8 @@ namespace Pulumi.Azure.Storage
     ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
     ///                     {
     ///                         Permissions = "rwdl",
-    ///                         Start = "2019-07-02T09:38:21.0000000Z",
-    ///                         Expiry = "2019-07-02T10:38:21.0000000Z",
+    ///                         Start = "2019-07-02T09:38:21Z",
+    ///                         Expiry = "2019-07-02T10:38:21Z",
     ///                     },
     ///                 },
     ///             },
@@ -69,10 +69,10 @@ namespace Pulumi.Azure.Storage
     /// 
     /// ## Import
     /// 
-    /// Storage Shares can be imported using the `resource id`, e.g.
+    /// Storage Shares can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+    /// $ pulumi import azure:storage/share:Share exampleShare /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myAccount/fileServices/default/shares/exampleShare
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/share:Share")]
@@ -130,9 +130,17 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         /// </summary>
         [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
+        public Output<string?> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the File Share
@@ -244,9 +252,17 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public ShareArgs()
         {
@@ -320,6 +336,14 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

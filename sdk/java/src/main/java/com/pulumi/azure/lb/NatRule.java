@@ -26,6 +26,90 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.lb.BackendAddressPool;
+ * import com.pulumi.azure.lb.BackendAddressPoolArgs;
+ * import com.pulumi.azure.lb.NatRule;
+ * import com.pulumi.azure.lb.NatRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("LoadBalancerRG")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
+ *             .name("PublicIPForLB")
+ *             .location("West US")
+ *             .resourceGroupName(example.name())
+ *             .allocationMethod("Static")
+ *             .build());
+ * 
+ *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
+ *             .name("TestLoadBalancer")
+ *             .location("West US")
+ *             .resourceGroupName(example.name())
+ *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
+ *                 .name("PublicIPAddress")
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()
+ *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name("be")
+ *             .build());
+ * 
+ *         var exampleNatRule = new NatRule("exampleNatRule", NatRuleArgs.builder()
+ *             .resourceGroupName(example.name())
+ *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name("RDPAccess")
+ *             .protocol("Tcp")
+ *             .frontendPort(3389)
+ *             .backendPort(3389)
+ *             .frontendIpConfigurationName("PublicIPAddress")
+ *             .build());
+ * 
+ *         var example1 = new NatRule("example1", NatRuleArgs.builder()
+ *             .resourceGroupName(example.name())
+ *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name("RDPAccess")
+ *             .protocol("Tcp")
+ *             .frontendPortStart(3000)
+ *             .frontendPortEnd(3389)
+ *             .backendPort(3389)
+ *             .backendAddressPoolId(exampleBackendAddressPool.id())
+ *             .frontendIpConfigurationName("PublicIPAddress")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

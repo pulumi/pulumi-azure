@@ -15,14 +15,14 @@ public final class GetShareAclAccessPolicyArgs extends com.pulumi.resources.Reso
     public static final GetShareAclAccessPolicyArgs Empty = new GetShareAclAccessPolicyArgs();
 
     /**
-     * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * The time at which this Access Policy is valid until.
      * 
      */
     @Import(name="expiry", required=true)
     private Output<String> expiry;
 
     /**
-     * @return The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid until.
      * 
      */
     public Output<String> expiry() {
@@ -45,14 +45,14 @@ public final class GetShareAclAccessPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * The time at which this Access Policy is valid from.
      * 
      */
     @Import(name="start", required=true)
     private Output<String> start;
 
     /**
-     * @return The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid from.
      * 
      */
     public Output<String> start() {
@@ -86,7 +86,7 @@ public final class GetShareAclAccessPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param expiry The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * @param expiry The time at which this Access Policy is valid until.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class GetShareAclAccessPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param expiry The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * @param expiry The time at which this Access Policy is valid until.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class GetShareAclAccessPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param start The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * @param start The time at which this Access Policy is valid from.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class GetShareAclAccessPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param start The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * @param start The time at which this Access Policy is valid from.
          * 
          * @return builder
          * 

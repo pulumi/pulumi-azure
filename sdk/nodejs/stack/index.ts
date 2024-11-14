@@ -35,6 +35,11 @@ export type HciMarketplaceGalleryImage = import("./hciMarketplaceGalleryImage").
 export const HciMarketplaceGalleryImage: typeof import("./hciMarketplaceGalleryImage").HciMarketplaceGalleryImage = null as any;
 utilities.lazyLoad(exports, ["HciMarketplaceGalleryImage"], () => require("./hciMarketplaceGalleryImage"));
 
+export { HciNetworkInterfaceArgs, HciNetworkInterfaceState } from "./hciNetworkInterface";
+export type HciNetworkInterface = import("./hciNetworkInterface").HciNetworkInterface;
+export const HciNetworkInterface: typeof import("./hciNetworkInterface").HciNetworkInterface = null as any;
+utilities.lazyLoad(exports, ["HciNetworkInterface"], () => require("./hciNetworkInterface"));
+
 export { HciStoragePathArgs, HciStoragePathState } from "./hciStoragePath";
 export type HciStoragePath = import("./hciStoragePath").HciStoragePath;
 export const HciStoragePath: typeof import("./hciStoragePath").HciStoragePath = null as any;
@@ -60,6 +65,8 @@ const _module = {
                 return new HciLogicalNetwork(name, <any>undefined, { urn })
             case "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage":
                 return new HciMarketplaceGalleryImage(name, <any>undefined, { urn })
+            case "azure:stack/hciNetworkInterface:HciNetworkInterface":
+                return new HciNetworkInterface(name, <any>undefined, { urn })
             case "azure:stack/hciStoragePath:HciStoragePath":
                 return new HciStoragePath(name, <any>undefined, { urn })
             case "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk":
@@ -74,5 +81,6 @@ pulumi.runtime.registerResourceModule("azure", "stack/hciDeploymentSetting", _mo
 pulumi.runtime.registerResourceModule("azure", "stack/hciExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciLogicalNetwork", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciMarketplaceGalleryImage", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciNetworkInterface", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciStoragePath", _module)
 pulumi.runtime.registerResourceModule("azure", "stack/hciVirtualHardDisk", _module)

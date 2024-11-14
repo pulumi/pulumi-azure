@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     name: "vhds",
- *     storageAccountName: exampleAccount.name,
+ *     storageAccountId: exampleAccount.id,
  *     containerAccessType: "private",
  * });
  * ```
@@ -102,12 +102,22 @@ export class Container extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The Resource Manager ID of this Storage Container.
+     *
+     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
     public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     */
+    public readonly storageAccountName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -116,7 +126,7 @@ export class Container extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ContainerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -130,17 +140,16 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
             resourceInputs["containerAccessType"] = args ? args.containerAccessType : undefined;
             resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
             resourceInputs["encryptionScopeOverrideEnabled"] = args ? args.encryptionScopeOverrideEnabled : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
             resourceInputs["hasLegalHold"] = undefined /*out*/;
@@ -187,10 +196,20 @@ export interface ContainerState {
     name?: pulumi.Input<string>;
     /**
      * The Resource Manager ID of this Storage Container.
+     *
+     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
     resourceManagerId?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     */
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
     storageAccountName?: pulumi.Input<string>;
 }
@@ -223,6 +242,14 @@ export interface ContainerArgs {
     name?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     */
+    storageAccountName?: pulumi.Input<string>;
 }

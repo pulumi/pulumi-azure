@@ -19,21 +19,6 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
     public static final AccountQueuePropertiesHourMetricsArgs Empty = new AccountQueuePropertiesHourMetricsArgs();
 
     /**
-     * Indicates whether hour metrics are enabled for the Queue service.
-     * 
-     */
-    @Import(name="enabled", required=true)
-    private Output<Boolean> enabled;
-
-    /**
-     * @return Indicates whether hour metrics are enabled for the Queue service.
-     * 
-     */
-    public Output<Boolean> enabled() {
-        return this.enabled;
-    }
-
-    /**
      * Indicates whether metrics should generate summary statistics for called API operations.
      * 
      */
@@ -81,7 +66,6 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
     private AccountQueuePropertiesHourMetricsArgs() {}
 
     private AccountQueuePropertiesHourMetricsArgs(AccountQueuePropertiesHourMetricsArgs $) {
-        this.enabled = $.enabled;
         this.includeApis = $.includeApis;
         this.retentionPolicyDays = $.retentionPolicyDays;
         this.version = $.version;
@@ -103,27 +87,6 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
 
         public Builder(AccountQueuePropertiesHourMetricsArgs defaults) {
             $ = new AccountQueuePropertiesHourMetricsArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param enabled Indicates whether hour metrics are enabled for the Queue service.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enabled(Output<Boolean> enabled) {
-            $.enabled = enabled;
-            return this;
-        }
-
-        /**
-         * @param enabled Indicates whether hour metrics are enabled for the Queue service.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enabled(Boolean enabled) {
-            return enabled(Output.of(enabled));
         }
 
         /**
@@ -190,9 +153,6 @@ public final class AccountQueuePropertiesHourMetricsArgs extends com.pulumi.reso
         }
 
         public AccountQueuePropertiesHourMetricsArgs build() {
-            if ($.enabled == null) {
-                throw new MissingRequiredPropertyException("AccountQueuePropertiesHourMetricsArgs", "enabled");
-            }
             if ($.version == null) {
                 throw new MissingRequiredPropertyException("AccountQueuePropertiesHourMetricsArgs", "version");
             }

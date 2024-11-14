@@ -132,6 +132,21 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="skuTier")
+    private @Nullable Output<String> skuTier;
+
+    /**
+     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> skuTier() {
+        return Optional.ofNullable(this.skuTier);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -175,6 +190,7 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
         this.prefixLength = $.prefixLength;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.skuTier = $.skuTier;
         this.tags = $.tags;
         this.zones = $.zones;
     }
@@ -350,6 +366,27 @@ public final class PublicIpPrefixState extends com.pulumi.resources.ResourceArgs
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuTier(@Nullable Output<String> skuTier) {
+            $.skuTier = skuTier;
+            return this;
+        }
+
+        /**
+         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuTier(String skuTier) {
+            return skuTier(Output.of(skuTier));
         }
 
         /**

@@ -4943,6 +4943,8 @@ type FrontdoorCustomDomainTls struct {
 	// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 	CertificateType *string `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 }
 
@@ -4965,6 +4967,8 @@ type FrontdoorCustomDomainTlsArgs struct {
 	// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
 }
 
@@ -5058,6 +5062,8 @@ func (o FrontdoorCustomDomainTlsOutput) CertificateType() pulumi.StringPtrOutput
 }
 
 // TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 func (o FrontdoorCustomDomainTlsOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -5109,6 +5115,8 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOut
 }
 
 // TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 func (o FrontdoorCustomDomainTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {

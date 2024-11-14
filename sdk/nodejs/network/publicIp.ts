@@ -87,6 +87,10 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly domainNameLabel!: pulumi.Output<string | undefined>;
     /**
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     */
+    public readonly domainNameLabelScope!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
@@ -174,6 +178,7 @@ export class PublicIp extends pulumi.CustomResource {
             resourceInputs["ddosProtectionMode"] = state ? state.ddosProtectionMode : undefined;
             resourceInputs["ddosProtectionPlanId"] = state ? state.ddosProtectionPlanId : undefined;
             resourceInputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
+            resourceInputs["domainNameLabelScope"] = state ? state.domainNameLabelScope : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
@@ -201,6 +206,7 @@ export class PublicIp extends pulumi.CustomResource {
             resourceInputs["ddosProtectionMode"] = args ? args.ddosProtectionMode : undefined;
             resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
             resourceInputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
+            resourceInputs["domainNameLabelScope"] = args ? args.domainNameLabelScope : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             resourceInputs["ipTags"] = args ? args.ipTags : undefined;
@@ -246,6 +252,10 @@ export interface PublicIpState {
      * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     domainNameLabel?: pulumi.Input<string>;
+    /**
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     */
+    domainNameLabelScope?: pulumi.Input<string>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      */
@@ -342,6 +352,10 @@ export interface PublicIpArgs {
      * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     domainNameLabel?: pulumi.Input<string>;
+    /**
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     */
+    domainNameLabelScope?: pulumi.Input<string>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      */

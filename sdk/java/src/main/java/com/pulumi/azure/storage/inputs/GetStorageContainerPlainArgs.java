@@ -47,18 +47,37 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The name of the Storage Account where the Container exists.
+     * The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     * 
+     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private String storageAccountName;
+    @Import(name="storageAccountId")
+    private @Nullable String storageAccountId;
 
     /**
-     * @return The name of the Storage Account where the Container exists.
+     * @return The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     * 
+     * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
-    public String storageAccountName() {
-        return this.storageAccountName;
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+     * 
+     */
+    @Import(name="storageAccountName")
+    private @Nullable String storageAccountName;
+
+    /**
+     * @return The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+     * 
+     */
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     private GetStorageContainerPlainArgs() {}
@@ -66,6 +85,7 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
     private GetStorageContainerPlainArgs(GetStorageContainerPlainArgs $) {
         this.metadata = $.metadata;
         this.name = $.name;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -110,12 +130,25 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Container exists.
+         * @param storageAccountId The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+         * 
+         * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(String storageAccountName) {
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountName The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountName(@Nullable String storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
@@ -123,9 +156,6 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
         public GetStorageContainerPlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetStorageContainerPlainArgs", "name");
-            }
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("GetStorageContainerPlainArgs", "storageAccountName");
             }
             return $;
         }

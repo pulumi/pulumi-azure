@@ -20,6 +20,11 @@ export type Grafana = import("./grafana").Grafana;
 export const Grafana: typeof import("./grafana").Grafana = null as any;
 utilities.lazyLoad(exports, ["Grafana"], () => require("./grafana"));
 
+export { GrafanaManagedPrivateEndpointArgs, GrafanaManagedPrivateEndpointState } from "./grafanaManagedPrivateEndpoint";
+export type GrafanaManagedPrivateEndpoint = import("./grafanaManagedPrivateEndpoint").GrafanaManagedPrivateEndpoint;
+export const GrafanaManagedPrivateEndpoint: typeof import("./grafanaManagedPrivateEndpoint").GrafanaManagedPrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["GrafanaManagedPrivateEndpoint"], () => require("./grafanaManagedPrivateEndpoint"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +32,12 @@ const _module = {
         switch (type) {
             case "azure:dashboard/grafana:Grafana":
                 return new Grafana(name, <any>undefined, { urn })
+            case "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint":
+                return new GrafanaManagedPrivateEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "dashboard/grafana", _module)
+pulumi.runtime.registerResourceModule("azure", "dashboard/grafanaManagedPrivateEndpoint", _module)

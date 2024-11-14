@@ -173,6 +173,21 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    @Import(name="domain")
+    private @Nullable Output<String> domain;
+
+    /**
+     * @return The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    public Optional<Output<String>> domain() {
+        return Optional.ofNullable(this.domain);
+    }
+
+    /**
      * A valid Oracle Grid Infrastructure (GI) software version.
      * 
      */
@@ -293,6 +308,36 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * 
+     */
+    @Import(name="scanListenerPortTcp")
+    private @Nullable Output<Integer> scanListenerPortTcp;
+
+    /**
+     * @return The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * 
+     */
+    public Optional<Output<Integer>> scanListenerPortTcp() {
+        return Optional.ofNullable(this.scanListenerPortTcp);
+    }
+
+    /**
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * 
+     */
+    @Import(name="scanListenerPortTcpSsl")
+    private @Nullable Output<Integer> scanListenerPortTcpSsl;
+
+    /**
+     * @return The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * 
+     */
+    public Optional<Output<Integer>> scanListenerPortTcpSsl() {
+        return Optional.ofNullable(this.scanListenerPortTcpSsl);
+    }
+
+    /**
      * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
      * 
      */
@@ -382,6 +427,21 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         return this.virtualNetworkId;
     }
 
+    /**
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    @Import(name="zoneId")
+    private @Nullable Output<String> zoneId;
+
+    /**
+     * @return The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * 
+     */
+    public Optional<Output<String>> zoneId() {
+        return Optional.ofNullable(this.zoneId);
+    }
+
     private CloudVmClusterArgs() {}
 
     private CloudVmClusterArgs(CloudVmClusterArgs $) {
@@ -395,6 +455,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         this.dbNodeStorageSizeInGbs = $.dbNodeStorageSizeInGbs;
         this.dbServers = $.dbServers;
         this.displayName = $.displayName;
+        this.domain = $.domain;
         this.giVersion = $.giVersion;
         this.hostname = $.hostname;
         this.licenseModel = $.licenseModel;
@@ -403,12 +464,15 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         this.memorySizeInGbs = $.memorySizeInGbs;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.scanListenerPortTcp = $.scanListenerPortTcp;
+        this.scanListenerPortTcpSsl = $.scanListenerPortTcpSsl;
         this.sparseDiskgroupEnabled = $.sparseDiskgroupEnabled;
         this.sshPublicKeys = $.sshPublicKeys;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.timeZone = $.timeZone;
         this.virtualNetworkId = $.virtualNetworkId;
+        this.zoneId = $.zoneId;
     }
 
     public static Builder builder() {
@@ -650,6 +714,27 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param domain The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(@Nullable Output<String> domain) {
+            $.domain = domain;
+            return this;
+        }
+
+        /**
+         * @param domain The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(String domain) {
+            return domain(Output.of(domain));
+        }
+
+        /**
          * @param giVersion A valid Oracle Grid Infrastructure (GI) software version.
          * 
          * @return builder
@@ -818,6 +903,48 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param scanListenerPortTcp The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanListenerPortTcp(@Nullable Output<Integer> scanListenerPortTcp) {
+            $.scanListenerPortTcp = scanListenerPortTcp;
+            return this;
+        }
+
+        /**
+         * @param scanListenerPortTcp The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanListenerPortTcp(Integer scanListenerPortTcp) {
+            return scanListenerPortTcp(Output.of(scanListenerPortTcp));
+        }
+
+        /**
+         * @param scanListenerPortTcpSsl The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanListenerPortTcpSsl(@Nullable Output<Integer> scanListenerPortTcpSsl) {
+            $.scanListenerPortTcpSsl = scanListenerPortTcpSsl;
+            return this;
+        }
+
+        /**
+         * @param scanListenerPortTcpSsl The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanListenerPortTcpSsl(Integer scanListenerPortTcpSsl) {
+            return scanListenerPortTcpSsl(Output.of(scanListenerPortTcpSsl));
+        }
+
+        /**
          * @param sparseDiskgroupEnabled If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
          * 
          * @return builder
@@ -951,6 +1078,27 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder virtualNetworkId(String virtualNetworkId) {
             return virtualNetworkId(Output.of(virtualNetworkId));
+        }
+
+        /**
+         * @param zoneId The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneId(@Nullable Output<String> zoneId) {
+            $.zoneId = zoneId;
+            return this;
+        }
+
+        /**
+         * @param zoneId The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zoneId(String zoneId) {
+            return zoneId(Output.of(zoneId));
         }
 
         public CloudVmClusterArgs build() {

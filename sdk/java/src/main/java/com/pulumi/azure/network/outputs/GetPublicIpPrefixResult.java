@@ -41,6 +41,11 @@ public final class GetPublicIpPrefixResult {
      */
     private String sku;
     /**
+     * @return The SKU Tier of the Public IP.
+     * 
+     */
+    private String skuTier;
+    /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
@@ -94,6 +99,13 @@ public final class GetPublicIpPrefixResult {
         return this.sku;
     }
     /**
+     * @return The SKU Tier of the Public IP.
+     * 
+     */
+    public String skuTier() {
+        return this.skuTier;
+    }
+    /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
@@ -124,6 +136,7 @@ public final class GetPublicIpPrefixResult {
         private Integer prefixLength;
         private String resourceGroupName;
         private String sku;
+        private String skuTier;
         private Map<String,String> tags;
         private List<String> zones;
         public Builder() {}
@@ -136,6 +149,7 @@ public final class GetPublicIpPrefixResult {
     	      this.prefixLength = defaults.prefixLength;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
+    	      this.skuTier = defaults.skuTier;
     	      this.tags = defaults.tags;
     	      this.zones = defaults.zones;
         }
@@ -197,6 +211,14 @@ public final class GetPublicIpPrefixResult {
             return this;
         }
         @CustomType.Setter
+        public Builder skuTier(String skuTier) {
+            if (skuTier == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpPrefixResult", "skuTier");
+            }
+            this.skuTier = skuTier;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPublicIpPrefixResult", "tags");
@@ -224,6 +246,7 @@ public final class GetPublicIpPrefixResult {
             _resultValue.prefixLength = prefixLength;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.sku = sku;
+            _resultValue.skuTier = skuTier;
             _resultValue.tags = tags;
             _resultValue.zones = zones;
             return _resultValue;

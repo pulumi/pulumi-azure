@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GremlinDatabase{}
 	case "azure:cosmosdb/gremlinGraph:GremlinGraph":
 		r = &GremlinGraph{}
+	case "azure:cosmosdb/mongoCluster:MongoCluster":
+		r = &MongoCluster{}
 	case "azure:cosmosdb/mongoCollection:MongoCollection":
 		r = &MongoCollection{}
 	case "azure:cosmosdb/mongoDatabase:MongoDatabase":
@@ -117,6 +119,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/gremlinGraph",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/mongoCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

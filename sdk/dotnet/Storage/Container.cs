@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
     ///         Name = "vhds",
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountId = exampleAccount.Id,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
@@ -114,9 +114,17 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         /// </summary>
         [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
+        public Output<string?> StorageAccountName { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,7 +134,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
+        public Container(string name, ContainerArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:storage/container:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -204,9 +212,17 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public ContainerArgs()
         {
@@ -274,6 +290,14 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

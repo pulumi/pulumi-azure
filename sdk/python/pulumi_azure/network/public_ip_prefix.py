@@ -25,6 +25,7 @@ class PublicIpPrefixArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -39,6 +40,7 @@ class PublicIpPrefixArgs:
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -55,6 +57,8 @@ class PublicIpPrefixArgs:
             pulumi.set(__self__, "prefix_length", prefix_length)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -137,6 +141,18 @@ class PublicIpPrefixArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -173,6 +189,7 @@ class _PublicIpPrefixState:
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -188,6 +205,7 @@ class _PublicIpPrefixState:
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -207,6 +225,8 @@ class _PublicIpPrefixState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -301,6 +321,18 @@ class _PublicIpPrefixState:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -338,6 +370,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -383,6 +416,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -445,6 +479,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -464,6 +499,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
             __props__.__dict__["ip_prefix"] = None
@@ -484,6 +520,7 @@ class PublicIpPrefix(pulumi.CustomResource):
             prefix_length: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
+            sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'PublicIpPrefix':
         """
@@ -504,6 +541,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
@@ -520,6 +558,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         __props__.__dict__["prefix_length"] = prefix_length
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zones"] = zones
         return PublicIpPrefix(resource_name, opts=opts, __props__=__props__)
@@ -583,6 +622,14 @@ class PublicIpPrefix(pulumi.CustomResource):
         > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
 
     @property
     @pulumi.getter

@@ -48,6 +48,9 @@ namespace Pulumi.Azure.Inputs
         [Input("resourceGroup")]
         public Input<Inputs.ProviderFeaturesResourceGroupArgs>? ResourceGroup { get; set; }
 
+        [Input("storage")]
+        public Input<Inputs.ProviderFeaturesStorageArgs>? Storage { get; set; }
+
         [Input("subscription")]
         public Input<Inputs.ProviderFeaturesSubscriptionArgs>? Subscription { get; set; }
 

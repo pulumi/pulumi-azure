@@ -119,7 +119,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
     /**
-     * A `defaultNodePool` block as defined below.
+     * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
@@ -613,7 +613,7 @@ export interface KubernetesClusterState {
      */
     currentKubernetesVersion?: pulumi.Input<string>;
     /**
-     * A `defaultNodePool` block as defined below.
+     * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
     defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
@@ -945,7 +945,7 @@ export interface KubernetesClusterArgs {
      */
     costAnalysisEnabled?: pulumi.Input<boolean>;
     /**
-     * A `defaultNodePool` block as defined below.
+     * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
     defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**

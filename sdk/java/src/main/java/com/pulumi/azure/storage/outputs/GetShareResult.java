@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -36,8 +37,15 @@ public final class GetShareResult {
      * 
      */
     private Integer quota;
+    /**
+     * @deprecated
+     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     private String resourceManagerId;
-    private String storageAccountName;
+    private @Nullable String storageAccountId;
+    private @Nullable String storageAccountName;
 
     private GetShareResult() {}
     /**
@@ -71,11 +79,20 @@ public final class GetShareResult {
     public Integer quota() {
         return this.quota;
     }
+    /**
+     * @deprecated
+     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     public String resourceManagerId() {
         return this.resourceManagerId;
     }
-    public String storageAccountName() {
-        return this.storageAccountName;
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     public static Builder builder() {
@@ -93,7 +110,8 @@ public final class GetShareResult {
         private String name;
         private Integer quota;
         private String resourceManagerId;
-        private String storageAccountName;
+        private @Nullable String storageAccountId;
+        private @Nullable String storageAccountName;
         public Builder() {}
         public Builder(GetShareResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -103,6 +121,7 @@ public final class GetShareResult {
     	      this.name = defaults.name;
     	      this.quota = defaults.quota;
     	      this.resourceManagerId = defaults.resourceManagerId;
+    	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountName = defaults.storageAccountName;
         }
 
@@ -156,10 +175,14 @@ public final class GetShareResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetShareResult", "storageAccountName");
-            }
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+
+            this.storageAccountId = storageAccountId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageAccountName(@Nullable String storageAccountName) {
+
             this.storageAccountName = storageAccountName;
             return this;
         }
@@ -171,6 +194,7 @@ public final class GetShareResult {
             _resultValue.name = name;
             _resultValue.quota = quota;
             _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountName = storageAccountName;
             return _resultValue;
         }

@@ -220,6 +220,22 @@ class Account(pulumi.CustomResource):
         """
         Manages a Trusted Signing Account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_account = azure.trustedsigning.Account("example",
+            name="example-account",
+            resource_group_name=example.name,
+            location="West Europe",
+            sku_name="Basic")
+        ```
+
         ## Import
 
         Trusted Signing Accounts can be imported using the `resource id`, e.g.
@@ -244,6 +260,22 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Trusted Signing Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_account = azure.trustedsigning.Account("example",
+            name="example-account",
+            resource_group_name=example.name,
+            location="West Europe",
+            sku_name="Basic")
+        ```
 
         ## Import
 

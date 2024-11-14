@@ -29,6 +29,7 @@ __all__ = [
     'FeaturesRecoveryService',
     'FeaturesRecoveryServicesVaults',
     'FeaturesResourceGroup',
+    'FeaturesStorage',
     'FeaturesSubscription',
     'FeaturesTemplateDeployment',
     'FeaturesVirtualMachine',
@@ -50,6 +51,7 @@ class Features(dict):
                  recovery_service: Optional['outputs.FeaturesRecoveryService'] = None,
                  recovery_services_vaults: Optional['outputs.FeaturesRecoveryServicesVaults'] = None,
                  resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
+                 storage: Optional['outputs.FeaturesStorage'] = None,
                  subscription: Optional['outputs.FeaturesSubscription'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
@@ -78,6 +80,8 @@ class Features(dict):
             pulumi.set(__self__, "recovery_services_vaults", recovery_services_vaults)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
         if subscription is not None:
             pulumi.set(__self__, "subscription", subscription)
         if template_deployment is not None:
@@ -146,6 +150,11 @@ class Features(dict):
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional['outputs.FeaturesResourceGroup']:
         return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional['outputs.FeaturesStorage']:
+        return pulumi.get(self, "storage")
 
     @property
     @pulumi.getter
@@ -472,6 +481,19 @@ class FeaturesResourceGroup(dict):
     @pulumi.getter(name="preventDeletionIfContainsResources")
     def prevent_deletion_if_contains_resources(self) -> Optional[bool]:
         return pulumi.get(self, "prevent_deletion_if_contains_resources")
+
+
+@pulumi.output_type
+class FeaturesStorage(dict):
+    def __init__(__self__, *,
+                 data_plane_available: Optional[bool] = None):
+        if data_plane_available is not None:
+            pulumi.set(__self__, "data_plane_available", data_plane_available)
+
+    @property
+    @pulumi.getter(name="dataPlaneAvailable")
+    def data_plane_available(self) -> Optional[bool]:
+        return pulumi.get(self, "data_plane_available")
 
 
 @pulumi.output_type

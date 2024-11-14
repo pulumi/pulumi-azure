@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.storage.getStorageContainer({
- *     name: "example-container-name",
- *     storageAccountName: "example-storage-account-name",
+ * const example = azure.storage.getAccount({
+ *     name: "exampleaccount",
+ *     resourceGroupName: "examples",
  * });
+ * const exampleGetStorageContainer = example.then(example => azure.storage.getStorageContainer({
+ *     name: "example-container-name",
+ *     storageAccountId: example.id,
+ * }));
  * ```
  */
 export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
@@ -24,6 +28,7 @@ export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi
     return pulumi.runtime.invoke("azure:storage/getStorageContainer:getStorageContainer", {
         "metadata": args.metadata,
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -41,9 +46,15 @@ export interface GetStorageContainerArgs {
      */
     name: string;
     /**
-     * The name of the Storage Account where the Container exists.
+     * The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: string;
+    storageAccountId?: string;
+    /**
+     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
+     */
+    storageAccountName?: string;
 }
 
 /**
@@ -80,10 +91,11 @@ export interface GetStorageContainerResult {
     readonly metadata: {[key: string]: string};
     readonly name: string;
     /**
-     * The Resource Manager ID of this Storage Container.
+     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
     readonly resourceManagerId: string;
-    readonly storageAccountName: string;
+    readonly storageAccountId?: string;
+    readonly storageAccountName?: string;
 }
 /**
  * Use this data source to access information about an existing Storage Container.
@@ -94,10 +106,14 @@ export interface GetStorageContainerResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.storage.getStorageContainer({
- *     name: "example-container-name",
- *     storageAccountName: "example-storage-account-name",
+ * const example = azure.storage.getAccount({
+ *     name: "exampleaccount",
+ *     resourceGroupName: "examples",
  * });
+ * const exampleGetStorageContainer = example.then(example => azure.storage.getStorageContainer({
+ *     name: "example-container-name",
+ *     storageAccountId: example.id,
+ * }));
  * ```
  */
 export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageContainerResult> {
@@ -105,6 +121,7 @@ export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, o
     return pulumi.runtime.invokeOutput("azure:storage/getStorageContainer:getStorageContainer", {
         "metadata": args.metadata,
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -122,7 +139,13 @@ export interface GetStorageContainerOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Container exists.
+     * The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     *
+     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
+     */
+    storageAccountName?: pulumi.Input<string>;
 }

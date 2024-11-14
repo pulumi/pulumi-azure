@@ -65,16 +65,20 @@ public final class AlertRuleFusionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+     * @deprecated
+     * the `name` is deprecated and will be removed in v5.0 version of the provider.
      * 
      */
+    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+     * @deprecated
+     * the `name` is deprecated and will be removed in v5.0 version of the provider.
      * 
      */
+    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -186,22 +190,26 @@ public final class AlertRuleFusionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `name` is deprecated and will be removed in v5.0 version of the provider.
+         * 
          */
+        @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
         /**
-         * @param name The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `name` is deprecated and will be removed in v5.0 version of the provider.
+         * 
          */
+        @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
         public Builder name(String name) {
             return name(Output.of(name));
         }

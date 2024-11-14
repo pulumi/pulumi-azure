@@ -26,6 +26,7 @@ type Features struct {
 	RecoveryService          *FeaturesRecoveryService          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   *FeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup            *FeaturesResourceGroup            `pulumi:"resourceGroup"`
+	Storage                  *FeaturesStorage                  `pulumi:"storage"`
 	Subscription             *FeaturesSubscription             `pulumi:"subscription"`
 	TemplateDeployment       *FeaturesTemplateDeployment       `pulumi:"templateDeployment"`
 	VirtualMachine           *FeaturesVirtualMachine           `pulumi:"virtualMachine"`
@@ -56,6 +57,7 @@ type FeaturesArgs struct {
 	RecoveryService          FeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   FeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup            FeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
+	Storage                  FeaturesStoragePtrInput                  `pulumi:"storage"`
 	Subscription             FeaturesSubscriptionPtrInput             `pulumi:"subscription"`
 	TemplateDeployment       FeaturesTemplateDeploymentPtrInput       `pulumi:"templateDeployment"`
 	VirtualMachine           FeaturesVirtualMachinePtrInput           `pulumi:"virtualMachine"`
@@ -134,6 +136,10 @@ func (o FeaturesOutput) RecoveryServicesVaults() FeaturesRecoveryServicesVaultsP
 
 func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesResourceGroup { return v.ResourceGroup }).(FeaturesResourceGroupPtrOutput)
+}
+
+func (o FeaturesOutput) Storage() FeaturesStoragePtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesStorage { return v.Storage }).(FeaturesStoragePtrOutput)
 }
 
 func (o FeaturesOutput) Subscription() FeaturesSubscriptionPtrOutput {
@@ -1987,6 +1993,139 @@ func (o FeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FeaturesStorage struct {
+	DataPlaneAvailable *bool `pulumi:"dataPlaneAvailable"`
+}
+
+// FeaturesStorageInput is an input type that accepts FeaturesStorageArgs and FeaturesStorageOutput values.
+// You can construct a concrete instance of `FeaturesStorageInput` via:
+//
+//	FeaturesStorageArgs{...}
+type FeaturesStorageInput interface {
+	pulumi.Input
+
+	ToFeaturesStorageOutput() FeaturesStorageOutput
+	ToFeaturesStorageOutputWithContext(context.Context) FeaturesStorageOutput
+}
+
+type FeaturesStorageArgs struct {
+	DataPlaneAvailable pulumi.BoolPtrInput `pulumi:"dataPlaneAvailable"`
+}
+
+func (FeaturesStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesStorage)(nil)).Elem()
+}
+
+func (i FeaturesStorageArgs) ToFeaturesStorageOutput() FeaturesStorageOutput {
+	return i.ToFeaturesStorageOutputWithContext(context.Background())
+}
+
+func (i FeaturesStorageArgs) ToFeaturesStorageOutputWithContext(ctx context.Context) FeaturesStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesStorageOutput)
+}
+
+func (i FeaturesStorageArgs) ToFeaturesStoragePtrOutput() FeaturesStoragePtrOutput {
+	return i.ToFeaturesStoragePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesStorageArgs) ToFeaturesStoragePtrOutputWithContext(ctx context.Context) FeaturesStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesStorageOutput).ToFeaturesStoragePtrOutputWithContext(ctx)
+}
+
+// FeaturesStoragePtrInput is an input type that accepts FeaturesStorageArgs, FeaturesStoragePtr and FeaturesStoragePtrOutput values.
+// You can construct a concrete instance of `FeaturesStoragePtrInput` via:
+//
+//	        FeaturesStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesStoragePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesStoragePtrOutput() FeaturesStoragePtrOutput
+	ToFeaturesStoragePtrOutputWithContext(context.Context) FeaturesStoragePtrOutput
+}
+
+type featuresStoragePtrType FeaturesStorageArgs
+
+func FeaturesStoragePtr(v *FeaturesStorageArgs) FeaturesStoragePtrInput {
+	return (*featuresStoragePtrType)(v)
+}
+
+func (*featuresStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesStorage)(nil)).Elem()
+}
+
+func (i *featuresStoragePtrType) ToFeaturesStoragePtrOutput() FeaturesStoragePtrOutput {
+	return i.ToFeaturesStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresStoragePtrType) ToFeaturesStoragePtrOutputWithContext(ctx context.Context) FeaturesStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesStoragePtrOutput)
+}
+
+type FeaturesStorageOutput struct{ *pulumi.OutputState }
+
+func (FeaturesStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesStorage)(nil)).Elem()
+}
+
+func (o FeaturesStorageOutput) ToFeaturesStorageOutput() FeaturesStorageOutput {
+	return o
+}
+
+func (o FeaturesStorageOutput) ToFeaturesStorageOutputWithContext(ctx context.Context) FeaturesStorageOutput {
+	return o
+}
+
+func (o FeaturesStorageOutput) ToFeaturesStoragePtrOutput() FeaturesStoragePtrOutput {
+	return o.ToFeaturesStoragePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesStorageOutput) ToFeaturesStoragePtrOutputWithContext(ctx context.Context) FeaturesStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesStorage) *FeaturesStorage {
+		return &v
+	}).(FeaturesStoragePtrOutput)
+}
+
+func (o FeaturesStorageOutput) DataPlaneAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesStorage) *bool { return v.DataPlaneAvailable }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesStorage)(nil)).Elem()
+}
+
+func (o FeaturesStoragePtrOutput) ToFeaturesStoragePtrOutput() FeaturesStoragePtrOutput {
+	return o
+}
+
+func (o FeaturesStoragePtrOutput) ToFeaturesStoragePtrOutputWithContext(ctx context.Context) FeaturesStoragePtrOutput {
+	return o
+}
+
+func (o FeaturesStoragePtrOutput) Elem() FeaturesStorageOutput {
+	return o.ApplyT(func(v *FeaturesStorage) FeaturesStorage {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesStorage
+		return ret
+	}).(FeaturesStorageOutput)
+}
+
+func (o FeaturesStoragePtrOutput) DataPlaneAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesStorage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataPlaneAvailable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesSubscription struct {
 	PreventCancellationOnDestroy *bool `pulumi:"preventCancellationOnDestroy"`
 }
@@ -2635,6 +2774,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesRecoveryServicesVaultsPtrInput)(nil)).Elem(), FeaturesRecoveryServicesVaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupPtrInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesStorageInput)(nil)).Elem(), FeaturesStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesStoragePtrInput)(nil)).Elem(), FeaturesStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesSubscriptionInput)(nil)).Elem(), FeaturesSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesSubscriptionPtrInput)(nil)).Elem(), FeaturesSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesTemplateDeploymentInput)(nil)).Elem(), FeaturesTemplateDeploymentArgs{})
@@ -2668,6 +2809,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesRecoveryServicesVaultsPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesStorageOutput{})
+	pulumi.RegisterOutputType(FeaturesStoragePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesSubscriptionOutput{})
 	pulumi.RegisterOutputType(FeaturesSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesTemplateDeploymentOutput{})

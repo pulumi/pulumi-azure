@@ -106,6 +106,7 @@ const (
 	azureDigitalTwins          = "DigitalTwins"          // Digital Twins
 	azureDNS                   = "Dns"                   // DNS
 	azureDomainServices        = "DomainServices"        // DomainServices
+	azureDynatrace             = "Dynatrace"             // Dynatrace
 	azureElasticCloud          = "ElasticCloud"          // Elastic Cloud
 	azureExpressRoute          = "ExpressRoute"          // ExpressRoute
 	azureExtendedLocation      = "ExtendedLocation"      // Extended Location
@@ -268,6 +269,7 @@ var moduleMap = map[string]string{
 	"digital_twins":           azureDigitalTwins,
 	"dns":                     azureDNS,
 	"active_directory_domain": azureDomainServices,
+	"dynatrace":               azureDynatrace,
 	"elastic_cloud":           azureElasticCloud,
 	"elastic_san":             "ElasticSan",
 	"fluid_relay":             azureFluidRelay,
@@ -770,6 +772,14 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
+
+			"azurerm_dynatrace_monitor": {
+				Tok: azureResource(azureDynatrace, "Monitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "dynatrace_monitors.html.markdown",
+				},
+			},
+
 			"azurerm_function_app": {
 				Tok: azureResource(azureAppService, "FunctionApp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1544,7 +1554,10 @@ func Provider() tfbridge.ProviderInfo {
 					return pm, nil
 				},
 			},
-			"azurerm_cosmosdb_cassandra_keyspace":    {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
+			"azurerm_cosmosdb_cassandra_keyspace": {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
+			// Despite not having "cosmosdb" in the name, this is a CosmosDB resource.
+			// https://github.com/hashicorp/terraform-provider-azurerm/pull/27636
+			"azurerm_mongo_cluster":                  {Tok: azureResource(azureCosmosDB, "MongoCluster")},
 			"azurerm_cosmosdb_mongo_collection":      {Tok: azureResource(azureCosmosDB, "MongoCollection")},
 			"azurerm_cosmosdb_mongo_database":        {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
 			"azurerm_cosmosdb_sql_container":         {Tok: azureResource(azureCosmosDB, "SqlContainer")},

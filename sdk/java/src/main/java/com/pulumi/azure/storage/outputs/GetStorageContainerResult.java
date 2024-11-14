@@ -9,6 +9,8 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStorageContainerResult {
@@ -49,11 +51,14 @@ public final class GetStorageContainerResult {
     private Map<String,String> metadata;
     private String name;
     /**
-     * @return The Resource Manager ID of this Storage Container.
+     * @deprecated
+     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     private String resourceManagerId;
-    private String storageAccountName;
+    private @Nullable String storageAccountId;
+    private @Nullable String storageAccountName;
 
     private GetStorageContainerResult() {}
     /**
@@ -109,14 +114,19 @@ public final class GetStorageContainerResult {
         return this.name;
     }
     /**
-     * @return The Resource Manager ID of this Storage Container.
+     * @deprecated
+     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     public String resourceManagerId() {
         return this.resourceManagerId;
     }
-    public String storageAccountName() {
-        return this.storageAccountName;
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     public static Builder builder() {
@@ -137,7 +147,8 @@ public final class GetStorageContainerResult {
         private Map<String,String> metadata;
         private String name;
         private String resourceManagerId;
-        private String storageAccountName;
+        private @Nullable String storageAccountId;
+        private @Nullable String storageAccountName;
         public Builder() {}
         public Builder(GetStorageContainerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -150,6 +161,7 @@ public final class GetStorageContainerResult {
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
     	      this.resourceManagerId = defaults.resourceManagerId;
+    	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountName = defaults.storageAccountName;
         }
 
@@ -226,10 +238,14 @@ public final class GetStorageContainerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetStorageContainerResult", "storageAccountName");
-            }
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+
+            this.storageAccountId = storageAccountId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageAccountName(@Nullable String storageAccountName) {
+
             this.storageAccountName = storageAccountName;
             return this;
         }
@@ -244,6 +260,7 @@ public final class GetStorageContainerResult {
             _resultValue.metadata = metadata;
             _resultValue.name = name;
             _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountName = storageAccountName;
             return _resultValue;
         }

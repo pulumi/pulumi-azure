@@ -74,6 +74,8 @@ type LookupPublicIpPrefixResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix.
 	Sku string `pulumi:"sku"`
+	// The SKU Tier of the Public IP.
+	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones in which this Public IP Prefix is located.
@@ -157,6 +159,11 @@ func (o LookupPublicIpPrefixResultOutput) ResourceGroupName() pulumi.StringOutpu
 // The SKU of the Public IP Prefix.
 func (o LookupPublicIpPrefixResultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.Sku }).(pulumi.StringOutput)
+}
+
+// The SKU Tier of the Public IP.
+func (o LookupPublicIpPrefixResultOutput) SkuTier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPublicIpPrefixResult) string { return v.SkuTier }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assigned to the resource.

@@ -1722,7 +1722,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 07e4ab531d..3da8903e82 100644
+index dd3898b6c5..f8cb8ab6f7 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2275,10 +2275,10 @@ index dc6b71544f..424dbbc59a 100644
  * How to connect a `Private Endpoint` to a [Cosmos PostgreSQL](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/cosmos-db/postgresql)
  * How to connect a `Private Endpoint` to a [PostgreSQL Server](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/postgresql)
 diff --git a/website/docs/r/public_ip.html.markdown b/website/docs/r/public_ip.html.markdown
-index 1f4eccb6de..7d2d700d1c 100644
+index 5abc7f8954..b9bbf4c0ec 100644
 --- a/website/docs/r/public_ip.html.markdown
 +++ b/website/docs/r/public_ip.html.markdown
-@@ -94,7 +94,7 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -96,7 +96,7 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  * `ip_address` - The IP address value that was allocated.
  
