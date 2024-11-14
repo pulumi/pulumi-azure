@@ -105,6 +105,8 @@ type ManagedDatabase struct {
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrOutput `pulumi:"pointInTimeRestore"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrOutput `pulumi:"shortTermRetentionDays"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewManagedDatabase registers a new resource with the given unique name, arguments, and options.
@@ -156,6 +158,8 @@ type managedDatabaseState struct {
 	PointInTimeRestore *ManagedDatabasePointInTimeRestore `pulumi:"pointInTimeRestore"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ManagedDatabaseState struct {
@@ -169,6 +173,8 @@ type ManagedDatabaseState struct {
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrInput
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ManagedDatabaseState) ElementType() reflect.Type {
@@ -186,6 +192,8 @@ type managedDatabaseArgs struct {
 	PointInTimeRestore *ManagedDatabasePointInTimeRestore `pulumi:"pointInTimeRestore"`
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays *int `pulumi:"shortTermRetentionDays"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ManagedDatabase resource.
@@ -200,6 +208,8 @@ type ManagedDatabaseArgs struct {
 	PointInTimeRestore ManagedDatabasePointInTimeRestorePtrInput
 	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 	ShortTermRetentionDays pulumi.IntPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ManagedDatabaseArgs) ElementType() reflect.Type {
@@ -314,6 +324,11 @@ func (o ManagedDatabaseOutput) PointInTimeRestore() ManagedDatabasePointInTimeRe
 // The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
 func (o ManagedDatabaseOutput) ShortTermRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.IntPtrOutput { return v.ShortTermRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// A mapping of tags to assign to the resource.
+func (o ManagedDatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type ManagedDatabaseArrayOutput struct{ *pulumi.OutputState }

@@ -28,7 +28,7 @@ class GetShareResult:
     """
     A collection of values returned by getShare.
     """
-    def __init__(__self__, acls=None, id=None, metadata=None, name=None, quota=None, resource_manager_id=None, storage_account_name=None):
+    def __init__(__self__, acls=None, id=None, metadata=None, name=None, quota=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None):
         if acls and not isinstance(acls, list):
             raise TypeError("Expected argument 'acls' to be a list")
         pulumi.set(__self__, "acls", acls)
@@ -47,6 +47,9 @@ class GetShareResult:
         if resource_manager_id and not isinstance(resource_manager_id, str):
             raise TypeError("Expected argument 'resource_manager_id' to be a str")
         pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -90,12 +93,18 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="resourceManagerId")
+    @_utilities.deprecated("""this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
     def resource_manager_id(self) -> str:
         return pulumi.get(self, "resource_manager_id")
 
     @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        return pulumi.get(self, "storage_account_id")
+
+    @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> Optional[str]:
         return pulumi.get(self, "storage_account_name")
 
 
@@ -111,12 +120,14 @@ class AwaitableGetShareResult(GetShareResult):
             name=self.name,
             quota=self.quota,
             resource_manager_id=self.resource_manager_id,
+            storage_account_id=self.storage_account_id,
             storage_account_name=self.storage_account_name)
 
 
 def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']]] = None,
               metadata: Optional[Mapping[str, str]] = None,
               name: Optional[str] = None,
+              storage_account_id: Optional[str] = None,
               storage_account_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
@@ -130,21 +141,26 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_share(name="existing",
-        storage_account_name="existing")
-    pulumi.export("id", example.id)
+    example = azure.storage.get_account(name="exampleaccount",
+        resource_group_name="examples")
+    example_get_share = azure.storage.get_share(name="existing",
+        storage_account_id=example.id)
     ```
 
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
     :param Mapping[str, str] metadata: A map of custom file share metadata.
     :param str name: The name of the share.
-    :param str storage_account_name: The name of the storage account.
+    :param str storage_account_id: The ID of the storage account in which the share exists.
+           
+           > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+    :param str storage_account_name: The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
     __args__['acls'] = acls
     __args__['metadata'] = metadata
     __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:storage/getShare:getShare', __args__, opts=opts, typ=GetShareResult).value
@@ -156,11 +172,13 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
         name=pulumi.get(__ret__, 'name'),
         quota=pulumi.get(__ret__, 'quota'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
 def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']]]]] = None,
                      metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
-                     storage_account_name: Optional[pulumi.Input[str]] = None,
+                     storage_account_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     storage_account_name: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
     """
     Use this data source to access information about an existing File Share.
@@ -173,21 +191,26 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_share(name="existing",
-        storage_account_name="existing")
-    pulumi.export("id", example.id)
+    example = azure.storage.get_account(name="exampleaccount",
+        resource_group_name="examples")
+    example_get_share = azure.storage.get_share(name="existing",
+        storage_account_id=example.id)
     ```
 
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
     :param Mapping[str, str] metadata: A map of custom file share metadata.
     :param str name: The name of the share.
-    :param str storage_account_name: The name of the storage account.
+    :param str storage_account_id: The ID of the storage account in which the share exists.
+           
+           > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+    :param str storage_account_name: The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
     __args__['acls'] = acls
     __args__['metadata'] = metadata
     __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getShare:getShare', __args__, opts=opts, typ=GetShareResult)
@@ -198,4 +221,5 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[Union['GetSha
         name=pulumi.get(__response__, 'name'),
         quota=pulumi.get(__response__, 'quota'),
         resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
         storage_account_name=pulumi.get(__response__, 'storage_account_name')))

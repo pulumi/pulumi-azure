@@ -10,6 +10,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -94,6 +95,21 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.shortTermRetentionDays);
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private ManagedDatabaseArgs() {}
 
     private ManagedDatabaseArgs(ManagedDatabaseArgs $) {
@@ -102,6 +118,7 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.pointInTimeRestore = $.pointInTimeRestore;
         this.shortTermRetentionDays = $.shortTermRetentionDays;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -225,6 +242,27 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder shortTermRetentionDays(Integer shortTermRetentionDays) {
             return shortTermRetentionDays(Output.of(shortTermRetentionDays));
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public ManagedDatabaseArgs build() {

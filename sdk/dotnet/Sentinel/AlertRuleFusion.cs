@@ -36,24 +36,14 @@ namespace Pulumi.Azure.Sentinel
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
-    ///         SolutionName = "SecurityInsights",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///         {
-    ///             Publisher = "Microsoft",
-    ///             Product = "OMSGallery/SecurityInsights",
-    ///         },
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
     ///     var exampleAlertRuleFusion = new Azure.Sentinel.AlertRuleFusion("example", new()
     ///     {
-    ///         Name = "example-fusion-alert-rule",
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
     ///         AlertRuleTemplateGuid = "f71aba3d-28fb-450b-b192-4e76a83015c8",
     ///     });
     /// 
@@ -89,9 +79,6 @@ namespace Pulumi.Azure.Sentinel
         [Output("logAnalyticsWorkspaceId")]
         public Output<string> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -165,9 +152,6 @@ namespace Pulumi.Azure.Sentinel
         [Input("logAnalyticsWorkspaceId", required: true)]
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
-        /// <summary>
-        /// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -209,9 +193,6 @@ namespace Pulumi.Azure.Sentinel
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
-        /// <summary>
-        /// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

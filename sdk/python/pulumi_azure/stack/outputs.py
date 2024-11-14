@@ -34,6 +34,7 @@ __all__ = [
     'HciLogicalNetworkSubnetIpPool',
     'HciLogicalNetworkSubnetRoute',
     'HciMarketplaceGalleryImageIdentifier',
+    'HciNetworkInterfaceIpConfiguration',
     'GetHciClusterIdentityResult',
 ]
 
@@ -1258,6 +1259,8 @@ class HciLogicalNetworkSubnet(dict):
         :param str ip_allocation_method: The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
         :param str address_prefix: The address prefix in CIDR notation. Changing this forces a new resource to be created.
         :param Sequence['HciLogicalNetworkSubnetIpPoolArgs'] ip_pools: One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+               
+               > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         :param Sequence['HciLogicalNetworkSubnetRouteArgs'] routes: A `route` block as defined above. Changing this forces a new resource to be created.
         :param int vlan_id: The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
         """
@@ -1292,6 +1295,8 @@ class HciLogicalNetworkSubnet(dict):
     def ip_pools(self) -> Optional[Sequence['outputs.HciLogicalNetworkSubnetIpPool']]:
         """
         One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+
+        > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         """
         return pulumi.get(self, "ip_pools")
 
@@ -1439,6 +1444,81 @@ class HciMarketplaceGalleryImageIdentifier(dict):
         The sku of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         """
         return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
+class HciNetworkInterfaceIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "prefixLength":
+            suggest = "prefix_length"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HciNetworkInterfaceIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HciNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HciNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: str,
+                 gateway: Optional[str] = None,
+                 prefix_length: Optional[str] = None,
+                 private_ip_address: Optional[str] = None):
+        """
+        :param str subnet_id: The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+        :param str gateway: The IPv4 address of the gateway for the Network Interface.
+        :param str prefix_length: The prefix length for the address of the Network Interface.
+        :param str private_ip_address: The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if prefix_length is not None:
+            pulumi.set(__self__, "prefix_length", prefix_length)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[str]:
+        """
+        The IPv4 address of the gateway for the Network Interface.
+        """
+        return pulumi.get(self, "gateway")
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[str]:
+        """
+        The prefix length for the address of the Network Interface.
+        """
+        return pulumi.get(self, "prefix_length")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_ip_address")
 
 
 @pulumi.output_type

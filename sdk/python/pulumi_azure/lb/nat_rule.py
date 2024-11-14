@@ -493,6 +493,51 @@ class NatRule(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="LoadBalancerRG",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="PublicIPForLB",
+            location="West US",
+            resource_group_name=example.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="TestLoadBalancer",
+            location="West US",
+            resource_group_name=example.name,
+            frontend_ip_configurations=[{
+                "name": "PublicIPAddress",
+                "public_ip_address_id": example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.BackendAddressPool("example",
+            loadbalancer_id=example_load_balancer.id,
+            name="be")
+        example_nat_rule = azure.lb.NatRule("example",
+            resource_group_name=example.name,
+            loadbalancer_id=example_load_balancer.id,
+            name="RDPAccess",
+            protocol="Tcp",
+            frontend_port=3389,
+            backend_port=3389,
+            frontend_ip_configuration_name="PublicIPAddress")
+        example1 = azure.lb.NatRule("example1",
+            resource_group_name=example.name,
+            loadbalancer_id=example_load_balancer.id,
+            name="RDPAccess",
+            protocol="Tcp",
+            frontend_port_start=3000,
+            frontend_port_end=3389,
+            backend_port=3389,
+            backend_address_pool_id=example_backend_address_pool.id,
+            frontend_ip_configuration_name="PublicIPAddress")
+        ```
+
         ## Import
 
         Load Balancer NAT Rules can be imported using the `resource id`, e.g.
@@ -529,6 +574,51 @@ class NatRule(pulumi.CustomResource):
         > **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="LoadBalancerRG",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="PublicIPForLB",
+            location="West US",
+            resource_group_name=example.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="TestLoadBalancer",
+            location="West US",
+            resource_group_name=example.name,
+            frontend_ip_configurations=[{
+                "name": "PublicIPAddress",
+                "public_ip_address_id": example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.BackendAddressPool("example",
+            loadbalancer_id=example_load_balancer.id,
+            name="be")
+        example_nat_rule = azure.lb.NatRule("example",
+            resource_group_name=example.name,
+            loadbalancer_id=example_load_balancer.id,
+            name="RDPAccess",
+            protocol="Tcp",
+            frontend_port=3389,
+            backend_port=3389,
+            frontend_ip_configuration_name="PublicIPAddress")
+        example1 = azure.lb.NatRule("example1",
+            resource_group_name=example.name,
+            loadbalancer_id=example_load_balancer.id,
+            name="RDPAccess",
+            protocol="Tcp",
+            frontend_port_start=3000,
+            frontend_port_end=3389,
+            backend_port=3389,
+            backend_address_pool_id=example_backend_address_pool.id,
+            frontend_ip_configuration_name="PublicIPAddress")
+        ```
 
         ## Import
 

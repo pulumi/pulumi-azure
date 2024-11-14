@@ -46,23 +46,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("SecurityInsights"),
-//				Location:            example.Location,
-//				ResourceGroupName:   example.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
-//				},
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sentinel.NewAlertRuleFusion(ctx, "example", &sentinel.AlertRuleFusionArgs{
-//				Name:                    pulumi.String("example-fusion-alert-rule"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				AlertRuleTemplateGuid:   pulumi.String("f71aba3d-28fb-450b-b192-4e76a83015c8"),
 //			})
 //			if err != nil {
@@ -90,7 +81,7 @@ type AlertRuleFusion struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
-	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `source` blocks as defined below.
 	Sources AlertRuleFusionSourceArrayOutput `pulumi:"sources"`
@@ -138,7 +129,7 @@ type alertRuleFusionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
 	Name *string `pulumi:"name"`
 	// One or more `source` blocks as defined below.
 	Sources []AlertRuleFusionSource `pulumi:"sources"`
@@ -151,7 +142,7 @@ type AlertRuleFusionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
 	Name pulumi.StringPtrInput
 	// One or more `source` blocks as defined below.
 	Sources AlertRuleFusionSourceArrayInput
@@ -168,7 +159,7 @@ type alertRuleFusionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
-	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
 	Name *string `pulumi:"name"`
 	// One or more `source` blocks as defined below.
 	Sources []AlertRuleFusionSource `pulumi:"sources"`
@@ -182,7 +173,7 @@ type AlertRuleFusionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
-	// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+	// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
 	Name pulumi.StringPtrInput
 	// One or more `source` blocks as defined below.
 	Sources AlertRuleFusionSourceArrayInput
@@ -290,7 +281,7 @@ func (o AlertRuleFusionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleFusion) pulumi.StringOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+// Deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.
 func (o AlertRuleFusionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleFusion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -12,6 +12,33 @@ namespace Pulumi.Azure.TrustedSigning
     /// <summary>
     /// Manages a Trusted Signing Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.TrustedSigning.Account("example", new()
+    ///     {
+    ///         Name = "example-account",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "West Europe",
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Trusted Signing Accounts can be imported using the `resource id`, e.g.

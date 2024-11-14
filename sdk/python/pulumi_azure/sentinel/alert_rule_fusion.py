@@ -31,13 +31,15 @@ class AlertRuleFusionArgs:
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
-        :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
         pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            warnings.warn("""the `name` is deprecated and will be removed in v5.0 version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.""")
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sources is not None:
@@ -81,10 +83,8 @@ class AlertRuleFusionArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""the `name` is deprecated and will be removed in v5.0 version of the provider.""")
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -117,7 +117,6 @@ class _AlertRuleFusionState:
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]] sources: One or more `source` blocks as defined below.
         """
         if alert_rule_template_guid is not None:
@@ -126,6 +125,9 @@ class _AlertRuleFusionState:
             pulumi.set(__self__, "enabled", enabled)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            warnings.warn("""the `name` is deprecated and will be removed in v5.0 version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.""")
         if name is not None:
             pulumi.set(__self__, "name", name)
         if sources is not None:
@@ -169,10 +171,8 @@ class _AlertRuleFusionState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""the `name` is deprecated and will be removed in v5.0 version of the provider.""")
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -220,19 +220,9 @@ class AlertRuleFusion(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="SecurityInsights",
-            location=example.location,
-            resource_group_name=example.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan={
-                "publisher": "Microsoft",
-                "product": "OMSGallery/SecurityInsights",
-            })
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
         example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("example",
-            name="example-fusion-alert-rule",
-            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
         ```
 
@@ -249,7 +239,6 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
         """
         ...
@@ -275,19 +264,9 @@ class AlertRuleFusion(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
-            solution_name="SecurityInsights",
-            location=example.location,
-            resource_group_name=example.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan={
-                "publisher": "Microsoft",
-                "product": "OMSGallery/SecurityInsights",
-            })
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
         example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("example",
-            name="example-fusion-alert-rule",
-            log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
         ```
 
@@ -362,7 +341,6 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -402,10 +380,8 @@ class AlertRuleFusion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""the `name` is deprecated and will be removed in v5.0 version of the provider.""")
     def name(self) -> pulumi.Output[str]:
-        """
-        The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
-        """
         return pulumi.get(self, "name")
 
     @property

@@ -44,6 +44,8 @@ type CloudVmCluster struct {
 	DbServers pulumi.StringArrayOutput `pulumi:"dbServers"`
 	// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	Domain pulumi.StringOutput `pulumi:"domain"`
 	// A valid Oracle Grid Infrastructure (GI) software version.
 	GiVersion pulumi.StringOutput `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix.
@@ -64,6 +66,10 @@ type CloudVmCluster struct {
 	Ocid pulumi.StringOutput `pulumi:"ocid"`
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+	ScanListenerPortTcp pulumi.IntPtrOutput `pulumi:"scanListenerPortTcp"`
+	// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+	ScanListenerPortTcpSsl pulumi.IntPtrOutput `pulumi:"scanListenerPortTcpSsl"`
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
 	SparseDiskgroupEnabled pulumi.BoolOutput `pulumi:"sparseDiskgroupEnabled"`
 	// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -76,6 +82,8 @@ type CloudVmCluster struct {
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 	// The ID of the Virtual Network associated with the Cloud VM Cluster.
 	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
+	// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
 
 // NewCloudVmCluster registers a new resource with the given unique name, arguments, and options.
@@ -161,6 +169,8 @@ type cloudVmClusterState struct {
 	DbServers []string `pulumi:"dbServers"`
 	// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
 	DisplayName *string `pulumi:"displayName"`
+	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	Domain *string `pulumi:"domain"`
 	// A valid Oracle Grid Infrastructure (GI) software version.
 	GiVersion *string `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix.
@@ -181,6 +191,10 @@ type cloudVmClusterState struct {
 	Ocid *string `pulumi:"ocid"`
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+	ScanListenerPortTcp *int `pulumi:"scanListenerPortTcp"`
+	// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+	ScanListenerPortTcpSsl *int `pulumi:"scanListenerPortTcpSsl"`
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
 	SparseDiskgroupEnabled *bool `pulumi:"sparseDiskgroupEnabled"`
 	// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -193,6 +207,8 @@ type cloudVmClusterState struct {
 	TimeZone *string `pulumi:"timeZone"`
 	// The ID of the Virtual Network associated with the Cloud VM Cluster.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	ZoneId *string `pulumi:"zoneId"`
 }
 
 type CloudVmClusterState struct {
@@ -216,6 +232,8 @@ type CloudVmClusterState struct {
 	DbServers pulumi.StringArrayInput
 	// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
 	DisplayName pulumi.StringPtrInput
+	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	Domain pulumi.StringPtrInput
 	// A valid Oracle Grid Infrastructure (GI) software version.
 	GiVersion pulumi.StringPtrInput
 	// The hostname for the Cloud VM Cluster without suffix.
@@ -236,6 +254,10 @@ type CloudVmClusterState struct {
 	Ocid pulumi.StringPtrInput
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName pulumi.StringPtrInput
+	// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+	ScanListenerPortTcp pulumi.IntPtrInput
+	// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+	ScanListenerPortTcpSsl pulumi.IntPtrInput
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
 	SparseDiskgroupEnabled pulumi.BoolPtrInput
 	// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -248,6 +270,8 @@ type CloudVmClusterState struct {
 	TimeZone pulumi.StringPtrInput
 	// The ID of the Virtual Network associated with the Cloud VM Cluster.
 	VirtualNetworkId pulumi.StringPtrInput
+	// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	ZoneId pulumi.StringPtrInput
 }
 
 func (CloudVmClusterState) ElementType() reflect.Type {
@@ -275,6 +299,8 @@ type cloudVmClusterArgs struct {
 	DbServers []string `pulumi:"dbServers"`
 	// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
 	DisplayName string `pulumi:"displayName"`
+	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	Domain *string `pulumi:"domain"`
 	// A valid Oracle Grid Infrastructure (GI) software version.
 	GiVersion string `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix.
@@ -291,6 +317,10 @@ type cloudVmClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+	ScanListenerPortTcp *int `pulumi:"scanListenerPortTcp"`
+	// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+	ScanListenerPortTcpSsl *int `pulumi:"scanListenerPortTcpSsl"`
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
 	SparseDiskgroupEnabled *bool `pulumi:"sparseDiskgroupEnabled"`
 	// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -303,6 +333,8 @@ type cloudVmClusterArgs struct {
 	TimeZone *string `pulumi:"timeZone"`
 	// The ID of the Virtual Network associated with the Cloud VM Cluster.
 	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+	// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	ZoneId *string `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a CloudVmCluster resource.
@@ -327,6 +359,8 @@ type CloudVmClusterArgs struct {
 	DbServers pulumi.StringArrayInput
 	// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
 	DisplayName pulumi.StringInput
+	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	Domain pulumi.StringPtrInput
 	// A valid Oracle Grid Infrastructure (GI) software version.
 	GiVersion pulumi.StringInput
 	// The hostname for the Cloud VM Cluster without suffix.
@@ -343,6 +377,10 @@ type CloudVmClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Cloud VM Cluster should exist.
 	ResourceGroupName pulumi.StringInput
+	// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+	ScanListenerPortTcp pulumi.IntPtrInput
+	// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+	ScanListenerPortTcpSsl pulumi.IntPtrInput
 	// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
 	SparseDiskgroupEnabled pulumi.BoolPtrInput
 	// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
@@ -355,6 +393,8 @@ type CloudVmClusterArgs struct {
 	TimeZone pulumi.StringPtrInput
 	// The ID of the Virtual Network associated with the Cloud VM Cluster.
 	VirtualNetworkId pulumi.StringInput
+	// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+	ZoneId pulumi.StringPtrInput
 }
 
 func (CloudVmClusterArgs) ElementType() reflect.Type {
@@ -494,6 +534,11 @@ func (o CloudVmClusterOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+func (o CloudVmClusterOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
 // A valid Oracle Grid Infrastructure (GI) software version.
 func (o CloudVmClusterOutput) GiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.GiVersion }).(pulumi.StringOutput)
@@ -544,6 +589,16 @@ func (o CloudVmClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+func (o CloudVmClusterOutput) ScanListenerPortTcp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.IntPtrOutput { return v.ScanListenerPortTcp }).(pulumi.IntPtrOutput)
+}
+
+// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+func (o CloudVmClusterOutput) ScanListenerPortTcpSsl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.IntPtrOutput { return v.ScanListenerPortTcpSsl }).(pulumi.IntPtrOutput)
+}
+
 // If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
 func (o CloudVmClusterOutput) SparseDiskgroupEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.BoolOutput { return v.SparseDiskgroupEnabled }).(pulumi.BoolOutput)
@@ -572,6 +627,11 @@ func (o CloudVmClusterOutput) TimeZone() pulumi.StringOutput {
 // The ID of the Virtual Network associated with the Cloud VM Cluster.
 func (o CloudVmClusterOutput) VirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.VirtualNetworkId }).(pulumi.StringOutput)
+}
+
+// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+func (o CloudVmClusterOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.ZoneId }).(pulumi.StringOutput)
 }
 
 type CloudVmClusterArrayOutput struct{ *pulumi.OutputState }

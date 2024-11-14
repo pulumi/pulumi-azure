@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetShareAclAccessPolicyResult
     {
         /// <summary>
-        /// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy is valid until.
         /// </summary>
         public readonly string Expiry;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string Permissions;
         /// <summary>
-        /// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy is valid from.
         /// </summary>
         public readonly string Start;
 

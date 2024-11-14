@@ -130,7 +130,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> CurrentKubernetesVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A `default_node_pool` block as defined below.
+        /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         /// </summary>
         [Output("defaultNodePool")]
         public Output<Outputs.KubernetesClusterDefaultNodePool> DefaultNodePool { get; private set; } = null!;
@@ -656,7 +656,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? CostAnalysisEnabled { get; set; }
 
         /// <summary>
-        /// A `default_node_pool` block as defined below.
+        /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         /// </summary>
         [Input("defaultNodePool", required: true)]
         public Input<Inputs.KubernetesClusterDefaultNodePoolArgs> DefaultNodePool { get; set; } = null!;
@@ -1089,7 +1089,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? CurrentKubernetesVersion { get; set; }
 
         /// <summary>
-        /// A `default_node_pool` block as defined below.
+        /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         /// </summary>
         [Input("defaultNodePool")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolGetArgs>? DefaultNodePool { get; set; }

@@ -53,12 +53,16 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
     /**
      * One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * 
      */
     @Import(name="ipPools")
     private @Nullable Output<List<HciLogicalNetworkSubnetIpPoolArgs>> ipPools;
 
     /**
      * @return One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
      * 
      */
     public Optional<Output<List<HciLogicalNetworkSubnetIpPoolArgs>>> ipPools() {
@@ -168,6 +172,8 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         /**
          * @param ipPools One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         /**
          * @param ipPools One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * 
          * @return builder
          * 
          */
@@ -188,6 +196,8 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
 
         /**
          * @param ipPools One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
          * 
          * @return builder
          * 

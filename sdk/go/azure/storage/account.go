@@ -293,7 +293,9 @@ type Account struct {
 	// A `queueProperties` block as defined below.
 	//
 	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-	QueueProperties AccountQueuePropertiesOutput `pulumi:"queueProperties"`
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+	QueueProperties AccountQueuePropertiesTypeOutput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
@@ -386,7 +388,9 @@ type Account struct {
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	//
 	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
-	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+	StaticWebsite AccountStaticWebsiteTypeOutput `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -594,7 +598,9 @@ type accountState struct {
 	// A `queueProperties` block as defined below.
 	//
 	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+	QueueProperties *AccountQueuePropertiesType `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
@@ -687,7 +693,9 @@ type accountState struct {
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	//
 	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
-	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+	StaticWebsite *AccountStaticWebsiteType `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -848,7 +856,9 @@ type AccountState struct {
 	// A `queueProperties` block as defined below.
 	//
 	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-	QueueProperties AccountQueuePropertiesPtrInput
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+	QueueProperties AccountQueuePropertiesTypePtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `routing` block as defined below.
@@ -941,7 +951,9 @@ type AccountState struct {
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	//
 	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
-	StaticWebsite AccountStaticWebsitePtrInput
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+	StaticWebsite AccountStaticWebsiteTypePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1034,7 +1046,9 @@ type accountArgs struct {
 	// A `queueProperties` block as defined below.
 	//
 	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+	QueueProperties *AccountQueuePropertiesType `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
@@ -1055,7 +1069,9 @@ type accountArgs struct {
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	//
 	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
-	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+	StaticWebsite *AccountStaticWebsiteType `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1145,7 +1161,9 @@ type AccountArgs struct {
 	// A `queueProperties` block as defined below.
 	//
 	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-	QueueProperties AccountQueuePropertiesPtrInput
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+	QueueProperties AccountQueuePropertiesTypePtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `routing` block as defined below.
@@ -1166,7 +1184,9 @@ type AccountArgs struct {
 	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	//
 	// > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
-	StaticWebsite AccountStaticWebsitePtrInput
+	//
+	// Deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+	StaticWebsite AccountStaticWebsiteTypePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
 	// > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1605,8 +1625,10 @@ func (o AccountOutput) QueueEncryptionKeyType() pulumi.StringPtrOutput {
 // A `queueProperties` block as defined below.
 //
 // > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-func (o AccountOutput) QueueProperties() AccountQueuePropertiesOutput {
-	return o.ApplyT(func(v *Account) AccountQueuePropertiesOutput { return v.QueueProperties }).(AccountQueuePropertiesOutput)
+//
+// Deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+func (o AccountOutput) QueueProperties() AccountQueuePropertiesTypeOutput {
+	return o.ApplyT(func(v *Account) AccountQueuePropertiesTypeOutput { return v.QueueProperties }).(AccountQueuePropertiesTypeOutput)
 }
 
 // The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -1827,8 +1849,10 @@ func (o AccountOutput) SharedAccessKeyEnabled() pulumi.BoolPtrOutput {
 // > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 //
 // > **Note:** If `staticWebsite` is specified, the service will automatically create a `storage.Container` named `$web`.
-func (o AccountOutput) StaticWebsite() AccountStaticWebsitePtrOutput {
-	return o.ApplyT(func(v *Account) AccountStaticWebsitePtrOutput { return v.StaticWebsite }).(AccountStaticWebsitePtrOutput)
+//
+// Deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+func (o AccountOutput) StaticWebsite() AccountStaticWebsiteTypeOutput {
+	return o.ApplyT(func(v *Account) AccountStaticWebsiteTypeOutput { return v.StaticWebsite }).(AccountStaticWebsiteTypeOutput)
 }
 
 // The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

@@ -1522,10 +1522,6 @@ class AccountQueuePropertiesCorsRuleArgs:
 
 if not MYPY:
     class AccountQueuePropertiesHourMetricsArgsDict(TypedDict):
-        enabled: pulumi.Input[bool]
-        """
-        Indicates whether hour metrics are enabled for the Queue service.
-        """
         version: pulumi.Input[str]
         """
         The version of storage analytics to configure.
@@ -1544,34 +1540,19 @@ elif False:
 @pulumi.input_type
 class AccountQueuePropertiesHourMetricsArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
                  version: pulumi.Input[str],
                  include_apis: Optional[pulumi.Input[bool]] = None,
                  retention_policy_days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether hour metrics are enabled for the Queue service.
         :param pulumi.Input[str] version: The version of storage analytics to configure.
         :param pulumi.Input[bool] include_apis: Indicates whether metrics should generate summary statistics for called API operations.
         :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained.
         """
-        pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "version", version)
         if include_apis is not None:
             pulumi.set(__self__, "include_apis", include_apis)
         if retention_policy_days is not None:
             pulumi.set(__self__, "retention_policy_days", retention_policy_days)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        """
-        Indicates whether hour metrics are enabled for the Queue service.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter
@@ -1720,10 +1701,6 @@ class AccountQueuePropertiesLoggingArgs:
 
 if not MYPY:
     class AccountQueuePropertiesMinuteMetricsArgsDict(TypedDict):
-        enabled: pulumi.Input[bool]
-        """
-        Indicates whether minute metrics are enabled for the Queue service.
-        """
         version: pulumi.Input[str]
         """
         The version of storage analytics to configure.
@@ -1742,34 +1719,19 @@ elif False:
 @pulumi.input_type
 class AccountQueuePropertiesMinuteMetricsArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
                  version: pulumi.Input[str],
                  include_apis: Optional[pulumi.Input[bool]] = None,
                  retention_policy_days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether minute metrics are enabled for the Queue service.
         :param pulumi.Input[str] version: The version of storage analytics to configure.
         :param pulumi.Input[bool] include_apis: Indicates whether metrics should generate summary statistics for called API operations.
         :param pulumi.Input[int] retention_policy_days: Specifies the number of days that logs will be retained.
         """
-        pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "version", version)
         if include_apis is not None:
             pulumi.set(__self__, "include_apis", include_apis)
         if retention_policy_days is not None:
             pulumi.set(__self__, "retention_policy_days", retention_policy_days)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        """
-        Indicates whether minute metrics are enabled for the Queue service.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter
@@ -4044,11 +4006,11 @@ if not MYPY:
         """
         expiry: NotRequired[pulumi.Input[str]]
         """
-        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         start: NotRequired[pulumi.Input[str]]
         """
-        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
 elif False:
     ShareAclAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -4063,8 +4025,8 @@ class ShareAclAccessPolicyArgs:
         :param pulumi.Input[str] permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
                
                > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
-        :param pulumi.Input[str] expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-        :param pulumi.Input[str] start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param pulumi.Input[str] expiry: The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param pulumi.Input[str] start: The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         pulumi.set(__self__, "permissions", permissions)
         if expiry is not None:
@@ -4090,7 +4052,7 @@ class ShareAclAccessPolicyArgs:
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
         """
-        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         return pulumi.get(self, "expiry")
 
@@ -4102,7 +4064,7 @@ class ShareAclAccessPolicyArgs:
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[str]]:
         """
-        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         return pulumi.get(self, "start")
 
@@ -4788,7 +4750,7 @@ if not MYPY:
     class GetShareAclAccessPolicyArgsDict(TypedDict):
         expiry: str
         """
-        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy is valid until.
         """
         permissions: str
         """
@@ -4796,7 +4758,7 @@ if not MYPY:
         """
         start: str
         """
-        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy is valid from.
         """
 elif False:
     GetShareAclAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -4808,9 +4770,9 @@ class GetShareAclAccessPolicyArgs:
                  permissions: str,
                  start: str):
         """
-        :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param str expiry: The time at which this Access Policy is valid until.
         :param str permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
-        :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param str start: The time at which this Access Policy is valid from.
         """
         pulumi.set(__self__, "expiry", expiry)
         pulumi.set(__self__, "permissions", permissions)
@@ -4820,7 +4782,7 @@ class GetShareAclAccessPolicyArgs:
     @pulumi.getter
     def expiry(self) -> str:
         """
-        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy is valid until.
         """
         return pulumi.get(self, "expiry")
 
@@ -4844,7 +4806,7 @@ class GetShareAclAccessPolicyArgs:
     @pulumi.getter
     def start(self) -> str:
         """
-        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy is valid from.
         """
         return pulumi.get(self, "start")
 

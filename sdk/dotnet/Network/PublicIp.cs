@@ -85,6 +85,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> DomainNameLabel { get; private set; } = null!;
 
         /// <summary>
+        /// Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        /// </summary>
+        [Output("domainNameLabelScope")]
+        public Output<string?> DomainNameLabelScope { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         /// </summary>
         [Output("edgeZone")]
@@ -259,6 +265,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? DomainNameLabel { get; set; }
 
         /// <summary>
+        /// Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        /// </summary>
+        [Input("domainNameLabelScope")]
+        public Input<string>? DomainNameLabelScope { get; set; }
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
         /// </summary>
         [Input("edgeZone")]
@@ -399,6 +411,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
+
+        /// <summary>
+        /// Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+        /// </summary>
+        [Input("domainNameLabelScope")]
+        public Input<string>? DomainNameLabelScope { get; set; }
 
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.

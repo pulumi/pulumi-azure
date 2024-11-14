@@ -41,6 +41,8 @@ __all__ = [
     'ProviderFeaturesRecoveryServicesVaultsArgsDict',
     'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesResourceGroupArgsDict',
+    'ProviderFeaturesStorageArgs',
+    'ProviderFeaturesStorageArgsDict',
     'ProviderFeaturesSubscriptionArgs',
     'ProviderFeaturesSubscriptionArgsDict',
     'ProviderFeaturesTemplateDeploymentArgs',
@@ -67,6 +69,7 @@ if not MYPY:
         recovery_service: NotRequired[pulumi.Input['ProviderFeaturesRecoveryServiceArgsDict']]
         recovery_services_vaults: NotRequired[pulumi.Input['ProviderFeaturesRecoveryServicesVaultsArgsDict']]
         resource_group: NotRequired[pulumi.Input['ProviderFeaturesResourceGroupArgsDict']]
+        storage: NotRequired[pulumi.Input['ProviderFeaturesStorageArgsDict']]
         subscription: NotRequired[pulumi.Input['ProviderFeaturesSubscriptionArgsDict']]
         template_deployment: NotRequired[pulumi.Input['ProviderFeaturesTemplateDeploymentArgsDict']]
         virtual_machine: NotRequired[pulumi.Input['ProviderFeaturesVirtualMachineArgsDict']]
@@ -89,6 +92,7 @@ class ProviderFeaturesArgs:
                  recovery_service: Optional[pulumi.Input['ProviderFeaturesRecoveryServiceArgs']] = None,
                  recovery_services_vaults: Optional[pulumi.Input['ProviderFeaturesRecoveryServicesVaultsArgs']] = None,
                  resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
+                 storage: Optional[pulumi.Input['ProviderFeaturesStorageArgs']] = None,
                  subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
@@ -117,6 +121,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "recovery_services_vaults", recovery_services_vaults)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
         if subscription is not None:
             pulumi.set(__self__, "subscription", subscription)
         if template_deployment is not None:
@@ -233,6 +239,15 @@ class ProviderFeaturesArgs:
     @resource_group.setter
     def resource_group(self, value: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']]):
         pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['ProviderFeaturesStorageArgs']]:
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['ProviderFeaturesStorageArgs']]):
+        pulumi.set(self, "storage", value)
 
     @property
     @pulumi.getter
@@ -793,6 +808,29 @@ class ProviderFeaturesResourceGroupArgs:
     @prevent_deletion_if_contains_resources.setter
     def prevent_deletion_if_contains_resources(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "prevent_deletion_if_contains_resources", value)
+
+
+if not MYPY:
+    class ProviderFeaturesStorageArgsDict(TypedDict):
+        data_plane_available: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProviderFeaturesStorageArgs:
+    def __init__(__self__, *,
+                 data_plane_available: Optional[pulumi.Input[bool]] = None):
+        if data_plane_available is not None:
+            pulumi.set(__self__, "data_plane_available", data_plane_available)
+
+    @property
+    @pulumi.getter(name="dataPlaneAvailable")
+    def data_plane_available(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "data_plane_available")
+
+    @data_plane_available.setter
+    def data_plane_available(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_plane_available", value)
 
 
 if not MYPY:

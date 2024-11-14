@@ -101,6 +101,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("skuTier")]
+        public Output<string?> SkuTier { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -200,6 +206,12 @@ namespace Pulumi.Azure.Network
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -279,6 +291,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

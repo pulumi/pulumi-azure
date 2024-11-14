@@ -29,6 +29,8 @@ namespace Pulumi.Azure.Stack.Inputs
 
         /// <summary>
         /// One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         /// </summary>
         public InputList<Inputs.HciLogicalNetworkSubnetIpPoolGetArgs> IpPools
         {

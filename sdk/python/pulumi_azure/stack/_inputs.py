@@ -51,6 +51,8 @@ __all__ = [
     'HciLogicalNetworkSubnetRouteArgsDict',
     'HciMarketplaceGalleryImageIdentifierArgs',
     'HciMarketplaceGalleryImageIdentifierArgsDict',
+    'HciNetworkInterfaceIpConfigurationArgs',
+    'HciNetworkInterfaceIpConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -1534,6 +1536,8 @@ if not MYPY:
         ip_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgsDict']]]]
         """
         One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+
+        > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         """
         routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgsDict']]]]
         """
@@ -1558,6 +1562,8 @@ class HciLogicalNetworkSubnetArgs:
         :param pulumi.Input[str] ip_allocation_method: The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] address_prefix: The address prefix in CIDR notation. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgs']]] ip_pools: One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+               
+               > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         :param pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgs']]] routes: A `route` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vlan_id: The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
         """
@@ -1600,6 +1606,8 @@ class HciLogicalNetworkSubnetArgs:
     def ip_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgs']]]]:
         """
         One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+
+        > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
         """
         return pulumi.get(self, "ip_pools")
 
@@ -1819,5 +1827,96 @@ class HciMarketplaceGalleryImageIdentifierArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku", value)
+
+
+if not MYPY:
+    class HciNetworkInterfaceIpConfigurationArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+        """
+        gateway: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of the gateway for the Network Interface.
+        """
+        prefix_length: NotRequired[pulumi.Input[str]]
+        """
+        The prefix length for the address of the Network Interface.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+        """
+elif False:
+    HciNetworkInterfaceIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HciNetworkInterfaceIpConfigurationArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str],
+                 gateway: Optional[pulumi.Input[str]] = None,
+                 prefix_length: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] subnet_id: The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] gateway: The IPv4 address of the gateway for the Network Interface.
+        :param pulumi.Input[str] prefix_length: The prefix length for the address of the Network Interface.
+        :param pulumi.Input[str] private_ip_address: The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if prefix_length is not None:
+            pulumi.set(__self__, "prefix_length", prefix_length)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address of the gateway for the Network Interface.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway", value)
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix length for the address of the Network Interface.
+        """
+        return pulumi.get(self, "prefix_length")
+
+    @prefix_length.setter
+    def prefix_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_length", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
 
 

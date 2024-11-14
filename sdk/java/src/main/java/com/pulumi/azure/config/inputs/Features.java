@@ -15,6 +15,7 @@ import com.pulumi.azure.config.outputs.FeaturesPostgresqlFlexibleServer;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryService;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryServicesVaults;
 import com.pulumi.azure.config.outputs.FeaturesResourceGroup;
+import com.pulumi.azure.config.outputs.FeaturesStorage;
 import com.pulumi.azure.config.outputs.FeaturesSubscription;
 import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
 import com.pulumi.azure.config.outputs.FeaturesVirtualMachine;
@@ -38,6 +39,7 @@ public final class Features {
     private @Nullable FeaturesRecoveryService recoveryService;
     private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
     private @Nullable FeaturesResourceGroup resourceGroup;
+    private @Nullable FeaturesStorage storage;
     private @Nullable FeaturesSubscription subscription;
     private @Nullable FeaturesTemplateDeployment templateDeployment;
     private @Nullable FeaturesVirtualMachine virtualMachine;
@@ -80,6 +82,9 @@ public final class Features {
     public Optional<FeaturesResourceGroup> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
     }
+    public Optional<FeaturesStorage> storage() {
+        return Optional.ofNullable(this.storage);
+    }
     public Optional<FeaturesSubscription> subscription() {
         return Optional.ofNullable(this.subscription);
     }
@@ -114,6 +119,7 @@ public final class Features {
         private @Nullable FeaturesRecoveryService recoveryService;
         private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
         private @Nullable FeaturesResourceGroup resourceGroup;
+        private @Nullable FeaturesStorage storage;
         private @Nullable FeaturesSubscription subscription;
         private @Nullable FeaturesTemplateDeployment templateDeployment;
         private @Nullable FeaturesVirtualMachine virtualMachine;
@@ -133,6 +139,7 @@ public final class Features {
     	      this.recoveryService = defaults.recoveryService;
     	      this.recoveryServicesVaults = defaults.recoveryServicesVaults;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.storage = defaults.storage;
     	      this.subscription = defaults.subscription;
     	      this.templateDeployment = defaults.templateDeployment;
     	      this.virtualMachine = defaults.virtualMachine;
@@ -212,6 +219,12 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder storage(@Nullable FeaturesStorage storage) {
+
+            this.storage = storage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subscription(@Nullable FeaturesSubscription subscription) {
 
             this.subscription = subscription;
@@ -249,6 +262,7 @@ public final class Features {
             _resultValue.recoveryService = recoveryService;
             _resultValue.recoveryServicesVaults = recoveryServicesVaults;
             _resultValue.resourceGroup = resourceGroup;
+            _resultValue.storage = storage;
             _resultValue.subscription = subscription;
             _resultValue.templateDeployment = templateDeployment;
             _resultValue.virtualMachine = virtualMachine;

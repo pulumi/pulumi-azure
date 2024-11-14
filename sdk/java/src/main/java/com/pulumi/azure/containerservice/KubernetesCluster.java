@@ -255,14 +255,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.currentKubernetesVersion;
     }
     /**
-     * A `default_node_pool` block as defined below.
+     * Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
      * 
      */
     @Export(name="defaultNodePool", refs={KubernetesClusterDefaultNodePool.class}, tree="[0]")
     private Output<KubernetesClusterDefaultNodePool> defaultNodePool;
 
     /**
-     * @return A `default_node_pool` block as defined below.
+     * @return Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
      * 
      */
     public Output<KubernetesClusterDefaultNodePool> defaultNodePool() {

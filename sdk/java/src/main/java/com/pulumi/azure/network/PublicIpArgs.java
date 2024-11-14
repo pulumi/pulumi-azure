@@ -88,6 +88,21 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * 
+     */
+    @Import(name="domainNameLabelScope")
+    private @Nullable Output<String> domainNameLabelScope;
+
+    /**
+     * @return Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+     * 
+     */
+    public Optional<Output<String>> domainNameLabelScope() {
+        return Optional.ofNullable(this.domainNameLabelScope);
+    }
+
+    /**
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      * 
      */
@@ -309,6 +324,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         this.ddosProtectionMode = $.ddosProtectionMode;
         this.ddosProtectionPlanId = $.ddosProtectionPlanId;
         this.domainNameLabel = $.domainNameLabel;
+        this.domainNameLabelScope = $.domainNameLabelScope;
         this.edgeZone = $.edgeZone;
         this.idleTimeoutInMinutes = $.idleTimeoutInMinutes;
         this.ipTags = $.ipTags;
@@ -432,6 +448,27 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainNameLabel(String domainNameLabel) {
             return domainNameLabel(Output.of(domainNameLabel));
+        }
+
+        /**
+         * @param domainNameLabelScope Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameLabelScope(@Nullable Output<String> domainNameLabelScope) {
+            $.domainNameLabelScope = domainNameLabelScope;
+            return this;
+        }
+
+        /**
+         * @param domainNameLabelScope Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameLabelScope(String domainNameLabelScope) {
+            return domainNameLabelScope(Output.of(domainNameLabelScope));
         }
 
         /**

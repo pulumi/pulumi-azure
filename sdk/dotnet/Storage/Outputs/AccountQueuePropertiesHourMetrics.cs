@@ -14,10 +14,6 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountQueuePropertiesHourMetrics
     {
         /// <summary>
-        /// Indicates whether hour metrics are enabled for the Queue service.
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
         /// Indicates whether metrics should generate summary statistics for called API operations.
         /// </summary>
         public readonly bool? IncludeApis;
@@ -32,15 +28,12 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private AccountQueuePropertiesHourMetrics(
-            bool enabled,
-
             bool? includeApis,
 
             int? retentionPolicyDays,
 
             string version)
         {
-            Enabled = enabled;
             IncludeApis = includeApis;
             RetentionPolicyDays = retentionPolicyDays;
             Version = version;

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class GetShareAclAccessPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy is valid until.
         /// </summary>
         [Input("expiry", required: true)]
         public string Expiry { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public string Permissions { get; set; } = null!;
 
         /// <summary>
-        /// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy is valid from.
         /// </summary>
         [Input("start", required: true)]
         public string Start { get; set; } = null!;

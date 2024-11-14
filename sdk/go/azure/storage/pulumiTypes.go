@@ -2518,7 +2518,7 @@ func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) Index(i pulumi.IntI
 	}).(AccountNetworkRulesPrivateLinkAccessRuleOutput)
 }
 
-type AccountQueueProperties struct {
+type AccountQueuePropertiesType struct {
 	// A `corsRule` block as defined above.
 	CorsRules []AccountQueuePropertiesCorsRule `pulumi:"corsRules"`
 	// A `hourMetrics` block as defined below.
@@ -2529,18 +2529,18 @@ type AccountQueueProperties struct {
 	MinuteMetrics *AccountQueuePropertiesMinuteMetrics `pulumi:"minuteMetrics"`
 }
 
-// AccountQueuePropertiesInput is an input type that accepts AccountQueuePropertiesArgs and AccountQueuePropertiesOutput values.
-// You can construct a concrete instance of `AccountQueuePropertiesInput` via:
+// AccountQueuePropertiesTypeInput is an input type that accepts AccountQueuePropertiesTypeArgs and AccountQueuePropertiesTypeOutput values.
+// You can construct a concrete instance of `AccountQueuePropertiesTypeInput` via:
 //
-//	AccountQueuePropertiesArgs{...}
-type AccountQueuePropertiesInput interface {
+//	AccountQueuePropertiesTypeArgs{...}
+type AccountQueuePropertiesTypeInput interface {
 	pulumi.Input
 
-	ToAccountQueuePropertiesOutput() AccountQueuePropertiesOutput
-	ToAccountQueuePropertiesOutputWithContext(context.Context) AccountQueuePropertiesOutput
+	ToAccountQueuePropertiesTypeOutput() AccountQueuePropertiesTypeOutput
+	ToAccountQueuePropertiesTypeOutputWithContext(context.Context) AccountQueuePropertiesTypeOutput
 }
 
-type AccountQueuePropertiesArgs struct {
+type AccountQueuePropertiesTypeArgs struct {
 	// A `corsRule` block as defined above.
 	CorsRules AccountQueuePropertiesCorsRuleArrayInput `pulumi:"corsRules"`
 	// A `hourMetrics` block as defined below.
@@ -2551,130 +2551,130 @@ type AccountQueuePropertiesArgs struct {
 	MinuteMetrics AccountQueuePropertiesMinuteMetricsPtrInput `pulumi:"minuteMetrics"`
 }
 
-func (AccountQueuePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountQueueProperties)(nil)).Elem()
+func (AccountQueuePropertiesTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountQueuePropertiesType)(nil)).Elem()
 }
 
-func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesOutput() AccountQueuePropertiesOutput {
-	return i.ToAccountQueuePropertiesOutputWithContext(context.Background())
+func (i AccountQueuePropertiesTypeArgs) ToAccountQueuePropertiesTypeOutput() AccountQueuePropertiesTypeOutput {
+	return i.ToAccountQueuePropertiesTypeOutputWithContext(context.Background())
 }
 
-func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesOutputWithContext(ctx context.Context) AccountQueuePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesOutput)
+func (i AccountQueuePropertiesTypeArgs) ToAccountQueuePropertiesTypeOutputWithContext(ctx context.Context) AccountQueuePropertiesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesTypeOutput)
 }
 
-func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesPtrOutput() AccountQueuePropertiesPtrOutput {
-	return i.ToAccountQueuePropertiesPtrOutputWithContext(context.Background())
+func (i AccountQueuePropertiesTypeArgs) ToAccountQueuePropertiesTypePtrOutput() AccountQueuePropertiesTypePtrOutput {
+	return i.ToAccountQueuePropertiesTypePtrOutputWithContext(context.Background())
 }
 
-func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesOutput).ToAccountQueuePropertiesPtrOutputWithContext(ctx)
+func (i AccountQueuePropertiesTypeArgs) ToAccountQueuePropertiesTypePtrOutputWithContext(ctx context.Context) AccountQueuePropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesTypeOutput).ToAccountQueuePropertiesTypePtrOutputWithContext(ctx)
 }
 
-// AccountQueuePropertiesPtrInput is an input type that accepts AccountQueuePropertiesArgs, AccountQueuePropertiesPtr and AccountQueuePropertiesPtrOutput values.
-// You can construct a concrete instance of `AccountQueuePropertiesPtrInput` via:
+// AccountQueuePropertiesTypePtrInput is an input type that accepts AccountQueuePropertiesTypeArgs, AccountQueuePropertiesTypePtr and AccountQueuePropertiesTypePtrOutput values.
+// You can construct a concrete instance of `AccountQueuePropertiesTypePtrInput` via:
 //
-//	        AccountQueuePropertiesArgs{...}
+//	        AccountQueuePropertiesTypeArgs{...}
 //
 //	or:
 //
 //	        nil
-type AccountQueuePropertiesPtrInput interface {
+type AccountQueuePropertiesTypePtrInput interface {
 	pulumi.Input
 
-	ToAccountQueuePropertiesPtrOutput() AccountQueuePropertiesPtrOutput
-	ToAccountQueuePropertiesPtrOutputWithContext(context.Context) AccountQueuePropertiesPtrOutput
+	ToAccountQueuePropertiesTypePtrOutput() AccountQueuePropertiesTypePtrOutput
+	ToAccountQueuePropertiesTypePtrOutputWithContext(context.Context) AccountQueuePropertiesTypePtrOutput
 }
 
-type accountQueuePropertiesPtrType AccountQueuePropertiesArgs
+type accountQueuePropertiesTypePtrType AccountQueuePropertiesTypeArgs
 
-func AccountQueuePropertiesPtr(v *AccountQueuePropertiesArgs) AccountQueuePropertiesPtrInput {
-	return (*accountQueuePropertiesPtrType)(v)
+func AccountQueuePropertiesTypePtr(v *AccountQueuePropertiesTypeArgs) AccountQueuePropertiesTypePtrInput {
+	return (*accountQueuePropertiesTypePtrType)(v)
 }
 
-func (*accountQueuePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountQueueProperties)(nil)).Elem()
+func (*accountQueuePropertiesTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountQueuePropertiesType)(nil)).Elem()
 }
 
-func (i *accountQueuePropertiesPtrType) ToAccountQueuePropertiesPtrOutput() AccountQueuePropertiesPtrOutput {
-	return i.ToAccountQueuePropertiesPtrOutputWithContext(context.Background())
+func (i *accountQueuePropertiesTypePtrType) ToAccountQueuePropertiesTypePtrOutput() AccountQueuePropertiesTypePtrOutput {
+	return i.ToAccountQueuePropertiesTypePtrOutputWithContext(context.Background())
 }
 
-func (i *accountQueuePropertiesPtrType) ToAccountQueuePropertiesPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesPtrOutput)
+func (i *accountQueuePropertiesTypePtrType) ToAccountQueuePropertiesTypePtrOutputWithContext(ctx context.Context) AccountQueuePropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesTypePtrOutput)
 }
 
-type AccountQueuePropertiesOutput struct{ *pulumi.OutputState }
+type AccountQueuePropertiesTypeOutput struct{ *pulumi.OutputState }
 
-func (AccountQueuePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountQueueProperties)(nil)).Elem()
+func (AccountQueuePropertiesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountQueuePropertiesType)(nil)).Elem()
 }
 
-func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesOutput() AccountQueuePropertiesOutput {
+func (o AccountQueuePropertiesTypeOutput) ToAccountQueuePropertiesTypeOutput() AccountQueuePropertiesTypeOutput {
 	return o
 }
 
-func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesOutputWithContext(ctx context.Context) AccountQueuePropertiesOutput {
+func (o AccountQueuePropertiesTypeOutput) ToAccountQueuePropertiesTypeOutputWithContext(ctx context.Context) AccountQueuePropertiesTypeOutput {
 	return o
 }
 
-func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutput() AccountQueuePropertiesPtrOutput {
-	return o.ToAccountQueuePropertiesPtrOutputWithContext(context.Background())
+func (o AccountQueuePropertiesTypeOutput) ToAccountQueuePropertiesTypePtrOutput() AccountQueuePropertiesTypePtrOutput {
+	return o.ToAccountQueuePropertiesTypePtrOutputWithContext(context.Background())
 }
 
-func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueueProperties) *AccountQueueProperties {
+func (o AccountQueuePropertiesTypeOutput) ToAccountQueuePropertiesTypePtrOutputWithContext(ctx context.Context) AccountQueuePropertiesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesType) *AccountQueuePropertiesType {
 		return &v
-	}).(AccountQueuePropertiesPtrOutput)
+	}).(AccountQueuePropertiesTypePtrOutput)
 }
 
 // A `corsRule` block as defined above.
-func (o AccountQueuePropertiesOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
-	return o.ApplyT(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
+func (o AccountQueuePropertiesTypeOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func(v AccountQueuePropertiesType) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
 // A `hourMetrics` block as defined below.
-func (o AccountQueuePropertiesOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
+func (o AccountQueuePropertiesTypeOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
+	return o.ApplyT(func(v AccountQueuePropertiesType) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
 // A `logging` block as defined below.
-func (o AccountQueuePropertiesOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
+func (o AccountQueuePropertiesTypeOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
+	return o.ApplyT(func(v AccountQueuePropertiesType) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
 // A `minuteMetrics` block as defined below.
-func (o AccountQueuePropertiesOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
+func (o AccountQueuePropertiesTypeOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
+	return o.ApplyT(func(v AccountQueuePropertiesType) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
-type AccountQueuePropertiesPtrOutput struct{ *pulumi.OutputState }
+type AccountQueuePropertiesTypePtrOutput struct{ *pulumi.OutputState }
 
-func (AccountQueuePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountQueueProperties)(nil)).Elem()
+func (AccountQueuePropertiesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountQueuePropertiesType)(nil)).Elem()
 }
 
-func (o AccountQueuePropertiesPtrOutput) ToAccountQueuePropertiesPtrOutput() AccountQueuePropertiesPtrOutput {
+func (o AccountQueuePropertiesTypePtrOutput) ToAccountQueuePropertiesTypePtrOutput() AccountQueuePropertiesTypePtrOutput {
 	return o
 }
 
-func (o AccountQueuePropertiesPtrOutput) ToAccountQueuePropertiesPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesPtrOutput {
+func (o AccountQueuePropertiesTypePtrOutput) ToAccountQueuePropertiesTypePtrOutputWithContext(ctx context.Context) AccountQueuePropertiesTypePtrOutput {
 	return o
 }
 
-func (o AccountQueuePropertiesPtrOutput) Elem() AccountQueuePropertiesOutput {
-	return o.ApplyT(func(v *AccountQueueProperties) AccountQueueProperties {
+func (o AccountQueuePropertiesTypePtrOutput) Elem() AccountQueuePropertiesTypeOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesType) AccountQueuePropertiesType {
 		if v != nil {
 			return *v
 		}
-		var ret AccountQueueProperties
+		var ret AccountQueuePropertiesType
 		return ret
-	}).(AccountQueuePropertiesOutput)
+	}).(AccountQueuePropertiesTypeOutput)
 }
 
 // A `corsRule` block as defined above.
-func (o AccountQueuePropertiesPtrOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
-	return o.ApplyT(func(v *AccountQueueProperties) []AccountQueuePropertiesCorsRule {
+func (o AccountQueuePropertiesTypePtrOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesType) []AccountQueuePropertiesCorsRule {
 		if v == nil {
 			return nil
 		}
@@ -2683,8 +2683,8 @@ func (o AccountQueuePropertiesPtrOutput) CorsRules() AccountQueuePropertiesCorsR
 }
 
 // A `hourMetrics` block as defined below.
-func (o AccountQueuePropertiesPtrOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
-	return o.ApplyT(func(v *AccountQueueProperties) *AccountQueuePropertiesHourMetrics {
+func (o AccountQueuePropertiesTypePtrOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesType) *AccountQueuePropertiesHourMetrics {
 		if v == nil {
 			return nil
 		}
@@ -2693,8 +2693,8 @@ func (o AccountQueuePropertiesPtrOutput) HourMetrics() AccountQueuePropertiesHou
 }
 
 // A `logging` block as defined below.
-func (o AccountQueuePropertiesPtrOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
-	return o.ApplyT(func(v *AccountQueueProperties) *AccountQueuePropertiesLogging {
+func (o AccountQueuePropertiesTypePtrOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesType) *AccountQueuePropertiesLogging {
 		if v == nil {
 			return nil
 		}
@@ -2703,8 +2703,8 @@ func (o AccountQueuePropertiesPtrOutput) Logging() AccountQueuePropertiesLogging
 }
 
 // A `minuteMetrics` block as defined below.
-func (o AccountQueuePropertiesPtrOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
-	return o.ApplyT(func(v *AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics {
+func (o AccountQueuePropertiesTypePtrOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesType) *AccountQueuePropertiesMinuteMetrics {
 		if v == nil {
 			return nil
 		}
@@ -2849,8 +2849,6 @@ func (o AccountQueuePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) Acco
 }
 
 type AccountQueuePropertiesHourMetrics struct {
-	// Indicates whether hour metrics are enabled for the Queue service.
-	Enabled bool `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis *bool `pulumi:"includeApis"`
 	// Specifies the number of days that logs will be retained.
@@ -2871,8 +2869,6 @@ type AccountQueuePropertiesHourMetricsInput interface {
 }
 
 type AccountQueuePropertiesHourMetricsArgs struct {
-	// Indicates whether hour metrics are enabled for the Queue service.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
 	// Specifies the number of days that logs will be retained.
@@ -2958,11 +2954,6 @@ func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMet
 	}).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
-// Indicates whether hour metrics are enabled for the Queue service.
-func (o AccountQueuePropertiesHourMetricsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
 // Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesHourMetricsOutput) IncludeApis() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
@@ -3000,16 +2991,6 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertie
 		var ret AccountQueuePropertiesHourMetrics
 		return ret
 	}).(AccountQueuePropertiesHourMetricsOutput)
-}
-
-// Indicates whether hour metrics are enabled for the Queue service.
-func (o AccountQueuePropertiesHourMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether metrics should generate summary statistics for called API operations.
@@ -3256,8 +3237,6 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolPtrOutput {
 }
 
 type AccountQueuePropertiesMinuteMetrics struct {
-	// Indicates whether minute metrics are enabled for the Queue service.
-	Enabled bool `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis *bool `pulumi:"includeApis"`
 	// Specifies the number of days that logs will be retained.
@@ -3278,8 +3257,6 @@ type AccountQueuePropertiesMinuteMetricsInput interface {
 }
 
 type AccountQueuePropertiesMinuteMetricsArgs struct {
-	// Indicates whether minute metrics are enabled for the Queue service.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Indicates whether metrics should generate summary statistics for called API operations.
 	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
 	// Specifies the number of days that logs will be retained.
@@ -3365,11 +3342,6 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinut
 	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
-// Indicates whether minute metrics are enabled for the Queue service.
-func (o AccountQueuePropertiesMinuteMetricsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
 // Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesMinuteMetricsOutput) IncludeApis() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
@@ -3407,16 +3379,6 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropert
 		var ret AccountQueuePropertiesMinuteMetrics
 		return ret
 	}).(AccountQueuePropertiesMinuteMetricsOutput)
-}
-
-// Indicates whether minute metrics are enabled for the Queue service.
-func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether metrics should generate summary statistics for called API operations.
@@ -4441,145 +4403,145 @@ func (o AccountSharePropertiesSmbPtrOutput) Versions() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-type AccountStaticWebsite struct {
+type AccountStaticWebsiteType struct {
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document *string `pulumi:"error404Document"`
 	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
 	IndexDocument *string `pulumi:"indexDocument"`
 }
 
-// AccountStaticWebsiteInput is an input type that accepts AccountStaticWebsiteArgs and AccountStaticWebsiteOutput values.
-// You can construct a concrete instance of `AccountStaticWebsiteInput` via:
+// AccountStaticWebsiteTypeInput is an input type that accepts AccountStaticWebsiteTypeArgs and AccountStaticWebsiteTypeOutput values.
+// You can construct a concrete instance of `AccountStaticWebsiteTypeInput` via:
 //
-//	AccountStaticWebsiteArgs{...}
-type AccountStaticWebsiteInput interface {
+//	AccountStaticWebsiteTypeArgs{...}
+type AccountStaticWebsiteTypeInput interface {
 	pulumi.Input
 
-	ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput
-	ToAccountStaticWebsiteOutputWithContext(context.Context) AccountStaticWebsiteOutput
+	ToAccountStaticWebsiteTypeOutput() AccountStaticWebsiteTypeOutput
+	ToAccountStaticWebsiteTypeOutputWithContext(context.Context) AccountStaticWebsiteTypeOutput
 }
 
-type AccountStaticWebsiteArgs struct {
+type AccountStaticWebsiteTypeArgs struct {
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document pulumi.StringPtrInput `pulumi:"error404Document"`
 	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
 	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
 }
 
-func (AccountStaticWebsiteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountStaticWebsite)(nil)).Elem()
+func (AccountStaticWebsiteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStaticWebsiteType)(nil)).Elem()
 }
 
-func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput {
-	return i.ToAccountStaticWebsiteOutputWithContext(context.Background())
+func (i AccountStaticWebsiteTypeArgs) ToAccountStaticWebsiteTypeOutput() AccountStaticWebsiteTypeOutput {
+	return i.ToAccountStaticWebsiteTypeOutputWithContext(context.Background())
 }
 
-func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutputWithContext(ctx context.Context) AccountStaticWebsiteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput)
+func (i AccountStaticWebsiteTypeArgs) ToAccountStaticWebsiteTypeOutputWithContext(ctx context.Context) AccountStaticWebsiteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteTypeOutput)
 }
 
-func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
-	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+func (i AccountStaticWebsiteTypeArgs) ToAccountStaticWebsiteTypePtrOutput() AccountStaticWebsiteTypePtrOutput {
+	return i.ToAccountStaticWebsiteTypePtrOutputWithContext(context.Background())
 }
 
-func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput).ToAccountStaticWebsitePtrOutputWithContext(ctx)
+func (i AccountStaticWebsiteTypeArgs) ToAccountStaticWebsiteTypePtrOutputWithContext(ctx context.Context) AccountStaticWebsiteTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteTypeOutput).ToAccountStaticWebsiteTypePtrOutputWithContext(ctx)
 }
 
-// AccountStaticWebsitePtrInput is an input type that accepts AccountStaticWebsiteArgs, AccountStaticWebsitePtr and AccountStaticWebsitePtrOutput values.
-// You can construct a concrete instance of `AccountStaticWebsitePtrInput` via:
+// AccountStaticWebsiteTypePtrInput is an input type that accepts AccountStaticWebsiteTypeArgs, AccountStaticWebsiteTypePtr and AccountStaticWebsiteTypePtrOutput values.
+// You can construct a concrete instance of `AccountStaticWebsiteTypePtrInput` via:
 //
-//	        AccountStaticWebsiteArgs{...}
+//	        AccountStaticWebsiteTypeArgs{...}
 //
 //	or:
 //
 //	        nil
-type AccountStaticWebsitePtrInput interface {
+type AccountStaticWebsiteTypePtrInput interface {
 	pulumi.Input
 
-	ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput
-	ToAccountStaticWebsitePtrOutputWithContext(context.Context) AccountStaticWebsitePtrOutput
+	ToAccountStaticWebsiteTypePtrOutput() AccountStaticWebsiteTypePtrOutput
+	ToAccountStaticWebsiteTypePtrOutputWithContext(context.Context) AccountStaticWebsiteTypePtrOutput
 }
 
-type accountStaticWebsitePtrType AccountStaticWebsiteArgs
+type accountStaticWebsiteTypePtrType AccountStaticWebsiteTypeArgs
 
-func AccountStaticWebsitePtr(v *AccountStaticWebsiteArgs) AccountStaticWebsitePtrInput {
-	return (*accountStaticWebsitePtrType)(v)
+func AccountStaticWebsiteTypePtr(v *AccountStaticWebsiteTypeArgs) AccountStaticWebsiteTypePtrInput {
+	return (*accountStaticWebsiteTypePtrType)(v)
 }
 
-func (*accountStaticWebsitePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountStaticWebsite)(nil)).Elem()
+func (*accountStaticWebsiteTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStaticWebsiteType)(nil)).Elem()
 }
 
-func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
-	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+func (i *accountStaticWebsiteTypePtrType) ToAccountStaticWebsiteTypePtrOutput() AccountStaticWebsiteTypePtrOutput {
+	return i.ToAccountStaticWebsiteTypePtrOutputWithContext(context.Background())
 }
 
-func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsitePtrOutput)
+func (i *accountStaticWebsiteTypePtrType) ToAccountStaticWebsiteTypePtrOutputWithContext(ctx context.Context) AccountStaticWebsiteTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteTypePtrOutput)
 }
 
-type AccountStaticWebsiteOutput struct{ *pulumi.OutputState }
+type AccountStaticWebsiteTypeOutput struct{ *pulumi.OutputState }
 
-func (AccountStaticWebsiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountStaticWebsite)(nil)).Elem()
+func (AccountStaticWebsiteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStaticWebsiteType)(nil)).Elem()
 }
 
-func (o AccountStaticWebsiteOutput) ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput {
+func (o AccountStaticWebsiteTypeOutput) ToAccountStaticWebsiteTypeOutput() AccountStaticWebsiteTypeOutput {
 	return o
 }
 
-func (o AccountStaticWebsiteOutput) ToAccountStaticWebsiteOutputWithContext(ctx context.Context) AccountStaticWebsiteOutput {
+func (o AccountStaticWebsiteTypeOutput) ToAccountStaticWebsiteTypeOutputWithContext(ctx context.Context) AccountStaticWebsiteTypeOutput {
 	return o
 }
 
-func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
-	return o.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+func (o AccountStaticWebsiteTypeOutput) ToAccountStaticWebsiteTypePtrOutput() AccountStaticWebsiteTypePtrOutput {
+	return o.ToAccountStaticWebsiteTypePtrOutputWithContext(context.Background())
 }
 
-func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountStaticWebsite) *AccountStaticWebsite {
+func (o AccountStaticWebsiteTypeOutput) ToAccountStaticWebsiteTypePtrOutputWithContext(ctx context.Context) AccountStaticWebsiteTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountStaticWebsiteType) *AccountStaticWebsiteType {
 		return &v
-	}).(AccountStaticWebsitePtrOutput)
+	}).(AccountStaticWebsiteTypePtrOutput)
 }
 
 // The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-func (o AccountStaticWebsiteOutput) Error404Document() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
+func (o AccountStaticWebsiteTypeOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsiteType) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
 }
 
 // The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-func (o AccountStaticWebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
+func (o AccountStaticWebsiteTypeOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsiteType) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
 
-type AccountStaticWebsitePtrOutput struct{ *pulumi.OutputState }
+type AccountStaticWebsiteTypePtrOutput struct{ *pulumi.OutputState }
 
-func (AccountStaticWebsitePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountStaticWebsite)(nil)).Elem()
+func (AccountStaticWebsiteTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStaticWebsiteType)(nil)).Elem()
 }
 
-func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+func (o AccountStaticWebsiteTypePtrOutput) ToAccountStaticWebsiteTypePtrOutput() AccountStaticWebsiteTypePtrOutput {
 	return o
 }
 
-func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+func (o AccountStaticWebsiteTypePtrOutput) ToAccountStaticWebsiteTypePtrOutputWithContext(ctx context.Context) AccountStaticWebsiteTypePtrOutput {
 	return o
 }
 
-func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
-	return o.ApplyT(func(v *AccountStaticWebsite) AccountStaticWebsite {
+func (o AccountStaticWebsiteTypePtrOutput) Elem() AccountStaticWebsiteTypeOutput {
+	return o.ApplyT(func(v *AccountStaticWebsiteType) AccountStaticWebsiteType {
 		if v != nil {
 			return *v
 		}
-		var ret AccountStaticWebsite
+		var ret AccountStaticWebsiteType
 		return ret
-	}).(AccountStaticWebsiteOutput)
+	}).(AccountStaticWebsiteTypeOutput)
 }
 
 // The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-func (o AccountStaticWebsitePtrOutput) Error404Document() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountStaticWebsite) *string {
+func (o AccountStaticWebsiteTypePtrOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountStaticWebsiteType) *string {
 		if v == nil {
 			return nil
 		}
@@ -4588,8 +4550,8 @@ func (o AccountStaticWebsitePtrOutput) Error404Document() pulumi.StringPtrOutput
 }
 
 // The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountStaticWebsite) *string {
+func (o AccountStaticWebsiteTypePtrOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountStaticWebsiteType) *string {
 		if v == nil {
 			return nil
 		}
@@ -7076,13 +7038,13 @@ func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
 }
 
 type ShareAclAccessPolicy struct {
-	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy should be valid untilWhen using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry *string `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	//
 	// > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
 	Permissions string `pulumi:"permissions"`
-	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy should be valid from. When using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start *string `pulumi:"start"`
 }
 
@@ -7098,13 +7060,13 @@ type ShareAclAccessPolicyInput interface {
 }
 
 type ShareAclAccessPolicyArgs struct {
-	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy should be valid untilWhen using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	//
 	// > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy should be valid from. When using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -7159,7 +7121,7 @@ func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutputWithContext(ctx 
 	return o
 }
 
-// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+// The time at which this Access Policy should be valid untilWhen using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -7171,7 +7133,7 @@ func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+// The time at which this Access Policy should be valid from. When using `storageAccountId` this should be in RFC3339 format. If using the deprecated `storageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 func (o ShareAclAccessPolicyOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -9465,11 +9427,11 @@ func (o GetShareAclArrayOutput) Index(i pulumi.IntInput) GetShareAclOutput {
 }
 
 type GetShareAclAccessPolicy struct {
-	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy is valid until.
 	Expiry string `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	Permissions string `pulumi:"permissions"`
-	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy is valid from.
 	Start string `pulumi:"start"`
 }
 
@@ -9485,11 +9447,11 @@ type GetShareAclAccessPolicyInput interface {
 }
 
 type GetShareAclAccessPolicyArgs struct {
-	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy is valid until.
 	Expiry pulumi.StringInput `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+	// The time at which this Access Policy is valid from.
 	Start pulumi.StringInput `pulumi:"start"`
 }
 
@@ -9544,7 +9506,7 @@ func (o GetShareAclAccessPolicyOutput) ToGetShareAclAccessPolicyOutputWithContex
 	return o
 }
 
-// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+// The time at which this Access Policy is valid until.
 func (o GetShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v GetShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
@@ -9554,7 +9516,7 @@ func (o GetShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v GetShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+// The time at which this Access Policy is valid from.
 func (o GetShareAclAccessPolicyOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v GetShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
 }
@@ -9932,8 +9894,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccessArrayInput)(nil)).Elem(), AccountNetworkRulesPrivateLinkAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccessRuleInput)(nil)).Elem(), AccountNetworkRulesPrivateLinkAccessRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccessRuleArrayInput)(nil)).Elem(), AccountNetworkRulesPrivateLinkAccessRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesInput)(nil)).Elem(), AccountQueuePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesPtrInput)(nil)).Elem(), AccountQueuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesTypeInput)(nil)).Elem(), AccountQueuePropertiesTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesTypePtrInput)(nil)).Elem(), AccountQueuePropertiesTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesCorsRuleInput)(nil)).Elem(), AccountQueuePropertiesCorsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesCorsRuleArrayInput)(nil)).Elem(), AccountQueuePropertiesCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountQueuePropertiesHourMetricsInput)(nil)).Elem(), AccountQueuePropertiesHourMetricsArgs{})
@@ -9954,8 +9916,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSharePropertiesRetentionPolicyPtrInput)(nil)).Elem(), AccountSharePropertiesRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSharePropertiesSmbInput)(nil)).Elem(), AccountSharePropertiesSmbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountSharePropertiesSmbPtrInput)(nil)).Elem(), AccountSharePropertiesSmbArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountStaticWebsiteInput)(nil)).Elem(), AccountStaticWebsiteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountStaticWebsitePtrInput)(nil)).Elem(), AccountStaticWebsiteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountStaticWebsiteTypeInput)(nil)).Elem(), AccountStaticWebsiteTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountStaticWebsiteTypePtrInput)(nil)).Elem(), AccountStaticWebsiteTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleInput)(nil)).Elem(), BlobInventoryPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleArrayInput)(nil)).Elem(), BlobInventoryPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BlobInventoryPolicyRuleFilterInput)(nil)).Elem(), BlobInventoryPolicyRuleFilterArgs{})
@@ -10057,8 +10019,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessArrayOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessRuleOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessRuleArrayOutput{})
-	pulumi.RegisterOutputType(AccountQueuePropertiesOutput{})
-	pulumi.RegisterOutputType(AccountQueuePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AccountQueuePropertiesTypeOutput{})
+	pulumi.RegisterOutputType(AccountQueuePropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesCorsRuleOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesHourMetricsOutput{})
@@ -10079,8 +10041,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountSharePropertiesRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountSharePropertiesSmbOutput{})
 	pulumi.RegisterOutputType(AccountSharePropertiesSmbPtrOutput{})
-	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
-	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
+	pulumi.RegisterOutputType(AccountStaticWebsiteTypeOutput{})
+	pulumi.RegisterOutputType(AccountStaticWebsiteTypePtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleFilterOutput{})

@@ -187,6 +187,9 @@ class AccountArgs:
         if queue_encryption_key_type is not None:
             pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
+            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""queue_properties is deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
+        if queue_properties is not None:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
@@ -198,6 +201,9 @@ class AccountArgs:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
+        if static_website is not None:
+            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""static_website is deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if table_encryption_key_type is not None:
@@ -575,6 +581,7 @@ class AccountArgs:
 
     @property
     @pulumi.getter(name="queueProperties")
+    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
     def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
         """
         A `queue_properties` block as defined below.
@@ -650,6 +657,7 @@ class AccountArgs:
 
     @property
     @pulumi.getter(name="staticWebsite")
+    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
         A `static_website` block as defined below.
@@ -1077,6 +1085,9 @@ class _AccountState:
         if queue_encryption_key_type is not None:
             pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
+            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""queue_properties is deprecated: this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
+        if queue_properties is not None:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -1162,6 +1173,9 @@ class _AccountState:
             pulumi.set(__self__, "share_properties", share_properties)
         if shared_access_key_enabled is not None:
             pulumi.set(__self__, "shared_access_key_enabled", shared_access_key_enabled)
+        if static_website is not None:
+            warnings.warn("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""static_website is deprecated: this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if table_encryption_key_type is not None:
@@ -1959,6 +1973,7 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="queueProperties")
+    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
     def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
         """
         A `queue_properties` block as defined below.
@@ -2478,6 +2493,7 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="staticWebsite")
+    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
         A `static_website` block as defined below.
@@ -3880,6 +3896,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queueProperties")
+    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider""")
     def queue_properties(self) -> pulumi.Output['outputs.AccountQueueProperties']:
         """
         A `queue_properties` block as defined below.
@@ -4227,7 +4244,8 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticWebsite")
-    def static_website(self) -> pulumi.Output[Optional['outputs.AccountStaticWebsite']]:
+    @_utilities.deprecated("""this block has been deprecated and superseded by the `storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider""")
+    def static_website(self) -> pulumi.Output['outputs.AccountStaticWebsite']:
         """
         A `static_website` block as defined below.
 

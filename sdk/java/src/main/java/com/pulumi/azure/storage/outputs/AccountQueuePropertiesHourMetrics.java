@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountQueuePropertiesHourMetrics {
     /**
-     * @return Indicates whether hour metrics are enabled for the Queue service.
-     * 
-     */
-    private Boolean enabled;
-    /**
      * @return Indicates whether metrics should generate summary statistics for called API operations.
      * 
      */
@@ -36,13 +31,6 @@ public final class AccountQueuePropertiesHourMetrics {
     private String version;
 
     private AccountQueuePropertiesHourMetrics() {}
-    /**
-     * @return Indicates whether hour metrics are enabled for the Queue service.
-     * 
-     */
-    public Boolean enabled() {
-        return this.enabled;
-    }
     /**
      * @return Indicates whether metrics should generate summary statistics for called API operations.
      * 
@@ -74,27 +62,17 @@ public final class AccountQueuePropertiesHourMetrics {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean enabled;
         private @Nullable Boolean includeApis;
         private @Nullable Integer retentionPolicyDays;
         private String version;
         public Builder() {}
         public Builder(AccountQueuePropertiesHourMetrics defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.enabled = defaults.enabled;
     	      this.includeApis = defaults.includeApis;
     	      this.retentionPolicyDays = defaults.retentionPolicyDays;
     	      this.version = defaults.version;
         }
 
-        @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            if (enabled == null) {
-              throw new MissingRequiredPropertyException("AccountQueuePropertiesHourMetrics", "enabled");
-            }
-            this.enabled = enabled;
-            return this;
-        }
         @CustomType.Setter
         public Builder includeApis(@Nullable Boolean includeApis) {
 
@@ -117,7 +95,6 @@ public final class AccountQueuePropertiesHourMetrics {
         }
         public AccountQueuePropertiesHourMetrics build() {
             final var _resultValue = new AccountQueuePropertiesHourMetrics();
-            _resultValue.enabled = enabled;
             _resultValue.includeApis = includeApis;
             _resultValue.retentionPolicyDays = retentionPolicyDays;
             _resultValue.version = version;

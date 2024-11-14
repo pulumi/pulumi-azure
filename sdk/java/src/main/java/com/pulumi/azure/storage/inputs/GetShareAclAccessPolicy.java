@@ -14,14 +14,14 @@ public final class GetShareAclAccessPolicy extends com.pulumi.resources.InvokeAr
     public static final GetShareAclAccessPolicy Empty = new GetShareAclAccessPolicy();
 
     /**
-     * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * The time at which this Access Policy is valid until.
      * 
      */
     @Import(name="expiry", required=true)
     private String expiry;
 
     /**
-     * @return The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid until.
      * 
      */
     public String expiry() {
@@ -44,14 +44,14 @@ public final class GetShareAclAccessPolicy extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * The time at which this Access Policy is valid from.
      * 
      */
     @Import(name="start", required=true)
     private String start;
 
     /**
-     * @return The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+     * @return The time at which this Access Policy is valid from.
      * 
      */
     public String start() {
@@ -85,7 +85,7 @@ public final class GetShareAclAccessPolicy extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param expiry The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * @param expiry The time at which this Access Policy is valid until.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class GetShareAclAccessPolicy extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param start The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+         * @param start The time at which this Access Policy is valid from.
          * 
          * @return builder
          * 

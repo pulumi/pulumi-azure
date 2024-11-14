@@ -1945,6 +1945,8 @@ type HciLogicalNetworkSubnet struct {
 	// The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
 	IpAllocationMethod string `pulumi:"ipAllocationMethod"`
 	// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
 	IpPools []HciLogicalNetworkSubnetIpPool `pulumi:"ipPools"`
 	// A `route` block as defined above. Changing this forces a new resource to be created.
 	Routes []HciLogicalNetworkSubnetRoute `pulumi:"routes"`
@@ -1969,6 +1971,8 @@ type HciLogicalNetworkSubnetArgs struct {
 	// The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
 	IpAllocationMethod pulumi.StringInput `pulumi:"ipAllocationMethod"`
 	// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
 	IpPools HciLogicalNetworkSubnetIpPoolArrayInput `pulumi:"ipPools"`
 	// A `route` block as defined above. Changing this forces a new resource to be created.
 	Routes HciLogicalNetworkSubnetRouteArrayInput `pulumi:"routes"`
@@ -2064,6 +2068,8 @@ func (o HciLogicalNetworkSubnetOutput) IpAllocationMethod() pulumi.StringOutput 
 }
 
 // One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+//
+// > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
 func (o HciLogicalNetworkSubnetOutput) IpPools() HciLogicalNetworkSubnetIpPoolArrayOutput {
 	return o.ApplyT(func(v HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetIpPool { return v.IpPools }).(HciLogicalNetworkSubnetIpPoolArrayOutput)
 }
@@ -2123,6 +2129,8 @@ func (o HciLogicalNetworkSubnetPtrOutput) IpAllocationMethod() pulumi.StringPtrO
 }
 
 // One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+//
+// > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
 func (o HciLogicalNetworkSubnetPtrOutput) IpPools() HciLogicalNetworkSubnetIpPoolArrayOutput {
 	return o.ApplyT(func(v *HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetIpPool {
 		if v == nil {
@@ -2548,6 +2556,200 @@ func (o HciMarketplaceGalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type HciNetworkInterfaceIpConfiguration struct {
+	// The IPv4 address of the gateway for the Network Interface.
+	Gateway *string `pulumi:"gateway"`
+	// The prefix length for the address of the Network Interface.
+	PrefixLength *string `pulumi:"prefixLength"`
+	// The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// HciNetworkInterfaceIpConfigurationInput is an input type that accepts HciNetworkInterfaceIpConfigurationArgs and HciNetworkInterfaceIpConfigurationOutput values.
+// You can construct a concrete instance of `HciNetworkInterfaceIpConfigurationInput` via:
+//
+//	HciNetworkInterfaceIpConfigurationArgs{...}
+type HciNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToHciNetworkInterfaceIpConfigurationOutput() HciNetworkInterfaceIpConfigurationOutput
+	ToHciNetworkInterfaceIpConfigurationOutputWithContext(context.Context) HciNetworkInterfaceIpConfigurationOutput
+}
+
+type HciNetworkInterfaceIpConfigurationArgs struct {
+	// The IPv4 address of the gateway for the Network Interface.
+	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
+	// The prefix length for the address of the Network Interface.
+	PrefixLength pulumi.StringPtrInput `pulumi:"prefixLength"`
+	// The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (HciNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i HciNetworkInterfaceIpConfigurationArgs) ToHciNetworkInterfaceIpConfigurationOutput() HciNetworkInterfaceIpConfigurationOutput {
+	return i.ToHciNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i HciNetworkInterfaceIpConfigurationArgs) ToHciNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) HciNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciNetworkInterfaceIpConfigurationOutput)
+}
+
+func (i HciNetworkInterfaceIpConfigurationArgs) ToHciNetworkInterfaceIpConfigurationPtrOutput() HciNetworkInterfaceIpConfigurationPtrOutput {
+	return i.ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i HciNetworkInterfaceIpConfigurationArgs) ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(ctx context.Context) HciNetworkInterfaceIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciNetworkInterfaceIpConfigurationOutput).ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// HciNetworkInterfaceIpConfigurationPtrInput is an input type that accepts HciNetworkInterfaceIpConfigurationArgs, HciNetworkInterfaceIpConfigurationPtr and HciNetworkInterfaceIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `HciNetworkInterfaceIpConfigurationPtrInput` via:
+//
+//	        HciNetworkInterfaceIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciNetworkInterfaceIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToHciNetworkInterfaceIpConfigurationPtrOutput() HciNetworkInterfaceIpConfigurationPtrOutput
+	ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(context.Context) HciNetworkInterfaceIpConfigurationPtrOutput
+}
+
+type hciNetworkInterfaceIpConfigurationPtrType HciNetworkInterfaceIpConfigurationArgs
+
+func HciNetworkInterfaceIpConfigurationPtr(v *HciNetworkInterfaceIpConfigurationArgs) HciNetworkInterfaceIpConfigurationPtrInput {
+	return (*hciNetworkInterfaceIpConfigurationPtrType)(v)
+}
+
+func (*hciNetworkInterfaceIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i *hciNetworkInterfaceIpConfigurationPtrType) ToHciNetworkInterfaceIpConfigurationPtrOutput() HciNetworkInterfaceIpConfigurationPtrOutput {
+	return i.ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *hciNetworkInterfaceIpConfigurationPtrType) ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(ctx context.Context) HciNetworkInterfaceIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciNetworkInterfaceIpConfigurationPtrOutput)
+}
+
+type HciNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (HciNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o HciNetworkInterfaceIpConfigurationOutput) ToHciNetworkInterfaceIpConfigurationOutput() HciNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o HciNetworkInterfaceIpConfigurationOutput) ToHciNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) HciNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o HciNetworkInterfaceIpConfigurationOutput) ToHciNetworkInterfaceIpConfigurationPtrOutput() HciNetworkInterfaceIpConfigurationPtrOutput {
+	return o.ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o HciNetworkInterfaceIpConfigurationOutput) ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(ctx context.Context) HciNetworkInterfaceIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciNetworkInterfaceIpConfiguration) *HciNetworkInterfaceIpConfiguration {
+		return &v
+	}).(HciNetworkInterfaceIpConfigurationPtrOutput)
+}
+
+// The IPv4 address of the gateway for the Network Interface.
+func (o HciNetworkInterfaceIpConfigurationOutput) Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciNetworkInterfaceIpConfiguration) *string { return v.Gateway }).(pulumi.StringPtrOutput)
+}
+
+// The prefix length for the address of the Network Interface.
+func (o HciNetworkInterfaceIpConfigurationOutput) PrefixLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciNetworkInterfaceIpConfiguration) *string { return v.PrefixLength }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+func (o HciNetworkInterfaceIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciNetworkInterfaceIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+func (o HciNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v HciNetworkInterfaceIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type HciNetworkInterfaceIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (HciNetworkInterfaceIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) ToHciNetworkInterfaceIpConfigurationPtrOutput() HciNetworkInterfaceIpConfigurationPtrOutput {
+	return o
+}
+
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) ToHciNetworkInterfaceIpConfigurationPtrOutputWithContext(ctx context.Context) HciNetworkInterfaceIpConfigurationPtrOutput {
+	return o
+}
+
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) Elem() HciNetworkInterfaceIpConfigurationOutput {
+	return o.ApplyT(func(v *HciNetworkInterfaceIpConfiguration) HciNetworkInterfaceIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HciNetworkInterfaceIpConfiguration
+		return ret
+	}).(HciNetworkInterfaceIpConfigurationOutput)
+}
+
+// The IPv4 address of the gateway for the Network Interface.
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciNetworkInterfaceIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Gateway
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix length for the address of the Network Interface.
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) PrefixLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciNetworkInterfaceIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixLength
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 address of the IP configuration. Changing this forces a new resource to be created.
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciNetworkInterfaceIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Stack HCI Logical Network bound to the IP configuration. Changing this forces a new resource to be created.
+func (o HciNetworkInterfaceIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciNetworkInterfaceIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetHciClusterIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -2696,6 +2898,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciMarketplaceGalleryImageIdentifierInput)(nil)).Elem(), HciMarketplaceGalleryImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciMarketplaceGalleryImageIdentifierPtrInput)(nil)).Elem(), HciMarketplaceGalleryImageIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciNetworkInterfaceIpConfigurationInput)(nil)).Elem(), HciNetworkInterfaceIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciNetworkInterfaceIpConfigurationPtrInput)(nil)).Elem(), HciNetworkInterfaceIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityInput)(nil)).Elem(), GetHciClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityArrayInput)(nil)).Elem(), GetHciClusterIdentityArray{})
 	pulumi.RegisterOutputType(HciClusterIdentityOutput{})
@@ -2730,6 +2934,8 @@ func init() {
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteArrayOutput{})
 	pulumi.RegisterOutputType(HciMarketplaceGalleryImageIdentifierOutput{})
 	pulumi.RegisterOutputType(HciMarketplaceGalleryImageIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(HciNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(HciNetworkInterfaceIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetHciClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetHciClusterIdentityArrayOutput{})
 }

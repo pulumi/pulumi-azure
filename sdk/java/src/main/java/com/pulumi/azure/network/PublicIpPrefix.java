@@ -184,6 +184,20 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sku);
     }
     /**
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="skuTier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> skuTier;
+
+    /**
+     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> skuTier() {
+        return Codegen.optional(this.skuTier);
+    }
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */

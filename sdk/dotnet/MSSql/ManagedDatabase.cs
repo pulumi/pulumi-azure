@@ -112,6 +112,12 @@ namespace Pulumi.Azure.MSSql
         [Output("shortTermRetentionDays")]
         public Output<int?> ShortTermRetentionDays { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ManagedDatabase resource with the given unique name, arguments, and options.
@@ -192,6 +198,18 @@ namespace Pulumi.Azure.MSSql
         [Input("shortTermRetentionDays")]
         public Input<int>? ShortTermRetentionDays { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public ManagedDatabaseArgs()
         {
         }
@@ -229,6 +247,18 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("shortTermRetentionDays")]
         public Input<int>? ShortTermRetentionDays { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ManagedDatabaseState()
         {

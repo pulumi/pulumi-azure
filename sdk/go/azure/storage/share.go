@@ -51,17 +51,17 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:               pulumi.String("sharename"),
-//				StorageAccountName: exampleAccount.Name,
-//				Quota:              pulumi.Int(50),
+//				Name:             pulumi.String("sharename"),
+//				StorageAccountId: exampleAccount.ID(),
+//				Quota:            pulumi.Int(50),
 //				Acls: storage.ShareAclArray{
 //					&storage.ShareAclArgs{
 //						Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
 //						AccessPolicies: storage.ShareAclAccessPolicyArray{
 //							&storage.ShareAclAccessPolicyArgs{
 //								Permissions: pulumi.String("rwdl"),
-//								Start:       pulumi.String("2019-07-02T09:38:21.0000000Z"),
-//								Expiry:      pulumi.String("2019-07-02T10:38:21.0000000Z"),
+//								Start:       pulumi.String("2019-07-02T09:38:21Z"),
+//								Expiry:      pulumi.String("2019-07-02T10:38:21Z"),
 //							},
 //						},
 //					},
@@ -78,10 +78,10 @@ import (
 //
 // ## Import
 //
-// Storage Shares can be imported using the `resource id`, e.g.
+// Storage Shares can be imported using the `id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+// $ pulumi import azure:storage/share:Share exampleShare /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myAccount/fileServices/default/shares/exampleShare
 // ```
 type Share struct {
 	pulumi.CustomResourceState
@@ -107,9 +107,17 @@ type Share struct {
 	// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntOutput `pulumi:"quota"`
 	// The Resource Manager ID of this File Share.
+	//
+	// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 	// The URL of the File Share
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -123,9 +131,6 @@ func NewShare(ctx *pulumi.Context,
 
 	if args.Quota == nil {
 		return nil, errors.New("invalid value for required argument 'Quota'")
-	}
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Share
@@ -171,8 +176,16 @@ type shareState struct {
 	// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota *int `pulumi:"quota"`
 	// The Resource Manager ID of this File Share.
+	//
+	// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The URL of the File Share
 	Url *string `pulumi:"url"`
@@ -200,8 +213,16 @@ type ShareState struct {
 	// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntPtrInput
 	// The Resource Manager ID of this File Share.
+	//
+	// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
 	ResourceManagerId pulumi.StringPtrInput
 	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrInput
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
 	StorageAccountName pulumi.StringPtrInput
 	// The URL of the File Share
 	Url pulumi.StringPtrInput
@@ -233,7 +254,13 @@ type shareArgs struct {
 	// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota int `pulumi:"quota"`
 	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Share resource.
@@ -259,7 +286,13 @@ type ShareArgs struct {
 	// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntInput
 	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringInput
+	//
+	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrInput
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+	StorageAccountName pulumi.StringPtrInput
 }
 
 func (ShareArgs) ElementType() reflect.Type {
@@ -388,13 +421,24 @@ func (o ShareOutput) Quota() pulumi.IntOutput {
 }
 
 // The Resource Manager ID of this File Share.
+//
+// Deprecated: this property is deprecated and will be removed 5.0 and replaced by the `id` property.
 func (o ShareOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
 // Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
-func (o ShareOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+//
+// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+func (o ShareOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+//
+// Deprecated: This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
+func (o ShareOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
 
 // The URL of the File Share

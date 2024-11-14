@@ -142,6 +142,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Sku;
         /// <summary>
+        /// The SKU Tier of the Public IP.
+        /// </summary>
+        public readonly string SkuTier;
+        /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -166,6 +170,8 @@ namespace Pulumi.Azure.Network
 
             string sku,
 
+            string skuTier,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> zones)
@@ -177,6 +183,7 @@ namespace Pulumi.Azure.Network
             PrefixLength = prefixLength;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
+            SkuTier = skuTier;
             Tags = tags;
             Zones = zones;
         }

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// The name of the SKU. Possible values include `Standard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
+        /// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
         /// </summary>
         public readonly string Name;
         /// <summary>

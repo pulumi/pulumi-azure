@@ -11,6 +11,7 @@ from .hci_deployment_setting import *
 from .hci_extension import *
 from .hci_logical_network import *
 from .hci_marketplace_gallery_image import *
+from .hci_network_interface import *
 from .hci_storage_path import *
 from .hci_virtual_hard_disk import *
 from ._inputs import *

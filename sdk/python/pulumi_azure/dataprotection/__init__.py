@@ -8,6 +8,7 @@ import typing
 from .backup_instance_blog_storage import *
 from .backup_instance_disk import *
 from .backup_instance_kubernetes_cluster import *
+from .backup_instance_mysql_flexible_server import *
 from .backup_instance_postgresql import *
 from .backup_instance_postgresql_flexible_server import *
 from .backup_policy_blob_storage import *

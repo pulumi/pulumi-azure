@@ -2400,6 +2400,8 @@ class FrontdoorCustomDomainTls(dict):
                
                ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         :param str minimum_tls_version: TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+               
+               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         if cdn_frontdoor_secret_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
@@ -2431,6 +2433,8 @@ class FrontdoorCustomDomainTls(dict):
     def minimum_tls_version(self) -> Optional[str]:
         """
         TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+
+        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         return pulumi.get(self, "minimum_tls_version")
 

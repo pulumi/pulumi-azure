@@ -29,6 +29,8 @@ public final class HciLogicalNetworkSubnet {
     /**
      * @return One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * 
      */
     private @Nullable List<HciLogicalNetworkSubnetIpPool> ipPools;
     /**
@@ -59,6 +61,8 @@ public final class HciLogicalNetworkSubnet {
     }
     /**
      * @return One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
      * 
      */
     public List<HciLogicalNetworkSubnetIpPool> ipPools() {

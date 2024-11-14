@@ -1034,7 +1034,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
+     * @deprecated
+     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
     @Import(name="queueProperties")
     private @Nullable Output<AccountQueuePropertiesArgs> queueProperties;
 
@@ -1043,7 +1047,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
+     * @deprecated
+     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<AccountQueuePropertiesArgs>> queueProperties() {
         return Optional.ofNullable(this.queueProperties);
     }
@@ -1685,7 +1693,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
+     * @deprecated
+     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
     @Import(name="staticWebsite")
     private @Nullable Output<AccountStaticWebsiteArgs> staticWebsite;
 
@@ -1696,7 +1708,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
      * 
+     * @deprecated
+     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<AccountStaticWebsiteArgs>> staticWebsite() {
         return Optional.ofNullable(this.staticWebsite);
     }
@@ -3259,7 +3275,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
         public Builder queueProperties(@Nullable Output<AccountQueuePropertiesArgs> queueProperties) {
             $.queueProperties = queueProperties;
             return this;
@@ -3272,7 +3292,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
         public Builder queueProperties(AccountQueuePropertiesArgs queueProperties) {
             return queueProperties(Output.of(queueProperties));
         }
@@ -4164,7 +4188,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
         public Builder staticWebsite(@Nullable Output<AccountStaticWebsiteArgs> staticWebsite) {
             $.staticWebsite = staticWebsite;
             return this;
@@ -4179,7 +4207,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
         public Builder staticWebsite(AccountStaticWebsiteArgs staticWebsite) {
             return staticWebsite(Output.of(staticWebsite));
         }
