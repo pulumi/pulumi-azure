@@ -521,21 +521,28 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
 // Given a Queue or a Table, resolve the resource group name of the corresponding storage account
 function resolveResourceGroupNameOfStorageAccount(container: { storageAccountName: pulumi.Output<string | undefined>, id: pulumi.Output<string> }) {
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
-        // It's safe to force unwrap because in upstream v4, storageAccountName is always set.
+    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) => {
+        // In upstream v4, storageAccountName is always set.
         // https://github.com/hashicorp/terraform-provider-azurerm/pull/27733/files#diff-e1f645d5290fdcc40b01762eb09185c901d0d62b39198a42b8492d7ea697ea82R398
-        storage.getAccount({ name: storageAccountName! }));
+        if (storageAccountName === undefined) {
+            throw new Error("Storage account name not defined, but should always be populated. Please report this issue to github.com/pulumi/pulumi-azure");
+        }
+        return storage.getAccount({ name: storageAccountName! });
+    });
     return account.resourceGroupName!.apply(n => n!);
 }
 
 // Given a Queue or a Table, produce Settings and a Connection String Key relevant to the Storage Account
 function resolveAccount(container: { storageAccountName: pulumi.Output<string | undefined>, id: pulumi.Output<string> }) {
     const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
-        // It's safe to force unwrap because in upstream v4, storageAccountName is always set.
+    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) => {
+        // In upstream v4, storageAccountName is always set.
         // https://github.com/hashicorp/terraform-provider-azurerm/pull/27733/files#diff-e1f645d5290fdcc40b01762eb09185c901d0d62b39198a42b8492d7ea697ea82R398
-        storage.getAccount({ name: storageAccountName! }));
-
+        if (storageAccountName === undefined) {
+            throw new Error("Storage account name not defined, but should always be populated. Please report this issue to github.com/pulumi/pulumi-azure");
+        }
+        return storage.getAccount({ name: storageAccountName! });
+    });
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
         ([connectionString, key]) => ({ [key]: connectionString }));
 
