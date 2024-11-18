@@ -135,7 +135,7 @@ def get_agreement(offer: Optional[str] = None,
 def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
                          plan: Optional[pulumi.Input[str]] = None,
                          publisher: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgreementResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgreementResult]:
     """
     Uses this data source to access information about an existing Marketplace Agreement.
 
@@ -160,7 +160,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
     __args__['offer'] = offer
     __args__['plan'] = plan
     __args__['publisher'] = publisher
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:marketplace/getAgreement:getAgreement', __args__, opts=opts, typ=GetAgreementResult)
     return __ret__.apply(lambda __response__: GetAgreementResult(
         id=pulumi.get(__response__, 'id'),
