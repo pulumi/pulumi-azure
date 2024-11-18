@@ -415,7 +415,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
 def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterNodePoolResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterNodePoolResult]:
     """
     Use this data source to access information about an existing Kubernetes Cluster Node Pool.
 
@@ -440,7 +440,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
     __args__['kubernetesClusterName'] = kubernetes_cluster_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getClusterNodePool:getClusterNodePool', __args__, opts=opts, typ=GetClusterNodePoolResult)
     return __ret__.apply(lambda __response__: GetClusterNodePoolResult(
         auto_scaling_enabled=pulumi.get(__response__, 'auto_scaling_enabled'),

@@ -213,7 +213,7 @@ def get_policy_set_definition(display_name: Optional[str] = None,
 def get_policy_set_definition_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                      management_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
     Use this data source to access information about an existing Policy Set Definition.
 
@@ -238,7 +238,7 @@ def get_policy_set_definition_output(display_name: Optional[pulumi.Input[Optiona
     __args__['displayName'] = display_name
     __args__['managementGroupName'] = management_group_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:policy/getPolicySetDefinition:getPolicySetDefinition', __args__, opts=opts, typ=GetPolicySetDefinitionResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionResult(
         description=pulumi.get(__response__, 'description'),
