@@ -219,7 +219,7 @@ def get_policy_defintion(display_name: Optional[str] = None,
 def get_policy_defintion_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 management_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefintionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefintionResult]:
     """
     Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
 
@@ -244,7 +244,7 @@ def get_policy_defintion_output(display_name: Optional[pulumi.Input[Optional[str
     __args__['displayName'] = display_name
     __args__['managementGroupName'] = management_group_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts, typ=GetPolicyDefintionResult)
     return __ret__.apply(lambda __response__: GetPolicyDefintionResult(
         description=pulumi.get(__response__, 'description'),

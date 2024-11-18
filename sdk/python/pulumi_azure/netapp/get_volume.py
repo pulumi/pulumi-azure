@@ -324,7 +324,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
                       pool_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       security_style: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Uses this data source to access information about an existing NetApp Volume.
 
@@ -354,7 +354,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityStyle'] = security_style
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         account_name=pulumi.get(__response__, 'account_name'),
