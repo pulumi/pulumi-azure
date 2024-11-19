@@ -97,7 +97,7 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * One or more `jobSchedule` block as defined below.
      *
-     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
     public readonly jobSchedules!: pulumi.Output<outputs.automation.RunBookJobSchedule[]>;
     /**
@@ -226,7 +226,7 @@ export interface RunBookState {
     /**
      * One or more `jobSchedule` block as defined below.
      *
-     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
@@ -292,7 +292,7 @@ export interface RunBookArgs {
     /**
      * One or more `jobSchedule` block as defined below.
      *
-     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * > **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `jobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      */
     jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**

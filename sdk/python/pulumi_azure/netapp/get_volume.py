@@ -27,10 +27,13 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, account_name=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if data_protection_backup_policies and not isinstance(data_protection_backup_policies, list):
+            raise TypeError("Expected argument 'data_protection_backup_policies' to be a list")
+        pulumi.set(__self__, "data_protection_backup_policies", data_protection_backup_policies)
         if data_protection_replications and not isinstance(data_protection_replications, list):
             raise TypeError("Expected argument 'data_protection_replications' to be a list")
         pulumi.set(__self__, "data_protection_replications", data_protection_replications)
@@ -95,10 +98,18 @@ class GetVolumeResult:
         return pulumi.get(self, "account_name")
 
     @property
+    @pulumi.getter(name="dataProtectionBackupPolicies")
+    def data_protection_backup_policies(self) -> Sequence['outputs.GetVolumeDataProtectionBackupPolicyResult']:
+        """
+        A data protecion backup policy block
+        """
+        return pulumi.get(self, "data_protection_backup_policies")
+
+    @property
     @pulumi.getter(name="dataProtectionReplications")
     def data_protection_replications(self) -> Sequence['outputs.GetVolumeDataProtectionReplicationResult']:
         """
-        Volume data protection block
+        Volume data protection replication block
         """
         return pulumi.get(self, "data_protection_replications")
 
@@ -239,6 +250,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             yield self
         return GetVolumeResult(
             account_name=self.account_name,
+            data_protection_backup_policies=self.data_protection_backup_policies,
             data_protection_replications=self.data_protection_replications,
             encryption_key_source=self.encryption_key_source,
             id=self.id,
@@ -300,6 +312,7 @@ def get_volume(account_name: Optional[str] = None,
 
     return AwaitableGetVolumeResult(
         account_name=pulumi.get(__ret__, 'account_name'),
+        data_protection_backup_policies=pulumi.get(__ret__, 'data_protection_backup_policies'),
         data_protection_replications=pulumi.get(__ret__, 'data_protection_replications'),
         encryption_key_source=pulumi.get(__ret__, 'encryption_key_source'),
         id=pulumi.get(__ret__, 'id'),
@@ -358,6 +371,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         account_name=pulumi.get(__response__, 'account_name'),
+        data_protection_backup_policies=pulumi.get(__response__, 'data_protection_backup_policies'),
         data_protection_replications=pulumi.get(__response__, 'data_protection_replications'),
         encryption_key_source=pulumi.get(__response__, 'encryption_key_source'),
         id=pulumi.get(__response__, 'id'),

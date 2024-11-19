@@ -30,6 +30,7 @@ class VolumeArgs:
                  volume_path: pulumi.Input[str],
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_protection_backup_policy: Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
@@ -60,6 +61,7 @@ class VolumeArgs:
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input['VolumeDataProtectionBackupPolicyArgs'] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
@@ -94,6 +96,8 @@ class VolumeArgs:
             pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
         if create_from_snapshot_resource_id is not None:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
+        if data_protection_backup_policy is not None:
+            pulumi.set(__self__, "data_protection_backup_policy", data_protection_backup_policy)
         if data_protection_replication is not None:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
@@ -240,6 +244,18 @@ class VolumeArgs:
     @create_from_snapshot_resource_id.setter
     def create_from_snapshot_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "create_from_snapshot_resource_id", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionBackupPolicy")
+    def data_protection_backup_policy(self) -> Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']]:
+        """
+        A `data_protection_backup_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_backup_policy")
+
+    @data_protection_backup_policy.setter
+    def data_protection_backup_policy(self, value: Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']]):
+        pulumi.set(self, "data_protection_backup_policy", value)
 
     @property
     @pulumi.getter(name="dataProtectionReplication")
@@ -479,6 +495,7 @@ class _VolumeState:
                  account_name: Optional[pulumi.Input[str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_protection_backup_policy: Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
@@ -510,6 +527,7 @@ class _VolumeState:
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input['VolumeDataProtectionBackupPolicyArgs'] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
@@ -546,6 +564,8 @@ class _VolumeState:
             pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
         if create_from_snapshot_resource_id is not None:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
+        if data_protection_backup_policy is not None:
+            pulumi.set(__self__, "data_protection_backup_policy", data_protection_backup_policy)
         if data_protection_replication is not None:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
@@ -634,6 +654,18 @@ class _VolumeState:
     @create_from_snapshot_resource_id.setter
     def create_from_snapshot_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "create_from_snapshot_resource_id", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionBackupPolicy")
+    def data_protection_backup_policy(self) -> Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']]:
+        """
+        A `data_protection_backup_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_backup_policy")
+
+    @data_protection_backup_policy.setter
+    def data_protection_backup_policy(self, value: Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']]):
+        pulumi.set(self, "data_protection_backup_policy", value)
 
     @property
     @pulumi.getter(name="dataProtectionReplication")
@@ -959,6 +991,7 @@ class Volume(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_protection_backup_policy: Optional[pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
                  data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
@@ -986,6 +1019,10 @@ class Volume(pulumi.CustomResource):
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a NetApp Volume.
+
+        !>**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+
         ## Import
 
         NetApp Volumes can be imported using the `resource id`, e.g.
@@ -999,6 +1036,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
@@ -1035,6 +1073,10 @@ class Volume(pulumi.CustomResource):
                  args: VolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a NetApp Volume.
+
+        !>**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+
         ## Import
 
         NetApp Volumes can be imported using the `resource id`, e.g.
@@ -1061,6 +1103,7 @@ class Volume(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_protection_backup_policy: Optional[pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
                  data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
                  encryption_key_source: Optional[pulumi.Input[str]] = None,
@@ -1100,6 +1143,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
+            __props__.__dict__["data_protection_backup_policy"] = data_protection_backup_policy
             __props__.__dict__["data_protection_replication"] = data_protection_replication
             __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
             __props__.__dict__["encryption_key_source"] = encryption_key_source
@@ -1151,6 +1195,7 @@ class Volume(pulumi.CustomResource):
             account_name: Optional[pulumi.Input[str]] = None,
             azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+            data_protection_backup_policy: Optional[pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
             data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
             data_protection_snapshot_policy: Optional[pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
             encryption_key_source: Optional[pulumi.Input[str]] = None,
@@ -1187,6 +1232,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
@@ -1224,6 +1270,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
         __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
+        __props__.__dict__["data_protection_backup_policy"] = data_protection_backup_policy
         __props__.__dict__["data_protection_replication"] = data_protection_replication
         __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
         __props__.__dict__["encryption_key_source"] = encryption_key_source
@@ -1275,6 +1322,14 @@ class Volume(pulumi.CustomResource):
         Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
+
+    @property
+    @pulumi.getter(name="dataProtectionBackupPolicy")
+    def data_protection_backup_policy(self) -> pulumi.Output[Optional['outputs.VolumeDataProtectionBackupPolicy']]:
+        """
+        A `data_protection_backup_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_backup_policy")
 
     @property
     @pulumi.getter(name="dataProtectionReplication")
@@ -1431,7 +1486,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotDirectoryVisible")
-    def snapshot_directory_visible(self) -> pulumi.Output[bool]:
+    def snapshot_directory_visible(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         """

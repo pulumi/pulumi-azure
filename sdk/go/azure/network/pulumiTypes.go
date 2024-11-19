@@ -902,7 +902,7 @@ type ApplicationGatewayCustomErrorConfiguration struct {
 	CustomErrorPageUrl string `pulumi:"customErrorPageUrl"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+	// Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
 	StatusCode string `pulumi:"statusCode"`
 }
 
@@ -922,7 +922,7 @@ type ApplicationGatewayCustomErrorConfigurationArgs struct {
 	CustomErrorPageUrl pulumi.StringInput `pulumi:"customErrorPageUrl"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+	// Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
@@ -987,7 +987,7 @@ func (o ApplicationGatewayCustomErrorConfigurationOutput) Id() pulumi.StringPtrO
 	return o.ApplyT(func(v ApplicationGatewayCustomErrorConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+// Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
 func (o ApplicationGatewayCustomErrorConfigurationOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayCustomErrorConfiguration) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -1803,7 +1803,7 @@ type ApplicationGatewayHttpListenerCustomErrorConfiguration struct {
 	CustomErrorPageUrl string `pulumi:"customErrorPageUrl"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+	// Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
 	StatusCode string `pulumi:"statusCode"`
 }
 
@@ -1823,7 +1823,7 @@ type ApplicationGatewayHttpListenerCustomErrorConfigurationArgs struct {
 	CustomErrorPageUrl pulumi.StringInput `pulumi:"customErrorPageUrl"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+	// Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
@@ -1888,7 +1888,7 @@ func (o ApplicationGatewayHttpListenerCustomErrorConfigurationOutput) Id() pulum
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerCustomErrorConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+// Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
 func (o ApplicationGatewayHttpListenerCustomErrorConfigurationOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListenerCustomErrorConfiguration) string { return v.StatusCode }).(pulumi.StringOutput)
 }

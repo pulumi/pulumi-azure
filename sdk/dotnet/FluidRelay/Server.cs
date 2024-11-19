@@ -49,6 +49,9 @@ namespace Pulumi.Azure.FluidRelay
     [AzureResourceType("azure:fluidrelay/server:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.ServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
@@ -175,6 +178,9 @@ namespace Pulumi.Azure.FluidRelay
 
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.ServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
@@ -228,6 +234,9 @@ namespace Pulumi.Azure.FluidRelay
 
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.ServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 

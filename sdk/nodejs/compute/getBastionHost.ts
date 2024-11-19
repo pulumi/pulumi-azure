@@ -105,6 +105,10 @@ export interface GetBastionHostResult {
      * Is Tunneling feature enabled for the Bastion Host.
      */
     readonly tunnelingEnabled: boolean;
+    /**
+     * A list of Availability Zones in which this Bastion Host is located.
+     */
+    readonly zones: string[];
 }
 /**
  * Use this data source to access information about an existing Bastion Host.

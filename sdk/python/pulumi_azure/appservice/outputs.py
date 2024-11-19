@@ -9282,7 +9282,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
         :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
@@ -9319,7 +9319,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
+        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -12956,7 +12956,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
         :param Sequence['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs'] dockers: a `docker` block as detailed below.
-        :param str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
+        :param str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
         :param str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
@@ -12993,7 +12993,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
+        The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -17075,7 +17075,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
                > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
@@ -17160,7 +17160,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -21349,7 +21349,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
                > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
         :param str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
                
@@ -21432,7 +21432,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -28230,7 +28230,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
         :param str java_version: The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
@@ -28256,7 +28256,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -31757,7 +31757,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+        :param str dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
         :param str java_version: The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
         :param str node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
         :param str powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
@@ -31781,7 +31781,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -35806,7 +35806,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
                
                > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
                Portal Value | API value
@@ -35816,6 +35816,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
                .NET 6 (LTS) | v6.0
                .NET 7 (STS) | v7.0
                .NET 8 (LTS) | v8.0
+               .NET 9 (STS) | v9.0
         :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. 
                
@@ -35920,7 +35921,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
 
         > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
         Portal Value | API value
@@ -35930,6 +35931,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         .NET 6 (LTS) | v6.0
         .NET 7 (STS) | v7.0
         .NET 8 (LTS) | v8.0
+        .NET 9 (STS) | v9.0
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -40385,7 +40387,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param str docker_registry_url: The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
         :param str docker_registry_username: The User Name to use for authentication against the registry to pull the image.
         :param str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
         :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
                
@@ -40488,7 +40490,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
         """
         return pulumi.get(self, "dotnet_version")
 

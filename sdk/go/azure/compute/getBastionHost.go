@@ -89,6 +89,8 @@ type LookupBastionHostResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Is Tunneling feature enabled for the Bastion Host.
 	TunnelingEnabled bool `pulumi:"tunnelingEnabled"`
+	// A list of Availability Zones in which this Bastion Host is located.
+	Zones []string `pulumi:"zones"`
 }
 
 func LookupBastionHostOutput(ctx *pulumi.Context, args LookupBastionHostOutputArgs, opts ...pulumi.InvokeOption) LookupBastionHostResultOutput {
@@ -209,6 +211,11 @@ func (o LookupBastionHostResultOutput) Tags() pulumi.StringMapOutput {
 // Is Tunneling feature enabled for the Bastion Host.
 func (o LookupBastionHostResultOutput) TunnelingEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBastionHostResult) bool { return v.TunnelingEnabled }).(pulumi.BoolOutput)
+}
+
+// A list of Availability Zones in which this Bastion Host is located.
+func (o LookupBastionHostResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBastionHostResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

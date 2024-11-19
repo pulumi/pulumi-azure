@@ -62,6 +62,9 @@ export class Server extends pulumi.CustomResource {
         return obj['__pulumiType'] === Server.__pulumiType;
     }
 
+    /**
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     */
     public readonly customerManagedKey!: pulumi.Output<outputs.fluidrelay.ServerCustomerManagedKey | undefined>;
     /**
      * The Fluid tenantId for this server.
@@ -168,6 +171,9 @@ export class Server extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Server resources.
  */
 export interface ServerState {
+    /**
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     */
     customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey>;
     /**
      * The Fluid tenantId for this server.
@@ -223,6 +229,9 @@ export interface ServerState {
  * The set of arguments for constructing a Server resource.
  */
 export interface ServerArgs {
+    /**
+     * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
+     */
     customerManagedKey?: pulumi.Input<inputs.fluidrelay.ServerCustomerManagedKey>;
     /**
      * An `identity` block as defined below.

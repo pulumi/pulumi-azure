@@ -168,6 +168,10 @@ export class BastionHost extends pulumi.CustomResource {
      * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
      */
     public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a BastionHost resource with the given unique name, arguments, and options.
@@ -198,6 +202,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tunnelingEnabled"] = state ? state.tunnelingEnabled : undefined;
             resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as BastionHostArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -218,6 +223,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tunnelingEnabled"] = args ? args.tunnelingEnabled : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["dnsName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -309,6 +315,10 @@ export interface BastionHostState {
      * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
      */
     virtualNetworkId?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -391,4 +401,8 @@ export interface BastionHostArgs {
      * The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
      */
     virtualNetworkId?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

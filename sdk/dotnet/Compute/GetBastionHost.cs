@@ -172,6 +172,10 @@ namespace Pulumi.Azure.Compute
         /// Is Tunneling feature enabled for the Bastion Host.
         /// </summary>
         public readonly bool TunnelingEnabled;
+        /// <summary>
+        /// A list of Availability Zones in which this Bastion Host is located.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetBastionHostResult(
@@ -203,7 +207,9 @@ namespace Pulumi.Azure.Compute
 
             ImmutableDictionary<string, string> tags,
 
-            bool tunnelingEnabled)
+            bool tunnelingEnabled,
+
+            ImmutableArray<string> zones)
         {
             CopyPasteEnabled = copyPasteEnabled;
             DnsName = dnsName;
@@ -220,6 +226,7 @@ namespace Pulumi.Azure.Compute
             Sku = sku;
             Tags = tags;
             TunnelingEnabled = tunnelingEnabled;
+            Zones = zones;
         }
     }
 }

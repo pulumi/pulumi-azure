@@ -22,10 +22,7 @@ import * as utilities from "../utilities";
 export function getAccountEncryption(args: GetAccountEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getAccountEncryption:getAccountEncryption", {
-        "encryptionKey": args.encryptionKey,
         "netappAccountId": args.netappAccountId,
-        "systemAssignedIdentityPrincipalId": args.systemAssignedIdentityPrincipalId,
-        "userAssignedIdentityId": args.userAssignedIdentityId,
     }, opts);
 }
 
@@ -34,35 +31,23 @@ export function getAccountEncryption(args: GetAccountEncryptionArgs, opts?: pulu
  */
 export interface GetAccountEncryptionArgs {
     /**
-     * The key vault encryption key.
-     */
-    encryptionKey?: string;
-    /**
      * The ID of the NetApp account where customer managed keys-based encryption is enabled.
      */
     netappAccountId: string;
-    /**
-     * The ID of the System Assigned Manged Identity.
-     */
-    systemAssignedIdentityPrincipalId?: string;
-    /**
-     * The ID of the User Assigned Managed Identity.
-     */
-    userAssignedIdentityId?: string;
 }
 
 /**
  * A collection of values returned by getAccountEncryption.
  */
 export interface GetAccountEncryptionResult {
-    readonly encryptionKey?: string;
+    readonly encryptionKey: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly netappAccountId: string;
-    readonly systemAssignedIdentityPrincipalId?: string;
-    readonly userAssignedIdentityId?: string;
+    readonly systemAssignedIdentityPrincipalId: string;
+    readonly userAssignedIdentityId: string;
 }
 /**
  * Use this data source to access information about an existing NetApp Account Encryption Resource.
@@ -82,10 +67,7 @@ export interface GetAccountEncryptionResult {
 export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getAccountEncryption:getAccountEncryption", {
-        "encryptionKey": args.encryptionKey,
         "netappAccountId": args.netappAccountId,
-        "systemAssignedIdentityPrincipalId": args.systemAssignedIdentityPrincipalId,
-        "userAssignedIdentityId": args.userAssignedIdentityId,
     }, opts);
 }
 
@@ -94,19 +76,7 @@ export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs,
  */
 export interface GetAccountEncryptionOutputArgs {
     /**
-     * The key vault encryption key.
-     */
-    encryptionKey?: pulumi.Input<string>;
-    /**
      * The ID of the NetApp account where customer managed keys-based encryption is enabled.
      */
     netappAccountId: pulumi.Input<string>;
-    /**
-     * The ID of the System Assigned Manged Identity.
-     */
-    systemAssignedIdentityPrincipalId?: pulumi.Input<string>;
-    /**
-     * The ID of the User Assigned Managed Identity.
-     */
-    userAssignedIdentityId?: pulumi.Input<string>;
 }

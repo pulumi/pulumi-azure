@@ -156,6 +156,10 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public readonly string Kind;
         /// <summary>
+        /// Whether local authentication methods is enabled for the Cognitive Account.
+        /// </summary>
+        public readonly bool LocalAuthEnabled;
+        /// <summary>
         /// The Azure location where the Cognitive Services Account exists
         /// </summary>
         public readonly string Location;
@@ -192,6 +196,8 @@ namespace Pulumi.Azure.Cognitive
 
             string kind,
 
+            bool localAuthEnabled,
+
             string location,
 
             string name,
@@ -212,6 +218,7 @@ namespace Pulumi.Azure.Cognitive
             Id = id;
             Identities = identities;
             Kind = kind;
+            LocalAuthEnabled = localAuthEnabled;
             Location = location;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;

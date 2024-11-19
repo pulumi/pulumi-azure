@@ -22,6 +22,7 @@ type Features struct {
 	LogAnalyticsWorkspace    *FeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning          *FeaturesMachineLearning          `pulumi:"machineLearning"`
 	ManagedDisk              *FeaturesManagedDisk              `pulumi:"managedDisk"`
+	Netapp                   *FeaturesNetapp                   `pulumi:"netapp"`
 	PostgresqlFlexibleServer *FeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService          *FeaturesRecoveryService          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   *FeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
@@ -53,6 +54,7 @@ type FeaturesArgs struct {
 	LogAnalyticsWorkspace    FeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning          FeaturesMachineLearningPtrInput          `pulumi:"machineLearning"`
 	ManagedDisk              FeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
+	Netapp                   FeaturesNetappPtrInput                   `pulumi:"netapp"`
 	PostgresqlFlexibleServer FeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService          FeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   FeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
@@ -120,6 +122,10 @@ func (o FeaturesOutput) MachineLearning() FeaturesMachineLearningPtrOutput {
 
 func (o FeaturesOutput) ManagedDisk() FeaturesManagedDiskPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesManagedDisk { return v.ManagedDisk }).(FeaturesManagedDiskPtrOutput)
+}
+
+func (o FeaturesOutput) Netapp() FeaturesNetappPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesNetapp { return v.Netapp }).(FeaturesNetappPtrOutput)
 }
 
 func (o FeaturesOutput) PostgresqlFlexibleServer() FeaturesPostgresqlFlexibleServerPtrOutput {
@@ -1446,6 +1452,162 @@ func (o FeaturesManagedDiskPtrOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FeaturesNetapp struct {
+	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+	DeleteBackupsOnBackupVaultDestroy *bool `pulumi:"deleteBackupsOnBackupVaultDestroy"`
+	// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+	PreventVolumeDestruction *bool `pulumi:"preventVolumeDestruction"`
+}
+
+// FeaturesNetappInput is an input type that accepts FeaturesNetappArgs and FeaturesNetappOutput values.
+// You can construct a concrete instance of `FeaturesNetappInput` via:
+//
+//	FeaturesNetappArgs{...}
+type FeaturesNetappInput interface {
+	pulumi.Input
+
+	ToFeaturesNetappOutput() FeaturesNetappOutput
+	ToFeaturesNetappOutputWithContext(context.Context) FeaturesNetappOutput
+}
+
+type FeaturesNetappArgs struct {
+	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+	DeleteBackupsOnBackupVaultDestroy pulumi.BoolPtrInput `pulumi:"deleteBackupsOnBackupVaultDestroy"`
+	// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+	PreventVolumeDestruction pulumi.BoolPtrInput `pulumi:"preventVolumeDestruction"`
+}
+
+func (FeaturesNetappArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesNetapp)(nil)).Elem()
+}
+
+func (i FeaturesNetappArgs) ToFeaturesNetappOutput() FeaturesNetappOutput {
+	return i.ToFeaturesNetappOutputWithContext(context.Background())
+}
+
+func (i FeaturesNetappArgs) ToFeaturesNetappOutputWithContext(ctx context.Context) FeaturesNetappOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetappOutput)
+}
+
+func (i FeaturesNetappArgs) ToFeaturesNetappPtrOutput() FeaturesNetappPtrOutput {
+	return i.ToFeaturesNetappPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesNetappArgs) ToFeaturesNetappPtrOutputWithContext(ctx context.Context) FeaturesNetappPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetappOutput).ToFeaturesNetappPtrOutputWithContext(ctx)
+}
+
+// FeaturesNetappPtrInput is an input type that accepts FeaturesNetappArgs, FeaturesNetappPtr and FeaturesNetappPtrOutput values.
+// You can construct a concrete instance of `FeaturesNetappPtrInput` via:
+//
+//	        FeaturesNetappArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesNetappPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesNetappPtrOutput() FeaturesNetappPtrOutput
+	ToFeaturesNetappPtrOutputWithContext(context.Context) FeaturesNetappPtrOutput
+}
+
+type featuresNetappPtrType FeaturesNetappArgs
+
+func FeaturesNetappPtr(v *FeaturesNetappArgs) FeaturesNetappPtrInput {
+	return (*featuresNetappPtrType)(v)
+}
+
+func (*featuresNetappPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesNetapp)(nil)).Elem()
+}
+
+func (i *featuresNetappPtrType) ToFeaturesNetappPtrOutput() FeaturesNetappPtrOutput {
+	return i.ToFeaturesNetappPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresNetappPtrType) ToFeaturesNetappPtrOutputWithContext(ctx context.Context) FeaturesNetappPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetappPtrOutput)
+}
+
+type FeaturesNetappOutput struct{ *pulumi.OutputState }
+
+func (FeaturesNetappOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesNetapp)(nil)).Elem()
+}
+
+func (o FeaturesNetappOutput) ToFeaturesNetappOutput() FeaturesNetappOutput {
+	return o
+}
+
+func (o FeaturesNetappOutput) ToFeaturesNetappOutputWithContext(ctx context.Context) FeaturesNetappOutput {
+	return o
+}
+
+func (o FeaturesNetappOutput) ToFeaturesNetappPtrOutput() FeaturesNetappPtrOutput {
+	return o.ToFeaturesNetappPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesNetappOutput) ToFeaturesNetappPtrOutputWithContext(ctx context.Context) FeaturesNetappPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesNetapp) *FeaturesNetapp {
+		return &v
+	}).(FeaturesNetappPtrOutput)
+}
+
+// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+func (o FeaturesNetappOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesNetapp) *bool { return v.DeleteBackupsOnBackupVaultDestroy }).(pulumi.BoolPtrOutput)
+}
+
+// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+func (o FeaturesNetappOutput) PreventVolumeDestruction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesNetapp) *bool { return v.PreventVolumeDestruction }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesNetappPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesNetappPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesNetapp)(nil)).Elem()
+}
+
+func (o FeaturesNetappPtrOutput) ToFeaturesNetappPtrOutput() FeaturesNetappPtrOutput {
+	return o
+}
+
+func (o FeaturesNetappPtrOutput) ToFeaturesNetappPtrOutputWithContext(ctx context.Context) FeaturesNetappPtrOutput {
+	return o
+}
+
+func (o FeaturesNetappPtrOutput) Elem() FeaturesNetappOutput {
+	return o.ApplyT(func(v *FeaturesNetapp) FeaturesNetapp {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesNetapp
+		return ret
+	}).(FeaturesNetappOutput)
+}
+
+// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+func (o FeaturesNetappPtrOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesNetapp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteBackupsOnBackupVaultDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+func (o FeaturesNetappPtrOutput) PreventVolumeDestruction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesNetapp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventVolumeDestruction
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesPostgresqlFlexibleServer struct {
 	RestartServerOnConfigurationValueChange *bool `pulumi:"restartServerOnConfigurationValueChange"`
 }
@@ -2766,6 +2928,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesMachineLearningPtrInput)(nil)).Elem(), FeaturesMachineLearningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskPtrInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesNetappInput)(nil)).Elem(), FeaturesNetappArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesNetappPtrInput)(nil)).Elem(), FeaturesNetappArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesPostgresqlFlexibleServerInput)(nil)).Elem(), FeaturesPostgresqlFlexibleServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesPostgresqlFlexibleServerPtrInput)(nil)).Elem(), FeaturesPostgresqlFlexibleServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesRecoveryServiceInput)(nil)).Elem(), FeaturesRecoveryServiceArgs{})
@@ -2801,6 +2965,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesMachineLearningPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesManagedDiskOutput{})
 	pulumi.RegisterOutputType(FeaturesManagedDiskPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesNetappOutput{})
+	pulumi.RegisterOutputType(FeaturesNetappPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesPostgresqlFlexibleServerOutput{})
 	pulumi.RegisterOutputType(FeaturesPostgresqlFlexibleServerPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesRecoveryServiceOutput{})

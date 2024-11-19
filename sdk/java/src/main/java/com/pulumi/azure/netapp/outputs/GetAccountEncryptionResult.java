@@ -7,24 +7,22 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountEncryptionResult {
-    private @Nullable String encryptionKey;
+    private String encryptionKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     private String netappAccountId;
-    private @Nullable String systemAssignedIdentityPrincipalId;
-    private @Nullable String userAssignedIdentityId;
+    private String systemAssignedIdentityPrincipalId;
+    private String userAssignedIdentityId;
 
     private GetAccountEncryptionResult() {}
-    public Optional<String> encryptionKey() {
-        return Optional.ofNullable(this.encryptionKey);
+    public String encryptionKey() {
+        return this.encryptionKey;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -36,11 +34,11 @@ public final class GetAccountEncryptionResult {
     public String netappAccountId() {
         return this.netappAccountId;
     }
-    public Optional<String> systemAssignedIdentityPrincipalId() {
-        return Optional.ofNullable(this.systemAssignedIdentityPrincipalId);
+    public String systemAssignedIdentityPrincipalId() {
+        return this.systemAssignedIdentityPrincipalId;
     }
-    public Optional<String> userAssignedIdentityId() {
-        return Optional.ofNullable(this.userAssignedIdentityId);
+    public String userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -52,11 +50,11 @@ public final class GetAccountEncryptionResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String encryptionKey;
+        private String encryptionKey;
         private String id;
         private String netappAccountId;
-        private @Nullable String systemAssignedIdentityPrincipalId;
-        private @Nullable String userAssignedIdentityId;
+        private String systemAssignedIdentityPrincipalId;
+        private String userAssignedIdentityId;
         public Builder() {}
         public Builder(GetAccountEncryptionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,8 +66,10 @@ public final class GetAccountEncryptionResult {
         }
 
         @CustomType.Setter
-        public Builder encryptionKey(@Nullable String encryptionKey) {
-
+        public Builder encryptionKey(String encryptionKey) {
+            if (encryptionKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountEncryptionResult", "encryptionKey");
+            }
             this.encryptionKey = encryptionKey;
             return this;
         }
@@ -90,14 +90,18 @@ public final class GetAccountEncryptionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder systemAssignedIdentityPrincipalId(@Nullable String systemAssignedIdentityPrincipalId) {
-
+        public Builder systemAssignedIdentityPrincipalId(String systemAssignedIdentityPrincipalId) {
+            if (systemAssignedIdentityPrincipalId == null) {
+              throw new MissingRequiredPropertyException("GetAccountEncryptionResult", "systemAssignedIdentityPrincipalId");
+            }
             this.systemAssignedIdentityPrincipalId = systemAssignedIdentityPrincipalId;
             return this;
         }
         @CustomType.Setter
-        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
-
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            if (userAssignedIdentityId == null) {
+              throw new MissingRequiredPropertyException("GetAccountEncryptionResult", "userAssignedIdentityId");
+            }
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

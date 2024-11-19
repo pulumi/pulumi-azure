@@ -69,7 +69,9 @@ type LookupVolumeArgs struct {
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
 	AccountName string `pulumi:"accountName"`
-	// Volume data protection block
+	// A data protecion backup policy block
+	DataProtectionBackupPolicies []GetVolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicies"`
+	// Volume data protection replication block
 	DataProtectionReplications []GetVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
 	EncryptionKeySource        string                               `pulumi:"encryptionKeySource"`
 	// The provider-assigned unique ID for this managed resource.
@@ -160,7 +162,14 @@ func (o LookupVolumeResultOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Volume data protection block
+// A data protecion backup policy block
+func (o LookupVolumeResultOutput) DataProtectionBackupPolicies() GetVolumeDataProtectionBackupPolicyArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionBackupPolicy {
+		return v.DataProtectionBackupPolicies
+	}).(GetVolumeDataProtectionBackupPolicyArrayOutput)
+}
+
+// Volume data protection replication block
 func (o LookupVolumeResultOutput) DataProtectionReplications() GetVolumeDataProtectionReplicationArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionReplication { return v.DataProtectionReplications }).(GetVolumeDataProtectionReplicationArrayOutput)
 }

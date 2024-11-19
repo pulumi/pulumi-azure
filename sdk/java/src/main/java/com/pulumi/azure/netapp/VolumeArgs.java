@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp;
 
+import com.pulumi.azure.netapp.inputs.VolumeDataProtectionBackupPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionReplicationArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionSnapshotPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeExportPolicyRuleArgs;
@@ -67,6 +68,21 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createFromSnapshotResourceId() {
         return Optional.ofNullable(this.createFromSnapshotResourceId);
+    }
+
+    /**
+     * A `data_protection_backup_policy` block as defined below.
+     * 
+     */
+    @Import(name="dataProtectionBackupPolicy")
+    private @Nullable Output<VolumeDataProtectionBackupPolicyArgs> dataProtectionBackupPolicy;
+
+    /**
+     * @return A `data_protection_backup_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<VolumeDataProtectionBackupPolicyArgs>> dataProtectionBackupPolicy() {
+        return Optional.ofNullable(this.dataProtectionBackupPolicy);
     }
 
     /**
@@ -456,6 +472,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.accountName = $.accountName;
         this.azureVmwareDataStoreEnabled = $.azureVmwareDataStoreEnabled;
         this.createFromSnapshotResourceId = $.createFromSnapshotResourceId;
+        this.dataProtectionBackupPolicy = $.dataProtectionBackupPolicy;
         this.dataProtectionReplication = $.dataProtectionReplication;
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
         this.encryptionKeySource = $.encryptionKeySource;
@@ -562,6 +579,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createFromSnapshotResourceId(String createFromSnapshotResourceId) {
             return createFromSnapshotResourceId(Output.of(createFromSnapshotResourceId));
+        }
+
+        /**
+         * @param dataProtectionBackupPolicy A `data_protection_backup_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionBackupPolicy(@Nullable Output<VolumeDataProtectionBackupPolicyArgs> dataProtectionBackupPolicy) {
+            $.dataProtectionBackupPolicy = dataProtectionBackupPolicy;
+            return this;
+        }
+
+        /**
+         * @param dataProtectionBackupPolicy A `data_protection_backup_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionBackupPolicy(VolumeDataProtectionBackupPolicyArgs dataProtectionBackupPolicy) {
+            return dataProtectionBackupPolicy(Output.of(dataProtectionBackupPolicy));
         }
 
         /**

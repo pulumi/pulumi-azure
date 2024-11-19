@@ -35,7 +35,8 @@ class BastionHostArgs:
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
@@ -69,6 +70,7 @@ class BastionHostArgs:
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if copy_paste_enabled is not None:
@@ -99,6 +101,8 @@ class BastionHostArgs:
             pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
         if virtual_network_id is not None:
             pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -296,6 +300,18 @@ class BastionHostArgs:
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 @pulumi.input_type
 class _BastionHostState:
@@ -315,7 +331,8 @@ class _BastionHostState:
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-                 virtual_network_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering BastionHost resources.
         :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
@@ -350,6 +367,7 @@ class _BastionHostState:
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
         """
         if copy_paste_enabled is not None:
             pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
@@ -383,6 +401,8 @@ class _BastionHostState:
             pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
         if virtual_network_id is not None:
             pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="copyPasteEnabled")
@@ -592,6 +612,18 @@ class _BastionHostState:
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class BastionHost(pulumi.CustomResource):
     @overload
@@ -613,6 +645,7 @@ class BastionHost(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Bastion Host.
@@ -696,6 +729,7 @@ class BastionHost(pulumi.CustomResource):
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -782,6 +816,7 @@ class BastionHost(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -808,6 +843,7 @@ class BastionHost(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tunneling_enabled"] = tunneling_enabled
             __props__.__dict__["virtual_network_id"] = virtual_network_id
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["dns_name"] = None
         super(BastionHost, __self__).__init__(
             'azure:compute/bastionHost:BastionHost',
@@ -834,7 +870,8 @@ class BastionHost(pulumi.CustomResource):
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-            virtual_network_id: Optional[pulumi.Input[str]] = None) -> 'BastionHost':
+            virtual_network_id: Optional[pulumi.Input[str]] = None,
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'BastionHost':
         """
         Get an existing BastionHost resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -874,6 +911,7 @@ class BastionHost(pulumi.CustomResource):
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard` or `Premium`.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -895,6 +933,7 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tunneling_enabled"] = tunneling_enabled
         __props__.__dict__["virtual_network_id"] = virtual_network_id
+        __props__.__dict__["zones"] = zones
         return BastionHost(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1040,4 +1079,12 @@ class BastionHost(pulumi.CustomResource):
         The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zones")
 

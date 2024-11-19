@@ -31,6 +31,7 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
+        :param pulumi.Input['ServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
@@ -66,6 +67,9 @@ class ServerArgs:
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]:
+        """
+        A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -151,6 +155,7 @@ class _ServerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Server resources.
+        :param pulumi.Input['ServerCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] frs_tenant_id: The Fluid tenantId for this server.
         :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -194,6 +199,9 @@ class _ServerState:
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> Optional[pulumi.Input['ServerCustomerManagedKeyArgs']]:
+        """
+        A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
@@ -386,6 +394,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
@@ -503,6 +512,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] frs_tenant_id: The Fluid tenantId for this server.
         :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -538,6 +548,9 @@ class Server(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customerManagedKey")
     def customer_managed_key(self) -> pulumi.Output[Optional['outputs.ServerCustomerManagedKey']]:
+        """
+        A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "customer_managed_key")
 
     @property

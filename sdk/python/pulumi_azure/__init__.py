@@ -6205,6 +6205,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "netapp/backupPolicy",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/backupPolicy:BackupPolicy": "BackupPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "netapp/backupVault",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/backupVault:BackupVault": "BackupVault"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "netapp/pool",
   "fqn": "pulumi_azure.netapp",
   "classes": {

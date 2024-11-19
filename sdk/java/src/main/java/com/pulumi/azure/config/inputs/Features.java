@@ -11,6 +11,7 @@ import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
 import com.pulumi.azure.config.outputs.FeaturesMachineLearning;
 import com.pulumi.azure.config.outputs.FeaturesManagedDisk;
+import com.pulumi.azure.config.outputs.FeaturesNetapp;
 import com.pulumi.azure.config.outputs.FeaturesPostgresqlFlexibleServer;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryService;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryServicesVaults;
@@ -35,6 +36,7 @@ public final class Features {
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
     private @Nullable FeaturesMachineLearning machineLearning;
     private @Nullable FeaturesManagedDisk managedDisk;
+    private @Nullable FeaturesNetapp netapp;
     private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
     private @Nullable FeaturesRecoveryService recoveryService;
     private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
@@ -69,6 +71,9 @@ public final class Features {
     }
     public Optional<FeaturesManagedDisk> managedDisk() {
         return Optional.ofNullable(this.managedDisk);
+    }
+    public Optional<FeaturesNetapp> netapp() {
+        return Optional.ofNullable(this.netapp);
     }
     public Optional<FeaturesPostgresqlFlexibleServer> postgresqlFlexibleServer() {
         return Optional.ofNullable(this.postgresqlFlexibleServer);
@@ -115,6 +120,7 @@ public final class Features {
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
         private @Nullable FeaturesMachineLearning machineLearning;
         private @Nullable FeaturesManagedDisk managedDisk;
+        private @Nullable FeaturesNetapp netapp;
         private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
         private @Nullable FeaturesRecoveryService recoveryService;
         private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
@@ -135,6 +141,7 @@ public final class Features {
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
     	      this.machineLearning = defaults.machineLearning;
     	      this.managedDisk = defaults.managedDisk;
+    	      this.netapp = defaults.netapp;
     	      this.postgresqlFlexibleServer = defaults.postgresqlFlexibleServer;
     	      this.recoveryService = defaults.recoveryService;
     	      this.recoveryServicesVaults = defaults.recoveryServicesVaults;
@@ -192,6 +199,12 @@ public final class Features {
         public Builder managedDisk(@Nullable FeaturesManagedDisk managedDisk) {
 
             this.managedDisk = managedDisk;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder netapp(@Nullable FeaturesNetapp netapp) {
+
+            this.netapp = netapp;
             return this;
         }
         @CustomType.Setter
@@ -258,6 +271,7 @@ public final class Features {
             _resultValue.logAnalyticsWorkspace = logAnalyticsWorkspace;
             _resultValue.machineLearning = machineLearning;
             _resultValue.managedDisk = managedDisk;
+            _resultValue.netapp = netapp;
             _resultValue.postgresqlFlexibleServer = postgresqlFlexibleServer;
             _resultValue.recoveryService = recoveryService;
             _resultValue.recoveryServicesVaults = recoveryServicesVaults;

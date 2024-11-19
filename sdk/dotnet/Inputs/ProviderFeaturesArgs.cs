@@ -36,6 +36,9 @@ namespace Pulumi.Azure.Inputs
         [Input("managedDisk")]
         public Input<Inputs.ProviderFeaturesManagedDiskArgs>? ManagedDisk { get; set; }
 
+        [Input("netapp")]
+        public Input<Inputs.ProviderFeaturesNetappArgs>? Netapp { get; set; }
+
         [Input("postgresqlFlexibleServer")]
         public Input<Inputs.ProviderFeaturesPostgresqlFlexibleServerArgs>? PostgresqlFlexibleServer { get; set; }
 

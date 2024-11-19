@@ -13,8 +13,9 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class ManagedDatabaseLongTermRetentionPolicy
     {
+        public readonly bool? ImmutableBackupsEnabled;
         /// <summary>
-        /// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        /// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         /// </summary>
         public readonly string? MonthlyRetention;
         /// <summary>
@@ -22,16 +23,18 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly int? WeekOfYear;
         /// <summary>
-        /// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        /// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         /// </summary>
         public readonly string? WeeklyRetention;
         /// <summary>
-        /// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        /// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         /// </summary>
         public readonly string? YearlyRetention;
 
         [OutputConstructor]
         private ManagedDatabaseLongTermRetentionPolicy(
+            bool? immutableBackupsEnabled,
+
             string? monthlyRetention,
 
             int? weekOfYear,
@@ -40,6 +43,7 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             string? yearlyRetention)
         {
+            ImmutableBackupsEnabled = immutableBackupsEnabled;
             MonthlyRetention = monthlyRetention;
             WeekOfYear = weekOfYear;
             WeeklyRetention = weeklyRetention;

@@ -45,7 +45,7 @@ class GetAccountEncryptionResult:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[str]:
+    def encryption_key(self) -> str:
         return pulumi.get(self, "encryption_key")
 
     @property
@@ -63,12 +63,12 @@ class GetAccountEncryptionResult:
 
     @property
     @pulumi.getter(name="systemAssignedIdentityPrincipalId")
-    def system_assigned_identity_principal_id(self) -> Optional[str]:
+    def system_assigned_identity_principal_id(self) -> str:
         return pulumi.get(self, "system_assigned_identity_principal_id")
 
     @property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> Optional[str]:
+    def user_assigned_identity_id(self) -> str:
         return pulumi.get(self, "user_assigned_identity_id")
 
 
@@ -85,10 +85,7 @@ class AwaitableGetAccountEncryptionResult(GetAccountEncryptionResult):
             user_assigned_identity_id=self.user_assigned_identity_id)
 
 
-def get_account_encryption(encryption_key: Optional[str] = None,
-                           netapp_account_id: Optional[str] = None,
-                           system_assigned_identity_principal_id: Optional[str] = None,
-                           user_assigned_identity_id: Optional[str] = None,
+def get_account_encryption(netapp_account_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountEncryptionResult:
     """
     Use this data source to access information about an existing NetApp Account Encryption Resource.
@@ -104,16 +101,10 @@ def get_account_encryption(encryption_key: Optional[str] = None,
     ```
 
 
-    :param str encryption_key: The key vault encryption key.
     :param str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.
-    :param str system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity.
-    :param str user_assigned_identity_id: The ID of the User Assigned Managed Identity.
     """
     __args__ = dict()
-    __args__['encryptionKey'] = encryption_key
     __args__['netappAccountId'] = netapp_account_id
-    __args__['systemAssignedIdentityPrincipalId'] = system_assigned_identity_principal_id
-    __args__['userAssignedIdentityId'] = user_assigned_identity_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:netapp/getAccountEncryption:getAccountEncryption', __args__, opts=opts, typ=GetAccountEncryptionResult).value
 
@@ -123,10 +114,7 @@ def get_account_encryption(encryption_key: Optional[str] = None,
         netapp_account_id=pulumi.get(__ret__, 'netapp_account_id'),
         system_assigned_identity_principal_id=pulumi.get(__ret__, 'system_assigned_identity_principal_id'),
         user_assigned_identity_id=pulumi.get(__ret__, 'user_assigned_identity_id'))
-def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional[str]]] = None,
-                                  netapp_account_id: Optional[pulumi.Input[str]] = None,
-                                  system_assigned_identity_principal_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                  user_assigned_identity_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_account_encryption_output(netapp_account_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountEncryptionResult]:
     """
     Use this data source to access information about an existing NetApp Account Encryption Resource.
@@ -142,16 +130,10 @@ def get_account_encryption_output(encryption_key: Optional[pulumi.Input[Optional
     ```
 
 
-    :param str encryption_key: The key vault encryption key.
     :param str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.
-    :param str system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity.
-    :param str user_assigned_identity_id: The ID of the User Assigned Managed Identity.
     """
     __args__ = dict()
-    __args__['encryptionKey'] = encryption_key
     __args__['netappAccountId'] = netapp_account_id
-    __args__['systemAssignedIdentityPrincipalId'] = system_assigned_identity_principal_id
-    __args__['userAssignedIdentityId'] = user_assigned_identity_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getAccountEncryption:getAccountEncryption', __args__, opts=opts, typ=GetAccountEncryptionResult)
     return __ret__.apply(lambda __response__: GetAccountEncryptionResult(

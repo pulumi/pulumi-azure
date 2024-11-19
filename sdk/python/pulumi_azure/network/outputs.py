@@ -753,7 +753,7 @@ class ApplicationGatewayCustomErrorConfiguration(dict):
                  id: Optional[str] = None):
         """
         :param str custom_error_page_url: Error page URL of the application gateway customer error.
-        :param str status_code: Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        :param str status_code: Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "custom_error_page_url", custom_error_page_url)
@@ -773,7 +773,7 @@ class ApplicationGatewayCustomErrorConfiguration(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> str:
         """
-        Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
         """
         return pulumi.get(self, "status_code")
 
@@ -1329,7 +1329,7 @@ class ApplicationGatewayHttpListenerCustomErrorConfiguration(dict):
                  id: Optional[str] = None):
         """
         :param str custom_error_page_url: Error page URL of the application gateway customer error.
-        :param str status_code: Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        :param str status_code: Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "custom_error_page_url", custom_error_page_url)
@@ -1349,7 +1349,7 @@ class ApplicationGatewayHttpListenerCustomErrorConfiguration(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> str:
         """
-        Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+        Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
         """
         return pulumi.get(self, "status_code")
 

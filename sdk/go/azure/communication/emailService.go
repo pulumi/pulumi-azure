@@ -60,7 +60,7 @@ import (
 type EmailService struct {
 	pulumi.CustomResourceState
 
-	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Changing this forces a new Email Communication Service to be created.
+	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 	DataLocation pulumi.StringOutput `pulumi:"dataLocation"`
 	// The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -106,7 +106,7 @@ func GetEmailService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailService resources.
 type emailServiceState struct {
-	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Changing this forces a new Email Communication Service to be created.
+	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 	DataLocation *string `pulumi:"dataLocation"`
 	// The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
 	Name *string `pulumi:"name"`
@@ -117,7 +117,7 @@ type emailServiceState struct {
 }
 
 type EmailServiceState struct {
-	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Changing this forces a new Email Communication Service to be created.
+	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 	DataLocation pulumi.StringPtrInput
 	// The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
 	Name pulumi.StringPtrInput
@@ -132,7 +132,7 @@ func (EmailServiceState) ElementType() reflect.Type {
 }
 
 type emailServiceArgs struct {
-	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Changing this forces a new Email Communication Service to be created.
+	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 	DataLocation string `pulumi:"dataLocation"`
 	// The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
 	Name *string `pulumi:"name"`
@@ -144,7 +144,7 @@ type emailServiceArgs struct {
 
 // The set of arguments for constructing a EmailService resource.
 type EmailServiceArgs struct {
-	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Changing this forces a new Email Communication Service to be created.
+	// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 	DataLocation pulumi.StringInput
 	// The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
 	Name pulumi.StringPtrInput
@@ -241,7 +241,7 @@ func (o EmailServiceOutput) ToEmailServiceOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Changing this forces a new Email Communication Service to be created.
+// The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
 func (o EmailServiceOutput) DataLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailService) pulumi.StringOutput { return v.DataLocation }).(pulumi.StringOutput)
 }

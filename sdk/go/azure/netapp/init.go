@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Account{}
 	case "azure:netapp/accountEncryption:AccountEncryption":
 		r = &AccountEncryption{}
+	case "azure:netapp/backupPolicy:BackupPolicy":
+		r = &BackupPolicy{}
+	case "azure:netapp/backupVault:BackupVault":
+		r = &BackupVault{}
 	case "azure:netapp/pool:Pool":
 		r = &Pool{}
 	case "azure:netapp/snapshot:Snapshot":
@@ -58,6 +62,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"netapp/accountEncryption",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"netapp/backupPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"netapp/backupVault",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

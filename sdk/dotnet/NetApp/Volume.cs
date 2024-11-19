@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp
 {
     /// <summary>
+    /// Manages a NetApp Volume.
+    /// 
+    /// !&gt;**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+    /// 
     /// ## Import
     /// 
     /// NetApp Volumes can be imported using the `resource id`, e.g.
@@ -38,6 +42,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("createFromSnapshotResourceId")]
         public Output<string?> CreateFromSnapshotResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// A `data_protection_backup_policy` block as defined below.
+        /// </summary>
+        [Output("dataProtectionBackupPolicy")]
+        public Output<Outputs.VolumeDataProtectionBackupPolicy?> DataProtectionBackupPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -158,7 +168,7 @@ namespace Pulumi.Azure.NetApp
         /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         /// </summary>
         [Output("snapshotDirectoryVisible")]
-        public Output<bool> SnapshotDirectoryVisible { get; private set; } = null!;
+        public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
 
         /// <summary>
         /// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -261,6 +271,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
+
+        /// <summary>
+        /// A `data_protection_backup_policy` block as defined below.
+        /// </summary>
+        [Input("dataProtectionBackupPolicy")]
+        public Input<Inputs.VolumeDataProtectionBackupPolicyArgs>? DataProtectionBackupPolicy { get; set; }
 
         /// <summary>
         /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -458,6 +474,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
+
+        /// <summary>
+        /// A `data_protection_backup_policy` block as defined below.
+        /// </summary>
+        [Input("dataProtectionBackupPolicy")]
+        public Input<Inputs.VolumeDataProtectionBackupPolicyGetArgs>? DataProtectionBackupPolicy { get; set; }
 
         /// <summary>
         /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.

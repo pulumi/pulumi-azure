@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,15 +17,22 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
 
     public static final ManagedDatabaseLongTermRetentionPolicyArgs Empty = new ManagedDatabaseLongTermRetentionPolicyArgs();
 
+    @Import(name="immutableBackupsEnabled")
+    private @Nullable Output<Boolean> immutableBackupsEnabled;
+
+    public Optional<Output<Boolean>> immutableBackupsEnabled() {
+        return Optional.ofNullable(this.immutableBackupsEnabled);
+    }
+
     /**
-     * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+     * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
      * 
      */
     @Import(name="monthlyRetention")
     private @Nullable Output<String> monthlyRetention;
 
     /**
-     * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+     * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
      * 
      */
     public Optional<Output<String>> monthlyRetention() {
@@ -47,14 +55,14 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
     }
 
     /**
-     * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+     * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
      * 
      */
     @Import(name="weeklyRetention")
     private @Nullable Output<String> weeklyRetention;
 
     /**
-     * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+     * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
      * 
      */
     public Optional<Output<String>> weeklyRetention() {
@@ -62,14 +70,14 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
     }
 
     /**
-     * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+     * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
      * 
      */
     @Import(name="yearlyRetention")
     private @Nullable Output<String> yearlyRetention;
 
     /**
-     * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+     * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
      * 
      */
     public Optional<Output<String>> yearlyRetention() {
@@ -79,6 +87,7 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
     private ManagedDatabaseLongTermRetentionPolicyArgs() {}
 
     private ManagedDatabaseLongTermRetentionPolicyArgs(ManagedDatabaseLongTermRetentionPolicyArgs $) {
+        this.immutableBackupsEnabled = $.immutableBackupsEnabled;
         this.monthlyRetention = $.monthlyRetention;
         this.weekOfYear = $.weekOfYear;
         this.weeklyRetention = $.weeklyRetention;
@@ -103,8 +112,17 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
             $ = new ManagedDatabaseLongTermRetentionPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder immutableBackupsEnabled(@Nullable Output<Boolean> immutableBackupsEnabled) {
+            $.immutableBackupsEnabled = immutableBackupsEnabled;
+            return this;
+        }
+
+        public Builder immutableBackupsEnabled(Boolean immutableBackupsEnabled) {
+            return immutableBackupsEnabled(Output.of(immutableBackupsEnabled));
+        }
+
         /**
-         * @param monthlyRetention The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         * @param monthlyRetention The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          * 
          * @return builder
          * 
@@ -115,7 +133,7 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param monthlyRetention The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         * @param monthlyRetention The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          * 
          * @return builder
          * 
@@ -146,7 +164,7 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param weeklyRetention The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         * @param weeklyRetention The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          * 
          * @return builder
          * 
@@ -157,7 +175,7 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param weeklyRetention The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         * @param weeklyRetention The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          * 
          * @return builder
          * 
@@ -167,7 +185,7 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param yearlyRetention The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         * @param yearlyRetention The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          * 
          * @return builder
          * 
@@ -178,7 +196,7 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
         }
 
         /**
-         * @param yearlyRetention The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         * @param yearlyRetention The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          * 
          * @return builder
          * 
