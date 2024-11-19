@@ -193,7 +193,7 @@ def get_network_sim_policy(mobile_network_id: Optional[str] = None,
         user_equipment_aggregate_maximum_bit_rates=pulumi.get(__ret__, 'user_equipment_aggregate_maximum_bit_rates'))
 def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSimPolicyResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSimPolicyResult]:
     """
     Get information about a Mobile Network Sim Policy.
 
@@ -216,7 +216,7 @@ def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['mobileNetworkId'] = mobile_network_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy', __args__, opts=opts, typ=GetNetworkSimPolicyResult)
     return __ret__.apply(lambda __response__: GetNetworkSimPolicyResult(
         default_slice_id=pulumi.get(__response__, 'default_slice_id'),
