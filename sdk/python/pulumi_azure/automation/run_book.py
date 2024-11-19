@@ -49,7 +49,7 @@ class RunBookArgs:
         :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]] job_schedules: One or more `job_schedule` block as defined below.
                
-               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
@@ -184,7 +184,7 @@ class RunBookArgs:
         """
         One or more `job_schedule` block as defined below.
 
-        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         """
         return pulumi.get(self, "job_schedules")
 
@@ -280,7 +280,7 @@ class _RunBookState:
         :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]] job_schedules: One or more `job_schedule` block as defined below.
                
-               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
@@ -376,7 +376,7 @@ class _RunBookState:
         """
         One or more `job_schedule` block as defined below.
 
-        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         """
         return pulumi.get(self, "job_schedules")
 
@@ -562,7 +562,7 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']] draft: A `draft` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]] job_schedules: One or more `job_schedule` block as defined below.
                
-               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
@@ -719,7 +719,7 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[Union['RunBookDraftArgs', 'RunBookDraftArgsDict']] draft: A `draft` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RunBookJobScheduleArgs', 'RunBookJobScheduleArgsDict']]]] job_schedules: One or more `job_schedule` block as defined below.
                
-               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+               > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
@@ -790,7 +790,7 @@ class RunBook(pulumi.CustomResource):
         """
         One or more `job_schedule` block as defined below.
 
-        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         """
         return pulumi.get(self, "job_schedules")
 

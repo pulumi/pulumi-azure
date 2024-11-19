@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -277,6 +278,21 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.virtualNetworkId);
     }
 
+    /**
+     * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="zones")
+    private @Nullable Output<List<String>> zones;
+
+    /**
+     * @return Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> zones() {
+        return Optional.ofNullable(this.zones);
+    }
+
     private BastionHostArgs() {}
 
     private BastionHostArgs(BastionHostArgs $) {
@@ -295,6 +311,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tunnelingEnabled = $.tunnelingEnabled;
         this.virtualNetworkId = $.virtualNetworkId;
+        this.zones = $.zones;
     }
 
     public static Builder builder() {
@@ -660,6 +677,37 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder virtualNetworkId(String virtualNetworkId) {
             return virtualNetworkId(Output.of(virtualNetworkId));
+        }
+
+        /**
+         * @param zones Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(@Nullable Output<List<String>> zones) {
+            $.zones = zones;
+            return this;
+        }
+
+        /**
+         * @param zones Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(List<String> zones) {
+            return zones(Output.of(zones));
+        }
+
+        /**
+         * @param zones Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
         }
 
         public BastionHostArgs build() {

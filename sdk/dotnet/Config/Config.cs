@@ -342,6 +342,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesMachineLearning? MachineLearning { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesNetapp? Netapp { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesPostgresqlFlexibleServer? PostgresqlFlexibleServer { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryService? RecoveryService { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryServicesVaults? RecoveryServicesVaults { get; set; } = null!;
@@ -436,6 +437,18 @@ namespace Pulumi.Azure
              public class FeaturesManagedDisk
              {
                 public bool? ExpandWithoutDowntime { get; set; }
+            }
+
+             public class FeaturesNetapp
+             {
+            /// <summary>
+            /// When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+            /// </summary>
+                public bool? DeleteBackupsOnBackupVaultDestroy { get; set; }
+            /// <summary>
+            /// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+            /// </summary>
+                public bool? PreventVolumeDestruction { get; set; }
             }
 
              public class FeaturesPostgresqlFlexibleServer

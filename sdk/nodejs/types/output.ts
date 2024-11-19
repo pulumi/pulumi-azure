@@ -10580,7 +10580,7 @@ export namespace appservice {
          */
         dockers?: outputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker[];
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: string;
         /**
@@ -11584,7 +11584,7 @@ export namespace appservice {
          */
         dockers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker[];
         /**
-         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: string;
         /**
@@ -12696,7 +12696,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: string;
         /**
@@ -13851,7 +13851,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: string;
         /**
@@ -15704,7 +15704,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
@@ -16667,7 +16667,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
@@ -17769,7 +17769,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          *
          * > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -17779,6 +17779,7 @@ export namespace appservice {
          * .NET 6 (LTS) | v6.0
          * .NET 7 (STS) | v7.0
          * .NET 8 (LTS) | v8.0
+         * .NET 9 (STS) | v9.0
          */
         dotnetVersion: string;
         /**
@@ -19013,7 +19014,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          */
         dotnetVersion: string;
         /**
@@ -28471,6 +28472,7 @@ export namespace config {
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
         machineLearning?: outputs.config.FeaturesMachineLearning;
         managedDisk?: outputs.config.FeaturesManagedDisk;
+        netapp?: outputs.config.FeaturesNetapp;
         postgresqlFlexibleServer?: outputs.config.FeaturesPostgresqlFlexibleServer;
         recoveryService?: outputs.config.FeaturesRecoveryService;
         recoveryServicesVaults?: outputs.config.FeaturesRecoveryServicesVaults;
@@ -28557,6 +28559,17 @@ export namespace config {
 
     export interface FeaturesManagedDisk {
         expandWithoutDowntime?: boolean;
+    }
+
+    export interface FeaturesNetapp {
+        /**
+         * When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+         */
+        deleteBackupsOnBackupVaultDestroy?: boolean;
+        /**
+         * When enabled, the volume will not be destroyed, safeguarding from severe data loss
+         */
+        preventVolumeDestruction?: boolean;
     }
 
     export interface FeaturesPostgresqlFlexibleServer {
@@ -51101,8 +51114,9 @@ export namespace mssql {
     }
 
     export interface DatabaseLongTermRetentionPolicy {
+        immutableBackupsEnabled?: boolean;
         /**
-         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
         monthlyRetention: string;
         /**
@@ -51110,11 +51124,11 @@ export namespace mssql {
          */
         weekOfYear: number;
         /**
-         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
         weeklyRetention: string;
         /**
-         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
         yearlyRetention: string;
     }
@@ -51293,8 +51307,9 @@ export namespace mssql {
     }
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
+        immutableBackupsEnabled?: boolean;
         /**
-         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
         monthlyRetention: string;
         /**
@@ -51302,11 +51317,11 @@ export namespace mssql {
          */
         weekOfYear: number;
         /**
-         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
         weeklyRetention: string;
         /**
-         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
         yearlyRetention: string;
     }
@@ -52050,6 +52065,21 @@ export namespace netapp {
         snapshotsToKeep: number;
     }
 
+    export interface GetVolumeDataProtectionBackupPolicy {
+        /**
+         * The Resource ID of the backup policy.
+         */
+        backupPolicyId: string;
+        /**
+         * The Resource ID of the backup backup vault.
+         */
+        backupVaultId: string;
+        /**
+         * Backup policy is enabled or not.
+         */
+        policyEnabled: boolean;
+    }
+
     export interface GetVolumeDataProtectionReplication {
         /**
          * The endpoint type.
@@ -52263,6 +52293,23 @@ export namespace netapp {
          * How many hourly snapshots to keep, valid range is from 0 to 255.
          */
         snapshotsToKeep: number;
+    }
+
+    export interface VolumeDataProtectionBackupPolicy {
+        /**
+         * Resource ID of the backup policy to apply to the volume.
+         */
+        backupPolicyId: string;
+        /**
+         * Resource ID of the backup backup vault to associate this volume to.
+         */
+        backupVaultId: string;
+        /**
+         * Enables the backup policy on the volume, defaults to `true`.
+         *
+         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+         */
+        policyEnabled?: boolean;
     }
 
     export interface VolumeDataProtectionReplication {
@@ -52622,7 +52669,7 @@ export namespace network {
          */
         id: string;
         /**
-         * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         * Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
          */
         statusCode: string;
     }
@@ -52782,7 +52829,7 @@ export namespace network {
          */
         id: string;
         /**
-         * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         * Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
          */
         statusCode: string;
     }

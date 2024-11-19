@@ -86,6 +86,11 @@ public final class GetBastionHostResult {
      * 
      */
     private Boolean tunnelingEnabled;
+    /**
+     * @return A list of Availability Zones in which this Bastion Host is located.
+     * 
+     */
+    private List<String> zones;
 
     private GetBastionHostResult() {}
     /**
@@ -189,6 +194,13 @@ public final class GetBastionHostResult {
     public Boolean tunnelingEnabled() {
         return this.tunnelingEnabled;
     }
+    /**
+     * @return A list of Availability Zones in which this Bastion Host is located.
+     * 
+     */
+    public List<String> zones() {
+        return this.zones;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -214,6 +226,7 @@ public final class GetBastionHostResult {
         private String sku;
         private Map<String,String> tags;
         private Boolean tunnelingEnabled;
+        private List<String> zones;
         public Builder() {}
         public Builder(GetBastionHostResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -232,6 +245,7 @@ public final class GetBastionHostResult {
     	      this.sku = defaults.sku;
     	      this.tags = defaults.tags;
     	      this.tunnelingEnabled = defaults.tunnelingEnabled;
+    	      this.zones = defaults.zones;
         }
 
         @CustomType.Setter
@@ -357,6 +371,17 @@ public final class GetBastionHostResult {
             this.tunnelingEnabled = tunnelingEnabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder zones(List<String> zones) {
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "zones");
+            }
+            this.zones = zones;
+            return this;
+        }
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
+        }
         public GetBastionHostResult build() {
             final var _resultValue = new GetBastionHostResult();
             _resultValue.copyPasteEnabled = copyPasteEnabled;
@@ -374,6 +399,7 @@ public final class GetBastionHostResult {
             _resultValue.sku = sku;
             _resultValue.tags = tags;
             _resultValue.tunnelingEnabled = tunnelingEnabled;
+            _resultValue.zones = zones;
             return _resultValue;
         }
     }

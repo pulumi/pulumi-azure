@@ -6,11 +6,11 @@ Subject: [PATCH] Remove function_app_schema use_dotnet_isolated_runtime
 
 
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index ca7d021db9..7ca516bf9c 100644
+index d0380954e9..fb9daddb26 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
-@@ -1084,10 +1084,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
- 					Description: "The version of .Net. Possible values are `3.1`, `6.0` and `7.0`",
+@@ -1085,10 +1085,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
+ 					Description: "The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`",
  				},
  
 +				// FORK: Removed default value due to pulumi-azure#1227

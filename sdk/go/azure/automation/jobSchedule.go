@@ -14,7 +14,7 @@ import (
 
 // Links an Automation Runbook and Schedule.
 //
-// > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `jobSchdule` property in azurermRunbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+// > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `jobSchedule` property in azurermRunbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
 //
 // ## Example Usage
 //

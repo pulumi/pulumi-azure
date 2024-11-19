@@ -638,7 +638,7 @@ index e9013a8f1a..f3f07aa79a 100644
  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g.
  
 diff --git a/website/docs/r/automation_job_schedule.html.markdown b/website/docs/r/automation_job_schedule.html.markdown
-index cf1fbfa577..42f3ef7f89 100644
+index 3eb1e84dd0..e2cfe213d7 100644
 --- a/website/docs/r/automation_job_schedule.html.markdown
 +++ b/website/docs/r/automation_job_schedule.html.markdown
 @@ -14,7 +14,7 @@ Links an Automation Runbook and Schedule.

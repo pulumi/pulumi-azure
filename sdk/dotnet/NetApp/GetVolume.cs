@@ -157,7 +157,11 @@ namespace Pulumi.Azure.NetApp
     {
         public readonly string AccountName;
         /// <summary>
-        /// Volume data protection block
+        /// A data protecion backup policy block
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVolumeDataProtectionBackupPolicyResult> DataProtectionBackupPolicies;
+        /// <summary>
+        /// Volume data protection replication block
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> DataProtectionReplications;
         public readonly string EncryptionKeySource;
@@ -222,6 +226,8 @@ namespace Pulumi.Azure.NetApp
         private GetVolumeResult(
             string accountName,
 
+            ImmutableArray<Outputs.GetVolumeDataProtectionBackupPolicyResult> dataProtectionBackupPolicies,
+
             ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> dataProtectionReplications,
 
             string encryptionKeySource,
@@ -261,6 +267,7 @@ namespace Pulumi.Azure.NetApp
             string zone)
         {
             AccountName = accountName;
+            DataProtectionBackupPolicies = dataProtectionBackupPolicies;
             DataProtectionReplications = dataProtectionReplications;
             EncryptionKeySource = encryptionKeySource;
             Id = id;

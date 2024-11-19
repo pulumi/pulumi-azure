@@ -70,6 +70,8 @@ type LookupAccountResult struct {
 	Identities []GetAccountIdentity `pulumi:"identities"`
 	// The kind of the Cognitive Services Account
 	Kind string `pulumi:"kind"`
+	// Whether local authentication methods is enabled for the Cognitive Account.
+	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
 	// The Azure location where the Cognitive Services Account exists
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
@@ -152,6 +154,11 @@ func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
 // The kind of the Cognitive Services Account
 func (o LookupAccountResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Whether local authentication methods is enabled for the Cognitive Account.
+func (o LookupAccountResultOutput) LocalAuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.LocalAuthEnabled }).(pulumi.BoolOutput)
 }
 
 // The Azure location where the Cognitive Services Account exists

@@ -21,6 +21,8 @@ import com.pulumi.azure.keyvault.inputs.GetKeyPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
 import com.pulumi.azure.keyvault.inputs.GetKeyVaultPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
+import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
+import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModulePlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
 import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs;
@@ -36,6 +38,7 @@ import com.pulumi.azure.keyvault.outputs.GetCertificatesResult;
 import com.pulumi.azure.keyvault.outputs.GetEncryptedValueResult;
 import com.pulumi.azure.keyvault.outputs.GetKeyResult;
 import com.pulumi.azure.keyvault.outputs.GetKeyVaultResult;
+import com.pulumi.azure.keyvault.outputs.GetManagedHardwareSecurityModuleKeyResult;
 import com.pulumi.azure.keyvault.outputs.GetManagedHardwareSecurityModuleResult;
 import com.pulumi.azure.keyvault.outputs.GetManagedHardwareSecurityModuleRoleDefinitionResult;
 import com.pulumi.azure.keyvault.outputs.GetSecretResult;
@@ -1410,6 +1413,194 @@ public final class KeyvaultFunctions {
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", TypeShape.of(GetManagedHardwareSecurityModuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Hardware Security Module Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .build());
+     * 
+     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetManagedHardwareSecurityModuleKeyResult> getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs args) {
+        return getManagedHardwareSecurityModuleKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Hardware Security Module Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .build());
+     * 
+     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetManagedHardwareSecurityModuleKeyResult> getManagedHardwareSecurityModuleKeyPlain(GetManagedHardwareSecurityModuleKeyPlainArgs args) {
+        return getManagedHardwareSecurityModuleKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Hardware Security Module Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .build());
+     * 
+     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetManagedHardwareSecurityModuleKeyResult> getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", TypeShape.of(GetManagedHardwareSecurityModuleKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Hardware Security Module Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .build());
+     * 
+     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetManagedHardwareSecurityModuleKeyResult> getManagedHardwareSecurityModuleKeyPlain(GetManagedHardwareSecurityModuleKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", TypeShape.of(GetManagedHardwareSecurityModuleKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing KeyVault Role Definition.

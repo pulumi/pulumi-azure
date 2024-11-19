@@ -6,6 +6,7 @@ package com.pulumi.azure.netapp;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.netapp.VolumeArgs;
 import com.pulumi.azure.netapp.inputs.VolumeState;
+import com.pulumi.azure.netapp.outputs.VolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionReplication;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionSnapshotPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeExportPolicyRule;
@@ -23,6 +24,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a NetApp Volume.
+ * 
+ * !&gt;**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+ * 
  * ## Import
  * 
  * NetApp Volumes can be imported using the `resource id`, e.g.
@@ -75,6 +80,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> createFromSnapshotResourceId() {
         return Codegen.optional(this.createFromSnapshotResourceId);
+    }
+    /**
+     * A `data_protection_backup_policy` block as defined below.
+     * 
+     */
+    @Export(name="dataProtectionBackupPolicy", refs={VolumeDataProtectionBackupPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ VolumeDataProtectionBackupPolicy> dataProtectionBackupPolicy;
+
+    /**
+     * @return A `data_protection_backup_policy` block as defined below.
+     * 
+     */
+    public Output<Optional<VolumeDataProtectionBackupPolicy>> dataProtectionBackupPolicy() {
+        return Codegen.optional(this.dataProtectionBackupPolicy);
     }
     /**
      * A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -349,14 +368,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="snapshotDirectoryVisible", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> snapshotDirectoryVisible;
+    private Output</* @Nullable */ Boolean> snapshotDirectoryVisible;
 
     /**
      * @return Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
      * 
      */
-    public Output<Boolean> snapshotDirectoryVisible() {
-        return this.snapshotDirectoryVisible;
+    public Output<Optional<Boolean>> snapshotDirectoryVisible() {
+        return Codegen.optional(this.snapshotDirectoryVisible);
     }
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.

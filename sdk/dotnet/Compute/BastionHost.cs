@@ -200,6 +200,12 @@ namespace Pulumi.Azure.Compute
         [Output("virtualNetworkId")]
         public Output<string?> VirtualNetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BastionHost resource with the given unique name, arguments, and options.
@@ -358,6 +364,18 @@ namespace Pulumi.Azure.Compute
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public BastionHostArgs()
         {
         }
@@ -483,6 +501,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public BastionHostState()
         {

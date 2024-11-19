@@ -119,7 +119,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+     * The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
      * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
      * Portal Value | API value
@@ -129,13 +129,14 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
      * .NET 6 (LTS) | v6.0
      * .NET 7 (STS) | v7.0
      * .NET 8 (LTS) | v8.0
+     * .NET 9 (STS) | v9.0
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
      * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
      * Portal Value | API value
@@ -145,6 +146,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
      * .NET 6 (LTS) | v6.0
      * .NET 7 (STS) | v7.0
      * .NET 8 (LTS) | v8.0
+     * .NET 9 (STS) | v9.0
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -472,7 +474,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          * 
          * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -482,6 +484,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
          * .NET 6 (LTS) | v6.0
          * .NET 7 (STS) | v7.0
          * .NET 8 (LTS) | v8.0
+         * .NET 9 (STS) | v9.0
          * 
          * @return builder
          * 
@@ -492,7 +495,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+         * @param dotnetVersion The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          * 
          * &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -502,6 +505,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
          * .NET 6 (LTS) | v6.0
          * .NET 7 (STS) | v7.0
          * .NET 8 (LTS) | v8.0
+         * .NET 9 (STS) | v9.0
          * 
          * @return builder
          * 

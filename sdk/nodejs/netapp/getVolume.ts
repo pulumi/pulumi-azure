@@ -67,7 +67,11 @@ export interface GetVolumeArgs {
 export interface GetVolumeResult {
     readonly accountName: string;
     /**
-     * Volume data protection block
+     * A data protecion backup policy block
+     */
+    readonly dataProtectionBackupPolicies: outputs.netapp.GetVolumeDataProtectionBackupPolicy[];
+    /**
+     * Volume data protection replication block
      */
     readonly dataProtectionReplications: outputs.netapp.GetVolumeDataProtectionReplication[];
     readonly encryptionKeySource: string;

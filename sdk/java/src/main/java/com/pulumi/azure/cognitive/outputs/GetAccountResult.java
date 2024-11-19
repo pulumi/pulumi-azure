@@ -6,6 +6,7 @@ package com.pulumi.azure.cognitive.outputs;
 import com.pulumi.azure.cognitive.outputs.GetAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,11 @@ public final class GetAccountResult {
      * 
      */
     private String kind;
+    /**
+     * @return Whether local authentication methods is enabled for the Cognitive Account.
+     * 
+     */
+    private Boolean localAuthEnabled;
     /**
      * @return The Azure location where the Cognitive Services Account exists
      * 
@@ -97,6 +103,13 @@ public final class GetAccountResult {
         return this.kind;
     }
     /**
+     * @return Whether local authentication methods is enabled for the Cognitive Account.
+     * 
+     */
+    public Boolean localAuthEnabled() {
+        return this.localAuthEnabled;
+    }
+    /**
      * @return The Azure location where the Cognitive Services Account exists
      * 
      */
@@ -158,6 +171,7 @@ public final class GetAccountResult {
         private String id;
         private List<GetAccountIdentity> identities;
         private String kind;
+        private Boolean localAuthEnabled;
         private String location;
         private String name;
         private String primaryAccessKey;
@@ -173,6 +187,7 @@ public final class GetAccountResult {
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.kind = defaults.kind;
+    	      this.localAuthEnabled = defaults.localAuthEnabled;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
@@ -216,6 +231,14 @@ public final class GetAccountResult {
               throw new MissingRequiredPropertyException("GetAccountResult", "kind");
             }
             this.kind = kind;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder localAuthEnabled(Boolean localAuthEnabled) {
+            if (localAuthEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "localAuthEnabled");
+            }
+            this.localAuthEnabled = localAuthEnabled;
             return this;
         }
         @CustomType.Setter
@@ -286,6 +309,7 @@ public final class GetAccountResult {
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.kind = kind;
+            _resultValue.localAuthEnabled = localAuthEnabled;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.primaryAccessKey = primaryAccessKey;

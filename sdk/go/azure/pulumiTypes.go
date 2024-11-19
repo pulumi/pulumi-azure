@@ -22,6 +22,7 @@ type ProviderFeatures struct {
 	LogAnalyticsWorkspace    *ProviderFeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning          *ProviderFeaturesMachineLearning          `pulumi:"machineLearning"`
 	ManagedDisk              *ProviderFeaturesManagedDisk              `pulumi:"managedDisk"`
+	Netapp                   *ProviderFeaturesNetapp                   `pulumi:"netapp"`
 	PostgresqlFlexibleServer *ProviderFeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService          *ProviderFeaturesRecoveryService          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   *ProviderFeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
@@ -53,6 +54,7 @@ type ProviderFeaturesArgs struct {
 	LogAnalyticsWorkspace    ProviderFeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning          ProviderFeaturesMachineLearningPtrInput          `pulumi:"machineLearning"`
 	ManagedDisk              ProviderFeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
+	Netapp                   ProviderFeaturesNetappPtrInput                   `pulumi:"netapp"`
 	PostgresqlFlexibleServer ProviderFeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
 	RecoveryService          ProviderFeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	RecoveryServicesVaults   ProviderFeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
@@ -171,6 +173,10 @@ func (o ProviderFeaturesOutput) MachineLearning() ProviderFeaturesMachineLearnin
 
 func (o ProviderFeaturesOutput) ManagedDisk() ProviderFeaturesManagedDiskPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesManagedDisk { return v.ManagedDisk }).(ProviderFeaturesManagedDiskPtrOutput)
+}
+
+func (o ProviderFeaturesOutput) Netapp() ProviderFeaturesNetappPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesNetapp { return v.Netapp }).(ProviderFeaturesNetappPtrOutput)
 }
 
 func (o ProviderFeaturesOutput) PostgresqlFlexibleServer() ProviderFeaturesPostgresqlFlexibleServerPtrOutput {
@@ -303,6 +309,15 @@ func (o ProviderFeaturesPtrOutput) ManagedDisk() ProviderFeaturesManagedDiskPtrO
 		}
 		return v.ManagedDisk
 	}).(ProviderFeaturesManagedDiskPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) Netapp() ProviderFeaturesNetappPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesNetapp {
+		if v == nil {
+			return nil
+		}
+		return v.Netapp
+	}).(ProviderFeaturesNetappPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) PostgresqlFlexibleServer() ProviderFeaturesPostgresqlFlexibleServerPtrOutput {
@@ -1674,6 +1689,162 @@ func (o ProviderFeaturesManagedDiskPtrOutput) ExpandWithoutDowntime() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ProviderFeaturesNetapp struct {
+	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+	DeleteBackupsOnBackupVaultDestroy *bool `pulumi:"deleteBackupsOnBackupVaultDestroy"`
+	// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+	PreventVolumeDestruction *bool `pulumi:"preventVolumeDestruction"`
+}
+
+// ProviderFeaturesNetappInput is an input type that accepts ProviderFeaturesNetappArgs and ProviderFeaturesNetappOutput values.
+// You can construct a concrete instance of `ProviderFeaturesNetappInput` via:
+//
+//	ProviderFeaturesNetappArgs{...}
+type ProviderFeaturesNetappInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesNetappOutput() ProviderFeaturesNetappOutput
+	ToProviderFeaturesNetappOutputWithContext(context.Context) ProviderFeaturesNetappOutput
+}
+
+type ProviderFeaturesNetappArgs struct {
+	// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+	DeleteBackupsOnBackupVaultDestroy pulumi.BoolPtrInput `pulumi:"deleteBackupsOnBackupVaultDestroy"`
+	// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+	PreventVolumeDestruction pulumi.BoolPtrInput `pulumi:"preventVolumeDestruction"`
+}
+
+func (ProviderFeaturesNetappArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesNetapp)(nil)).Elem()
+}
+
+func (i ProviderFeaturesNetappArgs) ToProviderFeaturesNetappOutput() ProviderFeaturesNetappOutput {
+	return i.ToProviderFeaturesNetappOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesNetappArgs) ToProviderFeaturesNetappOutputWithContext(ctx context.Context) ProviderFeaturesNetappOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesNetappOutput)
+}
+
+func (i ProviderFeaturesNetappArgs) ToProviderFeaturesNetappPtrOutput() ProviderFeaturesNetappPtrOutput {
+	return i.ToProviderFeaturesNetappPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesNetappArgs) ToProviderFeaturesNetappPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetappPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesNetappOutput).ToProviderFeaturesNetappPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesNetappPtrInput is an input type that accepts ProviderFeaturesNetappArgs, ProviderFeaturesNetappPtr and ProviderFeaturesNetappPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesNetappPtrInput` via:
+//
+//	        ProviderFeaturesNetappArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderFeaturesNetappPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesNetappPtrOutput() ProviderFeaturesNetappPtrOutput
+	ToProviderFeaturesNetappPtrOutputWithContext(context.Context) ProviderFeaturesNetappPtrOutput
+}
+
+type providerFeaturesNetappPtrType ProviderFeaturesNetappArgs
+
+func ProviderFeaturesNetappPtr(v *ProviderFeaturesNetappArgs) ProviderFeaturesNetappPtrInput {
+	return (*providerFeaturesNetappPtrType)(v)
+}
+
+func (*providerFeaturesNetappPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesNetapp)(nil)).Elem()
+}
+
+func (i *providerFeaturesNetappPtrType) ToProviderFeaturesNetappPtrOutput() ProviderFeaturesNetappPtrOutput {
+	return i.ToProviderFeaturesNetappPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesNetappPtrType) ToProviderFeaturesNetappPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetappPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesNetappPtrOutput)
+}
+
+type ProviderFeaturesNetappOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesNetappOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesNetapp)(nil)).Elem()
+}
+
+func (o ProviderFeaturesNetappOutput) ToProviderFeaturesNetappOutput() ProviderFeaturesNetappOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetappOutput) ToProviderFeaturesNetappOutputWithContext(ctx context.Context) ProviderFeaturesNetappOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetappOutput) ToProviderFeaturesNetappPtrOutput() ProviderFeaturesNetappPtrOutput {
+	return o.ToProviderFeaturesNetappPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesNetappOutput) ToProviderFeaturesNetappPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetappPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesNetapp) *ProviderFeaturesNetapp {
+		return &v
+	}).(ProviderFeaturesNetappPtrOutput)
+}
+
+// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+func (o ProviderFeaturesNetappOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesNetapp) *bool { return v.DeleteBackupsOnBackupVaultDestroy }).(pulumi.BoolPtrOutput)
+}
+
+// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+func (o ProviderFeaturesNetappOutput) PreventVolumeDestruction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesNetapp) *bool { return v.PreventVolumeDestruction }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesNetappPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesNetappPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesNetapp)(nil)).Elem()
+}
+
+func (o ProviderFeaturesNetappPtrOutput) ToProviderFeaturesNetappPtrOutput() ProviderFeaturesNetappPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetappPtrOutput) ToProviderFeaturesNetappPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetappPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetappPtrOutput) Elem() ProviderFeaturesNetappOutput {
+	return o.ApplyT(func(v *ProviderFeaturesNetapp) ProviderFeaturesNetapp {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesNetapp
+		return ret
+	}).(ProviderFeaturesNetappOutput)
+}
+
+// When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+func (o ProviderFeaturesNetappPtrOutput) DeleteBackupsOnBackupVaultDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesNetapp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteBackupsOnBackupVaultDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+func (o ProviderFeaturesNetappPtrOutput) PreventVolumeDestruction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesNetapp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreventVolumeDestruction
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesPostgresqlFlexibleServer struct {
 	RestartServerOnConfigurationValueChange *bool `pulumi:"restartServerOnConfigurationValueChange"`
 }
@@ -2997,6 +3168,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesMachineLearningPtrInput)(nil)).Elem(), ProviderFeaturesMachineLearningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesManagedDiskInput)(nil)).Elem(), ProviderFeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesManagedDiskPtrInput)(nil)).Elem(), ProviderFeaturesManagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesNetappInput)(nil)).Elem(), ProviderFeaturesNetappArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesNetappPtrInput)(nil)).Elem(), ProviderFeaturesNetappArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPostgresqlFlexibleServerInput)(nil)).Elem(), ProviderFeaturesPostgresqlFlexibleServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPostgresqlFlexibleServerPtrInput)(nil)).Elem(), ProviderFeaturesPostgresqlFlexibleServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesRecoveryServiceInput)(nil)).Elem(), ProviderFeaturesRecoveryServiceArgs{})
@@ -3033,6 +3206,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesMachineLearningPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesManagedDiskOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesManagedDiskPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesNetappOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesNetappPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPostgresqlFlexibleServerOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPostgresqlFlexibleServerPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesRecoveryServiceOutput{})

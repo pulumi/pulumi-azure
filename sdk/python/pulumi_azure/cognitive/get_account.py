@@ -27,7 +27,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, id=None, identities=None, kind=None, location=None, name=None, primary_access_key=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
+    def __init__(__self__, endpoint=None, id=None, identities=None, kind=None, local_auth_enabled=None, location=None, name=None, primary_access_key=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -40,6 +40,9 @@ class GetAccountResult:
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if local_auth_enabled and not isinstance(local_auth_enabled, bool):
+            raise TypeError("Expected argument 'local_auth_enabled' to be a bool")
+        pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -96,6 +99,14 @@ class GetAccountResult:
         The kind of the Cognitive Services Account
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> bool:
+        """
+        Whether local authentication methods is enabled for the Cognitive Account.
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter
@@ -166,6 +177,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             identities=self.identities,
             kind=self.kind,
+            local_auth_enabled=self.local_auth_enabled,
             location=self.location,
             name=self.name,
             primary_access_key=self.primary_access_key,
@@ -211,6 +223,7 @@ def get_account(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
         kind=pulumi.get(__ret__, 'kind'),
+        local_auth_enabled=pulumi.get(__ret__, 'local_auth_enabled'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
@@ -253,6 +266,7 @@ def get_account_output(name: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
         kind=pulumi.get(__response__, 'kind'),
+        local_auth_enabled=pulumi.get(__response__, 'local_auth_enabled'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         primary_access_key=pulumi.get(__response__, 'primary_access_key'),

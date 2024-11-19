@@ -14,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -367,6 +368,20 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> virtualNetworkId() {
         return Codegen.optional(this.virtualNetworkId);
+    }
+    /**
+     * Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> zones;
+
+    /**
+     * @return Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<List<String>>> zones() {
+        return Codegen.optional(this.zones);
     }
 
     /**

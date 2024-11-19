@@ -22,6 +22,7 @@ __all__ = [
     'SnapshotPolicyHourlySchedule',
     'SnapshotPolicyMonthlySchedule',
     'SnapshotPolicyWeeklySchedule',
+    'VolumeDataProtectionBackupPolicy',
     'VolumeDataProtectionReplication',
     'VolumeDataProtectionSnapshotPolicy',
     'VolumeExportPolicyRule',
@@ -34,6 +35,7 @@ __all__ = [
     'GetSnapshotPolicyHourlyScheduleResult',
     'GetSnapshotPolicyMonthlyScheduleResult',
     'GetSnapshotPolicyWeeklyScheduleResult',
+    'GetVolumeDataProtectionBackupPolicyResult',
     'GetVolumeDataProtectionReplicationResult',
     'GetVolumeGroupSapHanaVolumeResult',
     'GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult',
@@ -560,6 +562,72 @@ class SnapshotPolicyWeeklySchedule(dict):
         How many hourly snapshots to keep, valid range is from 0 to 255.
         """
         return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class VolumeDataProtectionBackupPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupPolicyId":
+            suggest = "backup_policy_id"
+        elif key == "backupVaultId":
+            suggest = "backup_vault_id"
+        elif key == "policyEnabled":
+            suggest = "policy_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeDataProtectionBackupPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeDataProtectionBackupPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeDataProtectionBackupPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_policy_id: str,
+                 backup_vault_id: str,
+                 policy_enabled: Optional[bool] = None):
+        """
+        :param str backup_policy_id: Resource ID of the backup policy to apply to the volume.
+        :param str backup_vault_id: Resource ID of the backup backup vault to associate this volume to.
+        :param bool policy_enabled: Enables the backup policy on the volume, defaults to `true`.
+               
+               For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+        """
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "backup_vault_id", backup_vault_id)
+        if policy_enabled is not None:
+            pulumi.set(__self__, "policy_enabled", policy_enabled)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> str:
+        """
+        Resource ID of the backup policy to apply to the volume.
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @property
+    @pulumi.getter(name="backupVaultId")
+    def backup_vault_id(self) -> str:
+        """
+        Resource ID of the backup backup vault to associate this volume to.
+        """
+        return pulumi.get(self, "backup_vault_id")
+
+    @property
+    @pulumi.getter(name="policyEnabled")
+    def policy_enabled(self) -> Optional[bool]:
+        """
+        Enables the backup policy on the volume, defaults to `true`.
+
+        For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+        """
+        return pulumi.get(self, "policy_enabled")
 
 
 @pulumi.output_type
@@ -1551,6 +1619,46 @@ class GetSnapshotPolicyWeeklyScheduleResult(dict):
         How many hourly snapshots to keep.
         """
         return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class GetVolumeDataProtectionBackupPolicyResult(dict):
+    def __init__(__self__, *,
+                 backup_policy_id: str,
+                 backup_vault_id: str,
+                 policy_enabled: bool):
+        """
+        :param str backup_policy_id: The Resource ID of the backup policy.
+        :param str backup_vault_id: The Resource ID of the backup backup vault.
+        :param bool policy_enabled: Backup policy is enabled or not.
+        """
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "backup_vault_id", backup_vault_id)
+        pulumi.set(__self__, "policy_enabled", policy_enabled)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> str:
+        """
+        The Resource ID of the backup policy.
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @property
+    @pulumi.getter(name="backupVaultId")
+    def backup_vault_id(self) -> str:
+        """
+        The Resource ID of the backup backup vault.
+        """
+        return pulumi.get(self, "backup_vault_id")
+
+    @property
+    @pulumi.getter(name="policyEnabled")
+    def policy_enabled(self) -> bool:
+        """
+        Backup policy is enabled or not.
+        """
+        return pulumi.get(self, "policy_enabled")
 
 
 @pulumi.output_type

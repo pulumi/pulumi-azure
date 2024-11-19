@@ -51,24 +51,18 @@ func LookupAccountEncryption(ctx *pulumi.Context, args *LookupAccountEncryptionA
 
 // A collection of arguments for invoking getAccountEncryption.
 type LookupAccountEncryptionArgs struct {
-	// The key vault encryption key.
-	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The ID of the NetApp account where customer managed keys-based encryption is enabled.
 	NetappAccountId string `pulumi:"netappAccountId"`
-	// The ID of the System Assigned Manged Identity.
-	SystemAssignedIdentityPrincipalId *string `pulumi:"systemAssignedIdentityPrincipalId"`
-	// The ID of the User Assigned Managed Identity.
-	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // A collection of values returned by getAccountEncryption.
 type LookupAccountEncryptionResult struct {
-	EncryptionKey *string `pulumi:"encryptionKey"`
+	EncryptionKey string `pulumi:"encryptionKey"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                string  `pulumi:"id"`
-	NetappAccountId                   string  `pulumi:"netappAccountId"`
-	SystemAssignedIdentityPrincipalId *string `pulumi:"systemAssignedIdentityPrincipalId"`
-	UserAssignedIdentityId            *string `pulumi:"userAssignedIdentityId"`
+	Id                                string `pulumi:"id"`
+	NetappAccountId                   string `pulumi:"netappAccountId"`
+	SystemAssignedIdentityPrincipalId string `pulumi:"systemAssignedIdentityPrincipalId"`
+	UserAssignedIdentityId            string `pulumi:"userAssignedIdentityId"`
 }
 
 func LookupAccountEncryptionOutput(ctx *pulumi.Context, args LookupAccountEncryptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccountEncryptionResultOutput {
@@ -92,14 +86,8 @@ func LookupAccountEncryptionOutput(ctx *pulumi.Context, args LookupAccountEncryp
 
 // A collection of arguments for invoking getAccountEncryption.
 type LookupAccountEncryptionOutputArgs struct {
-	// The key vault encryption key.
-	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
 	// The ID of the NetApp account where customer managed keys-based encryption is enabled.
 	NetappAccountId pulumi.StringInput `pulumi:"netappAccountId"`
-	// The ID of the System Assigned Manged Identity.
-	SystemAssignedIdentityPrincipalId pulumi.StringPtrInput `pulumi:"systemAssignedIdentityPrincipalId"`
-	// The ID of the User Assigned Managed Identity.
-	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (LookupAccountEncryptionOutputArgs) ElementType() reflect.Type {
@@ -121,8 +109,8 @@ func (o LookupAccountEncryptionResultOutput) ToLookupAccountEncryptionResultOutp
 	return o
 }
 
-func (o LookupAccountEncryptionResultOutput) EncryptionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAccountEncryptionResult) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+func (o LookupAccountEncryptionResultOutput) EncryptionKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.EncryptionKey }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -134,12 +122,12 @@ func (o LookupAccountEncryptionResultOutput) NetappAccountId() pulumi.StringOutp
 	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.NetappAccountId }).(pulumi.StringOutput)
 }
 
-func (o LookupAccountEncryptionResultOutput) SystemAssignedIdentityPrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAccountEncryptionResult) *string { return v.SystemAssignedIdentityPrincipalId }).(pulumi.StringPtrOutput)
+func (o LookupAccountEncryptionResultOutput) SystemAssignedIdentityPrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.SystemAssignedIdentityPrincipalId }).(pulumi.StringOutput)
 }
 
-func (o LookupAccountEncryptionResultOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAccountEncryptionResult) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+func (o LookupAccountEncryptionResultOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 func init() {

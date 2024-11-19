@@ -14,6 +14,7 @@ export interface ProviderFeatures {
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
     machineLearning?: pulumi.Input<inputs.ProviderFeaturesMachineLearning>;
     managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk>;
+    netapp?: pulumi.Input<inputs.ProviderFeaturesNetapp>;
     postgresqlFlexibleServer?: pulumi.Input<inputs.ProviderFeaturesPostgresqlFlexibleServer>;
     recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService>;
     recoveryServicesVaults?: pulumi.Input<inputs.ProviderFeaturesRecoveryServicesVaults>;
@@ -100,6 +101,17 @@ export interface ProviderFeaturesMachineLearning {
 
 export interface ProviderFeaturesManagedDisk {
     expandWithoutDowntime?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesNetapp {
+    /**
+     * When enabled, backups will be deleted when the `azure.netapp.BackupVault` resource is destroyed
+     */
+    deleteBackupsOnBackupVaultDestroy?: pulumi.Input<boolean>;
+    /**
+     * When enabled, the volume will not be destroyed, safeguarding from severe data loss
+     */
+    preventVolumeDestruction?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesPostgresqlFlexibleServer {
@@ -5431,7 +5443,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -6435,7 +6447,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -7547,7 +7559,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: pulumi.Input<string>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -8702,7 +8714,7 @@ export namespace appservice {
          */
         dockerRegistryUsername?: pulumi.Input<string>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0`, `8.0` and `9.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -10555,7 +10567,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -11518,7 +11530,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -12620,7 +12632,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          *
          * > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -12630,6 +12642,7 @@ export namespace appservice {
          * .NET 6 (LTS) | v6.0
          * .NET 7 (STS) | v7.0
          * .NET 8 (LTS) | v8.0
+         * .NET 9 (STS) | v9.0
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -13864,7 +13877,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -40276,8 +40289,9 @@ export namespace mssql {
     }
 
     export interface DatabaseLongTermRetentionPolicy {
+        immutableBackupsEnabled?: pulumi.Input<boolean>;
         /**
-         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
         monthlyRetention?: pulumi.Input<string>;
         /**
@@ -40285,11 +40299,11 @@ export namespace mssql {
          */
         weekOfYear?: pulumi.Input<number>;
         /**
-         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
         weeklyRetention?: pulumi.Input<string>;
         /**
-         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
         yearlyRetention?: pulumi.Input<string>;
     }
@@ -40400,8 +40414,9 @@ export namespace mssql {
     }
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
+        immutableBackupsEnabled?: pulumi.Input<boolean>;
         /**
-         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
         monthlyRetention?: pulumi.Input<string>;
         /**
@@ -40409,11 +40424,11 @@ export namespace mssql {
          */
         weekOfYear?: pulumi.Input<number>;
         /**
-         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
         weeklyRetention?: pulumi.Input<string>;
         /**
-         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
         yearlyRetention?: pulumi.Input<string>;
     }
@@ -41121,6 +41136,23 @@ export namespace netapp {
         snapshotsToKeep: pulumi.Input<number>;
     }
 
+    export interface VolumeDataProtectionBackupPolicy {
+        /**
+         * Resource ID of the backup policy to apply to the volume.
+         */
+        backupPolicyId: pulumi.Input<string>;
+        /**
+         * Resource ID of the backup backup vault to associate this volume to.
+         */
+        backupVaultId: pulumi.Input<string>;
+        /**
+         * Enables the backup policy on the volume, defaults to `true`.
+         *
+         * For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+         */
+        policyEnabled?: pulumi.Input<boolean>;
+    }
+
     export interface VolumeDataProtectionReplication {
         /**
          * The endpoint type, default value is `dst` for destination.
@@ -41477,7 +41509,7 @@ export namespace network {
          */
         id?: pulumi.Input<string>;
         /**
-         * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         * Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
          */
         statusCode: pulumi.Input<string>;
     }
@@ -41637,7 +41669,7 @@ export namespace network {
          */
         id?: pulumi.Input<string>;
         /**
-         * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         * Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
          */
         statusCode: pulumi.Input<string>;
     }

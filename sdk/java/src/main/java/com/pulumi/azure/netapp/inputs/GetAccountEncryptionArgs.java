@@ -8,28 +8,11 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetAccountEncryptionArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountEncryptionArgs Empty = new GetAccountEncryptionArgs();
-
-    /**
-     * The key vault encryption key.
-     * 
-     */
-    @Import(name="encryptionKey")
-    private @Nullable Output<String> encryptionKey;
-
-    /**
-     * @return The key vault encryption key.
-     * 
-     */
-    public Optional<Output<String>> encryptionKey() {
-        return Optional.ofNullable(this.encryptionKey);
-    }
 
     /**
      * The ID of the NetApp account where customer managed keys-based encryption is enabled.
@@ -46,43 +29,10 @@ public final class GetAccountEncryptionArgs extends com.pulumi.resources.InvokeA
         return this.netappAccountId;
     }
 
-    /**
-     * The ID of the System Assigned Manged Identity.
-     * 
-     */
-    @Import(name="systemAssignedIdentityPrincipalId")
-    private @Nullable Output<String> systemAssignedIdentityPrincipalId;
-
-    /**
-     * @return The ID of the System Assigned Manged Identity.
-     * 
-     */
-    public Optional<Output<String>> systemAssignedIdentityPrincipalId() {
-        return Optional.ofNullable(this.systemAssignedIdentityPrincipalId);
-    }
-
-    /**
-     * The ID of the User Assigned Managed Identity.
-     * 
-     */
-    @Import(name="userAssignedIdentityId")
-    private @Nullable Output<String> userAssignedIdentityId;
-
-    /**
-     * @return The ID of the User Assigned Managed Identity.
-     * 
-     */
-    public Optional<Output<String>> userAssignedIdentityId() {
-        return Optional.ofNullable(this.userAssignedIdentityId);
-    }
-
     private GetAccountEncryptionArgs() {}
 
     private GetAccountEncryptionArgs(GetAccountEncryptionArgs $) {
-        this.encryptionKey = $.encryptionKey;
         this.netappAccountId = $.netappAccountId;
-        this.systemAssignedIdentityPrincipalId = $.systemAssignedIdentityPrincipalId;
-        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -104,27 +54,6 @@ public final class GetAccountEncryptionArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param encryptionKey The key vault encryption key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder encryptionKey(@Nullable Output<String> encryptionKey) {
-            $.encryptionKey = encryptionKey;
-            return this;
-        }
-
-        /**
-         * @param encryptionKey The key vault encryption key.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder encryptionKey(String encryptionKey) {
-            return encryptionKey(Output.of(encryptionKey));
-        }
-
-        /**
          * @param netappAccountId The ID of the NetApp account where customer managed keys-based encryption is enabled.
          * 
          * @return builder
@@ -143,48 +72,6 @@ public final class GetAccountEncryptionArgs extends com.pulumi.resources.InvokeA
          */
         public Builder netappAccountId(String netappAccountId) {
             return netappAccountId(Output.of(netappAccountId));
-        }
-
-        /**
-         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder systemAssignedIdentityPrincipalId(@Nullable Output<String> systemAssignedIdentityPrincipalId) {
-            $.systemAssignedIdentityPrincipalId = systemAssignedIdentityPrincipalId;
-            return this;
-        }
-
-        /**
-         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder systemAssignedIdentityPrincipalId(String systemAssignedIdentityPrincipalId) {
-            return systemAssignedIdentityPrincipalId(Output.of(systemAssignedIdentityPrincipalId));
-        }
-
-        /**
-         * @param userAssignedIdentityId The ID of the User Assigned Managed Identity.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
-            $.userAssignedIdentityId = userAssignedIdentityId;
-            return this;
-        }
-
-        /**
-         * @param userAssignedIdentityId The ID of the User Assigned Managed Identity.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
-            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public GetAccountEncryptionArgs build() {

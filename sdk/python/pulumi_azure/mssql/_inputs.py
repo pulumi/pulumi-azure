@@ -287,9 +287,10 @@ class DatabaseImportArgs:
 
 if not MYPY:
     class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
+        immutable_backups_enabled: NotRequired[pulumi.Input[bool]]
         monthly_retention: NotRequired[pulumi.Input[str]]
         """
-        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         week_of_year: NotRequired[pulumi.Input[int]]
         """
@@ -297,11 +298,11 @@ if not MYPY:
         """
         weekly_retention: NotRequired[pulumi.Input[str]]
         """
-        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         yearly_retention: NotRequired[pulumi.Input[str]]
         """
-        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
 elif False:
     DatabaseLongTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -309,16 +310,19 @@ elif False:
 @pulumi.input_type
 class DatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
+                 immutable_backups_enabled: Optional[pulumi.Input[bool]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
                  weekly_retention: Optional[pulumi.Input[str]] = None,
                  yearly_retention: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
-        :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
-        :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+        :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
+        if immutable_backups_enabled is not None:
+            pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -329,10 +333,19 @@ class DatabaseLongTermRetentionPolicyArgs:
             pulumi.set(__self__, "yearly_retention", yearly_retention)
 
     @property
+    @pulumi.getter(name="immutableBackupsEnabled")
+    def immutable_backups_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "immutable_backups_enabled")
+
+    @immutable_backups_enabled.setter
+    def immutable_backups_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "immutable_backups_enabled", value)
+
+    @property
     @pulumi.getter(name="monthlyRetention")
     def monthly_retention(self) -> Optional[pulumi.Input[str]]:
         """
-        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "monthly_retention")
 
@@ -356,7 +369,7 @@ class DatabaseLongTermRetentionPolicyArgs:
     @pulumi.getter(name="weeklyRetention")
     def weekly_retention(self) -> Optional[pulumi.Input[str]]:
         """
-        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "weekly_retention")
 
@@ -368,7 +381,7 @@ class DatabaseLongTermRetentionPolicyArgs:
     @pulumi.getter(name="yearlyRetention")
     def yearly_retention(self) -> Optional[pulumi.Input[str]]:
         """
-        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "yearly_retention")
 
@@ -874,9 +887,10 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
 if not MYPY:
     class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
+        immutable_backups_enabled: NotRequired[pulumi.Input[bool]]
         monthly_retention: NotRequired[pulumi.Input[str]]
         """
-        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         week_of_year: NotRequired[pulumi.Input[int]]
         """
@@ -884,11 +898,11 @@ if not MYPY:
         """
         weekly_retention: NotRequired[pulumi.Input[str]]
         """
-        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         yearly_retention: NotRequired[pulumi.Input[str]]
         """
-        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
 elif False:
     ManagedDatabaseLongTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -896,16 +910,19 @@ elif False:
 @pulumi.input_type
 class ManagedDatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
+                 immutable_backups_enabled: Optional[pulumi.Input[bool]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
                  weekly_retention: Optional[pulumi.Input[str]] = None,
                  yearly_retention: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
-        :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
-        :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+        :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
+        if immutable_backups_enabled is not None:
+            pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -916,10 +933,19 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
             pulumi.set(__self__, "yearly_retention", yearly_retention)
 
     @property
+    @pulumi.getter(name="immutableBackupsEnabled")
+    def immutable_backups_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "immutable_backups_enabled")
+
+    @immutable_backups_enabled.setter
+    def immutable_backups_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "immutable_backups_enabled", value)
+
+    @property
     @pulumi.getter(name="monthlyRetention")
     def monthly_retention(self) -> Optional[pulumi.Input[str]]:
         """
-        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "monthly_retention")
 
@@ -943,7 +969,7 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
     @pulumi.getter(name="weeklyRetention")
     def weekly_retention(self) -> Optional[pulumi.Input[str]]:
         """
-        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "weekly_retention")
 
@@ -955,7 +981,7 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
     @pulumi.getter(name="yearlyRetention")
     def yearly_retention(self) -> Optional[pulumi.Input[str]]:
         """
-        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "yearly_retention")
 

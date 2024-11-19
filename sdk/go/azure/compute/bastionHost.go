@@ -148,6 +148,8 @@ type BastionHost struct {
 	TunnelingEnabled pulumi.BoolPtrOutput `pulumi:"tunnelingEnabled"`
 	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrOutput `pulumi:"virtualNetworkId"`
+	// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
@@ -231,6 +233,8 @@ type bastionHostState struct {
 	TunnelingEnabled *bool `pulumi:"tunnelingEnabled"`
 	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 type BastionHostState struct {
@@ -282,6 +286,8 @@ type BastionHostState struct {
 	TunnelingEnabled pulumi.BoolPtrInput
 	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput
+	// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+	Zones pulumi.StringArrayInput
 }
 
 func (BastionHostState) ElementType() reflect.Type {
@@ -335,6 +341,8 @@ type bastionHostArgs struct {
 	TunnelingEnabled *bool `pulumi:"tunnelingEnabled"`
 	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a BastionHost resource.
@@ -385,6 +393,8 @@ type BastionHostArgs struct {
 	TunnelingEnabled pulumi.BoolPtrInput
 	// The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput
+	// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+	Zones pulumi.StringArrayInput
 }
 
 func (BastionHostArgs) ElementType() reflect.Type {
@@ -568,6 +578,11 @@ func (o BastionHostOutput) TunnelingEnabled() pulumi.BoolPtrOutput {
 // The ID of the Virtual Network for the Developer Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostOutput) VirtualNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of Availability Zones in which this Public Bastion Host should be located. Changing this forces a new resource to be created.
+func (o BastionHostOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 type BastionHostArrayOutput struct{ *pulumi.OutputState }

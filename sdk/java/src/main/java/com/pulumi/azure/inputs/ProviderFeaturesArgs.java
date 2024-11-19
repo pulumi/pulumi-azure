@@ -11,6 +11,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesMachineLearningArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesNetappArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesPostgresqlFlexibleServerArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServiceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServicesVaultsArgs;
@@ -87,6 +88,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.managedDisk);
     }
 
+    @Import(name="netapp")
+    private @Nullable Output<ProviderFeaturesNetappArgs> netapp;
+
+    public Optional<Output<ProviderFeaturesNetappArgs>> netapp() {
+        return Optional.ofNullable(this.netapp);
+    }
+
     @Import(name="postgresqlFlexibleServer")
     private @Nullable Output<ProviderFeaturesPostgresqlFlexibleServerArgs> postgresqlFlexibleServer;
 
@@ -161,6 +169,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
         this.machineLearning = $.machineLearning;
         this.managedDisk = $.managedDisk;
+        this.netapp = $.netapp;
         this.postgresqlFlexibleServer = $.postgresqlFlexibleServer;
         this.recoveryService = $.recoveryService;
         this.recoveryServicesVaults = $.recoveryServicesVaults;
@@ -260,6 +269,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder managedDisk(ProviderFeaturesManagedDiskArgs managedDisk) {
             return managedDisk(Output.of(managedDisk));
+        }
+
+        public Builder netapp(@Nullable Output<ProviderFeaturesNetappArgs> netapp) {
+            $.netapp = netapp;
+            return this;
+        }
+
+        public Builder netapp(ProviderFeaturesNetappArgs netapp) {
+            return netapp(Output.of(netapp));
         }
 
         public Builder postgresqlFlexibleServer(@Nullable Output<ProviderFeaturesPostgresqlFlexibleServerArgs> postgresqlFlexibleServer) {

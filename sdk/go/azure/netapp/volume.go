@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a NetApp Volume.
+//
+// !>**IMPORTANT:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+//
 // ## Import
 //
 // NetApp Volumes can be imported using the `resource id`, e.g.
@@ -28,6 +32,8 @@ type Volume struct {
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrOutput `pulumi:"createFromSnapshotResourceId"`
+	// A `dataProtectionBackupPolicy` block as defined below.
+	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrOutput `pulumi:"dataProtectionBackupPolicy"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
@@ -68,7 +74,7 @@ type Volume struct {
 	// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
 	SmbNonBrowsableEnabled pulumi.BoolPtrOutput `pulumi:"smbNonBrowsableEnabled"`
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
-	SnapshotDirectoryVisible pulumi.BoolOutput `pulumi:"snapshotDirectoryVisible"`
+	SnapshotDirectoryVisible pulumi.BoolPtrOutput `pulumi:"snapshotDirectoryVisible"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
 	StorageQuotaInGb pulumi.IntOutput `pulumi:"storageQuotaInGb"`
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -142,6 +148,8 @@ type volumeState struct {
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
+	// A `dataProtectionBackupPolicy` block as defined below.
+	DataProtectionBackupPolicy *VolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicy"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
@@ -206,6 +214,8 @@ type VolumeState struct {
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
+	// A `dataProtectionBackupPolicy` block as defined below.
+	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrInput
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
@@ -274,6 +284,8 @@ type volumeArgs struct {
 	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
+	// A `dataProtectionBackupPolicy` block as defined below.
+	DataProtectionBackupPolicy *VolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicy"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
@@ -337,6 +349,8 @@ type VolumeArgs struct {
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
+	// A `dataProtectionBackupPolicy` block as defined below.
+	DataProtectionBackupPolicy VolumeDataProtectionBackupPolicyPtrInput
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
@@ -494,6 +508,11 @@ func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringPtrOutput)
 }
 
+// A `dataProtectionBackupPolicy` block as defined below.
+func (o VolumeOutput) DataProtectionBackupPolicy() VolumeDataProtectionBackupPolicyPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeDataProtectionBackupPolicyPtrOutput { return v.DataProtectionBackupPolicy }).(VolumeDataProtectionBackupPolicyPtrOutput)
+}
+
 // A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 func (o VolumeOutput) DataProtectionReplication() VolumeDataProtectionReplicationPtrOutput {
 	return o.ApplyT(func(v *Volume) VolumeDataProtectionReplicationPtrOutput { return v.DataProtectionReplication }).(VolumeDataProtectionReplicationPtrOutput)
@@ -591,8 +610,8 @@ func (o VolumeOutput) SmbNonBrowsableEnabled() pulumi.BoolPtrOutput {
 }
 
 // Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
-func (o VolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Volume) pulumi.BoolOutput { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
+func (o VolumeOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
 }
 
 // The maximum Storage Quota allowed for a file system in Gigabytes.

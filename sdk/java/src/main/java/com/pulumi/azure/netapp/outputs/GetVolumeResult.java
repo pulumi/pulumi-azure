@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.netapp.outputs;
 
+import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionReplication;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,7 +19,12 @@ import javax.annotation.Nullable;
 public final class GetVolumeResult {
     private String accountName;
     /**
-     * @return Volume data protection block
+     * @return A data protecion backup policy block
+     * 
+     */
+    private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
+    /**
+     * @return Volume data protection replication block
      * 
      */
     private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
@@ -98,7 +104,14 @@ public final class GetVolumeResult {
         return this.accountName;
     }
     /**
-     * @return Volume data protection block
+     * @return A data protecion backup policy block
+     * 
+     */
+    public List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies() {
+        return this.dataProtectionBackupPolicies;
+    }
+    /**
+     * @return Volume data protection replication block
      * 
      */
     public List<GetVolumeDataProtectionReplication> dataProtectionReplications() {
@@ -221,6 +234,7 @@ public final class GetVolumeResult {
     @CustomType.Builder
     public static final class Builder {
         private String accountName;
+        private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
         private String encryptionKeySource;
         private String id;
@@ -244,6 +258,7 @@ public final class GetVolumeResult {
         public Builder(GetVolumeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
+    	      this.dataProtectionBackupPolicies = defaults.dataProtectionBackupPolicies;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
     	      this.encryptionKeySource = defaults.encryptionKeySource;
     	      this.id = defaults.id;
@@ -272,6 +287,17 @@ public final class GetVolumeResult {
             }
             this.accountName = accountName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dataProtectionBackupPolicies(List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies) {
+            if (dataProtectionBackupPolicies == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "dataProtectionBackupPolicies");
+            }
+            this.dataProtectionBackupPolicies = dataProtectionBackupPolicies;
+            return this;
+        }
+        public Builder dataProtectionBackupPolicies(GetVolumeDataProtectionBackupPolicy... dataProtectionBackupPolicies) {
+            return dataProtectionBackupPolicies(List.of(dataProtectionBackupPolicies));
         }
         @CustomType.Setter
         public Builder dataProtectionReplications(List<GetVolumeDataProtectionReplication> dataProtectionReplications) {
@@ -435,6 +461,7 @@ public final class GetVolumeResult {
         public GetVolumeResult build() {
             final var _resultValue = new GetVolumeResult();
             _resultValue.accountName = accountName;
+            _resultValue.dataProtectionBackupPolicies = dataProtectionBackupPolicies;
             _resultValue.dataProtectionReplications = dataProtectionReplications;
             _resultValue.encryptionKeySource = encryptionKeySource;
             _resultValue.id = id;

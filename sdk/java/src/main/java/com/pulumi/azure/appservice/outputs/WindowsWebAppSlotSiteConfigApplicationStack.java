@@ -47,7 +47,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dotnetCoreVersion;
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
      */
     private @Nullable String dotnetVersion;
@@ -152,7 +152,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dotnetCoreVersion);
     }
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
      */
     public Optional<String> dotnetVersion() {

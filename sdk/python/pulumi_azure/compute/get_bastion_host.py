@@ -27,7 +27,7 @@ class GetBastionHostResult:
     """
     A collection of values returned by getBastionHost.
     """
-    def __init__(__self__, copy_paste_enabled=None, dns_name=None, file_copy_enabled=None, id=None, ip_configurations=None, ip_connect_enabled=None, location=None, name=None, resource_group_name=None, scale_units=None, session_recording_enabled=None, shareable_link_enabled=None, sku=None, tags=None, tunneling_enabled=None):
+    def __init__(__self__, copy_paste_enabled=None, dns_name=None, file_copy_enabled=None, id=None, ip_configurations=None, ip_connect_enabled=None, location=None, name=None, resource_group_name=None, scale_units=None, session_recording_enabled=None, shareable_link_enabled=None, sku=None, tags=None, tunneling_enabled=None, zones=None):
         if copy_paste_enabled and not isinstance(copy_paste_enabled, bool):
             raise TypeError("Expected argument 'copy_paste_enabled' to be a bool")
         pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
@@ -73,6 +73,9 @@ class GetBastionHostResult:
         if tunneling_enabled and not isinstance(tunneling_enabled, bool):
             raise TypeError("Expected argument 'tunneling_enabled' to be a bool")
         pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="copyPasteEnabled")
@@ -191,6 +194,14 @@ class GetBastionHostResult:
         """
         return pulumi.get(self, "tunneling_enabled")
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Sequence[str]:
+        """
+        A list of Availability Zones in which this Bastion Host is located.
+        """
+        return pulumi.get(self, "zones")
+
 
 class AwaitableGetBastionHostResult(GetBastionHostResult):
     # pylint: disable=using-constant-test
@@ -212,7 +223,8 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             shareable_link_enabled=self.shareable_link_enabled,
             sku=self.sku,
             tags=self.tags,
-            tunneling_enabled=self.tunneling_enabled)
+            tunneling_enabled=self.tunneling_enabled,
+            zones=self.zones)
 
 
 def get_bastion_host(name: Optional[str] = None,
@@ -257,7 +269,8 @@ def get_bastion_host(name: Optional[str] = None,
         shareable_link_enabled=pulumi.get(__ret__, 'shareable_link_enabled'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
-        tunneling_enabled=pulumi.get(__ret__, 'tunneling_enabled'))
+        tunneling_enabled=pulumi.get(__ret__, 'tunneling_enabled'),
+        zones=pulumi.get(__ret__, 'zones'))
 def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
@@ -299,4 +312,5 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
         shareable_link_enabled=pulumi.get(__response__, 'shareable_link_enabled'),
         sku=pulumi.get(__response__, 'sku'),
         tags=pulumi.get(__response__, 'tags'),
-        tunneling_enabled=pulumi.get(__response__, 'tunneling_enabled')))
+        tunneling_enabled=pulumi.get(__response__, 'tunneling_enabled'),
+        zones=pulumi.get(__response__, 'zones')))

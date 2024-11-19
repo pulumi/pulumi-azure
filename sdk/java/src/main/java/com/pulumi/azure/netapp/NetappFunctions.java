@@ -8,6 +8,10 @@ import com.pulumi.azure.netapp.inputs.GetAccountArgs;
 import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
 import com.pulumi.azure.netapp.inputs.GetAccountEncryptionPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetAccountPlainArgs;
+import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
+import com.pulumi.azure.netapp.inputs.GetBackupPolicyPlainArgs;
+import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
+import com.pulumi.azure.netapp.inputs.GetBackupVaultPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetPoolArgs;
 import com.pulumi.azure.netapp.inputs.GetPoolPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
@@ -22,6 +26,8 @@ import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRulePlainArgs;
 import com.pulumi.azure.netapp.outputs.GetAccountEncryptionResult;
 import com.pulumi.azure.netapp.outputs.GetAccountResult;
+import com.pulumi.azure.netapp.outputs.GetBackupPolicyResult;
+import com.pulumi.azure.netapp.outputs.GetBackupVaultResult;
 import com.pulumi.azure.netapp.outputs.GetPoolResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotResult;
@@ -382,6 +388,366 @@ public final class NetappFunctions {
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getAccountEncryption:getAccountEncryption", TypeShape.of(GetAccountEncryptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupPolicy(GetBackupPolicyArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backuppolicy")
+     *             .build());
+     * 
+     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args) {
+        return getBackupPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupPolicy(GetBackupPolicyArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backuppolicy")
+     *             .build());
+     * 
+     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBackupPolicyResult> getBackupPolicyPlain(GetBackupPolicyPlainArgs args) {
+        return getBackupPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupPolicy(GetBackupPolicyArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backuppolicy")
+     *             .build());
+     * 
+     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getBackupPolicy:getBackupPolicy", TypeShape.of(GetBackupPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupPolicy(GetBackupPolicyArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backuppolicy")
+     *             .build());
+     * 
+     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBackupPolicyResult> getBackupPolicyPlain(GetBackupPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:netapp/getBackupPolicy:getBackupPolicy", TypeShape.of(GetBackupPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Vault Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backupvault")
+     *             .build());
+     * 
+     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args) {
+        return getBackupVault(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Vault Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backupvault")
+     *             .build());
+     * 
+     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args) {
+        return getBackupVaultPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Vault Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backupvault")
+     *             .build());
+     * 
+     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getBackupVault:getBackupVault", TypeShape.of(GetBackupVaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Vault Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backupvault")
+     *             .build());
+     * 
+     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:netapp/getBackupVault:getBackupVault", TypeShape.of(GetBackupVaultResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an existing NetApp Pool.

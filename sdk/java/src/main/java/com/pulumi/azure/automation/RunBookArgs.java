@@ -90,7 +90,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `job_schedule` block as defined below.
      * 
-     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      * 
      */
     @Import(name="jobSchedules")
@@ -99,7 +99,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return One or more `job_schedule` block as defined below.
      * 
-     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
      * 
      */
     public Optional<Output<List<RunBookJobScheduleArgs>>> jobSchedules() {
@@ -369,7 +369,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobSchedules One or more `job_schedule` block as defined below.
          * 
-         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobSchedules One or more `job_schedule` block as defined below.
          * 
-         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobSchedules One or more `job_schedule` block as defined below.
          * 
-         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
          * 
          * @return builder
          * 

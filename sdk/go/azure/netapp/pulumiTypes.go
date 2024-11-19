@@ -1310,6 +1310,189 @@ func (o SnapshotPolicyWeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type VolumeDataProtectionBackupPolicy struct {
+	// Resource ID of the backup policy to apply to the volume.
+	BackupPolicyId string `pulumi:"backupPolicyId"`
+	// Resource ID of the backup backup vault to associate this volume to.
+	BackupVaultId string `pulumi:"backupVaultId"`
+	// Enables the backup policy on the volume, defaults to `true`.
+	//
+	// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+	PolicyEnabled *bool `pulumi:"policyEnabled"`
+}
+
+// VolumeDataProtectionBackupPolicyInput is an input type that accepts VolumeDataProtectionBackupPolicyArgs and VolumeDataProtectionBackupPolicyOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionBackupPolicyInput` via:
+//
+//	VolumeDataProtectionBackupPolicyArgs{...}
+type VolumeDataProtectionBackupPolicyInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionBackupPolicyOutput() VolumeDataProtectionBackupPolicyOutput
+	ToVolumeDataProtectionBackupPolicyOutputWithContext(context.Context) VolumeDataProtectionBackupPolicyOutput
+}
+
+type VolumeDataProtectionBackupPolicyArgs struct {
+	// Resource ID of the backup policy to apply to the volume.
+	BackupPolicyId pulumi.StringInput `pulumi:"backupPolicyId"`
+	// Resource ID of the backup backup vault to associate this volume to.
+	BackupVaultId pulumi.StringInput `pulumi:"backupVaultId"`
+	// Enables the backup policy on the volume, defaults to `true`.
+	//
+	// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+	PolicyEnabled pulumi.BoolPtrInput `pulumi:"policyEnabled"`
+}
+
+func (VolumeDataProtectionBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (i VolumeDataProtectionBackupPolicyArgs) ToVolumeDataProtectionBackupPolicyOutput() VolumeDataProtectionBackupPolicyOutput {
+	return i.ToVolumeDataProtectionBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionBackupPolicyArgs) ToVolumeDataProtectionBackupPolicyOutputWithContext(ctx context.Context) VolumeDataProtectionBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionBackupPolicyOutput)
+}
+
+func (i VolumeDataProtectionBackupPolicyArgs) ToVolumeDataProtectionBackupPolicyPtrOutput() VolumeDataProtectionBackupPolicyPtrOutput {
+	return i.ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeDataProtectionBackupPolicyArgs) ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionBackupPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionBackupPolicyOutput).ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(ctx)
+}
+
+// VolumeDataProtectionBackupPolicyPtrInput is an input type that accepts VolumeDataProtectionBackupPolicyArgs, VolumeDataProtectionBackupPolicyPtr and VolumeDataProtectionBackupPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumeDataProtectionBackupPolicyPtrInput` via:
+//
+//	        VolumeDataProtectionBackupPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeDataProtectionBackupPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVolumeDataProtectionBackupPolicyPtrOutput() VolumeDataProtectionBackupPolicyPtrOutput
+	ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(context.Context) VolumeDataProtectionBackupPolicyPtrOutput
+}
+
+type volumeDataProtectionBackupPolicyPtrType VolumeDataProtectionBackupPolicyArgs
+
+func VolumeDataProtectionBackupPolicyPtr(v *VolumeDataProtectionBackupPolicyArgs) VolumeDataProtectionBackupPolicyPtrInput {
+	return (*volumeDataProtectionBackupPolicyPtrType)(v)
+}
+
+func (*volumeDataProtectionBackupPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (i *volumeDataProtectionBackupPolicyPtrType) ToVolumeDataProtectionBackupPolicyPtrOutput() VolumeDataProtectionBackupPolicyPtrOutput {
+	return i.ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeDataProtectionBackupPolicyPtrType) ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionBackupPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionBackupPolicyPtrOutput)
+}
+
+type VolumeDataProtectionBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionBackupPolicyOutput) ToVolumeDataProtectionBackupPolicyOutput() VolumeDataProtectionBackupPolicyOutput {
+	return o
+}
+
+func (o VolumeDataProtectionBackupPolicyOutput) ToVolumeDataProtectionBackupPolicyOutputWithContext(ctx context.Context) VolumeDataProtectionBackupPolicyOutput {
+	return o
+}
+
+func (o VolumeDataProtectionBackupPolicyOutput) ToVolumeDataProtectionBackupPolicyPtrOutput() VolumeDataProtectionBackupPolicyPtrOutput {
+	return o.ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeDataProtectionBackupPolicyOutput) ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionBackupPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeDataProtectionBackupPolicy) *VolumeDataProtectionBackupPolicy {
+		return &v
+	}).(VolumeDataProtectionBackupPolicyPtrOutput)
+}
+
+// Resource ID of the backup policy to apply to the volume.
+func (o VolumeDataProtectionBackupPolicyOutput) BackupPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeDataProtectionBackupPolicy) string { return v.BackupPolicyId }).(pulumi.StringOutput)
+}
+
+// Resource ID of the backup backup vault to associate this volume to.
+func (o VolumeDataProtectionBackupPolicyOutput) BackupVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeDataProtectionBackupPolicy) string { return v.BackupVaultId }).(pulumi.StringOutput)
+}
+
+// Enables the backup policy on the volume, defaults to `true`.
+//
+// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+func (o VolumeDataProtectionBackupPolicyOutput) PolicyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeDataProtectionBackupPolicy) *bool { return v.PolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type VolumeDataProtectionBackupPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeDataProtectionBackupPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (o VolumeDataProtectionBackupPolicyPtrOutput) ToVolumeDataProtectionBackupPolicyPtrOutput() VolumeDataProtectionBackupPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionBackupPolicyPtrOutput) ToVolumeDataProtectionBackupPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionBackupPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeDataProtectionBackupPolicyPtrOutput) Elem() VolumeDataProtectionBackupPolicyOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionBackupPolicy) VolumeDataProtectionBackupPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeDataProtectionBackupPolicy
+		return ret
+	}).(VolumeDataProtectionBackupPolicyOutput)
+}
+
+// Resource ID of the backup policy to apply to the volume.
+func (o VolumeDataProtectionBackupPolicyPtrOutput) BackupPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionBackupPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackupPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the backup backup vault to associate this volume to.
+func (o VolumeDataProtectionBackupPolicyPtrOutput) BackupVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionBackupPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackupVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables the backup policy on the volume, defaults to `true`.
+//
+// For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+func (o VolumeDataProtectionBackupPolicyPtrOutput) PolicyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeDataProtectionBackupPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type VolumeDataProtectionReplication struct {
 	// The endpoint type, default value is `dst` for destination.
 	EndpointType *string `pulumi:"endpointType"`
@@ -3248,6 +3431,121 @@ func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetSnapshotPolicyWeeklyScheduleOutput)
 }
 
+type GetVolumeDataProtectionBackupPolicy struct {
+	// The Resource ID of the backup policy.
+	BackupPolicyId string `pulumi:"backupPolicyId"`
+	// The Resource ID of the backup backup vault.
+	BackupVaultId string `pulumi:"backupVaultId"`
+	// Backup policy is enabled or not.
+	PolicyEnabled bool `pulumi:"policyEnabled"`
+}
+
+// GetVolumeDataProtectionBackupPolicyInput is an input type that accepts GetVolumeDataProtectionBackupPolicyArgs and GetVolumeDataProtectionBackupPolicyOutput values.
+// You can construct a concrete instance of `GetVolumeDataProtectionBackupPolicyInput` via:
+//
+//	GetVolumeDataProtectionBackupPolicyArgs{...}
+type GetVolumeDataProtectionBackupPolicyInput interface {
+	pulumi.Input
+
+	ToGetVolumeDataProtectionBackupPolicyOutput() GetVolumeDataProtectionBackupPolicyOutput
+	ToGetVolumeDataProtectionBackupPolicyOutputWithContext(context.Context) GetVolumeDataProtectionBackupPolicyOutput
+}
+
+type GetVolumeDataProtectionBackupPolicyArgs struct {
+	// The Resource ID of the backup policy.
+	BackupPolicyId pulumi.StringInput `pulumi:"backupPolicyId"`
+	// The Resource ID of the backup backup vault.
+	BackupVaultId pulumi.StringInput `pulumi:"backupVaultId"`
+	// Backup policy is enabled or not.
+	PolicyEnabled pulumi.BoolInput `pulumi:"policyEnabled"`
+}
+
+func (GetVolumeDataProtectionBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (i GetVolumeDataProtectionBackupPolicyArgs) ToGetVolumeDataProtectionBackupPolicyOutput() GetVolumeDataProtectionBackupPolicyOutput {
+	return i.ToGetVolumeDataProtectionBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i GetVolumeDataProtectionBackupPolicyArgs) ToGetVolumeDataProtectionBackupPolicyOutputWithContext(ctx context.Context) GetVolumeDataProtectionBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionBackupPolicyOutput)
+}
+
+// GetVolumeDataProtectionBackupPolicyArrayInput is an input type that accepts GetVolumeDataProtectionBackupPolicyArray and GetVolumeDataProtectionBackupPolicyArrayOutput values.
+// You can construct a concrete instance of `GetVolumeDataProtectionBackupPolicyArrayInput` via:
+//
+//	GetVolumeDataProtectionBackupPolicyArray{ GetVolumeDataProtectionBackupPolicyArgs{...} }
+type GetVolumeDataProtectionBackupPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeDataProtectionBackupPolicyArrayOutput() GetVolumeDataProtectionBackupPolicyArrayOutput
+	ToGetVolumeDataProtectionBackupPolicyArrayOutputWithContext(context.Context) GetVolumeDataProtectionBackupPolicyArrayOutput
+}
+
+type GetVolumeDataProtectionBackupPolicyArray []GetVolumeDataProtectionBackupPolicyInput
+
+func (GetVolumeDataProtectionBackupPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (i GetVolumeDataProtectionBackupPolicyArray) ToGetVolumeDataProtectionBackupPolicyArrayOutput() GetVolumeDataProtectionBackupPolicyArrayOutput {
+	return i.ToGetVolumeDataProtectionBackupPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeDataProtectionBackupPolicyArray) ToGetVolumeDataProtectionBackupPolicyArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionBackupPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionBackupPolicyArrayOutput)
+}
+
+type GetVolumeDataProtectionBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeDataProtectionBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (o GetVolumeDataProtectionBackupPolicyOutput) ToGetVolumeDataProtectionBackupPolicyOutput() GetVolumeDataProtectionBackupPolicyOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionBackupPolicyOutput) ToGetVolumeDataProtectionBackupPolicyOutputWithContext(ctx context.Context) GetVolumeDataProtectionBackupPolicyOutput {
+	return o
+}
+
+// The Resource ID of the backup policy.
+func (o GetVolumeDataProtectionBackupPolicyOutput) BackupPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionBackupPolicy) string { return v.BackupPolicyId }).(pulumi.StringOutput)
+}
+
+// The Resource ID of the backup backup vault.
+func (o GetVolumeDataProtectionBackupPolicyOutput) BackupVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionBackupPolicy) string { return v.BackupVaultId }).(pulumi.StringOutput)
+}
+
+// Backup policy is enabled or not.
+func (o GetVolumeDataProtectionBackupPolicyOutput) PolicyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionBackupPolicy) bool { return v.PolicyEnabled }).(pulumi.BoolOutput)
+}
+
+type GetVolumeDataProtectionBackupPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeDataProtectionBackupPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeDataProtectionBackupPolicy)(nil)).Elem()
+}
+
+func (o GetVolumeDataProtectionBackupPolicyArrayOutput) ToGetVolumeDataProtectionBackupPolicyArrayOutput() GetVolumeDataProtectionBackupPolicyArrayOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionBackupPolicyArrayOutput) ToGetVolumeDataProtectionBackupPolicyArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionBackupPolicyArrayOutput {
+	return o
+}
+
+func (o GetVolumeDataProtectionBackupPolicyArrayOutput) Index(i pulumi.IntInput) GetVolumeDataProtectionBackupPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeDataProtectionBackupPolicy {
+		return vs[0].([]GetVolumeDataProtectionBackupPolicy)[vs[1].(int)]
+	}).(GetVolumeDataProtectionBackupPolicyOutput)
+}
+
 type GetVolumeDataProtectionReplication struct {
 	// The endpoint type.
 	EndpointType string `pulumi:"endpointType"`
@@ -4013,6 +4311,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyMonthlySchedulePtrInput)(nil)).Elem(), SnapshotPolicyMonthlyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklySchedulePtrInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionBackupPolicyInput)(nil)).Elem(), VolumeDataProtectionBackupPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionBackupPolicyPtrInput)(nil)).Elem(), VolumeDataProtectionBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationPtrInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), VolumeDataProtectionSnapshotPolicyArgs{})
@@ -4037,6 +4337,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyMonthlyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyMonthlyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionBackupPolicyInput)(nil)).Elem(), GetVolumeDataProtectionBackupPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionBackupPolicyArrayInput)(nil)).Elem(), GetVolumeDataProtectionBackupPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeArgs{})
@@ -4059,6 +4361,8 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotPolicyMonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklySchedulePtrOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionBackupPolicyOutput{})
+	pulumi.RegisterOutputType(VolumeDataProtectionBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionSnapshotPolicyOutput{})
@@ -4083,6 +4387,8 @@ func init() {
 	pulumi.RegisterOutputType(GetSnapshotPolicyMonthlyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeDataProtectionBackupPolicyOutput{})
+	pulumi.RegisterOutputType(GetVolumeDataProtectionBackupPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeOutput{})

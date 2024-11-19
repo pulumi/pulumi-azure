@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a NetApp Volume.
+ *
+ * !>**IMPORTANT:** This resource uses a feature to prevent deletion called `preventVolumeDestruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+ *
  * ## Import
  *
  * NetApp Volumes can be imported using the `resource id`, e.g.
@@ -55,6 +59,10 @@ export class Volume extends pulumi.CustomResource {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
     public readonly createFromSnapshotResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * A `dataProtectionBackupPolicy` block as defined below.
+     */
+    public readonly dataProtectionBackupPolicy!: pulumi.Output<outputs.netapp.VolumeDataProtectionBackupPolicy | undefined>;
     /**
      * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */
@@ -135,7 +143,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
      */
-    public readonly snapshotDirectoryVisible!: pulumi.Output<boolean>;
+    public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
@@ -179,6 +187,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["accountName"] = state ? state.accountName : undefined;
             resourceInputs["azureVmwareDataStoreEnabled"] = state ? state.azureVmwareDataStoreEnabled : undefined;
             resourceInputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
+            resourceInputs["dataProtectionBackupPolicy"] = state ? state.dataProtectionBackupPolicy : undefined;
             resourceInputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
             resourceInputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
             resourceInputs["encryptionKeySource"] = state ? state.encryptionKeySource : undefined;
@@ -231,6 +240,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["azureVmwareDataStoreEnabled"] = args ? args.azureVmwareDataStoreEnabled : undefined;
             resourceInputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
+            resourceInputs["dataProtectionBackupPolicy"] = args ? args.dataProtectionBackupPolicy : undefined;
             resourceInputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
             resourceInputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
             resourceInputs["encryptionKeySource"] = args ? args.encryptionKeySource : undefined;
@@ -279,6 +289,10 @@ export interface VolumeState {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
+    /**
+     * A `dataProtectionBackupPolicy` block as defined below.
+     */
+    dataProtectionBackupPolicy?: pulumi.Input<inputs.netapp.VolumeDataProtectionBackupPolicy>;
     /**
      * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */
@@ -404,6 +418,10 @@ export interface VolumeArgs {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
+    /**
+     * A `dataProtectionBackupPolicy` block as defined below.
+     */
+    dataProtectionBackupPolicy?: pulumi.Input<inputs.netapp.VolumeDataProtectionBackupPolicy>;
     /**
      * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */

@@ -15,6 +15,16 @@ export type AccountEncryption = import("./accountEncryption").AccountEncryption;
 export const AccountEncryption: typeof import("./accountEncryption").AccountEncryption = null as any;
 utilities.lazyLoad(exports, ["AccountEncryption"], () => require("./accountEncryption"));
 
+export { BackupPolicyArgs, BackupPolicyState } from "./backupPolicy";
+export type BackupPolicy = import("./backupPolicy").BackupPolicy;
+export const BackupPolicy: typeof import("./backupPolicy").BackupPolicy = null as any;
+utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
+
+export { BackupVaultArgs, BackupVaultState } from "./backupVault";
+export type BackupVault = import("./backupVault").BackupVault;
+export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
+utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -24,6 +34,16 @@ export { GetAccountEncryptionArgs, GetAccountEncryptionResult, GetAccountEncrypt
 export const getAccountEncryption: typeof import("./getAccountEncryption").getAccountEncryption = null as any;
 export const getAccountEncryptionOutput: typeof import("./getAccountEncryption").getAccountEncryptionOutput = null as any;
 utilities.lazyLoad(exports, ["getAccountEncryption","getAccountEncryptionOutput"], () => require("./getAccountEncryption"));
+
+export { GetBackupPolicyArgs, GetBackupPolicyResult, GetBackupPolicyOutputArgs } from "./getBackupPolicy";
+export const getBackupPolicy: typeof import("./getBackupPolicy").getBackupPolicy = null as any;
+export const getBackupPolicyOutput: typeof import("./getBackupPolicy").getBackupPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupPolicy","getBackupPolicyOutput"], () => require("./getBackupPolicy"));
+
+export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
+export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
+export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -94,6 +114,10 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure:netapp/accountEncryption:AccountEncryption":
                 return new AccountEncryption(name, <any>undefined, { urn })
+            case "azure:netapp/backupPolicy:BackupPolicy":
+                return new BackupPolicy(name, <any>undefined, { urn })
+            case "azure:netapp/backupVault:BackupVault":
+                return new BackupVault(name, <any>undefined, { urn })
             case "azure:netapp/pool:Pool":
                 return new Pool(name, <any>undefined, { urn })
             case "azure:netapp/snapshot:Snapshot":
@@ -113,6 +137,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "netapp/account", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/accountEncryption", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/backupPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/backupVault", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/pool", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)

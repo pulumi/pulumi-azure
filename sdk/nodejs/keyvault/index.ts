@@ -75,6 +75,11 @@ export const getManagedHardwareSecurityModule: typeof import("./getManagedHardwa
 export const getManagedHardwareSecurityModuleOutput: typeof import("./getManagedHardwareSecurityModule").getManagedHardwareSecurityModuleOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedHardwareSecurityModule","getManagedHardwareSecurityModuleOutput"], () => require("./getManagedHardwareSecurityModule"));
 
+export { GetManagedHardwareSecurityModuleKeyArgs, GetManagedHardwareSecurityModuleKeyResult, GetManagedHardwareSecurityModuleKeyOutputArgs } from "./getManagedHardwareSecurityModuleKey";
+export const getManagedHardwareSecurityModuleKey: typeof import("./getManagedHardwareSecurityModuleKey").getManagedHardwareSecurityModuleKey = null as any;
+export const getManagedHardwareSecurityModuleKeyOutput: typeof import("./getManagedHardwareSecurityModuleKey").getManagedHardwareSecurityModuleKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedHardwareSecurityModuleKey","getManagedHardwareSecurityModuleKeyOutput"], () => require("./getManagedHardwareSecurityModuleKey"));
+
 export { GetManagedHardwareSecurityModuleRoleDefinitionArgs, GetManagedHardwareSecurityModuleRoleDefinitionResult, GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs } from "./getManagedHardwareSecurityModuleRoleDefinition";
 export const getManagedHardwareSecurityModuleRoleDefinition: typeof import("./getManagedHardwareSecurityModuleRoleDefinition").getManagedHardwareSecurityModuleRoleDefinition = null as any;
 export const getManagedHardwareSecurityModuleRoleDefinitionOutput: typeof import("./getManagedHardwareSecurityModuleRoleDefinition").getManagedHardwareSecurityModuleRoleDefinitionOutput = null as any;

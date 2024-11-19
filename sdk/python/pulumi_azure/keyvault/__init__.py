@@ -19,6 +19,7 @@ from .get_encrypted_value import *
 from .get_key import *
 from .get_key_vault import *
 from .get_managed_hardware_security_module import *
+from .get_managed_hardware_security_module_key import *
 from .get_managed_hardware_security_module_role_definition import *
 from .get_secret import *
 from .get_secrets import *

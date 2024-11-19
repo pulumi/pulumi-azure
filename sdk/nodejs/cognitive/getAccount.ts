@@ -70,6 +70,10 @@ export interface GetAccountResult {
      */
     readonly kind: string;
     /**
+     * Whether local authentication methods is enabled for the Cognitive Account.
+     */
+    readonly localAuthEnabled: boolean;
+    /**
      * The Azure location where the Cognitive Services Account exists
      */
     readonly location: string;

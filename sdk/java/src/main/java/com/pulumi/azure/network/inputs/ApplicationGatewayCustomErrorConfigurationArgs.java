@@ -47,14 +47,14 @@ public final class ApplicationGatewayCustomErrorConfigurationArgs extends com.pu
     }
 
     /**
-     * Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+     * Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
      * 
      */
     @Import(name="statusCode", required=true)
     private Output<String> statusCode;
 
     /**
-     * @return Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+     * @return Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
      * 
      */
     public Output<String> statusCode() {
@@ -130,7 +130,7 @@ public final class ApplicationGatewayCustomErrorConfigurationArgs extends com.pu
         }
 
         /**
-         * @param statusCode Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         * @param statusCode Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationGatewayCustomErrorConfigurationArgs extends com.pu
         }
 
         /**
-         * @param statusCode Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
+         * @param statusCode Status code of the application gateway customer error. Possible values are `HttpStatus400`, `HttpStatus403`, `HttpStatus404`, `HttpStatus405`, `HttpStatus408`, `HttpStatus500`, `HttpStatus502`, `HttpStatus503` and `HttpStatus504`
          * 
          * @return builder
          * 

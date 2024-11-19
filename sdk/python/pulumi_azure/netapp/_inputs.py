@@ -27,6 +27,8 @@ __all__ = [
     'SnapshotPolicyMonthlyScheduleArgsDict',
     'SnapshotPolicyWeeklyScheduleArgs',
     'SnapshotPolicyWeeklyScheduleArgsDict',
+    'VolumeDataProtectionBackupPolicyArgs',
+    'VolumeDataProtectionBackupPolicyArgsDict',
     'VolumeDataProtectionReplicationArgs',
     'VolumeDataProtectionReplicationArgsDict',
     'VolumeDataProtectionSnapshotPolicyArgs',
@@ -710,6 +712,82 @@ class SnapshotPolicyWeeklyScheduleArgs:
     @snapshots_to_keep.setter
     def snapshots_to_keep(self, value: pulumi.Input[int]):
         pulumi.set(self, "snapshots_to_keep", value)
+
+
+if not MYPY:
+    class VolumeDataProtectionBackupPolicyArgsDict(TypedDict):
+        backup_policy_id: pulumi.Input[str]
+        """
+        Resource ID of the backup policy to apply to the volume.
+        """
+        backup_vault_id: pulumi.Input[str]
+        """
+        Resource ID of the backup backup vault to associate this volume to.
+        """
+        policy_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the backup policy on the volume, defaults to `true`.
+
+        For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+        """
+elif False:
+    VolumeDataProtectionBackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VolumeDataProtectionBackupPolicyArgs:
+    def __init__(__self__, *,
+                 backup_policy_id: pulumi.Input[str],
+                 backup_vault_id: pulumi.Input[str],
+                 policy_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] backup_policy_id: Resource ID of the backup policy to apply to the volume.
+        :param pulumi.Input[str] backup_vault_id: Resource ID of the backup backup vault to associate this volume to.
+        :param pulumi.Input[bool] policy_enabled: Enables the backup policy on the volume, defaults to `true`.
+               
+               For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+        """
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "backup_vault_id", backup_vault_id)
+        if policy_enabled is not None:
+            pulumi.set(__self__, "policy_enabled", policy_enabled)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the backup policy to apply to the volume.
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @backup_policy_id.setter
+    def backup_policy_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_policy_id", value)
+
+    @property
+    @pulumi.getter(name="backupVaultId")
+    def backup_vault_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the backup backup vault to associate this volume to.
+        """
+        return pulumi.get(self, "backup_vault_id")
+
+    @backup_vault_id.setter
+    def backup_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_vault_id", value)
+
+    @property
+    @pulumi.getter(name="policyEnabled")
+    def policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the backup policy on the volume, defaults to `true`.
+
+        For more information on Azure NetApp Files Backup feature please see [Understand Azure NetApp Files backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/backup-introduction)
+        """
+        return pulumi.get(self, "policy_enabled")
+
+    @policy_enabled.setter
+    def policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "policy_enabled", value)
 
 
 if not MYPY:

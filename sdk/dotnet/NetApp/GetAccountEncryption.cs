@@ -72,28 +72,10 @@ namespace Pulumi.Azure.NetApp
     public sealed class GetAccountEncryptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The key vault encryption key.
-        /// </summary>
-        [Input("encryptionKey")]
-        public string? EncryptionKey { get; set; }
-
-        /// <summary>
         /// The ID of the NetApp account where customer managed keys-based encryption is enabled.
         /// </summary>
         [Input("netappAccountId", required: true)]
         public string NetappAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the System Assigned Manged Identity.
-        /// </summary>
-        [Input("systemAssignedIdentityPrincipalId")]
-        public string? SystemAssignedIdentityPrincipalId { get; set; }
-
-        /// <summary>
-        /// The ID of the User Assigned Managed Identity.
-        /// </summary>
-        [Input("userAssignedIdentityId")]
-        public string? UserAssignedIdentityId { get; set; }
 
         public GetAccountEncryptionArgs()
         {
@@ -104,28 +86,10 @@ namespace Pulumi.Azure.NetApp
     public sealed class GetAccountEncryptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The key vault encryption key.
-        /// </summary>
-        [Input("encryptionKey")]
-        public Input<string>? EncryptionKey { get; set; }
-
-        /// <summary>
         /// The ID of the NetApp account where customer managed keys-based encryption is enabled.
         /// </summary>
         [Input("netappAccountId", required: true)]
         public Input<string> NetappAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the System Assigned Manged Identity.
-        /// </summary>
-        [Input("systemAssignedIdentityPrincipalId")]
-        public Input<string>? SystemAssignedIdentityPrincipalId { get; set; }
-
-        /// <summary>
-        /// The ID of the User Assigned Managed Identity.
-        /// </summary>
-        [Input("userAssignedIdentityId")]
-        public Input<string>? UserAssignedIdentityId { get; set; }
 
         public GetAccountEncryptionInvokeArgs()
         {
@@ -137,26 +101,26 @@ namespace Pulumi.Azure.NetApp
     [OutputType]
     public sealed class GetAccountEncryptionResult
     {
-        public readonly string? EncryptionKey;
+        public readonly string EncryptionKey;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string NetappAccountId;
-        public readonly string? SystemAssignedIdentityPrincipalId;
-        public readonly string? UserAssignedIdentityId;
+        public readonly string SystemAssignedIdentityPrincipalId;
+        public readonly string UserAssignedIdentityId;
 
         [OutputConstructor]
         private GetAccountEncryptionResult(
-            string? encryptionKey,
+            string encryptionKey,
 
             string id,
 
             string netappAccountId,
 
-            string? systemAssignedIdentityPrincipalId,
+            string systemAssignedIdentityPrincipalId,
 
-            string? userAssignedIdentityId)
+            string userAssignedIdentityId)
         {
             EncryptionKey = encryptionKey;
             Id = id;

@@ -2472,6 +2472,9 @@
                 "fields": {
                     "ip_configuration": {
                         "maxItemsOne": true
+                    },
+                    "zones": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -14923,6 +14926,14 @@
                 "current": "azure:netapp/accountEncryption:AccountEncryption",
                 "majorVersion": 6
             },
+            "azurerm_netapp_backup_policy": {
+                "current": "azure:netapp/backupPolicy:BackupPolicy",
+                "majorVersion": 6
+            },
+            "azurerm_netapp_backup_vault": {
+                "current": "azure:netapp/backupVault:BackupVault",
+                "majorVersion": 6
+            },
             "azurerm_netapp_pool": {
                 "current": "azure:netapp/pool:Pool",
                 "majorVersion": 6
@@ -14967,6 +14978,9 @@
                 "current": "azure:netapp/volume:Volume",
                 "majorVersion": 6,
                 "fields": {
+                    "data_protection_backup_policy": {
+                        "maxItemsOne": true
+                    },
                     "data_protection_replication": {
                         "maxItemsOne": true
                     },
@@ -24141,6 +24155,9 @@
                 "fields": {
                     "ip_configuration": {
                         "maxItemsOne": false
+                    },
+                    "zones": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -25930,6 +25947,15 @@
                 "majorVersion": 6,
                 "fields": {
                     "admin_object_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_key_vault_managed_hardware_security_module_key": {
+                "current": "azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey",
+                "majorVersion": 6,
+                "fields": {
+                    "key_opts": {
                         "maxItemsOne": false
                     }
                 }
@@ -27841,6 +27867,14 @@
                 "current": "azure:netapp/getAccountEncryption:getAccountEncryption",
                 "majorVersion": 6
             },
+            "azurerm_netapp_backup_policy": {
+                "current": "azure:netapp/getBackupPolicy:getBackupPolicy",
+                "majorVersion": 6
+            },
+            "azurerm_netapp_backup_vault": {
+                "current": "azure:netapp/getBackupVault:getBackupVault",
+                "majorVersion": 6
+            },
             "azurerm_netapp_pool": {
                 "current": "azure:netapp/getPool:getPool",
                 "majorVersion": 6
@@ -27885,6 +27919,9 @@
                 "current": "azure:netapp/getVolume:getVolume",
                 "majorVersion": 6,
                 "fields": {
+                    "data_protection_backup_policy": {
+                        "maxItemsOne": false
+                    },
                     "data_protection_replication": {
                         "maxItemsOne": false
                     },

@@ -19,9 +19,17 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
     public static final ServerState Empty = new ServerState();
 
+    /**
+     * A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="customerManagedKey")
     private @Nullable Output<ServerCustomerManagedKeyArgs> customerManagedKey;
 
+    /**
+     * @return A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<ServerCustomerManagedKeyArgs>> customerManagedKey() {
         return Optional.ofNullable(this.customerManagedKey);
     }
@@ -242,11 +250,23 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
             $ = new ServerState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customerManagedKey A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerManagedKey(@Nullable Output<ServerCustomerManagedKeyArgs> customerManagedKey) {
             $.customerManagedKey = customerManagedKey;
             return this;
         }
 
+        /**
+         * @param customerManagedKey A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerManagedKey(ServerCustomerManagedKeyArgs customerManagedKey) {
             return customerManagedKey(Output.of(customerManagedKey));
         }

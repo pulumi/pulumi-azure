@@ -60,6 +60,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey ServerCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// The Fluid tenantId for this server.
 	FrsTenantId pulumi.StringOutput `pulumi:"frsTenantId"`
@@ -125,6 +126,7 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *ServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The Fluid tenantId for this server.
 	FrsTenantId *string `pulumi:"frsTenantId"`
@@ -153,6 +155,7 @@ type serverState struct {
 }
 
 type ServerState struct {
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey ServerCustomerManagedKeyPtrInput
 	// The Fluid tenantId for this server.
 	FrsTenantId pulumi.StringPtrInput
@@ -185,6 +188,7 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey *ServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// An `identity` block as defined below.
 	Identity *ServerIdentity `pulumi:"identity"`
@@ -202,6 +206,7 @@ type serverArgs struct {
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 	CustomerManagedKey ServerCustomerManagedKeyPtrInput
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrInput
@@ -304,6 +309,7 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
 func (o ServerOutput) CustomerManagedKey() ServerCustomerManagedKeyPtrOutput {
 	return o.ApplyT(func(v *Server) ServerCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(ServerCustomerManagedKeyPtrOutput)
 }

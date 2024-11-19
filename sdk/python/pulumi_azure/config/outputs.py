@@ -25,6 +25,7 @@ __all__ = [
     'FeaturesLogAnalyticsWorkspace',
     'FeaturesMachineLearning',
     'FeaturesManagedDisk',
+    'FeaturesNetapp',
     'FeaturesPostgresqlFlexibleServer',
     'FeaturesRecoveryService',
     'FeaturesRecoveryServicesVaults',
@@ -47,6 +48,7 @@ class Features(dict):
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
                  machine_learning: Optional['outputs.FeaturesMachineLearning'] = None,
                  managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
+                 netapp: Optional['outputs.FeaturesNetapp'] = None,
                  postgresql_flexible_server: Optional['outputs.FeaturesPostgresqlFlexibleServer'] = None,
                  recovery_service: Optional['outputs.FeaturesRecoveryService'] = None,
                  recovery_services_vaults: Optional['outputs.FeaturesRecoveryServicesVaults'] = None,
@@ -72,6 +74,8 @@ class Features(dict):
             pulumi.set(__self__, "machine_learning", machine_learning)
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
+        if netapp is not None:
+            pulumi.set(__self__, "netapp", netapp)
         if postgresql_flexible_server is not None:
             pulumi.set(__self__, "postgresql_flexible_server", postgresql_flexible_server)
         if recovery_service is not None:
@@ -130,6 +134,11 @@ class Features(dict):
     @pulumi.getter(name="managedDisk")
     def managed_disk(self) -> Optional['outputs.FeaturesManagedDisk']:
         return pulumi.get(self, "managed_disk")
+
+    @property
+    @pulumi.getter
+    def netapp(self) -> Optional['outputs.FeaturesNetapp']:
+        return pulumi.get(self, "netapp")
 
     @property
     @pulumi.getter(name="postgresqlFlexibleServer")
@@ -421,6 +430,37 @@ class FeaturesManagedDisk(dict):
     @pulumi.getter(name="expandWithoutDowntime")
     def expand_without_downtime(self) -> Optional[bool]:
         return pulumi.get(self, "expand_without_downtime")
+
+
+@pulumi.output_type
+class FeaturesNetapp(dict):
+    def __init__(__self__, *,
+                 delete_backups_on_backup_vault_destroy: Optional[bool] = None,
+                 prevent_volume_destruction: Optional[bool] = None):
+        """
+        :param bool delete_backups_on_backup_vault_destroy: When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+        :param bool prevent_volume_destruction: When enabled, the volume will not be destroyed, safeguarding from severe data loss
+        """
+        if delete_backups_on_backup_vault_destroy is not None:
+            pulumi.set(__self__, "delete_backups_on_backup_vault_destroy", delete_backups_on_backup_vault_destroy)
+        if prevent_volume_destruction is not None:
+            pulumi.set(__self__, "prevent_volume_destruction", prevent_volume_destruction)
+
+    @property
+    @pulumi.getter(name="deleteBackupsOnBackupVaultDestroy")
+    def delete_backups_on_backup_vault_destroy(self) -> Optional[bool]:
+        """
+        When enabled, backups will be deleted when the `netapp.BackupVault` resource is destroyed
+        """
+        return pulumi.get(self, "delete_backups_on_backup_vault_destroy")
+
+    @property
+    @pulumi.getter(name="preventVolumeDestruction")
+    def prevent_volume_destruction(self) -> Optional[bool]:
+        """
+        When enabled, the volume will not be destroyed, safeguarding from severe data loss
+        """
+        return pulumi.get(self, "prevent_volume_destruction")
 
 
 @pulumi.output_type
