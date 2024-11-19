@@ -166,7 +166,7 @@ def get_medtech_service(name: Optional[str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_medtech_service_output(name: Optional[pulumi.Input[str]] = None,
                                workspace_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMedtechServiceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMedtechServiceResult]:
     """
     Use this data source to access information about an existing Healthcare Med Tech Service
 
@@ -188,7 +188,7 @@ def get_medtech_service_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getMedtechService:getMedtechService', __args__, opts=opts, typ=GetMedtechServiceResult)
     return __ret__.apply(lambda __response__: GetMedtechServiceResult(
         device_mapping_json=pulumi.get(__response__, 'device_mapping_json'),
