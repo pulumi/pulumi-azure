@@ -46,7 +46,7 @@ index b4df3f33be..fc4838204d 100644
  	if model := resp.Model; model != nil {
  		if props := model.Properties; props != nil {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index 164a0ac21d..17aab56f03 100644
+index 0c7c4b4fb2..bedc1f1795 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
 @@ -45,6 +45,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {
@@ -58,7 +58,7 @@ index 164a0ac21d..17aab56f03 100644
  func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
  	schema := map[string]*pluginsdk.Schema{
  		"name": {
-@@ -138,6 +140,16 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
+@@ -135,6 +137,16 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
  			Type:     pluginsdk.TypeBool,
  			Optional: true,
  		},
@@ -74,8 +74,8 @@ index 164a0ac21d..17aab56f03 100644
 +		},
  	}
  
- 	if !features.FourPointOhBeta() {
-@@ -310,6 +322,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
+ 	return schema
+@@ -259,6 +271,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
  	d.Set("name", id.TopicName)
  	d.Set("namespace_id", topics.NewNamespaceID(id.SubscriptionId, id.ResourceGroupName, id.NamespaceName).ID())
  
