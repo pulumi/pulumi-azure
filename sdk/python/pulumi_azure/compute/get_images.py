@@ -112,7 +112,7 @@ def get_images(resource_group_name: Optional[str] = None,
         tags_filter=pulumi.get(__ret__, 'tags_filter'))
 def get_images_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       tags_filter: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagesResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagesResult]:
     """
     Use this data source to access information about existing Images within a Resource Group.
 
@@ -132,7 +132,7 @@ def get_images_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['tagsFilter'] = tags_filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getImages:getImages', __args__, opts=opts, typ=GetImagesResult)
     return __ret__.apply(lambda __response__: GetImagesResult(
         id=pulumi.get(__response__, 'id'),
