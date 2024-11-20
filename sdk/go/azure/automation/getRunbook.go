@@ -5,6 +5,7 @@ package automation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetRunbook(ctx *pulumi.Context, args *GetRunbookArgs, opts ...pulumi.InvokeOption) (*GetRunbookResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRunbookResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRunbookResult{}, errors.New("DependsOn is not supported for direct form invoke GetRunbook, use GetRunbookOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRunbookResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRunbook, use GetRunbookOutput instead")
+	}
 	var rv GetRunbookResult
 	err := ctx.Invoke("azure:automation/getRunbook:getRunbook", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type GetRunbookResult struct {
 }
 
 func GetRunbookOutput(ctx *pulumi.Context, args GetRunbookOutputArgs, opts ...pulumi.InvokeOption) GetRunbookResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRunbookResultOutput, error) {
 			args := v.(GetRunbookArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRunbookResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getRunbook:getRunbook", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getRunbook:getRunbook", args, &rv, "", opts...)
 			if err != nil {
 				return GetRunbookResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRunbookResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRunbookResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRunbookResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRouteTableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRouteTableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRouteTable, use LookupRouteTableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRouteTableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRouteTable, use LookupRouteTableOutput instead")
+	}
 	var rv LookupRouteTableResult
 	err := ctx.Invoke("azure:network/getRouteTable:getRouteTable", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupRouteTableResult struct {
 }
 
 func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupRouteTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRouteTableResultOutput, error) {
 			args := v.(LookupRouteTableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRouteTableResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getRouteTable:getRouteTable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getRouteTable:getRouteTable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRouteTableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRouteTableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRouteTableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRouteTableResultOutput), nil
 			}

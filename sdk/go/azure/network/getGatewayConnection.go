@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*GetGatewayConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetGatewayConnectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetGatewayConnectionResult{}, errors.New("DependsOn is not supported for direct form invoke GetGatewayConnection, use GetGatewayConnectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetGatewayConnectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetGatewayConnection, use GetGatewayConnectionOutput instead")
+	}
 	var rv GetGatewayConnectionResult
 	err := ctx.Invoke("azure:network/getGatewayConnection:getGatewayConnection", args, &rv, opts...)
 	if err != nil {
@@ -124,17 +135,18 @@ type GetGatewayConnectionResult struct {
 }
 
 func GetGatewayConnectionOutput(ctx *pulumi.Context, args GetGatewayConnectionOutputArgs, opts ...pulumi.InvokeOption) GetGatewayConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGatewayConnectionResultOutput, error) {
 			args := v.(GetGatewayConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetGatewayConnectionResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getGatewayConnection:getGatewayConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getGatewayConnection:getGatewayConnection", args, &rv, "", opts...)
 			if err != nil {
 				return GetGatewayConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetGatewayConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetGatewayConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetGatewayConnectionResultOutput), nil
 			}

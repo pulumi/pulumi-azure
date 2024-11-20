@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func LookupVirtualNetworkPeering(ctx *pulumi.Context, args *LookupVirtualNetworkPeeringArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkPeeringResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualNetworkPeeringResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualNetworkPeeringResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualNetworkPeering, use LookupVirtualNetworkPeeringOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualNetworkPeeringResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualNetworkPeering, use LookupVirtualNetworkPeeringOutput instead")
+	}
 	var rv LookupVirtualNetworkPeeringResult
 	err := ctx.Invoke("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type LookupVirtualNetworkPeeringResult struct {
 }
 
 func LookupVirtualNetworkPeeringOutput(ctx *pulumi.Context, args LookupVirtualNetworkPeeringOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkPeeringResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualNetworkPeeringResultOutput, error) {
 			args := v.(LookupVirtualNetworkPeeringArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualNetworkPeeringResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualNetworkPeeringResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualNetworkPeeringResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualNetworkPeeringResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualNetworkPeeringResultOutput), nil
 			}

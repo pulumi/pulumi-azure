@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Encrypts or Decrypts a value using a Key Vault Key.
 func GetEncryptedValue(ctx *pulumi.Context, args *GetEncryptedValueArgs, opts ...pulumi.InvokeOption) (*GetEncryptedValueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEncryptedValueResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEncryptedValueResult{}, errors.New("DependsOn is not supported for direct form invoke GetEncryptedValue, use GetEncryptedValueOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEncryptedValueResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEncryptedValue, use GetEncryptedValueOutput instead")
+	}
 	var rv GetEncryptedValueResult
 	err := ctx.Invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", args, &rv, opts...)
 	if err != nil {
@@ -49,17 +60,18 @@ type GetEncryptedValueResult struct {
 }
 
 func GetEncryptedValueOutput(ctx *pulumi.Context, args GetEncryptedValueOutputArgs, opts ...pulumi.InvokeOption) GetEncryptedValueResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEncryptedValueResultOutput, error) {
 			args := v.(GetEncryptedValueArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEncryptedValueResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getEncryptedValue:getEncryptedValue", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getEncryptedValue:getEncryptedValue", args, &rv, "", opts...)
 			if err != nil {
 				return GetEncryptedValueResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEncryptedValueResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEncryptedValueResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEncryptedValueResultOutput), nil
 			}

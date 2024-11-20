@@ -114,7 +114,7 @@ def get_subscriptions(display_name_contains: Optional[str] = None,
         subscriptions=pulumi.get(__ret__, 'subscriptions'))
 def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Optional[str]]] = None,
                              display_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionsResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionsResult]:
     """
     Use this data source to access information about all the Subscriptions currently available.
 
@@ -136,7 +136,7 @@ def get_subscriptions_output(display_name_contains: Optional[pulumi.Input[Option
     __args__ = dict()
     __args__['displayNameContains'] = display_name_contains
     __args__['displayNamePrefix'] = display_name_prefix
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts, typ=GetSubscriptionsResult)
     return __ret__.apply(lambda __response__: GetSubscriptionsResult(
         display_name_contains=pulumi.get(__response__, 'display_name_contains'),

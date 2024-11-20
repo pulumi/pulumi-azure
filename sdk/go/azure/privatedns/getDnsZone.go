@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetDnsZone(ctx *pulumi.Context, args *GetDnsZoneArgs, opts ...pulumi.InvokeOption) (*GetDnsZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDnsZoneResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDnsZoneResult{}, errors.New("DependsOn is not supported for direct form invoke GetDnsZone, use GetDnsZoneOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDnsZoneResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDnsZone, use GetDnsZoneOutput instead")
+	}
 	var rv GetDnsZoneResult
 	err := ctx.Invoke("azure:privatedns/getDnsZone:getDnsZone", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type GetDnsZoneResult struct {
 }
 
 func GetDnsZoneOutput(ctx *pulumi.Context, args GetDnsZoneOutputArgs, opts ...pulumi.InvokeOption) GetDnsZoneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDnsZoneResultOutput, error) {
 			args := v.(GetDnsZoneArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDnsZoneResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getDnsZone:getDnsZone", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getDnsZone:getDnsZone", args, &rv, "", opts...)
 			if err != nil {
 				return GetDnsZoneResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDnsZoneResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDnsZoneResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDnsZoneResultOutput), nil
 			}

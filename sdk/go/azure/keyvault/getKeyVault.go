@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupKeyVault(ctx *pulumi.Context, args *LookupKeyVaultArgs, opts ...pulumi.InvokeOption) (*LookupKeyVaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupKeyVaultResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupKeyVaultResult{}, errors.New("DependsOn is not supported for direct form invoke LookupKeyVault, use LookupKeyVaultOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupKeyVaultResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupKeyVault, use LookupKeyVaultOutput instead")
+	}
 	var rv LookupKeyVaultResult
 	err := ctx.Invoke("azure:keyvault/getKeyVault:getKeyVault", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupKeyVaultResult struct {
 }
 
 func LookupKeyVaultOutput(ctx *pulumi.Context, args LookupKeyVaultOutputArgs, opts ...pulumi.InvokeOption) LookupKeyVaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKeyVaultResultOutput, error) {
 			args := v.(LookupKeyVaultArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupKeyVaultResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getKeyVault:getKeyVault", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getKeyVault:getKeyVault", args, &rv, "", opts...)
 			if err != nil {
 				return LookupKeyVaultResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupKeyVaultResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupKeyVaultResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupKeyVaultResultOutput), nil
 			}

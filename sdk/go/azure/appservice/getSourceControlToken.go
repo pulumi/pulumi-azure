@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -39,6 +40,16 @@ import (
 // ```
 func LookupSourceControlToken(ctx *pulumi.Context, args *LookupSourceControlTokenArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSourceControlTokenResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSourceControlTokenResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSourceControlToken, use LookupSourceControlTokenOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSourceControlTokenResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSourceControlToken, use LookupSourceControlTokenOutput instead")
+	}
 	var rv LookupSourceControlTokenResult
 	err := ctx.Invoke("azure:appservice/getSourceControlToken:getSourceControlToken", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type LookupSourceControlTokenResult struct {
 }
 
 func LookupSourceControlTokenOutput(ctx *pulumi.Context, args LookupSourceControlTokenOutputArgs, opts ...pulumi.InvokeOption) LookupSourceControlTokenResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSourceControlTokenResultOutput, error) {
 			args := v.(LookupSourceControlTokenArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSourceControlTokenResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getSourceControlToken:getSourceControlToken", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getSourceControlToken:getSourceControlToken", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSourceControlTokenResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSourceControlTokenResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSourceControlTokenResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSourceControlTokenResultOutput), nil
 			}

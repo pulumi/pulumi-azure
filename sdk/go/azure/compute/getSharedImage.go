@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSharedImage(ctx *pulumi.Context, args *LookupSharedImageArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSharedImageResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSharedImageResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSharedImage, use LookupSharedImageOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSharedImageResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSharedImage, use LookupSharedImageOutput instead")
+	}
 	var rv LookupSharedImageResult
 	err := ctx.Invoke("azure:compute/getSharedImage:getSharedImage", args, &rv, opts...)
 	if err != nil {
@@ -106,17 +117,18 @@ type LookupSharedImageResult struct {
 }
 
 func LookupSharedImageOutput(ctx *pulumi.Context, args LookupSharedImageOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSharedImageResultOutput, error) {
 			args := v.(LookupSharedImageArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSharedImageResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getSharedImage:getSharedImage", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getSharedImage:getSharedImage", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSharedImageResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSharedImageResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSharedImageResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSharedImageResultOutput), nil
 			}

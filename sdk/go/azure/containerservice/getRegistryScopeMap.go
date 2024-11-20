@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupRegistryScopeMap(ctx *pulumi.Context, args *LookupRegistryScopeMapArgs, opts ...pulumi.InvokeOption) (*LookupRegistryScopeMapResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRegistryScopeMapResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRegistryScopeMapResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRegistryScopeMap, use LookupRegistryScopeMapOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRegistryScopeMapResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRegistryScopeMap, use LookupRegistryScopeMapOutput instead")
+	}
 	var rv LookupRegistryScopeMapResult
 	err := ctx.Invoke("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupRegistryScopeMapResult struct {
 }
 
 func LookupRegistryScopeMapOutput(ctx *pulumi.Context, args LookupRegistryScopeMapOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryScopeMapResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryScopeMapResultOutput, error) {
 			args := v.(LookupRegistryScopeMapArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryScopeMapResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryScopeMapResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryScopeMapResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryScopeMapResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryScopeMapResultOutput), nil
 			}

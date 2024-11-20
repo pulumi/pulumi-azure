@@ -5,6 +5,7 @@ package netapp
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupVolumeGroupSapHana(ctx *pulumi.Context, args *LookupVolumeGroupSapHanaArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupSapHanaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVolumeGroupSapHanaResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVolumeGroupSapHanaResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVolumeGroupSapHana, use LookupVolumeGroupSapHanaOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVolumeGroupSapHanaResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVolumeGroupSapHana, use LookupVolumeGroupSapHanaOutput instead")
+	}
 	var rv LookupVolumeGroupSapHanaResult
 	err := ctx.Invoke("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type LookupVolumeGroupSapHanaResult struct {
 }
 
 func LookupVolumeGroupSapHanaOutput(ctx *pulumi.Context, args LookupVolumeGroupSapHanaOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeGroupSapHanaResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVolumeGroupSapHanaResultOutput, error) {
 			args := v.(LookupVolumeGroupSapHanaArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVolumeGroupSapHanaResult
-			secret, err := ctx.InvokePackageRaw("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVolumeGroupSapHanaResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVolumeGroupSapHanaResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVolumeGroupSapHanaResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVolumeGroupSapHanaResultOutput), nil
 			}

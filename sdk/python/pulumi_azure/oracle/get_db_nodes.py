@@ -99,7 +99,7 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[str] = None,
         db_nodes=pulumi.get(__ret__, 'db_nodes'),
         id=pulumi.get(__ret__, 'id'))
 def get_db_nodes_output(cloud_vm_cluster_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbNodesResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbNodesResult]:
     """
     Lists the database nodes for the specified Cloud VM Cluster.
 
@@ -118,7 +118,7 @@ def get_db_nodes_output(cloud_vm_cluster_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['cloudVmClusterId'] = cloud_vm_cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getDbNodes:getDbNodes', __args__, opts=opts, typ=GetDbNodesResult)
     return __ret__.apply(lambda __response__: GetDbNodesResult(
         cloud_vm_cluster_id=pulumi.get(__response__, 'cloud_vm_cluster_id'),

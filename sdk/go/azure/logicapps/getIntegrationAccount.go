@@ -5,6 +5,7 @@ package logicapps
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupIntegrationAccount(ctx *pulumi.Context, args *LookupIntegrationAccountArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupIntegrationAccountResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupIntegrationAccountResult{}, errors.New("DependsOn is not supported for direct form invoke LookupIntegrationAccount, use LookupIntegrationAccountOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupIntegrationAccountResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupIntegrationAccount, use LookupIntegrationAccountOutput instead")
+	}
 	var rv LookupIntegrationAccountResult
 	err := ctx.Invoke("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupIntegrationAccountResult struct {
 }
 
 func LookupIntegrationAccountOutput(ctx *pulumi.Context, args LookupIntegrationAccountOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIntegrationAccountResultOutput, error) {
 			args := v.(LookupIntegrationAccountArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIntegrationAccountResult
-			secret, err := ctx.InvokePackageRaw("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIntegrationAccountResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIntegrationAccountResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIntegrationAccountResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIntegrationAccountResultOutput), nil
 			}

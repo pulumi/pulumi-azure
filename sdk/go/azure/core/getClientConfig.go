@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -39,6 +40,16 @@ import (
 // ```
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetClientConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetClientConfigResult{}, errors.New("DependsOn is not supported for direct form invoke GetClientConfig, use GetClientConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetClientConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetClientConfig, use GetClientConfigOutput instead")
+	}
 	var rv GetClientConfigResult
 	err := ctx.Invoke("azure:core/getClientConfig:getClientConfig", nil, &rv, opts...)
 	if err != nil {

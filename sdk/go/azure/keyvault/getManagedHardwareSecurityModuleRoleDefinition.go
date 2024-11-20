@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing KeyVault Role Definition.
 func LookupManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupManagedHardwareSecurityModuleRoleDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupManagedHardwareSecurityModuleRoleDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupManagedHardwareSecurityModuleRoleDefinition, use LookupManagedHardwareSecurityModuleRoleDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupManagedHardwareSecurityModuleRoleDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupManagedHardwareSecurityModuleRoleDefinition, use LookupManagedHardwareSecurityModuleRoleDefinitionOutput instead")
+	}
 	var rv LookupManagedHardwareSecurityModuleRoleDefinitionResult
 	err := ctx.Invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, &rv, opts...)
 	if err != nil {
@@ -50,17 +61,18 @@ type LookupManagedHardwareSecurityModuleRoleDefinitionResult struct {
 }
 
 func LookupManagedHardwareSecurityModuleRoleDefinitionOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput, error) {
 			args := v.(LookupManagedHardwareSecurityModuleRoleDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedHardwareSecurityModuleRoleDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput), nil
 			}

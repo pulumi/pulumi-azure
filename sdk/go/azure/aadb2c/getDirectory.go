@@ -5,6 +5,7 @@ package aadb2c
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDirectoryResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDirectoryResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDirectory, use LookupDirectoryOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDirectoryResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDirectory, use LookupDirectoryOutput instead")
+	}
 	var rv LookupDirectoryResult
 	err := ctx.Invoke("azure:aadb2c/getDirectory:getDirectory", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupDirectoryResult struct {
 }
 
 func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDirectoryResultOutput, error) {
 			args := v.(LookupDirectoryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDirectoryResult
-			secret, err := ctx.InvokePackageRaw("azure:aadb2c/getDirectory:getDirectory", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:aadb2c/getDirectory:getDirectory", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDirectoryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDirectoryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDirectoryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDirectoryResultOutput), nil
 			}

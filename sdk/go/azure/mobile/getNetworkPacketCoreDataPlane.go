@@ -5,6 +5,7 @@ package mobile
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupNetworkPacketCoreDataPlane(ctx *pulumi.Context, args *LookupNetworkPacketCoreDataPlaneArgs, opts ...pulumi.InvokeOption) (*LookupNetworkPacketCoreDataPlaneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkPacketCoreDataPlaneResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkPacketCoreDataPlaneResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkPacketCoreDataPlane, use LookupNetworkPacketCoreDataPlaneOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkPacketCoreDataPlaneResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkPacketCoreDataPlane, use LookupNetworkPacketCoreDataPlaneOutput instead")
+	}
 	var rv LookupNetworkPacketCoreDataPlaneResult
 	err := ctx.Invoke("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type LookupNetworkPacketCoreDataPlaneResult struct {
 }
 
 func LookupNetworkPacketCoreDataPlaneOutput(ctx *pulumi.Context, args LookupNetworkPacketCoreDataPlaneOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkPacketCoreDataPlaneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkPacketCoreDataPlaneResultOutput, error) {
 			args := v.(LookupNetworkPacketCoreDataPlaneArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkPacketCoreDataPlaneResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkPacketCoreDataPlaneResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkPacketCoreDataPlaneResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkPacketCoreDataPlaneResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkPacketCoreDataPlaneResultOutput), nil
 			}

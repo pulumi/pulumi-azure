@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupOrchestratedVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupOrchestratedVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*LookupOrchestratedVirtualMachineScaleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOrchestratedVirtualMachineScaleSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOrchestratedVirtualMachineScaleSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOrchestratedVirtualMachineScaleSet, use LookupOrchestratedVirtualMachineScaleSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOrchestratedVirtualMachineScaleSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOrchestratedVirtualMachineScaleSet, use LookupOrchestratedVirtualMachineScaleSetOutput instead")
+	}
 	var rv LookupOrchestratedVirtualMachineScaleSetResult
 	err := ctx.Invoke("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupOrchestratedVirtualMachineScaleSetResult struct {
 }
 
 func LookupOrchestratedVirtualMachineScaleSetOutput(ctx *pulumi.Context, args LookupOrchestratedVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) LookupOrchestratedVirtualMachineScaleSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOrchestratedVirtualMachineScaleSetResultOutput, error) {
 			args := v.(LookupOrchestratedVirtualMachineScaleSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOrchestratedVirtualMachineScaleSetResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOrchestratedVirtualMachineScaleSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOrchestratedVirtualMachineScaleSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOrchestratedVirtualMachineScaleSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOrchestratedVirtualMachineScaleSetResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupStaticWebApp(ctx *pulumi.Context, args *LookupStaticWebAppArgs, opts ...pulumi.InvokeOption) (*LookupStaticWebAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupStaticWebAppResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupStaticWebAppResult{}, errors.New("DependsOn is not supported for direct form invoke LookupStaticWebApp, use LookupStaticWebAppOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupStaticWebAppResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupStaticWebApp, use LookupStaticWebAppOutput instead")
+	}
 	var rv LookupStaticWebAppResult
 	err := ctx.Invoke("azure:appservice/getStaticWebApp:getStaticWebApp", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupStaticWebAppResult struct {
 }
 
 func LookupStaticWebAppOutput(ctx *pulumi.Context, args LookupStaticWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupStaticWebAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStaticWebAppResultOutput, error) {
 			args := v.(LookupStaticWebAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStaticWebAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getStaticWebApp:getStaticWebApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getStaticWebApp:getStaticWebApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStaticWebAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStaticWebAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStaticWebAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStaticWebAppResultOutput), nil
 			}

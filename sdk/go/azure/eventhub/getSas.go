@@ -5,6 +5,7 @@ package eventhub
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -85,6 +86,16 @@ import (
 // ```
 func GetSas(ctx *pulumi.Context, args *GetSasArgs, opts ...pulumi.InvokeOption) (*GetSasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSasResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSasResult{}, errors.New("DependsOn is not supported for direct form invoke GetSas, use GetSasOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSasResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSas, use GetSasOutput instead")
+	}
 	var rv GetSasResult
 	err := ctx.Invoke("azure:eventhub/getSas:getSas", args, &rv, opts...)
 	if err != nil {
@@ -112,17 +123,18 @@ type GetSasResult struct {
 }
 
 func GetSasOutput(ctx *pulumi.Context, args GetSasOutputArgs, opts ...pulumi.InvokeOption) GetSasResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSasResultOutput, error) {
 			args := v.(GetSasArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSasResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getSas:getSas", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventhub/getSas:getSas", args, &rv, "", opts...)
 			if err != nil {
 				return GetSasResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSasResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSasResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSasResultOutput), nil
 			}

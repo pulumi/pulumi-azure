@@ -5,6 +5,7 @@ package mixedreality
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupSpatialAnchorsAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSpatialAnchorsAccountResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSpatialAnchorsAccountResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSpatialAnchorsAccount, use LookupSpatialAnchorsAccountOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSpatialAnchorsAccountResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSpatialAnchorsAccount, use LookupSpatialAnchorsAccountOutput instead")
+	}
 	var rv LookupSpatialAnchorsAccountResult
 	err := ctx.Invoke("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupSpatialAnchorsAccountResult struct {
 }
 
 func LookupSpatialAnchorsAccountOutput(ctx *pulumi.Context, args LookupSpatialAnchorsAccountOutputArgs, opts ...pulumi.InvokeOption) LookupSpatialAnchorsAccountResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSpatialAnchorsAccountResultOutput, error) {
 			args := v.(LookupSpatialAnchorsAccountArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSpatialAnchorsAccountResult
-			secret, err := ctx.InvokePackageRaw("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSpatialAnchorsAccountResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSpatialAnchorsAccountResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSpatialAnchorsAccountResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSpatialAnchorsAccountResultOutput), nil
 			}

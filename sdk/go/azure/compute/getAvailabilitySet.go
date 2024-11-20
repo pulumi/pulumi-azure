@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilitySetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAvailabilitySetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAvailabilitySetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAvailabilitySet, use LookupAvailabilitySetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAvailabilitySetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAvailabilitySet, use LookupAvailabilitySetOutput instead")
+	}
 	var rv LookupAvailabilitySetResult
 	err := ctx.Invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupAvailabilitySetResult struct {
 }
 
 func LookupAvailabilitySetOutput(ctx *pulumi.Context, args LookupAvailabilitySetOutputArgs, opts ...pulumi.InvokeOption) LookupAvailabilitySetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAvailabilitySetResultOutput, error) {
 			args := v.(LookupAvailabilitySetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAvailabilitySetResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAvailabilitySetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAvailabilitySetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAvailabilitySetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAvailabilitySetResultOutput), nil
 			}

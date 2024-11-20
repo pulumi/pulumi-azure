@@ -5,6 +5,7 @@ package monitoring
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupActionGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupActionGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupActionGroup, use LookupActionGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupActionGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupActionGroup, use LookupActionGroupOutput instead")
+	}
 	var rv LookupActionGroupResult
 	err := ctx.Invoke("azure:monitoring/getActionGroup:getActionGroup", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type LookupActionGroupResult struct {
 }
 
 func LookupActionGroupOutput(ctx *pulumi.Context, args LookupActionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupActionGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupActionGroupResultOutput, error) {
 			args := v.(LookupActionGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupActionGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getActionGroup:getActionGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:monitoring/getActionGroup:getActionGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupActionGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupActionGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupActionGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupActionGroupResultOutput), nil
 			}

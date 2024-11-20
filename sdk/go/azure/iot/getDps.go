@@ -5,6 +5,7 @@ package iot
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetDps(ctx *pulumi.Context, args *GetDpsArgs, opts ...pulumi.InvokeOption) (*GetDpsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDpsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDpsResult{}, errors.New("DependsOn is not supported for direct form invoke GetDps, use GetDpsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDpsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDps, use GetDpsOutput instead")
+	}
 	var rv GetDpsResult
 	err := ctx.Invoke("azure:iot/getDps:getDps", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetDpsResult struct {
 }
 
 func GetDpsOutput(ctx *pulumi.Context, args GetDpsOutputArgs, opts ...pulumi.InvokeOption) GetDpsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDpsResultOutput, error) {
 			args := v.(GetDpsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDpsResult
-			secret, err := ctx.InvokePackageRaw("azure:iot/getDps:getDps", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:iot/getDps:getDps", args, &rv, "", opts...)
 			if err != nil {
 				return GetDpsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDpsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDpsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDpsResultOutput), nil
 			}

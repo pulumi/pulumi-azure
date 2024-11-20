@@ -5,6 +5,7 @@ package waf
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetFirewallPolicy(ctx *pulumi.Context, args *GetFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*GetFirewallPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetFirewallPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetFirewallPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke GetFirewallPolicy, use GetFirewallPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetFirewallPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetFirewallPolicy, use GetFirewallPolicyOutput instead")
+	}
 	var rv GetFirewallPolicyResult
 	err := ctx.Invoke("azure:waf/getFirewallPolicy:getFirewallPolicy", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type GetFirewallPolicyResult struct {
 }
 
 func GetFirewallPolicyOutput(ctx *pulumi.Context, args GetFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) GetFirewallPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFirewallPolicyResultOutput, error) {
 			args := v.(GetFirewallPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetFirewallPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:waf/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:waf/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return GetFirewallPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetFirewallPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetFirewallPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetFirewallPolicyResultOutput), nil
 			}

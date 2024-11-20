@@ -5,6 +5,7 @@ package cdn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupFrontdoorProfile(ctx *pulumi.Context, args *LookupFrontdoorProfileArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFrontdoorProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFrontdoorProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFrontdoorProfile, use LookupFrontdoorProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFrontdoorProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFrontdoorProfile, use LookupFrontdoorProfileOutput instead")
+	}
 	var rv LookupFrontdoorProfileResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupFrontdoorProfileResult struct {
 }
 
 func LookupFrontdoorProfileOutput(ctx *pulumi.Context, args LookupFrontdoorProfileOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorProfileResultOutput, error) {
 			args := v.(LookupFrontdoorProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorProfileResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorProfileResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServiceVersionsArgs, opts ...pulumi.InvokeOption) (*GetKubernetesServiceVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetKubernetesServiceVersionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetKubernetesServiceVersionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetKubernetesServiceVersions, use GetKubernetesServiceVersionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetKubernetesServiceVersionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetKubernetesServiceVersions, use GetKubernetesServiceVersionsOutput instead")
+	}
 	var rv GetKubernetesServiceVersionsResult
 	err := ctx.Invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetKubernetesServiceVersionsResult struct {
 }
 
 func GetKubernetesServiceVersionsOutput(ctx *pulumi.Context, args GetKubernetesServiceVersionsOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesServiceVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetKubernetesServiceVersionsResultOutput, error) {
 			args := v.(GetKubernetesServiceVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetKubernetesServiceVersionsResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetKubernetesServiceVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetKubernetesServiceVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetKubernetesServiceVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetKubernetesServiceVersionsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package cdn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFrontdoorRuleSet(ctx *pulumi.Context, args *LookupFrontdoorRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFrontdoorRuleSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFrontdoorRuleSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFrontdoorRuleSet, use LookupFrontdoorRuleSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFrontdoorRuleSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFrontdoorRuleSet, use LookupFrontdoorRuleSetOutput instead")
+	}
 	var rv LookupFrontdoorRuleSetResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupFrontdoorRuleSetResult struct {
 }
 
 func LookupFrontdoorRuleSetOutput(ctx *pulumi.Context, args LookupFrontdoorRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorRuleSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorRuleSetResultOutput, error) {
 			args := v.(LookupFrontdoorRuleSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorRuleSetResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorRuleSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorRuleSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorRuleSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorRuleSetResultOutput), nil
 			}

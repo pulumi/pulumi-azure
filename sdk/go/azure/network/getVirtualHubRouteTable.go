@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupVirtualHubRouteTable(ctx *pulumi.Context, args *LookupVirtualHubRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualHubRouteTableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualHubRouteTableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualHubRouteTable, use LookupVirtualHubRouteTableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualHubRouteTableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualHubRouteTable, use LookupVirtualHubRouteTableOutput instead")
+	}
 	var rv LookupVirtualHubRouteTableResult
 	err := ctx.Invoke("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupVirtualHubRouteTableResult struct {
 }
 
 func LookupVirtualHubRouteTableOutput(ctx *pulumi.Context, args LookupVirtualHubRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubRouteTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualHubRouteTableResultOutput, error) {
 			args := v.(LookupVirtualHubRouteTableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualHubRouteTableResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualHubRouteTableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualHubRouteTableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualHubRouteTableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualHubRouteTableResultOutput), nil
 			}

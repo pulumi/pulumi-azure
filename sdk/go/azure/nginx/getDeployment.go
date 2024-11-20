@@ -5,6 +5,7 @@ package nginx
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDeploymentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDeploymentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDeployment, use LookupDeploymentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDeploymentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDeployment, use LookupDeploymentOutput instead")
+	}
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("azure:nginx/getDeployment:getDeployment", args, &rv, opts...)
 	if err != nil {
@@ -100,17 +111,18 @@ type LookupDeploymentResult struct {
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDeploymentResultOutput, error) {
 			args := v.(LookupDeploymentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:nginx/getDeployment:getDeployment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:nginx/getDeployment:getDeployment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDeploymentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDeploymentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDeploymentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDeploymentResultOutput), nil
 			}

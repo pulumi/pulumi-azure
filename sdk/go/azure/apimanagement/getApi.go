@@ -5,6 +5,7 @@ package apimanagement
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupApiResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupApiResult{}, errors.New("DependsOn is not supported for direct form invoke LookupApi, use LookupApiOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupApiResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupApi, use LookupApiOutput instead")
+	}
 	var rv LookupApiResult
 	err := ctx.Invoke("azure:apimanagement/getApi:getApi", args, &rv, opts...)
 	if err != nil {
@@ -99,17 +110,18 @@ type LookupApiResult struct {
 }
 
 func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulumi.InvokeOption) LookupApiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApiResultOutput, error) {
 			args := v.(LookupApiArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupApiResult
-			secret, err := ctx.InvokePackageRaw("azure:apimanagement/getApi:getApi", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:apimanagement/getApi:getApi", args, &rv, "", opts...)
 			if err != nil {
 				return LookupApiResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupApiResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupApiResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupApiResultOutput), nil
 			}

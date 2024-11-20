@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSubscriptionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSubscriptionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetSubscriptions, use GetSubscriptionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSubscriptionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSubscriptions, use GetSubscriptionsOutput instead")
+	}
 	var rv GetSubscriptionsResult
 	err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetSubscriptionsResult struct {
 }
 
 func GetSubscriptionsOutput(ctx *pulumi.Context, args GetSubscriptionsOutputArgs, opts ...pulumi.InvokeOption) GetSubscriptionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSubscriptionsResultOutput, error) {
 			args := v.(GetSubscriptionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSubscriptionsResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getSubscriptions:getSubscriptions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getSubscriptions:getSubscriptions", args, &rv, "", opts...)
 			if err != nil {
 				return GetSubscriptionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSubscriptionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSubscriptionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSubscriptionsResultOutput), nil
 			}

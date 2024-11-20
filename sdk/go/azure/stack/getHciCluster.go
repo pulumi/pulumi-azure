@@ -5,6 +5,7 @@ package stack
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupHciCluster(ctx *pulumi.Context, args *LookupHciClusterArgs, opts ...pulumi.InvokeOption) (*LookupHciClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupHciClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupHciClusterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupHciCluster, use LookupHciClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupHciClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupHciCluster, use LookupHciClusterOutput instead")
+	}
 	var rv LookupHciClusterResult
 	err := ctx.Invoke("azure:stack/getHciCluster:getHciCluster", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupHciClusterResult struct {
 }
 
 func LookupHciClusterOutput(ctx *pulumi.Context, args LookupHciClusterOutputArgs, opts ...pulumi.InvokeOption) LookupHciClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHciClusterResultOutput, error) {
 			args := v.(LookupHciClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupHciClusterResult
-			secret, err := ctx.InvokePackageRaw("azure:stack/getHciCluster:getHciCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:stack/getHciCluster:getHciCluster", args, &rv, "", opts...)
 			if err != nil {
 				return LookupHciClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupHciClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupHciClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupHciClusterResultOutput), nil
 			}

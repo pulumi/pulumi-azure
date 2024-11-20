@@ -5,6 +5,7 @@ package datafactory
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetTriggerSchedules(ctx *pulumi.Context, args *GetTriggerSchedulesArgs, opts ...pulumi.InvokeOption) (*GetTriggerSchedulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTriggerSchedulesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTriggerSchedulesResult{}, errors.New("DependsOn is not supported for direct form invoke GetTriggerSchedules, use GetTriggerSchedulesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTriggerSchedulesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTriggerSchedules, use GetTriggerSchedulesOutput instead")
+	}
 	var rv GetTriggerSchedulesResult
 	err := ctx.Invoke("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type GetTriggerSchedulesResult struct {
 }
 
 func GetTriggerSchedulesOutput(ctx *pulumi.Context, args GetTriggerSchedulesOutputArgs, opts ...pulumi.InvokeOption) GetTriggerSchedulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTriggerSchedulesResultOutput, error) {
 			args := v.(GetTriggerSchedulesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTriggerSchedulesResult
-			secret, err := ctx.InvokePackageRaw("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args, &rv, "", opts...)
 			if err != nil {
 				return GetTriggerSchedulesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTriggerSchedulesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTriggerSchedulesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTriggerSchedulesResultOutput), nil
 			}

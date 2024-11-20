@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAccessPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAccessPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAccessPolicy, use LookupAccessPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAccessPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAccessPolicy, use LookupAccessPolicyOutput instead")
+	}
 	var rv LookupAccessPolicyResult
 	err := ctx.Invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type LookupAccessPolicyResult struct {
 }
 
 func LookupAccessPolicyOutput(ctx *pulumi.Context, args LookupAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessPolicyResultOutput, error) {
 			args := v.(LookupAccessPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAccessPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getAccessPolicy:getAccessPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getAccessPolicy:getAccessPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAccessPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAccessPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAccessPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAccessPolicyResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package consumption
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupBudgetSubscription(ctx *pulumi.Context, args *LookupBudgetSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupBudgetSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBudgetSubscriptionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBudgetSubscriptionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBudgetSubscription, use LookupBudgetSubscriptionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBudgetSubscriptionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBudgetSubscription, use LookupBudgetSubscriptionOutput instead")
+	}
 	var rv LookupBudgetSubscriptionResult
 	err := ctx.Invoke("azure:consumption/getBudgetSubscription:getBudgetSubscription", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupBudgetSubscriptionResult struct {
 }
 
 func LookupBudgetSubscriptionOutput(ctx *pulumi.Context, args LookupBudgetSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBudgetSubscriptionResultOutput, error) {
 			args := v.(LookupBudgetSubscriptionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBudgetSubscriptionResult
-			secret, err := ctx.InvokePackageRaw("azure:consumption/getBudgetSubscription:getBudgetSubscription", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:consumption/getBudgetSubscription:getBudgetSubscription", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBudgetSubscriptionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBudgetSubscriptionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBudgetSubscriptionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBudgetSubscriptionResultOutput), nil
 			}

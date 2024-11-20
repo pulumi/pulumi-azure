@@ -5,6 +5,7 @@ package blueprint
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func GetPublishedVersion(ctx *pulumi.Context, args *GetPublishedVersionArgs, opts ...pulumi.InvokeOption) (*GetPublishedVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPublishedVersionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPublishedVersionResult{}, errors.New("DependsOn is not supported for direct form invoke GetPublishedVersion, use GetPublishedVersionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPublishedVersionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPublishedVersion, use GetPublishedVersionOutput instead")
+	}
 	var rv GetPublishedVersionResult
 	err := ctx.Invoke("azure:blueprint/getPublishedVersion:getPublishedVersion", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type GetPublishedVersionResult struct {
 }
 
 func GetPublishedVersionOutput(ctx *pulumi.Context, args GetPublishedVersionOutputArgs, opts ...pulumi.InvokeOption) GetPublishedVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublishedVersionResultOutput, error) {
 			args := v.(GetPublishedVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPublishedVersionResult
-			secret, err := ctx.InvokePackageRaw("azure:blueprint/getPublishedVersion:getPublishedVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:blueprint/getPublishedVersion:getPublishedVersion", args, &rv, "", opts...)
 			if err != nil {
 				return GetPublishedVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPublishedVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPublishedVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPublishedVersionResultOutput), nil
 			}
