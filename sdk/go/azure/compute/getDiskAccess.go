@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDiskAccessResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDiskAccessResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDiskAccess, use LookupDiskAccessOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDiskAccessResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDiskAccess, use LookupDiskAccessOutput instead")
+	}
 	var rv LookupDiskAccessResult
 	err := ctx.Invoke("azure:compute/getDiskAccess:getDiskAccess", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupDiskAccessResult struct {
 }
 
 func LookupDiskAccessOutput(ctx *pulumi.Context, args LookupDiskAccessOutputArgs, opts ...pulumi.InvokeOption) LookupDiskAccessResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDiskAccessResultOutput, error) {
 			args := v.(LookupDiskAccessArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDiskAccessResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getDiskAccess:getDiskAccess", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getDiskAccess:getDiskAccess", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDiskAccessResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDiskAccessResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDiskAccessResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDiskAccessResultOutput), nil
 			}

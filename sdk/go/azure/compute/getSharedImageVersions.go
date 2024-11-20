@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetSharedImageVersions(ctx *pulumi.Context, args *GetSharedImageVersionsArgs, opts ...pulumi.InvokeOption) (*GetSharedImageVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSharedImageVersionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSharedImageVersionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetSharedImageVersions, use GetSharedImageVersionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSharedImageVersionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSharedImageVersions, use GetSharedImageVersionsOutput instead")
+	}
 	var rv GetSharedImageVersionsResult
 	err := ctx.Invoke("azure:compute/getSharedImageVersions:getSharedImageVersions", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetSharedImageVersionsResult struct {
 }
 
 func GetSharedImageVersionsOutput(ctx *pulumi.Context, args GetSharedImageVersionsOutputArgs, opts ...pulumi.InvokeOption) GetSharedImageVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSharedImageVersionsResultOutput, error) {
 			args := v.(GetSharedImageVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSharedImageVersionsResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getSharedImageVersions:getSharedImageVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getSharedImageVersions:getSharedImageVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetSharedImageVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSharedImageVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSharedImageVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSharedImageVersionsResultOutput), nil
 			}

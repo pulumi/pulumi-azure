@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupLinuxWebApp(ctx *pulumi.Context, args *LookupLinuxWebAppArgs, opts ...pulumi.InvokeOption) (*LookupLinuxWebAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLinuxWebAppResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLinuxWebAppResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLinuxWebApp, use LookupLinuxWebAppOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLinuxWebAppResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLinuxWebApp, use LookupLinuxWebAppOutput instead")
+	}
 	var rv LookupLinuxWebAppResult
 	err := ctx.Invoke("azure:appservice/getLinuxWebApp:getLinuxWebApp", args, &rv, opts...)
 	if err != nil {
@@ -139,17 +150,18 @@ type LookupLinuxWebAppResult struct {
 }
 
 func LookupLinuxWebAppOutput(ctx *pulumi.Context, args LookupLinuxWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxWebAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLinuxWebAppResultOutput, error) {
 			args := v.(LookupLinuxWebAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLinuxWebAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getLinuxWebApp:getLinuxWebApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getLinuxWebApp:getLinuxWebApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLinuxWebAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLinuxWebAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLinuxWebAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLinuxWebAppResultOutput), nil
 			}

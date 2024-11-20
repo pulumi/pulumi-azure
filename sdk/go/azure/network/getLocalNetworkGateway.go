@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLocalNetworkGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLocalNetworkGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLocalNetworkGateway, use LookupLocalNetworkGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLocalNetworkGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLocalNetworkGateway, use LookupLocalNetworkGatewayOutput instead")
+	}
 	var rv LookupLocalNetworkGatewayResult
 	err := ctx.Invoke("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupLocalNetworkGatewayResult struct {
 }
 
 func LookupLocalNetworkGatewayOutput(ctx *pulumi.Context, args LookupLocalNetworkGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupLocalNetworkGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalNetworkGatewayResultOutput, error) {
 			args := v.(LookupLocalNetworkGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLocalNetworkGatewayResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLocalNetworkGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLocalNetworkGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLocalNetworkGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLocalNetworkGatewayResultOutput), nil
 			}

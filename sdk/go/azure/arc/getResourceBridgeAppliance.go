@@ -5,6 +5,7 @@ package arc
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupResourceBridgeAppliance(ctx *pulumi.Context, args *LookupResourceBridgeApplianceArgs, opts ...pulumi.InvokeOption) (*LookupResourceBridgeApplianceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResourceBridgeApplianceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResourceBridgeApplianceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResourceBridgeAppliance, use LookupResourceBridgeApplianceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResourceBridgeApplianceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResourceBridgeAppliance, use LookupResourceBridgeApplianceOutput instead")
+	}
 	var rv LookupResourceBridgeApplianceResult
 	err := ctx.Invoke("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupResourceBridgeApplianceResult struct {
 }
 
 func LookupResourceBridgeApplianceOutput(ctx *pulumi.Context, args LookupResourceBridgeApplianceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceBridgeApplianceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceBridgeApplianceResultOutput, error) {
 			args := v.(LookupResourceBridgeApplianceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceBridgeApplianceResult
-			secret, err := ctx.InvokePackageRaw("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceBridgeApplianceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceBridgeApplianceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceBridgeApplianceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceBridgeApplianceResultOutput), nil
 			}

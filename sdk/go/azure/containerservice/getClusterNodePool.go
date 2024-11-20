@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetClusterNodePool(ctx *pulumi.Context, args *GetClusterNodePoolArgs, opts ...pulumi.InvokeOption) (*GetClusterNodePoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetClusterNodePoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetClusterNodePoolResult{}, errors.New("DependsOn is not supported for direct form invoke GetClusterNodePool, use GetClusterNodePoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetClusterNodePoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetClusterNodePool, use GetClusterNodePoolOutput instead")
+	}
 	var rv GetClusterNodePoolResult
 	err := ctx.Invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", args, &rv, opts...)
 	if err != nil {
@@ -117,17 +128,18 @@ type GetClusterNodePoolResult struct {
 }
 
 func GetClusterNodePoolOutput(ctx *pulumi.Context, args GetClusterNodePoolOutputArgs, opts ...pulumi.InvokeOption) GetClusterNodePoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClusterNodePoolResultOutput, error) {
 			args := v.(GetClusterNodePoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetClusterNodePoolResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getClusterNodePool:getClusterNodePool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getClusterNodePool:getClusterNodePool", args, &rv, "", opts...)
 			if err != nil {
 				return GetClusterNodePoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetClusterNodePoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetClusterNodePoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetClusterNodePoolResultOutput), nil
 			}

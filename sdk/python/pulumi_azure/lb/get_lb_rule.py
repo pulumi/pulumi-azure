@@ -232,7 +232,7 @@ def get_lb_rule(loadbalancer_id: Optional[str] = None,
         protocol=pulumi.get(__ret__, 'protocol'))
 def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBRuleResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLBRuleResult]:
     """
     Use this data source to access information about an existing Load Balancer Rule.
 
@@ -243,7 +243,7 @@ def get_lb_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:lb/getLBRule:getLBRule', __args__, opts=opts, typ=GetLBRuleResult)
     return __ret__.apply(lambda __response__: GetLBRuleResult(
         backend_address_pool_id=pulumi.get(__response__, 'backend_address_pool_id'),

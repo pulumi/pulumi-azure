@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetNetworkDdosProtectionPlan(ctx *pulumi.Context, args *GetNetworkDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*GetNetworkDdosProtectionPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetNetworkDdosProtectionPlanResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetNetworkDdosProtectionPlanResult{}, errors.New("DependsOn is not supported for direct form invoke GetNetworkDdosProtectionPlan, use GetNetworkDdosProtectionPlanOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetNetworkDdosProtectionPlanResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetNetworkDdosProtectionPlan, use GetNetworkDdosProtectionPlanOutput instead")
+	}
 	var rv GetNetworkDdosProtectionPlanResult
 	err := ctx.Invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetNetworkDdosProtectionPlanResult struct {
 }
 
 func GetNetworkDdosProtectionPlanOutput(ctx *pulumi.Context, args GetNetworkDdosProtectionPlanOutputArgs, opts ...pulumi.InvokeOption) GetNetworkDdosProtectionPlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetNetworkDdosProtectionPlanResultOutput, error) {
 			args := v.(GetNetworkDdosProtectionPlanArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetNetworkDdosProtectionPlanResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, &rv, "", opts...)
 			if err != nil {
 				return GetNetworkDdosProtectionPlanResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetNetworkDdosProtectionPlanResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetNetworkDdosProtectionPlanResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetNetworkDdosProtectionPlanResultOutput), nil
 			}

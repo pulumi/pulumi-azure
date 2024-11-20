@@ -5,6 +5,7 @@ package advisor
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func GetRecommendations(ctx *pulumi.Context, args *GetRecommendationsArgs, opts ...pulumi.InvokeOption) (*GetRecommendationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRecommendationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRecommendationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetRecommendations, use GetRecommendationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRecommendationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRecommendations, use GetRecommendationsOutput instead")
+	}
 	var rv GetRecommendationsResult
 	err := ctx.Invoke("azure:advisor/getRecommendations:getRecommendations", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type GetRecommendationsResult struct {
 }
 
 func GetRecommendationsOutput(ctx *pulumi.Context, args GetRecommendationsOutputArgs, opts ...pulumi.InvokeOption) GetRecommendationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRecommendationsResultOutput, error) {
 			args := v.(GetRecommendationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRecommendationsResult
-			secret, err := ctx.InvokePackageRaw("azure:advisor/getRecommendations:getRecommendations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:advisor/getRecommendations:getRecommendations", args, &rv, "", opts...)
 			if err != nil {
 				return GetRecommendationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRecommendationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRecommendationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRecommendationsResultOutput), nil
 			}

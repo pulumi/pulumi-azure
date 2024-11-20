@@ -5,6 +5,7 @@ package datashare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupShareResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupShareResult{}, errors.New("DependsOn is not supported for direct form invoke LookupShare, use LookupShareOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupShareResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupShare, use LookupShareOutput instead")
+	}
 	var rv LookupShareResult
 	err := ctx.Invoke("azure:datashare/getShare:getShare", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupShareResult struct {
 }
 
 func LookupShareOutput(ctx *pulumi.Context, args LookupShareOutputArgs, opts ...pulumi.InvokeOption) LookupShareResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupShareResultOutput, error) {
 			args := v.(LookupShareArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupShareResult
-			secret, err := ctx.InvokePackageRaw("azure:datashare/getShare:getShare", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datashare/getShare:getShare", args, &rv, "", opts...)
 			if err != nil {
 				return LookupShareResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupShareResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupShareResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupShareResultOutput), nil
 			}

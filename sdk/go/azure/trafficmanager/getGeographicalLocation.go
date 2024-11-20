@@ -5,6 +5,7 @@ package trafficmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -45,6 +46,16 @@ import (
 // Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
 func GetGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs, opts ...pulumi.InvokeOption) (*GetGeographicalLocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetGeographicalLocationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetGeographicalLocationResult{}, errors.New("DependsOn is not supported for direct form invoke GetGeographicalLocation, use GetGeographicalLocationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetGeographicalLocationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetGeographicalLocation, use GetGeographicalLocationOutput instead")
+	}
 	var rv GetGeographicalLocationResult
 	err := ctx.Invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetGeographicalLocationResult struct {
 }
 
 func GetGeographicalLocationOutput(ctx *pulumi.Context, args GetGeographicalLocationOutputArgs, opts ...pulumi.InvokeOption) GetGeographicalLocationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGeographicalLocationResultOutput, error) {
 			args := v.(GetGeographicalLocationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetGeographicalLocationResult
-			secret, err := ctx.InvokePackageRaw("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, &rv, "", opts...)
 			if err != nil {
 				return GetGeographicalLocationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetGeographicalLocationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetGeographicalLocationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetGeographicalLocationResultOutput), nil
 			}

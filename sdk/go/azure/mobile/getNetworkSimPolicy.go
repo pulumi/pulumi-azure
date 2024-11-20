@@ -5,6 +5,7 @@ package mobile
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupNetworkSimPolicy(ctx *pulumi.Context, args *LookupNetworkSimPolicyArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSimPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkSimPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkSimPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkSimPolicy, use LookupNetworkSimPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkSimPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkSimPolicy, use LookupNetworkSimPolicyOutput instead")
+	}
 	var rv LookupNetworkSimPolicyResult
 	err := ctx.Invoke("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupNetworkSimPolicyResult struct {
 }
 
 func LookupNetworkSimPolicyOutput(ctx *pulumi.Context, args LookupNetworkSimPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSimPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkSimPolicyResultOutput, error) {
 			args := v.(LookupNetworkSimPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkSimPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkSimPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkSimPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkSimPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkSimPolicyResultOutput), nil
 			}

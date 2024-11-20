@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupResolverInboundEndpoint(ctx *pulumi.Context, args *LookupResolverInboundEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverInboundEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverInboundEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverInboundEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverInboundEndpoint, use LookupResolverInboundEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverInboundEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverInboundEndpoint, use LookupResolverInboundEndpointOutput instead")
+	}
 	var rv LookupResolverInboundEndpointResult
 	err := ctx.Invoke("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupResolverInboundEndpointResult struct {
 }
 
 func LookupResolverInboundEndpointOutput(ctx *pulumi.Context, args LookupResolverInboundEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverInboundEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverInboundEndpointResultOutput, error) {
 			args := v.(LookupResolverInboundEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverInboundEndpointResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverInboundEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverInboundEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverInboundEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverInboundEndpointResultOutput), nil
 			}

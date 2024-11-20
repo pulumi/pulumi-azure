@@ -5,6 +5,7 @@ package eventgrid
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ...pulumi.InvokeOption) (*LookupDomainTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDomainTopicResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDomainTopicResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDomainTopic, use LookupDomainTopicOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDomainTopicResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDomainTopic, use LookupDomainTopicOutput instead")
+	}
 	var rv LookupDomainTopicResult
 	err := ctx.Invoke("azure:eventgrid/getDomainTopic:getDomainTopic", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupDomainTopicResult struct {
 }
 
 func LookupDomainTopicOutput(ctx *pulumi.Context, args LookupDomainTopicOutputArgs, opts ...pulumi.InvokeOption) LookupDomainTopicResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainTopicResultOutput, error) {
 			args := v.(LookupDomainTopicArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDomainTopicResult
-			secret, err := ctx.InvokePackageRaw("azure:eventgrid/getDomainTopic:getDomainTopic", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventgrid/getDomainTopic:getDomainTopic", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDomainTopicResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDomainTopicResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDomainTopicResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDomainTopicResultOutput), nil
 			}

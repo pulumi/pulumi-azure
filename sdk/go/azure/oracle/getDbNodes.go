@@ -5,6 +5,7 @@ package oracle
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetDbNodes(ctx *pulumi.Context, args *GetDbNodesArgs, opts ...pulumi.InvokeOption) (*GetDbNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDbNodesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDbNodesResult{}, errors.New("DependsOn is not supported for direct form invoke GetDbNodes, use GetDbNodesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDbNodesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDbNodes, use GetDbNodesOutput instead")
+	}
 	var rv GetDbNodesResult
 	err := ctx.Invoke("azure:oracle/getDbNodes:getDbNodes", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type GetDbNodesResult struct {
 }
 
 func GetDbNodesOutput(ctx *pulumi.Context, args GetDbNodesOutputArgs, opts ...pulumi.InvokeOption) GetDbNodesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDbNodesResultOutput, error) {
 			args := v.(GetDbNodesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDbNodesResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getDbNodes:getDbNodes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getDbNodes:getDbNodes", args, &rv, "", opts...)
 			if err != nil {
 				return GetDbNodesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDbNodesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDbNodesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDbNodesResultOutput), nil
 			}

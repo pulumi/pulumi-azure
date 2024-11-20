@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupWindowsWebApp(ctx *pulumi.Context, args *LookupWindowsWebAppArgs, opts ...pulumi.InvokeOption) (*LookupWindowsWebAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupWindowsWebAppResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupWindowsWebAppResult{}, errors.New("DependsOn is not supported for direct form invoke LookupWindowsWebApp, use LookupWindowsWebAppOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupWindowsWebAppResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupWindowsWebApp, use LookupWindowsWebAppOutput instead")
+	}
 	var rv LookupWindowsWebAppResult
 	err := ctx.Invoke("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, &rv, opts...)
 	if err != nil {
@@ -132,17 +143,18 @@ type LookupWindowsWebAppResult struct {
 }
 
 func LookupWindowsWebAppOutput(ctx *pulumi.Context, args LookupWindowsWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsWebAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWindowsWebAppResultOutput, error) {
 			args := v.(LookupWindowsWebAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupWindowsWebAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupWindowsWebAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupWindowsWebAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupWindowsWebAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupWindowsWebAppResultOutput), nil
 			}

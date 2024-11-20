@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupEnvironmentV3(ctx *pulumi.Context, args *LookupEnvironmentV3Args, opts ...pulumi.InvokeOption) (*LookupEnvironmentV3Result, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEnvironmentV3Result{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEnvironmentV3Result{}, errors.New("DependsOn is not supported for direct form invoke LookupEnvironmentV3, use LookupEnvironmentV3Output instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEnvironmentV3Result{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEnvironmentV3, use LookupEnvironmentV3Output instead")
+	}
 	var rv LookupEnvironmentV3Result
 	err := ctx.Invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, opts...)
 	if err != nil {
@@ -100,17 +111,18 @@ type LookupEnvironmentV3Result struct {
 }
 
 func LookupEnvironmentV3Output(ctx *pulumi.Context, args LookupEnvironmentV3OutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentV3ResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentV3ResultOutput, error) {
 			args := v.(LookupEnvironmentV3Args)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEnvironmentV3Result
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEnvironmentV3ResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEnvironmentV3ResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEnvironmentV3ResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEnvironmentV3ResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package apimanagement
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func LookupGatewayHostNameConfiguration(ctx *pulumi.Context, args *LookupGatewayHostNameConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayHostNameConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGatewayHostNameConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGatewayHostNameConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGatewayHostNameConfiguration, use LookupGatewayHostNameConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGatewayHostNameConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGatewayHostNameConfiguration, use LookupGatewayHostNameConfigurationOutput instead")
+	}
 	var rv LookupGatewayHostNameConfigurationResult
 	err := ctx.Invoke("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -98,17 +109,18 @@ type LookupGatewayHostNameConfigurationResult struct {
 }
 
 func LookupGatewayHostNameConfigurationOutput(ctx *pulumi.Context, args LookupGatewayHostNameConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayHostNameConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGatewayHostNameConfigurationResultOutput, error) {
 			args := v.(LookupGatewayHostNameConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGatewayHostNameConfigurationResult
-			secret, err := ctx.InvokePackageRaw("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGatewayHostNameConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGatewayHostNameConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGatewayHostNameConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGatewayHostNameConfigurationResultOutput), nil
 			}

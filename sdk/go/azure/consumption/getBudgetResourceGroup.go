@@ -5,6 +5,7 @@ package consumption
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupBudgetResourceGroup(ctx *pulumi.Context, args *LookupBudgetResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResourceGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBudgetResourceGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBudgetResourceGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBudgetResourceGroup, use LookupBudgetResourceGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBudgetResourceGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBudgetResourceGroup, use LookupBudgetResourceGroupOutput instead")
+	}
 	var rv LookupBudgetResourceGroupResult
 	err := ctx.Invoke("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupBudgetResourceGroupResult struct {
 }
 
 func LookupBudgetResourceGroupOutput(ctx *pulumi.Context, args LookupBudgetResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetResourceGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBudgetResourceGroupResultOutput, error) {
 			args := v.(LookupBudgetResourceGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBudgetResourceGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBudgetResourceGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBudgetResourceGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBudgetResourceGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBudgetResourceGroupResultOutput), nil
 			}

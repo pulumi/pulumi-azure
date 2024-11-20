@@ -5,6 +5,7 @@ package mobile
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupNetworkService(ctx *pulumi.Context, args *LookupNetworkServiceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkService, use LookupNetworkServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkService, use LookupNetworkServiceOutput instead")
+	}
 	var rv LookupNetworkServiceResult
 	err := ctx.Invoke("azure:mobile/getNetworkService:getNetworkService", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupNetworkServiceResult struct {
 }
 
 func LookupNetworkServiceOutput(ctx *pulumi.Context, args LookupNetworkServiceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkServiceResultOutput, error) {
 			args := v.(LookupNetworkServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkService:getNetworkService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mobile/getNetworkService:getNetworkService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkServiceResultOutput), nil
 			}

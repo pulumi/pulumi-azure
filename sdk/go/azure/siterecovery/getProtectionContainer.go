@@ -5,6 +5,7 @@ package siterecovery
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupProtectionContainerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupProtectionContainerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupProtectionContainer, use LookupProtectionContainerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupProtectionContainerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupProtectionContainer, use LookupProtectionContainerOutput instead")
+	}
 	var rv LookupProtectionContainerResult
 	err := ctx.Invoke("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupProtectionContainerResult struct {
 }
 
 func LookupProtectionContainerOutput(ctx *pulumi.Context, args LookupProtectionContainerOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionContainerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProtectionContainerResultOutput, error) {
 			args := v.(LookupProtectionContainerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProtectionContainerResult
-			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProtectionContainerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProtectionContainerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProtectionContainerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProtectionContainerResultOutput), nil
 			}

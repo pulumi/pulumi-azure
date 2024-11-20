@@ -5,6 +5,7 @@ package datafactory
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFactoryResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFactoryResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFactory, use LookupFactoryOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFactoryResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFactory, use LookupFactoryOutput instead")
+	}
 	var rv LookupFactoryResult
 	err := ctx.Invoke("azure:datafactory/getFactory:getFactory", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupFactoryResult struct {
 }
 
 func LookupFactoryOutput(ctx *pulumi.Context, args LookupFactoryOutputArgs, opts ...pulumi.InvokeOption) LookupFactoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFactoryResultOutput, error) {
 			args := v.(LookupFactoryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFactoryResult
-			secret, err := ctx.InvokePackageRaw("azure:datafactory/getFactory:getFactory", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datafactory/getFactory:getFactory", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFactoryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFactoryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFactoryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFactoryResultOutput), nil
 			}

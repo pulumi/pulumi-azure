@@ -5,6 +5,7 @@ package backup
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupPolicyVM(ctx *pulumi.Context, args *LookupPolicyVMArgs, opts ...pulumi.InvokeOption) (*LookupPolicyVMResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPolicyVMResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPolicyVMResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPolicyVM, use LookupPolicyVMOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPolicyVMResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPolicyVM, use LookupPolicyVMOutput instead")
+	}
 	var rv LookupPolicyVMResult
 	err := ctx.Invoke("azure:backup/getPolicyVM:getPolicyVM", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupPolicyVMResult struct {
 }
 
 func LookupPolicyVMOutput(ctx *pulumi.Context, args LookupPolicyVMOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyVMResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPolicyVMResultOutput, error) {
 			args := v.(LookupPolicyVMArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPolicyVMResult
-			secret, err := ctx.InvokePackageRaw("azure:backup/getPolicyVM:getPolicyVM", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:backup/getPolicyVM:getPolicyVM", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPolicyVMResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPolicyVMResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPolicyVMResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPolicyVMResultOutput), nil
 			}

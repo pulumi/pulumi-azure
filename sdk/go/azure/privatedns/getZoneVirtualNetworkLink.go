@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupZoneVirtualNetworkLink(ctx *pulumi.Context, args *LookupZoneVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupZoneVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupZoneVirtualNetworkLinkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupZoneVirtualNetworkLinkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupZoneVirtualNetworkLink, use LookupZoneVirtualNetworkLinkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupZoneVirtualNetworkLinkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupZoneVirtualNetworkLink, use LookupZoneVirtualNetworkLinkOutput instead")
+	}
 	var rv LookupZoneVirtualNetworkLinkResult
 	err := ctx.Invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupZoneVirtualNetworkLinkResult struct {
 }
 
 func LookupZoneVirtualNetworkLinkOutput(ctx *pulumi.Context, args LookupZoneVirtualNetworkLinkOutputArgs, opts ...pulumi.InvokeOption) LookupZoneVirtualNetworkLinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupZoneVirtualNetworkLinkResultOutput, error) {
 			args := v.(LookupZoneVirtualNetworkLinkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupZoneVirtualNetworkLinkResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args, &rv, "", opts...)
 			if err != nil {
 				return LookupZoneVirtualNetworkLinkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupZoneVirtualNetworkLinkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupZoneVirtualNetworkLinkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupZoneVirtualNetworkLinkResultOutput), nil
 			}

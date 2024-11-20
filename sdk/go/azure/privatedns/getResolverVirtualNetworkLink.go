@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupResolverVirtualNetworkLink(ctx *pulumi.Context, args *LookupResolverVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupResolverVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverVirtualNetworkLinkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverVirtualNetworkLinkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverVirtualNetworkLink, use LookupResolverVirtualNetworkLinkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverVirtualNetworkLinkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverVirtualNetworkLink, use LookupResolverVirtualNetworkLinkOutput instead")
+	}
 	var rv LookupResolverVirtualNetworkLinkResult
 	err := ctx.Invoke("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupResolverVirtualNetworkLinkResult struct {
 }
 
 func LookupResolverVirtualNetworkLinkOutput(ctx *pulumi.Context, args LookupResolverVirtualNetworkLinkOutputArgs, opts ...pulumi.InvokeOption) LookupResolverVirtualNetworkLinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverVirtualNetworkLinkResultOutput, error) {
 			args := v.(LookupResolverVirtualNetworkLinkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverVirtualNetworkLinkResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverVirtualNetworkLinkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverVirtualNetworkLinkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverVirtualNetworkLinkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverVirtualNetworkLinkResultOutput), nil
 			}

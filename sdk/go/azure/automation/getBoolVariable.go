@@ -5,6 +5,7 @@ package automation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupBoolVariable(ctx *pulumi.Context, args *LookupBoolVariableArgs, opts ...pulumi.InvokeOption) (*LookupBoolVariableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBoolVariableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBoolVariableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBoolVariable, use LookupBoolVariableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBoolVariableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBoolVariable, use LookupBoolVariableOutput instead")
+	}
 	var rv LookupBoolVariableResult
 	err := ctx.Invoke("azure:automation/getBoolVariable:getBoolVariable", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupBoolVariableResult struct {
 }
 
 func LookupBoolVariableOutput(ctx *pulumi.Context, args LookupBoolVariableOutputArgs, opts ...pulumi.InvokeOption) LookupBoolVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBoolVariableResultOutput, error) {
 			args := v.(LookupBoolVariableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBoolVariableResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getBoolVariable:getBoolVariable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getBoolVariable:getBoolVariable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBoolVariableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBoolVariableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBoolVariableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBoolVariableResultOutput), nil
 			}

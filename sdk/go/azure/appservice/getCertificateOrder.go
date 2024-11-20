@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupCertificateOrder(ctx *pulumi.Context, args *LookupCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupCertificateOrderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCertificateOrderResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCertificateOrderResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCertificateOrder, use LookupCertificateOrderOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCertificateOrderResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCertificateOrder, use LookupCertificateOrderOutput instead")
+	}
 	var rv LookupCertificateOrderResult
 	err := ctx.Invoke("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, opts...)
 	if err != nil {
@@ -101,17 +112,18 @@ type LookupCertificateOrderResult struct {
 }
 
 func LookupCertificateOrderOutput(ctx *pulumi.Context, args LookupCertificateOrderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateOrderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateOrderResultOutput, error) {
 			args := v.(LookupCertificateOrderArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCertificateOrderResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCertificateOrderResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCertificateOrderResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCertificateOrderResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCertificateOrderResultOutput), nil
 			}

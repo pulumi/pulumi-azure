@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupVpnServerConfiguration(ctx *pulumi.Context, args *LookupVpnServerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVpnServerConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpnServerConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpnServerConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpnServerConfiguration, use LookupVpnServerConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpnServerConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpnServerConfiguration, use LookupVpnServerConfigurationOutput instead")
+	}
 	var rv LookupVpnServerConfigurationResult
 	err := ctx.Invoke("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type LookupVpnServerConfigurationResult struct {
 }
 
 func LookupVpnServerConfigurationOutput(ctx *pulumi.Context, args LookupVpnServerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupVpnServerConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpnServerConfigurationResultOutput, error) {
 			args := v.(LookupVpnServerConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpnServerConfigurationResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpnServerConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpnServerConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpnServerConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpnServerConfigurationResultOutput), nil
 			}
