@@ -5,6 +5,7 @@ package oracle
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetAdbsNationalCharacterSets(ctx *pulumi.Context, args *GetAdbsNationalCharacterSetsArgs, opts ...pulumi.InvokeOption) (*GetAdbsNationalCharacterSetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAdbsNationalCharacterSetsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAdbsNationalCharacterSetsResult{}, errors.New("DependsOn is not supported for direct form invoke GetAdbsNationalCharacterSets, use GetAdbsNationalCharacterSetsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAdbsNationalCharacterSetsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAdbsNationalCharacterSets, use GetAdbsNationalCharacterSetsOutput instead")
+	}
 	var rv GetAdbsNationalCharacterSetsResult
 	err := ctx.Invoke("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type GetAdbsNationalCharacterSetsResult struct {
 }
 
 func GetAdbsNationalCharacterSetsOutput(ctx *pulumi.Context, args GetAdbsNationalCharacterSetsOutputArgs, opts ...pulumi.InvokeOption) GetAdbsNationalCharacterSetsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAdbsNationalCharacterSetsResultOutput, error) {
 			args := v.(GetAdbsNationalCharacterSetsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAdbsNationalCharacterSetsResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args, &rv, "", opts...)
 			if err != nil {
 				return GetAdbsNationalCharacterSetsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAdbsNationalCharacterSetsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAdbsNationalCharacterSetsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAdbsNationalCharacterSetsResultOutput), nil
 			}

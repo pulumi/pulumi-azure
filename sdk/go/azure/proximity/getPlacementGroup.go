@@ -5,6 +5,7 @@ package proximity
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupPlacementGroup(ctx *pulumi.Context, args *LookupPlacementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPlacementGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPlacementGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPlacementGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPlacementGroup, use LookupPlacementGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPlacementGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPlacementGroup, use LookupPlacementGroupOutput instead")
+	}
 	var rv LookupPlacementGroupResult
 	err := ctx.Invoke("azure:proximity/getPlacementGroup:getPlacementGroup", args, &rv, opts...)
 	if err != nil {
@@ -69,17 +80,18 @@ type LookupPlacementGroupResult struct {
 }
 
 func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPlacementGroupResultOutput, error) {
 			args := v.(LookupPlacementGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPlacementGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:proximity/getPlacementGroup:getPlacementGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:proximity/getPlacementGroup:getPlacementGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPlacementGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPlacementGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPlacementGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPlacementGroupResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkSecurityGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkSecurityGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkSecurityGroup, use LookupNetworkSecurityGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkSecurityGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkSecurityGroup, use LookupNetworkSecurityGroupOutput instead")
+	}
 	var rv LookupNetworkSecurityGroupResult
 	err := ctx.Invoke("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupNetworkSecurityGroupResult struct {
 }
 
 func LookupNetworkSecurityGroupOutput(ctx *pulumi.Context, args LookupNetworkSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSecurityGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkSecurityGroupResultOutput, error) {
 			args := v.(LookupNetworkSecurityGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkSecurityGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkSecurityGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkSecurityGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkSecurityGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkSecurityGroupResultOutput), nil
 			}

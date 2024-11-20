@@ -5,6 +5,7 @@ package automation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupDateTimeVariable(ctx *pulumi.Context, args *LookupDateTimeVariableArgs, opts ...pulumi.InvokeOption) (*LookupDateTimeVariableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDateTimeVariableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDateTimeVariableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDateTimeVariable, use LookupDateTimeVariableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDateTimeVariableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDateTimeVariable, use LookupDateTimeVariableOutput instead")
+	}
 	var rv LookupDateTimeVariableResult
 	err := ctx.Invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupDateTimeVariableResult struct {
 }
 
 func LookupDateTimeVariableOutput(ctx *pulumi.Context, args LookupDateTimeVariableOutputArgs, opts ...pulumi.InvokeOption) LookupDateTimeVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDateTimeVariableResultOutput, error) {
 			args := v.(LookupDateTimeVariableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDateTimeVariableResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getDateTimeVariable:getDateTimeVariable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getDateTimeVariable:getDateTimeVariable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDateTimeVariableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDateTimeVariableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDateTimeVariableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDateTimeVariableResultOutput), nil
 			}

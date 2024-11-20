@@ -5,6 +5,7 @@ package eventhub
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupAuthorizationRule(ctx *pulumi.Context, args *LookupAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAuthorizationRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAuthorizationRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAuthorizationRule, use LookupAuthorizationRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAuthorizationRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAuthorizationRule, use LookupAuthorizationRuleOutput instead")
+	}
 	var rv LookupAuthorizationRuleResult
 	err := ctx.Invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupAuthorizationRuleResult struct {
 }
 
 func LookupAuthorizationRuleOutput(ctx *pulumi.Context, args LookupAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizationRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAuthorizationRuleResultOutput, error) {
 			args := v.(LookupAuthorizationRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAuthorizationRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAuthorizationRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAuthorizationRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAuthorizationRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAuthorizationRuleResultOutput), nil
 			}

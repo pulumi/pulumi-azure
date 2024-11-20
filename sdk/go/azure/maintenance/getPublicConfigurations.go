@@ -5,6 +5,7 @@ package maintenance
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetPublicConfigurations(ctx *pulumi.Context, args *GetPublicConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetPublicConfigurationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPublicConfigurationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPublicConfigurationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetPublicConfigurations, use GetPublicConfigurationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPublicConfigurationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPublicConfigurations, use GetPublicConfigurationsOutput instead")
+	}
 	var rv GetPublicConfigurationsResult
 	err := ctx.Invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetPublicConfigurationsResult struct {
 }
 
 func GetPublicConfigurationsOutput(ctx *pulumi.Context, args GetPublicConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetPublicConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublicConfigurationsResultOutput, error) {
 			args := v.(GetPublicConfigurationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPublicConfigurationsResult
-			secret, err := ctx.InvokePackageRaw("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, &rv, "", opts...)
 			if err != nil {
 				return GetPublicConfigurationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPublicConfigurationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPublicConfigurationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPublicConfigurationsResultOutput), nil
 			}

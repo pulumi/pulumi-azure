@@ -5,6 +5,7 @@ package maintenance
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConfiguration, use LookupConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConfiguration, use LookupConfigurationOutput instead")
+	}
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("azure:maintenance/getConfiguration:getConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupConfigurationResult struct {
 }
 
 func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationResultOutput, error) {
 			args := v.(LookupConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConfigurationResult
-			secret, err := ctx.InvokePackageRaw("azure:maintenance/getConfiguration:getConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:maintenance/getConfiguration:getConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConfigurationResultOutput), nil
 			}

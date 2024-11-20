@@ -5,6 +5,7 @@ package blueprint
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -55,6 +56,16 @@ import (
 // ```
 func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.InvokeOption) (*GetDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke GetDefinition, use GetDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDefinition, use GetDefinitionOutput instead")
+	}
 	var rv GetDefinitionResult
 	err := ctx.Invoke("azure:blueprint/getDefinition:getDefinition", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type GetDefinitionResult struct {
 }
 
 func GetDefinitionOutput(ctx *pulumi.Context, args GetDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDefinitionResultOutput, error) {
 			args := v.(GetDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:blueprint/getDefinition:getDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:blueprint/getDefinition:getDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return GetDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDefinitionResultOutput), nil
 			}

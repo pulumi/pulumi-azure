@@ -5,6 +5,7 @@ package iot
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetIotHub(ctx *pulumi.Context, args *GetIotHubArgs, opts ...pulumi.InvokeOption) (*GetIotHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetIotHubResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetIotHubResult{}, errors.New("DependsOn is not supported for direct form invoke GetIotHub, use GetIotHubOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetIotHubResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetIotHub, use GetIotHubOutput instead")
+	}
 	var rv GetIotHubResult
 	err := ctx.Invoke("azure:iot/getIotHub:getIotHub", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type GetIotHubResult struct {
 }
 
 func GetIotHubOutput(ctx *pulumi.Context, args GetIotHubOutputArgs, opts ...pulumi.InvokeOption) GetIotHubResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIotHubResultOutput, error) {
 			args := v.(GetIotHubArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIotHubResult
-			secret, err := ctx.InvokePackageRaw("azure:iot/getIotHub:getIotHub", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:iot/getIotHub:getIotHub", args, &rv, "", opts...)
 			if err != nil {
 				return GetIotHubResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIotHubResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIotHubResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIotHubResultOutput), nil
 			}

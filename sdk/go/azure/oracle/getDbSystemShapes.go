@@ -5,6 +5,7 @@ package oracle
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetDbSystemShapes(ctx *pulumi.Context, args *GetDbSystemShapesArgs, opts ...pulumi.InvokeOption) (*GetDbSystemShapesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDbSystemShapesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDbSystemShapesResult{}, errors.New("DependsOn is not supported for direct form invoke GetDbSystemShapes, use GetDbSystemShapesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDbSystemShapesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDbSystemShapes, use GetDbSystemShapesOutput instead")
+	}
 	var rv GetDbSystemShapesResult
 	err := ctx.Invoke("azure:oracle/getDbSystemShapes:getDbSystemShapes", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetDbSystemShapesResult struct {
 }
 
 func GetDbSystemShapesOutput(ctx *pulumi.Context, args GetDbSystemShapesOutputArgs, opts ...pulumi.InvokeOption) GetDbSystemShapesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDbSystemShapesResultOutput, error) {
 			args := v.(GetDbSystemShapesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDbSystemShapesResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getDbSystemShapes:getDbSystemShapes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getDbSystemShapes:getDbSystemShapes", args, &rv, "", opts...)
 			if err != nil {
 				return GetDbSystemShapesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDbSystemShapesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDbSystemShapesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDbSystemShapesResultOutput), nil
 			}

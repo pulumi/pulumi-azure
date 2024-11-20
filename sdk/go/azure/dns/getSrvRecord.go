@@ -5,6 +5,7 @@ package dns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupSrvRecord(ctx *pulumi.Context, args *LookupSrvRecordArgs, opts ...pulumi.InvokeOption) (*LookupSrvRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSrvRecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSrvRecordResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSrvRecord, use LookupSrvRecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSrvRecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSrvRecord, use LookupSrvRecordOutput instead")
+	}
 	var rv LookupSrvRecordResult
 	err := ctx.Invoke("azure:dns/getSrvRecord:getSrvRecord", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupSrvRecordResult struct {
 }
 
 func LookupSrvRecordOutput(ctx *pulumi.Context, args LookupSrvRecordOutputArgs, opts ...pulumi.InvokeOption) LookupSrvRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSrvRecordResultOutput, error) {
 			args := v.(LookupSrvRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSrvRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getSrvRecord:getSrvRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dns/getSrvRecord:getSrvRecord", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSrvRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSrvRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSrvRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSrvRecordResultOutput), nil
 			}

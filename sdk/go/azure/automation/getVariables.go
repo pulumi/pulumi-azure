@@ -5,6 +5,7 @@ package automation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetVariables(ctx *pulumi.Context, args *GetVariablesArgs, opts ...pulumi.InvokeOption) (*GetVariablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVariablesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVariablesResult{}, errors.New("DependsOn is not supported for direct form invoke GetVariables, use GetVariablesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVariablesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVariables, use GetVariablesOutput instead")
+	}
 	var rv GetVariablesResult
 	err := ctx.Invoke("azure:automation/getVariables:getVariables", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetVariablesResult struct {
 }
 
 func GetVariablesOutput(ctx *pulumi.Context, args GetVariablesOutputArgs, opts ...pulumi.InvokeOption) GetVariablesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVariablesResultOutput, error) {
 			args := v.(GetVariablesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVariablesResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getVariables:getVariables", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getVariables:getVariables", args, &rv, "", opts...)
 			if err != nil {
 				return GetVariablesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVariablesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVariablesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVariablesResultOutput), nil
 			}

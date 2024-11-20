@@ -5,6 +5,7 @@ package elasticcloud
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupElasticsearch(ctx *pulumi.Context, args *LookupElasticsearchArgs, opts ...pulumi.InvokeOption) (*LookupElasticsearchResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupElasticsearchResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupElasticsearchResult{}, errors.New("DependsOn is not supported for direct form invoke LookupElasticsearch, use LookupElasticsearchOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupElasticsearchResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupElasticsearch, use LookupElasticsearchOutput instead")
+	}
 	var rv LookupElasticsearchResult
 	err := ctx.Invoke("azure:elasticcloud/getElasticsearch:getElasticsearch", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type LookupElasticsearchResult struct {
 }
 
 func LookupElasticsearchOutput(ctx *pulumi.Context, args LookupElasticsearchOutputArgs, opts ...pulumi.InvokeOption) LookupElasticsearchResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupElasticsearchResultOutput, error) {
 			args := v.(LookupElasticsearchArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupElasticsearchResult
-			secret, err := ctx.InvokePackageRaw("azure:elasticcloud/getElasticsearch:getElasticsearch", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:elasticcloud/getElasticsearch:getElasticsearch", args, &rv, "", opts...)
 			if err != nil {
 				return LookupElasticsearchResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupElasticsearchResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupElasticsearchResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupElasticsearchResultOutput), nil
 			}

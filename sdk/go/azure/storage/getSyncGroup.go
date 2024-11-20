@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSyncGroup(ctx *pulumi.Context, args *LookupSyncGroupArgs, opts ...pulumi.InvokeOption) (*LookupSyncGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSyncGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSyncGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSyncGroup, use LookupSyncGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSyncGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSyncGroup, use LookupSyncGroupOutput instead")
+	}
 	var rv LookupSyncGroupResult
 	err := ctx.Invoke("azure:storage/getSyncGroup:getSyncGroup", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type LookupSyncGroupResult struct {
 }
 
 func LookupSyncGroupOutput(ctx *pulumi.Context, args LookupSyncGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSyncGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSyncGroupResultOutput, error) {
 			args := v.(LookupSyncGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSyncGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getSyncGroup:getSyncGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getSyncGroup:getSyncGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSyncGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSyncGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSyncGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSyncGroupResultOutput), nil
 			}

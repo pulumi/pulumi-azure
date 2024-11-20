@@ -5,6 +5,7 @@ package mssql
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupElasticPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupElasticPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupElasticPool, use LookupElasticPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupElasticPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupElasticPool, use LookupElasticPoolOutput instead")
+	}
 	var rv LookupElasticPoolResult
 	err := ctx.Invoke("azure:mssql/getElasticPool:getElasticPool", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupElasticPoolResult struct {
 }
 
 func LookupElasticPoolOutput(ctx *pulumi.Context, args LookupElasticPoolOutputArgs, opts ...pulumi.InvokeOption) LookupElasticPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupElasticPoolResultOutput, error) {
 			args := v.(LookupElasticPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupElasticPoolResult
-			secret, err := ctx.InvokePackageRaw("azure:mssql/getElasticPool:getElasticPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mssql/getElasticPool:getElasticPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupElasticPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupElasticPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupElasticPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupElasticPoolResultOutput), nil
 			}

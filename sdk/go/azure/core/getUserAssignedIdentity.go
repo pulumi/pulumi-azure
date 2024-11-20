@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // Deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
 func GetUserAssignedIdentity(ctx *pulumi.Context, args *GetUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*GetUserAssignedIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetUserAssignedIdentityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetUserAssignedIdentityResult{}, errors.New("DependsOn is not supported for direct form invoke GetUserAssignedIdentity, use GetUserAssignedIdentityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetUserAssignedIdentityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetUserAssignedIdentity, use GetUserAssignedIdentityOutput instead")
+	}
 	var rv GetUserAssignedIdentityResult
 	err := ctx.Invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetUserAssignedIdentityResult struct {
 }
 
 func GetUserAssignedIdentityOutput(ctx *pulumi.Context, args GetUserAssignedIdentityOutputArgs, opts ...pulumi.InvokeOption) GetUserAssignedIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserAssignedIdentityResultOutput, error) {
 			args := v.(GetUserAssignedIdentityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetUserAssignedIdentityResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, "", opts...)
 			if err != nil {
 				return GetUserAssignedIdentityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetUserAssignedIdentityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetUserAssignedIdentityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetUserAssignedIdentityResultOutput), nil
 			}

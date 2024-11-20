@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualMachineResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualMachineResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualMachine, use LookupVirtualMachineOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualMachineResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualMachine, use LookupVirtualMachineOutput instead")
+	}
 	var rv LookupVirtualMachineResult
 	err := ctx.Invoke("azure:compute/getVirtualMachine:getVirtualMachine", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type LookupVirtualMachineResult struct {
 }
 
 func LookupVirtualMachineOutput(ctx *pulumi.Context, args LookupVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualMachineResultOutput, error) {
 			args := v.(LookupVirtualMachineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualMachineResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getVirtualMachine:getVirtualMachine", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getVirtualMachine:getVirtualMachine", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualMachineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualMachineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualMachineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualMachineResultOutput), nil
 			}

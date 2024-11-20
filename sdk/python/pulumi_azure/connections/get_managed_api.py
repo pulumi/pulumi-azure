@@ -110,7 +110,7 @@ def get_managed_api(location: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedApiResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedApiResult]:
     """
     Uses this data source to access information about an existing Managed API.
 
@@ -132,7 +132,7 @@ def get_managed_api_output(location: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['location'] = location
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:connections/getManagedApi:getManagedApi', __args__, opts=opts, typ=GetManagedApiResult)
     return __ret__.apply(lambda __response__: GetManagedApiResult(
         id=pulumi.get(__response__, 'id'),

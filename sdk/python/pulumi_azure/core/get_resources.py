@@ -140,7 +140,7 @@ def get_resources_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                          required_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                          type: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcesResult]:
     """
     Use this data source to access information about existing resources.
 
@@ -155,7 +155,7 @@ def get_resources_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['requiredTags'] = required_tags
     __args__['resourceGroupName'] = resource_group_name
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getResources:getResources', __args__, opts=opts, typ=GetResourcesResult)
     return __ret__.apply(lambda __response__: GetResourcesResult(
         id=pulumi.get(__response__, 'id'),

@@ -5,6 +5,7 @@ package monitoring
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetDiagnosticCategories(ctx *pulumi.Context, args *GetDiagnosticCategoriesArgs, opts ...pulumi.InvokeOption) (*GetDiagnosticCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDiagnosticCategoriesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDiagnosticCategoriesResult{}, errors.New("DependsOn is not supported for direct form invoke GetDiagnosticCategories, use GetDiagnosticCategoriesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDiagnosticCategoriesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDiagnosticCategories, use GetDiagnosticCategoriesOutput instead")
+	}
 	var rv GetDiagnosticCategoriesResult
 	err := ctx.Invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetDiagnosticCategoriesResult struct {
 }
 
 func GetDiagnosticCategoriesOutput(ctx *pulumi.Context, args GetDiagnosticCategoriesOutputArgs, opts ...pulumi.InvokeOption) GetDiagnosticCategoriesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDiagnosticCategoriesResultOutput, error) {
 			args := v.(GetDiagnosticCategoriesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDiagnosticCategoriesResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args, &rv, "", opts...)
 			if err != nil {
 				return GetDiagnosticCategoriesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDiagnosticCategoriesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDiagnosticCategoriesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDiagnosticCategoriesResultOutput), nil
 			}

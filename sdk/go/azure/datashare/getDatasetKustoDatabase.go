@@ -5,6 +5,7 @@ package datashare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDatasetKustoDatabase(ctx *pulumi.Context, args *LookupDatasetKustoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDatasetKustoDatabaseResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDatasetKustoDatabaseResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDatasetKustoDatabase, use LookupDatasetKustoDatabaseOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDatasetKustoDatabaseResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDatasetKustoDatabase, use LookupDatasetKustoDatabaseOutput instead")
+	}
 	var rv LookupDatasetKustoDatabaseResult
 	err := ctx.Invoke("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupDatasetKustoDatabaseResult struct {
 }
 
 func LookupDatasetKustoDatabaseOutput(ctx *pulumi.Context, args LookupDatasetKustoDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetKustoDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatasetKustoDatabaseResultOutput, error) {
 			args := v.(LookupDatasetKustoDatabaseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDatasetKustoDatabaseResult
-			secret, err := ctx.InvokePackageRaw("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDatasetKustoDatabaseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDatasetKustoDatabaseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDatasetKustoDatabaseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDatasetKustoDatabaseResultOutput), nil
 			}

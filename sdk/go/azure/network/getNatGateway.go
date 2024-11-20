@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing NAT Gateway.
 func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...pulumi.InvokeOption) (*LookupNatGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNatGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNatGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNatGateway, use LookupNatGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNatGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNatGateway, use LookupNatGatewayOutput instead")
+	}
 	var rv LookupNatGatewayResult
 	err := ctx.Invoke("azure:network/getNatGateway:getNatGateway", args, &rv, opts...)
 	if err != nil {
@@ -59,17 +70,18 @@ type LookupNatGatewayResult struct {
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNatGatewayResultOutput, error) {
 			args := v.(LookupNatGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNatGatewayResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNatGateway:getNatGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNatGateway:getNatGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNatGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNatGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNatGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNatGatewayResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package oracle
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetAdbsCharacterSets(ctx *pulumi.Context, args *GetAdbsCharacterSetsArgs, opts ...pulumi.InvokeOption) (*GetAdbsCharacterSetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAdbsCharacterSetsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAdbsCharacterSetsResult{}, errors.New("DependsOn is not supported for direct form invoke GetAdbsCharacterSets, use GetAdbsCharacterSetsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAdbsCharacterSetsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAdbsCharacterSets, use GetAdbsCharacterSetsOutput instead")
+	}
 	var rv GetAdbsCharacterSetsResult
 	err := ctx.Invoke("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type GetAdbsCharacterSetsResult struct {
 }
 
 func GetAdbsCharacterSetsOutput(ctx *pulumi.Context, args GetAdbsCharacterSetsOutputArgs, opts ...pulumi.InvokeOption) GetAdbsCharacterSetsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAdbsCharacterSetsResultOutput, error) {
 			args := v.(GetAdbsCharacterSetsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAdbsCharacterSetsResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, &rv, "", opts...)
 			if err != nil {
 				return GetAdbsCharacterSetsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAdbsCharacterSetsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAdbsCharacterSetsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAdbsCharacterSetsResultOutput), nil
 			}

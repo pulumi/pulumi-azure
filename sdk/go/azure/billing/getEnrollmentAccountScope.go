@@ -5,6 +5,7 @@ package billing
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetEnrollmentAccountScope(ctx *pulumi.Context, args *GetEnrollmentAccountScopeArgs, opts ...pulumi.InvokeOption) (*GetEnrollmentAccountScopeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEnrollmentAccountScopeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEnrollmentAccountScopeResult{}, errors.New("DependsOn is not supported for direct form invoke GetEnrollmentAccountScope, use GetEnrollmentAccountScopeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEnrollmentAccountScopeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEnrollmentAccountScope, use GetEnrollmentAccountScopeOutput instead")
+	}
 	var rv GetEnrollmentAccountScopeResult
 	err := ctx.Invoke("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetEnrollmentAccountScopeResult struct {
 }
 
 func GetEnrollmentAccountScopeOutput(ctx *pulumi.Context, args GetEnrollmentAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetEnrollmentAccountScopeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnrollmentAccountScopeResultOutput, error) {
 			args := v.(GetEnrollmentAccountScopeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEnrollmentAccountScopeResult
-			secret, err := ctx.InvokePackageRaw("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, &rv, "", opts...)
 			if err != nil {
 				return GetEnrollmentAccountScopeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEnrollmentAccountScopeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEnrollmentAccountScopeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEnrollmentAccountScopeResultOutput), nil
 			}

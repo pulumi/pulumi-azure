@@ -5,6 +5,7 @@ package dns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetCnameRecord(ctx *pulumi.Context, args *GetCnameRecordArgs, opts ...pulumi.InvokeOption) (*GetCnameRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCnameRecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCnameRecordResult{}, errors.New("DependsOn is not supported for direct form invoke GetCnameRecord, use GetCnameRecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCnameRecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCnameRecord, use GetCnameRecordOutput instead")
+	}
 	var rv GetCnameRecordResult
 	err := ctx.Invoke("azure:dns/getCnameRecord:getCnameRecord", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type GetCnameRecordResult struct {
 }
 
 func GetCnameRecordOutput(ctx *pulumi.Context, args GetCnameRecordOutputArgs, opts ...pulumi.InvokeOption) GetCnameRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCnameRecordResultOutput, error) {
 			args := v.(GetCnameRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCnameRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getCnameRecord:getCnameRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dns/getCnameRecord:getCnameRecord", args, &rv, "", opts...)
 			if err != nil {
 				return GetCnameRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCnameRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCnameRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCnameRecordResultOutput), nil
 			}

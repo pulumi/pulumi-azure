@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -144,6 +145,16 @@ import (
 // ```
 func GetPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPublicIPResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPublicIPResult{}, errors.New("DependsOn is not supported for direct form invoke GetPublicIP, use GetPublicIPOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPublicIPResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPublicIP, use GetPublicIPOutput instead")
+	}
 	var rv GetPublicIPResult
 	err := ctx.Invoke("azure:network/getPublicIP:getPublicIP", args, &rv, opts...)
 	if err != nil {
@@ -197,17 +208,18 @@ type GetPublicIPResult struct {
 }
 
 func GetPublicIPOutput(ctx *pulumi.Context, args GetPublicIPOutputArgs, opts ...pulumi.InvokeOption) GetPublicIPResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublicIPResultOutput, error) {
 			args := v.(GetPublicIPArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPublicIPResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getPublicIP:getPublicIP", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getPublicIP:getPublicIP", args, &rv, "", opts...)
 			if err != nil {
 				return GetPublicIPResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPublicIPResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPublicIPResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPublicIPResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package monitoring
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupScheduledQueryRulesAlert(ctx *pulumi.Context, args *LookupScheduledQueryRulesAlertArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRulesAlertResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupScheduledQueryRulesAlertResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupScheduledQueryRulesAlertResult{}, errors.New("DependsOn is not supported for direct form invoke LookupScheduledQueryRulesAlert, use LookupScheduledQueryRulesAlertOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupScheduledQueryRulesAlertResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupScheduledQueryRulesAlert, use LookupScheduledQueryRulesAlertOutput instead")
+	}
 	var rv LookupScheduledQueryRulesAlertResult
 	err := ctx.Invoke("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type LookupScheduledQueryRulesAlertResult struct {
 }
 
 func LookupScheduledQueryRulesAlertOutput(ctx *pulumi.Context, args LookupScheduledQueryRulesAlertOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryRulesAlertResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupScheduledQueryRulesAlertResultOutput, error) {
 			args := v.(LookupScheduledQueryRulesAlertArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupScheduledQueryRulesAlertResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args, &rv, "", opts...)
 			if err != nil {
 				return LookupScheduledQueryRulesAlertResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupScheduledQueryRulesAlertResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupScheduledQueryRulesAlertResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupScheduledQueryRulesAlertResultOutput), nil
 			}

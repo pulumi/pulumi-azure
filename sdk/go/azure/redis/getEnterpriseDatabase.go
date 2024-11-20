@@ -5,6 +5,7 @@ package redis
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Redis Enterprise Database
 func LookupEnterpriseDatabase(ctx *pulumi.Context, args *LookupEnterpriseDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEnterpriseDatabaseResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEnterpriseDatabaseResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEnterpriseDatabase, use LookupEnterpriseDatabaseOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEnterpriseDatabaseResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEnterpriseDatabase, use LookupEnterpriseDatabaseOutput instead")
+	}
 	var rv LookupEnterpriseDatabaseResult
 	err := ctx.Invoke("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args, &rv, opts...)
 	if err != nil {
@@ -49,17 +60,18 @@ type LookupEnterpriseDatabaseResult struct {
 }
 
 func LookupEnterpriseDatabaseOutput(ctx *pulumi.Context, args LookupEnterpriseDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupEnterpriseDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnterpriseDatabaseResultOutput, error) {
 			args := v.(LookupEnterpriseDatabaseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEnterpriseDatabaseResult
-			secret, err := ctx.InvokePackageRaw("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEnterpriseDatabaseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEnterpriseDatabaseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEnterpriseDatabaseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEnterpriseDatabaseResultOutput), nil
 			}

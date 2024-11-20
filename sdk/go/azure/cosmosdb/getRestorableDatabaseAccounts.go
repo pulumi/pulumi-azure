@@ -5,6 +5,7 @@ package cosmosdb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetRestorableDatabaseAccounts(ctx *pulumi.Context, args *GetRestorableDatabaseAccountsArgs, opts ...pulumi.InvokeOption) (*GetRestorableDatabaseAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRestorableDatabaseAccountsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRestorableDatabaseAccountsResult{}, errors.New("DependsOn is not supported for direct form invoke GetRestorableDatabaseAccounts, use GetRestorableDatabaseAccountsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRestorableDatabaseAccountsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRestorableDatabaseAccounts, use GetRestorableDatabaseAccountsOutput instead")
+	}
 	var rv GetRestorableDatabaseAccountsResult
 	err := ctx.Invoke("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type GetRestorableDatabaseAccountsResult struct {
 }
 
 func GetRestorableDatabaseAccountsOutput(ctx *pulumi.Context, args GetRestorableDatabaseAccountsOutputArgs, opts ...pulumi.InvokeOption) GetRestorableDatabaseAccountsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRestorableDatabaseAccountsResultOutput, error) {
 			args := v.(GetRestorableDatabaseAccountsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRestorableDatabaseAccountsResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, &rv, "", opts...)
 			if err != nil {
 				return GetRestorableDatabaseAccountsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRestorableDatabaseAccountsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRestorableDatabaseAccountsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRestorableDatabaseAccountsResultOutput), nil
 			}

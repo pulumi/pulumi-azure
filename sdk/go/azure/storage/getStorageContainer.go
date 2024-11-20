@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetStorageContainerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetStorageContainerResult{}, errors.New("DependsOn is not supported for direct form invoke GetStorageContainer, use GetStorageContainerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetStorageContainerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetStorageContainer, use GetStorageContainerOutput instead")
+	}
 	var rv GetStorageContainerResult
 	err := ctx.Invoke("azure:storage/getStorageContainer:getStorageContainer", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type GetStorageContainerResult struct {
 }
 
 func GetStorageContainerOutput(ctx *pulumi.Context, args GetStorageContainerOutputArgs, opts ...pulumi.InvokeOption) GetStorageContainerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStorageContainerResultOutput, error) {
 			args := v.(GetStorageContainerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetStorageContainerResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getStorageContainer:getStorageContainer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getStorageContainer:getStorageContainer", args, &rv, "", opts...)
 			if err != nil {
 				return GetStorageContainerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetStorageContainerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetStorageContainerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetStorageContainerResultOutput), nil
 			}

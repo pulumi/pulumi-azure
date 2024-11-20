@@ -5,6 +5,7 @@ package netapp
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSnapshotPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSnapshotPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSnapshotPolicy, use LookupSnapshotPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSnapshotPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSnapshotPolicy, use LookupSnapshotPolicyOutput instead")
+	}
 	var rv LookupSnapshotPolicyResult
 	err := ctx.Invoke("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args, &rv, opts...)
 	if err != nil {
@@ -93,17 +104,18 @@ type LookupSnapshotPolicyResult struct {
 }
 
 func LookupSnapshotPolicyOutput(ctx *pulumi.Context, args LookupSnapshotPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSnapshotPolicyResultOutput, error) {
 			args := v.(LookupSnapshotPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSnapshotPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSnapshotPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSnapshotPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSnapshotPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSnapshotPolicyResultOutput), nil
 			}

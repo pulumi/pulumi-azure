@@ -5,6 +5,7 @@ package expressroute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetCircuitPeering(ctx *pulumi.Context, args *GetCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*GetCircuitPeeringResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCircuitPeeringResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCircuitPeeringResult{}, errors.New("DependsOn is not supported for direct form invoke GetCircuitPeering, use GetCircuitPeeringOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCircuitPeeringResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCircuitPeering, use GetCircuitPeeringOutput instead")
+	}
 	var rv GetCircuitPeeringResult
 	err := ctx.Invoke("azure:expressroute/getCircuitPeering:getCircuitPeering", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type GetCircuitPeeringResult struct {
 }
 
 func GetCircuitPeeringOutput(ctx *pulumi.Context, args GetCircuitPeeringOutputArgs, opts ...pulumi.InvokeOption) GetCircuitPeeringResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCircuitPeeringResultOutput, error) {
 			args := v.(GetCircuitPeeringArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCircuitPeeringResult
-			secret, err := ctx.InvokePackageRaw("azure:expressroute/getCircuitPeering:getCircuitPeering", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:expressroute/getCircuitPeering:getCircuitPeering", args, &rv, "", opts...)
 			if err != nil {
 				return GetCircuitPeeringResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCircuitPeeringResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCircuitPeeringResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCircuitPeeringResultOutput), nil
 			}

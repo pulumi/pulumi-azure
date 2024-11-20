@@ -198,7 +198,7 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
 def get_gateway_host_name_configuration_output(api_management_id: Optional[pulumi.Input[str]] = None,
                                                gateway_name: Optional[pulumi.Input[str]] = None,
                                                name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayHostNameConfigurationResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayHostNameConfigurationResult]:
     """
     Use this data source to access information about an existing API Management Gateway Host Configuration.
 
@@ -228,7 +228,7 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
     __args__['apiManagementId'] = api_management_id
     __args__['gatewayName'] = gateway_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration', __args__, opts=opts, typ=GetGatewayHostNameConfigurationResult)
     return __ret__.apply(lambda __response__: GetGatewayHostNameConfigurationResult(
         api_management_id=pulumi.get(__response__, 'api_management_id'),

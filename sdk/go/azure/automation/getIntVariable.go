@@ -5,6 +5,7 @@ package automation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupIntVariable(ctx *pulumi.Context, args *LookupIntVariableArgs, opts ...pulumi.InvokeOption) (*LookupIntVariableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupIntVariableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupIntVariableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupIntVariable, use LookupIntVariableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupIntVariableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupIntVariable, use LookupIntVariableOutput instead")
+	}
 	var rv LookupIntVariableResult
 	err := ctx.Invoke("azure:automation/getIntVariable:getIntVariable", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupIntVariableResult struct {
 }
 
 func LookupIntVariableOutput(ctx *pulumi.Context, args LookupIntVariableOutputArgs, opts ...pulumi.InvokeOption) LookupIntVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIntVariableResultOutput, error) {
 			args := v.(LookupIntVariableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIntVariableResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getIntVariable:getIntVariable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getIntVariable:getIntVariable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIntVariableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIntVariableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIntVariableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIntVariableResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Subscription Template Deployment.
 func LookupSubscriptionTemplateDeployment(ctx *pulumi.Context, args *LookupSubscriptionTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionTemplateDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSubscriptionTemplateDeploymentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSubscriptionTemplateDeploymentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSubscriptionTemplateDeployment, use LookupSubscriptionTemplateDeploymentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSubscriptionTemplateDeploymentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSubscriptionTemplateDeployment, use LookupSubscriptionTemplateDeploymentOutput instead")
+	}
 	var rv LookupSubscriptionTemplateDeploymentResult
 	err := ctx.Invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args, &rv, opts...)
 	if err != nil {
@@ -38,17 +49,18 @@ type LookupSubscriptionTemplateDeploymentResult struct {
 }
 
 func LookupSubscriptionTemplateDeploymentOutput(ctx *pulumi.Context, args LookupSubscriptionTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubscriptionTemplateDeploymentResultOutput, error) {
 			args := v.(LookupSubscriptionTemplateDeploymentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSubscriptionTemplateDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSubscriptionTemplateDeploymentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSubscriptionTemplateDeploymentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSubscriptionTemplateDeploymentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSubscriptionTemplateDeploymentResultOutput), nil
 			}

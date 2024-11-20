@@ -5,6 +5,7 @@ package policy
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetPolicyDefintionBuiltIn(ctx *pulumi.Context, args *GetPolicyDefintionBuiltInArgs, opts ...pulumi.InvokeOption) (*GetPolicyDefintionBuiltInResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPolicyDefintionBuiltInResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPolicyDefintionBuiltInResult{}, errors.New("DependsOn is not supported for direct form invoke GetPolicyDefintionBuiltIn, use GetPolicyDefintionBuiltInOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPolicyDefintionBuiltInResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPolicyDefintionBuiltIn, use GetPolicyDefintionBuiltInOutput instead")
+	}
 	var rv GetPolicyDefintionBuiltInResult
 	err := ctx.Invoke("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type GetPolicyDefintionBuiltInResult struct {
 }
 
 func GetPolicyDefintionBuiltInOutput(ctx *pulumi.Context, args GetPolicyDefintionBuiltInOutputArgs, opts ...pulumi.InvokeOption) GetPolicyDefintionBuiltInResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPolicyDefintionBuiltInResultOutput, error) {
 			args := v.(GetPolicyDefintionBuiltInArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPolicyDefintionBuiltInResult
-			secret, err := ctx.InvokePackageRaw("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args, &rv, "", opts...)
 			if err != nil {
 				return GetPolicyDefintionBuiltInResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPolicyDefintionBuiltInResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPolicyDefintionBuiltInResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPolicyDefintionBuiltInResultOutput), nil
 			}

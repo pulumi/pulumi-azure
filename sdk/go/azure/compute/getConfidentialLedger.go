@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetConfidentialLedger(ctx *pulumi.Context, args *GetConfidentialLedgerArgs, opts ...pulumi.InvokeOption) (*GetConfidentialLedgerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetConfidentialLedgerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetConfidentialLedgerResult{}, errors.New("DependsOn is not supported for direct form invoke GetConfidentialLedger, use GetConfidentialLedgerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetConfidentialLedgerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetConfidentialLedger, use GetConfidentialLedgerOutput instead")
+	}
 	var rv GetConfidentialLedgerResult
 	err := ctx.Invoke("azure:compute/getConfidentialLedger:getConfidentialLedger", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type GetConfidentialLedgerResult struct {
 }
 
 func GetConfidentialLedgerOutput(ctx *pulumi.Context, args GetConfidentialLedgerOutputArgs, opts ...pulumi.InvokeOption) GetConfidentialLedgerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConfidentialLedgerResultOutput, error) {
 			args := v.(GetConfidentialLedgerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetConfidentialLedgerResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getConfidentialLedger:getConfidentialLedger", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getConfidentialLedger:getConfidentialLedger", args, &rv, "", opts...)
 			if err != nil {
 				return GetConfidentialLedgerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetConfidentialLedgerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetConfidentialLedgerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetConfidentialLedgerResultOutput), nil
 			}

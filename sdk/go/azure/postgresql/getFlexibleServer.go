@@ -5,6 +5,7 @@ package postgresql
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFlexibleServer(ctx *pulumi.Context, args *LookupFlexibleServerArgs, opts ...pulumi.InvokeOption) (*LookupFlexibleServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFlexibleServerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFlexibleServerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFlexibleServer, use LookupFlexibleServerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFlexibleServerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFlexibleServer, use LookupFlexibleServerOutput instead")
+	}
 	var rv LookupFlexibleServerResult
 	err := ctx.Invoke("azure:postgresql/getFlexibleServer:getFlexibleServer", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type LookupFlexibleServerResult struct {
 }
 
 func LookupFlexibleServerOutput(ctx *pulumi.Context, args LookupFlexibleServerOutputArgs, opts ...pulumi.InvokeOption) LookupFlexibleServerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlexibleServerResultOutput, error) {
 			args := v.(LookupFlexibleServerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFlexibleServerResult
-			secret, err := ctx.InvokePackageRaw("azure:postgresql/getFlexibleServer:getFlexibleServer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:postgresql/getFlexibleServer:getFlexibleServer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFlexibleServerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFlexibleServerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFlexibleServerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFlexibleServerResultOutput), nil
 			}

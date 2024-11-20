@@ -5,6 +5,7 @@ package sentinel
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func GetAlertRuleAnomaly(ctx *pulumi.Context, args *GetAlertRuleAnomalyArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleAnomalyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAlertRuleAnomalyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAlertRuleAnomalyResult{}, errors.New("DependsOn is not supported for direct form invoke GetAlertRuleAnomaly, use GetAlertRuleAnomalyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAlertRuleAnomalyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAlertRuleAnomaly, use GetAlertRuleAnomalyOutput instead")
+	}
 	var rv GetAlertRuleAnomalyResult
 	err := ctx.Invoke("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args, &rv, opts...)
 	if err != nil {
@@ -124,17 +135,18 @@ type GetAlertRuleAnomalyResult struct {
 }
 
 func GetAlertRuleAnomalyOutput(ctx *pulumi.Context, args GetAlertRuleAnomalyOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleAnomalyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAlertRuleAnomalyResultOutput, error) {
 			args := v.(GetAlertRuleAnomalyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAlertRuleAnomalyResult
-			secret, err := ctx.InvokePackageRaw("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args, &rv, "", opts...)
 			if err != nil {
 				return GetAlertRuleAnomalyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAlertRuleAnomalyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAlertRuleAnomalyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAlertRuleAnomalyResultOutput), nil
 			}
