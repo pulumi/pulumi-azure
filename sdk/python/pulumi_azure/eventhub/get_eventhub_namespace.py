@@ -286,7 +286,7 @@ def get_eventhub_namespace(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_eventhub_namespace_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventhubNamespaceResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventhubNamespaceResult]:
     """
     Use this data source to access information about an existing EventHub Namespace.
 
@@ -309,7 +309,7 @@ def get_eventhub_namespace_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__, opts=opts, typ=GetEventhubNamespaceResult)
     return __ret__.apply(lambda __response__: GetEventhubNamespaceResult(
         auto_inflate_enabled=pulumi.get(__response__, 'auto_inflate_enabled'),
