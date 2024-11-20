@@ -5,6 +5,7 @@ package iot
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSharedAccessPolicy(ctx *pulumi.Context, args *LookupSharedAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSharedAccessPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSharedAccessPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSharedAccessPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSharedAccessPolicy, use LookupSharedAccessPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSharedAccessPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSharedAccessPolicy, use LookupSharedAccessPolicyOutput instead")
+	}
 	var rv LookupSharedAccessPolicyResult
 	err := ctx.Invoke("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupSharedAccessPolicyResult struct {
 }
 
 func LookupSharedAccessPolicyOutput(ctx *pulumi.Context, args LookupSharedAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSharedAccessPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSharedAccessPolicyResultOutput, error) {
 			args := v.(LookupSharedAccessPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSharedAccessPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSharedAccessPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSharedAccessPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSharedAccessPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSharedAccessPolicyResultOutput), nil
 			}

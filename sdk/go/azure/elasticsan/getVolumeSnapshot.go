@@ -5,6 +5,7 @@ package elasticsan
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -56,6 +57,16 @@ import (
 // ```
 func GetVolumeSnapshot(ctx *pulumi.Context, args *GetVolumeSnapshotArgs, opts ...pulumi.InvokeOption) (*GetVolumeSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVolumeSnapshotResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVolumeSnapshotResult{}, errors.New("DependsOn is not supported for direct form invoke GetVolumeSnapshot, use GetVolumeSnapshotOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVolumeSnapshotResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVolumeSnapshot, use GetVolumeSnapshotOutput instead")
+	}
 	var rv GetVolumeSnapshotResult
 	err := ctx.Invoke("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type GetVolumeSnapshotResult struct {
 }
 
 func GetVolumeSnapshotOutput(ctx *pulumi.Context, args GetVolumeSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetVolumeSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVolumeSnapshotResultOutput, error) {
 			args := v.(GetVolumeSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVolumeSnapshotResult
-			secret, err := ctx.InvokePackageRaw("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return GetVolumeSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVolumeSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVolumeSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVolumeSnapshotResultOutput), nil
 			}

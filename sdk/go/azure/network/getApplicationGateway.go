@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupApplicationGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupApplicationGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupApplicationGateway, use LookupApplicationGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupApplicationGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupApplicationGateway, use LookupApplicationGatewayOutput instead")
+	}
 	var rv LookupApplicationGatewayResult
 	err := ctx.Invoke("azure:network/getApplicationGateway:getApplicationGateway", args, &rv, opts...)
 	if err != nil {
@@ -131,17 +142,18 @@ type LookupApplicationGatewayResult struct {
 }
 
 func LookupApplicationGatewayOutput(ctx *pulumi.Context, args LookupApplicationGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationGatewayResultOutput, error) {
 			args := v.(LookupApplicationGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupApplicationGatewayResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getApplicationGateway:getApplicationGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getApplicationGateway:getApplicationGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupApplicationGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupApplicationGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupApplicationGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupApplicationGatewayResultOutput), nil
 			}

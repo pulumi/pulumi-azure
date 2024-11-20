@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupBackendAddressPool(ctx *pulumi.Context, args *LookupBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*LookupBackendAddressPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBackendAddressPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBackendAddressPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBackendAddressPool, use LookupBackendAddressPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBackendAddressPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBackendAddressPool, use LookupBackendAddressPoolOutput instead")
+	}
 	var rv LookupBackendAddressPoolResult
 	err := ctx.Invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupBackendAddressPoolResult struct {
 }
 
 func LookupBackendAddressPoolOutput(ctx *pulumi.Context, args LookupBackendAddressPoolOutputArgs, opts ...pulumi.InvokeOption) LookupBackendAddressPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBackendAddressPoolResultOutput, error) {
 			args := v.(LookupBackendAddressPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBackendAddressPoolResult
-			secret, err := ctx.InvokePackageRaw("azure:lb/getBackendAddressPool:getBackendAddressPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:lb/getBackendAddressPool:getBackendAddressPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBackendAddressPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBackendAddressPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBackendAddressPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBackendAddressPoolResultOutput), nil
 			}

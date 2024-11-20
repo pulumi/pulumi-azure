@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetImages(ctx *pulumi.Context, args *GetImagesArgs, opts ...pulumi.InvokeOption) (*GetImagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetImagesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetImagesResult{}, errors.New("DependsOn is not supported for direct form invoke GetImages, use GetImagesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetImagesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetImages, use GetImagesOutput instead")
+	}
 	var rv GetImagesResult
 	err := ctx.Invoke("azure:compute/getImages:getImages", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetImagesResult struct {
 }
 
 func GetImagesOutput(ctx *pulumi.Context, args GetImagesOutputArgs, opts ...pulumi.InvokeOption) GetImagesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImagesResultOutput, error) {
 			args := v.(GetImagesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetImagesResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getImages:getImages", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getImages:getImages", args, &rv, "", opts...)
 			if err != nil {
 				return GetImagesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetImagesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetImagesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetImagesResultOutput), nil
 			}

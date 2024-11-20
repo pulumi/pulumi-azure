@@ -5,6 +5,7 @@ package datashare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDatasetKustoCluster(ctx *pulumi.Context, args *LookupDatasetKustoClusterArgs, opts ...pulumi.InvokeOption) (*LookupDatasetKustoClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDatasetKustoClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDatasetKustoClusterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDatasetKustoCluster, use LookupDatasetKustoClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDatasetKustoClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDatasetKustoCluster, use LookupDatasetKustoClusterOutput instead")
+	}
 	var rv LookupDatasetKustoClusterResult
 	err := ctx.Invoke("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupDatasetKustoClusterResult struct {
 }
 
 func LookupDatasetKustoClusterOutput(ctx *pulumi.Context, args LookupDatasetKustoClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetKustoClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatasetKustoClusterResultOutput, error) {
 			args := v.(LookupDatasetKustoClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDatasetKustoClusterResult
-			secret, err := ctx.InvokePackageRaw("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDatasetKustoClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDatasetKustoClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDatasetKustoClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDatasetKustoClusterResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package management
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Management Group Template Deployment.
 func LookupGroupTemplateDeployment(ctx *pulumi.Context, args *LookupGroupTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupGroupTemplateDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGroupTemplateDeploymentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGroupTemplateDeploymentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGroupTemplateDeployment, use LookupGroupTemplateDeploymentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGroupTemplateDeploymentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGroupTemplateDeployment, use LookupGroupTemplateDeploymentOutput instead")
+	}
 	var rv LookupGroupTemplateDeploymentResult
 	err := ctx.Invoke("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args, &rv, opts...)
 	if err != nil {
@@ -41,17 +52,18 @@ type LookupGroupTemplateDeploymentResult struct {
 }
 
 func LookupGroupTemplateDeploymentOutput(ctx *pulumi.Context, args LookupGroupTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupGroupTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGroupTemplateDeploymentResultOutput, error) {
 			args := v.(LookupGroupTemplateDeploymentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGroupTemplateDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGroupTemplateDeploymentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGroupTemplateDeploymentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGroupTemplateDeploymentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGroupTemplateDeploymentResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func LookupManagedHardwareSecurityModuleKey(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleKeyArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupManagedHardwareSecurityModuleKeyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupManagedHardwareSecurityModuleKeyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupManagedHardwareSecurityModuleKey, use LookupManagedHardwareSecurityModuleKeyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupManagedHardwareSecurityModuleKeyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupManagedHardwareSecurityModuleKey, use LookupManagedHardwareSecurityModuleKeyOutput instead")
+	}
 	var rv LookupManagedHardwareSecurityModuleKeyResult
 	err := ctx.Invoke("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type LookupManagedHardwareSecurityModuleKeyResult struct {
 }
 
 func LookupManagedHardwareSecurityModuleKeyOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleKeyOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleKeyResultOutput, error) {
 			args := v.(LookupManagedHardwareSecurityModuleKeyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedHardwareSecurityModuleKeyResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedHardwareSecurityModuleKeyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedHardwareSecurityModuleKeyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedHardwareSecurityModuleKeyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedHardwareSecurityModuleKeyResultOutput), nil
 			}

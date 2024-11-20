@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetTemplateSpecVersion(ctx *pulumi.Context, args *GetTemplateSpecVersionArgs, opts ...pulumi.InvokeOption) (*GetTemplateSpecVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTemplateSpecVersionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTemplateSpecVersionResult{}, errors.New("DependsOn is not supported for direct form invoke GetTemplateSpecVersion, use GetTemplateSpecVersionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTemplateSpecVersionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTemplateSpecVersion, use GetTemplateSpecVersionOutput instead")
+	}
 	var rv GetTemplateSpecVersionResult
 	err := ctx.Invoke("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetTemplateSpecVersionResult struct {
 }
 
 func GetTemplateSpecVersionOutput(ctx *pulumi.Context, args GetTemplateSpecVersionOutputArgs, opts ...pulumi.InvokeOption) GetTemplateSpecVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTemplateSpecVersionResultOutput, error) {
 			args := v.(GetTemplateSpecVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTemplateSpecVersionResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, &rv, "", opts...)
 			if err != nil {
 				return GetTemplateSpecVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTemplateSpecVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTemplateSpecVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTemplateSpecVersionResultOutput), nil
 			}

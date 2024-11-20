@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupManagedDisk(ctx *pulumi.Context, args *LookupManagedDiskArgs, opts ...pulumi.InvokeOption) (*LookupManagedDiskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupManagedDiskResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupManagedDiskResult{}, errors.New("DependsOn is not supported for direct form invoke LookupManagedDisk, use LookupManagedDiskOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupManagedDiskResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupManagedDisk, use LookupManagedDiskOutput instead")
+	}
 	var rv LookupManagedDiskResult
 	err := ctx.Invoke("azure:compute/getManagedDisk:getManagedDisk", args, &rv, opts...)
 	if err != nil {
@@ -98,17 +109,18 @@ type LookupManagedDiskResult struct {
 }
 
 func LookupManagedDiskOutput(ctx *pulumi.Context, args LookupManagedDiskOutputArgs, opts ...pulumi.InvokeOption) LookupManagedDiskResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedDiskResultOutput, error) {
 			args := v.(LookupManagedDiskArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedDiskResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getManagedDisk:getManagedDisk", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getManagedDisk:getManagedDisk", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedDiskResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedDiskResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedDiskResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedDiskResultOutput), nil
 			}

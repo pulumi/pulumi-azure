@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetFunctionAppHostKeys(ctx *pulumi.Context, args *GetFunctionAppHostKeysArgs, opts ...pulumi.InvokeOption) (*GetFunctionAppHostKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetFunctionAppHostKeysResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetFunctionAppHostKeysResult{}, errors.New("DependsOn is not supported for direct form invoke GetFunctionAppHostKeys, use GetFunctionAppHostKeysOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetFunctionAppHostKeysResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetFunctionAppHostKeys, use GetFunctionAppHostKeysOutput instead")
+	}
 	var rv GetFunctionAppHostKeysResult
 	err := ctx.Invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type GetFunctionAppHostKeysResult struct {
 }
 
 func GetFunctionAppHostKeysOutput(ctx *pulumi.Context, args GetFunctionAppHostKeysOutputArgs, opts ...pulumi.InvokeOption) GetFunctionAppHostKeysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFunctionAppHostKeysResultOutput, error) {
 			args := v.(GetFunctionAppHostKeysArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetFunctionAppHostKeysResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, &rv, "", opts...)
 			if err != nil {
 				return GetFunctionAppHostKeysResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetFunctionAppHostKeysResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetFunctionAppHostKeysResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetFunctionAppHostKeysResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package oracle
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.InvokeOption) (*GetGiVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetGiVersionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetGiVersionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetGiVersions, use GetGiVersionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetGiVersionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetGiVersions, use GetGiVersionsOutput instead")
+	}
 	var rv GetGiVersionsResult
 	err := ctx.Invoke("azure:oracle/getGiVersions:getGiVersions", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetGiVersionsResult struct {
 }
 
 func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts ...pulumi.InvokeOption) GetGiVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGiVersionsResultOutput, error) {
 			args := v.(GetGiVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetGiVersionsResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getGiVersions:getGiVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getGiVersions:getGiVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetGiVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetGiVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetGiVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetGiVersionsResultOutput), nil
 			}

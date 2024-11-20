@@ -5,6 +5,7 @@ package monitoring
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDataCollectionEndpoint(ctx *pulumi.Context, args *LookupDataCollectionEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDataCollectionEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDataCollectionEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDataCollectionEndpoint, use LookupDataCollectionEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDataCollectionEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDataCollectionEndpoint, use LookupDataCollectionEndpointOutput instead")
+	}
 	var rv LookupDataCollectionEndpointResult
 	err := ctx.Invoke("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupDataCollectionEndpointResult struct {
 }
 
 func LookupDataCollectionEndpointOutput(ctx *pulumi.Context, args LookupDataCollectionEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataCollectionEndpointResultOutput, error) {
 			args := v.(LookupDataCollectionEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDataCollectionEndpointResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDataCollectionEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDataCollectionEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDataCollectionEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDataCollectionEndpointResultOutput), nil
 			}

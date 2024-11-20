@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupAAAARecord(ctx *pulumi.Context, args *LookupAAAARecordArgs, opts ...pulumi.InvokeOption) (*LookupAAAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAAAARecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAAAARecordResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAAAARecord, use LookupAAAARecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAAAARecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAAAARecord, use LookupAAAARecordOutput instead")
+	}
 	var rv LookupAAAARecordResult
 	err := ctx.Invoke("azure:privatedns/getAAAARecord:getAAAARecord", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupAAAARecordResult struct {
 }
 
 func LookupAAAARecordOutput(ctx *pulumi.Context, args LookupAAAARecordOutputArgs, opts ...pulumi.InvokeOption) LookupAAAARecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAAAARecordResultOutput, error) {
 			args := v.(LookupAAAARecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAAAARecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getAAAARecord:getAAAARecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getAAAARecord:getAAAARecord", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAAAARecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAAAARecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAAAARecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAAAARecordResultOutput), nil
 			}

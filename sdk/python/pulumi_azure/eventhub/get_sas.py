@@ -138,7 +138,7 @@ def get_sas(connection_string: Optional[str] = None,
         sas=pulumi.get(__ret__, 'sas'))
 def get_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
                    expiry: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSasResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSasResult]:
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
 
@@ -185,7 +185,7 @@ def get_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['connectionString'] = connection_string
     __args__['expiry'] = expiry
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getSas:getSas', __args__, opts=opts, typ=GetSasResult)
     return __ret__.apply(lambda __response__: GetSasResult(
         connection_string=pulumi.get(__response__, 'connection_string'),

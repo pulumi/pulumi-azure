@@ -5,6 +5,7 @@ package netapp
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupVolumeQuotaRule(ctx *pulumi.Context, args *LookupVolumeQuotaRuleArgs, opts ...pulumi.InvokeOption) (*LookupVolumeQuotaRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVolumeQuotaRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVolumeQuotaRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVolumeQuotaRule, use LookupVolumeQuotaRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVolumeQuotaRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVolumeQuotaRule, use LookupVolumeQuotaRuleOutput instead")
+	}
 	var rv LookupVolumeQuotaRuleResult
 	err := ctx.Invoke("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type LookupVolumeQuotaRuleResult struct {
 }
 
 func LookupVolumeQuotaRuleOutput(ctx *pulumi.Context, args LookupVolumeQuotaRuleOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeQuotaRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVolumeQuotaRuleResultOutput, error) {
 			args := v.(LookupVolumeQuotaRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVolumeQuotaRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVolumeQuotaRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVolumeQuotaRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVolumeQuotaRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVolumeQuotaRuleResultOutput), nil
 			}

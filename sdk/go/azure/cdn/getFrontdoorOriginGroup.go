@@ -5,6 +5,7 @@ package cdn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFrontdoorOriginGroup(ctx *pulumi.Context, args *LookupFrontdoorOriginGroupArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorOriginGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFrontdoorOriginGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFrontdoorOriginGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFrontdoorOriginGroup, use LookupFrontdoorOriginGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFrontdoorOriginGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFrontdoorOriginGroup, use LookupFrontdoorOriginGroupOutput instead")
+	}
 	var rv LookupFrontdoorOriginGroupResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupFrontdoorOriginGroupResult struct {
 }
 
 func LookupFrontdoorOriginGroupOutput(ctx *pulumi.Context, args LookupFrontdoorOriginGroupOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorOriginGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorOriginGroupResultOutput, error) {
 			args := v.(LookupFrontdoorOriginGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorOriginGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorOriginGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorOriginGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorOriginGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorOriginGroupResultOutput), nil
 			}

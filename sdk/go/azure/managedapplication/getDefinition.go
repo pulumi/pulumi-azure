@@ -5,6 +5,7 @@ package managedapplication
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDefinition(ctx *pulumi.Context, args *LookupDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDefinition, use LookupDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDefinition, use LookupDefinitionOutput instead")
+	}
 	var rv LookupDefinitionResult
 	err := ctx.Invoke("azure:managedapplication/getDefinition:getDefinition", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupDefinitionResult struct {
 }
 
 func LookupDefinitionOutput(ctx *pulumi.Context, args LookupDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDefinitionResultOutput, error) {
 			args := v.(LookupDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:managedapplication/getDefinition:getDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:managedapplication/getDefinition:getDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDefinitionResultOutput), nil
 			}

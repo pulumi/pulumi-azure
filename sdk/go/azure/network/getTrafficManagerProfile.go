@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupTrafficManagerProfile(ctx *pulumi.Context, args *LookupTrafficManagerProfileArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTrafficManagerProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTrafficManagerProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTrafficManagerProfile, use LookupTrafficManagerProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTrafficManagerProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTrafficManagerProfile, use LookupTrafficManagerProfileOutput instead")
+	}
 	var rv LookupTrafficManagerProfileResult
 	err := ctx.Invoke("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type LookupTrafficManagerProfileResult struct {
 }
 
 func LookupTrafficManagerProfileOutput(ctx *pulumi.Context, args LookupTrafficManagerProfileOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficManagerProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrafficManagerProfileResultOutput, error) {
 			args := v.(LookupTrafficManagerProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTrafficManagerProfileResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTrafficManagerProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTrafficManagerProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTrafficManagerProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTrafficManagerProfileResultOutput), nil
 			}

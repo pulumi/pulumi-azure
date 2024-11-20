@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetContainers(ctx *pulumi.Context, args *GetContainersArgs, opts ...pulumi.InvokeOption) (*GetContainersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetContainersResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetContainersResult{}, errors.New("DependsOn is not supported for direct form invoke GetContainers, use GetContainersOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetContainersResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetContainers, use GetContainersOutput instead")
+	}
 	var rv GetContainersResult
 	err := ctx.Invoke("azure:storage/getContainers:getContainers", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type GetContainersResult struct {
 }
 
 func GetContainersOutput(ctx *pulumi.Context, args GetContainersOutputArgs, opts ...pulumi.InvokeOption) GetContainersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetContainersResultOutput, error) {
 			args := v.(GetContainersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetContainersResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getContainers:getContainers", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getContainers:getContainers", args, &rv, "", opts...)
 			if err != nil {
 				return GetContainersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetContainersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetContainersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetContainersResultOutput), nil
 			}

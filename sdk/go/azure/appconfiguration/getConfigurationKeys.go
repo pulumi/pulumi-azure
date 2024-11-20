@@ -5,6 +5,7 @@ package appconfiguration
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetConfigurationKeys(ctx *pulumi.Context, args *GetConfigurationKeysArgs, opts ...pulumi.InvokeOption) (*GetConfigurationKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetConfigurationKeysResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetConfigurationKeysResult{}, errors.New("DependsOn is not supported for direct form invoke GetConfigurationKeys, use GetConfigurationKeysOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetConfigurationKeysResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetConfigurationKeys, use GetConfigurationKeysOutput instead")
+	}
 	var rv GetConfigurationKeysResult
 	err := ctx.Invoke("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetConfigurationKeysResult struct {
 }
 
 func GetConfigurationKeysOutput(ctx *pulumi.Context, args GetConfigurationKeysOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationKeysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConfigurationKeysResultOutput, error) {
 			args := v.(GetConfigurationKeysArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetConfigurationKeysResult
-			secret, err := ctx.InvokePackageRaw("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, &rv, "", opts...)
 			if err != nil {
 				return GetConfigurationKeysResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetConfigurationKeysResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetConfigurationKeysResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetConfigurationKeysResultOutput), nil
 			}

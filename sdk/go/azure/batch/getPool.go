@@ -5,6 +5,7 @@ package batch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPool, use LookupPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPool, use LookupPoolOutput instead")
+	}
 	var rv LookupPoolResult
 	err := ctx.Invoke("azure:batch/getPool:getPool", args, &rv, opts...)
 	if err != nil {
@@ -114,17 +125,18 @@ type LookupPoolResult struct {
 }
 
 func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPoolResultOutput, error) {
 			args := v.(LookupPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPoolResult
-			secret, err := ctx.InvokePackageRaw("azure:batch/getPool:getPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:batch/getPool:getPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPoolResultOutput), nil
 			}

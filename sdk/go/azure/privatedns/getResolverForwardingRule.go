@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupResolverForwardingRule(ctx *pulumi.Context, args *LookupResolverForwardingRuleArgs, opts ...pulumi.InvokeOption) (*LookupResolverForwardingRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverForwardingRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverForwardingRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverForwardingRule, use LookupResolverForwardingRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverForwardingRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverForwardingRule, use LookupResolverForwardingRuleOutput instead")
+	}
 	var rv LookupResolverForwardingRuleResult
 	err := ctx.Invoke("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupResolverForwardingRuleResult struct {
 }
 
 func LookupResolverForwardingRuleOutput(ctx *pulumi.Context, args LookupResolverForwardingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupResolverForwardingRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverForwardingRuleResultOutput, error) {
 			args := v.(LookupResolverForwardingRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverForwardingRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverForwardingRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverForwardingRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverForwardingRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverForwardingRuleResultOutput), nil
 			}

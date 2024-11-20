@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupARecord(ctx *pulumi.Context, args *LookupARecordArgs, opts ...pulumi.InvokeOption) (*LookupARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupARecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupARecordResult{}, errors.New("DependsOn is not supported for direct form invoke LookupARecord, use LookupARecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupARecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupARecord, use LookupARecordOutput instead")
+	}
 	var rv LookupARecordResult
 	err := ctx.Invoke("azure:privatedns/getARecord:getARecord", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupARecordResult struct {
 }
 
 func LookupARecordOutput(ctx *pulumi.Context, args LookupARecordOutputArgs, opts ...pulumi.InvokeOption) LookupARecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupARecordResultOutput, error) {
 			args := v.(LookupARecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupARecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getARecord:getARecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getARecord:getARecord", args, &rv, "", opts...)
 			if err != nil {
 				return LookupARecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupARecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupARecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupARecordResultOutput), nil
 			}

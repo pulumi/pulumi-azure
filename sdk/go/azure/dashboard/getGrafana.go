@@ -5,6 +5,7 @@ package dashboard
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupGrafana(ctx *pulumi.Context, args *LookupGrafanaArgs, opts ...pulumi.InvokeOption) (*LookupGrafanaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGrafanaResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGrafanaResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGrafana, use LookupGrafanaOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGrafanaResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGrafana, use LookupGrafanaOutput instead")
+	}
 	var rv LookupGrafanaResult
 	err := ctx.Invoke("azure:dashboard/getGrafana:getGrafana", args, &rv, opts...)
 	if err != nil {
@@ -96,17 +107,18 @@ type LookupGrafanaResult struct {
 }
 
 func LookupGrafanaOutput(ctx *pulumi.Context, args LookupGrafanaOutputArgs, opts ...pulumi.InvokeOption) LookupGrafanaResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGrafanaResultOutput, error) {
 			args := v.(LookupGrafanaArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGrafanaResult
-			secret, err := ctx.InvokePackageRaw("azure:dashboard/getGrafana:getGrafana", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dashboard/getGrafana:getGrafana", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGrafanaResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGrafanaResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGrafanaResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGrafanaResultOutput), nil
 			}

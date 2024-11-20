@@ -5,6 +5,7 @@ package automation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Automation Object Variable.
 func LookupVariableObject(ctx *pulumi.Context, args *LookupVariableObjectArgs, opts ...pulumi.InvokeOption) (*LookupVariableObjectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVariableObjectResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVariableObjectResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVariableObject, use LookupVariableObjectOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVariableObjectResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVariableObject, use LookupVariableObjectOutput instead")
+	}
 	var rv LookupVariableObjectResult
 	err := ctx.Invoke("azure:automation/getVariableObject:getVariableObject", args, &rv, opts...)
 	if err != nil {
@@ -48,17 +59,18 @@ type LookupVariableObjectResult struct {
 }
 
 func LookupVariableObjectOutput(ctx *pulumi.Context, args LookupVariableObjectOutputArgs, opts ...pulumi.InvokeOption) LookupVariableObjectResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVariableObjectResultOutput, error) {
 			args := v.(LookupVariableObjectArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVariableObjectResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getVariableObject:getVariableObject", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getVariableObject:getVariableObject", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVariableObjectResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVariableObjectResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVariableObjectResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVariableObjectResultOutput), nil
 			}

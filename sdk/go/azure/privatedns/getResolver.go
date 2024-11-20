@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupResolver(ctx *pulumi.Context, args *LookupResolverArgs, opts ...pulumi.InvokeOption) (*LookupResolverResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolver, use LookupResolverOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolver, use LookupResolverOutput instead")
+	}
 	var rv LookupResolverResult
 	err := ctx.Invoke("azure:privatedns/getResolver:getResolver", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupResolverResult struct {
 }
 
 func LookupResolverOutput(ctx *pulumi.Context, args LookupResolverOutputArgs, opts ...pulumi.InvokeOption) LookupResolverResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverResultOutput, error) {
 			args := v.(LookupResolverArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolver:getResolver", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getResolver:getResolver", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverResultOutput), nil
 			}

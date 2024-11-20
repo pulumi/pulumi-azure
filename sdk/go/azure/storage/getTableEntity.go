@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupTableEntity(ctx *pulumi.Context, args *LookupTableEntityArgs, opts ...pulumi.InvokeOption) (*LookupTableEntityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTableEntityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTableEntityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTableEntity, use LookupTableEntityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTableEntityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTableEntity, use LookupTableEntityOutput instead")
+	}
 	var rv LookupTableEntityResult
 	err := ctx.Invoke("azure:storage/getTableEntity:getTableEntity", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupTableEntityResult struct {
 }
 
 func LookupTableEntityOutput(ctx *pulumi.Context, args LookupTableEntityOutputArgs, opts ...pulumi.InvokeOption) LookupTableEntityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTableEntityResultOutput, error) {
 			args := v.(LookupTableEntityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTableEntityResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getTableEntity:getTableEntity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getTableEntity:getTableEntity", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTableEntityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTableEntityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTableEntityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTableEntityResultOutput), nil
 			}

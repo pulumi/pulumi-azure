@@ -5,6 +5,7 @@ package pim
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -100,6 +101,16 @@ import (
 // ```
 func LookupRoleManagementPolicy(ctx *pulumi.Context, args *LookupRoleManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupRoleManagementPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRoleManagementPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRoleManagementPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRoleManagementPolicy, use LookupRoleManagementPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRoleManagementPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRoleManagementPolicy, use LookupRoleManagementPolicyOutput instead")
+	}
 	var rv LookupRoleManagementPolicyResult
 	err := ctx.Invoke("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args, &rv, opts...)
 	if err != nil {
@@ -137,17 +148,18 @@ type LookupRoleManagementPolicyResult struct {
 }
 
 func LookupRoleManagementPolicyOutput(ctx *pulumi.Context, args LookupRoleManagementPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupRoleManagementPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoleManagementPolicyResultOutput, error) {
 			args := v.(LookupRoleManagementPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRoleManagementPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRoleManagementPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRoleManagementPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRoleManagementPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRoleManagementPolicyResultOutput), nil
 			}

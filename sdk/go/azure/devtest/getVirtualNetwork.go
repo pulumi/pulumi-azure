@@ -5,6 +5,7 @@ package devtest
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualNetworkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualNetworkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualNetwork, use LookupVirtualNetworkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualNetworkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualNetwork, use LookupVirtualNetworkOutput instead")
+	}
 	var rv LookupVirtualNetworkResult
 	err := ctx.Invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupVirtualNetworkResult struct {
 }
 
 func LookupVirtualNetworkOutput(ctx *pulumi.Context, args LookupVirtualNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualNetworkResultOutput, error) {
 			args := v.(LookupVirtualNetworkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualNetworkResult
-			secret, err := ctx.InvokePackageRaw("azure:devtest/getVirtualNetwork:getVirtualNetwork", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:devtest/getVirtualNetwork:getVirtualNetwork", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualNetworkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualNetworkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualNetworkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualNetworkResultOutput), nil
 			}

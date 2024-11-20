@@ -5,6 +5,7 @@ package hdinsight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetCluster(ctx *pulumi.Context, args *GetClusterArgs, opts ...pulumi.InvokeOption) (*GetClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetClusterResult{}, errors.New("DependsOn is not supported for direct form invoke GetCluster, use GetClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCluster, use GetClusterOutput instead")
+	}
 	var rv GetClusterResult
 	err := ctx.Invoke("azure:hdinsight/getCluster:getCluster", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type GetClusterResult struct {
 }
 
 func GetClusterOutput(ctx *pulumi.Context, args GetClusterOutputArgs, opts ...pulumi.InvokeOption) GetClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClusterResultOutput, error) {
 			args := v.(GetClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetClusterResult
-			secret, err := ctx.InvokePackageRaw("azure:hdinsight/getCluster:getCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:hdinsight/getCluster:getCluster", args, &rv, "", opts...)
 			if err != nil {
 				return GetClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetClusterResultOutput), nil
 			}

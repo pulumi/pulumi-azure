@@ -5,6 +5,7 @@ package authorization
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupUserAssignedIdentityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupUserAssignedIdentityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupUserAssignedIdentity, use LookupUserAssignedIdentityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupUserAssignedIdentityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupUserAssignedIdentity, use LookupUserAssignedIdentityOutput instead")
+	}
 	var rv LookupUserAssignedIdentityResult
 	err := ctx.Invoke("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupUserAssignedIdentityResult struct {
 }
 
 func LookupUserAssignedIdentityOutput(ctx *pulumi.Context, args LookupUserAssignedIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupUserAssignedIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserAssignedIdentityResultOutput, error) {
 			args := v.(LookupUserAssignedIdentityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupUserAssignedIdentityResult
-			secret, err := ctx.InvokePackageRaw("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, "", opts...)
 			if err != nil {
 				return LookupUserAssignedIdentityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupUserAssignedIdentityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupUserAssignedIdentityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupUserAssignedIdentityResultOutput), nil
 			}

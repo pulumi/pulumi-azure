@@ -5,6 +5,7 @@ package dns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupNsRecord(ctx *pulumi.Context, args *LookupNsRecordArgs, opts ...pulumi.InvokeOption) (*LookupNsRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNsRecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNsRecordResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNsRecord, use LookupNsRecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNsRecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNsRecord, use LookupNsRecordOutput instead")
+	}
 	var rv LookupNsRecordResult
 	err := ctx.Invoke("azure:dns/getNsRecord:getNsRecord", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupNsRecordResult struct {
 }
 
 func LookupNsRecordOutput(ctx *pulumi.Context, args LookupNsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupNsRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNsRecordResultOutput, error) {
 			args := v.(LookupNsRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNsRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getNsRecord:getNsRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dns/getNsRecord:getNsRecord", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNsRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNsRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNsRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNsRecordResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func LookupCertificateIssuer(ctx *pulumi.Context, args *LookupCertificateIssuerArgs, opts ...pulumi.InvokeOption) (*LookupCertificateIssuerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCertificateIssuerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCertificateIssuerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCertificateIssuer, use LookupCertificateIssuerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCertificateIssuerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCertificateIssuer, use LookupCertificateIssuerOutput instead")
+	}
 	var rv LookupCertificateIssuerResult
 	err := ctx.Invoke("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type LookupCertificateIssuerResult struct {
 }
 
 func LookupCertificateIssuerOutput(ctx *pulumi.Context, args LookupCertificateIssuerOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateIssuerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateIssuerResultOutput, error) {
 			args := v.(LookupCertificateIssuerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCertificateIssuerResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCertificateIssuerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCertificateIssuerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCertificateIssuerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCertificateIssuerResultOutput), nil
 			}

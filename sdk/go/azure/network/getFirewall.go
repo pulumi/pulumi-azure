@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFirewallResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFirewallResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFirewall, use LookupFirewallOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFirewallResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFirewall, use LookupFirewallOutput instead")
+	}
 	var rv LookupFirewallResult
 	err := ctx.Invoke("azure:network/getFirewall:getFirewall", args, &rv, opts...)
 	if err != nil {
@@ -93,17 +104,18 @@ type LookupFirewallResult struct {
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFirewallResultOutput, error) {
 			args := v.(LookupFirewallArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFirewallResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getFirewall:getFirewall", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getFirewall:getFirewall", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFirewallResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFirewallResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFirewallResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFirewallResultOutput), nil
 			}

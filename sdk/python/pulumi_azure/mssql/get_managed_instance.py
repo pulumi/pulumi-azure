@@ -344,7 +344,7 @@ def get_managed_instance(name: Optional[str] = None,
         vcores=pulumi.get(__ret__, 'vcores'))
 def get_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
 
@@ -365,7 +365,7 @@ def get_managed_instance_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mssql/getManagedInstance:getManagedInstance', __args__, opts=opts, typ=GetManagedInstanceResult)
     return __ret__.apply(lambda __response__: GetManagedInstanceResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),

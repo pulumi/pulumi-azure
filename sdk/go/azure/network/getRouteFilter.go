@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRouteFilterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRouteFilterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRouteFilter, use LookupRouteFilterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRouteFilterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRouteFilter, use LookupRouteFilterOutput instead")
+	}
 	var rv LookupRouteFilterResult
 	err := ctx.Invoke("azure:network/getRouteFilter:getRouteFilter", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupRouteFilterResult struct {
 }
 
 func LookupRouteFilterOutput(ctx *pulumi.Context, args LookupRouteFilterOutputArgs, opts ...pulumi.InvokeOption) LookupRouteFilterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRouteFilterResultOutput, error) {
 			args := v.(LookupRouteFilterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRouteFilterResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getRouteFilter:getRouteFilter", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getRouteFilter:getRouteFilter", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRouteFilterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRouteFilterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRouteFilterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRouteFilterResultOutput), nil
 			}

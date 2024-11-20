@@ -5,6 +5,7 @@ package mobile
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupNetworkSimGroup(ctx *pulumi.Context, args *LookupNetworkSimGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSimGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkSimGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkSimGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkSimGroup, use LookupNetworkSimGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkSimGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkSimGroup, use LookupNetworkSimGroupOutput instead")
+	}
 	var rv LookupNetworkSimGroupResult
 	err := ctx.Invoke("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupNetworkSimGroupResult struct {
 }
 
 func LookupNetworkSimGroupOutput(ctx *pulumi.Context, args LookupNetworkSimGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSimGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkSimGroupResultOutput, error) {
 			args := v.(LookupNetworkSimGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkSimGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkSimGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkSimGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkSimGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkSimGroupResultOutput), nil
 			}

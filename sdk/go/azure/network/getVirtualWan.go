@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Virtual Wan.
 func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualWanResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualWanResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualWan, use LookupVirtualWanOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualWanResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualWan, use LookupVirtualWanOutput instead")
+	}
 	var rv LookupVirtualWanResult
 	err := ctx.Invoke("azure:network/getVirtualWan:getVirtualWan", args, &rv, opts...)
 	if err != nil {
@@ -55,17 +66,18 @@ type LookupVirtualWanResult struct {
 }
 
 func LookupVirtualWanOutput(ctx *pulumi.Context, args LookupVirtualWanOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualWanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualWanResultOutput, error) {
 			args := v.(LookupVirtualWanArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualWanResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualWan:getVirtualWan", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualWan:getVirtualWan", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualWanResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualWanResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualWanResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualWanResultOutput), nil
 			}

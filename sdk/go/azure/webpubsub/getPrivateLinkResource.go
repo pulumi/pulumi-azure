@@ -5,6 +5,7 @@ package webpubsub
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -55,6 +56,16 @@ import (
 // ```
 func GetPrivateLinkResource(ctx *pulumi.Context, args *GetPrivateLinkResourceArgs, opts ...pulumi.InvokeOption) (*GetPrivateLinkResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPrivateLinkResourceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPrivateLinkResourceResult{}, errors.New("DependsOn is not supported for direct form invoke GetPrivateLinkResource, use GetPrivateLinkResourceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPrivateLinkResourceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPrivateLinkResource, use GetPrivateLinkResourceOutput instead")
+	}
 	var rv GetPrivateLinkResourceResult
 	err := ctx.Invoke("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type GetPrivateLinkResourceResult struct {
 }
 
 func GetPrivateLinkResourceOutput(ctx *pulumi.Context, args GetPrivateLinkResourceOutputArgs, opts ...pulumi.InvokeOption) GetPrivateLinkResourceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPrivateLinkResourceResultOutput, error) {
 			args := v.(GetPrivateLinkResourceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPrivateLinkResourceResult
-			secret, err := ctx.InvokePackageRaw("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, &rv, "", opts...)
 			if err != nil {
 				return GetPrivateLinkResourceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPrivateLinkResourceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPrivateLinkResourceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPrivateLinkResourceResultOutput), nil
 			}

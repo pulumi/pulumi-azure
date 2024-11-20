@@ -5,6 +5,7 @@ package healthcare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupMedtechService(ctx *pulumi.Context, args *LookupMedtechServiceArgs, opts ...pulumi.InvokeOption) (*LookupMedtechServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMedtechServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMedtechServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMedtechService, use LookupMedtechServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMedtechServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMedtechService, use LookupMedtechServiceOutput instead")
+	}
 	var rv LookupMedtechServiceResult
 	err := ctx.Invoke("azure:healthcare/getMedtechService:getMedtechService", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupMedtechServiceResult struct {
 }
 
 func LookupMedtechServiceOutput(ctx *pulumi.Context, args LookupMedtechServiceOutputArgs, opts ...pulumi.InvokeOption) LookupMedtechServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMedtechServiceResultOutput, error) {
 			args := v.(LookupMedtechServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMedtechServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:healthcare/getMedtechService:getMedtechService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:healthcare/getMedtechService:getMedtechService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMedtechServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMedtechServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMedtechServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMedtechServiceResultOutput), nil
 			}

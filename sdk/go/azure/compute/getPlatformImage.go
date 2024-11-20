@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs, opts ...pulumi.InvokeOption) (*GetPlatformImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPlatformImageResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPlatformImageResult{}, errors.New("DependsOn is not supported for direct form invoke GetPlatformImage, use GetPlatformImageOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPlatformImageResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPlatformImage, use GetPlatformImageOutput instead")
+	}
 	var rv GetPlatformImageResult
 	err := ctx.Invoke("azure:compute/getPlatformImage:getPlatformImage", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetPlatformImageResult struct {
 }
 
 func GetPlatformImageOutput(ctx *pulumi.Context, args GetPlatformImageOutputArgs, opts ...pulumi.InvokeOption) GetPlatformImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPlatformImageResultOutput, error) {
 			args := v.(GetPlatformImageArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPlatformImageResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getPlatformImage:getPlatformImage", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getPlatformImage:getPlatformImage", args, &rv, "", opts...)
 			if err != nil {
 				return GetPlatformImageResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPlatformImageResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPlatformImageResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPlatformImageResultOutput), nil
 			}

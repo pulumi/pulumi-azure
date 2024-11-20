@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *LookupApplicationSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationSecurityGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupApplicationSecurityGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupApplicationSecurityGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupApplicationSecurityGroup, use LookupApplicationSecurityGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupApplicationSecurityGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupApplicationSecurityGroup, use LookupApplicationSecurityGroupOutput instead")
+	}
 	var rv LookupApplicationSecurityGroupResult
 	err := ctx.Invoke("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type LookupApplicationSecurityGroupResult struct {
 }
 
 func LookupApplicationSecurityGroupOutput(ctx *pulumi.Context, args LookupApplicationSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationSecurityGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationSecurityGroupResultOutput, error) {
 			args := v.(LookupApplicationSecurityGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupApplicationSecurityGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupApplicationSecurityGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupApplicationSecurityGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupApplicationSecurityGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupApplicationSecurityGroupResultOutput), nil
 			}

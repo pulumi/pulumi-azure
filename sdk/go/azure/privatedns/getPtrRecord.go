@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetPtrRecord(ctx *pulumi.Context, args *GetPtrRecordArgs, opts ...pulumi.InvokeOption) (*GetPtrRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPtrRecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPtrRecordResult{}, errors.New("DependsOn is not supported for direct form invoke GetPtrRecord, use GetPtrRecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPtrRecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPtrRecord, use GetPtrRecordOutput instead")
+	}
 	var rv GetPtrRecordResult
 	err := ctx.Invoke("azure:privatedns/getPtrRecord:getPtrRecord", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type GetPtrRecordResult struct {
 }
 
 func GetPtrRecordOutput(ctx *pulumi.Context, args GetPtrRecordOutputArgs, opts ...pulumi.InvokeOption) GetPtrRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPtrRecordResultOutput, error) {
 			args := v.(GetPtrRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPtrRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getPtrRecord:getPtrRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getPtrRecord:getPtrRecord", args, &rv, "", opts...)
 			if err != nil {
 				return GetPtrRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPtrRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPtrRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPtrRecordResultOutput), nil
 			}

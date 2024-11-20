@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupWindowsFunctionApp(ctx *pulumi.Context, args *LookupWindowsFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFunctionAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupWindowsFunctionAppResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupWindowsFunctionAppResult{}, errors.New("DependsOn is not supported for direct form invoke LookupWindowsFunctionApp, use LookupWindowsFunctionAppOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupWindowsFunctionAppResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupWindowsFunctionApp, use LookupWindowsFunctionAppOutput instead")
+	}
 	var rv LookupWindowsFunctionAppResult
 	err := ctx.Invoke("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, &rv, opts...)
 	if err != nil {
@@ -142,17 +153,18 @@ type LookupWindowsFunctionAppResult struct {
 }
 
 func LookupWindowsFunctionAppOutput(ctx *pulumi.Context, args LookupWindowsFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFunctionAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWindowsFunctionAppResultOutput, error) {
 			args := v.(LookupWindowsFunctionAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupWindowsFunctionAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupWindowsFunctionAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupWindowsFunctionAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupWindowsFunctionAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupWindowsFunctionAppResultOutput), nil
 			}

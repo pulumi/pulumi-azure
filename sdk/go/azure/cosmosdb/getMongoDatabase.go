@@ -5,6 +5,7 @@ package cosmosdb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupMongoDatabase(ctx *pulumi.Context, args *LookupMongoDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupMongoDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMongoDatabaseResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMongoDatabaseResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMongoDatabase, use LookupMongoDatabaseOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMongoDatabaseResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMongoDatabase, use LookupMongoDatabaseOutput instead")
+	}
 	var rv LookupMongoDatabaseResult
 	err := ctx.Invoke("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupMongoDatabaseResult struct {
 }
 
 func LookupMongoDatabaseOutput(ctx *pulumi.Context, args LookupMongoDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupMongoDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMongoDatabaseResultOutput, error) {
 			args := v.(LookupMongoDatabaseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMongoDatabaseResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMongoDatabaseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMongoDatabaseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMongoDatabaseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMongoDatabaseResultOutput), nil
 			}

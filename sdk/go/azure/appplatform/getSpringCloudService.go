@@ -5,6 +5,7 @@ package appplatform
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSpringCloudService(ctx *pulumi.Context, args *LookupSpringCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupSpringCloudServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSpringCloudServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSpringCloudServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSpringCloudService, use LookupSpringCloudServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSpringCloudServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSpringCloudService, use LookupSpringCloudServiceOutput instead")
+	}
 	var rv LookupSpringCloudServiceResult
 	err := ctx.Invoke("azure:appplatform/getSpringCloudService:getSpringCloudService", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupSpringCloudServiceResult struct {
 }
 
 func LookupSpringCloudServiceOutput(ctx *pulumi.Context, args LookupSpringCloudServiceOutputArgs, opts ...pulumi.InvokeOption) LookupSpringCloudServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSpringCloudServiceResultOutput, error) {
 			args := v.(LookupSpringCloudServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSpringCloudServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:appplatform/getSpringCloudService:getSpringCloudService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appplatform/getSpringCloudService:getSpringCloudService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSpringCloudServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSpringCloudServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSpringCloudServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSpringCloudServiceResultOutput), nil
 			}

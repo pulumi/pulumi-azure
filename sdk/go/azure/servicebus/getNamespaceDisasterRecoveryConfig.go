@@ -5,6 +5,7 @@ package servicebus
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -13,6 +14,16 @@ import (
 
 func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceDisasterRecoveryConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNamespaceDisasterRecoveryConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNamespaceDisasterRecoveryConfigResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNamespaceDisasterRecoveryConfig, use LookupNamespaceDisasterRecoveryConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNamespaceDisasterRecoveryConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNamespaceDisasterRecoveryConfig, use LookupNamespaceDisasterRecoveryConfigOutput instead")
+	}
 	var rv LookupNamespaceDisasterRecoveryConfigResult
 	err := ctx.Invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args, &rv, opts...)
 	if err != nil {
@@ -51,17 +62,18 @@ type LookupNamespaceDisasterRecoveryConfigResult struct {
 }
 
 func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args LookupNamespaceDisasterRecoveryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceDisasterRecoveryConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNamespaceDisasterRecoveryConfigResultOutput, error) {
 			args := v.(LookupNamespaceDisasterRecoveryConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNamespaceDisasterRecoveryConfigResult
-			secret, err := ctx.InvokePackageRaw("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNamespaceDisasterRecoveryConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNamespaceDisasterRecoveryConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNamespaceDisasterRecoveryConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNamespaceDisasterRecoveryConfigResultOutput), nil
 			}

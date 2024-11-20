@@ -5,6 +5,7 @@ package containerapp
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAppResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAppResult{}, errors.New("DependsOn is not supported for direct form invoke LookupApp, use LookupAppOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAppResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupApp, use LookupAppOutput instead")
+	}
 	var rv LookupAppResult
 	err := ctx.Invoke("azure:containerapp/getApp:getApp", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type LookupAppResult struct {
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAppResultOutput, error) {
 			args := v.(LookupAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAppResult
-			secret, err := ctx.InvokePackageRaw("azure:containerapp/getApp:getApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerapp/getApp:getApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAppResultOutput), nil
 			}
