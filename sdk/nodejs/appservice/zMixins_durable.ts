@@ -42,18 +42,18 @@ export class DurableOrchestratorFunction extends mod.Function<DurableOrchestrato
     }
 }
 
-export interface DurableActivityFunctionContext<TActivityInputBinding> extends mod.Context<mod.Result> {
+export interface DurableActivityFunctionContext<TActivityInputBinding extends { [key: string]: any }> extends mod.Context<mod.Result> {
     bindings: TActivityInputBinding;
 }
 
-export interface DurableActivityFunctionArgs<TActivityInputBinding> extends mod.CallbackFunctionArgs<DurableActivityFunctionContext<TActivityInputBinding>, void, mod.Result> {
+export interface DurableActivityFunctionArgs<TActivityInputBinding extends { [key: string]: any }> extends mod.CallbackFunctionArgs<DurableActivityFunctionContext<TActivityInputBinding>, void, mod.Result> {
     activityInputName: keyof TActivityInputBinding;
 }
 
 /**
  * Azure Durable Activity Function
  */
-export class DurableActivityFunction<TActivityInputBinding> extends mod.Function<DurableActivityFunctionContext<TActivityInputBinding>, void, mod.Result> {
+export class DurableActivityFunction<TActivityInputBinding extends { [key: string]: any }> extends mod.Function<DurableActivityFunctionContext<TActivityInputBinding>, void, mod.Result> {
     constructor(name: string, args: DurableActivityFunctionArgs<TActivityInputBinding>) {
         const trigger = {
             name: args.activityInputName,
