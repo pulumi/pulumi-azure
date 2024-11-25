@@ -1821,7 +1821,12 @@
             },
             "azurerm_arc_machine": {
                 "current": "azure:arcmachine/arcMachine:ArcMachine",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_arc_machine_automanage_configuration_assignment": {
                 "current": "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment",
@@ -6216,6 +6221,10 @@
                     }
                 }
             },
+            "azurerm_databricks_workspace_customer_managed_key": {
+                "current": "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey",
+                "majorVersion": 6
+            },
             "azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
                 "current": "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey",
                 "majorVersion": 6
@@ -7159,6 +7168,41 @@
                     },
                     "webhook_endpoint": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_eventgrid_namespace": {
+                "current": "azure:eventgrid/namespace:Namespace",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "inbound_ip_rule": {
+                        "maxItemsOne": false
+                    },
+                    "topic_spaces_configuration": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "alternative_authentication_name_source": {
+                                    "maxItemsOne": false
+                                },
+                                "dynamic_routing_enrichment": {
+                                    "maxItemsOne": false
+                                },
+                                "static_routing_enrichment": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
