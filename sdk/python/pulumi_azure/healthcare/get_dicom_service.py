@@ -173,7 +173,7 @@ def get_dicom_service(name: Optional[str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
                              workspace_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Use this data source to access information about an existing Healthcare DICOM Service
 
@@ -195,7 +195,7 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getDicomService:getDicomService', __args__, opts=opts, typ=GetDicomServiceResult)
     return __ret__.apply(lambda __response__: GetDicomServiceResult(
         authentications=pulumi.get(__response__, 'authentications'),
