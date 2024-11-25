@@ -77,13 +77,12 @@ jobs:
         tools: pulumictl, pulumicli, ${{ matrix.language}}
     - name: Download bin
       uses: ./.github/actions/download-bin
-    - name: Add NuGet source
-      if: matrix.language == 'dotnet'
-      run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
       uses: ./.github/actions/download-sdk
       with:
         language: ${{ matrix.language }}
+    - name: Mark SDK up to date
+      run: make --touch build_${{ matrix.language }}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
