@@ -138,7 +138,7 @@ def get_resolver(name: Optional[str] = None,
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverResult]:
     """
     Gets information about an existing Private DNS Resolver.
 
@@ -159,7 +159,7 @@ def get_resolver_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getResolver:getResolver', __args__, opts=opts, typ=GetResolverResult)
     return __ret__.apply(lambda __response__: GetResolverResult(
         id=pulumi.get(__response__, 'id'),

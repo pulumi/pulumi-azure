@@ -117,7 +117,7 @@ def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
         recommendations=pulumi.get(__ret__, 'recommendations'))
 def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                filter_by_resource_groups: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecommendationsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecommendationsResult]:
     """
     Use this data source to access information about an existing Advisor Recommendations.
 
@@ -142,7 +142,7 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
     __args__ = dict()
     __args__['filterByCategories'] = filter_by_categories
     __args__['filterByResourceGroups'] = filter_by_resource_groups
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:advisor/getRecommendations:getRecommendations', __args__, opts=opts, typ=GetRecommendationsResult)
     return __ret__.apply(lambda __response__: GetRecommendationsResult(
         filter_by_categories=pulumi.get(__response__, 'filter_by_categories'),

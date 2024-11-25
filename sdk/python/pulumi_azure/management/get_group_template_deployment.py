@@ -102,7 +102,7 @@ def get_group_template_deployment(management_group_id: Optional[str] = None,
         output_content=pulumi.get(__ret__, 'output_content'))
 def get_group_template_deployment_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupTemplateDeploymentResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Management Group Template Deployment.
 
@@ -113,7 +113,7 @@ def get_group_template_deployment_output(management_group_id: Optional[pulumi.In
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment', __args__, opts=opts, typ=GetGroupTemplateDeploymentResult)
     return __ret__.apply(lambda __response__: GetGroupTemplateDeploymentResult(
         id=pulumi.get(__response__, 'id'),

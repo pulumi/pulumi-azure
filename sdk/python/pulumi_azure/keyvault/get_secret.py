@@ -220,7 +220,7 @@ def get_secret(key_vault_id: Optional[str] = None,
 def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       version: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
     Use this data source to access information about an existing Key Vault Secret.
 
@@ -246,7 +246,7 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult)
     return __ret__.apply(lambda __response__: GetSecretResult(
         content_type=pulumi.get(__response__, 'content_type'),

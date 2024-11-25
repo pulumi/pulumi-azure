@@ -139,7 +139,7 @@ def get_resolver_inbound_endpoint(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                                          private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverInboundEndpointResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverInboundEndpointResult]:
     """
     Gets information about an existing Private DNS Resolver Inbound Endpoint.
 
@@ -160,7 +160,7 @@ def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['name'] = name
     __args__['privateDnsResolverId'] = private_dns_resolver_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint', __args__, opts=opts, typ=GetResolverInboundEndpointResult)
     return __ret__.apply(lambda __response__: GetResolverInboundEndpointResult(
         id=pulumi.get(__response__, 'id'),

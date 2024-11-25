@@ -221,7 +221,7 @@ def get_vpn_server_configuration(name: Optional[str] = None,
         vpn_protocols=pulumi.get(__ret__, 'vpn_protocols'))
 def get_vpn_server_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
     """
     Use this data source to access information about an existing VPN Server Configuration.
 
@@ -243,7 +243,7 @@ def get_vpn_server_configuration_output(name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getVpnServerConfiguration:getVpnServerConfiguration', __args__, opts=opts, typ=GetVpnServerConfigurationResult)
     return __ret__.apply(lambda __response__: GetVpnServerConfigurationResult(
         azure_active_directory_authentications=pulumi.get(__response__, 'azure_active_directory_authentications'),
