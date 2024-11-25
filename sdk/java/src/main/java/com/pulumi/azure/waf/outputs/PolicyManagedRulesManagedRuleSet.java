@@ -25,7 +25,7 @@ public final class PolicyManagedRulesManagedRuleSet {
      */
     private @Nullable String type;
     /**
-     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     private String version;
@@ -46,7 +46,7 @@ public final class PolicyManagedRulesManagedRuleSet {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public String version() {

@@ -19,7 +19,7 @@ public final class ApiImport {
      */
     private String contentFormat;
     /**
-     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     private String contentValue;
@@ -38,7 +38,7 @@ public final class ApiImport {
         return this.contentFormat;
     }
     /**
-     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     public String contentValue() {

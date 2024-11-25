@@ -204,7 +204,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      */
-    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    public readonly conditionVersion!: pulumi.Output<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      *

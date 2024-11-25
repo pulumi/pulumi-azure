@@ -186,6 +186,8 @@ export class Account extends pulumi.CustomResource {
     public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     *
+     * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      */
     public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
     public readonly mongoServerVersion!: pulumi.Output<string>;
@@ -453,6 +455,8 @@ export interface AccountState {
     managedHsmKeyId?: pulumi.Input<string>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     *
+     * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      */
     minimalTlsVersion?: pulumi.Input<string>;
     mongoServerVersion?: pulumi.Input<string>;
@@ -582,6 +586,8 @@ export interface AccountArgs {
     managedHsmKeyId?: pulumi.Input<string>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     *
+     * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      */
     minimalTlsVersion?: pulumi.Input<string>;
     mongoServerVersion?: pulumi.Input<string>;

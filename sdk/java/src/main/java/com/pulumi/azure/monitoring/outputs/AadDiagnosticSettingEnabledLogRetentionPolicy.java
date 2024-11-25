@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AadDiagnosticSettingEnabledLogRetentionPolicy {
-    /**
-     * @return The number of days for which this Retention Policy should apply. Defaults to `0`.
-     * 
-     */
     private @Nullable Integer days;
-    /**
-     * @return Is this Retention Policy enabled? Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private AadDiagnosticSettingEnabledLogRetentionPolicy() {}
-    /**
-     * @return The number of days for which this Retention Policy should apply. Defaults to `0`.
-     * 
-     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
-    /**
-     * @return Is this Retention Policy enabled? Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

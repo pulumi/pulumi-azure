@@ -362,14 +362,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="conditionVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> conditionVersion;
+    private Output<String> conditionVersion;
 
     /**
      * @return The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> conditionVersion() {
-        return Codegen.optional(this.conditionVersion);
+    public Output<String> conditionVersion() {
+        return this.conditionVersion;
     }
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.

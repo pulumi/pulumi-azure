@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string> ContentFormat { get; set; } = null!;
 
         /// <summary>
-        /// The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        /// The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
         /// </summary>
         [Input("contentValue", required: true)]
         public Input<string> ContentValue { get; set; } = null!;

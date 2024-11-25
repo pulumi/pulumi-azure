@@ -1161,6 +1161,12 @@ func Provider() tfbridge.ProviderInfo {
 			// DataBricks
 			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
 			"azurerm_databricks_workspace":        {Tok: azureResource(azureDataBricks, "Workspace")},
+			"azurerm_databricks_workspace_customer_managed_key": {
+				Tok: azureResource(azureDataBricks, "WorkspaceCustomerManagedKey"),
+				Docs: &tfbridge.DocInfo{
+					Source: "databricks_workspace.html.markdown",
+				},
+			},
 			"azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
 				Tok:     azureResource(azureDataBricks, "WorkspaceRootDbfsCustomerManagedKey"),
 				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey")}},

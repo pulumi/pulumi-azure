@@ -3,10 +3,12 @@
 
 package com.pulumi.azure.arcmachine;
 
+import com.pulumi.azure.arcmachine.inputs.ArcMachineIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ArcMachineArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ArcMachineArgs Empty = new ArcMachineArgs();
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ArcMachineIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ArcMachineIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
 
     /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
@@ -76,13 +93,30 @@ public final class ArcMachineArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * A mapping of tags to assign to the Arc Machine.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags to assign to the Arc Machine.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private ArcMachineArgs() {}
 
     private ArcMachineArgs(ArcMachineArgs $) {
+        this.identity = $.identity;
         this.kind = $.kind;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -101,6 +135,27 @@ public final class ArcMachineArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ArcMachineArgs defaults) {
             $ = new ArcMachineArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ArcMachineIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ArcMachineIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**
@@ -185,6 +240,27 @@ public final class ArcMachineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the Arc Machine.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the Arc Machine.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public ArcMachineArgs build() {

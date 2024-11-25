@@ -17,16 +17,13 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// The log category for the Azure Active Directory Diagnostic.
         /// </summary>
         public readonly string Category;
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        public readonly Outputs.AadDiagnosticSettingEnabledLogRetentionPolicy RetentionPolicy;
+        public readonly Outputs.AadDiagnosticSettingEnabledLogRetentionPolicy? RetentionPolicy;
 
         [OutputConstructor]
         private AadDiagnosticSettingEnabledLog(
             string category,
 
-            Outputs.AadDiagnosticSettingEnabledLogRetentionPolicy retentionPolicy)
+            Outputs.AadDiagnosticSettingEnabledLogRetentionPolicy? retentionPolicy)
         {
             Category = category;
             RetentionPolicy = retentionPolicy;

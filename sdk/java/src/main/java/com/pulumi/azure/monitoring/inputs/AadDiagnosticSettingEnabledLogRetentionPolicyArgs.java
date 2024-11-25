@@ -16,32 +16,16 @@ public final class AadDiagnosticSettingEnabledLogRetentionPolicyArgs extends com
 
     public static final AadDiagnosticSettingEnabledLogRetentionPolicyArgs Empty = new AadDiagnosticSettingEnabledLogRetentionPolicyArgs();
 
-    /**
-     * The number of days for which this Retention Policy should apply. Defaults to `0`.
-     * 
-     */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
-    /**
-     * @return The number of days for which this Retention Policy should apply. Defaults to `0`.
-     * 
-     */
     public Optional<Output<Integer>> days() {
         return Optional.ofNullable(this.days);
     }
 
-    /**
-     * Is this Retention Policy enabled? Defaults to `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Is this Retention Policy enabled? Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -71,44 +55,20 @@ public final class AadDiagnosticSettingEnabledLogRetentionPolicyArgs extends com
             $ = new AadDiagnosticSettingEnabledLogRetentionPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param days The number of days for which this Retention Policy should apply. Defaults to `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(@Nullable Output<Integer> days) {
             $.days = days;
             return this;
         }
 
-        /**
-         * @param days The number of days for which this Retention Policy should apply. Defaults to `0`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder days(Integer days) {
             return days(Output.of(days));
         }
 
-        /**
-         * @param enabled Is this Retention Policy enabled? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Is this Retention Policy enabled? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

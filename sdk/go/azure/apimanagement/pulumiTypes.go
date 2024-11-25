@@ -2379,7 +2379,7 @@ func (o ApiDiagnosticFrontendResponseDataMaskingQueryParamArrayOutput) Index(i p
 type ApiImport struct {
 	// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat string `pulumi:"contentFormat"`
-	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
 	ContentValue string `pulumi:"contentValue"`
 	// A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
 	WsdlSelector *ApiImportWsdlSelector `pulumi:"wsdlSelector"`
@@ -2399,7 +2399,7 @@ type ApiImportInput interface {
 type ApiImportArgs struct {
 	// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat pulumi.StringInput `pulumi:"contentFormat"`
-	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
 	ContentValue pulumi.StringInput `pulumi:"contentValue"`
 	// A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
 	WsdlSelector ApiImportWsdlSelectorPtrInput `pulumi:"wsdlSelector"`
@@ -2487,7 +2487,7 @@ func (o ApiImportOutput) ContentFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiImport) string { return v.ContentFormat }).(pulumi.StringOutput)
 }
 
-// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
 func (o ApiImportOutput) ContentValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiImport) string { return v.ContentValue }).(pulumi.StringOutput)
 }
@@ -2531,7 +2531,7 @@ func (o ApiImportPtrOutput) ContentFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
 func (o ApiImportPtrOutput) ContentValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiImport) *string {
 		if v == nil {

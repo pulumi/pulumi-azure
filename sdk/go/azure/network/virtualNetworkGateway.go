@@ -165,7 +165,7 @@ type VirtualNetworkGateway struct {
 	//
 	// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation pulumi.StringOutput `pulumi:"generation"`
-	// One or more (up to 3) `ipConfiguration` blocks documented below.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -264,7 +264,7 @@ type virtualNetworkGatewayState struct {
 	//
 	// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation *string `pulumi:"generation"`
-	// One or more (up to 3) `ipConfiguration` blocks documented below.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -322,7 +322,7 @@ type VirtualNetworkGatewayState struct {
 	//
 	// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation pulumi.StringPtrInput
-	// One or more (up to 3) `ipConfiguration` blocks documented below.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -384,7 +384,7 @@ type virtualNetworkGatewayArgs struct {
 	//
 	// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation *string `pulumi:"generation"`
-	// One or more (up to 3) `ipConfiguration` blocks documented below.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -443,7 +443,7 @@ type VirtualNetworkGatewayArgs struct {
 	//
 	// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
 	Generation pulumi.StringPtrInput
-	// One or more (up to 3) `ipConfiguration` blocks documented below.
+	// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
 	// An active-standby gateway requires exactly one `ipConfiguration` block,
 	// an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 	// an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -614,7 +614,7 @@ func (o VirtualNetworkGatewayOutput) Generation() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Generation }).(pulumi.StringOutput)
 }
 
-// One or more (up to 3) `ipConfiguration` blocks documented below.
+// One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
 // An active-standby gateway requires exactly one `ipConfiguration` block,
 // an active-active gateway requires exactly two `ipConfiguration` blocks whereas
 // an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.

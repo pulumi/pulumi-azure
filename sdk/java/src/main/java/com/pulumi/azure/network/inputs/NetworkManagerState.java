@@ -110,14 +110,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      * 
      */
     @Import(name="scopeAccesses")
     private @Nullable Output<List<String>> scopeAccesses;
 
     /**
-     * @return A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * @return A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      * 
      */
     public Optional<Output<List<String>>> scopeAccesses() {
@@ -307,7 +307,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
          * 
          * @return builder
          * 

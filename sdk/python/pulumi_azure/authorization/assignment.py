@@ -884,7 +884,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> pulumi.Output[Optional[str]]:
+    def condition_version(self) -> pulumi.Output[str]:
         """
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         """

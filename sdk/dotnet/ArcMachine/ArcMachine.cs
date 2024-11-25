@@ -34,6 +34,14 @@ namespace Pulumi.Azure.ArcMachine
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         Kind = "SCVMM",
+    ///         Identity = new Azure.ArcMachine.Inputs.ArcMachineIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "example" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -50,6 +58,12 @@ namespace Pulumi.Azure.ArcMachine
     [AzureResourceType("azure:arcmachine/arcMachine:ArcMachine")]
     public partial class ArcMachine : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ArcMachineIdentity?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         /// </summary>
@@ -73,6 +87,12 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Arc Machine.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,6 +141,12 @@ namespace Pulumi.Azure.ArcMachine
     public sealed class ArcMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ArcMachineIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind", required: true)]
@@ -144,6 +170,18 @@ namespace Pulumi.Azure.ArcMachine
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Arc Machine.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public ArcMachineArgs()
         {
         }
@@ -152,6 +190,12 @@ namespace Pulumi.Azure.ArcMachine
 
     public sealed class ArcMachineState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ArcMachineIdentityGetArgs>? Identity { get; set; }
+
         /// <summary>
         /// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         /// </summary>
@@ -175,6 +219,18 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Arc Machine.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ArcMachineState()
         {

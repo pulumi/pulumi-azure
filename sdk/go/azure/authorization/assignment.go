@@ -339,7 +339,7 @@ type Assignment struct {
 	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
-	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
+	ConditionVersion pulumi.StringOutput `pulumi:"conditionVersion"`
 	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** this field is only used in cross tenant scenario.
@@ -639,8 +639,8 @@ func (o AssignmentOutput) Condition() pulumi.StringPtrOutput {
 }
 
 // The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
-func (o AssignmentOutput) ConditionVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.ConditionVersion }).(pulumi.StringPtrOutput)
+func (o AssignmentOutput) ConditionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.ConditionVersion }).(pulumi.StringOutput)
 }
 
 // The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.

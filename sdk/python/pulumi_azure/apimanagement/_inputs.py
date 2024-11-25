@@ -1177,7 +1177,7 @@ if not MYPY:
         """
         content_value: pulumi.Input[str]
         """
-        The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
         """
         wsdl_selector: NotRequired[pulumi.Input['ApiImportWsdlSelectorArgsDict']]
         """
@@ -1194,7 +1194,7 @@ class ApiImportArgs:
                  wsdl_selector: Optional[pulumi.Input['ApiImportWsdlSelectorArgs']] = None):
         """
         :param pulumi.Input[str] content_format: The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
-        :param pulumi.Input[str] content_value: The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        :param pulumi.Input[str] content_value: The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
         :param pulumi.Input['ApiImportWsdlSelectorArgs'] wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         """
         pulumi.set(__self__, "content_format", content_format)
@@ -1218,7 +1218,7 @@ class ApiImportArgs:
     @pulumi.getter(name="contentValue")
     def content_value(self) -> pulumi.Input[str]:
         """
-        The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+        The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
         """
         return pulumi.get(self, "content_value")
 

@@ -83,16 +83,14 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @deprecated
+     * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
     @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> networkSecurityGroupId;
 
-    /**
-     * @return The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> networkSecurityGroupId() {
         return this.networkSecurityGroupId;
     }
@@ -165,6 +163,20 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    private Output<String> targetResourceId;
+
+    /**
+     * @return The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> targetResourceId() {
+        return this.targetResourceId;
     }
     /**
      * A `traffic_analytics` block as documented below.

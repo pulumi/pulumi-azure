@@ -200,13 +200,13 @@ class AadDiagnosticSettingEnabledLog(dict):
 
     def __init__(__self__, *,
                  category: str,
-                 retention_policy: 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy'):
+                 retention_policy: Optional['outputs.AadDiagnosticSettingEnabledLogRetentionPolicy'] = None):
         """
         :param str category: The log category for the Azure Active Directory Diagnostic.
-        :param 'AadDiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
         """
         pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "retention_policy", retention_policy)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -218,10 +218,8 @@ class AadDiagnosticSettingEnabledLog(dict):
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy':
-        """
-        A `retention_policy` block as defined below.
-        """
+    @_utilities.deprecated("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
+    def retention_policy(self) -> Optional['outputs.AadDiagnosticSettingEnabledLogRetentionPolicy']:
         return pulumi.get(self, "retention_policy")
 
 
@@ -230,10 +228,6 @@ class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
-        """
-        :param int days: The number of days for which this Retention Policy should apply. Defaults to `0`.
-        :param bool enabled: Is this Retention Policy enabled? Defaults to `false`.
-        """
         if days is not None:
             pulumi.set(__self__, "days", days)
         if enabled is not None:
@@ -242,17 +236,11 @@ class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
     @property
     @pulumi.getter
     def days(self) -> Optional[int]:
-        """
-        The number of days for which this Retention Policy should apply. Defaults to `0`.
-        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        Is this Retention Policy enabled? Defaults to `false`.
-        """
         return pulumi.get(self, "enabled")
 
 

@@ -40,6 +40,11 @@ export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
 utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
 
+export { NamespaceArgs, NamespaceState } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
 export { SystemTopicArgs, SystemTopicState } from "./systemTopic";
 export type SystemTopic = import("./systemTopic").SystemTopic;
 export const SystemTopic: typeof import("./systemTopic").SystemTopic = null as any;
@@ -67,6 +72,8 @@ const _module = {
                 return new DomainTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "azure:eventgrid/namespace:Namespace":
+                return new Namespace(name, <any>undefined, { urn })
             case "azure:eventgrid/systemTopic:SystemTopic":
                 return new SystemTopic(name, <any>undefined, { urn })
             case "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
@@ -81,6 +88,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "eventgrid/domain", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/domainTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/eventSubscription", _module)
+pulumi.runtime.registerResourceModule("azure", "eventgrid/namespace", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/systemTopic", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/systemTopicEventSubscription", _module)
 pulumi.runtime.registerResourceModule("azure", "eventgrid/topic", _module)

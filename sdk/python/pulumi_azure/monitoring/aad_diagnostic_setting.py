@@ -281,31 +281,15 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             enabled_logs=[
                 {
                     "category": "SignInLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
                 {
                     "category": "AuditLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
                 {
                     "category": "NonInteractiveUserSignInLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
                 {
                     "category": "ServicePrincipalSignInLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
             ])
         ```
@@ -364,31 +348,15 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             enabled_logs=[
                 {
                     "category": "SignInLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
                 {
                     "category": "AuditLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
                 {
                     "category": "NonInteractiveUserSignInLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
                 {
                     "category": "ServicePrincipalSignInLogs",
-                    "retention_policy": {
-                        "enabled": True,
-                        "days": 1,
-                    },
                 },
             ])
         ```

@@ -262,7 +262,7 @@ index a2e59b2cc0..d9dc21a792 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_api.html.markdown b/website/docs/r/api_management_api.html.markdown
-index 57d9ed9a2d..5c797d632f 100644
+index f997403600..b10ea52bc4 100644
 --- a/website/docs/r/api_management_api.html.markdown
 +++ b/website/docs/r/api_management_api.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -274,7 +274,7 @@ index 57d9ed9a2d..5c797d632f 100644
  
    sku_name = "Developer_1"
  }
-@@ -132,7 +132,7 @@ A `license` block supports the following:
+@@ -131,7 +131,7 @@ A `license` block supports the following:
  
  A `oauth2_authorization` block supports the following:
  
@@ -283,7 +283,7 @@ index 57d9ed9a2d..5c797d632f 100644
  
  * `scope` - (Optional) Operations scope.
  
-@@ -140,7 +140,7 @@ A `oauth2_authorization` block supports the following:
+@@ -139,7 +139,7 @@ A `oauth2_authorization` block supports the following:
  
  A `openid_authentication` block supports the following:
  
@@ -1011,7 +1011,7 @@ index d847c69797..dc19703131 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index a2caed28ba..247137f83a 100644
+index 382f2a8765..afc7d9c295 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -2645,7 +2645,7 @@ index 6786f8eb01..38823a0fd4 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 71f4ee3d87..50ca25b9d1 100644
+index 5c1e613741..4f923d2e6f 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -2827,7 +2827,7 @@ index f96d4cc7bd..416bf679b8 100644
  ---
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 0f81276d3a..4e07fa2450 100644
+index e21ea3967f..31c126c3e9 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-

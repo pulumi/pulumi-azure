@@ -546,7 +546,7 @@ if not MYPY:
         """
         version: NotRequired[pulumi.Input[str]]
         """
-        The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+        The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
         """
 elif False:
     PolicyManagedRulesExclusionExcludedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
@@ -560,7 +560,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]] rule_groups: One or more `rule_group` block defined below.
         :param pulumi.Input[str] type: The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
-        :param pulumi.Input[str] version: The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+        :param pulumi.Input[str] version: The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
         """
         if rule_groups is not None:
             pulumi.set(__self__, "rule_groups", rule_groups)
@@ -597,7 +597,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+        The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
         """
         return pulumi.get(self, "version")
 
@@ -664,7 +664,7 @@ if not MYPY:
     class PolicyManagedRulesManagedRuleSetArgsDict(TypedDict):
         version: pulumi.Input[str]
         """
-        The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         """
         rule_group_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict']]]]
         """
@@ -684,7 +684,7 @@ class PolicyManagedRulesManagedRuleSetArgs:
                  rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] version: The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        :param pulumi.Input[str] version: The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]] rule_group_overrides: One or more `rule_group_override` block defined below.
         :param pulumi.Input[str] type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
         """
@@ -698,7 +698,7 @@ class PolicyManagedRulesManagedRuleSetArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         """
         return pulumi.get(self, "version")
 

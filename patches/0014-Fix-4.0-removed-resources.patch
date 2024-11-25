@@ -4,18 +4,6 @@ Date: Wed, 28 Aug 2024 16:43:20 +0100
 Subject: [PATCH] Fix 4.0 removed resources
 
 
-diff --git a/internal/services/databricks/registration.go b/internal/services/databricks/registration.go
-index c1bf344a2b..dee7927610 100644
---- a/internal/services/databricks/registration.go
-+++ b/internal/services/databricks/registration.go
-@@ -44,7 +44,6 @@ func (r Registration) SupportedDataSources() map[string]*pluginsdk.Resource {
- func (r Registration) SupportedResources() map[string]*pluginsdk.Resource {
- 	resources := map[string]*pluginsdk.Resource{
- 		"azurerm_databricks_workspace":                                resourceDatabricksWorkspace(),
--		"azurerm_databricks_workspace_customer_managed_key":           resourceDatabricksWorkspaceCustomerManagedKey(), // TODO: Remove in 4.0
- 		"azurerm_databricks_workspace_root_dbfs_customer_managed_key": resourceDatabricksWorkspaceRootDbfsCustomerManagedKey(),
- 		"azurerm_databricks_virtual_network_peering":                  resourceDatabricksVirtualNetworkPeering(),
- 	}
 diff --git a/internal/services/network/registration.go b/internal/services/network/registration.go
 index 400e039770..d2ee01b9e4 100644
 --- a/internal/services/network/registration.go

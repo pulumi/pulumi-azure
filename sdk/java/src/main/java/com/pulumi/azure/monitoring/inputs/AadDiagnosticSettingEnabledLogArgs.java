@@ -9,6 +9,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,18 +33,22 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `retention_policy` block as defined below.
+     * @deprecated
+     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
      * 
      */
-    @Import(name="retentionPolicy", required=true)
-    private Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy;
+    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+    @Import(name="retentionPolicy")
+    private @Nullable Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return A `retention_policy` block as defined below.
+     * @deprecated
+     * Azure does not support retention for new Azure Active Directory Diagnostic Settings
      * 
      */
-    public Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy() {
-        return this.retentionPolicy;
+    @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+    public Optional<Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs>> retentionPolicy() {
+        return Optional.ofNullable(this.retentionPolicy);
     }
 
     private AadDiagnosticSettingEnabledLogArgs() {}
@@ -92,22 +98,26 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+         * 
          */
-        public Builder retentionPolicy(Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy) {
+        @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
+        public Builder retentionPolicy(@Nullable Output<AadDiagnosticSettingEnabledLogRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * Azure does not support retention for new Azure Active Directory Diagnostic Settings
+         * 
          */
+        @Deprecated /* Azure does not support retention for new Azure Active Directory Diagnostic Settings */
         public Builder retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }
@@ -115,9 +125,6 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
         public AadDiagnosticSettingEnabledLogArgs build() {
             if ($.category == null) {
                 throw new MissingRequiredPropertyException("AadDiagnosticSettingEnabledLogArgs", "category");
-            }
-            if ($.retentionPolicy == null) {
-                throw new MissingRequiredPropertyException("AadDiagnosticSettingEnabledLogArgs", "retentionPolicy");
             }
             return $;
         }

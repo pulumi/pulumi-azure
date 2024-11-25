@@ -81,6 +81,16 @@ __all__ = [
     'EventSubscriptionSubjectFilterArgsDict',
     'EventSubscriptionWebhookEndpointArgs',
     'EventSubscriptionWebhookEndpointArgsDict',
+    'NamespaceIdentityArgs',
+    'NamespaceIdentityArgsDict',
+    'NamespaceInboundIpRuleArgs',
+    'NamespaceInboundIpRuleArgsDict',
+    'NamespaceTopicSpacesConfigurationArgs',
+    'NamespaceTopicSpacesConfigurationArgsDict',
+    'NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs',
+    'NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgsDict',
+    'NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs',
+    'NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgsDict',
     'SystemTopicEventSubscriptionAdvancedFilterArgs',
     'SystemTopicEventSubscriptionAdvancedFilterArgsDict',
     'SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs',
@@ -2512,6 +2522,372 @@ class EventSubscriptionWebhookEndpointArgs:
     @preferred_batch_size_in_kilobytes.setter
     def preferred_batch_size_in_kilobytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preferred_batch_size_in_kilobytes", value)
+
+
+if not MYPY:
+    class NamespaceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NamespaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class NamespaceInboundIpRuleArgsDict(TypedDict):
+        ip_mask: pulumi.Input[str]
+        """
+        The IP mask (CIDR) to match on.
+        """
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
+        """
+elif False:
+    NamespaceInboundIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceInboundIpRuleArgs:
+    def __init__(__self__, *,
+                 ip_mask: pulumi.Input[str],
+                 action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ip_mask: The IP mask (CIDR) to match on.
+        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        The IP mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+
+if not MYPY:
+    class NamespaceTopicSpacesConfigurationArgsDict(TypedDict):
+        alternative_authentication_name_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of alternative sources for the client authentication name from the client certificate. Possible values are `ClientCertificateDns`, `ClientCertificateEmail`, `ClientCertificateIp`, `ClientCertificateSubject` and `ClientCertificateUri`.
+        """
+        dynamic_routing_enrichments: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgsDict']]]]
+        """
+        One or more `dynamic_routing_enrichment` blocks as defined below.
+        """
+        maximum_client_sessions_per_authentication_name: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum number of client sessions per authentication name. Valid values can be between `1` and `100`.
+        """
+        maximum_session_expiry_in_hours: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum session expiry interval allowed for all MQTT clients connecting to the Event Grid namespace. Valid values can be between `1` and `8`.
+        """
+        route_topic_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Event Grid topic resource ID to route messages to.
+        """
+        static_routing_enrichments: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgsDict']]]]
+        """
+        One or more `static_routing_enrichment` blocks as defined below.
+        """
+elif False:
+    NamespaceTopicSpacesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceTopicSpacesConfigurationArgs:
+    def __init__(__self__, *,
+                 alternative_authentication_name_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dynamic_routing_enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs']]]] = None,
+                 maximum_client_sessions_per_authentication_name: Optional[pulumi.Input[int]] = None,
+                 maximum_session_expiry_in_hours: Optional[pulumi.Input[int]] = None,
+                 route_topic_id: Optional[pulumi.Input[str]] = None,
+                 static_routing_enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alternative_authentication_name_sources: Specifies a list of alternative sources for the client authentication name from the client certificate. Possible values are `ClientCertificateDns`, `ClientCertificateEmail`, `ClientCertificateIp`, `ClientCertificateSubject` and `ClientCertificateUri`.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs']]] dynamic_routing_enrichments: One or more `dynamic_routing_enrichment` blocks as defined below.
+        :param pulumi.Input[int] maximum_client_sessions_per_authentication_name: Specifies the maximum number of client sessions per authentication name. Valid values can be between `1` and `100`.
+        :param pulumi.Input[int] maximum_session_expiry_in_hours: Specifies the maximum session expiry interval allowed for all MQTT clients connecting to the Event Grid namespace. Valid values can be between `1` and `8`.
+        :param pulumi.Input[str] route_topic_id: Specifies the Event Grid topic resource ID to route messages to.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs']]] static_routing_enrichments: One or more `static_routing_enrichment` blocks as defined below.
+        """
+        if alternative_authentication_name_sources is not None:
+            pulumi.set(__self__, "alternative_authentication_name_sources", alternative_authentication_name_sources)
+        if dynamic_routing_enrichments is not None:
+            pulumi.set(__self__, "dynamic_routing_enrichments", dynamic_routing_enrichments)
+        if maximum_client_sessions_per_authentication_name is not None:
+            pulumi.set(__self__, "maximum_client_sessions_per_authentication_name", maximum_client_sessions_per_authentication_name)
+        if maximum_session_expiry_in_hours is not None:
+            pulumi.set(__self__, "maximum_session_expiry_in_hours", maximum_session_expiry_in_hours)
+        if route_topic_id is not None:
+            pulumi.set(__self__, "route_topic_id", route_topic_id)
+        if static_routing_enrichments is not None:
+            pulumi.set(__self__, "static_routing_enrichments", static_routing_enrichments)
+
+    @property
+    @pulumi.getter(name="alternativeAuthenticationNameSources")
+    def alternative_authentication_name_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of alternative sources for the client authentication name from the client certificate. Possible values are `ClientCertificateDns`, `ClientCertificateEmail`, `ClientCertificateIp`, `ClientCertificateSubject` and `ClientCertificateUri`.
+        """
+        return pulumi.get(self, "alternative_authentication_name_sources")
+
+    @alternative_authentication_name_sources.setter
+    def alternative_authentication_name_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alternative_authentication_name_sources", value)
+
+    @property
+    @pulumi.getter(name="dynamicRoutingEnrichments")
+    def dynamic_routing_enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs']]]]:
+        """
+        One or more `dynamic_routing_enrichment` blocks as defined below.
+        """
+        return pulumi.get(self, "dynamic_routing_enrichments")
+
+    @dynamic_routing_enrichments.setter
+    def dynamic_routing_enrichments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs']]]]):
+        pulumi.set(self, "dynamic_routing_enrichments", value)
+
+    @property
+    @pulumi.getter(name="maximumClientSessionsPerAuthenticationName")
+    def maximum_client_sessions_per_authentication_name(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of client sessions per authentication name. Valid values can be between `1` and `100`.
+        """
+        return pulumi.get(self, "maximum_client_sessions_per_authentication_name")
+
+    @maximum_client_sessions_per_authentication_name.setter
+    def maximum_client_sessions_per_authentication_name(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_client_sessions_per_authentication_name", value)
+
+    @property
+    @pulumi.getter(name="maximumSessionExpiryInHours")
+    def maximum_session_expiry_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum session expiry interval allowed for all MQTT clients connecting to the Event Grid namespace. Valid values can be between `1` and `8`.
+        """
+        return pulumi.get(self, "maximum_session_expiry_in_hours")
+
+    @maximum_session_expiry_in_hours.setter
+    def maximum_session_expiry_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_session_expiry_in_hours", value)
+
+    @property
+    @pulumi.getter(name="routeTopicId")
+    def route_topic_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Event Grid topic resource ID to route messages to.
+        """
+        return pulumi.get(self, "route_topic_id")
+
+    @route_topic_id.setter
+    def route_topic_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_topic_id", value)
+
+    @property
+    @pulumi.getter(name="staticRoutingEnrichments")
+    def static_routing_enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs']]]]:
+        """
+        One or more `static_routing_enrichment` blocks as defined below.
+        """
+        return pulumi.get(self, "static_routing_enrichments")
+
+    @static_routing_enrichments.setter
+    def static_routing_enrichments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs']]]]):
+        pulumi.set(self, "static_routing_enrichments", value)
+
+
+if not MYPY:
+    class NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The enrichment key.
+        """
+        value: pulumi.Input[str]
+        """
+        The enrichment value.
+        """
+elif False:
+    NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The enrichment key.
+        :param pulumi.Input[str] value: The enrichment value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The enrichment key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The enrichment value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The enrichment key.
+        """
+        value: pulumi.Input[str]
+        """
+        The enrichment value.
+        """
+elif False:
+    NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The enrichment key.
+        :param pulumi.Input[str] value: The enrichment value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The enrichment key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The enrichment value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+        /// The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
         /// </summary>
         public readonly string? Version;
 

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +24,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     kind: "SCVMM",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         environment: "example",
+ *     },
  * });
  * ```
  *
@@ -62,6 +70,10 @@ export class ArcMachine extends pulumi.CustomResource {
     }
 
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.arcmachine.ArcMachineIdentity | undefined>;
+    /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
      */
     public readonly kind!: pulumi.Output<string>;
@@ -77,6 +89,10 @@ export class ArcMachine extends pulumi.CustomResource {
      * The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the Arc Machine.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ArcMachine resource with the given unique name, arguments, and options.
@@ -91,10 +107,12 @@ export class ArcMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ArcMachineState | undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ArcMachineArgs | undefined;
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -103,10 +121,12 @@ export class ArcMachine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ArcMachine.__pulumiType, name, resourceInputs, opts);
@@ -117,6 +137,10 @@ export class ArcMachine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ArcMachine resources.
  */
 export interface ArcMachineState {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.arcmachine.ArcMachineIdentity>;
     /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
      */
@@ -133,12 +157,20 @@ export interface ArcMachineState {
      * The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Arc Machine.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a ArcMachine resource.
  */
 export interface ArcMachineArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.arcmachine.ArcMachineIdentity>;
     /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
      */
@@ -155,4 +187,8 @@ export interface ArcMachineArgs {
      * The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the Arc Machine.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

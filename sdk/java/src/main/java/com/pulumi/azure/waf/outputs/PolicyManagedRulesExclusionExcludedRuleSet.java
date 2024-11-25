@@ -24,7 +24,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
      */
     private @Nullable String type;
     /**
-     * @return The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+     * @return The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
      * 
      */
     private @Nullable String version;
@@ -45,7 +45,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+     * @return The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
      * 
      */
     public Optional<String> version() {

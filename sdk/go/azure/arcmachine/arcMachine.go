@@ -41,6 +41,12 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				Kind:              pulumi.String("SCVMM"),
+//				Identity: &arcmachine.ArcMachineIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("example"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -61,6 +67,8 @@ import (
 type ArcMachine struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block as defined below.
+	Identity ArcMachineIdentityPtrOutput `pulumi:"identity"`
 	// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -69,6 +77,8 @@ type ArcMachine struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Arc Machine.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewArcMachine registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +117,8 @@ func GetArcMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ArcMachine resources.
 type arcMachineState struct {
+	// An `identity` block as defined below.
+	Identity *ArcMachineIdentity `pulumi:"identity"`
 	// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -115,9 +127,13 @@ type arcMachineState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Arc Machine.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ArcMachineState struct {
+	// An `identity` block as defined below.
+	Identity ArcMachineIdentityPtrInput
 	// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -126,6 +142,8 @@ type ArcMachineState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags to assign to the Arc Machine.
+	Tags pulumi.StringMapInput
 }
 
 func (ArcMachineState) ElementType() reflect.Type {
@@ -133,6 +151,8 @@ func (ArcMachineState) ElementType() reflect.Type {
 }
 
 type arcMachineArgs struct {
+	// An `identity` block as defined below.
+	Identity *ArcMachineIdentity `pulumi:"identity"`
 	// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
 	// The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -141,10 +161,14 @@ type arcMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the Arc Machine.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ArcMachine resource.
 type ArcMachineArgs struct {
+	// An `identity` block as defined below.
+	Identity ArcMachineIdentityPtrInput
 	// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
 	// The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -153,6 +177,8 @@ type ArcMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A mapping of tags to assign to the Arc Machine.
+	Tags pulumi.StringMapInput
 }
 
 func (ArcMachineArgs) ElementType() reflect.Type {
@@ -242,6 +268,11 @@ func (o ArcMachineOutput) ToArcMachineOutputWithContext(ctx context.Context) Arc
 	return o
 }
 
+// An `identity` block as defined below.
+func (o ArcMachineOutput) Identity() ArcMachineIdentityPtrOutput {
+	return o.ApplyT(func(v *ArcMachine) ArcMachineIdentityPtrOutput { return v.Identity }).(ArcMachineIdentityPtrOutput)
+}
+
 // The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
 func (o ArcMachineOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArcMachine) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
@@ -260,6 +291,11 @@ func (o ArcMachineOutput) Name() pulumi.StringOutput {
 // The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
 func (o ArcMachineOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArcMachine) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to the Arc Machine.
+func (o ArcMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ArcMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type ArcMachineArrayOutput struct{ *pulumi.OutputState }
