@@ -57,7 +57,7 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly resourceGroupName?: string;
     readonly secondaryConnectionStringAlias: string;
 }
-export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceDisasterRecoveryConfigResult> {
+export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", {
         "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,

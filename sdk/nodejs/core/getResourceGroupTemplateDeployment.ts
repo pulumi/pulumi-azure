@@ -47,7 +47,7 @@ export interface GetResourceGroupTemplateDeploymentResult {
 /**
  * Use this data source to access information about an existing Resource Group Template Deployment.
  */
-export function getResourceGroupTemplateDeploymentOutput(args: GetResourceGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupTemplateDeploymentResult> {
+export function getResourceGroupTemplateDeploymentOutput(args: GetResourceGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", {
         "name": args.name,

@@ -131,7 +131,7 @@ export interface GetJobResult {
  * export const jobId = example.then(example => example.jobId);
  * ```
  */
-export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:streamanalytics/getJob:getJob", {
         "name": args.name,

@@ -139,7 +139,7 @@ def get_dataset_kusto_cluster(name: Optional[str] = None,
         share_id=pulumi.get(__ret__, 'share_id'))
 def get_dataset_kusto_cluster_output(name: Optional[pulumi.Input[str]] = None,
                                      share_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetKustoClusterResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetKustoClusterResult]:
     """
     Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
 
@@ -161,7 +161,7 @@ def get_dataset_kusto_cluster_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['shareId'] = share_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster', __args__, opts=opts, typ=GetDatasetKustoClusterResult)
     return __ret__.apply(lambda __response__: GetDatasetKustoClusterResult(
         display_name=pulumi.get(__response__, 'display_name'),
