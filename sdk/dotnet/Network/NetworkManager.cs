@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.NetworkManagerScope> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+        /// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
         /// </summary>
         [Output("scopeAccesses")]
         public Output<ImmutableArray<string>> ScopeAccesses { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _scopeAccesses;
 
         /// <summary>
-        /// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+        /// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
         /// </summary>
         public InputList<string> ScopeAccesses
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _scopeAccesses;
 
         /// <summary>
-        /// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+        /// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
         /// </summary>
         public InputList<string> ScopeAccesses
         {

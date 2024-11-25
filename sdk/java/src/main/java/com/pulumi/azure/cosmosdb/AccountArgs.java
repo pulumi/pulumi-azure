@@ -230,12 +230,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      * 
+     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+     * 
      */
     @Import(name="minimalTlsVersion")
     private @Nullable Output<String> minimalTlsVersion;
 
     /**
      * @return Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * 
+     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      * 
      */
     public Optional<Output<String>> minimalTlsVersion() {
@@ -693,6 +697,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
          * 
+         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+         * 
          * @return builder
          * 
          */
@@ -703,6 +709,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+         * 
+         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          * 
          * @return builder
          * 

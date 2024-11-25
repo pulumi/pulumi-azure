@@ -13,13 +13,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     [OutputType]
     public sealed class AadDiagnosticSettingEnabledLogRetentionPolicy
     {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply. Defaults to `0`.
-        /// </summary>
         public readonly int? Days;
-        /// <summary>
-        /// Is this Retention Policy enabled? Defaults to `false`.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

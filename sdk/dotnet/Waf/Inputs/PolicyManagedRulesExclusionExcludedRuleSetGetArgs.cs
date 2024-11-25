@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+        /// The rule set version. Possible values are `1.0`, `1.1` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

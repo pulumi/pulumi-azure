@@ -49,14 +49,14 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
     }
 
     /**
-     * The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public Output<String> version() {
@@ -142,7 +142,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param version The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * @param version The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param version The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * @param version The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 

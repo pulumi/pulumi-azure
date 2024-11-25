@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.AadDiagnosticSetting;
  * import com.pulumi.azure.monitoring.AadDiagnosticSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogArgs;
- * import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,31 +71,15 @@ import javax.annotation.Nullable;
  *             .enabledLogs(            
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category("SignInLogs")
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
  *                     .build(),
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category("AuditLogs")
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
  *                     .build(),
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category("NonInteractiveUserSignInLogs")
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
  *                     .build(),
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category("ServicePrincipalSignInLogs")
- *                     .retentionPolicy(AadDiagnosticSettingEnabledLogRetentionPolicyArgs.builder()
- *                         .enabled(true)
- *                         .days(1)
- *                         .build())
  *                     .build())
  *             .build());
  * 

@@ -32,7 +32,7 @@ type NetworkWatcherFlowLog struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+	// Deprecated: The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
 	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
 	NetworkWatcherName pulumi.StringOutput `pulumi:"networkWatcherName"`
@@ -44,6 +44,8 @@ type NetworkWatcherFlowLog struct {
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrOutput `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
@@ -59,9 +61,6 @@ func NewNetworkWatcherFlowLog(ctx *pulumi.Context,
 
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
-	}
-	if args.NetworkSecurityGroupId == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupId'")
 	}
 	if args.NetworkWatcherName == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
@@ -104,7 +103,7 @@ type networkWatcherFlowLogState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+	// Deprecated: The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
 	NetworkWatcherName *string `pulumi:"networkWatcherName"`
@@ -116,6 +115,8 @@ type networkWatcherFlowLogState struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	TargetResourceId *string `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
@@ -129,7 +130,7 @@ type NetworkWatcherFlowLogState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+	// Deprecated: The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
 	NetworkSecurityGroupId pulumi.StringPtrInput
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
 	NetworkWatcherName pulumi.StringPtrInput
@@ -141,6 +142,8 @@ type NetworkWatcherFlowLogState struct {
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags pulumi.StringMapInput
+	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	TargetResourceId pulumi.StringPtrInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
 	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
@@ -158,8 +161,8 @@ type networkWatcherFlowLogArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
+	// Deprecated: The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
@@ -170,6 +173,8 @@ type networkWatcherFlowLogArgs struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	TargetResourceId *string `pulumi:"targetResourceId"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
@@ -184,8 +189,8 @@ type NetworkWatcherFlowLogArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-	NetworkSecurityGroupId pulumi.StringInput
+	// Deprecated: The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
+	NetworkSecurityGroupId pulumi.StringPtrInput
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
 	NetworkWatcherName pulumi.StringInput
 	// The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
@@ -196,6 +201,8 @@ type NetworkWatcherFlowLogArgs struct {
 	StorageAccountId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
 	Tags pulumi.StringMapInput
+	// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+	TargetResourceId pulumi.StringPtrInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
 	// The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
@@ -304,7 +311,7 @@ func (o NetworkWatcherFlowLogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+// Deprecated: The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
 func (o NetworkWatcherFlowLogOutput) NetworkSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringOutput { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
 }
@@ -332,6 +339,11 @@ func (o NetworkWatcherFlowLogOutput) StorageAccountId() pulumi.StringOutput {
 // A mapping of tags which should be assigned to the Network Watcher Flow Log.
 func (o NetworkWatcherFlowLogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+func (o NetworkWatcherFlowLogOutput) TargetResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }
 
 // A `trafficAnalytics` block as documented below.

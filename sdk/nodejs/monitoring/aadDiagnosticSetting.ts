@@ -35,31 +35,15 @@ import * as utilities from "../utilities";
  *     enabledLogs: [
  *         {
  *             category: "SignInLogs",
- *             retentionPolicy: {
- *                 enabled: true,
- *                 days: 1,
- *             },
  *         },
  *         {
  *             category: "AuditLogs",
- *             retentionPolicy: {
- *                 enabled: true,
- *                 days: 1,
- *             },
  *         },
  *         {
  *             category: "NonInteractiveUserSignInLogs",
- *             retentionPolicy: {
- *                 enabled: true,
- *                 days: 1,
- *             },
  *         },
  *         {
  *             category: "ServicePrincipalSignInLogs",
- *             retentionPolicy: {
- *                 enabled: true,
- *                 days: 1,
- *             },
  *         },
  *     ],
  * });

@@ -4824,6 +4824,664 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type NamespaceIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// NamespaceIdentityInput is an input type that accepts NamespaceIdentityArgs and NamespaceIdentityOutput values.
+// You can construct a concrete instance of `NamespaceIdentityInput` via:
+//
+//	NamespaceIdentityArgs{...}
+type NamespaceIdentityInput interface {
+	pulumi.Input
+
+	ToNamespaceIdentityOutput() NamespaceIdentityOutput
+	ToNamespaceIdentityOutputWithContext(context.Context) NamespaceIdentityOutput
+}
+
+type NamespaceIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (NamespaceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceIdentity)(nil)).Elem()
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityOutput() NamespaceIdentityOutput {
+	return i.ToNamespaceIdentityOutputWithContext(context.Background())
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityOutputWithContext(ctx context.Context) NamespaceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityOutput)
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return i.ToNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityOutput).ToNamespaceIdentityPtrOutputWithContext(ctx)
+}
+
+// NamespaceIdentityPtrInput is an input type that accepts NamespaceIdentityArgs, NamespaceIdentityPtr and NamespaceIdentityPtrOutput values.
+// You can construct a concrete instance of `NamespaceIdentityPtrInput` via:
+//
+//	        NamespaceIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type NamespaceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput
+	ToNamespaceIdentityPtrOutputWithContext(context.Context) NamespaceIdentityPtrOutput
+}
+
+type namespaceIdentityPtrType NamespaceIdentityArgs
+
+func NamespaceIdentityPtr(v *NamespaceIdentityArgs) NamespaceIdentityPtrInput {
+	return (*namespaceIdentityPtrType)(v)
+}
+
+func (*namespaceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceIdentity)(nil)).Elem()
+}
+
+func (i *namespaceIdentityPtrType) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return i.ToNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *namespaceIdentityPtrType) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceIdentityPtrOutput)
+}
+
+type NamespaceIdentityOutput struct{ *pulumi.OutputState }
+
+func (NamespaceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceIdentity)(nil)).Elem()
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityOutput() NamespaceIdentityOutput {
+	return o
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityOutputWithContext(ctx context.Context) NamespaceIdentityOutput {
+	return o
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return o.ToNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NamespaceIdentity) *NamespaceIdentity {
+		return &v
+	}).(NamespaceIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`
+func (o NamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NamespaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+func (o NamespaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type NamespaceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (NamespaceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NamespaceIdentity)(nil)).Elem()
+}
+
+func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutput() NamespaceIdentityPtrOutput {
+	return o
+}
+
+func (o NamespaceIdentityPtrOutput) ToNamespaceIdentityPtrOutputWithContext(ctx context.Context) NamespaceIdentityPtrOutput {
+	return o
+}
+
+func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) NamespaceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret NamespaceIdentity
+		return ret
+	}).(NamespaceIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Namespace.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`
+func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NamespaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Event Grid Namespace. Possible values are `SystemAssigned`, `UserAssigned`.
+func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type NamespaceInboundIpRule struct {
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The IP mask (CIDR) to match on.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// NamespaceInboundIpRuleInput is an input type that accepts NamespaceInboundIpRuleArgs and NamespaceInboundIpRuleOutput values.
+// You can construct a concrete instance of `NamespaceInboundIpRuleInput` via:
+//
+//	NamespaceInboundIpRuleArgs{...}
+type NamespaceInboundIpRuleInput interface {
+	pulumi.Input
+
+	ToNamespaceInboundIpRuleOutput() NamespaceInboundIpRuleOutput
+	ToNamespaceInboundIpRuleOutputWithContext(context.Context) NamespaceInboundIpRuleOutput
+}
+
+type NamespaceInboundIpRuleArgs struct {
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP mask (CIDR) to match on.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (NamespaceInboundIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (i NamespaceInboundIpRuleArgs) ToNamespaceInboundIpRuleOutput() NamespaceInboundIpRuleOutput {
+	return i.ToNamespaceInboundIpRuleOutputWithContext(context.Background())
+}
+
+func (i NamespaceInboundIpRuleArgs) ToNamespaceInboundIpRuleOutputWithContext(ctx context.Context) NamespaceInboundIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceInboundIpRuleOutput)
+}
+
+// NamespaceInboundIpRuleArrayInput is an input type that accepts NamespaceInboundIpRuleArray and NamespaceInboundIpRuleArrayOutput values.
+// You can construct a concrete instance of `NamespaceInboundIpRuleArrayInput` via:
+//
+//	NamespaceInboundIpRuleArray{ NamespaceInboundIpRuleArgs{...} }
+type NamespaceInboundIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceInboundIpRuleArrayOutput() NamespaceInboundIpRuleArrayOutput
+	ToNamespaceInboundIpRuleArrayOutputWithContext(context.Context) NamespaceInboundIpRuleArrayOutput
+}
+
+type NamespaceInboundIpRuleArray []NamespaceInboundIpRuleInput
+
+func (NamespaceInboundIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (i NamespaceInboundIpRuleArray) ToNamespaceInboundIpRuleArrayOutput() NamespaceInboundIpRuleArrayOutput {
+	return i.ToNamespaceInboundIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceInboundIpRuleArray) ToNamespaceInboundIpRuleArrayOutputWithContext(ctx context.Context) NamespaceInboundIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceInboundIpRuleArrayOutput)
+}
+
+type NamespaceInboundIpRuleOutput struct{ *pulumi.OutputState }
+
+func (NamespaceInboundIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (o NamespaceInboundIpRuleOutput) ToNamespaceInboundIpRuleOutput() NamespaceInboundIpRuleOutput {
+	return o
+}
+
+func (o NamespaceInboundIpRuleOutput) ToNamespaceInboundIpRuleOutputWithContext(ctx context.Context) NamespaceInboundIpRuleOutput {
+	return o
+}
+
+// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
+func (o NamespaceInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP mask (CIDR) to match on.
+func (o NamespaceInboundIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceInboundIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type NamespaceInboundIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceInboundIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceInboundIpRule)(nil)).Elem()
+}
+
+func (o NamespaceInboundIpRuleArrayOutput) ToNamespaceInboundIpRuleArrayOutput() NamespaceInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o NamespaceInboundIpRuleArrayOutput) ToNamespaceInboundIpRuleArrayOutputWithContext(ctx context.Context) NamespaceInboundIpRuleArrayOutput {
+	return o
+}
+
+func (o NamespaceInboundIpRuleArrayOutput) Index(i pulumi.IntInput) NamespaceInboundIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceInboundIpRule {
+		return vs[0].([]NamespaceInboundIpRule)[vs[1].(int)]
+	}).(NamespaceInboundIpRuleOutput)
+}
+
+type NamespaceTopicSpacesConfiguration struct {
+	// Specifies a list of alternative sources for the client authentication name from the client certificate. Possible values are `ClientCertificateDns`, `ClientCertificateEmail`, `ClientCertificateIp`, `ClientCertificateSubject` and `ClientCertificateUri`.
+	AlternativeAuthenticationNameSources []string `pulumi:"alternativeAuthenticationNameSources"`
+	// One or more `dynamicRoutingEnrichment` blocks as defined below.
+	DynamicRoutingEnrichments []NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment `pulumi:"dynamicRoutingEnrichments"`
+	// Specifies the maximum number of client sessions per authentication name. Valid values can be between `1` and `100`.
+	MaximumClientSessionsPerAuthenticationName *int `pulumi:"maximumClientSessionsPerAuthenticationName"`
+	// Specifies the maximum session expiry interval allowed for all MQTT clients connecting to the Event Grid namespace. Valid values can be between `1` and `8`.
+	MaximumSessionExpiryInHours *int `pulumi:"maximumSessionExpiryInHours"`
+	// Specifies the Event Grid topic resource ID to route messages to.
+	RouteTopicId *string `pulumi:"routeTopicId"`
+	// One or more `staticRoutingEnrichment` blocks as defined below.
+	StaticRoutingEnrichments []NamespaceTopicSpacesConfigurationStaticRoutingEnrichment `pulumi:"staticRoutingEnrichments"`
+}
+
+// NamespaceTopicSpacesConfigurationInput is an input type that accepts NamespaceTopicSpacesConfigurationArgs and NamespaceTopicSpacesConfigurationOutput values.
+// You can construct a concrete instance of `NamespaceTopicSpacesConfigurationInput` via:
+//
+//	NamespaceTopicSpacesConfigurationArgs{...}
+type NamespaceTopicSpacesConfigurationInput interface {
+	pulumi.Input
+
+	ToNamespaceTopicSpacesConfigurationOutput() NamespaceTopicSpacesConfigurationOutput
+	ToNamespaceTopicSpacesConfigurationOutputWithContext(context.Context) NamespaceTopicSpacesConfigurationOutput
+}
+
+type NamespaceTopicSpacesConfigurationArgs struct {
+	// Specifies a list of alternative sources for the client authentication name from the client certificate. Possible values are `ClientCertificateDns`, `ClientCertificateEmail`, `ClientCertificateIp`, `ClientCertificateSubject` and `ClientCertificateUri`.
+	AlternativeAuthenticationNameSources pulumi.StringArrayInput `pulumi:"alternativeAuthenticationNameSources"`
+	// One or more `dynamicRoutingEnrichment` blocks as defined below.
+	DynamicRoutingEnrichments NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayInput `pulumi:"dynamicRoutingEnrichments"`
+	// Specifies the maximum number of client sessions per authentication name. Valid values can be between `1` and `100`.
+	MaximumClientSessionsPerAuthenticationName pulumi.IntPtrInput `pulumi:"maximumClientSessionsPerAuthenticationName"`
+	// Specifies the maximum session expiry interval allowed for all MQTT clients connecting to the Event Grid namespace. Valid values can be between `1` and `8`.
+	MaximumSessionExpiryInHours pulumi.IntPtrInput `pulumi:"maximumSessionExpiryInHours"`
+	// Specifies the Event Grid topic resource ID to route messages to.
+	RouteTopicId pulumi.StringPtrInput `pulumi:"routeTopicId"`
+	// One or more `staticRoutingEnrichment` blocks as defined below.
+	StaticRoutingEnrichments NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayInput `pulumi:"staticRoutingEnrichments"`
+}
+
+func (NamespaceTopicSpacesConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceTopicSpacesConfiguration)(nil)).Elem()
+}
+
+func (i NamespaceTopicSpacesConfigurationArgs) ToNamespaceTopicSpacesConfigurationOutput() NamespaceTopicSpacesConfigurationOutput {
+	return i.ToNamespaceTopicSpacesConfigurationOutputWithContext(context.Background())
+}
+
+func (i NamespaceTopicSpacesConfigurationArgs) ToNamespaceTopicSpacesConfigurationOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSpacesConfigurationOutput)
+}
+
+// NamespaceTopicSpacesConfigurationArrayInput is an input type that accepts NamespaceTopicSpacesConfigurationArray and NamespaceTopicSpacesConfigurationArrayOutput values.
+// You can construct a concrete instance of `NamespaceTopicSpacesConfigurationArrayInput` via:
+//
+//	NamespaceTopicSpacesConfigurationArray{ NamespaceTopicSpacesConfigurationArgs{...} }
+type NamespaceTopicSpacesConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceTopicSpacesConfigurationArrayOutput() NamespaceTopicSpacesConfigurationArrayOutput
+	ToNamespaceTopicSpacesConfigurationArrayOutputWithContext(context.Context) NamespaceTopicSpacesConfigurationArrayOutput
+}
+
+type NamespaceTopicSpacesConfigurationArray []NamespaceTopicSpacesConfigurationInput
+
+func (NamespaceTopicSpacesConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceTopicSpacesConfiguration)(nil)).Elem()
+}
+
+func (i NamespaceTopicSpacesConfigurationArray) ToNamespaceTopicSpacesConfigurationArrayOutput() NamespaceTopicSpacesConfigurationArrayOutput {
+	return i.ToNamespaceTopicSpacesConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceTopicSpacesConfigurationArray) ToNamespaceTopicSpacesConfigurationArrayOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSpacesConfigurationArrayOutput)
+}
+
+type NamespaceTopicSpacesConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NamespaceTopicSpacesConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceTopicSpacesConfiguration)(nil)).Elem()
+}
+
+func (o NamespaceTopicSpacesConfigurationOutput) ToNamespaceTopicSpacesConfigurationOutput() NamespaceTopicSpacesConfigurationOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationOutput) ToNamespaceTopicSpacesConfigurationOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationOutput {
+	return o
+}
+
+// Specifies a list of alternative sources for the client authentication name from the client certificate. Possible values are `ClientCertificateDns`, `ClientCertificateEmail`, `ClientCertificateIp`, `ClientCertificateSubject` and `ClientCertificateUri`.
+func (o NamespaceTopicSpacesConfigurationOutput) AlternativeAuthenticationNameSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfiguration) []string { return v.AlternativeAuthenticationNameSources }).(pulumi.StringArrayOutput)
+}
+
+// One or more `dynamicRoutingEnrichment` blocks as defined below.
+func (o NamespaceTopicSpacesConfigurationOutput) DynamicRoutingEnrichments() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfiguration) []NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment {
+		return v.DynamicRoutingEnrichments
+	}).(NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput)
+}
+
+// Specifies the maximum number of client sessions per authentication name. Valid values can be between `1` and `100`.
+func (o NamespaceTopicSpacesConfigurationOutput) MaximumClientSessionsPerAuthenticationName() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfiguration) *int { return v.MaximumClientSessionsPerAuthenticationName }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum session expiry interval allowed for all MQTT clients connecting to the Event Grid namespace. Valid values can be between `1` and `8`.
+func (o NamespaceTopicSpacesConfigurationOutput) MaximumSessionExpiryInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfiguration) *int { return v.MaximumSessionExpiryInHours }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Event Grid topic resource ID to route messages to.
+func (o NamespaceTopicSpacesConfigurationOutput) RouteTopicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfiguration) *string { return v.RouteTopicId }).(pulumi.StringPtrOutput)
+}
+
+// One or more `staticRoutingEnrichment` blocks as defined below.
+func (o NamespaceTopicSpacesConfigurationOutput) StaticRoutingEnrichments() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfiguration) []NamespaceTopicSpacesConfigurationStaticRoutingEnrichment {
+		return v.StaticRoutingEnrichments
+	}).(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput)
+}
+
+type NamespaceTopicSpacesConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceTopicSpacesConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceTopicSpacesConfiguration)(nil)).Elem()
+}
+
+func (o NamespaceTopicSpacesConfigurationArrayOutput) ToNamespaceTopicSpacesConfigurationArrayOutput() NamespaceTopicSpacesConfigurationArrayOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationArrayOutput) ToNamespaceTopicSpacesConfigurationArrayOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationArrayOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationArrayOutput) Index(i pulumi.IntInput) NamespaceTopicSpacesConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceTopicSpacesConfiguration {
+		return vs[0].([]NamespaceTopicSpacesConfiguration)[vs[1].(int)]
+	}).(NamespaceTopicSpacesConfigurationOutput)
+}
+
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment struct {
+	// The enrichment key.
+	Key string `pulumi:"key"`
+	// The enrichment value.
+	Value string `pulumi:"value"`
+}
+
+// NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentInput is an input type that accepts NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs and NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput values.
+// You can construct a concrete instance of `NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentInput` via:
+//
+//	NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs{...}
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentInput interface {
+	pulumi.Input
+
+	ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput
+	ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutputWithContext(context.Context) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput
+}
+
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs struct {
+	// The enrichment key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The enrichment value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment)(nil)).Elem()
+}
+
+func (i NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput {
+	return i.ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutputWithContext(context.Background())
+}
+
+func (i NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput)
+}
+
+// NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayInput is an input type that accepts NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray and NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput values.
+// You can construct a concrete instance of `NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayInput` via:
+//
+//	NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray{ NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs{...} }
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput
+	ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutputWithContext(context.Context) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput
+}
+
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray []NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentInput
+
+func (NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment)(nil)).Elem()
+}
+
+func (i NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput {
+	return i.ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput)
+}
+
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput struct{ *pulumi.OutputState }
+
+func (NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment)(nil)).Elem()
+}
+
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput {
+	return o
+}
+
+// The enrichment key.
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The enrichment value.
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment)(nil)).Elem()
+}
+
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput() NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput) ToNamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput) Index(i pulumi.IntInput) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment {
+		return vs[0].([]NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment)[vs[1].(int)]
+	}).(NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput)
+}
+
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichment struct {
+	// The enrichment key.
+	Key string `pulumi:"key"`
+	// The enrichment value.
+	Value string `pulumi:"value"`
+}
+
+// NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentInput is an input type that accepts NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs and NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput values.
+// You can construct a concrete instance of `NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentInput` via:
+//
+//	NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs{...}
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentInput interface {
+	pulumi.Input
+
+	ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput
+	ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutputWithContext(context.Context) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput
+}
+
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs struct {
+	// The enrichment key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The enrichment value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceTopicSpacesConfigurationStaticRoutingEnrichment)(nil)).Elem()
+}
+
+func (i NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput {
+	return i.ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutputWithContext(context.Background())
+}
+
+func (i NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput)
+}
+
+// NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayInput is an input type that accepts NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray and NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput values.
+// You can construct a concrete instance of `NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayInput` via:
+//
+//	NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray{ NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs{...} }
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput
+	ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutputWithContext(context.Context) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput
+}
+
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray []NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentInput
+
+func (NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceTopicSpacesConfigurationStaticRoutingEnrichment)(nil)).Elem()
+}
+
+func (i NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput {
+	return i.ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput)
+}
+
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput struct{ *pulumi.OutputState }
+
+func (NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceTopicSpacesConfigurationStaticRoutingEnrichment)(nil)).Elem()
+}
+
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput {
+	return o
+}
+
+// The enrichment key.
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfigurationStaticRoutingEnrichment) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The enrichment value.
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceTopicSpacesConfigurationStaticRoutingEnrichment) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceTopicSpacesConfigurationStaticRoutingEnrichment)(nil)).Elem()
+}
+
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput() NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput) ToNamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutputWithContext(ctx context.Context) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput {
+	return o
+}
+
+func (o NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput) Index(i pulumi.IntInput) NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceTopicSpacesConfigurationStaticRoutingEnrichment {
+		return vs[0].([]NamespaceTopicSpacesConfigurationStaticRoutingEnrichment)[vs[1].(int)]
+	}).(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput)
+}
+
 type SystemTopicEventSubscriptionAdvancedFilter struct {
 	// Compares a value of an event using a single boolean value.
 	BoolEquals []SystemTopicEventSubscriptionAdvancedFilterBoolEqual `pulumi:"boolEquals"`
@@ -10531,6 +11189,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSubjectFilterPtrInput)(nil)).Elem(), EventSubscriptionSubjectFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionWebhookEndpointInput)(nil)).Elem(), EventSubscriptionWebhookEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionWebhookEndpointPtrInput)(nil)).Elem(), EventSubscriptionWebhookEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityInput)(nil)).Elem(), NamespaceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityPtrInput)(nil)).Elem(), NamespaceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceInboundIpRuleInput)(nil)).Elem(), NamespaceInboundIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceInboundIpRuleArrayInput)(nil)).Elem(), NamespaceInboundIpRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationArrayInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayInput)(nil)).Elem(), NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterInput)(nil)).Elem(), SystemTopicEventSubscriptionAdvancedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterPtrInput)(nil)).Elem(), SystemTopicEventSubscriptionAdvancedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SystemTopicEventSubscriptionAdvancedFilterBoolEqualInput)(nil)).Elem(), SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs{})
@@ -10675,6 +11343,16 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionSubjectFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointPtrOutput{})
+	pulumi.RegisterOutputType(NamespaceIdentityOutput{})
+	pulumi.RegisterOutputType(NamespaceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(NamespaceInboundIpRuleOutput{})
+	pulumi.RegisterOutputType(NamespaceInboundIpRuleArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationOutput{})
+	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentOutput{})
+	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentOutput{})
+	pulumi.RegisterOutputType(NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArrayOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterPtrOutput{})
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput{})

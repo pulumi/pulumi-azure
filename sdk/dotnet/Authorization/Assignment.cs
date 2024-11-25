@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Authorization
         /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conditionVersion")]
-        public Output<string?> ConditionVersion { get; private set; } = null!;
+        public Output<string> ConditionVersion { get; private set; } = null!;
 
         /// <summary>
         /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.

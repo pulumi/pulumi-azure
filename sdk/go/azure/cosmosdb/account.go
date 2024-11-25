@@ -205,6 +205,8 @@ type Account struct {
 	Location        pulumi.StringOutput    `pulumi:"location"`
 	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	MongoServerVersion            pulumi.StringOutput    `pulumi:"mongoServerVersion"`
 	MultipleWriteLocationsEnabled pulumi.BoolPtrOutput   `pulumi:"multipleWriteLocationsEnabled"`
@@ -341,6 +343,8 @@ type accountState struct {
 	Location        *string `pulumi:"location"`
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             *string `pulumi:"minimalTlsVersion"`
 	MongoServerVersion            *string `pulumi:"mongoServerVersion"`
 	MultipleWriteLocationsEnabled *bool   `pulumi:"multipleWriteLocationsEnabled"`
@@ -421,6 +425,8 @@ type AccountState struct {
 	Location        pulumi.StringPtrInput
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             pulumi.StringPtrInput
 	MongoServerVersion            pulumi.StringPtrInput
 	MultipleWriteLocationsEnabled pulumi.BoolPtrInput
@@ -503,6 +509,8 @@ type accountArgs struct {
 	Location        *string `pulumi:"location"`
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             *string `pulumi:"minimalTlsVersion"`
 	MongoServerVersion            *string `pulumi:"mongoServerVersion"`
 	MultipleWriteLocationsEnabled *bool   `pulumi:"multipleWriteLocationsEnabled"`
@@ -554,6 +562,8 @@ type AccountArgs struct {
 	Location        pulumi.StringPtrInput
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             pulumi.StringPtrInput
 	MongoServerVersion            pulumi.StringPtrInput
 	MultipleWriteLocationsEnabled pulumi.BoolPtrInput
@@ -761,6 +771,8 @@ func (o AccountOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 }
 
 // Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 func (o AccountOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
 }

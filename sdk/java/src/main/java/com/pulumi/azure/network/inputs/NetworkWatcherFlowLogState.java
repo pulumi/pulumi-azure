@@ -66,16 +66,20 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @deprecated
+     * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
     @Import(name="networkSecurityGroupId")
     private @Nullable Output<String> networkSecurityGroupId;
 
     /**
-     * @return The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @deprecated
+     * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
     public Optional<Output<String>> networkSecurityGroupId() {
         return Optional.ofNullable(this.networkSecurityGroupId);
     }
@@ -156,6 +160,21 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="targetResourceId")
+    private @Nullable Output<String> targetResourceId;
+
+    /**
+     * @return The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> targetResourceId() {
+        return Optional.ofNullable(this.targetResourceId);
+    }
+
+    /**
      * A `traffic_analytics` block as documented below.
      * 
      */
@@ -197,6 +216,7 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         this.retentionPolicy = $.retentionPolicy;
         this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
+        this.targetResourceId = $.targetResourceId;
         this.trafficAnalytics = $.trafficAnalytics;
         this.version = $.version;
     }
@@ -283,22 +303,26 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param networkSecurityGroupId The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
         public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
             $.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
 
         /**
-         * @param networkSecurityGroupId The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             return networkSecurityGroupId(Output.of(networkSecurityGroupId));
         }
@@ -406,6 +430,27 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param targetResourceId The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetResourceId(@Nullable Output<String> targetResourceId) {
+            $.targetResourceId = targetResourceId;
+            return this;
+        }
+
+        /**
+         * @param targetResourceId The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetResourceId(String targetResourceId) {
+            return targetResourceId(Output.of(targetResourceId));
         }
 
         /**

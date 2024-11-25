@@ -60,7 +60,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      */
     public readonly networkSecurityGroupId!: pulumi.Output<string>;
     /**
@@ -83,6 +83,10 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     */
+    public readonly targetResourceId!: pulumi.Output<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
@@ -114,15 +118,13 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             resourceInputs["trafficAnalytics"] = state ? state.trafficAnalytics : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NetworkWatcherFlowLogArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
-            }
-            if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'networkSecurityGroupId'");
             }
             if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
@@ -145,6 +147,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             resourceInputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
         }
@@ -170,7 +173,7 @@ export interface NetworkWatcherFlowLogState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      */
     networkSecurityGroupId?: pulumi.Input<string>;
     /**
@@ -193,6 +196,10 @@ export interface NetworkWatcherFlowLogState {
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     */
+    targetResourceId?: pulumi.Input<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
@@ -220,9 +227,9 @@ export interface NetworkWatcherFlowLogArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
+     * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    networkSecurityGroupId: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
@@ -243,6 +250,10 @@ export interface NetworkWatcherFlowLogArgs {
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+     */
+    targetResourceId?: pulumi.Input<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */

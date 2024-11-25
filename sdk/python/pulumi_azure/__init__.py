@@ -3333,6 +3333,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "databricks/workspaceCustomerManagedKey",
+  "fqn": "pulumi_azure.databricks",
+  "classes": {
+   "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey": "WorkspaceCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "databricks/workspaceRootDbfsCustomerManagedKey",
   "fqn": "pulumi_azure.databricks",
   "classes": {
@@ -4321,6 +4329,14 @@ _utilities.register(
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
    "azure:eventgrid/eventSubscription:EventSubscription": "EventSubscription"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "eventgrid/namespace",
+  "fqn": "pulumi_azure.eventgrid",
+  "classes": {
+   "azure:eventgrid/namespace:Namespace": "Namespace"
   }
  },
  {

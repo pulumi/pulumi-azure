@@ -58,7 +58,7 @@ public final class ApplicationGatewayWafConfiguration {
      */
     private @Nullable String ruleSetType;
     /**
-     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     private String ruleSetVersion;
@@ -121,7 +121,7 @@ public final class ApplicationGatewayWafConfiguration {
         return Optional.ofNullable(this.ruleSetType);
     }
     /**
-     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public String ruleSetVersion() {

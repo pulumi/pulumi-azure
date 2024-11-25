@@ -12,6 +12,7 @@ from .get_domain import *
 from .get_domain_topic import *
 from .get_system_topic import *
 from .get_topic import *
+from .namespace import *
 from .system_topic import *
 from .system_topic_event_subscription import *
 from .topic import *

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ArcMachineArgs', 'ArcMachine']
 
@@ -21,21 +23,29 @@ class ArcMachineArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ArcMachineIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ArcMachine resource.
         :param pulumi.Input[str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['ArcMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Arc machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Arc Machine.
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -63,6 +73,18 @@ class ArcMachineArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ArcMachineIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ArcMachineIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
@@ -85,21 +107,39 @@ class ArcMachineArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Arc Machine.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _ArcMachineState:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['ArcMachineIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ArcMachine resources.
+        :param pulumi.Input['ArcMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Arc machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Arc Machine.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -108,6 +148,20 @@ class _ArcMachineState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ArcMachineIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ArcMachineIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -157,16 +211,30 @@ class _ArcMachineState:
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Arc Machine.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class ArcMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a Hybrid Compute Machine.
@@ -184,7 +252,13 @@ class ArcMachine(pulumi.CustomResource):
             name="example-arcmachine",
             resource_group_name=example.name,
             location=example.location,
-            kind="SCVMM")
+            kind="SCVMM",
+            identity={
+                "type": "SystemAssigned",
+            },
+            tags={
+                "environment": "example",
+            })
         ```
 
         ## Import
@@ -197,10 +271,12 @@ class ArcMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Arc machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Arc Machine.
         """
         ...
     @overload
@@ -224,7 +300,13 @@ class ArcMachine(pulumi.CustomResource):
             name="example-arcmachine",
             resource_group_name=example.name,
             location=example.location,
-            kind="SCVMM")
+            kind="SCVMM",
+            identity={
+                "type": "SystemAssigned",
+            },
+            tags={
+                "environment": "example",
+            })
         ```
 
         ## Import
@@ -250,10 +332,12 @@ class ArcMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,6 +347,7 @@ class ArcMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArcMachineArgs.__new__(ArcMachineArgs)
 
+            __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
@@ -271,6 +356,7 @@ class ArcMachine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
         super(ArcMachine, __self__).__init__(
             'azure:arcmachine/arcMachine:ArcMachine',
             resource_name,
@@ -281,10 +367,12 @@ class ArcMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            identity: Optional[pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ArcMachine':
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ArcMachine':
         """
         Get an existing ArcMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -292,20 +380,32 @@ class ArcMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Arc machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Arc Machine.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ArcMachineState.__new__(_ArcMachineState)
 
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
         return ArcMachine(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ArcMachineIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -338,4 +438,12 @@ class ArcMachine(pulumi.CustomResource):
         The name of the Resource Group where the Arc Machine should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the Arc Machine.
+        """
+        return pulumi.get(self, "tags")
 

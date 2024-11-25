@@ -12,15 +12,9 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class AadDiagnosticSettingEnabledLogRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply. Defaults to `0`.
-        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
-        /// <summary>
-        /// Is this Retention Policy enabled? Defaults to `false`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

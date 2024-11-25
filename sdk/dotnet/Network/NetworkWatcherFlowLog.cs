@@ -43,9 +43,6 @@ namespace Pulumi.Azure.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("networkSecurityGroupId")]
         public Output<string> NetworkSecurityGroupId { get; private set; } = null!;
 
@@ -78,6 +75,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("targetResourceId")]
+        public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A `traffic_analytics` block as documented below.
@@ -155,11 +158,8 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("networkSecurityGroupId", required: true)]
-        public Input<string> NetworkSecurityGroupId { get; set; } = null!;
+        [Input("networkSecurityGroupId")]
+        public Input<string>? NetworkSecurityGroupId { get; set; }
 
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -196,6 +196,12 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
         /// A `traffic_analytics` block as documented below.
@@ -235,9 +241,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("networkSecurityGroupId")]
         public Input<string>? NetworkSecurityGroupId { get; set; }
 
@@ -276,6 +279,12 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
         /// A `traffic_analytics` block as documented below.

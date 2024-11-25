@@ -257,10 +257,7 @@ if not MYPY:
         """
         The log category for the Azure Active Directory Diagnostic.
         """
-        retention_policy: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict']
-        """
-        A `retention_policy` block as defined below.
-        """
+        retention_policy: NotRequired[pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict']]
 elif False:
     AadDiagnosticSettingEnabledLogArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -268,13 +265,16 @@ elif False:
 class AadDiagnosticSettingEnabledLogArgs:
     def __init__(__self__, *,
                  category: pulumi.Input[str],
-                 retention_policy: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']):
+                 retention_policy: Optional[pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
         """
         :param pulumi.Input[str] category: The log category for the Azure Active Directory Diagnostic.
-        :param pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         """
         pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "retention_policy", retention_policy)
+        if retention_policy is not None:
+            warnings.warn("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""", DeprecationWarning)
+            pulumi.log.warn("""retention_policy is deprecated: Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @property
     @pulumi.getter
@@ -290,27 +290,19 @@ class AadDiagnosticSettingEnabledLogArgs:
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']:
-        """
-        A `retention_policy` block as defined below.
-        """
+    @_utilities.deprecated("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
+    def retention_policy(self) -> Optional[pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]:
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']):
+    def retention_policy(self, value: Optional[pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
 
 
 if not MYPY:
     class AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
         days: NotRequired[pulumi.Input[int]]
-        """
-        The number of days for which this Retention Policy should apply. Defaults to `0`.
-        """
         enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Is this Retention Policy enabled? Defaults to `false`.
-        """
 elif False:
     AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -319,10 +311,6 @@ class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
     def __init__(__self__, *,
                  days: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply. Defaults to `0`.
-        :param pulumi.Input[bool] enabled: Is this Retention Policy enabled? Defaults to `false`.
-        """
         if days is not None:
             pulumi.set(__self__, "days", days)
         if enabled is not None:
@@ -331,9 +319,6 @@ class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
     @property
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days for which this Retention Policy should apply. Defaults to `0`.
-        """
         return pulumi.get(self, "days")
 
     @days.setter
@@ -343,9 +328,6 @@ class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is this Retention Policy enabled? Defaults to `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter

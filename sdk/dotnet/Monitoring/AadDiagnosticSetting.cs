@@ -49,38 +49,18 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "SignInLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
     ///             },
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "AuditLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
     ///             },
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "NonInteractiveUserSignInLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
     ///             },
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
     ///             {
     ///                 Category = "ServicePrincipalSignInLogs",
-    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Days = 1,
-    ///                 },
     ///             },
     ///         },
     ///     });

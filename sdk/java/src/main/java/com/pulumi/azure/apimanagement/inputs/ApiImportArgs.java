@@ -33,14 +33,14 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+     * The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     @Import(name="contentValue", required=true)
     private Output<String> contentValue;
 
     /**
-     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     public Output<String> contentValue() {
@@ -110,7 +110,7 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentValue The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+         * @param contentValue The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentValue The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
+         * @param contentValue The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
          * 
          * @return builder
          * 

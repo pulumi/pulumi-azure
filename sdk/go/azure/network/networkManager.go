@@ -89,7 +89,7 @@ type NetworkManager struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `scope` block as defined below.
 	Scope NetworkManagerScopeOutput `pulumi:"scope"`
-	// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
 	ScopeAccesses pulumi.StringArrayOutput `pulumi:"scopeAccesses"`
 	// A mapping of tags which should be assigned to the Network Managers.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -146,7 +146,7 @@ type networkManagerState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `scope` block as defined below.
 	Scope *NetworkManagerScope `pulumi:"scope"`
-	// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
 	ScopeAccesses []string `pulumi:"scopeAccesses"`
 	// A mapping of tags which should be assigned to the Network Managers.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,7 +165,7 @@ type NetworkManagerState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `scope` block as defined below.
 	Scope NetworkManagerScopePtrInput
-	// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
 	ScopeAccesses pulumi.StringArrayInput
 	// A mapping of tags which should be assigned to the Network Managers.
 	Tags pulumi.StringMapInput
@@ -186,7 +186,7 @@ type networkManagerArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `scope` block as defined below.
 	Scope NetworkManagerScope `pulumi:"scope"`
-	// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
 	ScopeAccesses []string `pulumi:"scopeAccesses"`
 	// A mapping of tags which should be assigned to the Network Managers.
 	Tags map[string]string `pulumi:"tags"`
@@ -204,7 +204,7 @@ type NetworkManagerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `scope` block as defined below.
 	Scope NetworkManagerScopeInput
-	// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
 	ScopeAccesses pulumi.StringArrayInput
 	// A mapping of tags which should be assigned to the Network Managers.
 	Tags pulumi.StringMapInput
@@ -327,7 +327,7 @@ func (o NetworkManagerOutput) Scope() NetworkManagerScopeOutput {
 	return o.ApplyT(func(v *NetworkManager) NetworkManagerScopeOutput { return v.Scope }).(NetworkManagerScopeOutput)
 }
 
-// A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
 func (o NetworkManagerOutput) ScopeAccesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringArrayOutput { return v.ScopeAccesses }).(pulumi.StringArrayOutput)
 }

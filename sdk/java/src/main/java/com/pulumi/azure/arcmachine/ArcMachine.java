@@ -6,11 +6,14 @@ package com.pulumi.azure.arcmachine;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.arcmachine.ArcMachineArgs;
 import com.pulumi.azure.arcmachine.inputs.ArcMachineState;
+import com.pulumi.azure.arcmachine.outputs.ArcMachineIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -30,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.arcmachine.ArcMachine;
  * import com.pulumi.azure.arcmachine.ArcMachineArgs;
+ * import com.pulumi.azure.arcmachine.inputs.ArcMachineIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,6 +57,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .kind("SCVMM")
+ *             .identity(ArcMachineIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .tags(Map.of("environment", "example"))
  *             .build());
  * 
  *     }
@@ -72,6 +80,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:arcmachine/arcMachine:ArcMachine")
 public class ArcMachine extends com.pulumi.resources.CustomResource {
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={ArcMachineIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ArcMachineIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<ArcMachineIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
     /**
      * The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
      * 
@@ -127,6 +149,20 @@ public class ArcMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A mapping of tags to assign to the Arc Machine.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags to assign to the Arc Machine.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
     }
 
     /**

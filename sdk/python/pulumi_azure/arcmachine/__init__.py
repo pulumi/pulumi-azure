@@ -9,4 +9,5 @@ from .arc_machine import *
 from .automanage_configuration_assignment import *
 from .extension import *
 from .get import *
+from ._inputs import *
 from . import outputs

@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ArcMachineIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	Type string `pulumi:"type"`
+}
+
+// ArcMachineIdentityInput is an input type that accepts ArcMachineIdentityArgs and ArcMachineIdentityOutput values.
+// You can construct a concrete instance of `ArcMachineIdentityInput` via:
+//
+//	ArcMachineIdentityArgs{...}
+type ArcMachineIdentityInput interface {
+	pulumi.Input
+
+	ToArcMachineIdentityOutput() ArcMachineIdentityOutput
+	ToArcMachineIdentityOutputWithContext(context.Context) ArcMachineIdentityOutput
+}
+
+type ArcMachineIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ArcMachineIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArcMachineIdentity)(nil)).Elem()
+}
+
+func (i ArcMachineIdentityArgs) ToArcMachineIdentityOutput() ArcMachineIdentityOutput {
+	return i.ToArcMachineIdentityOutputWithContext(context.Background())
+}
+
+func (i ArcMachineIdentityArgs) ToArcMachineIdentityOutputWithContext(ctx context.Context) ArcMachineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcMachineIdentityOutput)
+}
+
+func (i ArcMachineIdentityArgs) ToArcMachineIdentityPtrOutput() ArcMachineIdentityPtrOutput {
+	return i.ToArcMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ArcMachineIdentityArgs) ToArcMachineIdentityPtrOutputWithContext(ctx context.Context) ArcMachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcMachineIdentityOutput).ToArcMachineIdentityPtrOutputWithContext(ctx)
+}
+
+// ArcMachineIdentityPtrInput is an input type that accepts ArcMachineIdentityArgs, ArcMachineIdentityPtr and ArcMachineIdentityPtrOutput values.
+// You can construct a concrete instance of `ArcMachineIdentityPtrInput` via:
+//
+//	        ArcMachineIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ArcMachineIdentityPtrInput interface {
+	pulumi.Input
+
+	ToArcMachineIdentityPtrOutput() ArcMachineIdentityPtrOutput
+	ToArcMachineIdentityPtrOutputWithContext(context.Context) ArcMachineIdentityPtrOutput
+}
+
+type arcMachineIdentityPtrType ArcMachineIdentityArgs
+
+func ArcMachineIdentityPtr(v *ArcMachineIdentityArgs) ArcMachineIdentityPtrInput {
+	return (*arcMachineIdentityPtrType)(v)
+}
+
+func (*arcMachineIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArcMachineIdentity)(nil)).Elem()
+}
+
+func (i *arcMachineIdentityPtrType) ToArcMachineIdentityPtrOutput() ArcMachineIdentityPtrOutput {
+	return i.ToArcMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *arcMachineIdentityPtrType) ToArcMachineIdentityPtrOutputWithContext(ctx context.Context) ArcMachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArcMachineIdentityPtrOutput)
+}
+
+type ArcMachineIdentityOutput struct{ *pulumi.OutputState }
+
+func (ArcMachineIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArcMachineIdentity)(nil)).Elem()
+}
+
+func (o ArcMachineIdentityOutput) ToArcMachineIdentityOutput() ArcMachineIdentityOutput {
+	return o
+}
+
+func (o ArcMachineIdentityOutput) ToArcMachineIdentityOutputWithContext(ctx context.Context) ArcMachineIdentityOutput {
+	return o
+}
+
+func (o ArcMachineIdentityOutput) ToArcMachineIdentityPtrOutput() ArcMachineIdentityPtrOutput {
+	return o.ToArcMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ArcMachineIdentityOutput) ToArcMachineIdentityPtrOutputWithContext(ctx context.Context) ArcMachineIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArcMachineIdentity) *ArcMachineIdentity {
+		return &v
+	}).(ArcMachineIdentityPtrOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ArcMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ArcMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArcMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+func (o ArcMachineIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ArcMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ArcMachineIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ArcMachineIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArcMachineIdentity)(nil)).Elem()
+}
+
+func (o ArcMachineIdentityPtrOutput) ToArcMachineIdentityPtrOutput() ArcMachineIdentityPtrOutput {
+	return o
+}
+
+func (o ArcMachineIdentityPtrOutput) ToArcMachineIdentityPtrOutputWithContext(ctx context.Context) ArcMachineIdentityPtrOutput {
+	return o
+}
+
+func (o ArcMachineIdentityPtrOutput) Elem() ArcMachineIdentityOutput {
+	return o.ApplyT(func(v *ArcMachineIdentity) ArcMachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ArcMachineIdentity
+		return ret
+	}).(ArcMachineIdentityOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ArcMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcMachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ArcMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcMachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity assigned to this Arc Machine. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+func (o ArcMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArcMachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAgent struct {
 	// A `extensionsAllowList` block as defined below.
 	ExtensionsAllowLists []GetAgentExtensionsAllowList `pulumi:"extensionsAllowLists"`
@@ -1554,6 +1729,8 @@ func (o GetServiceStatusGuestConfigurationServiceArrayOutput) Index(i pulumi.Int
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ArcMachineIdentityInput)(nil)).Elem(), ArcMachineIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArcMachineIdentityPtrInput)(nil)).Elem(), ArcMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentInput)(nil)).Elem(), GetAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentArrayInput)(nil)).Elem(), GetAgentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentExtensionsAllowListInput)(nil)).Elem(), GetAgentExtensionsAllowListArgs{})
@@ -1582,6 +1759,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceStatusExtensionServiceArrayInput)(nil)).Elem(), GetServiceStatusExtensionServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceStatusGuestConfigurationServiceInput)(nil)).Elem(), GetServiceStatusGuestConfigurationServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceStatusGuestConfigurationServiceArrayInput)(nil)).Elem(), GetServiceStatusGuestConfigurationServiceArray{})
+	pulumi.RegisterOutputType(ArcMachineIdentityOutput{})
+	pulumi.RegisterOutputType(ArcMachineIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetAgentOutput{})
 	pulumi.RegisterOutputType(GetAgentArrayOutput{})
 	pulumi.RegisterOutputType(GetAgentExtensionsAllowListOutput{})

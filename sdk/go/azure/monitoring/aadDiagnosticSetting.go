@@ -55,31 +55,15 @@ import (
 //				EnabledLogs: monitoring.AadDiagnosticSettingEnabledLogArray{
 //					&monitoring.AadDiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("SignInLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
 //					},
 //					&monitoring.AadDiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("AuditLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
 //					},
 //					&monitoring.AadDiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("NonInteractiveUserSignInLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
 //					},
 //					&monitoring.AadDiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("ServicePrincipalSignInLogs"),
-//						RetentionPolicy: &monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs{
-//							Enabled: pulumi.Bool(true),
-//							Days:    pulumi.Int(1),
-//						},
 //					},
 //				},
 //			})

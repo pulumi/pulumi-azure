@@ -99,7 +99,7 @@ export class NetworkManager extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<outputs.network.NetworkManagerScope>;
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      */
     public readonly scopeAccesses!: pulumi.Output<string[]>;
     /**
@@ -182,7 +182,7 @@ export interface NetworkManagerState {
      */
     scope?: pulumi.Input<inputs.network.NetworkManagerScope>;
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      */
     scopeAccesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -216,7 +216,7 @@ export interface NetworkManagerArgs {
      */
     scope: pulumi.Input<inputs.network.NetworkManagerScope>;
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      */
     scopeAccesses: pulumi.Input<pulumi.Input<string>[]>;
     /**

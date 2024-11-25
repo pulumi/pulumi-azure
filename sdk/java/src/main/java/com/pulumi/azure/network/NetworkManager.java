@@ -174,14 +174,14 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
         return this.scope;
     }
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      * 
      */
     @Export(name="scopeAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopeAccesses;
 
     /**
-     * @return A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
+     * @return A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
      * 
      */
     public Output<List<String>> scopeAccesses() {
