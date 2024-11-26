@@ -115,7 +115,7 @@ export interface GetQueueAuthorizationRuleResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
+export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", {
         "name": args.name,

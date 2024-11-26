@@ -114,7 +114,7 @@ export interface GetSoaRecordResult {
  * export const privateDnsSoaRecordId = exampleAzurermPrivateDnsSoaRecord.id;
  * ```
  */
-export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoaRecordResult> {
+export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoaRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getSoaRecord:getSoaRecord", {
         "name": args.name,
