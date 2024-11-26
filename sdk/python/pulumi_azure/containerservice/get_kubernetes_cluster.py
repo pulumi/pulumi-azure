@@ -607,7 +607,7 @@ def get_kubernetes_cluster(name: Optional[str] = None,
         windows_profiles=pulumi.get(__ret__, 'windows_profiles'))
 def get_kubernetes_cluster_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterResult]:
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
@@ -628,7 +628,7 @@ def get_kubernetes_cluster_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__, opts=opts, typ=GetKubernetesClusterResult)
     return __ret__.apply(lambda __response__: GetKubernetesClusterResult(
         aci_connector_linuxes=pulumi.get(__response__, 'aci_connector_linuxes'),

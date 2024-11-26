@@ -202,7 +202,7 @@ export interface GetWindowsWebAppResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getWindowsWebAppOutput(args: GetWindowsWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsWebAppResult> {
+export function getWindowsWebAppOutput(args: GetWindowsWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWindowsWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getWindowsWebApp:getWindowsWebApp", {
         "name": args.name,

@@ -63,7 +63,7 @@ export interface GetExtendedLocationsResult {
  * });
  * ```
  */
-export function getExtendedLocationsOutput(args: GetExtendedLocationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedLocationsResult> {
+export function getExtendedLocationsOutput(args: GetExtendedLocationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtendedLocationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getExtendedLocations:getExtendedLocations", {
         "location": args.location,

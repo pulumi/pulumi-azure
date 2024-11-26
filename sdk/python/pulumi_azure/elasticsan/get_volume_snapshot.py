@@ -143,7 +143,7 @@ def get_volume_snapshot(name: Optional[str] = None,
         volume_name=pulumi.get(__ret__, 'volume_name'))
 def get_volume_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                                volume_group_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
     """
     Use this data source to access information about an existing Elastic SAN Volume Snapshot.
 
@@ -169,7 +169,7 @@ def get_volume_snapshot_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['volumeGroupId'] = volume_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult)
     return __ret__.apply(lambda __response__: GetVolumeSnapshotResult(
         id=pulumi.get(__response__, 'id'),

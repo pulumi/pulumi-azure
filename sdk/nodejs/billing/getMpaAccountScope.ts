@@ -69,7 +69,7 @@ export interface GetMpaAccountScopeResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getMpaAccountScopeOutput(args: GetMpaAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMpaAccountScopeResult> {
+export function getMpaAccountScopeOutput(args: GetMpaAccountScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMpaAccountScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:billing/getMpaAccountScope:getMpaAccountScope", {
         "billingAccountName": args.billingAccountName,

@@ -97,7 +97,7 @@ export interface GetApplicationGroupResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
+export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", {
         "name": args.name,

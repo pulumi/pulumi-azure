@@ -167,7 +167,7 @@ def get_certificate(account_name: Optional[str] = None,
 def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing certificate in a Batch Account.
 
@@ -192,7 +192,7 @@ def get_certificate_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:batch/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         account_name=pulumi.get(__response__, 'account_name'),

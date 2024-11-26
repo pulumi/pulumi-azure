@@ -211,7 +211,7 @@ def get_fhir_service(name: Optional[str] = None,
 def get_fhir_service_output(name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             workspace_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
 
@@ -224,7 +224,7 @@ def get_fhir_service_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getFhirService:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult)
     return __ret__.apply(lambda __response__: GetFhirServiceResult(
         access_policy_object_ids=pulumi.get(__response__, 'access_policy_object_ids'),
