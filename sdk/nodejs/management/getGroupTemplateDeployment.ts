@@ -47,7 +47,7 @@ export interface GetGroupTemplateDeploymentResult {
 /**
  * Use this data source to access information about an existing Management Group Template Deployment.
  */
-export function getGroupTemplateDeploymentOutput(args: GetGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupTemplateDeploymentResult> {
+export function getGroupTemplateDeploymentOutput(args: GetGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", {
         "managementGroupId": args.managementGroupId,

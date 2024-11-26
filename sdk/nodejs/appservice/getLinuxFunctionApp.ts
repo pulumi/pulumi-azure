@@ -230,7 +230,7 @@ export interface GetLinuxFunctionAppResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxFunctionAppResult> {
+export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinuxFunctionAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", {
         "name": args.name,

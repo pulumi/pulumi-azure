@@ -179,7 +179,7 @@ def get_network_manager_connectivity_configuration(name: Optional[str] = None,
         network_manager_id=pulumi.get(__ret__, 'network_manager_id'))
 def get_network_manager_connectivity_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                                           network_manager_id: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerConnectivityConfigurationResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkManagerConnectivityConfigurationResult]:
     """
     Use this data source to access information about an existing Network Manager Connectivity Configuration.
 
@@ -201,7 +201,7 @@ def get_network_manager_connectivity_configuration_output(name: Optional[pulumi.
     __args__ = dict()
     __args__['name'] = name
     __args__['networkManagerId'] = network_manager_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration', __args__, opts=opts, typ=GetNetworkManagerConnectivityConfigurationResult)
     return __ret__.apply(lambda __response__: GetNetworkManagerConnectivityConfigurationResult(
         applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),

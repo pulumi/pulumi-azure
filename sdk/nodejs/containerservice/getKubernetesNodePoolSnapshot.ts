@@ -72,7 +72,7 @@ export interface GetKubernetesNodePoolSnapshotResult {
  * });
  * ```
  */
-export function getKubernetesNodePoolSnapshotOutput(args: GetKubernetesNodePoolSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesNodePoolSnapshotResult> {
+export function getKubernetesNodePoolSnapshotOutput(args: GetKubernetesNodePoolSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesNodePoolSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", {
         "name": args.name,

@@ -77,7 +77,7 @@ export interface GetNetworkSimResult {
 /**
  * Get information about a Mobile Network Sim.
  */
-export function getNetworkSimOutput(args: GetNetworkSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimResult> {
+export function getNetworkSimOutput(args: GetNetworkSimOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSimResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSim:getNetworkSim", {
         "mobileNetworkSimGroupId": args.mobileNetworkSimGroupId,

@@ -97,7 +97,7 @@ def get_extended_locations(location: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'))
 def get_extended_locations_output(location: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtendedLocationsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtendedLocationsResult]:
     """
     This data source return the available Extended Locations for a specific Azure Region.
 
@@ -115,7 +115,7 @@ def get_extended_locations_output(location: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['location'] = location
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getExtendedLocations:getExtendedLocations', __args__, opts=opts, typ=GetExtendedLocationsResult)
     return __ret__.apply(lambda __response__: GetExtendedLocationsResult(
         extended_locations=pulumi.get(__response__, 'extended_locations'),
