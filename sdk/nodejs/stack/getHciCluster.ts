@@ -111,7 +111,7 @@ export interface GetHciClusterResult {
  * export const clientId = example.then(example => example.clientId);
  * ```
  */
-export function getHciClusterOutput(args: GetHciClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciClusterResult> {
+export function getHciClusterOutput(args: GetHciClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHciClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:stack/getHciCluster:getHciCluster", {
         "name": args.name,

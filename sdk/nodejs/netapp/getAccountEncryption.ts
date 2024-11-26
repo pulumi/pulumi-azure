@@ -64,7 +64,7 @@ export interface GetAccountEncryptionResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountEncryptionResult> {
+export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getAccountEncryption:getAccountEncryption", {
         "netappAccountId": args.netappAccountId,

@@ -104,7 +104,7 @@ export interface GetWorkspaceResult {
  * export const databricksWorkspaceId = example.then(example => example.workspaceId);
  * ```
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:databricks/getWorkspace:getWorkspace", {
         "name": args.name,
