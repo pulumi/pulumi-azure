@@ -98,7 +98,7 @@ export interface GetLBOutboundRuleResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getLBOutboundRuleOutput(args: GetLBOutboundRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBOutboundRuleResult> {
+export function getLBOutboundRuleOutput(args: GetLBOutboundRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLBOutboundRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:lb/getLBOutboundRule:getLBOutboundRule", {
         "loadbalancerId": args.loadbalancerId,

@@ -203,7 +203,7 @@ export interface GetExadataInfrastructureResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getExadataInfrastructureOutput(args: GetExadataInfrastructureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExadataInfrastructureResult> {
+export function getExadataInfrastructureOutput(args: GetExadataInfrastructureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExadataInfrastructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", {
         "name": args.name,

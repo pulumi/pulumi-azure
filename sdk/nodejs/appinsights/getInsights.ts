@@ -101,7 +101,7 @@ export interface GetInsightsResult {
  * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
  * ```
  */
-export function getInsightsOutput(args: GetInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightsResult> {
+export function getInsightsOutput(args: GetInsightsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInsightsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appinsights/getInsights:getInsights", {
         "name": args.name,
