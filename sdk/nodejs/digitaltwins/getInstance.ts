@@ -81,7 +81,7 @@ export interface GetInstanceResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:digitaltwins/getInstance:getInstance", {
         "name": args.name,

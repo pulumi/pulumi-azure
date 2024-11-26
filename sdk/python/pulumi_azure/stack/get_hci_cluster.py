@@ -220,7 +220,7 @@ def get_hci_cluster(name: Optional[str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
 def get_hci_cluster_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHciClusterResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHciClusterResult]:
     """
     Use this data source to access information about an existing Azure Stack HCI Cluster instance.
 
@@ -244,7 +244,7 @@ def get_hci_cluster_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:stack/getHciCluster:getHciCluster', __args__, opts=opts, typ=GetHciClusterResult)
     return __ret__.apply(lambda __response__: GetHciClusterResult(
         automanage_configuration_id=pulumi.get(__response__, 'automanage_configuration_id'),

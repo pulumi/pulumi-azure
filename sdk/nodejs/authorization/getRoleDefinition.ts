@@ -126,7 +126,7 @@ export interface GetRoleDefinitionResult {
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
  */
-export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
+export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleDefinitionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:authorization/getRoleDefinition:getRoleDefinition", {

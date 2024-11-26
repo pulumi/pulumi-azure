@@ -105,7 +105,7 @@ export interface GetStandardResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
+export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:logicapps/getStandard:getStandard", {
         "name": args.name,

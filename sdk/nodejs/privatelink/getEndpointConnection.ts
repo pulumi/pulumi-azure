@@ -80,7 +80,7 @@ export interface GetEndpointConnectionResult {
  * export const privateEndpointStatus = example.then(example => example.privateServiceConnections?.[0]?.status);
  * ```
  */
-export function getEndpointConnectionOutput(args: GetEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointConnectionResult> {
+export function getEndpointConnectionOutput(args: GetEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatelink/getEndpointConnection:getEndpointConnection", {
         "name": args.name,
