@@ -142,7 +142,7 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              namespace_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumeGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumeGroupResult]:
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
 
@@ -169,7 +169,7 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getConsumeGroup:getConsumeGroup', __args__, opts=opts, typ=GetConsumeGroupResult)
     return __ret__.apply(lambda __response__: GetConsumeGroupResult(
         eventhub_name=pulumi.get(__response__, 'eventhub_name'),

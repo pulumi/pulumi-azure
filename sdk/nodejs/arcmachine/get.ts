@@ -182,7 +182,7 @@ export interface GetResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResult> {
+export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:arcmachine/get:get", {
         "name": args.name,

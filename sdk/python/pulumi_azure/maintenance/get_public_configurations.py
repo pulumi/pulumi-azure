@@ -135,7 +135,7 @@ def get_public_configurations(location: Optional[str] = None,
 def get_public_configurations_output(location: Optional[pulumi.Input[Optional[str]]] = None,
                                      recur_every: Optional[pulumi.Input[Optional[str]]] = None,
                                      scope: Optional[pulumi.Input[Optional[str]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicConfigurationsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicConfigurationsResult]:
     """
     Use this data source to access information about existing Public Maintenance Configurations.
 
@@ -160,7 +160,7 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[st
     __args__['location'] = location
     __args__['recurEvery'] = recur_every
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:maintenance/getPublicConfigurations:getPublicConfigurations', __args__, opts=opts, typ=GetPublicConfigurationsResult)
     return __ret__.apply(lambda __response__: GetPublicConfigurationsResult(
         configs=pulumi.get(__response__, 'configs'),
