@@ -101,7 +101,7 @@ export interface GetDataCollectionEndpointResult {
  * export const endpointId = example.then(example => example.id);
  * ```
  */
-export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
+export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", {
         "name": args.name,

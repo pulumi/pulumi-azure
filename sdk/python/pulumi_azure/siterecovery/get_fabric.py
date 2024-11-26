@@ -127,7 +127,7 @@ def get_fabric(name: Optional[str] = None,
 def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
                       recovery_vault_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFabricResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFabricResult]:
     """
     Use this data source to access information about an existing Site Recovery Replication Fabric.
 
@@ -151,7 +151,7 @@ def get_fabric_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['recoveryVaultName'] = recovery_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:siterecovery/getFabric:getFabric', __args__, opts=opts, typ=GetFabricResult)
     return __ret__.apply(lambda __response__: GetFabricResult(
         id=pulumi.get(__response__, 'id'),

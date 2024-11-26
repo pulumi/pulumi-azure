@@ -165,7 +165,7 @@ def get_dedicated_host_group(name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_dedicated_host_group_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
     """
     Use this data source to access information about an existing Dedicated Host Group.
 
@@ -187,7 +187,7 @@ def get_dedicated_host_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getDedicatedHostGroup:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostGroupResult(
         automatic_placement_enabled=pulumi.get(__response__, 'automatic_placement_enabled'),

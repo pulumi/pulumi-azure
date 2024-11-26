@@ -168,7 +168,7 @@ def get_volume_group(elastic_san_id: Optional[str] = None,
         protocol_type=pulumi.get(__ret__, 'protocol_type'))
 def get_volume_group_output(elastic_san_id: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Use this data source to access information about an existing Elastic SAN Volume Group.
 
@@ -192,7 +192,7 @@ def get_volume_group_output(elastic_san_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['elasticSanId'] = elastic_san_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:elasticsan/getVolumeGroup:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult)
     return __ret__.apply(lambda __response__: GetVolumeGroupResult(
         elastic_san_id=pulumi.get(__response__, 'elastic_san_id'),
