@@ -5,6 +5,7 @@ package cosmosdb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSqlRoleDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSqlRoleDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSqlRoleDefinition, use LookupSqlRoleDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSqlRoleDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSqlRoleDefinition, use LookupSqlRoleDefinitionOutput instead")
+	}
 	var rv LookupSqlRoleDefinitionResult
 	err := ctx.Invoke("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupSqlRoleDefinitionResult struct {
 }
 
 func LookupSqlRoleDefinitionOutput(ctx *pulumi.Context, args LookupSqlRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupSqlRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSqlRoleDefinitionResultOutput, error) {
 			args := v.(LookupSqlRoleDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSqlRoleDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSqlRoleDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSqlRoleDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSqlRoleDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSqlRoleDefinitionResultOutput), nil
 			}

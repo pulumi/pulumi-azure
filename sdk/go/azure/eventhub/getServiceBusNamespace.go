@@ -5,6 +5,7 @@ package eventhub
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
 func GetServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespaceArgs, opts ...pulumi.InvokeOption) (*GetServiceBusNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetServiceBusNamespaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetServiceBusNamespaceResult{}, errors.New("DependsOn is not supported for direct form invoke GetServiceBusNamespace, use GetServiceBusNamespaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetServiceBusNamespaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetServiceBusNamespace, use GetServiceBusNamespaceOutput instead")
+	}
 	var rv GetServiceBusNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type GetServiceBusNamespaceResult struct {
 }
 
 func GetServiceBusNamespaceOutput(ctx *pulumi.Context, args GetServiceBusNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetServiceBusNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceBusNamespaceResultOutput, error) {
 			args := v.(GetServiceBusNamespaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetServiceBusNamespaceResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, "", opts...)
 			if err != nil {
 				return GetServiceBusNamespaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetServiceBusNamespaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetServiceBusNamespaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetServiceBusNamespaceResultOutput), nil
 			}

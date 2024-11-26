@@ -55,7 +55,7 @@ export interface GetRegistryCacheRuleResult {
 /**
  * Use this data source to access information about an existing Container Registry Cache Rule.
  */
-export function getRegistryCacheRuleOutput(args: GetRegistryCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCacheRuleResult> {
+export function getRegistryCacheRuleOutput(args: GetRegistryCacheRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", {
         "containerRegistryId": args.containerRegistryId,

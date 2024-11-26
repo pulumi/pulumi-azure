@@ -101,7 +101,7 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
  * export const complianceStatus = example.then(example => example.complianceStatus);
  * ```
  */
-export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
+export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", {
         "name": args.name,

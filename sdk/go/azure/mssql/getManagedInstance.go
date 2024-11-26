@@ -5,6 +5,7 @@ package mssql
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupManagedInstance(ctx *pulumi.Context, args *LookupManagedInstanceArgs, opts ...pulumi.InvokeOption) (*LookupManagedInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupManagedInstanceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupManagedInstanceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupManagedInstance, use LookupManagedInstanceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupManagedInstanceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupManagedInstance, use LookupManagedInstanceOutput instead")
+	}
 	var rv LookupManagedInstanceResult
 	err := ctx.Invoke("azure:mssql/getManagedInstance:getManagedInstance", args, &rv, opts...)
 	if err != nil {
@@ -103,17 +114,18 @@ type LookupManagedInstanceResult struct {
 }
 
 func LookupManagedInstanceOutput(ctx *pulumi.Context, args LookupManagedInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupManagedInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedInstanceResultOutput, error) {
 			args := v.(LookupManagedInstanceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedInstanceResult
-			secret, err := ctx.InvokePackageRaw("azure:mssql/getManagedInstance:getManagedInstance", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mssql/getManagedInstance:getManagedInstance", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedInstanceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedInstanceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedInstanceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedInstanceResultOutput), nil
 			}

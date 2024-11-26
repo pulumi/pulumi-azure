@@ -5,6 +5,7 @@ package notificationhub
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupHubResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupHubResult{}, errors.New("DependsOn is not supported for direct form invoke LookupHub, use LookupHubOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupHubResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupHub, use LookupHubOutput instead")
+	}
 	var rv LookupHubResult
 	err := ctx.Invoke("azure:notificationhub/getHub:getHub", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupHubResult struct {
 }
 
 func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHubResultOutput, error) {
 			args := v.(LookupHubArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupHubResult
-			secret, err := ctx.InvokePackageRaw("azure:notificationhub/getHub:getHub", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:notificationhub/getHub:getHub", args, &rv, "", opts...)
 			if err != nil {
 				return LookupHubResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupHubResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupHubResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupHubResultOutput), nil
 			}

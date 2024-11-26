@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetTrafficManager(ctx *pulumi.Context, args *GetTrafficManagerArgs, opts ...pulumi.InvokeOption) (*GetTrafficManagerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTrafficManagerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTrafficManagerResult{}, errors.New("DependsOn is not supported for direct form invoke GetTrafficManager, use GetTrafficManagerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTrafficManagerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTrafficManager, use GetTrafficManagerOutput instead")
+	}
 	var rv GetTrafficManagerResult
 	err := ctx.Invoke("azure:network/getTrafficManager:getTrafficManager", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type GetTrafficManagerResult struct {
 }
 
 func GetTrafficManagerOutput(ctx *pulumi.Context, args GetTrafficManagerOutputArgs, opts ...pulumi.InvokeOption) GetTrafficManagerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTrafficManagerResultOutput, error) {
 			args := v.(GetTrafficManagerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTrafficManagerResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getTrafficManager:getTrafficManager", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getTrafficManager:getTrafficManager", args, &rv, "", opts...)
 			if err != nil {
 				return GetTrafficManagerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTrafficManagerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTrafficManagerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTrafficManagerResultOutput), nil
 			}

@@ -87,7 +87,7 @@ export interface GetPrivateLinkResourceResult {
  * });
  * ```
  */
-export function getPrivateLinkResourceOutput(args: GetPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkResourceResult> {
+export function getPrivateLinkResourceOutput(args: GetPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", {
         "webPubsubId": args.webPubsubId,

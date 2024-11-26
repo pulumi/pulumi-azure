@@ -5,6 +5,7 @@ package healthcare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts ...pulumi.InvokeOption) (*LookupDicomServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDicomServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDicomServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDicomService, use LookupDicomServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDicomServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDicomService, use LookupDicomServiceOutput instead")
+	}
 	var rv LookupDicomServiceResult
 	err := ctx.Invoke("azure:healthcare/getDicomService:getDicomService", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupDicomServiceResult struct {
 }
 
 func LookupDicomServiceOutput(ctx *pulumi.Context, args LookupDicomServiceOutputArgs, opts ...pulumi.InvokeOption) LookupDicomServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDicomServiceResultOutput, error) {
 			args := v.(LookupDicomServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDicomServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:healthcare/getDicomService:getDicomService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:healthcare/getDicomService:getDicomService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDicomServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDicomServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDicomServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDicomServiceResultOutput), nil
 			}

@@ -349,7 +349,7 @@ def get_shared_image(gallery_name: Optional[str] = None,
 def get_shared_image_output(gallery_name: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedImageResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedImageResult]:
     """
     Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
 
@@ -373,7 +373,7 @@ def get_shared_image_output(gallery_name: Optional[pulumi.Input[str]] = None,
     __args__['galleryName'] = gallery_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getSharedImage:getSharedImage', __args__, opts=opts, typ=GetSharedImageResult)
     return __ret__.apply(lambda __response__: GetSharedImageResult(
         accelerated_network_support_enabled=pulumi.get(__response__, 'accelerated_network_support_enabled'),

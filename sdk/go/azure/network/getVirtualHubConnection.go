@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupVirtualHubConnection(ctx *pulumi.Context, args *LookupVirtualHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualHubConnectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualHubConnectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualHubConnection, use LookupVirtualHubConnectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualHubConnectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualHubConnection, use LookupVirtualHubConnectionOutput instead")
+	}
 	var rv LookupVirtualHubConnectionResult
 	err := ctx.Invoke("azure:network/getVirtualHubConnection:getVirtualHubConnection", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type LookupVirtualHubConnectionResult struct {
 }
 
 func LookupVirtualHubConnectionOutput(ctx *pulumi.Context, args LookupVirtualHubConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualHubConnectionResultOutput, error) {
 			args := v.(LookupVirtualHubConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualHubConnectionResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualHubConnection:getVirtualHubConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualHubConnection:getVirtualHubConnection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualHubConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualHubConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualHubConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualHubConnectionResultOutput), nil
 			}

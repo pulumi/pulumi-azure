@@ -5,6 +5,7 @@ package datafactory
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupTriggerSchedule(ctx *pulumi.Context, args *LookupTriggerScheduleArgs, opts ...pulumi.InvokeOption) (*LookupTriggerScheduleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTriggerScheduleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTriggerScheduleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTriggerSchedule, use LookupTriggerScheduleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTriggerScheduleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTriggerSchedule, use LookupTriggerScheduleOutput instead")
+	}
 	var rv LookupTriggerScheduleResult
 	err := ctx.Invoke("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupTriggerScheduleResult struct {
 }
 
 func LookupTriggerScheduleOutput(ctx *pulumi.Context, args LookupTriggerScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerScheduleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTriggerScheduleResultOutput, error) {
 			args := v.(LookupTriggerScheduleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTriggerScheduleResult
-			secret, err := ctx.InvokePackageRaw("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTriggerScheduleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTriggerScheduleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTriggerScheduleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTriggerScheduleResultOutput), nil
 			}

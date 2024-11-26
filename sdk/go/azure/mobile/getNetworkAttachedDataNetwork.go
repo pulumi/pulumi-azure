@@ -5,6 +5,7 @@ package mobile
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupNetworkAttachedDataNetwork(ctx *pulumi.Context, args *LookupNetworkAttachedDataNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkAttachedDataNetworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkAttachedDataNetworkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkAttachedDataNetworkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkAttachedDataNetwork, use LookupNetworkAttachedDataNetworkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkAttachedDataNetworkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkAttachedDataNetwork, use LookupNetworkAttachedDataNetworkOutput instead")
+	}
 	var rv LookupNetworkAttachedDataNetworkResult
 	err := ctx.Invoke("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type LookupNetworkAttachedDataNetworkResult struct {
 }
 
 func LookupNetworkAttachedDataNetworkOutput(ctx *pulumi.Context, args LookupNetworkAttachedDataNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkAttachedDataNetworkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkAttachedDataNetworkResultOutput, error) {
 			args := v.(LookupNetworkAttachedDataNetworkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkAttachedDataNetworkResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkAttachedDataNetworkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkAttachedDataNetworkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkAttachedDataNetworkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkAttachedDataNetworkResultOutput), nil
 			}

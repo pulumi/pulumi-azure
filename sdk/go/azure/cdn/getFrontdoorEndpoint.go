@@ -5,6 +5,7 @@ package cdn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFrontdoorEndpoint(ctx *pulumi.Context, args *LookupFrontdoorEndpointArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFrontdoorEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFrontdoorEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFrontdoorEndpoint, use LookupFrontdoorEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFrontdoorEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFrontdoorEndpoint, use LookupFrontdoorEndpointOutput instead")
+	}
 	var rv LookupFrontdoorEndpointResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupFrontdoorEndpointResult struct {
 }
 
 func LookupFrontdoorEndpointOutput(ctx *pulumi.Context, args LookupFrontdoorEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorEndpointResultOutput, error) {
 			args := v.(LookupFrontdoorEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorEndpointResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorEndpointResultOutput), nil
 			}

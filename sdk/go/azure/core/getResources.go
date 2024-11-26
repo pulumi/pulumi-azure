@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about existing resources.
 func GetResources(ctx *pulumi.Context, args *GetResourcesArgs, opts ...pulumi.InvokeOption) (*GetResourcesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetResourcesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetResourcesResult{}, errors.New("DependsOn is not supported for direct form invoke GetResources, use GetResourcesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetResourcesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetResources, use GetResourcesOutput instead")
+	}
 	var rv GetResourcesResult
 	err := ctx.Invoke("azure:core/getResources:getResources", args, &rv, opts...)
 	if err != nil {
@@ -50,17 +61,18 @@ type GetResourcesResult struct {
 }
 
 func GetResourcesOutput(ctx *pulumi.Context, args GetResourcesOutputArgs, opts ...pulumi.InvokeOption) GetResourcesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetResourcesResultOutput, error) {
 			args := v.(GetResourcesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetResourcesResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getResources:getResources", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getResources:getResources", args, &rv, "", opts...)
 			if err != nil {
 				return GetResourcesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetResourcesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetResourcesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetResourcesResultOutput), nil
 			}

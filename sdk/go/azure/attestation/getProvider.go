@@ -5,6 +5,7 @@ package attestation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Attestation Provider.
 func LookupProvider(ctx *pulumi.Context, args *LookupProviderArgs, opts ...pulumi.InvokeOption) (*LookupProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupProviderResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupProviderResult{}, errors.New("DependsOn is not supported for direct form invoke LookupProvider, use LookupProviderOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupProviderResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupProvider, use LookupProviderOutput instead")
+	}
 	var rv LookupProviderResult
 	err := ctx.Invoke("azure:attestation/getProvider:getProvider", args, &rv, opts...)
 	if err != nil {
@@ -47,17 +58,18 @@ type LookupProviderResult struct {
 }
 
 func LookupProviderOutput(ctx *pulumi.Context, args LookupProviderOutputArgs, opts ...pulumi.InvokeOption) LookupProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProviderResultOutput, error) {
 			args := v.(LookupProviderArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProviderResult
-			secret, err := ctx.InvokePackageRaw("azure:attestation/getProvider:getProvider", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:attestation/getProvider:getProvider", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProviderResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProviderResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProviderResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProviderResultOutput), nil
 			}

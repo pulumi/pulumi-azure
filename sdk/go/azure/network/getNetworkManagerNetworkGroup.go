@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupNetworkManagerNetworkGroup(ctx *pulumi.Context, args *LookupNetworkManagerNetworkGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkManagerNetworkGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkManagerNetworkGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkManagerNetworkGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkManagerNetworkGroup, use LookupNetworkManagerNetworkGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkManagerNetworkGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkManagerNetworkGroup, use LookupNetworkManagerNetworkGroupOutput instead")
+	}
 	var rv LookupNetworkManagerNetworkGroupResult
 	err := ctx.Invoke("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, &rv, opts...)
 	if err != nil {
@@ -102,17 +113,18 @@ type LookupNetworkManagerNetworkGroupResult struct {
 }
 
 func LookupNetworkManagerNetworkGroupOutput(ctx *pulumi.Context, args LookupNetworkManagerNetworkGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerNetworkGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkManagerNetworkGroupResultOutput, error) {
 			args := v.(LookupNetworkManagerNetworkGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkManagerNetworkGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkManagerNetworkGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkManagerNetworkGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkManagerNetworkGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkManagerNetworkGroupResultOutput), nil
 			}

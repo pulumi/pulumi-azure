@@ -5,6 +5,7 @@ package marketplace
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAgreementResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAgreementResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAgreement, use LookupAgreementOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAgreementResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAgreement, use LookupAgreementOutput instead")
+	}
 	var rv LookupAgreementResult
 	err := ctx.Invoke("azure:marketplace/getAgreement:getAgreement", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupAgreementResult struct {
 }
 
 func LookupAgreementOutput(ctx *pulumi.Context, args LookupAgreementOutputArgs, opts ...pulumi.InvokeOption) LookupAgreementResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAgreementResultOutput, error) {
 			args := v.(LookupAgreementArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAgreementResult
-			secret, err := ctx.InvokePackageRaw("azure:marketplace/getAgreement:getAgreement", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:marketplace/getAgreement:getAgreement", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAgreementResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAgreementResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAgreementResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAgreementResultOutput), nil
 			}

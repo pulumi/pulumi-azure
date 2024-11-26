@@ -5,6 +5,7 @@ package role
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -71,6 +72,16 @@ import (
 // Deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRoleDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRoleDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke GetRoleDefinition, use GetRoleDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRoleDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRoleDefinition, use GetRoleDefinitionOutput instead")
+	}
 	var rv GetRoleDefinitionResult
 	err := ctx.Invoke("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, opts...)
 	if err != nil {
@@ -111,17 +122,18 @@ type GetRoleDefinitionResult struct {
 }
 
 func GetRoleDefinitionOutput(ctx *pulumi.Context, args GetRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRoleDefinitionResultOutput, error) {
 			args := v.(GetRoleDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRoleDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return GetRoleDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRoleDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRoleDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRoleDefinitionResultOutput), nil
 			}

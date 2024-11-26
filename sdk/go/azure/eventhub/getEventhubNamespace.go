@@ -5,6 +5,7 @@ package eventhub
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEventhubNamespaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEventhubNamespaceResult{}, errors.New("DependsOn is not supported for direct form invoke GetEventhubNamespace, use GetEventhubNamespaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEventhubNamespaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEventhubNamespace, use GetEventhubNamespaceOutput instead")
+	}
 	var rv GetEventhubNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, opts...)
 	if err != nil {
@@ -100,17 +111,18 @@ type GetEventhubNamespaceResult struct {
 }
 
 func GetEventhubNamespaceOutput(ctx *pulumi.Context, args GetEventhubNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetEventhubNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEventhubNamespaceResultOutput, error) {
 			args := v.(GetEventhubNamespaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEventhubNamespaceResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, "", opts...)
 			if err != nil {
 				return GetEventhubNamespaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEventhubNamespaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEventhubNamespaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEventhubNamespaceResultOutput), nil
 			}

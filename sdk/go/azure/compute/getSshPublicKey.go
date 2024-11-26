@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSshPublicKey(ctx *pulumi.Context, args *LookupSshPublicKeyArgs, opts ...pulumi.InvokeOption) (*LookupSshPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSshPublicKeyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSshPublicKeyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSshPublicKey, use LookupSshPublicKeyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSshPublicKeyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSshPublicKey, use LookupSshPublicKeyOutput instead")
+	}
 	var rv LookupSshPublicKeyResult
 	err := ctx.Invoke("azure:compute/getSshPublicKey:getSshPublicKey", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupSshPublicKeyResult struct {
 }
 
 func LookupSshPublicKeyOutput(ctx *pulumi.Context, args LookupSshPublicKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSshPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSshPublicKeyResultOutput, error) {
 			args := v.(LookupSshPublicKeyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSshPublicKeyResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getSshPublicKey:getSshPublicKey", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getSshPublicKey:getSshPublicKey", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSshPublicKeyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSshPublicKeyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSshPublicKeyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSshPublicKeyResultOutput), nil
 			}

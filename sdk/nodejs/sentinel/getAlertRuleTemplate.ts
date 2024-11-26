@@ -91,7 +91,7 @@ export interface GetAlertRuleTemplateResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getAlertRuleTemplateOutput(args: GetAlertRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleTemplateResult> {
+export function getAlertRuleTemplateOutput(args: GetAlertRuleTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", {
         "displayName": args.displayName,

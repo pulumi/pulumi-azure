@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetVirtualMachineScaleSet(ctx *pulumi.Context, args *GetVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*GetVirtualMachineScaleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVirtualMachineScaleSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVirtualMachineScaleSetResult{}, errors.New("DependsOn is not supported for direct form invoke GetVirtualMachineScaleSet, use GetVirtualMachineScaleSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVirtualMachineScaleSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVirtualMachineScaleSet, use GetVirtualMachineScaleSetOutput instead")
+	}
 	var rv GetVirtualMachineScaleSetResult
 	err := ctx.Invoke("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetVirtualMachineScaleSetResult struct {
 }
 
 func GetVirtualMachineScaleSetOutput(ctx *pulumi.Context, args GetVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) GetVirtualMachineScaleSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVirtualMachineScaleSetResultOutput, error) {
 			args := v.(GetVirtualMachineScaleSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVirtualMachineScaleSetResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", args, &rv, "", opts...)
 			if err != nil {
 				return GetVirtualMachineScaleSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVirtualMachineScaleSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVirtualMachineScaleSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVirtualMachineScaleSetResultOutput), nil
 			}

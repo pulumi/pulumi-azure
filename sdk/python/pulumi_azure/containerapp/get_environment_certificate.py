@@ -179,7 +179,7 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
         thumbprint=pulumi.get(__ret__, 'thumbprint'))
 def get_environment_certificate_output(container_app_environment_id: Optional[pulumi.Input[str]] = None,
                                        name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentCertificateResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentCertificateResult]:
     """
     Use this data source to access information about an existing Container App Environment Certificate.
 
@@ -202,7 +202,7 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
     __args__ = dict()
     __args__['containerAppEnvironmentId'] = container_app_environment_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate', __args__, opts=opts, typ=GetEnvironmentCertificateResult)
     return __ret__.apply(lambda __response__: GetEnvironmentCertificateResult(
         container_app_environment_id=pulumi.get(__response__, 'container_app_environment_id'),

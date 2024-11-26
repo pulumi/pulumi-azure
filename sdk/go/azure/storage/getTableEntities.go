@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetTableEntities(ctx *pulumi.Context, args *GetTableEntitiesArgs, opts ...pulumi.InvokeOption) (*GetTableEntitiesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTableEntitiesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTableEntitiesResult{}, errors.New("DependsOn is not supported for direct form invoke GetTableEntities, use GetTableEntitiesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTableEntitiesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTableEntities, use GetTableEntitiesOutput instead")
+	}
 	var rv GetTableEntitiesResult
 	err := ctx.Invoke("azure:storage/getTableEntities:getTableEntities", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type GetTableEntitiesResult struct {
 }
 
 func GetTableEntitiesOutput(ctx *pulumi.Context, args GetTableEntitiesOutputArgs, opts ...pulumi.InvokeOption) GetTableEntitiesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTableEntitiesResultOutput, error) {
 			args := v.(GetTableEntitiesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTableEntitiesResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getTableEntities:getTableEntities", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getTableEntities:getTableEntities", args, &rv, "", opts...)
 			if err != nil {
 				return GetTableEntitiesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTableEntitiesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTableEntitiesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTableEntitiesResultOutput), nil
 			}

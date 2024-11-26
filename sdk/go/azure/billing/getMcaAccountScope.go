@@ -5,6 +5,7 @@ package billing
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetMcaAccountScope(ctx *pulumi.Context, args *GetMcaAccountScopeArgs, opts ...pulumi.InvokeOption) (*GetMcaAccountScopeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetMcaAccountScopeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetMcaAccountScopeResult{}, errors.New("DependsOn is not supported for direct form invoke GetMcaAccountScope, use GetMcaAccountScopeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetMcaAccountScopeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetMcaAccountScope, use GetMcaAccountScopeOutput instead")
+	}
 	var rv GetMcaAccountScopeResult
 	err := ctx.Invoke("azure:billing/getMcaAccountScope:getMcaAccountScope", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type GetMcaAccountScopeResult struct {
 }
 
 func GetMcaAccountScopeOutput(ctx *pulumi.Context, args GetMcaAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetMcaAccountScopeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMcaAccountScopeResultOutput, error) {
 			args := v.(GetMcaAccountScopeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetMcaAccountScopeResult
-			secret, err := ctx.InvokePackageRaw("azure:billing/getMcaAccountScope:getMcaAccountScope", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:billing/getMcaAccountScope:getMcaAccountScope", args, &rv, "", opts...)
 			if err != nil {
 				return GetMcaAccountScopeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetMcaAccountScopeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetMcaAccountScopeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetMcaAccountScopeResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package oracle
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, opts ...pulumi.InvokeOption) (*LookupCloudVmClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCloudVmClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCloudVmClusterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCloudVmCluster, use LookupCloudVmClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCloudVmClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCloudVmCluster, use LookupCloudVmClusterOutput instead")
+	}
 	var rv LookupCloudVmClusterResult
 	err := ctx.Invoke("azure:oracle/getCloudVmCluster:getCloudVmCluster", args, &rv, opts...)
 	if err != nil {
@@ -166,17 +177,18 @@ type LookupCloudVmClusterResult struct {
 }
 
 func LookupCloudVmClusterOutput(ctx *pulumi.Context, args LookupCloudVmClusterOutputArgs, opts ...pulumi.InvokeOption) LookupCloudVmClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCloudVmClusterResultOutput, error) {
 			args := v.(LookupCloudVmClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCloudVmClusterResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getCloudVmCluster:getCloudVmCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getCloudVmCluster:getCloudVmCluster", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCloudVmClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCloudVmClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCloudVmClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCloudVmClusterResultOutput), nil
 			}

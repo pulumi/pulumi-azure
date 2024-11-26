@@ -109,7 +109,7 @@ export interface GetConfigurationKeyResult {
  * export const value = test.then(test => test.value);
  * ```
  */
-export function getConfigurationKeyOutput(args: GetConfigurationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationKeyResult> {
+export function getConfigurationKeyOutput(args: GetConfigurationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appconfiguration/getConfigurationKey:getConfigurationKey", {
         "configurationStoreId": args.configurationStoreId,

@@ -5,6 +5,7 @@ package netapp
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupAccountEncryption(ctx *pulumi.Context, args *LookupAccountEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupAccountEncryptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAccountEncryptionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAccountEncryptionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAccountEncryption, use LookupAccountEncryptionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAccountEncryptionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAccountEncryption, use LookupAccountEncryptionOutput instead")
+	}
 	var rv LookupAccountEncryptionResult
 	err := ctx.Invoke("azure:netapp/getAccountEncryption:getAccountEncryption", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type LookupAccountEncryptionResult struct {
 }
 
 func LookupAccountEncryptionOutput(ctx *pulumi.Context, args LookupAccountEncryptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccountEncryptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccountEncryptionResultOutput, error) {
 			args := v.(LookupAccountEncryptionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAccountEncryptionResult
-			secret, err := ctx.InvokePackageRaw("azure:netapp/getAccountEncryption:getAccountEncryption", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:netapp/getAccountEncryption:getAccountEncryption", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAccountEncryptionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAccountEncryptionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAccountEncryptionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAccountEncryptionResultOutput), nil
 			}

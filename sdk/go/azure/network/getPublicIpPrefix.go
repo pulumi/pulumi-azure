@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupPublicIpPrefix(ctx *pulumi.Context, args *LookupPublicIpPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPublicIpPrefixResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPublicIpPrefixResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPublicIpPrefixResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPublicIpPrefix, use LookupPublicIpPrefixOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPublicIpPrefixResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPublicIpPrefix, use LookupPublicIpPrefixOutput instead")
+	}
 	var rv LookupPublicIpPrefixResult
 	err := ctx.Invoke("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupPublicIpPrefixResult struct {
 }
 
 func LookupPublicIpPrefixOutput(ctx *pulumi.Context, args LookupPublicIpPrefixOutputArgs, opts ...pulumi.InvokeOption) LookupPublicIpPrefixResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPublicIpPrefixResultOutput, error) {
 			args := v.(LookupPublicIpPrefixArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPublicIpPrefixResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPublicIpPrefixResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPublicIpPrefixResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPublicIpPrefixResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPublicIpPrefixResultOutput), nil
 			}

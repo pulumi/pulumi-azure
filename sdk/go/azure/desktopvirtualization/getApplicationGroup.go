@@ -5,6 +5,7 @@ package desktopvirtualization
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupApplicationGroup(ctx *pulumi.Context, args *LookupApplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupApplicationGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupApplicationGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupApplicationGroup, use LookupApplicationGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupApplicationGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupApplicationGroup, use LookupApplicationGroupOutput instead")
+	}
 	var rv LookupApplicationGroupResult
 	err := ctx.Invoke("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupApplicationGroupResult struct {
 }
 
 func LookupApplicationGroupOutput(ctx *pulumi.Context, args LookupApplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationGroupResultOutput, error) {
 			args := v.(LookupApplicationGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupApplicationGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupApplicationGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupApplicationGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupApplicationGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupApplicationGroupResultOutput), nil
 			}

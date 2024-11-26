@@ -87,7 +87,7 @@ export interface GetConsumeGroupResult {
  * });
  * ```
  */
-export function getConsumeGroupOutput(args: GetConsumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumeGroupResult> {
+export function getConsumeGroupOutput(args: GetConsumeGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:eventhub/getConsumeGroup:getConsumeGroup", {
         "eventhubName": args.eventhubName,

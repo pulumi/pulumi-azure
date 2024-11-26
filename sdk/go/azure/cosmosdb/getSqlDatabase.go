@@ -5,6 +5,7 @@ package cosmosdb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSqlDatabase(ctx *pulumi.Context, args *LookupSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSqlDatabaseResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSqlDatabaseResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSqlDatabase, use LookupSqlDatabaseOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSqlDatabaseResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSqlDatabase, use LookupSqlDatabaseOutput instead")
+	}
 	var rv LookupSqlDatabaseResult
 	err := ctx.Invoke("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupSqlDatabaseResult struct {
 }
 
 func LookupSqlDatabaseOutput(ctx *pulumi.Context, args LookupSqlDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupSqlDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSqlDatabaseResultOutput, error) {
 			args := v.(LookupSqlDatabaseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSqlDatabaseResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSqlDatabaseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSqlDatabaseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSqlDatabaseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSqlDatabaseResultOutput), nil
 			}

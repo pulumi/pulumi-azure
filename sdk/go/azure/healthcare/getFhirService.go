@@ -5,6 +5,7 @@ package healthcare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
 func LookupFhirService(ctx *pulumi.Context, args *LookupFhirServiceArgs, opts ...pulumi.InvokeOption) (*LookupFhirServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFhirServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFhirServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFhirService, use LookupFhirServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFhirServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFhirService, use LookupFhirServiceOutput instead")
+	}
 	var rv LookupFhirServiceResult
 	err := ctx.Invoke("azure:healthcare/getFhirService:getFhirService", args, &rv, opts...)
 	if err != nil {
@@ -59,17 +70,18 @@ type LookupFhirServiceResult struct {
 }
 
 func LookupFhirServiceOutput(ctx *pulumi.Context, args LookupFhirServiceOutputArgs, opts ...pulumi.InvokeOption) LookupFhirServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFhirServiceResultOutput, error) {
 			args := v.(LookupFhirServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFhirServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:healthcare/getFhirService:getFhirService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:healthcare/getFhirService:getFhirService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFhirServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFhirServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFhirServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFhirServiceResultOutput), nil
 			}

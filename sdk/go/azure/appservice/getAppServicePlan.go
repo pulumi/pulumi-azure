@@ -5,6 +5,7 @@ package appservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs, opts ...pulumi.InvokeOption) (*GetAppServicePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAppServicePlanResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAppServicePlanResult{}, errors.New("DependsOn is not supported for direct form invoke GetAppServicePlan, use GetAppServicePlanOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAppServicePlanResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAppServicePlan, use GetAppServicePlanOutput instead")
+	}
 	var rv GetAppServicePlanResult
 	err := ctx.Invoke("azure:appservice/getAppServicePlan:getAppServicePlan", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type GetAppServicePlanResult struct {
 }
 
 func GetAppServicePlanOutput(ctx *pulumi.Context, args GetAppServicePlanOutputArgs, opts ...pulumi.InvokeOption) GetAppServicePlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAppServicePlanResultOutput, error) {
 			args := v.(GetAppServicePlanArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAppServicePlanResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getAppServicePlan:getAppServicePlan", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getAppServicePlan:getAppServicePlan", args, &rv, "", opts...)
 			if err != nil {
 				return GetAppServicePlanResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAppServicePlanResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAppServicePlanResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAppServicePlanResultOutput), nil
 			}

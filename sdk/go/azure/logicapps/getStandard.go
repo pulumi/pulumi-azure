@@ -5,6 +5,7 @@ package logicapps
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulumi.InvokeOption) (*LookupStandardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupStandardResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupStandardResult{}, errors.New("DependsOn is not supported for direct form invoke LookupStandard, use LookupStandardOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupStandardResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupStandard, use LookupStandardOutput instead")
+	}
 	var rv LookupStandardResult
 	err := ctx.Invoke("azure:logicapps/getStandard:getStandard", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type LookupStandardResult struct {
 }
 
 func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, opts ...pulumi.InvokeOption) LookupStandardResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStandardResultOutput, error) {
 			args := v.(LookupStandardArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStandardResult
-			secret, err := ctx.InvokePackageRaw("azure:logicapps/getStandard:getStandard", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:logicapps/getStandard:getStandard", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStandardResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStandardResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStandardResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStandardResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package appinsights
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupInsights(ctx *pulumi.Context, args *LookupInsightsArgs, opts ...pulumi.InvokeOption) (*LookupInsightsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInsightsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInsightsResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInsights, use LookupInsightsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInsightsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInsights, use LookupInsightsOutput instead")
+	}
 	var rv LookupInsightsResult
 	err := ctx.Invoke("azure:appinsights/getInsights:getInsights", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupInsightsResult struct {
 }
 
 func LookupInsightsOutput(ctx *pulumi.Context, args LookupInsightsOutputArgs, opts ...pulumi.InvokeOption) LookupInsightsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInsightsResultOutput, error) {
 			args := v.(LookupInsightsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInsightsResult
-			secret, err := ctx.InvokePackageRaw("azure:appinsights/getInsights:getInsights", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appinsights/getInsights:getInsights", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInsightsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInsightsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInsightsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInsightsResultOutput), nil
 			}

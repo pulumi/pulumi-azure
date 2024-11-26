@@ -5,6 +5,7 @@ package keyvault
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to retrieve a list of certificate names from an existing Key Vault.
 func GetCertificates(ctx *pulumi.Context, args *GetCertificatesArgs, opts ...pulumi.InvokeOption) (*GetCertificatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCertificatesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCertificatesResult{}, errors.New("DependsOn is not supported for direct form invoke GetCertificates, use GetCertificatesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCertificatesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCertificates, use GetCertificatesOutput instead")
+	}
 	var rv GetCertificatesResult
 	err := ctx.Invoke("azure:keyvault/getCertificates:getCertificates", args, &rv, opts...)
 	if err != nil {
@@ -46,17 +57,18 @@ type GetCertificatesResult struct {
 }
 
 func GetCertificatesOutput(ctx *pulumi.Context, args GetCertificatesOutputArgs, opts ...pulumi.InvokeOption) GetCertificatesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCertificatesResultOutput, error) {
 			args := v.(GetCertificatesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCertificatesResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getCertificates:getCertificates", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getCertificates:getCertificates", args, &rv, "", opts...)
 			if err != nil {
 				return GetCertificatesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCertificatesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCertificatesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCertificatesResultOutput), nil
 			}

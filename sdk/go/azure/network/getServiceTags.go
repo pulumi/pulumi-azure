@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetServiceTags(ctx *pulumi.Context, args *GetServiceTagsArgs, opts ...pulumi.InvokeOption) (*GetServiceTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetServiceTagsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetServiceTagsResult{}, errors.New("DependsOn is not supported for direct form invoke GetServiceTags, use GetServiceTagsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetServiceTagsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetServiceTags, use GetServiceTagsOutput instead")
+	}
 	var rv GetServiceTagsResult
 	err := ctx.Invoke("azure:network/getServiceTags:getServiceTags", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type GetServiceTagsResult struct {
 }
 
 func GetServiceTagsOutput(ctx *pulumi.Context, args GetServiceTagsOutputArgs, opts ...pulumi.InvokeOption) GetServiceTagsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceTagsResultOutput, error) {
 			args := v.(GetServiceTagsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetServiceTagsResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getServiceTags:getServiceTags", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getServiceTags:getServiceTags", args, &rv, "", opts...)
 			if err != nil {
 				return GetServiceTagsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetServiceTagsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetServiceTagsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetServiceTagsResultOutput), nil
 			}

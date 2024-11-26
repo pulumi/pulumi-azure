@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupNetworkManagerConnectivityConfiguration(ctx *pulumi.Context, args *LookupNetworkManagerConnectivityConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupNetworkManagerConnectivityConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkManagerConnectivityConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkManagerConnectivityConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkManagerConnectivityConfiguration, use LookupNetworkManagerConnectivityConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkManagerConnectivityConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkManagerConnectivityConfiguration, use LookupNetworkManagerConnectivityConfigurationOutput instead")
+	}
 	var rv LookupNetworkManagerConnectivityConfigurationResult
 	err := ctx.Invoke("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupNetworkManagerConnectivityConfigurationResult struct {
 }
 
 func LookupNetworkManagerConnectivityConfigurationOutput(ctx *pulumi.Context, args LookupNetworkManagerConnectivityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerConnectivityConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkManagerConnectivityConfigurationResultOutput, error) {
 			args := v.(LookupNetworkManagerConnectivityConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkManagerConnectivityConfigurationResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkManagerConnectivityConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkManagerConnectivityConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkManagerConnectivityConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkManagerConnectivityConfigurationResultOutput), nil
 			}

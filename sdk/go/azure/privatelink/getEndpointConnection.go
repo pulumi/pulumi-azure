@@ -5,6 +5,7 @@ package privatelink
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetEndpointConnection(ctx *pulumi.Context, args *GetEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*GetEndpointConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEndpointConnectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEndpointConnectionResult{}, errors.New("DependsOn is not supported for direct form invoke GetEndpointConnection, use GetEndpointConnectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEndpointConnectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEndpointConnection, use GetEndpointConnectionOutput instead")
+	}
 	var rv GetEndpointConnectionResult
 	err := ctx.Invoke("azure:privatelink/getEndpointConnection:getEndpointConnection", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type GetEndpointConnectionResult struct {
 }
 
 func GetEndpointConnectionOutput(ctx *pulumi.Context, args GetEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) GetEndpointConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEndpointConnectionResultOutput, error) {
 			args := v.(GetEndpointConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEndpointConnectionResult
-			secret, err := ctx.InvokePackageRaw("azure:privatelink/getEndpointConnection:getEndpointConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatelink/getEndpointConnection:getEndpointConnection", args, &rv, "", opts...)
 			if err != nil {
 				return GetEndpointConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEndpointConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEndpointConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEndpointConnectionResultOutput), nil
 			}
