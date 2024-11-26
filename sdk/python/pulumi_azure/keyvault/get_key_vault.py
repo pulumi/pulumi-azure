@@ -267,7 +267,7 @@ def get_key_vault(name: Optional[str] = None,
         vault_uri=pulumi.get(__ret__, 'vault_uri'))
 def get_key_vault_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyVaultResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyVaultResult]:
     """
     Use this data source to access information about an existing Key Vault.
 
@@ -289,7 +289,7 @@ def get_key_vault_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getKeyVault:getKeyVault', __args__, opts=opts, typ=GetKeyVaultResult)
     return __ret__.apply(lambda __response__: GetKeyVaultResult(
         access_policies=pulumi.get(__response__, 'access_policies'),

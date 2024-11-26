@@ -89,7 +89,7 @@ export interface GetPtrRecordResult {
  * export const dnsPtrRecordId = example.then(example => example.id);
  * ```
  */
-export function getPtrRecordOutput(args: GetPtrRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPtrRecordResult> {
+export function getPtrRecordOutput(args: GetPtrRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPtrRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getPtrRecord:getPtrRecord", {
         "name": args.name,

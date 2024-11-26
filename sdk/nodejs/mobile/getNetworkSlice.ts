@@ -93,7 +93,7 @@ export interface GetNetworkSliceResult {
  * });
  * ```
  */
-export function getNetworkSliceOutput(args: GetNetworkSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSliceResult> {
+export function getNetworkSliceOutput(args: GetNetworkSliceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSliceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSlice:getNetworkSlice", {
         "mobileNetworkId": args.mobileNetworkId,
