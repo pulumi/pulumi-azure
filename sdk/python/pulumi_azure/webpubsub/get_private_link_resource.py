@@ -107,7 +107,7 @@ def get_private_link_resource(web_pubsub_id: Optional[str] = None,
         shared_private_link_resource_types=pulumi.get(__ret__, 'shared_private_link_resource_types'),
         web_pubsub_id=pulumi.get(__ret__, 'web_pubsub_id'))
 def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkResourceResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkResourceResult]:
     """
     Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
 
@@ -134,7 +134,7 @@ def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['webPubsubId'] = web_pubsub_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource', __args__, opts=opts, typ=GetPrivateLinkResourceResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkResourceResult(
         id=pulumi.get(__response__, 'id'),

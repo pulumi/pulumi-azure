@@ -134,7 +134,7 @@ def get_service_endpoint_connections(resource_group_name: Optional[str] = None,
         service_name=pulumi.get(__ret__, 'service_name'))
 def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             service_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointConnectionsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEndpointConnectionsResult]:
     """
     Use this data source to access endpoint connection information about an existing Private Link Service.
 
@@ -156,7 +156,7 @@ def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceId'] = service_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections', __args__, opts=opts, typ=GetServiceEndpointConnectionsResult)
     return __ret__.apply(lambda __response__: GetServiceEndpointConnectionsResult(
         id=pulumi.get(__response__, 'id'),

@@ -158,7 +158,7 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
                         pool_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         volume_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Uses this data source to access information about an existing NetApp Snapshot.
 
@@ -189,7 +189,7 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
     return __ret__.apply(lambda __response__: GetSnapshotResult(
         account_name=pulumi.get(__response__, 'account_name'),
