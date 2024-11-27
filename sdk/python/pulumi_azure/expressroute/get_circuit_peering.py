@@ -248,7 +248,7 @@ def get_circuit_peering(express_route_circuit_name: Optional[str] = None,
 def get_circuit_peering_output(express_route_circuit_name: Optional[pulumi.Input[str]] = None,
                                peering_type: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCircuitPeeringResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCircuitPeeringResult]:
     """
     Use this data source to access information about an existing ExpressRoute Circuit Peering.
 
@@ -272,7 +272,7 @@ def get_circuit_peering_output(express_route_circuit_name: Optional[pulumi.Input
     __args__['expressRouteCircuitName'] = express_route_circuit_name
     __args__['peeringType'] = peering_type
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:expressroute/getCircuitPeering:getCircuitPeering', __args__, opts=opts, typ=GetCircuitPeeringResult)
     return __ret__.apply(lambda __response__: GetCircuitPeeringResult(
         azure_asn=pulumi.get(__response__, 'azure_asn'),

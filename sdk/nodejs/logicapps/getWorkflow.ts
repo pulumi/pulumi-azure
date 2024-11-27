@@ -119,7 +119,7 @@ export interface GetWorkflowResult {
  * export const accessEndpoint = example.then(example => example.accessEndpoint);
  * ```
  */
-export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:logicapps/getWorkflow:getWorkflow", {
         "name": args.name,

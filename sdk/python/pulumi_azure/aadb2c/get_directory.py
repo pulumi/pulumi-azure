@@ -178,7 +178,7 @@ def get_directory(domain_name: Optional[str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
 def get_directory_output(domain_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
     Use this data source to access information about an existing AAD B2C Directory.
 
@@ -200,7 +200,7 @@ def get_directory_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:aadb2c/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
     return __ret__.apply(lambda __response__: GetDirectoryResult(
         billing_type=pulumi.get(__response__, 'billing_type'),

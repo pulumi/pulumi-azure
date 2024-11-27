@@ -83,7 +83,7 @@ export interface GetReplicationPolicyResult {
  * });
  * ```
  */
-export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
+export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", {
         "name": args.name,

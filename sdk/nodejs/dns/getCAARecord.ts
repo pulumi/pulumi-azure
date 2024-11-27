@@ -91,7 +91,7 @@ export interface GetCAARecordResult {
  * export const dnsCaaRecordId = example.then(example => example.id);
  * ```
  */
-export function getCAARecordOutput(args: GetCAARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCAARecordResult> {
+export function getCAARecordOutput(args: GetCAARecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCAARecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getCAARecord:getCAARecord", {
         "name": args.name,

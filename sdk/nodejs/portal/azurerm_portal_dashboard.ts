@@ -92,7 +92,7 @@ export interface Azurerm_portal_dashboardResult {
  * export const id = exampleAzurermDashboard.id;
  * ```
  */
-export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
+export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard", {
         "dashboardProperties": args.dashboardProperties,

@@ -87,7 +87,7 @@ export interface GetFrontdoorEndpointResult {
  * });
  * ```
  */
-export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorEndpointResult> {
+export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", {
         "name": args.name,

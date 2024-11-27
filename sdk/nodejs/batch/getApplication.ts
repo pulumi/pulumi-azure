@@ -92,7 +92,7 @@ export interface GetApplicationResult {
  * export const batchApplicationId = example.then(example => example.id);
  * ```
  */
-export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:batch/getApplication:getApplication", {
         "accountName": args.accountName,

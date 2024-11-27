@@ -139,7 +139,7 @@ def get_network_ddos_protection_plan(name: Optional[str] = None,
         virtual_network_ids=pulumi.get(__ret__, 'virtual_network_ids'))
 def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDdosProtectionPlanResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkDdosProtectionPlanResult]:
     """
     Use this data source to access information about an existing Azure Network DDoS Protection Plan.
 
@@ -161,7 +161,7 @@ def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan', __args__, opts=opts, typ=GetNetworkDdosProtectionPlanResult)
     return __ret__.apply(lambda __response__: GetNetworkDdosProtectionPlanResult(
         id=pulumi.get(__response__, 'id'),

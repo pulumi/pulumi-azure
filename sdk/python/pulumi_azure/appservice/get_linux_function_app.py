@@ -611,7 +611,7 @@ def get_linux_function_app(name: Optional[str] = None,
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
 def get_linux_function_app_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinuxFunctionAppResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinuxFunctionAppResult]:
     """
     Use this data source to access information about an existing Linux Function App.
 
@@ -633,7 +633,7 @@ def get_linux_function_app_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp', __args__, opts=opts, typ=GetLinuxFunctionAppResult)
     return __ret__.apply(lambda __response__: GetLinuxFunctionAppResult(
         app_settings=pulumi.get(__response__, 'app_settings'),
