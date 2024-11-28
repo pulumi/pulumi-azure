@@ -115,7 +115,7 @@ export interface GetNetworkManagerNetworkGroupResult {
  * });
  * ```
  */
-export function getNetworkManagerNetworkGroupOutput(args: GetNetworkManagerNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerNetworkGroupResult> {
+export function getNetworkManagerNetworkGroupOutput(args: GetNetworkManagerNetworkGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerNetworkGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", {
         "name": args.name,

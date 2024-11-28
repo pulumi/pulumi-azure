@@ -155,7 +155,7 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
         provider_name=pulumi.get(__ret__, 'provider_name'))
 def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateIssuerResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateIssuerResult]:
     """
     Use this data source to access information about an existing Key Vault Certificate Issuer.
 
@@ -179,7 +179,7 @@ def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificateIssuer:getCertificateIssuer', __args__, opts=opts, typ=GetCertificateIssuerResult)
     return __ret__.apply(lambda __response__: GetCertificateIssuerResult(
         account_id=pulumi.get(__response__, 'account_id'),

@@ -94,7 +94,7 @@ export interface GetSpringCloudServiceResult {
  * export const springCloudServiceId = example.then(example => example.id);
  * ```
  */
-export function getSpringCloudServiceOutput(args: GetSpringCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringCloudServiceResult> {
+export function getSpringCloudServiceOutput(args: GetSpringCloudServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringCloudServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appplatform/getSpringCloudService:getSpringCloudService", {
         "name": args.name,

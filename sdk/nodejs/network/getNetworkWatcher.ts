@@ -77,7 +77,7 @@ export interface GetNetworkWatcherResult {
  * export const networkWatcherId = example.then(example => example.id);
  * ```
  */
-export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
+export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getNetworkWatcher:getNetworkWatcher", {
         "name": args.name,

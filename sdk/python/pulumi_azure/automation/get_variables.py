@@ -176,7 +176,7 @@ def get_variables(automation_account_id: Optional[str] = None,
         objects=pulumi.get(__ret__, 'objects'),
         strings=pulumi.get(__ret__, 'strings'))
 def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariablesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariablesResult]:
     """
     Use this data source to get all variables in an Automation Account.
 
@@ -197,7 +197,7 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['automationAccountId'] = automation_account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:automation/getVariables:getVariables', __args__, opts=opts, typ=GetVariablesResult)
     return __ret__.apply(lambda __response__: GetVariablesResult(
         automation_account_id=pulumi.get(__response__, 'automation_account_id'),

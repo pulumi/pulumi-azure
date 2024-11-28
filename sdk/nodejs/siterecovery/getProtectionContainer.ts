@@ -83,7 +83,7 @@ export interface GetProtectionContainerResult {
  * });
  * ```
  */
-export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
+export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:siterecovery/getProtectionContainer:getProtectionContainer", {
         "name": args.name,
