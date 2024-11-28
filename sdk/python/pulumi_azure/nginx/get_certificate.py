@@ -204,7 +204,7 @@ def get_certificate(name: Optional[str] = None,
         sha1_thumbprint=pulumi.get(__ret__, 'sha1_thumbprint'))
 def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to access information about an existing NGINX Certificate.
 
@@ -226,7 +226,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['nginxDeploymentId'] = nginx_deployment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:nginx/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         certificate_virtual_path=pulumi.get(__response__, 'certificate_virtual_path'),

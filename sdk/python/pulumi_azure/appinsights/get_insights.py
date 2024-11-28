@@ -204,7 +204,7 @@ def get_insights(name: Optional[str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_insights_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInsightsResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInsightsResult]:
     """
     Use this data source to access information about an existing Application Insights component.
 
@@ -226,7 +226,7 @@ def get_insights_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appinsights/getInsights:getInsights', __args__, opts=opts, typ=GetInsightsResult)
     return __ret__.apply(lambda __response__: GetInsightsResult(
         app_id=pulumi.get(__response__, 'app_id'),

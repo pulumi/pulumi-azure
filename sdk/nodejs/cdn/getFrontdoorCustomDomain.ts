@@ -98,7 +98,7 @@ export interface GetFrontdoorCustomDomainResult {
  * });
  * ```
  */
-export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
+export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", {
         "name": args.name,

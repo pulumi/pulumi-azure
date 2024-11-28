@@ -204,7 +204,7 @@ def get_data_collection_endpoint(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Use this data source to access information about an existing Data Collection Endpoint.
 
@@ -226,7 +226,7 @@ def get_data_collection_endpoint_output(name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint', __args__, opts=opts, typ=GetDataCollectionEndpointResult)
     return __ret__.apply(lambda __response__: GetDataCollectionEndpointResult(
         configuration_access_endpoint=pulumi.get(__response__, 'configuration_access_endpoint'),
