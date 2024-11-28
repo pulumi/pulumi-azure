@@ -141,7 +141,7 @@ def get_iot_hub(name: Optional[str] = None,
 def get_iot_hub_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotHubResult]:
     """
     Use this data source to access information about an existing IoTHub.
 
@@ -165,7 +165,7 @@ def get_iot_hub_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:iot/getIotHub:getIotHub', __args__, opts=opts, typ=GetIotHubResult)
     return __ret__.apply(lambda __response__: GetIotHubResult(
         hostname=pulumi.get(__response__, 'hostname'),

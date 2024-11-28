@@ -104,7 +104,7 @@ export interface GetBackendAddressPoolResult {
  * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
  * ```
  */
-export function getBackendAddressPoolOutput(args: GetBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendAddressPoolResult> {
+export function getBackendAddressPoolOutput(args: GetBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackendAddressPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:lb/getBackendAddressPool:getBackendAddressPool", {
         "loadbalancerId": args.loadbalancerId,

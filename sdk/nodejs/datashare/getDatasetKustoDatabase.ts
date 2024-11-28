@@ -81,7 +81,7 @@ export interface GetDatasetKustoDatabaseResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDatasetKustoDatabaseOutput(args: GetDatasetKustoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetKustoDatabaseResult> {
+export function getDatasetKustoDatabaseOutput(args: GetDatasetKustoDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetKustoDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", {
         "name": args.name,

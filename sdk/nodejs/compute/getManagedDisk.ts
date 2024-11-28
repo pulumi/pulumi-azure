@@ -132,7 +132,7 @@ export interface GetManagedDiskResult {
  * export const id = existing.then(existing => existing.id);
  * ```
  */
-export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDiskResult> {
+export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,

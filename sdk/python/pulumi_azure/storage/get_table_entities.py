@@ -127,7 +127,7 @@ def get_table_entities(filter: Optional[str] = None,
 def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
                               selects: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                               storage_table_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableEntitiesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableEntitiesResult]:
     """
     Use this data source to access information about an existing Storage Table Entity.
 
@@ -150,7 +150,7 @@ def get_table_entities_output(filter: Optional[pulumi.Input[str]] = None,
     __args__['filter'] = filter
     __args__['selects'] = selects
     __args__['storageTableId'] = storage_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getTableEntities:getTableEntities', __args__, opts=opts, typ=GetTableEntitiesResult)
     return __ret__.apply(lambda __response__: GetTableEntitiesResult(
         filter=pulumi.get(__response__, 'filter'),

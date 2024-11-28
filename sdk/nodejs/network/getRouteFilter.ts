@@ -86,7 +86,7 @@ export interface GetRouteFilterResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
+export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getRouteFilter:getRouteFilter", {
         "name": args.name,

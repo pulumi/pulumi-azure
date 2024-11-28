@@ -79,7 +79,7 @@ export interface GetResolverOutboundEndpointResult {
  * });
  * ```
  */
-export function getResolverOutboundEndpointOutput(args: GetResolverOutboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverOutboundEndpointResult> {
+export function getResolverOutboundEndpointOutput(args: GetResolverOutboundEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverOutboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", {
         "name": args.name,
