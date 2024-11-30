@@ -319,7 +319,7 @@ def get_environment_v3(name: Optional[str] = None,
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 def get_environment_v3_output(name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentV3Result]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentV3Result]:
     """
     Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
 
@@ -341,7 +341,7 @@ def get_environment_v3_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appservice/getEnvironmentV3:getEnvironmentV3', __args__, opts=opts, typ=GetEnvironmentV3Result)
     return __ret__.apply(lambda __response__: GetEnvironmentV3Result(
         allow_new_private_endpoint_connections=pulumi.get(__response__, 'allow_new_private_endpoint_connections'),

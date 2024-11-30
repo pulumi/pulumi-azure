@@ -82,7 +82,7 @@ export interface GetSpatialAnchorsAccountResult {
  * export const accountDomain = accountDomainAzurermSpatialAnchorsAccount;
  * ```
  */
-export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
+export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", {
         "name": args.name,

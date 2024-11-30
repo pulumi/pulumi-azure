@@ -41,7 +41,7 @@ export interface GetSubscriptionTemplateDeploymentResult {
 /**
  * Use this data source to access information about an existing Subscription Template Deployment.
  */
-export function getSubscriptionTemplateDeploymentOutput(args: GetSubscriptionTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTemplateDeploymentResult> {
+export function getSubscriptionTemplateDeploymentOutput(args: GetSubscriptionTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", {
         "name": args.name,
