@@ -79,7 +79,7 @@ export interface GetResolverDnsForwardingRulesetResult {
  * });
  * ```
  */
-export function getResolverDnsForwardingRulesetOutput(args: GetResolverDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDnsForwardingRulesetResult> {
+export function getResolverDnsForwardingRulesetOutput(args: GetResolverDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverDnsForwardingRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", {
         "name": args.name,

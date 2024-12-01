@@ -172,7 +172,7 @@ def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
         outbound_rules=pulumi.get(__ret__, 'outbound_rules'))
 def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackendAddressPoolResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackendAddressPoolResult]:
     """
     Use this data source to access information about an existing Load Balancer's Backend Address Pool.
 
@@ -197,7 +197,7 @@ def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts, typ=GetBackendAddressPoolResult)
     return __ret__.apply(lambda __response__: GetBackendAddressPoolResult(
         backend_addresses=pulumi.get(__response__, 'backend_addresses'),

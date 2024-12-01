@@ -93,7 +93,7 @@ export interface GetBackupVaultResult {
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
  */
-export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
+export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dataprotection/getBackupVault:getBackupVault", {
         "name": args.name,

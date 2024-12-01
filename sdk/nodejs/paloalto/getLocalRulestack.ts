@@ -41,7 +41,7 @@ export interface GetLocalRulestackResult {
     readonly urlFilteringProfile: string;
     readonly vulnerabilityProfile: string;
 }
-export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRulestackResult> {
+export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:paloalto/getLocalRulestack:getLocalRulestack", {
         "name": args.name,

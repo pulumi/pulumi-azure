@@ -115,7 +115,7 @@ export interface GetDataCollectionRuleResult {
  * export const ruleId = example.then(example => example.id);
  * ```
  */
-export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
+export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getDataCollectionRule:getDataCollectionRule", {
         "name": args.name,

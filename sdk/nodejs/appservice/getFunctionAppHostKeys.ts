@@ -96,7 +96,7 @@ export interface GetFunctionAppHostKeysResult {
  * });
  * ```
  */
-export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
+export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", {
         "name": args.name,

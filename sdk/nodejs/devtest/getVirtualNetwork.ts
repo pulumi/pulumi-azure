@@ -91,7 +91,7 @@ export interface GetVirtualNetworkResult {
  * export const labSubnetName = example.then(example => example.allowedSubnets?.[0]?.labSubnetName);
  * ```
  */
-export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:devtest/getVirtualNetwork:getVirtualNetwork", {
         "labName": args.labName,
