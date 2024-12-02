@@ -17,9 +17,11 @@ from .. import _utilities
 __all__ = [
     'AccessConnectorIdentity',
     'WorkspaceCustomParameters',
+    'WorkspaceEnhancedSecurityCompliance',
     'WorkspaceManagedDiskIdentity',
     'WorkspaceStorageAccountIdentity',
     'GetAccessConnectorIdentityResult',
+    'GetWorkspaceEnhancedSecurityComplianceResult',
     'GetWorkspaceManagedDiskIdentityResult',
     'GetWorkspacePrivateEndpointConnectionConnectionResult',
     'GetWorkspaceStorageAccountIdentityResult',
@@ -307,6 +309,100 @@ class WorkspaceCustomParameters(dict):
 
 
 @pulumi.output_type
+class WorkspaceEnhancedSecurityCompliance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automaticClusterUpdateEnabled":
+            suggest = "automatic_cluster_update_enabled"
+        elif key == "complianceSecurityProfileEnabled":
+            suggest = "compliance_security_profile_enabled"
+        elif key == "complianceSecurityProfileStandards":
+            suggest = "compliance_security_profile_standards"
+        elif key == "enhancedSecurityMonitoringEnabled":
+            suggest = "enhanced_security_monitoring_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceEnhancedSecurityCompliance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceEnhancedSecurityCompliance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceEnhancedSecurityCompliance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automatic_cluster_update_enabled: Optional[bool] = None,
+                 compliance_security_profile_enabled: Optional[bool] = None,
+                 compliance_security_profile_standards: Optional[Sequence[str]] = None,
+                 enhanced_security_monitoring_enabled: Optional[bool] = None):
+        """
+        :param bool automatic_cluster_update_enabled: Enables automatic cluster updates for this workspace. Defaults to `false`.
+        :param bool compliance_security_profile_enabled: Enables compliance security profile for this workspace. Defaults to `false`.
+               
+               > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+               
+               > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        :param Sequence[str] compliance_security_profile_standards: A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+               
+               > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+               
+               > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        :param bool enhanced_security_monitoring_enabled: Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        """
+        if automatic_cluster_update_enabled is not None:
+            pulumi.set(__self__, "automatic_cluster_update_enabled", automatic_cluster_update_enabled)
+        if compliance_security_profile_enabled is not None:
+            pulumi.set(__self__, "compliance_security_profile_enabled", compliance_security_profile_enabled)
+        if compliance_security_profile_standards is not None:
+            pulumi.set(__self__, "compliance_security_profile_standards", compliance_security_profile_standards)
+        if enhanced_security_monitoring_enabled is not None:
+            pulumi.set(__self__, "enhanced_security_monitoring_enabled", enhanced_security_monitoring_enabled)
+
+    @property
+    @pulumi.getter(name="automaticClusterUpdateEnabled")
+    def automatic_cluster_update_enabled(self) -> Optional[bool]:
+        """
+        Enables automatic cluster updates for this workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_cluster_update_enabled")
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfileEnabled")
+    def compliance_security_profile_enabled(self) -> Optional[bool]:
+        """
+        Enables compliance security profile for this workspace. Defaults to `false`.
+
+        > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+
+        > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        """
+        return pulumi.get(self, "compliance_security_profile_enabled")
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfileStandards")
+    def compliance_security_profile_standards(self) -> Optional[Sequence[str]]:
+        """
+        A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+
+        > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+
+        > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        """
+        return pulumi.get(self, "compliance_security_profile_standards")
+
+    @property
+    @pulumi.getter(name="enhancedSecurityMonitoringEnabled")
+    def enhanced_security_monitoring_enabled(self) -> Optional[bool]:
+        """
+        Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "enhanced_security_monitoring_enabled")
+
+
+@pulumi.output_type
 class WorkspaceManagedDiskIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -479,6 +575,57 @@ class GetAccessConnectorIdentityResult(dict):
         The type of Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetWorkspaceEnhancedSecurityComplianceResult(dict):
+    def __init__(__self__, *,
+                 automatic_cluster_update_enabled: bool,
+                 compliance_security_profile_enabled: bool,
+                 compliance_security_profile_standards: Sequence[str],
+                 enhanced_security_monitoring_enabled: bool):
+        """
+        :param bool automatic_cluster_update_enabled: Whether automatic cluster updates for this workspace is enabled.
+        :param bool compliance_security_profile_enabled: Whether compliance security profile for this workspace is enabled.
+        :param Sequence[str] compliance_security_profile_standards: A list of standards enforced on this workspace.
+        :param bool enhanced_security_monitoring_enabled: Whether enhanced security monitoring for this workspace is enabled.
+        """
+        pulumi.set(__self__, "automatic_cluster_update_enabled", automatic_cluster_update_enabled)
+        pulumi.set(__self__, "compliance_security_profile_enabled", compliance_security_profile_enabled)
+        pulumi.set(__self__, "compliance_security_profile_standards", compliance_security_profile_standards)
+        pulumi.set(__self__, "enhanced_security_monitoring_enabled", enhanced_security_monitoring_enabled)
+
+    @property
+    @pulumi.getter(name="automaticClusterUpdateEnabled")
+    def automatic_cluster_update_enabled(self) -> bool:
+        """
+        Whether automatic cluster updates for this workspace is enabled.
+        """
+        return pulumi.get(self, "automatic_cluster_update_enabled")
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfileEnabled")
+    def compliance_security_profile_enabled(self) -> bool:
+        """
+        Whether compliance security profile for this workspace is enabled.
+        """
+        return pulumi.get(self, "compliance_security_profile_enabled")
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfileStandards")
+    def compliance_security_profile_standards(self) -> Sequence[str]:
+        """
+        A list of standards enforced on this workspace.
+        """
+        return pulumi.get(self, "compliance_security_profile_standards")
+
+    @property
+    @pulumi.getter(name="enhancedSecurityMonitoringEnabled")
+    def enhanced_security_monitoring_enabled(self) -> bool:
+        """
+        Whether enhanced security monitoring for this workspace is enabled.
+        """
+        return pulumi.get(self, "enhanced_security_monitoring_enabled")
 
 
 @pulumi.output_type

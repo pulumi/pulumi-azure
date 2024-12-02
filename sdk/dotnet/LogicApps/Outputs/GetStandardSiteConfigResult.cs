@@ -13,27 +13,90 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetStandardSiteConfigResult
     {
+        /// <summary>
+        /// Should the Logic App be loaded at all times?
+        /// </summary>
         public readonly bool? AlwaysOn;
+        /// <summary>
+        /// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        /// </summary>
         public readonly int AppScaleLimit;
+        /// <summary>
+        /// The Auto-swap slot name.
+        /// </summary>
         public readonly string AutoSwapSlotName;
+        /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
         public readonly Outputs.GetStandardSiteConfigCorsResult Cors;
+        /// <summary>
+        /// The version of the .NET framework's CLR used in this Logic App.
+        /// </summary>
         public readonly string? DotnetFrameworkVersion;
+        /// <summary>
+        /// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+        /// </summary>
         public readonly int ElasticInstanceMinimum;
+        /// <summary>
+        /// The state of FTP / FTPS service for this Logic App.
+        /// </summary>
         public readonly string FtpsState;
+        /// <summary>
+        /// Path which will be checked for this Logic App health.
+        /// </summary>
         public readonly string? HealthCheckPath;
+        /// <summary>
+        /// Specifies whether the HTTP2 protocol should be enabled.
+        /// </summary>
         public readonly bool? Http2Enabled;
+        /// <summary>
+        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionResult> IpRestrictions;
+        /// <summary>
+        /// Linux App Framework and version for the Logic App.
+        /// </summary>
         public readonly string LinuxFxVersion;
+        /// <summary>
+        /// The minimum supported TLS version for the Logic App.
+        /// </summary>
         public readonly string MinTlsVersion;
+        /// <summary>
+        /// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+        /// </summary>
         public readonly int PreWarmedInstanceCount;
-        public readonly bool? PublicNetworkAccessEnabled;
+        public readonly bool PublicNetworkAccessEnabled;
+        /// <summary>
+        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
+        /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
+        /// <summary>
+        /// A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
+        /// <summary>
+        /// The minimum version of TLS required for SSL requests to the SCM site.
+        /// </summary>
         public readonly string ScmMinTlsVersion;
+        /// <summary>
+        /// The type of Source Control used by the Logic App in use by the Windows Function App.
+        /// </summary>
         public readonly string ScmType;
+        /// <summary>
+        /// Should the Logic App `ip_restriction` configuration be used for the SCM too.
+        /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
+        /// <summary>
+        /// Should the Logic App run in 32 bit mode, rather than 64 bit mode?
+        /// </summary>
         public readonly bool? Use32BitWorkerProcess;
+        /// <summary>
+        /// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
         public readonly bool VnetRouteAllEnabled;
+        /// <summary>
+        /// Should WebSockets be enabled?
+        /// </summary>
         public readonly bool? WebsocketsEnabled;
 
         [OutputConstructor]
@@ -64,7 +127,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             int preWarmedInstanceCount,
 
-            bool? publicNetworkAccessEnabled,
+            bool publicNetworkAccessEnabled,
 
             bool? runtimeScaleMonitoringEnabled,
 

@@ -15,30 +15,62 @@ public final class GetStandardSiteConfigScmIpRestrictionHeaders extends com.pulu
 
     public static final GetStandardSiteConfigScmIpRestrictionHeaders Empty = new GetStandardSiteConfigScmIpRestrictionHeaders();
 
+    /**
+     * A list of allowed Azure FrontDoor IDs in UUID notation.
+     * 
+     */
     @Import(name="xAzureFdids")
     private @Nullable List<String> xAzureFdids;
 
+    /**
+     * @return A list of allowed Azure FrontDoor IDs in UUID notation.
+     * 
+     */
     public Optional<List<String>> xAzureFdids() {
         return Optional.ofNullable(this.xAzureFdids);
     }
 
+    /**
+     * A list to allow the Azure FrontDoor health probe header.
+     * 
+     */
     @Import(name="xFdHealthProbe")
     private @Nullable String xFdHealthProbe;
 
+    /**
+     * @return A list to allow the Azure FrontDoor health probe header.
+     * 
+     */
     public Optional<String> xFdHealthProbe() {
         return Optional.ofNullable(this.xFdHealthProbe);
     }
 
+    /**
+     * A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
+     * 
+     */
     @Import(name="xForwardedFors")
     private @Nullable List<String> xForwardedFors;
 
+    /**
+     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
+     * 
+     */
     public Optional<List<String>> xForwardedFors() {
         return Optional.ofNullable(this.xForwardedFors);
     }
 
+    /**
+     * A list of allowed &#39;X-Forwarded-Host&#39; domains.
+     * 
+     */
     @Import(name="xForwardedHosts")
     private @Nullable List<String> xForwardedHosts;
 
+    /**
+     * @return A list of allowed &#39;X-Forwarded-Host&#39; domains.
+     * 
+     */
     public Optional<List<String>> xForwardedHosts() {
         return Optional.ofNullable(this.xForwardedHosts);
     }
@@ -70,34 +102,76 @@ public final class GetStandardSiteConfigScmIpRestrictionHeaders extends com.pulu
             $ = new GetStandardSiteConfigScmIpRestrictionHeaders(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param xAzureFdids A list of allowed Azure FrontDoor IDs in UUID notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xAzureFdids(@Nullable List<String> xAzureFdids) {
             $.xAzureFdids = xAzureFdids;
             return this;
         }
 
+        /**
+         * @param xAzureFdids A list of allowed Azure FrontDoor IDs in UUID notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xAzureFdids(String... xAzureFdids) {
             return xAzureFdids(List.of(xAzureFdids));
         }
 
+        /**
+         * @param xFdHealthProbe A list to allow the Azure FrontDoor health probe header.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xFdHealthProbe(@Nullable String xFdHealthProbe) {
             $.xFdHealthProbe = xFdHealthProbe;
             return this;
         }
 
+        /**
+         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xForwardedFors(@Nullable List<String> xForwardedFors) {
             $.xForwardedFors = xForwardedFors;
             return this;
         }
 
+        /**
+         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xForwardedFors(String... xForwardedFors) {
             return xForwardedFors(List.of(xForwardedFors));
         }
 
+        /**
+         * @param xForwardedHosts A list of allowed &#39;X-Forwarded-Host&#39; domains.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xForwardedHosts(@Nullable List<String> xForwardedHosts) {
             $.xForwardedHosts = xForwardedHosts;
             return this;
         }
 
+        /**
+         * @param xForwardedHosts A list of allowed &#39;X-Forwarded-Host&#39; domains.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xForwardedHosts(String... xForwardedHosts) {
             return xForwardedHosts(List.of(xForwardedHosts));
         }

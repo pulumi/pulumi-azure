@@ -64,6 +64,8 @@ type LookupServiceArgs struct {
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
+	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+	CustomerManagedKeyEncryptionComplianceStatus string `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
@@ -131,6 +133,11 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceRe
 
 func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
 	return o
+}
+
+// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+func (o LookupServiceResultOutput) CustomerManagedKeyEncryptionComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.CustomerManagedKeyEncryptionComplianceStatus }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

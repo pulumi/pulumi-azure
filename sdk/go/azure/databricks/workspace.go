@@ -34,6 +34,8 @@ type Workspace struct {
 	DefaultStorageFirewallEnabled pulumi.BoolPtrOutput `pulumi:"defaultStorageFirewallEnabled"`
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId pulumi.StringOutput `pulumi:"diskEncryptionSetId"`
+	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	EnhancedSecurityCompliance WorkspaceEnhancedSecurityCompliancePtrOutput `pulumi:"enhancedSecurityCompliance"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
@@ -126,6 +128,8 @@ type workspaceState struct {
 	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	EnhancedSecurityCompliance *WorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliance"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
@@ -183,6 +187,8 @@ type WorkspaceState struct {
 	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
 	// The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 	DiskEncryptionSetId pulumi.StringPtrInput
+	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	EnhancedSecurityCompliance WorkspaceEnhancedSecurityCompliancePtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
@@ -242,6 +248,8 @@ type workspaceArgs struct {
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Disallow public access to default storage account. Defaults to `false`.
 	DefaultStorageFirewallEnabled *bool `pulumi:"defaultStorageFirewallEnabled"`
+	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	EnhancedSecurityCompliance *WorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliance"`
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
@@ -288,6 +296,8 @@ type WorkspaceArgs struct {
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Disallow public access to default storage account. Defaults to `false`.
 	DefaultStorageFirewallEnabled pulumi.BoolPtrInput
+	// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+	EnhancedSecurityCompliance WorkspaceEnhancedSecurityCompliancePtrInput
 	// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
@@ -434,6 +444,11 @@ func (o WorkspaceOutput) DefaultStorageFirewallEnabled() pulumi.BoolPtrOutput {
 // The ID of Managed Disk Encryption Set created by the Databricks Workspace.
 func (o WorkspaceOutput) DiskEncryptionSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
+}
+
+// An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+func (o WorkspaceOutput) EnhancedSecurityCompliance() WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceEnhancedSecurityCompliancePtrOutput { return v.EnhancedSecurityCompliance }).(WorkspaceEnhancedSecurityCompliancePtrOutput)
 }
 
 // Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.

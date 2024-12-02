@@ -85,16 +85,11 @@ namespace Pulumi.Azure.LogicApps
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `site_config` object as defined below.
+        /// </summary>
         [Input("siteConfig")]
         public Inputs.GetStandardSiteConfigArgs? SiteConfig { get; set; }
-
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
 
         public GetStandardArgs()
         {
@@ -116,16 +111,11 @@ namespace Pulumi.Azure.LogicApps
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `site_config` object as defined below.
+        /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.GetStandardSiteConfigInputArgs>? SiteConfig { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public GetStandardInvokeArgs()
         {
@@ -137,15 +127,45 @@ namespace Pulumi.Azure.LogicApps
     [OutputType]
     public sealed class GetStandardResult
     {
+        /// <summary>
+        /// The ID of the App Service Plan.
+        /// </summary>
         public readonly string AppServicePlanId;
+        /// <summary>
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> AppSettings;
+        /// <summary>
+        /// Controls the allowed range for bundle versions.
+        /// </summary>
         public readonly string BundleVersion;
+        /// <summary>
+        /// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance.
+        /// </summary>
         public readonly bool ClientAffinityEnabled;
+        /// <summary>
+        /// The mode of the Logic App's client certificates requirement for incoming requests.
+        /// </summary>
         public readonly string ClientCertificateMode;
+        /// <summary>
+        /// A `connection_string` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardConnectionStringResult> ConnectionStrings;
+        /// <summary>
+        /// The custom domain verification of the Logic App.
+        /// </summary>
         public readonly string CustomDomainVerificationId;
+        /// <summary>
+        /// The default hostname of the Logic App.
+        /// </summary>
         public readonly string DefaultHostname;
+        /// <summary>
+        /// Whether the Logic App is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Whether the Logic App can only be accessed via HTTPS.
+        /// </summary>
         public readonly bool HttpsOnly;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -155,23 +175,66 @@ namespace Pulumi.Azure.LogicApps
         /// An `identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardIdentityResult> Identities;
+        /// <summary>
+        /// The kind of the Logic App.
+        /// </summary>
         public readonly string Kind;
         /// <summary>
         /// The Azure location where the Logic App Standard exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The name for this IP Restriction.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The outbound IP addresses of the Logic App.
+        /// </summary>
         public readonly string OutboundIpAddresses;
+        /// <summary>
+        /// The possible outbound IP addresses of the Logic App.
+        /// </summary>
         public readonly string PossibleOutboundIpAddresses;
+        /// <summary>
+        /// Whether Public Network Access should be enabled or not.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// A `site_config` object as defined below.
+        /// </summary>
         public readonly Outputs.GetStandardSiteConfigResult SiteConfig;
+        /// <summary>
+        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteCredentialResult> SiteCredentials;
+        /// <summary>
+        /// The access key which will be used to access the backend storage account for the Logic App.
+        /// </summary>
         public readonly string StorageAccountAccessKey;
+        /// <summary>
+        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data).
+        /// </summary>
         public readonly string StorageAccountName;
+        /// <summary>
+        /// The name of the share used by the logic app.
+        /// </summary>
         public readonly string StorageAccountShareName;
-        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Whether the logic app should use the bundled extension package.
+        /// </summary>
         public readonly bool UseExtensionBundle;
+        /// <summary>
+        /// The runtime version associated with the Logic App.
+        /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
         public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
@@ -210,6 +273,8 @@ namespace Pulumi.Azure.LogicApps
 
             string possibleOutboundIpAddresses,
 
+            string publicNetworkAccess,
+
             string resourceGroupName,
 
             Outputs.GetStandardSiteConfigResult siteConfig,
@@ -222,7 +287,7 @@ namespace Pulumi.Azure.LogicApps
 
             string storageAccountShareName,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             bool useExtensionBundle,
 
@@ -247,6 +312,7 @@ namespace Pulumi.Azure.LogicApps
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            PublicNetworkAccess = publicNetworkAccess;
             ResourceGroupName = resourceGroupName;
             SiteConfig = siteConfig;
             SiteCredentials = siteCredentials;

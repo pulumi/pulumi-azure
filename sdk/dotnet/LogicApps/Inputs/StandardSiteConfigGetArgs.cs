@@ -49,7 +49,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<int>? ElasticInstanceMinimum { get; set; }
 
         /// <summary>
-        /// State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+        /// State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
@@ -81,13 +81,13 @@ namespace Pulumi.Azure.LogicApps.Inputs
         }
 
         /// <summary>
-        /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        /// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
 
         /// <summary>
-        /// The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+        /// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
@@ -98,9 +98,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("preWarmedInstanceCount")]
         public Input<int>? PreWarmedInstanceCount { get; set; }
 
-        /// <summary>
-        /// Is public network access enabled? Defaults to `true`.
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

@@ -15,14 +15,14 @@ public final class RegistryTaskAgentSettingArgs extends com.pulumi.resources.Res
     public static final RegistryTaskAgentSettingArgs Empty = new RegistryTaskAgentSettingArgs();
 
     /**
-     * The number of cores required for the Container Registry Task.
+     * The number of cores required for the Container Registry Task. Possible value is `2`.
      * 
      */
     @Import(name="cpu", required=true)
     private Output<Integer> cpu;
 
     /**
-     * @return The number of cores required for the Container Registry Task.
+     * @return The number of cores required for the Container Registry Task. Possible value is `2`.
      * 
      */
     public Output<Integer> cpu() {
@@ -54,7 +54,7 @@ public final class RegistryTaskAgentSettingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cpu The number of cores required for the Container Registry Task.
+         * @param cpu The number of cores required for the Container Registry Task. Possible value is `2`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RegistryTaskAgentSettingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cpu The number of cores required for the Container Registry Task.
+         * @param cpu The number of cores required for the Container Registry Task. Possible value is `2`.
          * 
          * @return builder
          * 

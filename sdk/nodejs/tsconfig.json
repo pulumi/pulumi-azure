@@ -1045,6 +1045,7 @@
         "mssql/firewallRule.ts",
         "mssql/getDatabase.ts",
         "mssql/getElasticPool.ts",
+        "mssql/getManagedDatabase.ts",
         "mssql/getManagedInstance.ts",
         "mssql/getServer.ts",
         "mssql/index.ts",

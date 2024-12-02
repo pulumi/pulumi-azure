@@ -17,16 +17,32 @@ public final class GetStandardSiteConfigCors extends com.pulumi.resources.Invoke
 
     public static final GetStandardSiteConfigCors Empty = new GetStandardSiteConfigCors();
 
+    /**
+     * A list of origins which should be able to make cross-origin calls.
+     * 
+     */
     @Import(name="allowedOrigins", required=true)
     private List<String> allowedOrigins;
 
+    /**
+     * @return A list of origins which should be able to make cross-origin calls.
+     * 
+     */
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
 
+    /**
+     * Are credentials supported?
+     * 
+     */
     @Import(name="supportCredentials")
     private @Nullable Boolean supportCredentials;
 
+    /**
+     * @return Are credentials supported?
+     * 
+     */
     public Optional<Boolean> supportCredentials() {
         return Optional.ofNullable(this.supportCredentials);
     }
@@ -56,15 +72,33 @@ public final class GetStandardSiteConfigCors extends com.pulumi.resources.Invoke
             $ = new GetStandardSiteConfigCors(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowedOrigins A list of origins which should be able to make cross-origin calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedOrigins(List<String> allowedOrigins) {
             $.allowedOrigins = allowedOrigins;
             return this;
         }
 
+        /**
+         * @param allowedOrigins A list of origins which should be able to make cross-origin calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
 
+        /**
+         * @param supportCredentials Are credentials supported?
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
             $.supportCredentials = supportCredentials;
             return this;

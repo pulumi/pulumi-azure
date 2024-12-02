@@ -68,18 +68,37 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="namespaceName", required=true)
-    private Output<String> namespaceName;
+    @Import(name="namespaceId")
+    private @Nullable Output<String> namespaceId;
 
     /**
-     * @return Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> namespaceName() {
-        return this.namespaceName;
+    public Optional<Output<String>> namespaceId() {
+        return Optional.ofNullable(this.namespaceId);
+    }
+
+    /**
+     * @deprecated
+     * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="namespaceName")
+    private @Nullable Output<String> namespaceName;
+
+    /**
+     * @deprecated
+     * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<Output<String>> namespaceName() {
+        return Optional.ofNullable(this.namespaceName);
     }
 
     /**
@@ -106,18 +125,22 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated
+     * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Import(name="resourceGroupName", required=true)
-    private Output<String> resourceGroupName;
+    @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="resourceGroupName")
+    private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated
+     * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
+    @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<Output<String>> resourceGroupName() {
+        return Optional.ofNullable(this.resourceGroupName);
     }
 
     /**
@@ -141,6 +164,7 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         this.captureDescription = $.captureDescription;
         this.messageRetention = $.messageRetention;
         this.name = $.name;
+        this.namespaceId = $.namespaceId;
         this.namespaceName = $.namespaceName;
         this.partitionCount = $.partitionCount;
         this.resourceGroupName = $.resourceGroupName;
@@ -233,22 +257,47 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceName Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+         * @param namespaceId Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder namespaceName(Output<String> namespaceName) {
+        public Builder namespaceId(@Nullable Output<String> namespaceId) {
+            $.namespaceId = namespaceId;
+            return this;
+        }
+
+        /**
+         * @param namespaceId Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namespaceId(String namespaceId) {
+            return namespaceId(Output.of(namespaceId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+        public Builder namespaceName(@Nullable Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
         /**
-         * @param namespaceName Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }
@@ -283,22 +332,26 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
-        public Builder resourceGroupName(Output<String> resourceGroupName) {
+        @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }
@@ -328,14 +381,8 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
             if ($.messageRetention == null) {
                 throw new MissingRequiredPropertyException("EventHubArgs", "messageRetention");
             }
-            if ($.namespaceName == null) {
-                throw new MissingRequiredPropertyException("EventHubArgs", "namespaceName");
-            }
             if ($.partitionCount == null) {
                 throw new MissingRequiredPropertyException("EventHubArgs", "partitionCount");
-            }
-            if ($.resourceGroupName == null) {
-                throw new MissingRequiredPropertyException("EventHubArgs", "resourceGroupName");
             }
             return $;
         }

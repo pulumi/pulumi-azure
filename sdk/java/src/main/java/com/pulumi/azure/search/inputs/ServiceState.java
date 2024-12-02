@@ -60,6 +60,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     * 
+     */
+    @Import(name="customerManagedKeyEncryptionComplianceStatus")
+    private @Nullable Output<String> customerManagedKeyEncryptionComplianceStatus;
+
+    /**
+     * @return Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     * 
+     */
+    public Optional<Output<String>> customerManagedKeyEncryptionComplianceStatus() {
+        return Optional.ofNullable(this.customerManagedKeyEncryptionComplianceStatus);
+    }
+
+    /**
      * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
      * 
      */
@@ -324,6 +339,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private ServiceState(ServiceState $) {
         this.allowedIps = $.allowedIps;
         this.authenticationFailureMode = $.authenticationFailureMode;
+        this.customerManagedKeyEncryptionComplianceStatus = $.customerManagedKeyEncryptionComplianceStatus;
         this.customerManagedKeyEnforcementEnabled = $.customerManagedKeyEnforcementEnabled;
         this.hostingMode = $.hostingMode;
         this.identity = $.identity;
@@ -420,6 +436,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authenticationFailureMode(String authenticationFailureMode) {
             return authenticationFailureMode(Output.of(authenticationFailureMode));
+        }
+
+        /**
+         * @param customerManagedKeyEncryptionComplianceStatus Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKeyEncryptionComplianceStatus(@Nullable Output<String> customerManagedKeyEncryptionComplianceStatus) {
+            $.customerManagedKeyEncryptionComplianceStatus = customerManagedKeyEncryptionComplianceStatus;
+            return this;
+        }
+
+        /**
+         * @param customerManagedKeyEncryptionComplianceStatus Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKeyEncryptionComplianceStatus(String customerManagedKeyEncryptionComplianceStatus) {
+            return customerManagedKeyEncryptionComplianceStatus(Output.of(customerManagedKeyEncryptionComplianceStatus));
         }
 
         /**

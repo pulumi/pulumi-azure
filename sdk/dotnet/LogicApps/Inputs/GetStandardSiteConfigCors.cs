@@ -14,12 +14,19 @@ namespace Pulumi.Azure.LogicApps.Inputs
     {
         [Input("allowedOrigins", required: true)]
         private List<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls.
+        /// </summary>
         public List<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new List<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         [Input("supportCredentials")]
         public bool? SupportCredentials { get; set; }
 

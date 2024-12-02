@@ -68,15 +68,15 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
     }
 
     /**
-     * The number of compute servers for the Cloud Exadata Infrastructure.
+     * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly computeCount!: pulumi.Output<number>;
     /**
-     * The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly customerContacts!: pulumi.Output<string[]>;
     /**
-     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -84,23 +84,23 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * One or more `maintenanceWindow` blocks as defined below.
+     * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly maintenanceWindows!: pulumi.Output<outputs.oracle.ExadataInfrastructureMaintenanceWindow[]>;
     /**
-     * The name which should be used for this Cloud Exadata Infrastructure.
+     * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group where the ODB@A Infrastructure should exist.
+     * The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The shape of the ODB@A infrastructure resource.
+     * The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly shape!: pulumi.Output<string>;
     /**
-     * The number of storage servers for the Cloud Exadata Infrastructure.
+     * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly storageCount!: pulumi.Output<number>;
     /**
@@ -108,7 +108,7 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Cloud Exadata Infrastructure zones.
+     * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly zones!: pulumi.Output<string[]>;
 
@@ -178,15 +178,15 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
  */
 export interface ExadataInfrastructureState {
     /**
-     * The number of compute servers for the Cloud Exadata Infrastructure.
+     * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     computeCount?: pulumi.Input<number>;
     /**
-     * The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -194,23 +194,23 @@ export interface ExadataInfrastructureState {
      */
     location?: pulumi.Input<string>;
     /**
-     * One or more `maintenanceWindow` blocks as defined below.
+     * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.oracle.ExadataInfrastructureMaintenanceWindow>[]>;
     /**
-     * The name which should be used for this Cloud Exadata Infrastructure.
+     * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the ODB@A Infrastructure should exist.
+     * The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The shape of the ODB@A infrastructure resource.
+     * The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     shape?: pulumi.Input<string>;
     /**
-     * The number of storage servers for the Cloud Exadata Infrastructure.
+     * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     storageCount?: pulumi.Input<number>;
     /**
@@ -218,7 +218,7 @@ export interface ExadataInfrastructureState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Cloud Exadata Infrastructure zones.
+     * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -228,15 +228,15 @@ export interface ExadataInfrastructureState {
  */
 export interface ExadataInfrastructureArgs {
     /**
-     * The number of compute servers for the Cloud Exadata Infrastructure.
+     * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     computeCount: pulumi.Input<number>;
     /**
-     * The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     displayName: pulumi.Input<string>;
     /**
@@ -244,23 +244,23 @@ export interface ExadataInfrastructureArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * One or more `maintenanceWindow` blocks as defined below.
+     * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.oracle.ExadataInfrastructureMaintenanceWindow>[]>;
     /**
-     * The name which should be used for this Cloud Exadata Infrastructure.
+     * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the ODB@A Infrastructure should exist.
+     * The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The shape of the ODB@A infrastructure resource.
+     * The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     shape: pulumi.Input<string>;
     /**
-     * The number of storage servers for the Cloud Exadata Infrastructure.
+     * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     storageCount: pulumi.Input<number>;
     /**
@@ -268,7 +268,7 @@ export interface ExadataInfrastructureArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Cloud Exadata Infrastructure zones.
+     * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     zones: pulumi.Input<pulumi.Input<string>[]>;
 }

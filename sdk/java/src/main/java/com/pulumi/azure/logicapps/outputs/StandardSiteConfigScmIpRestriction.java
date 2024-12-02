@@ -34,7 +34,7 @@ public final class StandardSiteConfigScmIpRestriction {
      */
     private @Nullable String name;
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
      * 
      */
     private @Nullable Integer priority;
@@ -81,7 +81,7 @@ public final class StandardSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
      * 
      */
     public Optional<Integer> priority() {

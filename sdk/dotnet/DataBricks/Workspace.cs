@@ -54,6 +54,12 @@ namespace Pulumi.Azure.DataBricks
         public Output<string> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
+        /// An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        /// </summary>
+        [Output("enhancedSecurityCompliance")]
+        public Output<Outputs.WorkspaceEnhancedSecurityCompliance?> EnhancedSecurityCompliance { get; private set; } = null!;
+
+        /// <summary>
         /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
@@ -244,6 +250,12 @@ namespace Pulumi.Azure.DataBricks
         public Input<bool>? DefaultStorageFirewallEnabled { get; set; }
 
         /// <summary>
+        /// An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        /// </summary>
+        [Input("enhancedSecurityCompliance")]
+        public Input<Inputs.WorkspaceEnhancedSecurityComplianceArgs>? EnhancedSecurityCompliance { get; set; }
+
+        /// <summary>
         /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
@@ -376,6 +388,12 @@ namespace Pulumi.Azure.DataBricks
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
+
+        /// <summary>
+        /// An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        /// </summary>
+        [Input("enhancedSecurityCompliance")]
+        public Input<Inputs.WorkspaceEnhancedSecurityComplianceGetArgs>? EnhancedSecurityCompliance { get; set; }
 
         /// <summary>
         /// Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.

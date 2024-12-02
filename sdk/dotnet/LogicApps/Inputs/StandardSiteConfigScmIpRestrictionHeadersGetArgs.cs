@@ -25,7 +25,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         }
 
         /// <summary>
-        /// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        /// A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
         /// </summary>
         [Input("xFdHealthProbe")]
         public Input<string>? XFdHealthProbe { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<string>? _xForwardedFors;
 
         /// <summary>
-        /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
         /// </summary>
         public InputList<string> XForwardedFors
         {

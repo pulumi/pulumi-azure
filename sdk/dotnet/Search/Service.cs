@@ -126,6 +126,12 @@ namespace Pulumi.Azure.Search
         public Output<string?> AuthenticationFailureMode { get; private set; } = null!;
 
         /// <summary>
+        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        /// </summary>
+        [Output("customerManagedKeyEncryptionComplianceStatus")]
+        public Output<string> CustomerManagedKeyEncryptionComplianceStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         /// </summary>
         [Output("customerManagedKeyEnforcementEnabled")]
@@ -427,6 +433,12 @@ namespace Pulumi.Azure.Search
         /// </summary>
         [Input("authenticationFailureMode")]
         public Input<string>? AuthenticationFailureMode { get; set; }
+
+        /// <summary>
+        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        /// </summary>
+        [Input("customerManagedKeyEncryptionComplianceStatus")]
+        public Input<string>? CustomerManagedKeyEncryptionComplianceStatus { get; set; }
 
         /// <summary>
         /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.

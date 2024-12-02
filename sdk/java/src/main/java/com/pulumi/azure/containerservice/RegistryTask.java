@@ -122,12 +122,16 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
     /**
      * A `agent_setting` block as defined below.
      * 
+     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * 
      */
     @Export(name="agentSetting", refs={RegistryTaskAgentSetting.class}, tree="[0]")
     private Output</* @Nullable */ RegistryTaskAgentSetting> agentSetting;
 
     /**
      * @return A `agent_setting` block as defined below.
+     * 
+     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
      * 
      */
     public Output<Optional<RegistryTaskAgentSetting>> agentSetting() {

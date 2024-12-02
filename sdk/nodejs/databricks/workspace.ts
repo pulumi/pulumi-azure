@@ -66,6 +66,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly diskEncryptionSetId!: pulumi.Output<string>;
     /**
+     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     */
+    public readonly enhancedSecurityCompliance!: pulumi.Output<outputs.databricks.WorkspaceEnhancedSecurityCompliance | undefined>;
+    /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -162,6 +166,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
             resourceInputs["defaultStorageFirewallEnabled"] = state ? state.defaultStorageFirewallEnabled : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
+            resourceInputs["enhancedSecurityCompliance"] = state ? state.enhancedSecurityCompliance : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -194,6 +199,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["customParameters"] = args ? args.customParameters : undefined;
             resourceInputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
             resourceInputs["defaultStorageFirewallEnabled"] = args ? args.defaultStorageFirewallEnabled : undefined;
+            resourceInputs["enhancedSecurityCompliance"] = args ? args.enhancedSecurityCompliance : undefined;
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -247,6 +253,10 @@ export interface WorkspaceState {
      * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
      */
     diskEncryptionSetId?: pulumi.Input<string>;
+    /**
+     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     */
+    enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.WorkspaceEnhancedSecurityCompliance>;
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */
@@ -349,6 +359,10 @@ export interface WorkspaceArgs {
      * Disallow public access to default storage account. Defaults to `false`.
      */
     defaultStorageFirewallEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     */
+    enhancedSecurityCompliance?: pulumi.Input<inputs.databricks.WorkspaceEnhancedSecurityCompliance>;
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */

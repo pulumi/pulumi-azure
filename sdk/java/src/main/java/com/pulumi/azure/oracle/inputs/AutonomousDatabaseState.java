@@ -21,14 +21,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     public static final AutonomousDatabaseState Empty = new AutonomousDatabaseState();
 
     /**
-     * The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing.
+     * The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="adminPassword")
     private @Nullable Output<String> adminPassword;
 
     /**
-     * @return The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing.
+     * @return The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> adminPassword() {
@@ -66,14 +66,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * (Updatable) Retention period, in days, for backups.
+     * (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="backupRetentionPeriodInDays")
     private @Nullable Output<Integer> backupRetentionPeriodInDays;
 
     /**
-     * @return (Updatable) Retention period, in days, for backups.
+     * @return (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<Integer>> backupRetentionPeriodInDays() {
@@ -81,14 +81,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`
+     * The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
      * 
      */
     @Import(name="characterSet")
     private @Nullable Output<String> characterSet;
 
     /**
-     * @return The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`
+     * @return The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
      * 
      */
     public Optional<Output<String>> characterSet() {
@@ -111,14 +111,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+     * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="computeModel")
     private @Nullable Output<String> computeModel;
 
     /**
-     * @return The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+     * @return The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> computeModel() {
@@ -126,14 +126,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a list of customer contacts as email addresses.
+     * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="customerContacts")
     private @Nullable Output<List<String>> customerContacts;
 
     /**
-     * @return Specifies a list of customer contacts as email addresses.
+     * @return Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<List<String>>> customerContacts() {
@@ -156,14 +156,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A valid Oracle Database version for Autonomous Database.
+     * A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="dbVersion")
     private @Nullable Output<String> dbVersion;
 
     /**
-     * @return A valid Oracle Database version for Autonomous Database.
+     * @return A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> dbVersion() {
@@ -171,7 +171,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Autonomous Database workload type. The following values are valid:
+     * The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
      * * OLTP - indicates an Autonomous Transaction Processing database
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
@@ -182,7 +182,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     private @Nullable Output<String> dbWorkload;
 
     /**
-     * @return The Autonomous Database workload type. The following values are valid:
+     * @return The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
      * * OLTP - indicates an Autonomous Transaction Processing database
      * * DW - indicates an Autonomous Data Warehouse database
      * * AJD - indicates an Autonomous JSON Database
@@ -194,14 +194,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The user-friendly name for the Autonomous Database. The name does not have to be unique.
+     * The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the Autonomous Database. The name does not have to be unique.
+     * @return The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -209,14 +209,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
+     * The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
      * 
      */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
     /**
-     * @return The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
+     * @return The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
      * 
      */
     public Optional<Output<String>> licenseModel() {
@@ -239,14 +239,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies if the Autonomous Database requires mTLS connections.
+     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="mtlsConnectionRequired")
     private @Nullable Output<Boolean> mtlsConnectionRequired;
 
     /**
-     * @return Specifies if the Autonomous Database requires mTLS connections.
+     * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<Boolean>> mtlsConnectionRequired() {
@@ -254,14 +254,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name which should be used for this Autonomous Database.
+     * The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Autonomous Database.
+     * @return The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -269,14 +269,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The national character set for the autonomous database.  The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+     * The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
      * 
      */
     @Import(name="nationalCharacterSet")
     private @Nullable Output<String> nationalCharacterSet;
 
     /**
-     * @return The national character set for the autonomous database.  The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+     * @return The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
      * 
      */
     public Optional<Output<String>> nationalCharacterSet() {
@@ -284,14 +284,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the Resource Group where the Autonomous Database should exist.
+     * The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Autonomous Database should exist.
+     * @return The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -299,14 +299,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -329,14 +329,14 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the vnet associated with the cloud VM cluster.
+     * The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      * 
      */
     @Import(name="virtualNetworkId")
     private @Nullable Output<String> virtualNetworkId;
 
     /**
-     * @return The ID of the vnet associated with the cloud VM cluster.
+     * @return The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      * 
      */
     public Optional<Output<String>> virtualNetworkId() {
@@ -388,7 +388,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminPassword The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing.
+         * @param adminPassword The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param adminPassword The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing.
+         * @param adminPassword The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (&#34;) or the username &#34;admin&#34;, regardless of casing. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupRetentionPeriodInDays (Updatable) Retention period, in days, for backups.
+         * @param backupRetentionPeriodInDays (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param backupRetentionPeriodInDays (Updatable) Retention period, in days, for backups.
+         * @param backupRetentionPeriodInDays (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param characterSet The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`
+         * @param characterSet The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param characterSet The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`
+         * @param characterSet The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param computeModel The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+         * @param computeModel The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param computeModel The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+         * @param computeModel The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customerContacts Specifies a list of customer contacts as email addresses.
+         * @param customerContacts Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customerContacts Specifies a list of customer contacts as email addresses.
+         * @param customerContacts Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param customerContacts Specifies a list of customer contacts as email addresses.
+         * @param customerContacts Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dbVersion A valid Oracle Database version for Autonomous Database.
+         * @param dbVersion A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dbVersion A valid Oracle Database version for Autonomous Database.
+         * @param dbVersion A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dbWorkload The Autonomous Database workload type. The following values are valid:
+         * @param dbWorkload The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
          * * OLTP - indicates an Autonomous Transaction Processing database
          * * DW - indicates an Autonomous Data Warehouse database
          * * AJD - indicates an Autonomous JSON Database
@@ -623,7 +623,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param dbWorkload The Autonomous Database workload type. The following values are valid:
+         * @param dbWorkload The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
          * * OLTP - indicates an Autonomous Transaction Processing database
          * * DW - indicates an Autonomous Data Warehouse database
          * * AJD - indicates an Autonomous JSON Database
@@ -637,7 +637,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param displayName The user-friendly name for the Autonomous Database. The name does not have to be unique.
+         * @param displayName The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -648,7 +648,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param displayName The user-friendly name for the Autonomous Database. The name does not have to be unique.
+         * @param displayName The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param licenseModel The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
+         * @param licenseModel The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param licenseModel The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
+         * @param licenseModel The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
          * 
          * @return builder
          * 
@@ -700,7 +700,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections.
+         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -711,7 +711,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections.
+         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name which should be used for this Autonomous Database.
+         * @param name The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -732,7 +732,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name which should be used for this Autonomous Database.
+         * @param name The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nationalCharacterSet The national character set for the autonomous database.  The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+         * @param nationalCharacterSet The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nationalCharacterSet The national character set for the autonomous database.  The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+         * @param nationalCharacterSet The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Autonomous Database should exist.
+         * @param resourceGroupName The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Autonomous Database should exist.
+         * @param resourceGroupName The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param subnetId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
+         * @param subnetId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -795,7 +795,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param subnetId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
+         * @param subnetId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -826,7 +826,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualNetworkId The ID of the vnet associated with the cloud VM cluster.
+         * @param virtualNetworkId The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 
@@ -837,7 +837,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param virtualNetworkId The ID of the vnet associated with the cloud VM cluster.
+         * @param virtualNetworkId The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
          * 
          * @return builder
          * 

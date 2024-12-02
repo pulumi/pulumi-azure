@@ -82,6 +82,8 @@ export class RegistryTask extends pulumi.CustomResource {
     public readonly agentPoolName!: pulumi.Output<string | undefined>;
     /**
      * A `agentSetting` block as defined below.
+     *
+     * > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
     public readonly agentSetting!: pulumi.Output<outputs.containerservice.RegistryTaskAgentSetting | undefined>;
     /**
@@ -211,6 +213,8 @@ export interface RegistryTaskState {
     agentPoolName?: pulumi.Input<string>;
     /**
      * A `agentSetting` block as defined below.
+     *
+     * > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
     agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting>;
     /**
@@ -281,6 +285,8 @@ export interface RegistryTaskArgs {
     agentPoolName?: pulumi.Input<string>;
     /**
      * A `agentSetting` block as defined below.
+     *
+     * > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
     agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting>;
     /**

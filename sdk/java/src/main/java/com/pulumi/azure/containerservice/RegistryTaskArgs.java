@@ -48,12 +48,16 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `agent_setting` block as defined below.
      * 
+     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * 
      */
     @Import(name="agentSetting")
     private @Nullable Output<RegistryTaskAgentSettingArgs> agentSetting;
 
     /**
      * @return A `agent_setting` block as defined below.
+     * 
+     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
      * 
      */
     public Optional<Output<RegistryTaskAgentSettingArgs>> agentSetting() {
@@ -341,6 +345,8 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentSetting A `agent_setting` block as defined below.
          * 
+         * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+         * 
          * @return builder
          * 
          */
@@ -351,6 +357,8 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param agentSetting A `agent_setting` block as defined below.
+         * 
+         * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
          * 
          * @return builder
          * 

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly int? ElasticInstanceMinimum;
         /// <summary>
-        /// State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+        /// State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         /// </summary>
         public readonly string? FtpsState;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
@@ -56,20 +56,17 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
-        /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        /// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         /// </summary>
         public readonly string? LinuxFxVersion;
         /// <summary>
-        /// The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+        /// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         /// </summary>
         public readonly string? MinTlsVersion;
         /// <summary>
         /// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
-        /// <summary>
-        /// Is public network access enabled? Defaults to `true`.
-        /// </summary>
         public readonly bool? PublicNetworkAccessEnabled;
         /// <summary>
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.

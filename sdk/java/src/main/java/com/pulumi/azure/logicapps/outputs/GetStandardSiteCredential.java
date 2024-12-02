@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStandardSiteCredential {
+    /**
+     * @return The password associated with the username, which can be used to publish to this Logic App.
+     * 
+     */
     private String password;
+    /**
+     * @return The username which can be used to publish to this Logic App.
+     * 
+     */
     private String username;
 
     private GetStandardSiteCredential() {}
+    /**
+     * @return The password associated with the username, which can be used to publish to this Logic App.
+     * 
+     */
     public String password() {
         return this.password;
     }
+    /**
+     * @return The username which can be used to publish to this Logic App.
+     * 
+     */
     public String username() {
         return this.username;
     }

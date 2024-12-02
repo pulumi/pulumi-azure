@@ -6,17 +6,23 @@ package com.pulumi.azure.search.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetServiceIdentity {
     /**
-     * @return The (Client) ID of the Service Principal.
+     * @return The list of User Assigned Managed Service Identity IDs assigned to this Search Service.
+     * 
+     */
+    private List<String> identityIds;
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
      * 
      */
     private String principalId;
     /**
-     * @return The ID of the Tenant the Service Principal is assigned in.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     private String tenantId;
@@ -28,14 +34,21 @@ public final class GetServiceIdentity {
 
     private GetServiceIdentity() {}
     /**
-     * @return The (Client) ID of the Service Principal.
+     * @return The list of User Assigned Managed Service Identity IDs assigned to this Search Service.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds;
+    }
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
      * 
      */
     public String principalId() {
         return this.principalId;
     }
     /**
-     * @return The ID of the Tenant the Service Principal is assigned in.
+     * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
     public String tenantId() {
@@ -58,17 +71,30 @@ public final class GetServiceIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetServiceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(List<String> identityIds) {
+            if (identityIds == null) {
+              throw new MissingRequiredPropertyException("GetServiceIdentity", "identityIds");
+            }
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(String principalId) {
             if (principalId == null) {
@@ -95,6 +121,7 @@ public final class GetServiceIdentity {
         }
         public GetServiceIdentity build() {
             final var _resultValue = new GetServiceIdentity();
+            _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
             _resultValue.tenantId = tenantId;
             _resultValue.type = type;

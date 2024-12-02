@@ -44,6 +44,8 @@ class RegistryTaskArgs:
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input['RegistryTaskAgentSettingArgs'] agent_setting: A `agent_setting` block as defined below.
+               
+               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input['RegistryTaskBaseImageTriggerArgs'] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input['RegistryTaskDockerStepArgs'] docker_step: A `docker_step` block as defined below.
         :param pulumi.Input[bool] enabled: Should this Container Registry Task be enabled? Defaults to `true`.
@@ -125,6 +127,8 @@ class RegistryTaskArgs:
     def agent_setting(self) -> Optional[pulumi.Input['RegistryTaskAgentSettingArgs']]:
         """
         A `agent_setting` block as defined below.
+
+        > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         """
         return pulumi.get(self, "agent_setting")
 
@@ -330,6 +334,8 @@ class _RegistryTaskState:
         Input properties used for looking up and filtering RegistryTask resources.
         :param pulumi.Input[str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input['RegistryTaskAgentSettingArgs'] agent_setting: A `agent_setting` block as defined below.
+               
+               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input['RegistryTaskBaseImageTriggerArgs'] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input['RegistryTaskDockerStepArgs'] docker_step: A `docker_step` block as defined below.
@@ -401,6 +407,8 @@ class _RegistryTaskState:
     def agent_setting(self) -> Optional[pulumi.Input['RegistryTaskAgentSettingArgs']]:
         """
         A `agent_setting` block as defined below.
+
+        > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         """
         return pulumi.get(self, "agent_setting")
 
@@ -660,6 +668,8 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']] agent_setting: A `agent_setting` block as defined below.
+               
+               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']] docker_step: A `docker_step` block as defined below.
@@ -821,6 +831,8 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
         :param pulumi.Input[Union['RegistryTaskAgentSettingArgs', 'RegistryTaskAgentSettingArgsDict']] agent_setting: A `agent_setting` block as defined below.
+               
+               > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         :param pulumi.Input[Union['RegistryTaskBaseImageTriggerArgs', 'RegistryTaskBaseImageTriggerArgsDict']] base_image_trigger: A `base_image_trigger` block as defined below.
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
         :param pulumi.Input[Union['RegistryTaskDockerStepArgs', 'RegistryTaskDockerStepArgsDict']] docker_step: A `docker_step` block as defined below.
@@ -875,6 +887,8 @@ class RegistryTask(pulumi.CustomResource):
     def agent_setting(self) -> pulumi.Output[Optional['outputs.RegistryTaskAgentSetting']]:
         """
         A `agent_setting` block as defined below.
+
+        > **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         """
         return pulumi.get(self, "agent_setting")
 

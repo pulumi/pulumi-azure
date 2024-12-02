@@ -32,14 +32,14 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
     }
 
     /**
-     * A list to allow the Azure FrontDoor health probe header. Only allowed value is &#34;1&#34;.
+     * A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
      * 
      */
     @Import(name="xFdHealthProbe")
     private @Nullable Output<String> xFdHealthProbe;
 
     /**
-     * @return A list to allow the Azure FrontDoor health probe header. Only allowed value is &#34;1&#34;.
+     * @return A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
      * 
      */
     public Optional<Output<String>> xFdHealthProbe() {
@@ -47,14 +47,14 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
     }
 
     /**
-     * A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+     * A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
      * 
      */
     @Import(name="xForwardedFors")
     private @Nullable Output<List<String>> xForwardedFors;
 
     /**
-     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
      * 
      */
     public Optional<Output<List<String>>> xForwardedFors() {
@@ -135,7 +135,7 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
         }
 
         /**
-         * @param xFdHealthProbe A list to allow the Azure FrontDoor health probe header. Only allowed value is &#34;1&#34;.
+         * @param xFdHealthProbe A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
         }
 
         /**
-         * @param xFdHealthProbe A list to allow the Azure FrontDoor health probe header. Only allowed value is &#34;1&#34;.
+         * @param xFdHealthProbe A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
         }
 
         /**
-         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
         }
 
         /**
-         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class StandardSiteConfigIpRestrictionHeadersArgs extends com.pulumi
         }
 
         /**
-         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+         * @param xForwardedFors A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
          * 
          * @return builder
          * 

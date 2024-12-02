@@ -14,13 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigCors {
+    /**
+     * @return A list of origins which should be able to make cross-origin calls.
+     * 
+     */
     private List<String> allowedOrigins;
+    /**
+     * @return Are credentials supported?
+     * 
+     */
     private @Nullable Boolean supportCredentials;
 
     private GetStandardSiteConfigCors() {}
+    /**
+     * @return A list of origins which should be able to make cross-origin calls.
+     * 
+     */
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
+    /**
+     * @return Are credentials supported?
+     * 
+     */
     public Optional<Boolean> supportCredentials() {
         return Optional.ofNullable(this.supportCredentials);
     }

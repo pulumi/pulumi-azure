@@ -11245,7 +11245,7 @@ if not MYPY:
     class RegistryTaskAgentSettingArgsDict(TypedDict):
         cpu: pulumi.Input[int]
         """
-        The number of cores required for the Container Registry Task.
+        The number of cores required for the Container Registry Task. Possible value is `2`.
         """
 elif False:
     RegistryTaskAgentSettingArgsDict: TypeAlias = Mapping[str, Any]
@@ -11255,7 +11255,7 @@ class RegistryTaskAgentSettingArgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] cpu: The number of cores required for the Container Registry Task.
+        :param pulumi.Input[int] cpu: The number of cores required for the Container Registry Task. Possible value is `2`.
         """
         pulumi.set(__self__, "cpu", cpu)
 
@@ -11263,7 +11263,7 @@ class RegistryTaskAgentSettingArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[int]:
         """
-        The number of cores required for the Container Registry Task.
+        The number of cores required for the Container Registry Task. Possible value is `2`.
         """
         return pulumi.get(self, "cpu")
 

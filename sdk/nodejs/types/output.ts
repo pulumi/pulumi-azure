@@ -33721,7 +33721,7 @@ export namespace containerservice {
 
     export interface RegistryTaskAgentSetting {
         /**
-         * The number of cores required for the Container Registry Task.
+         * The number of cores required for the Container Registry Task. Possible value is `2`.
          */
         cpu: number;
     }
@@ -35476,6 +35476,25 @@ export namespace databricks {
         type: string;
     }
 
+    export interface GetWorkspaceEnhancedSecurityCompliance {
+        /**
+         * Whether automatic cluster updates for this workspace is enabled.
+         */
+        automaticClusterUpdateEnabled: boolean;
+        /**
+         * Whether compliance security profile for this workspace is enabled.
+         */
+        complianceSecurityProfileEnabled: boolean;
+        /**
+         * A list of standards enforced on this workspace.
+         */
+        complianceSecurityProfileStandards: string[];
+        /**
+         * Whether enhanced security monitoring for this workspace is enabled.
+         */
+        enhancedSecurityMonitoringEnabled: boolean;
+    }
+
     export interface GetWorkspaceManagedDiskIdentity {
         /**
          * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -35584,6 +35603,33 @@ export namespace databricks {
          * > **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
          */
         vnetAddressPrefix: string;
+    }
+
+    export interface WorkspaceEnhancedSecurityCompliance {
+        /**
+         * Enables automatic cluster updates for this workspace. Defaults to `false`.
+         */
+        automaticClusterUpdateEnabled?: boolean;
+        /**
+         * Enables compliance security profile for this workspace. Defaults to `false`.
+         *
+         * > **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
+         *
+         * > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
+         */
+        complianceSecurityProfileEnabled?: boolean;
+        /**
+         * A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+         *
+         * > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
+         *
+         * > **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
+         */
+        complianceSecurityProfileStandards?: string[];
+        /**
+         * Enables enhanced security monitoring for this workspace. Defaults to `false`.
+         */
+        enhancedSecurityMonitoringEnabled?: boolean;
     }
 
     export interface WorkspaceManagedDiskIdentity {
@@ -46520,77 +46566,215 @@ export namespace logicapps {
     }
 
     export interface GetStandardSiteConfig {
+        /**
+         * Should the Logic App be loaded at all times?
+         */
         alwaysOn?: boolean;
+        /**
+         * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+         */
         appScaleLimit: number;
+        /**
+         * The Auto-swap slot name.
+         */
         autoSwapSlotName: string;
+        /**
+         * A `cors` block as defined below.
+         */
         cors: outputs.logicapps.GetStandardSiteConfigCors;
+        /**
+         * The version of the .NET framework's CLR used in this Logic App.
+         */
         dotnetFrameworkVersion?: string;
+        /**
+         * The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+         */
         elasticInstanceMinimum: number;
+        /**
+         * The state of FTP / FTPS service for this Logic App.
+         */
         ftpsState: string;
+        /**
+         * Path which will be checked for this Logic App health.
+         */
         healthCheckPath?: string;
+        /**
+         * Specifies whether the HTTP2 protocol should be enabled.
+         */
         http2Enabled?: boolean;
+        /**
+         * A list of `ipRestriction` objects representing IP restrictions as defined below.
+         */
         ipRestrictions: outputs.logicapps.GetStandardSiteConfigIpRestriction[];
+        /**
+         * Linux App Framework and version for the Logic App.
+         */
         linuxFxVersion: string;
+        /**
+         * The minimum supported TLS version for the Logic App.
+         */
         minTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+         */
         preWarmedInstanceCount: number;
-        publicNetworkAccessEnabled?: boolean;
+        /**
+         * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
+         */
+        publicNetworkAccessEnabled: boolean;
+        /**
+         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
+         */
         runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
+         */
         scmIpRestrictions: outputs.logicapps.GetStandardSiteConfigScmIpRestriction[];
+        /**
+         * The minimum version of TLS required for SSL requests to the SCM site.
+         */
         scmMinTlsVersion: string;
+        /**
+         * The type of Source Control used by the Logic App in use by the Windows Function App.
+         */
         scmType: string;
+        /**
+         * Should the Logic App `ipRestriction` configuration be used for the SCM too.
+         */
         scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Logic App run in 32 bit mode, rather than 64 bit mode?
+         */
         use32BitWorkerProcess?: boolean;
+        /**
+         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+         */
         vnetRouteAllEnabled: boolean;
+        /**
+         * Should WebSockets be enabled?
+         */
         websocketsEnabled?: boolean;
     }
 
     export interface GetStandardSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls.
+         */
         allowedOrigins: string[];
+        /**
+         * Are credentials supported?
+         */
         supportCredentials?: boolean;
     }
 
     export interface GetStandardSiteConfigIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range.
+         */
         action?: string;
+        /**
+         * The `headers` block for this specific `ipRestriction` as defined below.
+         */
         headers: outputs.logicapps.GetStandardSiteConfigIpRestrictionHeaders;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
         ipAddress?: string;
         /**
          * The name of this Logic App.
          */
         name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order.
+         */
         priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
         virtualNetworkSubnetId?: string;
     }
 
     export interface GetStandardSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation.
+         */
         xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header.
+         */
         xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
+         */
         xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains.
+         */
         xForwardedHosts?: string[];
     }
 
     export interface GetStandardSiteConfigScmIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range.
+         */
         action?: string;
+        /**
+         * The `headers` block for this specific `ipRestriction` as defined below.
+         */
         headers: outputs.logicapps.GetStandardSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
         ipAddress?: string;
         /**
          * The name of this Logic App.
          */
         name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order.
+         */
         priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
         virtualNetworkSubnetId?: string;
     }
 
     export interface GetStandardSiteConfigScmIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation.
+         */
         xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header.
+         */
         xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
+         */
         xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains.
+         */
         xForwardedHosts?: string[];
     }
 
     export interface GetStandardSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this Logic App.
+         */
         password: string;
+        /**
+         * The username which can be used to publish to this Logic App.
+         */
         username: string;
     }
 
@@ -46801,7 +46985,7 @@ export namespace logicapps {
          */
         elasticInstanceMinimum: number;
         /**
-         * State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+         * State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          */
         ftpsState: string;
         /**
@@ -46809,7 +46993,7 @@ export namespace logicapps {
          */
         healthCheckPath?: string;
         /**
-         * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+         * Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: boolean;
         /**
@@ -46819,11 +47003,11 @@ export namespace logicapps {
          */
         ipRestrictions: outputs.logicapps.StandardSiteConfigIpRestriction[];
         /**
-         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+         * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
          */
         linuxFxVersion: string;
         /**
-         * The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
          */
         minTlsVersion: string;
         /**
@@ -46831,9 +47015,9 @@ export namespace logicapps {
          */
         preWarmedInstanceCount: number;
         /**
-         * Is public network access enabled? Defaults to `true`.
+         * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
          */
-        publicNetworkAccessEnabled?: boolean;
+        publicNetworkAccessEnabled: boolean;
         /**
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
          */
@@ -46922,11 +47106,11 @@ export namespace logicapps {
          */
         xAzureFdids?: string[];
         /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
          */
         xFdHealthProbe?: string;
         /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
          */
         xForwardedFors?: string[];
         /**
@@ -46953,7 +47137,7 @@ export namespace logicapps {
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
          */
         priority?: number;
         /**
@@ -46974,11 +47158,11 @@ export namespace logicapps {
          */
         xAzureFdids?: string[];
         /**
-         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
          */
         xFdHealthProbe?: string;
         /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
          */
         xForwardedFors?: string[];
         /**
@@ -46993,7 +47177,7 @@ export namespace logicapps {
          */
         password: string;
         /**
-         * The username which can be used to publish to this App Service
+         * The username which can be used to publish to this App Service.
          */
         username: string;
     }
@@ -51350,6 +51534,40 @@ export namespace mssql {
          * The tier of the particular SKU.
          */
         tier: string;
+    }
+
+    export interface GetManagedDatabaseLongTermRetentionPolicy {
+        /**
+         * Specifies if the backups are immutable.
+         */
+        immutableBackupsEnabled: boolean;
+        /**
+         * The monthly retention policy for an LTR backup in an ISO 8601 format.
+         */
+        monthlyRetention: string;
+        /**
+         * The week of year to take the yearly backup.
+         */
+        weekOfYear: number;
+        /**
+         * The weekly retention policy for an LTR backup in an ISO 8601 format.
+         */
+        weeklyRetention: string;
+        /**
+         * The yearly retention policy for an LTR backup in an ISO 8601 format.
+         */
+        yearlyRetention: string;
+    }
+
+    export interface GetManagedDatabasePointInTimeRestore {
+        /**
+         * The point in time for the restore from `sourceDatabaseId`.
+         */
+        restorePointInTime: string;
+        /**
+         * The source database ID that is used to restore from.
+         */
+        sourceDatabaseId: string;
     }
 
     export interface GetManagedInstanceIdentity {
@@ -58272,46 +58490,46 @@ export namespace operationalinsights {
 export namespace oracle {
     export interface CloudVmClusterDataCollectionOptions {
         /**
-         * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
+         * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API. Changing this forces a new Cloud VM Cluster to be created.
          */
         diagnosticsEventsEnabled: boolean;
         /**
-         * Indicates whether health monitoring is enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling health monitoring allows Oracle to collect diagnostic data and share it with its operations and support personnel. You may also receive notifications for some events. Collecting health diagnostics enables Oracle to provide proactive support and enhanced service for your system. Optionally enable health monitoring while provisioning a system. You can also disable or enable health monitoring anytime using the `UpdateVmCluster`, `UpdateCloudVmCluster` or `updateDbsystem` API.
+         * Indicates whether health monitoring is enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling health monitoring allows Oracle to collect diagnostic data and share it with its operations and support personnel. You may also receive notifications for some events. Collecting health diagnostics enables Oracle to provide proactive support and enhanced service for your system. Optionally enable health monitoring while provisioning a system. You can also disable or enable health monitoring anytime using the `UpdateVmCluster`, `UpdateCloudVmCluster` or `updateDbsystem` API. Changing this forces a new Cloud VM Cluster to be created.
          */
         healthMonitoringEnabled: boolean;
         /**
-         * Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API.
+         * Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API. Changing this forces a new Cloud VM Cluster to be created.
          */
         incidentLogsEnabled: boolean;
     }
 
     export interface ExadataInfrastructureMaintenanceWindow {
         /**
-         * Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+         * Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         daysOfWeeks: string[];
         /**
-         * The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+         * The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         hoursOfDays: number[];
         /**
-         * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+         * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         leadTimeInWeeks: number;
         /**
-         * Months during the year when maintenance should be performed.
+         * Months during the year when maintenance should be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         months: string[];
         /**
-         * Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+         * Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         patchingMode: string;
         /**
-         * The maintenance window scheduling preference.
+         * The maintenance window scheduling preference. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         preference: string;
         /**
-         * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+         * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          */
         weeksOfMonths: number[];
     }
@@ -61002,11 +61220,15 @@ export namespace role {
 export namespace search {
     export interface GetServiceIdentity {
         /**
-         * The (Client) ID of the Service Principal.
+         * The list of User Assigned Managed Service Identity IDs assigned to this Search Service.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
         /**
-         * The ID of the Tenant the Service Principal is assigned in.
+         * The Tenant ID associated with this Managed Service Identity.
          */
         tenantId: string;
         /**
@@ -61028,6 +61250,10 @@ export namespace search {
 
     export interface ServiceIdentity {
         /**
+         * Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Search Service.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
@@ -61036,7 +61262,7 @@ export namespace search {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Search Service. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }

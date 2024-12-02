@@ -31,14 +31,14 @@ public final class StandardSiteCredentialArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The username which can be used to publish to this App Service
+     * The username which can be used to publish to this App Service.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username which can be used to publish to this App Service
+     * @return The username which can be used to publish to this App Service.
      * 
      */
     public Optional<Output<String>> username() {
@@ -92,7 +92,7 @@ public final class StandardSiteCredentialArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param username The username which can be used to publish to this App Service
+         * @param username The username which can be used to publish to this App Service.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class StandardSiteCredentialArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param username The username which can be used to publish to this App Service
+         * @param username The username which can be used to publish to this App Service.
          * 
          * @return builder
          * 

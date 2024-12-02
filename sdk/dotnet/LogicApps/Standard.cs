@@ -146,7 +146,7 @@ namespace Pulumi.Azure.LogicApps
     public partial class Standard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Logic App
+        /// The ID of the App Service Plan within which to create this Logic App.
         /// </summary>
         [Output("appServicePlanId")]
         public Output<string> AppServicePlanId { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
 
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// A `connection_string` block as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.StandardConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -244,6 +244,14 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+        /// 
+        /// &gt; **Note:** Setting this property will also set it in the Site Config.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -262,7 +270,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableArray<Outputs.StandardSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// The access key which will be used to access the backend storage account for the Logic App
+        /// The access key which will be used to access the backend storage account for the Logic App.
         /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string> StorageAccountAccessKey { get; private set; } = null!;
@@ -350,7 +358,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class StandardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Logic App
+        /// The ID of the App Service Plan within which to create this Logic App.
         /// </summary>
         [Input("appServicePlanId", required: true)]
         public Input<string> AppServicePlanId { get; set; } = null!;
@@ -391,7 +399,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.StandardConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// A `connection_string` block as defined below.
         /// </summary>
         public InputList<Inputs.StandardConnectionStringArgs> ConnectionStrings
         {
@@ -430,6 +438,14 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+        /// 
+        /// &gt; **Note:** Setting this property will also set it in the Site Config.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -445,7 +461,7 @@ namespace Pulumi.Azure.LogicApps
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// The access key which will be used to access the backend storage account for the Logic App
+        /// The access key which will be used to access the backend storage account for the Logic App.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -504,7 +520,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class StandardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Logic App
+        /// The ID of the App Service Plan within which to create this Logic App.
         /// </summary>
         [Input("appServicePlanId")]
         public Input<string>? AppServicePlanId { get; set; }
@@ -545,7 +561,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.StandardConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// A `connection_string` block as defined below.
         /// </summary>
         public InputList<Inputs.StandardConnectionStringGetArgs> ConnectionStrings
         {
@@ -614,6 +630,14 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
+        /// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+        /// 
+        /// &gt; **Note:** Setting this property will also set it in the Site Config.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
@@ -641,7 +665,7 @@ namespace Pulumi.Azure.LogicApps
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// The access key which will be used to access the backend storage account for the Logic App
+        /// The access key which will be used to access the backend storage account for the Logic App.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {

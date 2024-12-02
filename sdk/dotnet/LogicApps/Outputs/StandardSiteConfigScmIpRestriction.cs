@@ -30,7 +30,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
         /// </summary>
         public readonly int? Priority;
         /// <summary>

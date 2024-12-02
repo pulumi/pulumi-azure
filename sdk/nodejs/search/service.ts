@@ -117,6 +117,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly authenticationFailureMode!: pulumi.Output<string | undefined>;
     /**
+     * Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     */
+    public /*out*/ readonly customerManagedKeyEncryptionComplianceStatus!: pulumi.Output<string>;
+    /**
      * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
      */
     public readonly customerManagedKeyEnforcementEnabled!: pulumi.Output<boolean | undefined>;
@@ -206,6 +210,7 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["allowedIps"] = state ? state.allowedIps : undefined;
             resourceInputs["authenticationFailureMode"] = state ? state.authenticationFailureMode : undefined;
+            resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = state ? state.customerManagedKeyEncryptionComplianceStatus : undefined;
             resourceInputs["customerManagedKeyEnforcementEnabled"] = state ? state.customerManagedKeyEnforcementEnabled : undefined;
             resourceInputs["hostingMode"] = state ? state.hostingMode : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -245,6 +250,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["semanticSearchSku"] = args ? args.semanticSearchSku : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["queryKeys"] = undefined /*out*/;
             resourceInputs["secondaryKey"] = undefined /*out*/;
@@ -272,6 +278,10 @@ export interface ServiceState {
      * > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
      */
     authenticationFailureMode?: pulumi.Input<string>;
+    /**
+     * Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     */
+    customerManagedKeyEncryptionComplianceStatus?: pulumi.Input<string>;
     /**
      * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
      */

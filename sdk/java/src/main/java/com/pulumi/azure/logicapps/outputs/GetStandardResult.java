@@ -14,19 +14,58 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardResult {
+    /**
+     * @return The ID of the App Service Plan.
+     * 
+     */
     private String appServicePlanId;
+    /**
+     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * 
+     */
     private Map<String,String> appSettings;
+    /**
+     * @return Controls the allowed range for bundle versions.
+     * 
+     */
     private String bundleVersion;
+    /**
+     * @return Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance.
+     * 
+     */
     private Boolean clientAffinityEnabled;
+    /**
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests.
+     * 
+     */
     private String clientCertificateMode;
+    /**
+     * @return A `connection_string` block as defined below.
+     * 
+     */
     private List<GetStandardConnectionString> connectionStrings;
+    /**
+     * @return The custom domain verification of the Logic App.
+     * 
+     */
     private String customDomainVerificationId;
+    /**
+     * @return The default hostname of the Logic App.
+     * 
+     */
     private String defaultHostname;
+    /**
+     * @return Whether the Logic App is enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Whether the Logic App can only be accessed via HTTPS.
+     * 
+     */
     private Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -38,54 +77,151 @@ public final class GetStandardResult {
      * 
      */
     private List<GetStandardIdentity> identities;
+    /**
+     * @return The kind of the Logic App.
+     * 
+     */
     private String kind;
     /**
      * @return The Azure location where the Logic App Standard exists.
      * 
      */
     private String location;
+    /**
+     * @return The name for this IP Restriction.
+     * 
+     */
     private String name;
+    /**
+     * @return The outbound IP addresses of the Logic App.
+     * 
+     */
     private String outboundIpAddresses;
+    /**
+     * @return The possible outbound IP addresses of the Logic App.
+     * 
+     */
     private String possibleOutboundIpAddresses;
+    /**
+     * @return Whether Public Network Access should be enabled or not.
+     * 
+     */
+    private String publicNetworkAccess;
     private String resourceGroupName;
+    /**
+     * @return A `site_config` object as defined below.
+     * 
+     */
     private GetStandardSiteConfig siteConfig;
+    /**
+     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+     * 
+     */
     private List<GetStandardSiteCredential> siteCredentials;
+    /**
+     * @return The access key which will be used to access the backend storage account for the Logic App.
+     * 
+     */
     private String storageAccountAccessKey;
+    /**
+     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data).
+     * 
+     */
     private String storageAccountName;
+    /**
+     * @return The name of the share used by the logic app.
+     * 
+     */
     private String storageAccountShareName;
-    private @Nullable Map<String,String> tags;
+    /**
+     * @return A mapping of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
+    /**
+     * @return Whether the logic app should use the bundled extension package.
+     * 
+     */
     private Boolean useExtensionBundle;
+    /**
+     * @return The runtime version associated with the Logic App.
+     * 
+     */
     private String version;
+    /**
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     private String virtualNetworkSubnetId;
 
     private GetStandardResult() {}
+    /**
+     * @return The ID of the App Service Plan.
+     * 
+     */
     public String appServicePlanId() {
         return this.appServicePlanId;
     }
+    /**
+     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * 
+     */
     public Map<String,String> appSettings() {
         return this.appSettings;
     }
+    /**
+     * @return Controls the allowed range for bundle versions.
+     * 
+     */
     public String bundleVersion() {
         return this.bundleVersion;
     }
+    /**
+     * @return Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance.
+     * 
+     */
     public Boolean clientAffinityEnabled() {
         return this.clientAffinityEnabled;
     }
+    /**
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests.
+     * 
+     */
     public String clientCertificateMode() {
         return this.clientCertificateMode;
     }
+    /**
+     * @return A `connection_string` block as defined below.
+     * 
+     */
     public List<GetStandardConnectionString> connectionStrings() {
         return this.connectionStrings;
     }
+    /**
+     * @return The custom domain verification of the Logic App.
+     * 
+     */
     public String customDomainVerificationId() {
         return this.customDomainVerificationId;
     }
+    /**
+     * @return The default hostname of the Logic App.
+     * 
+     */
     public String defaultHostname() {
         return this.defaultHostname;
     }
+    /**
+     * @return Whether the Logic App is enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Whether the Logic App can only be accessed via HTTPS.
+     * 
+     */
     public Boolean httpsOnly() {
         return this.httpsOnly;
     }
@@ -103,6 +239,10 @@ public final class GetStandardResult {
     public List<GetStandardIdentity> identities() {
         return this.identities;
     }
+    /**
+     * @return The kind of the Logic App.
+     * 
+     */
     public String kind() {
         return this.kind;
     }
@@ -113,42 +253,97 @@ public final class GetStandardResult {
     public String location() {
         return this.location;
     }
+    /**
+     * @return The name for this IP Restriction.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The outbound IP addresses of the Logic App.
+     * 
+     */
     public String outboundIpAddresses() {
         return this.outboundIpAddresses;
     }
+    /**
+     * @return The possible outbound IP addresses of the Logic App.
+     * 
+     */
     public String possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
+    }
+    /**
+     * @return Whether Public Network Access should be enabled or not.
+     * 
+     */
+    public String publicNetworkAccess() {
+        return this.publicNetworkAccess;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return A `site_config` object as defined below.
+     * 
+     */
     public GetStandardSiteConfig siteConfig() {
         return this.siteConfig;
     }
+    /**
+     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+     * 
+     */
     public List<GetStandardSiteCredential> siteCredentials() {
         return this.siteCredentials;
     }
+    /**
+     * @return The access key which will be used to access the backend storage account for the Logic App.
+     * 
+     */
     public String storageAccountAccessKey() {
         return this.storageAccountAccessKey;
     }
+    /**
+     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data).
+     * 
+     */
     public String storageAccountName() {
         return this.storageAccountName;
     }
+    /**
+     * @return The name of the share used by the logic app.
+     * 
+     */
     public String storageAccountShareName() {
         return this.storageAccountShareName;
     }
+    /**
+     * @return A mapping of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
+    /**
+     * @return Whether the logic app should use the bundled extension package.
+     * 
+     */
     public Boolean useExtensionBundle() {
         return this.useExtensionBundle;
     }
+    /**
+     * @return The runtime version associated with the Logic App.
+     * 
+     */
     public String version() {
         return this.version;
     }
+    /**
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }
@@ -179,13 +374,14 @@ public final class GetStandardResult {
         private String name;
         private String outboundIpAddresses;
         private String possibleOutboundIpAddresses;
+        private String publicNetworkAccess;
         private String resourceGroupName;
         private GetStandardSiteConfig siteConfig;
         private List<GetStandardSiteCredential> siteCredentials;
         private String storageAccountAccessKey;
         private String storageAccountName;
         private String storageAccountShareName;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private Boolean useExtensionBundle;
         private String version;
         private String virtualNetworkSubnetId;
@@ -209,6 +405,7 @@ public final class GetStandardResult {
     	      this.name = defaults.name;
     	      this.outboundIpAddresses = defaults.outboundIpAddresses;
     	      this.possibleOutboundIpAddresses = defaults.possibleOutboundIpAddresses;
+    	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.siteConfig = defaults.siteConfig;
     	      this.siteCredentials = defaults.siteCredentials;
@@ -364,6 +561,14 @@ public final class GetStandardResult {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            if (publicNetworkAccess == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "publicNetworkAccess");
+            }
+            this.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetStandardResult", "resourceGroupName");
@@ -415,8 +620,10 @@ public final class GetStandardResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "tags");
+            }
             this.tags = tags;
             return this;
         }
@@ -463,6 +670,7 @@ public final class GetStandardResult {
             _resultValue.name = name;
             _resultValue.outboundIpAddresses = outboundIpAddresses;
             _resultValue.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            _resultValue.publicNetworkAccess = publicNetworkAccess;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.siteConfig = siteConfig;
             _resultValue.siteCredentials = siteCredentials;

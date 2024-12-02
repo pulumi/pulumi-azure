@@ -148,6 +148,8 @@ type Service struct {
 	//
 	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode pulumi.StringPtrOutput `pulumi:"authenticationFailureMode"`
+	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+	CustomerManagedKeyEncryptionComplianceStatus pulumi.StringOutput `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnforcementEnabled"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
@@ -241,6 +243,8 @@ type serviceState struct {
 	//
 	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode *string `pulumi:"authenticationFailureMode"`
+	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+	CustomerManagedKeyEncryptionComplianceStatus *string `pulumi:"customerManagedKeyEncryptionComplianceStatus"`
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled *bool `pulumi:"customerManagedKeyEnforcementEnabled"`
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
@@ -294,6 +298,8 @@ type ServiceState struct {
 	//
 	// > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 	AuthenticationFailureMode pulumi.StringPtrInput
+	// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+	CustomerManagedKeyEncryptionComplianceStatus pulumi.StringPtrInput
 	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
 	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrInput
 	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
@@ -536,6 +542,11 @@ func (o ServiceOutput) AllowedIps() pulumi.StringArrayOutput {
 // > **NOTE:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
 func (o ServiceOutput) AuthenticationFailureMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AuthenticationFailureMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+func (o ServiceOutput) CustomerManagedKeyEncryptionComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.CustomerManagedKeyEncryptionComplianceStatus }).(pulumi.StringOutput)
 }
 
 // Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.

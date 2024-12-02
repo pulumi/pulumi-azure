@@ -13,15 +13,33 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetStandardSiteConfigScmIpRestrictionResult
     {
+        /// <summary>
+        /// Does this restriction `Allow` or `Deny` access for this IP range.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// The `headers` block for this specific `ip_restriction` as defined below.
+        /// </summary>
         public readonly Outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult Headers;
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
+        /// </summary>
         public readonly string? IpAddress;
         /// <summary>
         /// The name of this Logic App.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order.
+        /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// The Service Tag used for this IP Restriction.
+        /// </summary>
         public readonly string? ServiceTag;
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
         public readonly string? VirtualNetworkSubnetId;
 
         [OutputConstructor]

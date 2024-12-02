@@ -14,25 +14,61 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigIpRestriction {
+    /**
+     * @return Does this restriction `Allow` or `Deny` access for this IP range.
+     * 
+     */
     private @Nullable String action;
+    /**
+     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * 
+     */
     private GetStandardSiteConfigIpRestrictionHeaders headers;
+    /**
+     * @return The IP Address used for this IP Restriction in CIDR notation.
+     * 
+     */
     private @Nullable String ipAddress;
     /**
      * @return The name of this Logic App.
      * 
      */
     private String name;
+    /**
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order.
+     * 
+     */
     private @Nullable Integer priority;
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     private @Nullable String serviceTag;
+    /**
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     private @Nullable String virtualNetworkSubnetId;
 
     private GetStandardSiteConfigIpRestriction() {}
+    /**
+     * @return Does this restriction `Allow` or `Deny` access for this IP range.
+     * 
+     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
+    /**
+     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * 
+     */
     public GetStandardSiteConfigIpRestrictionHeaders headers() {
         return this.headers;
     }
+    /**
+     * @return The IP Address used for this IP Restriction in CIDR notation.
+     * 
+     */
     public Optional<String> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
@@ -43,12 +79,24 @@ public final class GetStandardSiteConfigIpRestriction {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order.
+     * 
+     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     public Optional<String> serviceTag() {
         return Optional.ofNullable(this.serviceTag);
     }
+    /**
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     public Optional<String> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }

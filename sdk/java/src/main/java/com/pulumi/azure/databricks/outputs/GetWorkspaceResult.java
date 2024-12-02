@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.databricks.outputs;
 
+import com.pulumi.azure.databricks.outputs.GetWorkspaceEnhancedSecurityCompliance;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceManagedDiskIdentity;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceStorageAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkspaceResult {
+    /**
+     * @return An `enhanced_security_compliance` block as documented below.
+     * 
+     */
+    private List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -59,6 +65,13 @@ public final class GetWorkspaceResult {
     private String workspaceUrl;
 
     private GetWorkspaceResult() {}
+    /**
+     * @return An `enhanced_security_compliance` block as documented below.
+     * 
+     */
+    public List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances() {
+        return this.enhancedSecurityCompliances;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -131,6 +144,7 @@ public final class GetWorkspaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances;
         private String id;
         private String location;
         private List<GetWorkspaceManagedDiskIdentity> managedDiskIdentities;
@@ -144,6 +158,7 @@ public final class GetWorkspaceResult {
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enhancedSecurityCompliances = defaults.enhancedSecurityCompliances;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.managedDiskIdentities = defaults.managedDiskIdentities;
@@ -156,6 +171,17 @@ public final class GetWorkspaceResult {
     	      this.workspaceUrl = defaults.workspaceUrl;
         }
 
+        @CustomType.Setter
+        public Builder enhancedSecurityCompliances(List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances) {
+            if (enhancedSecurityCompliances == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "enhancedSecurityCompliances");
+            }
+            this.enhancedSecurityCompliances = enhancedSecurityCompliances;
+            return this;
+        }
+        public Builder enhancedSecurityCompliances(GetWorkspaceEnhancedSecurityCompliance... enhancedSecurityCompliances) {
+            return enhancedSecurityCompliances(List.of(enhancedSecurityCompliances));
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -242,6 +268,7 @@ public final class GetWorkspaceResult {
         }
         public GetWorkspaceResult build() {
             final var _resultValue = new GetWorkspaceResult();
+            _resultValue.enhancedSecurityCompliances = enhancedSecurityCompliances;
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.managedDiskIdentities = managedDiskIdentities;

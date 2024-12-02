@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Search.Outputs
     public sealed class ServiceIdentity
     {
         /// <summary>
+        /// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Search Service.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.Search.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Search Service. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private ServiceIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

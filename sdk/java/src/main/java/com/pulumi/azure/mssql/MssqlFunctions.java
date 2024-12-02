@@ -8,12 +8,15 @@ import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
 import com.pulumi.azure.mssql.inputs.GetDatabasePlainArgs;
 import com.pulumi.azure.mssql.inputs.GetElasticPoolArgs;
 import com.pulumi.azure.mssql.inputs.GetElasticPoolPlainArgs;
+import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+import com.pulumi.azure.mssql.inputs.GetManagedDatabasePlainArgs;
 import com.pulumi.azure.mssql.inputs.GetManagedInstanceArgs;
 import com.pulumi.azure.mssql.inputs.GetManagedInstancePlainArgs;
 import com.pulumi.azure.mssql.inputs.GetServerArgs;
 import com.pulumi.azure.mssql.inputs.GetServerPlainArgs;
 import com.pulumi.azure.mssql.outputs.GetDatabaseResult;
 import com.pulumi.azure.mssql.outputs.GetElasticPoolResult;
+import com.pulumi.azure.mssql.outputs.GetManagedDatabaseResult;
 import com.pulumi.azure.mssql.outputs.GetManagedInstanceResult;
 import com.pulumi.azure.mssql.outputs.GetServerResult;
 import com.pulumi.core.Output;
@@ -450,6 +453,182 @@ public final class MssqlFunctions {
      */
     public static CompletableFuture<GetElasticPoolResult> getElasticPoolPlain(GetElasticPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:mssql/getElasticPool:getElasticPool", TypeShape.of(GetElasticPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args) {
+        return getManagedDatabase(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args) {
+        return getManagedDatabasePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:mssql/getManagedDatabase:getManagedDatabase", TypeShape.of(GetManagedDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.mssql.MssqlFunctions;
+     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:mssql/getManagedDatabase:getManagedDatabase", TypeShape.of(GetManagedDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.

@@ -129,79 +129,79 @@ namespace Pulumi.Azure.Oracle
     public partial class CloudVmCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+        /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("backupSubnetCidr")]
         public Output<string?> BackupSubnetCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("cloudExadataInfrastructureId")]
         public Output<string> CloudExadataInfrastructureId { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster name for Cloud VM Cluster.
+        /// The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// The number of CPU cores enabled on the Cloud VM Cluster.
+        /// The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("cpuCoreCount")]
         public Output<int> CpuCoreCount { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_collection_options` block as defined below.
+        /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("dataCollectionOptions")]
         public Output<Outputs.CloudVmClusterDataCollectionOptions> DataCollectionOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+        /// The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         /// </summary>
         [Output("dataStoragePercentage")]
         public Output<int> DataStoragePercentage { get; private set; } = null!;
 
         /// <summary>
-        /// The data disk group size to be allocated in TBs.
+        /// The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("dataStorageSizeInTbs")]
         public Output<double> DataStorageSizeInTbs { get; private set; } = null!;
 
         /// <summary>
-        /// The local node storage to be allocated in GBs.
+        /// The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("dbNodeStorageSizeInGbs")]
         public Output<int> DbNodeStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The list of DB servers.
+        /// The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("dbServers")]
         public Output<ImmutableArray<string>> DbServers { get; private set; } = null!;
 
         /// <summary>
-        /// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+        /// The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// A valid Oracle Grid Infrastructure (GI) software version.
+        /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("giVersion")]
         public Output<string> GiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The hostname for the Cloud VM Cluster without suffix.
+        /// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("hostname")]
         public Output<string> Hostname { get; private set; } = null!;
@@ -213,31 +213,31 @@ namespace Pulumi.Azure.Oracle
         public Output<string> HostnameActual { get; private set; } = null!;
 
         /// <summary>
-        /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+        /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("licenseModel")]
         public Output<string> LicenseModel { get; private set; } = null!;
 
         /// <summary>
-        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("localBackupEnabled")]
         public Output<bool> LocalBackupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Cloud VM Cluster should exist.
+        /// The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The memory to be allocated in GBs.
+        /// The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("memorySizeInGbs")]
         public Output<int> MemorySizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Cloud VM Cluster.
+        /// The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -249,37 +249,37 @@ namespace Pulumi.Azure.Oracle
         public Output<string> Ocid { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Cloud VM Cluster should exist.
+        /// The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("scanListenerPortTcp")]
         public Output<int?> ScanListenerPortTcp { get; private set; } = null!;
 
         /// <summary>
-        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("scanListenerPortTcpSsl")]
         public Output<int?> ScanListenerPortTcpSsl { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("sparseDiskgroupEnabled")]
         public Output<bool> SparseDiskgroupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+        /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("sshPublicKeys")]
         public Output<ImmutableArray<string>> SshPublicKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet associated with the Cloud VM Cluster.
+        /// The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -291,19 +291,19 @@ namespace Pulumi.Azure.Oracle
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+        /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Network associated with the Cloud VM Cluster.
+        /// The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("virtualNetworkId")]
         public Output<string> VirtualNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
@@ -355,49 +355,49 @@ namespace Pulumi.Azure.Oracle
     public sealed class CloudVmClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+        /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("backupSubnetCidr")]
         public Input<string>? BackupSubnetCidr { get; set; }
 
         /// <summary>
-        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("cloudExadataInfrastructureId", required: true)]
         public Input<string> CloudExadataInfrastructureId { get; set; } = null!;
 
         /// <summary>
-        /// The cluster name for Cloud VM Cluster.
+        /// The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The number of CPU cores enabled on the Cloud VM Cluster.
+        /// The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("cpuCoreCount", required: true)]
         public Input<int> CpuCoreCount { get; set; } = null!;
 
         /// <summary>
-        /// A `data_collection_options` block as defined below.
+        /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsArgs>? DataCollectionOptions { get; set; }
 
         /// <summary>
-        /// The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+        /// The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         /// </summary>
         [Input("dataStoragePercentage")]
         public Input<int>? DataStoragePercentage { get; set; }
 
         /// <summary>
-        /// The data disk group size to be allocated in TBs.
+        /// The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dataStorageSizeInTbs")]
         public Input<double>? DataStorageSizeInTbs { get; set; }
 
         /// <summary>
-        /// The local node storage to be allocated in GBs.
+        /// The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dbNodeStorageSizeInGbs")]
         public Input<int>? DbNodeStorageSizeInGbs { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _dbServers;
 
         /// <summary>
-        /// The list of DB servers.
+        /// The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         public InputList<string> DbServers
         {
@@ -415,79 +415,79 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+        /// The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// A valid Oracle Grid Infrastructure (GI) software version.
+        /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("giVersion", required: true)]
         public Input<string> GiVersion { get; set; } = null!;
 
         /// <summary>
-        /// The hostname for the Cloud VM Cluster without suffix.
+        /// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("hostname", required: true)]
         public Input<string> Hostname { get; set; } = null!;
 
         /// <summary>
-        /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+        /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("licenseModel", required: true)]
         public Input<string> LicenseModel { get; set; } = null!;
 
         /// <summary>
-        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("localBackupEnabled")]
         public Input<bool>? LocalBackupEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Cloud VM Cluster should exist.
+        /// The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The memory to be allocated in GBs.
+        /// The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("memorySizeInGbs")]
         public Input<int>? MemorySizeInGbs { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Cloud VM Cluster.
+        /// The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Cloud VM Cluster should exist.
+        /// The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("scanListenerPortTcp")]
         public Input<int>? ScanListenerPortTcp { get; set; }
 
         /// <summary>
-        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("scanListenerPortTcpSsl")]
         public Input<int>? ScanListenerPortTcpSsl { get; set; }
 
         /// <summary>
-        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("sparseDiskgroupEnabled")]
         public Input<bool>? SparseDiskgroupEnabled { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _sshPublicKeys;
 
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+        /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         public InputList<string> SshPublicKeys
         {
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The ID of the subnet associated with the Cloud VM Cluster.
+        /// The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -523,19 +523,19 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+        /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Network associated with the Cloud VM Cluster.
+        /// The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("virtualNetworkId", required: true)]
         public Input<string> VirtualNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -549,49 +549,49 @@ namespace Pulumi.Azure.Oracle
     public sealed class CloudVmClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+        /// The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("backupSubnetCidr")]
         public Input<string>? BackupSubnetCidr { get; set; }
 
         /// <summary>
-        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+        /// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }
 
         /// <summary>
-        /// The cluster name for Cloud VM Cluster.
+        /// The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The number of CPU cores enabled on the Cloud VM Cluster.
+        /// The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("cpuCoreCount")]
         public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
-        /// A `data_collection_options` block as defined below.
+        /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsGetArgs>? DataCollectionOptions { get; set; }
 
         /// <summary>
-        /// The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+        /// The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         /// </summary>
         [Input("dataStoragePercentage")]
         public Input<int>? DataStoragePercentage { get; set; }
 
         /// <summary>
-        /// The data disk group size to be allocated in TBs.
+        /// The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dataStorageSizeInTbs")]
         public Input<double>? DataStorageSizeInTbs { get; set; }
 
         /// <summary>
-        /// The local node storage to be allocated in GBs.
+        /// The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dbNodeStorageSizeInGbs")]
         public Input<int>? DbNodeStorageSizeInGbs { get; set; }
@@ -600,7 +600,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _dbServers;
 
         /// <summary>
-        /// The list of DB servers.
+        /// The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         public InputList<string> DbServers
         {
@@ -609,25 +609,25 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+        /// The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// A valid Oracle Grid Infrastructure (GI) software version.
+        /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("giVersion")]
         public Input<string>? GiVersion { get; set; }
 
         /// <summary>
-        /// The hostname for the Cloud VM Cluster without suffix.
+        /// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
@@ -639,31 +639,31 @@ namespace Pulumi.Azure.Oracle
         public Input<string>? HostnameActual { get; set; }
 
         /// <summary>
-        /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+        /// The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
 
         /// <summary>
-        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("localBackupEnabled")]
         public Input<bool>? LocalBackupEnabled { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Cloud VM Cluster should exist.
+        /// The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The memory to be allocated in GBs.
+        /// The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("memorySizeInGbs")]
         public Input<int>? MemorySizeInGbs { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Cloud VM Cluster.
+        /// The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -675,25 +675,25 @@ namespace Pulumi.Azure.Oracle
         public Input<string>? Ocid { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Cloud VM Cluster should exist.
+        /// The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+        /// The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("scanListenerPortTcp")]
         public Input<int>? ScanListenerPortTcp { get; set; }
 
         /// <summary>
-        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+        /// The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("scanListenerPortTcpSsl")]
         public Input<int>? ScanListenerPortTcpSsl { get; set; }
 
         /// <summary>
-        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("sparseDiskgroupEnabled")]
         public Input<bool>? SparseDiskgroupEnabled { get; set; }
@@ -702,7 +702,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _sshPublicKeys;
 
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+        /// The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         public InputList<string> SshPublicKeys
         {
@@ -711,7 +711,7 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The ID of the subnet associated with the Cloud VM Cluster.
+        /// The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -729,19 +729,19 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+        /// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Network associated with the Cloud VM Cluster.
+        /// The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }
 
         /// <summary>
-        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+        /// The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

@@ -78,14 +78,14 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     }
 
     /**
-     * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -241,7 +241,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         }
 
         /**
-         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         }
 
         /**
-         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
          * 
          * @return builder
          * 

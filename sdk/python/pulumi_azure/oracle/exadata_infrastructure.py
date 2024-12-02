@@ -34,16 +34,16 @@ class ExadataInfrastructureArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ExadataInfrastructure resource.
-        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure.
-        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist.
-        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource.
-        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure.
+        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]] maintenance_windows: One or more `maintenance_window` blocks as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
         """
         pulumi.set(__self__, "compute_count", compute_count)
@@ -67,7 +67,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> pulumi.Input[int]:
         """
-        The number of compute servers for the Cloud Exadata Infrastructure.
+        The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "compute_count")
 
@@ -79,7 +79,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -91,7 +91,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the ODB@A Infrastructure should exist.
+        The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -103,7 +103,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter
     def shape(self) -> pulumi.Input[str]:
         """
-        The shape of the ODB@A infrastructure resource.
+        The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "shape")
 
@@ -115,7 +115,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> pulumi.Input[int]:
         """
-        The number of storage servers for the Cloud Exadata Infrastructure.
+        The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "storage_count")
 
@@ -127,7 +127,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter
     def zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Cloud Exadata Infrastructure zones.
+        Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -139,7 +139,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter(name="customerContacts")
     def customer_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The email address used by Oracle to send notifications regarding databases and infrastructure.
+        The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "customer_contacts")
 
@@ -163,7 +163,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]]]:
         """
-        One or more `maintenance_window` blocks as defined below.
+        One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "maintenance_windows")
 
@@ -175,7 +175,7 @@ class ExadataInfrastructureArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Cloud Exadata Infrastructure.
+        The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "name")
 
@@ -212,17 +212,17 @@ class _ExadataInfrastructureState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ExadataInfrastructure resources.
-        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure.
-        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]] maintenance_windows: One or more `maintenance_window` blocks as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist.
-        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource.
-        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         if compute_count is not None:
             pulumi.set(__self__, "compute_count", compute_count)
@@ -251,7 +251,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of compute servers for the Cloud Exadata Infrastructure.
+        The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "compute_count")
 
@@ -263,7 +263,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter(name="customerContacts")
     def customer_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The email address used by Oracle to send notifications regarding databases and infrastructure.
+        The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "customer_contacts")
 
@@ -275,7 +275,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -299,7 +299,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]]]:
         """
-        One or more `maintenance_window` blocks as defined below.
+        One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "maintenance_windows")
 
@@ -311,7 +311,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Cloud Exadata Infrastructure.
+        The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "name")
 
@@ -323,7 +323,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the ODB@A Infrastructure should exist.
+        The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -335,7 +335,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter
     def shape(self) -> Optional[pulumi.Input[str]]:
         """
-        The shape of the ODB@A infrastructure resource.
+        The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "shape")
 
@@ -347,7 +347,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of storage servers for the Cloud Exadata Infrastructure.
+        The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "storage_count")
 
@@ -371,7 +371,7 @@ class _ExadataInfrastructureState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Cloud Exadata Infrastructure zones.
+        Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -430,17 +430,17 @@ class ExadataInfrastructure(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure.
-        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist.
-        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource.
-        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         ...
     @overload
@@ -565,17 +565,17 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure.
-        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        :param pulumi.Input[int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist.
-        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource.
-        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -598,7 +598,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> pulumi.Output[int]:
         """
-        The number of compute servers for the Cloud Exadata Infrastructure.
+        The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "compute_count")
 
@@ -606,7 +606,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="customerContacts")
     def customer_contacts(self) -> pulumi.Output[Sequence[str]]:
         """
-        The email address used by Oracle to send notifications regarding databases and infrastructure.
+        The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "customer_contacts")
 
@@ -614,7 +614,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -630,7 +630,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> pulumi.Output[Sequence['outputs.ExadataInfrastructureMaintenanceWindow']]:
         """
-        One or more `maintenance_window` blocks as defined below.
+        One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "maintenance_windows")
 
@@ -638,7 +638,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Cloud Exadata Infrastructure.
+        The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "name")
 
@@ -646,7 +646,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the ODB@A Infrastructure should exist.
+        The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -654,7 +654,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def shape(self) -> pulumi.Output[str]:
         """
-        The shape of the ODB@A infrastructure resource.
+        The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "shape")
 
@@ -662,7 +662,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> pulumi.Output[int]:
         """
-        The number of storage servers for the Cloud Exadata Infrastructure.
+        The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "storage_count")
 
@@ -678,7 +678,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Sequence[str]]:
         """
-        Cloud Exadata Infrastructure zones.
+        Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "zones")
 

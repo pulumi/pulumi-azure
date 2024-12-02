@@ -14,11 +14,15 @@ namespace Pulumi.Azure.Search.Outputs
     public sealed class GetServiceIdentityResult
     {
         /// <summary>
-        /// The (Client) ID of the Service Principal.
+        /// The list of User Assigned Managed Service Identity IDs assigned to this Search Service.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
+        /// The Tenant ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Search.Outputs
 
         [OutputConstructor]
         private GetServiceIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

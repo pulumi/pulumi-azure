@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryTaskAgentSetting
     {
         /// <summary>
-        /// The number of cores required for the Container Registry Task.
+        /// The number of cores required for the Container Registry Task. Possible value is `2`.
         /// </summary>
         public readonly int Cpu;
 

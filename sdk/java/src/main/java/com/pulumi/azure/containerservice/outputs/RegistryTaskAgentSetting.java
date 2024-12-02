@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RegistryTaskAgentSetting {
     /**
-     * @return The number of cores required for the Container Registry Task.
+     * @return The number of cores required for the Container Registry Task. Possible value is `2`.
      * 
      */
     private Integer cpu;
 
     private RegistryTaskAgentSetting() {}
     /**
-     * @return The number of cores required for the Container Registry Task.
+     * @return The number of cores required for the Container Registry Task. Possible value is `2`.
      * 
      */
     public Integer cpu() {

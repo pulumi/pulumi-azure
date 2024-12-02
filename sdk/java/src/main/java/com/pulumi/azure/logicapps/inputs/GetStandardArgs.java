@@ -8,7 +8,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -48,18 +47,19 @@ public final class GetStandardArgs extends com.pulumi.resources.InvokeArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * A `site_config` object as defined below.
+     * 
+     */
     @Import(name="siteConfig")
     private @Nullable Output<GetStandardSiteConfigArgs> siteConfig;
 
+    /**
+     * @return A `site_config` object as defined below.
+     * 
+     */
     public Optional<Output<GetStandardSiteConfigArgs>> siteConfig() {
         return Optional.ofNullable(this.siteConfig);
-    }
-
-    @Import(name="tags")
-    private @Nullable Output<Map<String,String>> tags;
-
-    public Optional<Output<Map<String,String>>> tags() {
-        return Optional.ofNullable(this.tags);
     }
 
     private GetStandardArgs() {}
@@ -68,7 +68,6 @@ public final class GetStandardArgs extends com.pulumi.resources.InvokeArgs {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.siteConfig = $.siteConfig;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -131,22 +130,25 @@ public final class GetStandardArgs extends com.pulumi.resources.InvokeArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param siteConfig A `site_config` object as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder siteConfig(@Nullable Output<GetStandardSiteConfigArgs> siteConfig) {
             $.siteConfig = siteConfig;
             return this;
         }
 
+        /**
+         * @param siteConfig A `site_config` object as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder siteConfig(GetStandardSiteConfigArgs siteConfig) {
             return siteConfig(Output.of(siteConfig));
-        }
-
-        public Builder tags(@Nullable Output<Map<String,String>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        public Builder tags(Map<String,String> tags) {
-            return tags(Output.of(tags));
         }
 
         public GetStandardArgs build() {

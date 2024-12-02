@@ -17,6 +17,11 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceResult {
     /**
+     * @return Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     * 
+     */
+    private String customerManagedKeyEncryptionComplianceStatus;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -69,6 +74,13 @@ public final class GetServiceResult {
     private Map<String,String> tags;
 
     private GetServiceResult() {}
+    /**
+     * @return Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     * 
+     */
+    public String customerManagedKeyEncryptionComplianceStatus() {
+        return this.customerManagedKeyEncryptionComplianceStatus;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -152,6 +164,7 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String customerManagedKeyEncryptionComplianceStatus;
         private String id;
         private List<GetServiceIdentity> identities;
         private String name;
@@ -166,6 +179,7 @@ public final class GetServiceResult {
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customerManagedKeyEncryptionComplianceStatus = defaults.customerManagedKeyEncryptionComplianceStatus;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.name = defaults.name;
@@ -179,6 +193,14 @@ public final class GetServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder customerManagedKeyEncryptionComplianceStatus(String customerManagedKeyEncryptionComplianceStatus) {
+            if (customerManagedKeyEncryptionComplianceStatus == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "customerManagedKeyEncryptionComplianceStatus");
+            }
+            this.customerManagedKeyEncryptionComplianceStatus = customerManagedKeyEncryptionComplianceStatus;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -275,6 +297,7 @@ public final class GetServiceResult {
         }
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
+            _resultValue.customerManagedKeyEncryptionComplianceStatus = customerManagedKeyEncryptionComplianceStatus;
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.name = name;

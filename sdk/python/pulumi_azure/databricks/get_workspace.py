@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, location=None, managed_disk_identities=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, enhanced_security_compliances=None, id=None, location=None, managed_disk_identities=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
+        if enhanced_security_compliances and not isinstance(enhanced_security_compliances, list):
+            raise TypeError("Expected argument 'enhanced_security_compliances' to be a list")
+        pulumi.set(__self__, "enhanced_security_compliances", enhanced_security_compliances)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,14 @@ class GetWorkspaceResult:
         if workspace_url and not isinstance(workspace_url, str):
             raise TypeError("Expected argument 'workspace_url' to be a str")
         pulumi.set(__self__, "workspace_url", workspace_url)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityCompliances")
+    def enhanced_security_compliances(self) -> Sequence['outputs.GetWorkspaceEnhancedSecurityComplianceResult']:
+        """
+        An `enhanced_security_compliance` block as documented below.
+        """
+        return pulumi.get(self, "enhanced_security_compliances")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            enhanced_security_compliances=self.enhanced_security_compliances,
             id=self.id,
             location=self.location,
             managed_disk_identities=self.managed_disk_identities,
@@ -183,6 +195,7 @@ def get_workspace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        enhanced_security_compliances=pulumi.get(__ret__, 'enhanced_security_compliances'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         managed_disk_identities=pulumi.get(__ret__, 'managed_disk_identities'),
@@ -223,6 +236,7 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        enhanced_security_compliances=pulumi.get(__response__, 'enhanced_security_compliances'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         managed_disk_identities=pulumi.get(__response__, 'managed_disk_identities'),

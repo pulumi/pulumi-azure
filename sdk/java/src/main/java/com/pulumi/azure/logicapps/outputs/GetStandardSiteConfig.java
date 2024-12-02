@@ -18,93 +18,273 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfig {
+    /**
+     * @return Should the Logic App be loaded at all times?
+     * 
+     */
     private @Nullable Boolean alwaysOn;
+    /**
+     * @return The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+     * 
+     */
     private Integer appScaleLimit;
+    /**
+     * @return The Auto-swap slot name.
+     * 
+     */
     private String autoSwapSlotName;
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
     private GetStandardSiteConfigCors cors;
+    /**
+     * @return The version of the .NET framework&#39;s CLR used in this Logic App.
+     * 
+     */
     private @Nullable String dotnetFrameworkVersion;
+    /**
+     * @return The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+     * 
+     */
     private Integer elasticInstanceMinimum;
+    /**
+     * @return The state of FTP / FTPS service for this Logic App.
+     * 
+     */
     private String ftpsState;
+    /**
+     * @return Path which will be checked for this Logic App health.
+     * 
+     */
     private @Nullable String healthCheckPath;
+    /**
+     * @return Specifies whether the HTTP2 protocol should be enabled.
+     * 
+     */
     private @Nullable Boolean http2Enabled;
+    /**
+     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * 
+     */
     private List<GetStandardSiteConfigIpRestriction> ipRestrictions;
+    /**
+     * @return Linux App Framework and version for the Logic App.
+     * 
+     */
     private String linuxFxVersion;
+    /**
+     * @return The minimum supported TLS version for the Logic App.
+     * 
+     */
     private String minTlsVersion;
+    /**
+     * @return The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+     * 
+     */
     private Integer preWarmedInstanceCount;
-    private @Nullable Boolean publicNetworkAccessEnabled;
+    /**
+     * @deprecated
+     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    private Boolean publicNetworkAccessEnabled;
+    /**
+     * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
+     * 
+     */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    /**
+     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * 
+     */
     private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
+    /**
+     * @return The minimum version of TLS required for SSL requests to the SCM site.
+     * 
+     */
     private String scmMinTlsVersion;
+    /**
+     * @return The type of Source Control used by the Logic App in use by the Windows Function App.
+     * 
+     */
     private String scmType;
+    /**
+     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too.
+     * 
+     */
     private @Nullable Boolean scmUseMainIpRestriction;
+    /**
+     * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode?
+     * 
+     */
     private @Nullable Boolean use32BitWorkerProcess;
+    /**
+     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+     * 
+     */
     private Boolean vnetRouteAllEnabled;
+    /**
+     * @return Should WebSockets be enabled?
+     * 
+     */
     private @Nullable Boolean websocketsEnabled;
 
     private GetStandardSiteConfig() {}
+    /**
+     * @return Should the Logic App be loaded at all times?
+     * 
+     */
     public Optional<Boolean> alwaysOn() {
         return Optional.ofNullable(this.alwaysOn);
     }
+    /**
+     * @return The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+     * 
+     */
     public Integer appScaleLimit() {
         return this.appScaleLimit;
     }
+    /**
+     * @return The Auto-swap slot name.
+     * 
+     */
     public String autoSwapSlotName() {
         return this.autoSwapSlotName;
     }
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
     public GetStandardSiteConfigCors cors() {
         return this.cors;
     }
+    /**
+     * @return The version of the .NET framework&#39;s CLR used in this Logic App.
+     * 
+     */
     public Optional<String> dotnetFrameworkVersion() {
         return Optional.ofNullable(this.dotnetFrameworkVersion);
     }
+    /**
+     * @return The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+     * 
+     */
     public Integer elasticInstanceMinimum() {
         return this.elasticInstanceMinimum;
     }
+    /**
+     * @return The state of FTP / FTPS service for this Logic App.
+     * 
+     */
     public String ftpsState() {
         return this.ftpsState;
     }
+    /**
+     * @return Path which will be checked for this Logic App health.
+     * 
+     */
     public Optional<String> healthCheckPath() {
         return Optional.ofNullable(this.healthCheckPath);
     }
+    /**
+     * @return Specifies whether the HTTP2 protocol should be enabled.
+     * 
+     */
     public Optional<Boolean> http2Enabled() {
         return Optional.ofNullable(this.http2Enabled);
     }
+    /**
+     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * 
+     */
     public List<GetStandardSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions;
     }
+    /**
+     * @return Linux App Framework and version for the Logic App.
+     * 
+     */
     public String linuxFxVersion() {
         return this.linuxFxVersion;
     }
+    /**
+     * @return The minimum supported TLS version for the Logic App.
+     * 
+     */
     public String minTlsVersion() {
         return this.minTlsVersion;
     }
+    /**
+     * @return The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+     * 
+     */
     public Integer preWarmedInstanceCount() {
         return this.preWarmedInstanceCount;
     }
-    public Optional<Boolean> publicNetworkAccessEnabled() {
-        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    /**
+     * @deprecated
+     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
     }
+    /**
+     * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
+     * 
+     */
     public Optional<Boolean> runtimeScaleMonitoringEnabled() {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
+    /**
+     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * 
+     */
     public List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions() {
         return this.scmIpRestrictions;
     }
+    /**
+     * @return The minimum version of TLS required for SSL requests to the SCM site.
+     * 
+     */
     public String scmMinTlsVersion() {
         return this.scmMinTlsVersion;
     }
+    /**
+     * @return The type of Source Control used by the Logic App in use by the Windows Function App.
+     * 
+     */
     public String scmType() {
         return this.scmType;
     }
+    /**
+     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too.
+     * 
+     */
     public Optional<Boolean> scmUseMainIpRestriction() {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
+    /**
+     * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode?
+     * 
+     */
     public Optional<Boolean> use32BitWorkerProcess() {
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
+    /**
+     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+     * 
+     */
     public Boolean vnetRouteAllEnabled() {
         return this.vnetRouteAllEnabled;
     }
+    /**
+     * @return Should WebSockets be enabled?
+     * 
+     */
     public Optional<Boolean> websocketsEnabled() {
         return Optional.ofNullable(this.websocketsEnabled);
     }
@@ -131,7 +311,7 @@ public final class GetStandardSiteConfig {
         private String linuxFxVersion;
         private String minTlsVersion;
         private Integer preWarmedInstanceCount;
-        private @Nullable Boolean publicNetworkAccessEnabled;
+        private Boolean publicNetworkAccessEnabled;
         private @Nullable Boolean runtimeScaleMonitoringEnabled;
         private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
         private String scmMinTlsVersion;
@@ -267,8 +447,10 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
-
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "publicNetworkAccessEnabled");
+            }
             this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }

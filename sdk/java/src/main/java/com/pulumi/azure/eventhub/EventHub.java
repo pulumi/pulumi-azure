@@ -65,8 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleEventHub = new EventHub("exampleEventHub", EventHubArgs.builder()
  *             .name("acceptanceTestEventHub")
- *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(example.name())
+ *             .namespaceId(exampleEventHubNamespace.id())
  *             .partitionCount(2)
  *             .messageRetention(1)
  *             .build());
@@ -135,16 +134,28 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
+    @Export(name="namespaceId", refs={String.class}, tree="[0]")
+    private Output<String> namespaceId;
+
+    /**
+     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> namespaceId() {
+        return this.namespaceId;
+    }
+    /**
+     * @deprecated
+     * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
-    /**
-     * @return Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
@@ -185,16 +196,14 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.partitionIds;
     }
     /**
-     * The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
+     * @deprecated
+     * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
-    /**
-     * @return The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }

@@ -78,6 +78,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `agent_setting` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         /// </summary>
         [Output("agentSetting")]
         public Output<Outputs.RegistryTaskAgentSetting?> AgentSetting { get; private set; } = null!;
@@ -224,6 +226,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `agent_setting` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         /// </summary>
         [Input("agentSetting")]
         public Input<Inputs.RegistryTaskAgentSettingArgs>? AgentSetting { get; set; }
@@ -349,6 +353,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// A `agent_setting` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
         /// </summary>
         [Input("agentSetting")]
         public Input<Inputs.RegistryTaskAgentSettingGetArgs>? AgentSetting { get; set; }

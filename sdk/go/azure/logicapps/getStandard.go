@@ -55,43 +55,68 @@ type LookupStandardArgs struct {
 	// The name of this Logic App.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
-	ResourceGroupName string                 `pulumi:"resourceGroupName"`
-	SiteConfig        *GetStandardSiteConfig `pulumi:"siteConfig"`
-	Tags              map[string]string      `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `siteConfig` object as defined below.
+	SiteConfig *GetStandardSiteConfig `pulumi:"siteConfig"`
 }
 
 // A collection of values returned by getStandard.
 type LookupStandardResult struct {
-	AppServicePlanId           string                        `pulumi:"appServicePlanId"`
-	AppSettings                map[string]string             `pulumi:"appSettings"`
-	BundleVersion              string                        `pulumi:"bundleVersion"`
-	ClientAffinityEnabled      bool                          `pulumi:"clientAffinityEnabled"`
-	ClientCertificateMode      string                        `pulumi:"clientCertificateMode"`
-	ConnectionStrings          []GetStandardConnectionString `pulumi:"connectionStrings"`
-	CustomDomainVerificationId string                        `pulumi:"customDomainVerificationId"`
-	DefaultHostname            string                        `pulumi:"defaultHostname"`
-	Enabled                    bool                          `pulumi:"enabled"`
-	HttpsOnly                  bool                          `pulumi:"httpsOnly"`
+	// The ID of the App Service Plan.
+	AppServicePlanId string `pulumi:"appServicePlanId"`
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+	AppSettings map[string]string `pulumi:"appSettings"`
+	// Controls the allowed range for bundle versions.
+	BundleVersion string `pulumi:"bundleVersion"`
+	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance.
+	ClientAffinityEnabled bool `pulumi:"clientAffinityEnabled"`
+	// The mode of the Logic App's client certificates requirement for incoming requests.
+	ClientCertificateMode string `pulumi:"clientCertificateMode"`
+	// A `connectionString` block as defined below.
+	ConnectionStrings []GetStandardConnectionString `pulumi:"connectionStrings"`
+	// The custom domain verification of the Logic App.
+	CustomDomainVerificationId string `pulumi:"customDomainVerificationId"`
+	// The default hostname of the Logic App.
+	DefaultHostname string `pulumi:"defaultHostname"`
+	// Whether the Logic App is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Whether the Logic App can only be accessed via HTTPS.
+	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
 	Identities []GetStandardIdentity `pulumi:"identities"`
-	Kind       string                `pulumi:"kind"`
+	// The kind of the Logic App.
+	Kind string `pulumi:"kind"`
 	// The Azure location where the Logic App Standard exists.
-	Location                    string                      `pulumi:"location"`
-	Name                        string                      `pulumi:"name"`
-	OutboundIpAddresses         string                      `pulumi:"outboundIpAddresses"`
-	PossibleOutboundIpAddresses string                      `pulumi:"possibleOutboundIpAddresses"`
-	ResourceGroupName           string                      `pulumi:"resourceGroupName"`
-	SiteConfig                  GetStandardSiteConfig       `pulumi:"siteConfig"`
-	SiteCredentials             []GetStandardSiteCredential `pulumi:"siteCredentials"`
-	StorageAccountAccessKey     string                      `pulumi:"storageAccountAccessKey"`
-	StorageAccountName          string                      `pulumi:"storageAccountName"`
-	StorageAccountShareName     string                      `pulumi:"storageAccountShareName"`
-	Tags                        map[string]string           `pulumi:"tags"`
-	UseExtensionBundle          bool                        `pulumi:"useExtensionBundle"`
-	Version                     string                      `pulumi:"version"`
-	VirtualNetworkSubnetId      string                      `pulumi:"virtualNetworkSubnetId"`
+	Location string `pulumi:"location"`
+	// The name for this IP Restriction.
+	Name string `pulumi:"name"`
+	// The outbound IP addresses of the Logic App.
+	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
+	// The possible outbound IP addresses of the Logic App.
+	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
+	// Whether Public Network Access should be enabled or not.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	// A `siteConfig` object as defined below.
+	SiteConfig GetStandardSiteConfig `pulumi:"siteConfig"`
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+	SiteCredentials []GetStandardSiteCredential `pulumi:"siteCredentials"`
+	// The access key which will be used to access the backend storage account for the Logic App.
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data).
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// The name of the share used by the logic app.
+	StorageAccountShareName string `pulumi:"storageAccountShareName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Whether the logic app should use the bundled extension package.
+	UseExtensionBundle bool `pulumi:"useExtensionBundle"`
+	// The runtime version associated with the Logic App.
+	Version string `pulumi:"version"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, opts ...pulumi.InvokeOption) LookupStandardResultOutput {
@@ -118,9 +143,9 @@ type LookupStandardOutputArgs struct {
 	// The name of this Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
-	ResourceGroupName pulumi.StringInput            `pulumi:"resourceGroupName"`
-	SiteConfig        GetStandardSiteConfigPtrInput `pulumi:"siteConfig"`
-	Tags              pulumi.StringMapInput         `pulumi:"tags"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// A `siteConfig` object as defined below.
+	SiteConfig GetStandardSiteConfigPtrInput `pulumi:"siteConfig"`
 }
 
 func (LookupStandardOutputArgs) ElementType() reflect.Type {
@@ -142,42 +167,52 @@ func (o LookupStandardResultOutput) ToLookupStandardResultOutputWithContext(ctx 
 	return o
 }
 
+// The ID of the App Service Plan.
 func (o LookupStandardResultOutput) AppServicePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.AppServicePlanId }).(pulumi.StringOutput)
 }
 
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 func (o LookupStandardResultOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStandardResult) map[string]string { return v.AppSettings }).(pulumi.StringMapOutput)
 }
 
+// Controls the allowed range for bundle versions.
 func (o LookupStandardResultOutput) BundleVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.BundleVersion }).(pulumi.StringOutput)
 }
 
+// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance.
 func (o LookupStandardResultOutput) ClientAffinityEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStandardResult) bool { return v.ClientAffinityEnabled }).(pulumi.BoolOutput)
 }
 
+// The mode of the Logic App's client certificates requirement for incoming requests.
 func (o LookupStandardResultOutput) ClientCertificateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.ClientCertificateMode }).(pulumi.StringOutput)
 }
 
+// A `connectionString` block as defined below.
 func (o LookupStandardResultOutput) ConnectionStrings() GetStandardConnectionStringArrayOutput {
 	return o.ApplyT(func(v LookupStandardResult) []GetStandardConnectionString { return v.ConnectionStrings }).(GetStandardConnectionStringArrayOutput)
 }
 
+// The custom domain verification of the Logic App.
 func (o LookupStandardResultOutput) CustomDomainVerificationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
 }
 
+// The default hostname of the Logic App.
 func (o LookupStandardResultOutput) DefaultHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.DefaultHostname }).(pulumi.StringOutput)
 }
 
+// Whether the Logic App is enabled.
 func (o LookupStandardResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStandardResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Whether the Logic App can only be accessed via HTTPS.
 func (o LookupStandardResultOutput) HttpsOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStandardResult) bool { return v.HttpsOnly }).(pulumi.BoolOutput)
 }
@@ -192,6 +227,7 @@ func (o LookupStandardResultOutput) Identities() GetStandardIdentityArrayOutput 
 	return o.ApplyT(func(v LookupStandardResult) []GetStandardIdentity { return v.Identities }).(GetStandardIdentityArrayOutput)
 }
 
+// The kind of the Logic App.
 func (o LookupStandardResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -201,54 +237,71 @@ func (o LookupStandardResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The name for this IP Restriction.
 func (o LookupStandardResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The outbound IP addresses of the Logic App.
 func (o LookupStandardResultOutput) OutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.OutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// The possible outbound IP addresses of the Logic App.
 func (o LookupStandardResultOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+// Whether Public Network Access should be enabled or not.
+func (o LookupStandardResultOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStandardResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 func (o LookupStandardResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A `siteConfig` object as defined below.
 func (o LookupStandardResultOutput) SiteConfig() GetStandardSiteConfigOutput {
 	return o.ApplyT(func(v LookupStandardResult) GetStandardSiteConfig { return v.SiteConfig }).(GetStandardSiteConfigOutput)
 }
 
+// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
 func (o LookupStandardResultOutput) SiteCredentials() GetStandardSiteCredentialArrayOutput {
 	return o.ApplyT(func(v LookupStandardResult) []GetStandardSiteCredential { return v.SiteCredentials }).(GetStandardSiteCredentialArrayOutput)
 }
 
+// The access key which will be used to access the backend storage account for the Logic App.
 func (o LookupStandardResultOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
+// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data).
 func (o LookupStandardResultOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+// The name of the share used by the logic app.
 func (o LookupStandardResultOutput) StorageAccountShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageAccountShareName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags assigned to the resource.
 func (o LookupStandardResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStandardResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Whether the logic app should use the bundled extension package.
 func (o LookupStandardResultOutput) UseExtensionBundle() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStandardResult) bool { return v.UseExtensionBundle }).(pulumi.BoolOutput)
 }
 
+// The runtime version associated with the Logic App.
 func (o LookupStandardResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
+// The Virtual Network Subnet ID used for this IP Restriction.
 func (o LookupStandardResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
