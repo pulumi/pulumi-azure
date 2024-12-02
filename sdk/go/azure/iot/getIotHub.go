@@ -74,17 +74,18 @@ type GetIotHubResult struct {
 }
 
 func GetIotHubOutput(ctx *pulumi.Context, args GetIotHubOutputArgs, opts ...pulumi.InvokeOption) GetIotHubResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIotHubResultOutput, error) {
 			args := v.(GetIotHubArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIotHubResult
-			secret, err := ctx.InvokePackageRaw("azure:iot/getIotHub:getIotHub", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:iot/getIotHub:getIotHub", args, &rv, "", opts...)
 			if err != nil {
 				return GetIotHubResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIotHubResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIotHubResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIotHubResultOutput), nil
 			}

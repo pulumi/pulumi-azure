@@ -78,17 +78,18 @@ type LookupCnameRecordResult struct {
 }
 
 func LookupCnameRecordOutput(ctx *pulumi.Context, args LookupCnameRecordOutputArgs, opts ...pulumi.InvokeOption) LookupCnameRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCnameRecordResultOutput, error) {
 			args := v.(LookupCnameRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCnameRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getCnameRecord:getCnameRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getCnameRecord:getCnameRecord", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCnameRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCnameRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCnameRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCnameRecordResultOutput), nil
 			}

@@ -71,17 +71,18 @@ type LookupNetworkWatcherResult struct {
 }
 
 func LookupNetworkWatcherOutput(ctx *pulumi.Context, args LookupNetworkWatcherOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkWatcherResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkWatcherResultOutput, error) {
 			args := v.(LookupNetworkWatcherArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkWatcherResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkWatcher:getNetworkWatcher", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNetworkWatcher:getNetworkWatcher", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkWatcherResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkWatcherResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkWatcherResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkWatcherResultOutput), nil
 			}

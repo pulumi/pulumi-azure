@@ -75,17 +75,18 @@ type GetTemplateSpecVersionResult struct {
 }
 
 func GetTemplateSpecVersionOutput(ctx *pulumi.Context, args GetTemplateSpecVersionOutputArgs, opts ...pulumi.InvokeOption) GetTemplateSpecVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTemplateSpecVersionResultOutput, error) {
 			args := v.(GetTemplateSpecVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTemplateSpecVersionResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, &rv, "", opts...)
 			if err != nil {
 				return GetTemplateSpecVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTemplateSpecVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTemplateSpecVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTemplateSpecVersionResultOutput), nil
 			}

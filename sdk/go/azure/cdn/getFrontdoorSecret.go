@@ -74,17 +74,18 @@ type LookupFrontdoorSecretResult struct {
 }
 
 func LookupFrontdoorSecretOutput(ctx *pulumi.Context, args LookupFrontdoorSecretOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorSecretResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorSecretResultOutput, error) {
 			args := v.(LookupFrontdoorSecretArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorSecretResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorSecretResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorSecretResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorSecretResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorSecretResultOutput), nil
 			}

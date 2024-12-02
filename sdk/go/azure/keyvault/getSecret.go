@@ -88,17 +88,18 @@ type LookupSecretResult struct {
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecretResultOutput, error) {
 			args := v.(LookupSecretArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecretResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getSecret:getSecret", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getSecret:getSecret", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecretResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecretResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecretResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecretResultOutput), nil
 			}

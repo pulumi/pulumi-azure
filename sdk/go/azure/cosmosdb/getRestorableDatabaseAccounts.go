@@ -70,17 +70,18 @@ type GetRestorableDatabaseAccountsResult struct {
 }
 
 func GetRestorableDatabaseAccountsOutput(ctx *pulumi.Context, args GetRestorableDatabaseAccountsOutputArgs, opts ...pulumi.InvokeOption) GetRestorableDatabaseAccountsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRestorableDatabaseAccountsResultOutput, error) {
 			args := v.(GetRestorableDatabaseAccountsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRestorableDatabaseAccountsResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, &rv, "", opts...)
 			if err != nil {
 				return GetRestorableDatabaseAccountsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRestorableDatabaseAccountsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRestorableDatabaseAccountsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRestorableDatabaseAccountsResultOutput), nil
 			}

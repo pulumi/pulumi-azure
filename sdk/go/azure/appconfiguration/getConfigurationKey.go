@@ -87,17 +87,18 @@ type LookupConfigurationKeyResult struct {
 }
 
 func LookupConfigurationKeyOutput(ctx *pulumi.Context, args LookupConfigurationKeyOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationKeyResultOutput, error) {
 			args := v.(LookupConfigurationKeyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConfigurationKeyResult
-			secret, err := ctx.InvokePackageRaw("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConfigurationKeyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConfigurationKeyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConfigurationKeyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConfigurationKeyResultOutput), nil
 			}

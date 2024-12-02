@@ -65,17 +65,18 @@ type GetDbNodesResult struct {
 }
 
 func GetDbNodesOutput(ctx *pulumi.Context, args GetDbNodesOutputArgs, opts ...pulumi.InvokeOption) GetDbNodesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDbNodesResultOutput, error) {
 			args := v.(GetDbNodesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDbNodesResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getDbNodes:getDbNodes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getDbNodes:getDbNodes", args, &rv, "", opts...)
 			if err != nil {
 				return GetDbNodesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDbNodesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDbNodesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDbNodesResultOutput), nil
 			}

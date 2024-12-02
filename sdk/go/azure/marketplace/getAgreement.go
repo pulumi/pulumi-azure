@@ -73,17 +73,18 @@ type LookupAgreementResult struct {
 }
 
 func LookupAgreementOutput(ctx *pulumi.Context, args LookupAgreementOutputArgs, opts ...pulumi.InvokeOption) LookupAgreementResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAgreementResultOutput, error) {
 			args := v.(LookupAgreementArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAgreementResult
-			secret, err := ctx.InvokePackageRaw("azure:marketplace/getAgreement:getAgreement", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:marketplace/getAgreement:getAgreement", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAgreementResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAgreementResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAgreementResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAgreementResultOutput), nil
 			}

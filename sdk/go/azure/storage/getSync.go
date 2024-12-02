@@ -73,17 +73,18 @@ type LookupSyncResult struct {
 }
 
 func LookupSyncOutput(ctx *pulumi.Context, args LookupSyncOutputArgs, opts ...pulumi.InvokeOption) LookupSyncResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSyncResultOutput, error) {
 			args := v.(LookupSyncArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSyncResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getSync:getSync", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getSync:getSync", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSyncResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSyncResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSyncResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSyncResultOutput), nil
 			}

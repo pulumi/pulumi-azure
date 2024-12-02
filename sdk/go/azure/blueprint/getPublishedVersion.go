@@ -87,17 +87,18 @@ type GetPublishedVersionResult struct {
 }
 
 func GetPublishedVersionOutput(ctx *pulumi.Context, args GetPublishedVersionOutputArgs, opts ...pulumi.InvokeOption) GetPublishedVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublishedVersionResultOutput, error) {
 			args := v.(GetPublishedVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPublishedVersionResult
-			secret, err := ctx.InvokePackageRaw("azure:blueprint/getPublishedVersion:getPublishedVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:blueprint/getPublishedVersion:getPublishedVersion", args, &rv, "", opts...)
 			if err != nil {
 				return GetPublishedVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPublishedVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPublishedVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPublishedVersionResultOutput), nil
 			}

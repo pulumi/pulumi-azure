@@ -79,17 +79,18 @@ type LookupResourceBridgeApplianceResult struct {
 }
 
 func LookupResourceBridgeApplianceOutput(ctx *pulumi.Context, args LookupResourceBridgeApplianceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceBridgeApplianceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceBridgeApplianceResultOutput, error) {
 			args := v.(LookupResourceBridgeApplianceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceBridgeApplianceResult
-			secret, err := ctx.InvokePackageRaw("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceBridgeApplianceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceBridgeApplianceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceBridgeApplianceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceBridgeApplianceResultOutput), nil
 			}

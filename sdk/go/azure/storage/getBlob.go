@@ -86,17 +86,18 @@ type LookupBlobResult struct {
 }
 
 func LookupBlobOutput(ctx *pulumi.Context, args LookupBlobOutputArgs, opts ...pulumi.InvokeOption) LookupBlobResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBlobResultOutput, error) {
 			args := v.(LookupBlobArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBlobResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getBlob:getBlob", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getBlob:getBlob", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBlobResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBlobResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBlobResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBlobResultOutput), nil
 			}

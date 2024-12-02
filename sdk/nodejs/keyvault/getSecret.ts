@@ -109,7 +109,7 @@ export interface GetSecretResult {
  * export const secretValue = example.then(example => example.value);
  * ```
  */
-export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getSecret:getSecret", {
         "keyVaultId": args.keyVaultId,

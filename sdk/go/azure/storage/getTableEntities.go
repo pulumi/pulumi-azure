@@ -71,17 +71,18 @@ type GetTableEntitiesResult struct {
 }
 
 func GetTableEntitiesOutput(ctx *pulumi.Context, args GetTableEntitiesOutputArgs, opts ...pulumi.InvokeOption) GetTableEntitiesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTableEntitiesResultOutput, error) {
 			args := v.(GetTableEntitiesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTableEntitiesResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getTableEntities:getTableEntities", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getTableEntities:getTableEntities", args, &rv, "", opts...)
 			if err != nil {
 				return GetTableEntitiesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTableEntitiesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTableEntitiesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTableEntitiesResultOutput), nil
 			}

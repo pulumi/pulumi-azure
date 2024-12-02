@@ -85,17 +85,18 @@ type LookupEnvironmentCertificateResult struct {
 }
 
 func LookupEnvironmentCertificateOutput(ctx *pulumi.Context, args LookupEnvironmentCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentCertificateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentCertificateResultOutput, error) {
 			args := v.(LookupEnvironmentCertificateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEnvironmentCertificateResult
-			secret, err := ctx.InvokePackageRaw("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEnvironmentCertificateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEnvironmentCertificateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEnvironmentCertificateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEnvironmentCertificateResultOutput), nil
 			}

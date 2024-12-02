@@ -124,17 +124,18 @@ type GetGatewayConnectionResult struct {
 }
 
 func GetGatewayConnectionOutput(ctx *pulumi.Context, args GetGatewayConnectionOutputArgs, opts ...pulumi.InvokeOption) GetGatewayConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGatewayConnectionResultOutput, error) {
 			args := v.(GetGatewayConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetGatewayConnectionResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getGatewayConnection:getGatewayConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getGatewayConnection:getGatewayConnection", args, &rv, "", opts...)
 			if err != nil {
 				return GetGatewayConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetGatewayConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetGatewayConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetGatewayConnectionResultOutput), nil
 			}

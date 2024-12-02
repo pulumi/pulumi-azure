@@ -99,17 +99,18 @@ type LookupFunctionAppResult struct {
 }
 
 func LookupFunctionAppOutput(ctx *pulumi.Context, args LookupFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionAppResultOutput, error) {
 			args := v.(LookupFunctionAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFunctionAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getFunctionApp:getFunctionApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getFunctionApp:getFunctionApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFunctionAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFunctionAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFunctionAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFunctionAppResultOutput), nil
 			}

@@ -101,17 +101,18 @@ type LookupCertificateOrderResult struct {
 }
 
 func LookupCertificateOrderOutput(ctx *pulumi.Context, args LookupCertificateOrderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateOrderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateOrderResultOutput, error) {
 			args := v.(LookupCertificateOrderArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCertificateOrderResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCertificateOrderResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCertificateOrderResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCertificateOrderResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCertificateOrderResultOutput), nil
 			}

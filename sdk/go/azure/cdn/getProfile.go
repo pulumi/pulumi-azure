@@ -73,17 +73,18 @@ type LookupProfileResult struct {
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProfileResultOutput, error) {
 			args := v.(LookupProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProfileResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getProfile:getProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getProfile:getProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProfileResultOutput), nil
 			}

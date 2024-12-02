@@ -92,17 +92,18 @@ type LookupHostPoolResult struct {
 }
 
 func LookupHostPoolOutput(ctx *pulumi.Context, args LookupHostPoolOutputArgs, opts ...pulumi.InvokeOption) LookupHostPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHostPoolResultOutput, error) {
 			args := v.(LookupHostPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupHostPoolResult
-			secret, err := ctx.InvokePackageRaw("azure:desktopvirtualization/getHostPool:getHostPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:desktopvirtualization/getHostPool:getHostPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupHostPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupHostPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupHostPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupHostPoolResultOutput), nil
 			}

@@ -73,17 +73,18 @@ type GetIpGroupResult struct {
 }
 
 func GetIpGroupOutput(ctx *pulumi.Context, args GetIpGroupOutputArgs, opts ...pulumi.InvokeOption) GetIpGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIpGroupResultOutput, error) {
 			args := v.(GetIpGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIpGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getIpGroup:getIpGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getIpGroup:getIpGroup", args, &rv, "", opts...)
 			if err != nil {
 				return GetIpGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIpGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIpGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIpGroupResultOutput), nil
 			}

@@ -65,17 +65,18 @@ type GetAdbsCharacterSetsResult struct {
 }
 
 func GetAdbsCharacterSetsOutput(ctx *pulumi.Context, args GetAdbsCharacterSetsOutputArgs, opts ...pulumi.InvokeOption) GetAdbsCharacterSetsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAdbsCharacterSetsResultOutput, error) {
 			args := v.(GetAdbsCharacterSetsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAdbsCharacterSetsResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, &rv, "", opts...)
 			if err != nil {
 				return GetAdbsCharacterSetsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAdbsCharacterSetsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAdbsCharacterSetsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAdbsCharacterSetsResultOutput), nil
 			}

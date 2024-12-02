@@ -96,17 +96,18 @@ type LookupGrafanaResult struct {
 }
 
 func LookupGrafanaOutput(ctx *pulumi.Context, args LookupGrafanaOutputArgs, opts ...pulumi.InvokeOption) LookupGrafanaResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGrafanaResultOutput, error) {
 			args := v.(LookupGrafanaArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGrafanaResult
-			secret, err := ctx.InvokePackageRaw("azure:dashboard/getGrafana:getGrafana", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dashboard/getGrafana:getGrafana", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGrafanaResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGrafanaResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGrafanaResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGrafanaResultOutput), nil
 			}

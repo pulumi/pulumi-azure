@@ -67,17 +67,18 @@ type GetEnrollmentAccountScopeResult struct {
 }
 
 func GetEnrollmentAccountScopeOutput(ctx *pulumi.Context, args GetEnrollmentAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetEnrollmentAccountScopeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnrollmentAccountScopeResultOutput, error) {
 			args := v.(GetEnrollmentAccountScopeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEnrollmentAccountScopeResult
-			secret, err := ctx.InvokePackageRaw("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, &rv, "", opts...)
 			if err != nil {
 				return GetEnrollmentAccountScopeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEnrollmentAccountScopeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEnrollmentAccountScopeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEnrollmentAccountScopeResultOutput), nil
 			}

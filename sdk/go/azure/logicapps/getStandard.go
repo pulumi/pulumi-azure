@@ -120,17 +120,18 @@ type LookupStandardResult struct {
 }
 
 func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, opts ...pulumi.InvokeOption) LookupStandardResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStandardResultOutput, error) {
 			args := v.(LookupStandardArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStandardResult
-			secret, err := ctx.InvokePackageRaw("azure:logicapps/getStandard:getStandard", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:logicapps/getStandard:getStandard", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStandardResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStandardResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStandardResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStandardResultOutput), nil
 			}

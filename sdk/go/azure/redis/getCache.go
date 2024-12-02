@@ -106,17 +106,18 @@ type LookupCacheResult struct {
 }
 
 func LookupCacheOutput(ctx *pulumi.Context, args LookupCacheOutputArgs, opts ...pulumi.InvokeOption) LookupCacheResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCacheResultOutput, error) {
 			args := v.(LookupCacheArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCacheResult
-			secret, err := ctx.InvokePackageRaw("azure:redis/getCache:getCache", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:redis/getCache:getCache", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCacheResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCacheResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCacheResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCacheResultOutput), nil
 			}

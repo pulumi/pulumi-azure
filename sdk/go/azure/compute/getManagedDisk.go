@@ -98,17 +98,18 @@ type LookupManagedDiskResult struct {
 }
 
 func LookupManagedDiskOutput(ctx *pulumi.Context, args LookupManagedDiskOutputArgs, opts ...pulumi.InvokeOption) LookupManagedDiskResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedDiskResultOutput, error) {
 			args := v.(LookupManagedDiskArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedDiskResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getManagedDisk:getManagedDisk", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getManagedDisk:getManagedDisk", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedDiskResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedDiskResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedDiskResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedDiskResultOutput), nil
 			}

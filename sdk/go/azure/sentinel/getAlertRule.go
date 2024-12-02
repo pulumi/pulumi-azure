@@ -75,17 +75,18 @@ type GetAlertRuleResult struct {
 }
 
 func GetAlertRuleOutput(ctx *pulumi.Context, args GetAlertRuleOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAlertRuleResultOutput, error) {
 			args := v.(GetAlertRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAlertRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:sentinel/getAlertRule:getAlertRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:sentinel/getAlertRule:getAlertRule", args, &rv, "", opts...)
 			if err != nil {
 				return GetAlertRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAlertRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAlertRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAlertRuleResultOutput), nil
 			}

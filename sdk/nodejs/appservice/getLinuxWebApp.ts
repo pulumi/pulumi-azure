@@ -215,7 +215,7 @@ export interface GetLinuxWebAppResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getLinuxWebAppOutput(args: GetLinuxWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxWebAppResult> {
+export function getLinuxWebAppOutput(args: GetLinuxWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinuxWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getLinuxWebApp:getLinuxWebApp", {
         "name": args.name,

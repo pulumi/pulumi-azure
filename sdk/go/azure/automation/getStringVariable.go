@@ -77,17 +77,18 @@ type LookupStringVariableResult struct {
 }
 
 func LookupStringVariableOutput(ctx *pulumi.Context, args LookupStringVariableOutputArgs, opts ...pulumi.InvokeOption) LookupStringVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStringVariableResultOutput, error) {
 			args := v.(LookupStringVariableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStringVariableResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getStringVariable:getStringVariable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:automation/getStringVariable:getStringVariable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStringVariableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStringVariableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStringVariableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStringVariableResultOutput), nil
 			}

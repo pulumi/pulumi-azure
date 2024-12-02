@@ -81,17 +81,18 @@ type LookupVirtualHubResult struct {
 }
 
 func LookupVirtualHubOutput(ctx *pulumi.Context, args LookupVirtualHubOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualHubResultOutput, error) {
 			args := v.(LookupVirtualHubArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualHubResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualHub:getVirtualHub", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualHub:getVirtualHub", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualHubResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualHubResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualHubResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualHubResultOutput), nil
 			}

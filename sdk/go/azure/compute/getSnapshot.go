@@ -80,17 +80,18 @@ type LookupSnapshotResult struct {
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSnapshotResultOutput, error) {
 			args := v.(LookupSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSnapshotResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getSnapshot:getSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getSnapshot:getSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSnapshotResultOutput), nil
 			}

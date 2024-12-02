@@ -79,17 +79,18 @@ type LookupARecordResult struct {
 }
 
 func LookupARecordOutput(ctx *pulumi.Context, args LookupARecordOutputArgs, opts ...pulumi.InvokeOption) LookupARecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupARecordResultOutput, error) {
 			args := v.(LookupARecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupARecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getARecord:getARecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dns/getARecord:getARecord", args, &rv, "", opts...)
 			if err != nil {
 				return LookupARecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupARecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupARecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupARecordResultOutput), nil
 			}

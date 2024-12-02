@@ -145,17 +145,18 @@ type GetAccountBlobContainerSASResult struct {
 }
 
 func GetAccountBlobContainerSASOutput(ctx *pulumi.Context, args GetAccountBlobContainerSASOutputArgs, opts ...pulumi.InvokeOption) GetAccountBlobContainerSASResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccountBlobContainerSASResultOutput, error) {
 			args := v.(GetAccountBlobContainerSASArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAccountBlobContainerSASResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, &rv, "", opts...)
 			if err != nil {
 				return GetAccountBlobContainerSASResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAccountBlobContainerSASResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAccountBlobContainerSASResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAccountBlobContainerSASResultOutput), nil
 			}

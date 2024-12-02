@@ -85,17 +85,18 @@ type LookupLabResult struct {
 }
 
 func LookupLabOutput(ctx *pulumi.Context, args LookupLabOutputArgs, opts ...pulumi.InvokeOption) LookupLabResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLabResultOutput, error) {
 			args := v.(LookupLabArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLabResult
-			secret, err := ctx.InvokePackageRaw("azure:devtest/getLab:getLab", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:devtest/getLab:getLab", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLabResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLabResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLabResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLabResultOutput), nil
 			}

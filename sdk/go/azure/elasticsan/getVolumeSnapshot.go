@@ -87,17 +87,18 @@ type GetVolumeSnapshotResult struct {
 }
 
 func GetVolumeSnapshotOutput(ctx *pulumi.Context, args GetVolumeSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetVolumeSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVolumeSnapshotResultOutput, error) {
 			args := v.(GetVolumeSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVolumeSnapshotResult
-			secret, err := ctx.InvokePackageRaw("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return GetVolumeSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVolumeSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVolumeSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVolumeSnapshotResultOutput), nil
 			}

@@ -87,17 +87,18 @@ type LookupTriggerScheduleResult struct {
 }
 
 func LookupTriggerScheduleOutput(ctx *pulumi.Context, args LookupTriggerScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerScheduleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTriggerScheduleResultOutput, error) {
 			args := v.(LookupTriggerScheduleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTriggerScheduleResult
-			secret, err := ctx.InvokePackageRaw("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTriggerScheduleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTriggerScheduleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTriggerScheduleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTriggerScheduleResultOutput), nil
 			}

@@ -77,17 +77,18 @@ type LookupSystemTopicResult struct {
 }
 
 func LookupSystemTopicOutput(ctx *pulumi.Context, args LookupSystemTopicOutputArgs, opts ...pulumi.InvokeOption) LookupSystemTopicResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSystemTopicResultOutput, error) {
 			args := v.(LookupSystemTopicArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSystemTopicResult
-			secret, err := ctx.InvokePackageRaw("azure:eventgrid/getSystemTopic:getSystemTopic", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventgrid/getSystemTopic:getSystemTopic", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSystemTopicResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSystemTopicResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSystemTopicResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSystemTopicResultOutput), nil
 			}
