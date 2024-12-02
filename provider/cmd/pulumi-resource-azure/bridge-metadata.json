@@ -6213,6 +6213,16 @@
                     "custom_parameters": {
                         "maxItemsOne": true
                     },
+                    "enhanced_security_compliance": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "compliance_security_profile_standards": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "managed_disk_identity": {
                         "maxItemsOne": false
                     },
@@ -17347,7 +17357,14 @@
                         "maxItemsOne": false
                     },
                     "identity": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "query_keys": {
                         "maxItemsOne": false
@@ -25126,6 +25143,16 @@
                 "current": "azure:databricks/getWorkspace:getWorkspace",
                 "majorVersion": 6,
                 "fields": {
+                    "enhanced_security_compliance": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "compliance_security_profile_standards": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "managed_disk_identity": {
                         "maxItemsOne": false
                     },
@@ -27826,6 +27853,18 @@
                     }
                 }
             },
+            "azurerm_mssql_managed_database": {
+                "current": "azure:mssql/getManagedDatabase:getManagedDatabase",
+                "majorVersion": 6,
+                "fields": {
+                    "long_term_retention_policy": {
+                        "maxItemsOne": false
+                    },
+                    "point_in_time_restore": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_mssql_managed_instance": {
                 "current": "azure:mssql/getManagedInstance:getManagedInstance",
                 "majorVersion": 6,
@@ -29023,7 +29062,14 @@
                 "majorVersion": 6,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "query_keys": {
                         "maxItemsOne": false
