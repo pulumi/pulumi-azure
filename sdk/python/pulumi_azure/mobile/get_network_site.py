@@ -140,7 +140,7 @@ def get_network_site(mobile_network_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                             name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSiteResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSiteResult]:
     """
     Get information about a Mobile Network Site.
 
@@ -163,7 +163,7 @@ def get_network_site_output(mobile_network_id: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['mobileNetworkId'] = mobile_network_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkSite:getNetworkSite', __args__, opts=opts, typ=GetNetworkSiteResult)
     return __ret__.apply(lambda __response__: GetNetworkSiteResult(
         id=pulumi.get(__response__, 'id'),

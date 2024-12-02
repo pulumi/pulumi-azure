@@ -49,7 +49,7 @@ export interface GetSecretsResult {
 /**
  * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
  */
-export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
+export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getSecrets:getSecrets", {
         "keyVaultId": args.keyVaultId,
