@@ -5,6 +5,7 @@ package cdn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFrontdoorCustomDomain(ctx *pulumi.Context, args *LookupFrontdoorCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorCustomDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFrontdoorCustomDomainResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFrontdoorCustomDomainResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFrontdoorCustomDomain, use LookupFrontdoorCustomDomainOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFrontdoorCustomDomainResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFrontdoorCustomDomain, use LookupFrontdoorCustomDomainOutput instead")
+	}
 	var rv LookupFrontdoorCustomDomainResult
 	err := ctx.Invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupFrontdoorCustomDomainResult struct {
 }
 
 func LookupFrontdoorCustomDomainOutput(ctx *pulumi.Context, args LookupFrontdoorCustomDomainOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorCustomDomainResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorCustomDomainResultOutput, error) {
 			args := v.(LookupFrontdoorCustomDomainArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorCustomDomainResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorCustomDomainResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorCustomDomainResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorCustomDomainResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorCustomDomainResultOutput), nil
 			}

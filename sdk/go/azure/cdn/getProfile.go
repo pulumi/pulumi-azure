@@ -5,6 +5,7 @@ package cdn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupProfile, use LookupProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupProfile, use LookupProfileOutput instead")
+	}
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure:cdn/getProfile:getProfile", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupProfileResult struct {
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProfileResultOutput, error) {
 			args := v.(LookupProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProfileResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getProfile:getProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getProfile:getProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProfileResultOutput), nil
 			}

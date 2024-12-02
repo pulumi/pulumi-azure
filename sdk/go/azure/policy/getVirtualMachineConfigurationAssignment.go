@@ -5,6 +5,7 @@ package policy
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupVirtualMachineConfigurationAssignment(ctx *pulumi.Context, args *LookupVirtualMachineConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineConfigurationAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualMachineConfigurationAssignmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualMachineConfigurationAssignmentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualMachineConfigurationAssignment, use LookupVirtualMachineConfigurationAssignmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualMachineConfigurationAssignmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualMachineConfigurationAssignment, use LookupVirtualMachineConfigurationAssignmentOutput instead")
+	}
 	var rv LookupVirtualMachineConfigurationAssignmentResult
 	err := ctx.Invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupVirtualMachineConfigurationAssignmentResult struct {
 }
 
 func LookupVirtualMachineConfigurationAssignmentOutput(ctx *pulumi.Context, args LookupVirtualMachineConfigurationAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineConfigurationAssignmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualMachineConfigurationAssignmentResultOutput, error) {
 			args := v.(LookupVirtualMachineConfigurationAssignmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualMachineConfigurationAssignmentResult
-			secret, err := ctx.InvokePackageRaw("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualMachineConfigurationAssignmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualMachineConfigurationAssignmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualMachineConfigurationAssignmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualMachineConfigurationAssignmentResultOutput), nil
 			}

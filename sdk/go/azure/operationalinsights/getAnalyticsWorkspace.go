@@ -5,6 +5,7 @@ package operationalinsights
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *LookupAnalyticsWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupAnalyticsWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAnalyticsWorkspaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAnalyticsWorkspaceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAnalyticsWorkspace, use LookupAnalyticsWorkspaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAnalyticsWorkspaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAnalyticsWorkspace, use LookupAnalyticsWorkspaceOutput instead")
+	}
 	var rv LookupAnalyticsWorkspaceResult
 	err := ctx.Invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type LookupAnalyticsWorkspaceResult struct {
 }
 
 func LookupAnalyticsWorkspaceOutput(ctx *pulumi.Context, args LookupAnalyticsWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupAnalyticsWorkspaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAnalyticsWorkspaceResultOutput, error) {
 			args := v.(LookupAnalyticsWorkspaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAnalyticsWorkspaceResult
-			secret, err := ctx.InvokePackageRaw("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAnalyticsWorkspaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAnalyticsWorkspaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAnalyticsWorkspaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAnalyticsWorkspaceResultOutput), nil
 			}

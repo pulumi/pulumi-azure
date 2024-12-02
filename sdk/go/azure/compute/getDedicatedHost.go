@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDedicatedHostResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDedicatedHostResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDedicatedHost, use LookupDedicatedHostOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDedicatedHostResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDedicatedHost, use LookupDedicatedHostOutput instead")
+	}
 	var rv LookupDedicatedHostResult
 	err := ctx.Invoke("azure:compute/getDedicatedHost:getDedicatedHost", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type LookupDedicatedHostResult struct {
 }
 
 func LookupDedicatedHostOutput(ctx *pulumi.Context, args LookupDedicatedHostOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedHostResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDedicatedHostResultOutput, error) {
 			args := v.(LookupDedicatedHostArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDedicatedHostResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getDedicatedHost:getDedicatedHost", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getDedicatedHost:getDedicatedHost", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDedicatedHostResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDedicatedHostResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDedicatedHostResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDedicatedHostResultOutput), nil
 			}

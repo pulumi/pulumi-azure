@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -86,6 +87,16 @@ import (
 // ```
 func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContainerSASArgs, opts ...pulumi.InvokeOption) (*GetAccountBlobContainerSASResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAccountBlobContainerSASResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAccountBlobContainerSASResult{}, errors.New("DependsOn is not supported for direct form invoke GetAccountBlobContainerSAS, use GetAccountBlobContainerSASOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAccountBlobContainerSASResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAccountBlobContainerSAS, use GetAccountBlobContainerSASOutput instead")
+	}
 	var rv GetAccountBlobContainerSASResult
 	err := ctx.Invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, &rv, opts...)
 	if err != nil {
@@ -145,17 +156,18 @@ type GetAccountBlobContainerSASResult struct {
 }
 
 func GetAccountBlobContainerSASOutput(ctx *pulumi.Context, args GetAccountBlobContainerSASOutputArgs, opts ...pulumi.InvokeOption) GetAccountBlobContainerSASResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccountBlobContainerSASResultOutput, error) {
 			args := v.(GetAccountBlobContainerSASArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAccountBlobContainerSASResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, &rv, "", opts...)
 			if err != nil {
 				return GetAccountBlobContainerSASResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAccountBlobContainerSASResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAccountBlobContainerSASResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAccountBlobContainerSASResultOutput), nil
 			}

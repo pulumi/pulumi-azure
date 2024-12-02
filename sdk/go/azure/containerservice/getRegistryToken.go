@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupRegistryToken(ctx *pulumi.Context, args *LookupRegistryTokenArgs, opts ...pulumi.InvokeOption) (*LookupRegistryTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRegistryTokenResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRegistryTokenResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRegistryToken, use LookupRegistryTokenOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRegistryTokenResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRegistryToken, use LookupRegistryTokenOutput instead")
+	}
 	var rv LookupRegistryTokenResult
 	err := ctx.Invoke("azure:containerservice/getRegistryToken:getRegistryToken", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type LookupRegistryTokenResult struct {
 }
 
 func LookupRegistryTokenOutput(ctx *pulumi.Context, args LookupRegistryTokenOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryTokenResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryTokenResultOutput, error) {
 			args := v.(LookupRegistryTokenArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryTokenResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getRegistryToken:getRegistryToken", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getRegistryToken:getRegistryToken", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryTokenResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryTokenResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryTokenResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryTokenResultOutput), nil
 			}

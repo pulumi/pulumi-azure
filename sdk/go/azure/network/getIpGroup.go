@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetIpGroup(ctx *pulumi.Context, args *GetIpGroupArgs, opts ...pulumi.InvokeOption) (*GetIpGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetIpGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetIpGroupResult{}, errors.New("DependsOn is not supported for direct form invoke GetIpGroup, use GetIpGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetIpGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetIpGroup, use GetIpGroupOutput instead")
+	}
 	var rv GetIpGroupResult
 	err := ctx.Invoke("azure:network/getIpGroup:getIpGroup", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetIpGroupResult struct {
 }
 
 func GetIpGroupOutput(ctx *pulumi.Context, args GetIpGroupOutputArgs, opts ...pulumi.InvokeOption) GetIpGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIpGroupResultOutput, error) {
 			args := v.(GetIpGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIpGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getIpGroup:getIpGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getIpGroup:getIpGroup", args, &rv, "", opts...)
 			if err != nil {
 				return GetIpGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIpGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIpGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIpGroupResultOutput), nil
 			}

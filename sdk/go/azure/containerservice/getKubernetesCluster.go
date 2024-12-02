@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupKubernetesClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupKubernetesClusterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupKubernetesCluster, use LookupKubernetesClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupKubernetesClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupKubernetesCluster, use LookupKubernetesClusterOutput instead")
+	}
 	var rv LookupKubernetesClusterResult
 	err := ctx.Invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, &rv, opts...)
 	if err != nil {
@@ -144,17 +155,18 @@ type LookupKubernetesClusterResult struct {
 }
 
 func LookupKubernetesClusterOutput(ctx *pulumi.Context, args LookupKubernetesClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKubernetesClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKubernetesClusterResultOutput, error) {
 			args := v.(LookupKubernetesClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupKubernetesClusterResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, &rv, "", opts...)
 			if err != nil {
 				return LookupKubernetesClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupKubernetesClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupKubernetesClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupKubernetesClusterResultOutput), nil
 			}

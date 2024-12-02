@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualHubResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualHubResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualHub, use LookupVirtualHubOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualHubResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualHub, use LookupVirtualHubOutput instead")
+	}
 	var rv LookupVirtualHubResult
 	err := ctx.Invoke("azure:network/getVirtualHub:getVirtualHub", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupVirtualHubResult struct {
 }
 
 func LookupVirtualHubOutput(ctx *pulumi.Context, args LookupVirtualHubOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualHubResultOutput, error) {
 			args := v.(LookupVirtualHubArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualHubResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualHub:getVirtualHub", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualHub:getVirtualHub", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualHubResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualHubResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualHubResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualHubResultOutput), nil
 			}

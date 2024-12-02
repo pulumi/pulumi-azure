@@ -5,6 +5,7 @@ package policy
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetPolicyAssignment(ctx *pulumi.Context, args *GetPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*GetPolicyAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPolicyAssignmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPolicyAssignmentResult{}, errors.New("DependsOn is not supported for direct form invoke GetPolicyAssignment, use GetPolicyAssignmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPolicyAssignmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPolicyAssignment, use GetPolicyAssignmentOutput instead")
+	}
 	var rv GetPolicyAssignmentResult
 	err := ctx.Invoke("azure:policy/getPolicyAssignment:getPolicyAssignment", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type GetPolicyAssignmentResult struct {
 }
 
 func GetPolicyAssignmentOutput(ctx *pulumi.Context, args GetPolicyAssignmentOutputArgs, opts ...pulumi.InvokeOption) GetPolicyAssignmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPolicyAssignmentResultOutput, error) {
 			args := v.(GetPolicyAssignmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPolicyAssignmentResult
-			secret, err := ctx.InvokePackageRaw("azure:policy/getPolicyAssignment:getPolicyAssignment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:policy/getPolicyAssignment:getPolicyAssignment", args, &rv, "", opts...)
 			if err != nil {
 				return GetPolicyAssignmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPolicyAssignmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPolicyAssignmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPolicyAssignmentResultOutput), nil
 			}

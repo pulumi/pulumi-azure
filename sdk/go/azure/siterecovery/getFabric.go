@@ -5,6 +5,7 @@ package siterecovery
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFabric(ctx *pulumi.Context, args *LookupFabricArgs, opts ...pulumi.InvokeOption) (*LookupFabricResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFabricResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFabricResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFabric, use LookupFabricOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFabricResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFabric, use LookupFabricOutput instead")
+	}
 	var rv LookupFabricResult
 	err := ctx.Invoke("azure:siterecovery/getFabric:getFabric", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupFabricResult struct {
 }
 
 func LookupFabricOutput(ctx *pulumi.Context, args LookupFabricOutputArgs, opts ...pulumi.InvokeOption) LookupFabricResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFabricResultOutput, error) {
 			args := v.(LookupFabricArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFabricResult
-			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getFabric:getFabric", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:siterecovery/getFabric:getFabric", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFabricResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFabricResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFabricResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFabricResultOutput), nil
 			}

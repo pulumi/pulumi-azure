@@ -5,6 +5,7 @@ package sentinel
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetAlertRuleTemplate(ctx *pulumi.Context, args *GetAlertRuleTemplateArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAlertRuleTemplateResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAlertRuleTemplateResult{}, errors.New("DependsOn is not supported for direct form invoke GetAlertRuleTemplate, use GetAlertRuleTemplateOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAlertRuleTemplateResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAlertRuleTemplate, use GetAlertRuleTemplateOutput instead")
+	}
 	var rv GetAlertRuleTemplateResult
 	err := ctx.Invoke("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetAlertRuleTemplateResult struct {
 }
 
 func GetAlertRuleTemplateOutput(ctx *pulumi.Context, args GetAlertRuleTemplateOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAlertRuleTemplateResultOutput, error) {
 			args := v.(GetAlertRuleTemplateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAlertRuleTemplateResult
-			secret, err := ctx.InvokePackageRaw("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args, &rv, "", opts...)
 			if err != nil {
 				return GetAlertRuleTemplateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAlertRuleTemplateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAlertRuleTemplateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAlertRuleTemplateResultOutput), nil
 			}

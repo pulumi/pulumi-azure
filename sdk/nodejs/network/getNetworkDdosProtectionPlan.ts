@@ -81,7 +81,7 @@ export interface GetNetworkDdosProtectionPlanResult {
  * export const ddosProtectionPlanId = example.then(example => example.id);
  * ```
  */
-export function getNetworkDdosProtectionPlanOutput(args: GetNetworkDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDdosProtectionPlanResult> {
+export function getNetworkDdosProtectionPlanOutput(args: GetNetworkDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDdosProtectionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", {
         "name": args.name,

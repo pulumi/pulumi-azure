@@ -5,6 +5,7 @@ package dns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetAAAARecord(ctx *pulumi.Context, args *GetAAAARecordArgs, opts ...pulumi.InvokeOption) (*GetAAAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAAAARecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAAAARecordResult{}, errors.New("DependsOn is not supported for direct form invoke GetAAAARecord, use GetAAAARecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAAAARecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAAAARecord, use GetAAAARecordOutput instead")
+	}
 	var rv GetAAAARecordResult
 	err := ctx.Invoke("azure:dns/getAAAARecord:getAAAARecord", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type GetAAAARecordResult struct {
 }
 
 func GetAAAARecordOutput(ctx *pulumi.Context, args GetAAAARecordOutputArgs, opts ...pulumi.InvokeOption) GetAAAARecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAAAARecordResultOutput, error) {
 			args := v.(GetAAAARecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAAAARecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getAAAARecord:getAAAARecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:dns/getAAAARecord:getAAAARecord", args, &rv, "", opts...)
 			if err != nil {
 				return GetAAAARecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAAAARecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAAAARecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAAAARecordResultOutput), nil
 			}

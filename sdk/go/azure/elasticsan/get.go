@@ -5,6 +5,7 @@ package elasticsan
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func Get(ctx *pulumi.Context, args *GetArgs, opts ...pulumi.InvokeOption) (*GetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetResult{}, errors.New("DependsOn is not supported for direct form invoke Get, use GetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke Get, use GetOutput instead")
+	}
 	var rv GetResult
 	err := ctx.Invoke("azure:elasticsan/get:get", args, &rv, opts...)
 	if err != nil {
@@ -90,17 +101,18 @@ type GetResult struct {
 }
 
 func GetOutput(ctx *pulumi.Context, args GetOutputArgs, opts ...pulumi.InvokeOption) GetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetResultOutput, error) {
 			args := v.(GetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetResult
-			secret, err := ctx.InvokePackageRaw("azure:elasticsan/get:get", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:elasticsan/get:get", args, &rv, "", opts...)
 			if err != nil {
 				return GetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetResultOutput), nil
 			}

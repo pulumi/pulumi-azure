@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Resource Group Template Deployment.
 func LookupResourceGroupTemplateDeployment(ctx *pulumi.Context, args *LookupResourceGroupTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupTemplateDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResourceGroupTemplateDeploymentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResourceGroupTemplateDeploymentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResourceGroupTemplateDeployment, use LookupResourceGroupTemplateDeploymentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResourceGroupTemplateDeploymentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResourceGroupTemplateDeployment, use LookupResourceGroupTemplateDeploymentOutput instead")
+	}
 	var rv LookupResourceGroupTemplateDeploymentResult
 	err := ctx.Invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args, &rv, opts...)
 	if err != nil {
@@ -41,17 +52,18 @@ type LookupResourceGroupTemplateDeploymentResult struct {
 }
 
 func LookupResourceGroupTemplateDeploymentOutput(ctx *pulumi.Context, args LookupResourceGroupTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceGroupTemplateDeploymentResultOutput, error) {
 			args := v.(LookupResourceGroupTemplateDeploymentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceGroupTemplateDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceGroupTemplateDeploymentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceGroupTemplateDeploymentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceGroupTemplateDeploymentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceGroupTemplateDeploymentResultOutput), nil
 			}

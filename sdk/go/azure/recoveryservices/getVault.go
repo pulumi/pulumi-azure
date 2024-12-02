@@ -5,6 +5,7 @@ package recoveryservices
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVaultResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVaultResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVault, use LookupVaultOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVaultResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVault, use LookupVaultOutput instead")
+	}
 	var rv LookupVaultResult
 	err := ctx.Invoke("azure:recoveryservices/getVault:getVault", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupVaultResult struct {
 }
 
 func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupVaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVaultResultOutput, error) {
 			args := v.(LookupVaultArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVaultResult
-			secret, err := ctx.InvokePackageRaw("azure:recoveryservices/getVault:getVault", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:recoveryservices/getVault:getVault", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVaultResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVaultResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVaultResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVaultResultOutput), nil
 			}

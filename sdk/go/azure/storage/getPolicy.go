@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func GetPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke GetPolicy, use GetPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPolicy, use GetPolicyOutput instead")
+	}
 	var rv GetPolicyResult
 	err := ctx.Invoke("azure:storage/getPolicy:getPolicy", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type GetPolicyResult struct {
 }
 
 func GetPolicyOutput(ctx *pulumi.Context, args GetPolicyOutputArgs, opts ...pulumi.InvokeOption) GetPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPolicyResultOutput, error) {
 			args := v.(GetPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getPolicy:getPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getPolicy:getPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return GetPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPolicyResultOutput), nil
 			}

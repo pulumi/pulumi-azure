@@ -5,6 +5,7 @@ package monitoring
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDataCollectionRule(ctx *pulumi.Context, args *LookupDataCollectionRuleArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDataCollectionRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDataCollectionRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDataCollectionRule, use LookupDataCollectionRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDataCollectionRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDataCollectionRule, use LookupDataCollectionRuleOutput instead")
+	}
 	var rv LookupDataCollectionRuleResult
 	err := ctx.Invoke("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type LookupDataCollectionRuleResult struct {
 }
 
 func LookupDataCollectionRuleOutput(ctx *pulumi.Context, args LookupDataCollectionRuleOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataCollectionRuleResultOutput, error) {
 			args := v.(LookupDataCollectionRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDataCollectionRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDataCollectionRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDataCollectionRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDataCollectionRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDataCollectionRuleResultOutput), nil
 			}

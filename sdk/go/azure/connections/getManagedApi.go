@@ -5,6 +5,7 @@ package connections
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetManagedApi(ctx *pulumi.Context, args *GetManagedApiArgs, opts ...pulumi.InvokeOption) (*GetManagedApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetManagedApiResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetManagedApiResult{}, errors.New("DependsOn is not supported for direct form invoke GetManagedApi, use GetManagedApiOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetManagedApiResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetManagedApi, use GetManagedApiOutput instead")
+	}
 	var rv GetManagedApiResult
 	err := ctx.Invoke("azure:connections/getManagedApi:getManagedApi", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type GetManagedApiResult struct {
 }
 
 func GetManagedApiOutput(ctx *pulumi.Context, args GetManagedApiOutputArgs, opts ...pulumi.InvokeOption) GetManagedApiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetManagedApiResultOutput, error) {
 			args := v.(GetManagedApiArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetManagedApiResult
-			secret, err := ctx.InvokePackageRaw("azure:connections/getManagedApi:getManagedApi", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:connections/getManagedApi:getManagedApi", args, &rv, "", opts...)
 			if err != nil {
 				return GetManagedApiResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetManagedApiResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetManagedApiResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetManagedApiResultOutput), nil
 			}

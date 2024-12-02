@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupBlob(ctx *pulumi.Context, args *LookupBlobArgs, opts ...pulumi.InvokeOption) (*LookupBlobResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBlobResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBlobResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBlob, use LookupBlobOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBlobResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBlob, use LookupBlobOutput instead")
+	}
 	var rv LookupBlobResult
 	err := ctx.Invoke("azure:storage/getBlob:getBlob", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type LookupBlobResult struct {
 }
 
 func LookupBlobOutput(ctx *pulumi.Context, args LookupBlobOutputArgs, opts ...pulumi.InvokeOption) LookupBlobResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBlobResultOutput, error) {
 			args := v.(LookupBlobArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBlobResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getBlob:getBlob", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getBlob:getBlob", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBlobResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBlobResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBlobResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBlobResultOutput), nil
 			}

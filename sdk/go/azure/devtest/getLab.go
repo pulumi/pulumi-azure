@@ -5,6 +5,7 @@ package devtest
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLabResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLabResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLab, use LookupLabOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLabResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLab, use LookupLabOutput instead")
+	}
 	var rv LookupLabResult
 	err := ctx.Invoke("azure:devtest/getLab:getLab", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type LookupLabResult struct {
 }
 
 func LookupLabOutput(ctx *pulumi.Context, args LookupLabOutputArgs, opts ...pulumi.InvokeOption) LookupLabResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLabResultOutput, error) {
 			args := v.(LookupLabArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLabResult
-			secret, err := ctx.InvokePackageRaw("azure:devtest/getLab:getLab", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:devtest/getLab:getLab", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLabResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLabResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLabResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLabResultOutput), nil
 			}

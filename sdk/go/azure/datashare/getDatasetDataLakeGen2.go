@@ -5,6 +5,7 @@ package datashare
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDatasetDataLakeGen2(ctx *pulumi.Context, args *LookupDatasetDataLakeGen2Args, opts ...pulumi.InvokeOption) (*LookupDatasetDataLakeGen2Result, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDatasetDataLakeGen2Result{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDatasetDataLakeGen2Result{}, errors.New("DependsOn is not supported for direct form invoke LookupDatasetDataLakeGen2, use LookupDatasetDataLakeGen2Output instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDatasetDataLakeGen2Result{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDatasetDataLakeGen2, use LookupDatasetDataLakeGen2Output instead")
+	}
 	var rv LookupDatasetDataLakeGen2Result
 	err := ctx.Invoke("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupDatasetDataLakeGen2Result struct {
 }
 
 func LookupDatasetDataLakeGen2Output(ctx *pulumi.Context, args LookupDatasetDataLakeGen2OutputArgs, opts ...pulumi.InvokeOption) LookupDatasetDataLakeGen2ResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatasetDataLakeGen2ResultOutput, error) {
 			args := v.(LookupDatasetDataLakeGen2Args)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDatasetDataLakeGen2Result
-			secret, err := ctx.InvokePackageRaw("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDatasetDataLakeGen2ResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDatasetDataLakeGen2ResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDatasetDataLakeGen2ResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDatasetDataLakeGen2ResultOutput), nil
 			}

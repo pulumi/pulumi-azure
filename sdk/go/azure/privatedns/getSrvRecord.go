@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetSrvRecord(ctx *pulumi.Context, args *GetSrvRecordArgs, opts ...pulumi.InvokeOption) (*GetSrvRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSrvRecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSrvRecordResult{}, errors.New("DependsOn is not supported for direct form invoke GetSrvRecord, use GetSrvRecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSrvRecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSrvRecord, use GetSrvRecordOutput instead")
+	}
 	var rv GetSrvRecordResult
 	err := ctx.Invoke("azure:privatedns/getSrvRecord:getSrvRecord", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type GetSrvRecordResult struct {
 }
 
 func GetSrvRecordOutput(ctx *pulumi.Context, args GetSrvRecordOutputArgs, opts ...pulumi.InvokeOption) GetSrvRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSrvRecordResultOutput, error) {
 			args := v.(GetSrvRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSrvRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getSrvRecord:getSrvRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getSrvRecord:getSrvRecord", args, &rv, "", opts...)
 			if err != nil {
 				return GetSrvRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSrvRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSrvRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSrvRecordResultOutput), nil
 			}

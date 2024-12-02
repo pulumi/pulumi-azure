@@ -5,6 +5,7 @@ package mobile
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupNetworkSlice(ctx *pulumi.Context, args *LookupNetworkSliceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSliceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkSliceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkSliceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkSlice, use LookupNetworkSliceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkSliceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkSlice, use LookupNetworkSliceOutput instead")
+	}
 	var rv LookupNetworkSliceResult
 	err := ctx.Invoke("azure:mobile/getNetworkSlice:getNetworkSlice", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupNetworkSliceResult struct {
 }
 
 func LookupNetworkSliceOutput(ctx *pulumi.Context, args LookupNetworkSliceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSliceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkSliceResultOutput, error) {
 			args := v.(LookupNetworkSliceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkSliceResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkSlice:getNetworkSlice", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:mobile/getNetworkSlice:getNetworkSlice", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkSliceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkSliceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkSliceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkSliceResultOutput), nil
 			}

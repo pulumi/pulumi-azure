@@ -5,6 +5,7 @@ package appconfiguration
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConfigurationStoreResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConfigurationStoreResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConfigurationStore, use LookupConfigurationStoreOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConfigurationStoreResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConfigurationStore, use LookupConfigurationStoreOutput instead")
+	}
 	var rv LookupConfigurationStoreResult
 	err := ctx.Invoke("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, &rv, opts...)
 	if err != nil {
@@ -98,17 +109,18 @@ type LookupConfigurationStoreResult struct {
 }
 
 func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfigurationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationStoreResultOutput, error) {
 			args := v.(LookupConfigurationStoreArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConfigurationStoreResult
-			secret, err := ctx.InvokePackageRaw("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConfigurationStoreResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConfigurationStoreResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConfigurationStoreResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConfigurationStoreResultOutput), nil
 			}

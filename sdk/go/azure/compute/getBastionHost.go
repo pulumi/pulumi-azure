@@ -5,6 +5,7 @@ package compute
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ...pulumi.InvokeOption) (*LookupBastionHostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBastionHostResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBastionHostResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBastionHost, use LookupBastionHostOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBastionHostResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBastionHost, use LookupBastionHostOutput instead")
+	}
 	var rv LookupBastionHostResult
 	err := ctx.Invoke("azure:compute/getBastionHost:getBastionHost", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type LookupBastionHostResult struct {
 }
 
 func LookupBastionHostOutput(ctx *pulumi.Context, args LookupBastionHostOutputArgs, opts ...pulumi.InvokeOption) LookupBastionHostResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBastionHostResultOutput, error) {
 			args := v.(LookupBastionHostArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBastionHostResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getBastionHost:getBastionHost", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getBastionHost:getBastionHost", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBastionHostResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBastionHostResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBastionHostResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBastionHostResultOutput), nil
 			}

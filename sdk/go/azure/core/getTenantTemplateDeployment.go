@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Tenant Template Deployment.
 func LookupTenantTemplateDeployment(ctx *pulumi.Context, args *LookupTenantTemplateDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupTenantTemplateDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTenantTemplateDeploymentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTenantTemplateDeploymentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTenantTemplateDeployment, use LookupTenantTemplateDeploymentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTenantTemplateDeploymentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTenantTemplateDeployment, use LookupTenantTemplateDeploymentOutput instead")
+	}
 	var rv LookupTenantTemplateDeploymentResult
 	err := ctx.Invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, &rv, opts...)
 	if err != nil {
@@ -38,17 +49,18 @@ type LookupTenantTemplateDeploymentResult struct {
 }
 
 func LookupTenantTemplateDeploymentOutput(ctx *pulumi.Context, args LookupTenantTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupTenantTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTenantTemplateDeploymentResultOutput, error) {
 			args := v.(LookupTenantTemplateDeploymentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTenantTemplateDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTenantTemplateDeploymentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTenantTemplateDeploymentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTenantTemplateDeploymentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTenantTemplateDeploymentResultOutput), nil
 			}

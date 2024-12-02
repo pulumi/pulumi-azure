@@ -5,6 +5,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualNetworkGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualNetworkGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualNetworkGateway, use LookupVirtualNetworkGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualNetworkGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualNetworkGateway, use LookupVirtualNetworkGatewayOutput instead")
+	}
 	var rv LookupVirtualNetworkGatewayResult
 	err := ctx.Invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args, &rv, opts...)
 	if err != nil {
@@ -98,17 +109,18 @@ type LookupVirtualNetworkGatewayResult struct {
 }
 
 func LookupVirtualNetworkGatewayOutput(ctx *pulumi.Context, args LookupVirtualNetworkGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNetworkGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualNetworkGatewayResultOutput, error) {
 			args := v.(LookupVirtualNetworkGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualNetworkGatewayResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualNetworkGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualNetworkGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualNetworkGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualNetworkGatewayResultOutput), nil
 			}

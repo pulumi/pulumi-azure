@@ -5,6 +5,7 @@ package desktopvirtualization
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulumi.InvokeOption) (*LookupHostPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupHostPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupHostPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupHostPool, use LookupHostPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupHostPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupHostPool, use LookupHostPoolOutput instead")
+	}
 	var rv LookupHostPoolResult
 	err := ctx.Invoke("azure:desktopvirtualization/getHostPool:getHostPool", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupHostPoolResult struct {
 }
 
 func LookupHostPoolOutput(ctx *pulumi.Context, args LookupHostPoolOutputArgs, opts ...pulumi.InvokeOption) LookupHostPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHostPoolResultOutput, error) {
 			args := v.(LookupHostPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupHostPoolResult
-			secret, err := ctx.InvokePackageRaw("azure:desktopvirtualization/getHostPool:getHostPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:desktopvirtualization/getHostPool:getHostPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupHostPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupHostPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupHostPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupHostPoolResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package privatedns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetSoaRecord(ctx *pulumi.Context, args *GetSoaRecordArgs, opts ...pulumi.InvokeOption) (*GetSoaRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSoaRecordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSoaRecordResult{}, errors.New("DependsOn is not supported for direct form invoke GetSoaRecord, use GetSoaRecordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSoaRecordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSoaRecord, use GetSoaRecordOutput instead")
+	}
 	var rv GetSoaRecordResult
 	err := ctx.Invoke("azure:privatedns/getSoaRecord:getSoaRecord", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type GetSoaRecordResult struct {
 }
 
 func GetSoaRecordOutput(ctx *pulumi.Context, args GetSoaRecordOutputArgs, opts ...pulumi.InvokeOption) GetSoaRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSoaRecordResultOutput, error) {
 			args := v.(GetSoaRecordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSoaRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getSoaRecord:getSoaRecord", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:privatedns/getSoaRecord:getSoaRecord", args, &rv, "", opts...)
 			if err != nil {
 				return GetSoaRecordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSoaRecordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSoaRecordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSoaRecordResultOutput), nil
 			}

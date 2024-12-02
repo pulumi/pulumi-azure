@@ -5,6 +5,7 @@ package siterecovery
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupReplicationPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupReplicationPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupReplicationPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupReplicationPolicy, use LookupReplicationPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupReplicationPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupReplicationPolicy, use LookupReplicationPolicyOutput instead")
+	}
 	var rv LookupReplicationPolicyResult
 	err := ctx.Invoke("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupReplicationPolicyResult struct {
 }
 
 func LookupReplicationPolicyOutput(ctx *pulumi.Context, args LookupReplicationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationPolicyResultOutput, error) {
 			args := v.(LookupReplicationPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationPolicyResultOutput), nil
 			}

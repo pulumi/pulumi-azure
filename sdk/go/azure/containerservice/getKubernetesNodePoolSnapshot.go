@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetKubernetesNodePoolSnapshot(ctx *pulumi.Context, args *GetKubernetesNodePoolSnapshotArgs, opts ...pulumi.InvokeOption) (*GetKubernetesNodePoolSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetKubernetesNodePoolSnapshotResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetKubernetesNodePoolSnapshotResult{}, errors.New("DependsOn is not supported for direct form invoke GetKubernetesNodePoolSnapshot, use GetKubernetesNodePoolSnapshotOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetKubernetesNodePoolSnapshotResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetKubernetesNodePoolSnapshot, use GetKubernetesNodePoolSnapshotOutput instead")
+	}
 	var rv GetKubernetesNodePoolSnapshotResult
 	err := ctx.Invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -69,17 +80,18 @@ type GetKubernetesNodePoolSnapshotResult struct {
 }
 
 func GetKubernetesNodePoolSnapshotOutput(ctx *pulumi.Context, args GetKubernetesNodePoolSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesNodePoolSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetKubernetesNodePoolSnapshotResultOutput, error) {
 			args := v.(GetKubernetesNodePoolSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetKubernetesNodePoolSnapshotResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return GetKubernetesNodePoolSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetKubernetesNodePoolSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetKubernetesNodePoolSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetKubernetesNodePoolSnapshotResultOutput), nil
 			}

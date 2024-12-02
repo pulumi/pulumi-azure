@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Load Balancer Rule.
 func GetLBRule(ctx *pulumi.Context, args *GetLBRuleArgs, opts ...pulumi.InvokeOption) (*GetLBRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLBRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLBRuleResult{}, errors.New("DependsOn is not supported for direct form invoke GetLBRule, use GetLBRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLBRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLBRule, use GetLBRuleOutput instead")
+	}
 	var rv GetLBRuleResult
 	err := ctx.Invoke("azure:lb/getLBRule:getLBRule", args, &rv, opts...)
 	if err != nil {
@@ -61,17 +72,18 @@ type GetLBRuleResult struct {
 }
 
 func GetLBRuleOutput(ctx *pulumi.Context, args GetLBRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLBRuleResultOutput, error) {
 			args := v.(GetLBRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLBRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:lb/getLBRule:getLBRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:lb/getLBRule:getLBRule", args, &rv, "", opts...)
 			if err != nil {
 				return GetLBRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLBRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLBRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLBRuleResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package containerservice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -14,6 +15,16 @@ import (
 // Use this data source to access information about an existing Container Registry Cache Rule.
 func LookupRegistryCacheRule(ctx *pulumi.Context, args *LookupRegistryCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupRegistryCacheRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRegistryCacheRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRegistryCacheRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRegistryCacheRule, use LookupRegistryCacheRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRegistryCacheRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRegistryCacheRule, use LookupRegistryCacheRuleOutput instead")
+	}
 	var rv LookupRegistryCacheRuleResult
 	err := ctx.Invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, &rv, opts...)
 	if err != nil {
@@ -45,17 +56,18 @@ type LookupRegistryCacheRuleResult struct {
 }
 
 func LookupRegistryCacheRuleOutput(ctx *pulumi.Context, args LookupRegistryCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryCacheRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryCacheRuleResultOutput, error) {
 			args := v.(LookupRegistryCacheRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryCacheRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryCacheRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryCacheRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryCacheRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryCacheRuleResultOutput), nil
 			}

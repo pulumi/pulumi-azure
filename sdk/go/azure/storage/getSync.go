@@ -5,6 +5,7 @@ package storage
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSync(ctx *pulumi.Context, args *LookupSyncArgs, opts ...pulumi.InvokeOption) (*LookupSyncResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSyncResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSyncResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSync, use LookupSyncOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSyncResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSync, use LookupSyncOutput instead")
+	}
 	var rv LookupSyncResult
 	err := ctx.Invoke("azure:storage/getSync:getSync", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupSyncResult struct {
 }
 
 func LookupSyncOutput(ctx *pulumi.Context, args LookupSyncOutputArgs, opts ...pulumi.InvokeOption) LookupSyncResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSyncResultOutput, error) {
 			args := v.(LookupSyncArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSyncResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getSync:getSync", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getSync:getSync", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSyncResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSyncResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSyncResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSyncResultOutput), nil
 			}

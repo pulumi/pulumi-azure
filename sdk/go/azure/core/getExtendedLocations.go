@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetExtendedLocations(ctx *pulumi.Context, args *GetExtendedLocationsArgs, opts ...pulumi.InvokeOption) (*GetExtendedLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetExtendedLocationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetExtendedLocationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetExtendedLocations, use GetExtendedLocationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetExtendedLocationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetExtendedLocations, use GetExtendedLocationsOutput instead")
+	}
 	var rv GetExtendedLocationsResult
 	err := ctx.Invoke("azure:core/getExtendedLocations:getExtendedLocations", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type GetExtendedLocationsResult struct {
 }
 
 func GetExtendedLocationsOutput(ctx *pulumi.Context, args GetExtendedLocationsOutputArgs, opts ...pulumi.InvokeOption) GetExtendedLocationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetExtendedLocationsResultOutput, error) {
 			args := v.(GetExtendedLocationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetExtendedLocationsResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getExtendedLocations:getExtendedLocations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getExtendedLocations:getExtendedLocations", args, &rv, "", opts...)
 			if err != nil {
 				return GetExtendedLocationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetExtendedLocationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetExtendedLocationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetExtendedLocationsResultOutput), nil
 			}

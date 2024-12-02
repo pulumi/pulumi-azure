@@ -5,6 +5,7 @@ package sentinel
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -50,6 +51,16 @@ import (
 // ```
 func GetAlertRule(ctx *pulumi.Context, args *GetAlertRuleArgs, opts ...pulumi.InvokeOption) (*GetAlertRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAlertRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAlertRuleResult{}, errors.New("DependsOn is not supported for direct form invoke GetAlertRule, use GetAlertRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAlertRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAlertRule, use GetAlertRuleOutput instead")
+	}
 	var rv GetAlertRuleResult
 	err := ctx.Invoke("azure:sentinel/getAlertRule:getAlertRule", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetAlertRuleResult struct {
 }
 
 func GetAlertRuleOutput(ctx *pulumi.Context, args GetAlertRuleOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAlertRuleResultOutput, error) {
 			args := v.(GetAlertRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAlertRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:sentinel/getAlertRule:getAlertRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:sentinel/getAlertRule:getAlertRule", args, &rv, "", opts...)
 			if err != nil {
 				return GetAlertRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAlertRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAlertRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAlertRuleResultOutput), nil
 			}

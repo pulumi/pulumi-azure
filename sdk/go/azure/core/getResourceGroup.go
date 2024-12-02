@@ -5,6 +5,7 @@ package core
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResourceGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResourceGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResourceGroup, use LookupResourceGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResourceGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResourceGroup, use LookupResourceGroupOutput instead")
+	}
 	var rv LookupResourceGroupResult
 	err := ctx.Invoke("azure:core/getResourceGroup:getResourceGroup", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupResourceGroupResult struct {
 }
 
 func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceGroupResultOutput, error) {
 			args := v.(LookupResourceGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getResourceGroup:getResourceGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getResourceGroup:getResourceGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceGroupResultOutput), nil
 			}
