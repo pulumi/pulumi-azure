@@ -97,7 +97,7 @@ export interface GetExpressRouteCircuitResult {
  * export const serviceKey = example.then(example => example.serviceKey);
  * ```
  */
-export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
+export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExpressRouteCircuitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", {
         "name": args.name,

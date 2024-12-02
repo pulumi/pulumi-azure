@@ -105,7 +105,7 @@ export interface GetNetworkSimPolicyResult {
  * }));
  * ```
  */
-export function getNetworkSimPolicyOutput(args: GetNetworkSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimPolicyResult> {
+export function getNetworkSimPolicyOutput(args: GetNetworkSimPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSimPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", {
         "mobileNetworkId": args.mobileNetworkId,

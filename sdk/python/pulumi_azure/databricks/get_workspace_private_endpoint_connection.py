@@ -120,7 +120,7 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[str]
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_private_endpoint_connection_output(private_endpoint_id: Optional[pulumi.Input[str]] = None,
                                                      workspace_id: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacePrivateEndpointConnectionResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacePrivateEndpointConnectionResult]:
     """
     Use this data source to access information on an existing Databricks Workspace private endpoint connection state.
 
@@ -142,7 +142,7 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_id: Option
     __args__ = dict()
     __args__['privateEndpointId'] = private_endpoint_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection', __args__, opts=opts, typ=GetWorkspacePrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetWorkspacePrivateEndpointConnectionResult(
         connections=pulumi.get(__response__, 'connections'),
