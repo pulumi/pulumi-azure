@@ -112,14 +112,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+     * State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
      * 
      */
     @Import(name="ftpsState")
     private @Nullable Output<String> ftpsState;
 
     /**
-     * @return State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+     * @return State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
      * 
      */
     public Optional<Output<String>> ftpsState() {
@@ -142,14 +142,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+     * Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
     @Import(name="http2Enabled")
     private @Nullable Output<Boolean> http2Enabled;
 
     /**
-     * @return Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+     * @return Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> http2Enabled() {
@@ -176,14 +176,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+     * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
      * 
      */
     @Import(name="linuxFxVersion")
     private @Nullable Output<String> linuxFxVersion;
 
     /**
-     * @return Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
      * 
      */
     public Optional<Output<String>> linuxFxVersion() {
@@ -191,14 +191,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+     * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
      * 
      */
     @Import(name="minTlsVersion")
     private @Nullable Output<String> minTlsVersion;
 
     /**
-     * @return The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+     * @return The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
      * 
      */
     public Optional<Output<String>> minTlsVersion() {
@@ -221,16 +221,20 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Is public network access enabled? Defaults to `true`.
+     * @deprecated
+     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Is public network access enabled? Defaults to `true`.
+     * @deprecated
+     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -535,7 +539,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ftpsState State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+         * @param ftpsState State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          * 
          * @return builder
          * 
@@ -546,7 +550,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ftpsState State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+         * @param ftpsState State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
          * 
          * @return builder
          * 
@@ -577,7 +581,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param http2Enabled Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+         * @param http2Enabled Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -588,7 +592,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param http2Enabled Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+         * @param http2Enabled Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -635,7 +639,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param linuxFxVersion Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+         * @param linuxFxVersion Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
          * 
          * @return builder
          * 
@@ -646,7 +650,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param linuxFxVersion Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+         * @param linuxFxVersion Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
          * 
          * @return builder
          * 
@@ -656,7 +660,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         * @param minTlsVersion The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
          * 
          * @return builder
          * 
@@ -667,7 +671,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         * @param minTlsVersion The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
          * 
          * @return builder
          * 
@@ -698,22 +702,26 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public network access enabled? Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
         /**
-         * @param publicNetworkAccessEnabled Is public network access enabled? Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }

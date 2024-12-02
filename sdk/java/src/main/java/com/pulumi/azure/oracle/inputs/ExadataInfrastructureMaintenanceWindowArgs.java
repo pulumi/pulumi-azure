@@ -18,14 +18,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     public static final ExadataInfrastructureMaintenanceWindowArgs Empty = new ExadataInfrastructureMaintenanceWindowArgs();
 
     /**
-     * Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+     * Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<String>> daysOfWeeks;
 
     /**
-     * @return Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+     * @return Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<String>>> daysOfWeeks() {
@@ -33,14 +33,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     }
 
     /**
-     * The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+     * The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="hoursOfDays")
     private @Nullable Output<List<Integer>> hoursOfDays;
 
     /**
-     * @return The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+     * @return The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<Integer>>> hoursOfDays() {
@@ -48,14 +48,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     }
 
     /**
-     * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+     * Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="leadTimeInWeeks")
     private @Nullable Output<Integer> leadTimeInWeeks;
 
     /**
-     * @return Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+     * @return Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<Integer>> leadTimeInWeeks() {
@@ -63,14 +63,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     }
 
     /**
-     * Months during the year when maintenance should be performed.
+     * Months during the year when maintenance should be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="months")
     private @Nullable Output<List<String>> months;
 
     /**
-     * @return Months during the year when maintenance should be performed.
+     * @return Months during the year when maintenance should be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<String>>> months() {
@@ -78,14 +78,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     }
 
     /**
-     * Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+     * Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="patchingMode")
     private @Nullable Output<String> patchingMode;
 
     /**
-     * @return Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+     * @return Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<String>> patchingMode() {
@@ -93,14 +93,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     }
 
     /**
-     * The maintenance window scheduling preference.
+     * The maintenance window scheduling preference. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="preference")
     private @Nullable Output<String> preference;
 
     /**
-     * @return The maintenance window scheduling preference.
+     * @return The maintenance window scheduling preference. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<String>> preference() {
@@ -108,14 +108,14 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
     }
 
     /**
-     * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+     * Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="weeksOfMonths")
     private @Nullable Output<List<Integer>> weeksOfMonths;
 
     /**
-     * @return Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+     * @return Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<Integer>>> weeksOfMonths() {
@@ -153,7 +153,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param daysOfWeeks Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+         * @param daysOfWeeks Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param daysOfWeeks Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+         * @param daysOfWeeks Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param daysOfWeeks Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`
+         * @param daysOfWeeks Days during the week when maintenance should be performed. Valid values are: `0` - represents time slot `0:00 - 3:59 UTC - 4` - represents time slot `4:00 - 7:59 UTC - 8` - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot `20:00 - 23:59 UTC`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param hoursOfDays The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+         * @param hoursOfDays The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param hoursOfDays The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+         * @param hoursOfDays The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param hoursOfDays The window of hours during the day when maintenance should be performed. The window is a 4 hour slot.
+         * @param hoursOfDays The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param leadTimeInWeeks Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+         * @param leadTimeInWeeks Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param leadTimeInWeeks Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`.
+         * @param leadTimeInWeeks Lead time window allows user to set a lead time to prepare for a down time. The lead time is in weeks and valid value is between `1` to `4`. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param months Months during the year when maintenance should be performed.
+         * @param months Months during the year when maintenance should be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param months Months during the year when maintenance should be performed.
+         * @param months Months during the year when maintenance should be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param months Months during the year when maintenance should be performed.
+         * @param months Months during the year when maintenance should be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param patchingMode Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+         * @param patchingMode Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param patchingMode Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information.
+         * @param patchingMode Cloud Exadata Infrastructure node patching method, either `ROLLING` or `NONROLLING`. Default value is `ROLLING`. IMPORTANT: Non-rolling infrastructure patching involves system down time. See [Oracle-Managed Infrastructure Maintenance Updates](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/examaintenance.htm#Oracle) for more information. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param preference The maintenance window scheduling preference.
+         * @param preference The maintenance window scheduling preference. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param preference The maintenance window scheduling preference.
+         * @param preference The maintenance window scheduling preference. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param weeksOfMonths Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+         * @param weeksOfMonths Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param weeksOfMonths Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+         * @param weeksOfMonths Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ExadataInfrastructureMaintenanceWindowArgs extends com.pulumi
         }
 
         /**
-         * @param weeksOfMonths Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.
+         * @param weeksOfMonths Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 

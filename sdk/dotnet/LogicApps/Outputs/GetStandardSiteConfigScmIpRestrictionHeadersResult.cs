@@ -13,9 +13,21 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetStandardSiteConfigScmIpRestrictionHeadersResult
     {
+        /// <summary>
+        /// A list of allowed Azure FrontDoor IDs in UUID notation.
+        /// </summary>
         public readonly ImmutableArray<string> XAzureFdids;
+        /// <summary>
+        /// A list to allow the Azure FrontDoor health probe header.
+        /// </summary>
         public readonly string? XFdHealthProbe;
+        /// <summary>
+        /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
+        /// </summary>
         public readonly ImmutableArray<string> XForwardedFors;
+        /// <summary>
+        /// A list of allowed 'X-Forwarded-Host' domains.
+        /// </summary>
         public readonly ImmutableArray<string> XForwardedHosts;
 
         [OutputConstructor]

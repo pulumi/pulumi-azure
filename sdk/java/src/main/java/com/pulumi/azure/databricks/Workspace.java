@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.databricks.WorkspaceArgs;
 import com.pulumi.azure.databricks.inputs.WorkspaceState;
 import com.pulumi.azure.databricks.outputs.WorkspaceCustomParameters;
+import com.pulumi.azure.databricks.outputs.WorkspaceEnhancedSecurityCompliance;
 import com.pulumi.azure.databricks.outputs.WorkspaceManagedDiskIdentity;
 import com.pulumi.azure.databricks.outputs.WorkspaceStorageAccountIdentity;
 import com.pulumi.core.Output;
@@ -105,6 +106,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> diskEncryptionSetId() {
         return this.diskEncryptionSetId;
+    }
+    /**
+     * An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * 
+     */
+    @Export(name="enhancedSecurityCompliance", refs={WorkspaceEnhancedSecurityCompliance.class}, tree="[0]")
+    private Output</* @Nullable */ WorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliance;
+
+    /**
+     * @return An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * 
+     */
+    public Output<Optional<WorkspaceEnhancedSecurityCompliance>> enhancedSecurityCompliance() {
+        return Codegen.optional(this.enhancedSecurityCompliance);
     }
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.

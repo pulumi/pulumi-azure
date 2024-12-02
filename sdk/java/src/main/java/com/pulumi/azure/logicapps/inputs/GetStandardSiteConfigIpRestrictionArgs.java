@@ -18,23 +18,47 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
 
     public static final GetStandardSiteConfigIpRestrictionArgs Empty = new GetStandardSiteConfigIpRestrictionArgs();
 
+    /**
+     * Does this restriction `Allow` or `Deny` access for this IP range.
+     * 
+     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
+    /**
+     * @return Does this restriction `Allow` or `Deny` access for this IP range.
+     * 
+     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * The `headers` block for this specific `ip_restriction` as defined below.
+     * 
+     */
     @Import(name="headers", required=true)
     private Output<GetStandardSiteConfigIpRestrictionHeadersArgs> headers;
 
+    /**
+     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * 
+     */
     public Output<GetStandardSiteConfigIpRestrictionHeadersArgs> headers() {
         return this.headers;
     }
 
+    /**
+     * The IP Address used for this IP Restriction in CIDR notation.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return The IP Address used for this IP Restriction in CIDR notation.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
@@ -54,23 +78,47 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
         return this.name;
     }
 
+    /**
+     * The priority for this IP Restriction. Restrictions are enforced in priority order.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
+    /**
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order.
+     * 
+     */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * The Service Tag used for this IP Restriction.
+     * 
+     */
     @Import(name="serviceTag")
     private @Nullable Output<String> serviceTag;
 
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     public Optional<Output<String>> serviceTag() {
         return Optional.ofNullable(this.serviceTag);
     }
 
+    /**
+     * The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
+    /**
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -105,29 +153,65 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
             $ = new GetStandardSiteConfigIpRestrictionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Does this restriction `Allow` or `Deny` access for this IP range.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action Does this restriction `Allow` or `Deny` access for this IP range.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
+        /**
+         * @param headers The `headers` block for this specific `ip_restriction` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(Output<GetStandardSiteConfigIpRestrictionHeadersArgs> headers) {
             $.headers = headers;
             return this;
         }
 
+        /**
+         * @param headers The `headers` block for this specific `ip_restriction` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(GetStandardSiteConfigIpRestrictionHeadersArgs headers) {
             return headers(Output.of(headers));
         }
 
+        /**
+         * @param ipAddress The IP Address used for this IP Restriction in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress The IP Address used for this IP Restriction in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
@@ -153,29 +237,65 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
             return name(Output.of(name));
         }
 
+        /**
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
+        /**
+         * @param serviceTag The Service Tag used for this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceTag(@Nullable Output<String> serviceTag) {
             $.serviceTag = serviceTag;
             return this;
         }
 
+        /**
+         * @param serviceTag The Service Tag used for this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceTag(String serviceTag) {
             return serviceTag(Output.of(serviceTag));
         }
 
+        /**
+         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
 
+        /**
+         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }

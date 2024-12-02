@@ -62,6 +62,8 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
+	// An `enhancedSecurityCompliance` block as documented below.
+	EnhancedSecurityCompliances []GetWorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliances"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Databricks Workspace exists.
@@ -128,6 +130,13 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorks
 
 func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
 	return o
+}
+
+// An `enhancedSecurityCompliance` block as documented below.
+func (o LookupWorkspaceResultOutput) EnhancedSecurityCompliances() GetWorkspaceEnhancedSecurityComplianceArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceEnhancedSecurityCompliance {
+		return v.EnhancedSecurityCompliances
+	}).(GetWorkspaceEnhancedSecurityComplianceArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

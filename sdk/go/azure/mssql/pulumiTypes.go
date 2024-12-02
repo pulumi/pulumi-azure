@@ -6759,6 +6759,245 @@ func (o GetElasticPoolSkusArrayOutput) Index(i pulumi.IntInput) GetElasticPoolSk
 	}).(GetElasticPoolSkusOutput)
 }
 
+type GetManagedDatabaseLongTermRetentionPolicy struct {
+	// Specifies if the backups are immutable.
+	ImmutableBackupsEnabled bool `pulumi:"immutableBackupsEnabled"`
+	// The monthly retention policy for an LTR backup in an ISO 8601 format.
+	MonthlyRetention string `pulumi:"monthlyRetention"`
+	// The week of year to take the yearly backup.
+	WeekOfYear int `pulumi:"weekOfYear"`
+	// The weekly retention policy for an LTR backup in an ISO 8601 format.
+	WeeklyRetention string `pulumi:"weeklyRetention"`
+	// The yearly retention policy for an LTR backup in an ISO 8601 format.
+	YearlyRetention string `pulumi:"yearlyRetention"`
+}
+
+// GetManagedDatabaseLongTermRetentionPolicyInput is an input type that accepts GetManagedDatabaseLongTermRetentionPolicyArgs and GetManagedDatabaseLongTermRetentionPolicyOutput values.
+// You can construct a concrete instance of `GetManagedDatabaseLongTermRetentionPolicyInput` via:
+//
+//	GetManagedDatabaseLongTermRetentionPolicyArgs{...}
+type GetManagedDatabaseLongTermRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToGetManagedDatabaseLongTermRetentionPolicyOutput() GetManagedDatabaseLongTermRetentionPolicyOutput
+	ToGetManagedDatabaseLongTermRetentionPolicyOutputWithContext(context.Context) GetManagedDatabaseLongTermRetentionPolicyOutput
+}
+
+type GetManagedDatabaseLongTermRetentionPolicyArgs struct {
+	// Specifies if the backups are immutable.
+	ImmutableBackupsEnabled pulumi.BoolInput `pulumi:"immutableBackupsEnabled"`
+	// The monthly retention policy for an LTR backup in an ISO 8601 format.
+	MonthlyRetention pulumi.StringInput `pulumi:"monthlyRetention"`
+	// The week of year to take the yearly backup.
+	WeekOfYear pulumi.IntInput `pulumi:"weekOfYear"`
+	// The weekly retention policy for an LTR backup in an ISO 8601 format.
+	WeeklyRetention pulumi.StringInput `pulumi:"weeklyRetention"`
+	// The yearly retention policy for an LTR backup in an ISO 8601 format.
+	YearlyRetention pulumi.StringInput `pulumi:"yearlyRetention"`
+}
+
+func (GetManagedDatabaseLongTermRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i GetManagedDatabaseLongTermRetentionPolicyArgs) ToGetManagedDatabaseLongTermRetentionPolicyOutput() GetManagedDatabaseLongTermRetentionPolicyOutput {
+	return i.ToGetManagedDatabaseLongTermRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i GetManagedDatabaseLongTermRetentionPolicyArgs) ToGetManagedDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) GetManagedDatabaseLongTermRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDatabaseLongTermRetentionPolicyOutput)
+}
+
+// GetManagedDatabaseLongTermRetentionPolicyArrayInput is an input type that accepts GetManagedDatabaseLongTermRetentionPolicyArray and GetManagedDatabaseLongTermRetentionPolicyArrayOutput values.
+// You can construct a concrete instance of `GetManagedDatabaseLongTermRetentionPolicyArrayInput` via:
+//
+//	GetManagedDatabaseLongTermRetentionPolicyArray{ GetManagedDatabaseLongTermRetentionPolicyArgs{...} }
+type GetManagedDatabaseLongTermRetentionPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDatabaseLongTermRetentionPolicyArrayOutput() GetManagedDatabaseLongTermRetentionPolicyArrayOutput
+	ToGetManagedDatabaseLongTermRetentionPolicyArrayOutputWithContext(context.Context) GetManagedDatabaseLongTermRetentionPolicyArrayOutput
+}
+
+type GetManagedDatabaseLongTermRetentionPolicyArray []GetManagedDatabaseLongTermRetentionPolicyInput
+
+func (GetManagedDatabaseLongTermRetentionPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i GetManagedDatabaseLongTermRetentionPolicyArray) ToGetManagedDatabaseLongTermRetentionPolicyArrayOutput() GetManagedDatabaseLongTermRetentionPolicyArrayOutput {
+	return i.ToGetManagedDatabaseLongTermRetentionPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDatabaseLongTermRetentionPolicyArray) ToGetManagedDatabaseLongTermRetentionPolicyArrayOutputWithContext(ctx context.Context) GetManagedDatabaseLongTermRetentionPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDatabaseLongTermRetentionPolicyArrayOutput)
+}
+
+type GetManagedDatabaseLongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDatabaseLongTermRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ToGetManagedDatabaseLongTermRetentionPolicyOutput() GetManagedDatabaseLongTermRetentionPolicyOutput {
+	return o
+}
+
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ToGetManagedDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) GetManagedDatabaseLongTermRetentionPolicyOutput {
+	return o
+}
+
+// Specifies if the backups are immutable.
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format.
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) string { return v.MonthlyRetention }).(pulumi.StringOutput)
+}
+
+// The week of year to take the yearly backup.
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) WeekOfYear() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) int { return v.WeekOfYear }).(pulumi.IntOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format.
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) WeeklyRetention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) string { return v.WeeklyRetention }).(pulumi.StringOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format.
+func (o GetManagedDatabaseLongTermRetentionPolicyOutput) YearlyRetention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) string { return v.YearlyRetention }).(pulumi.StringOutput)
+}
+
+type GetManagedDatabaseLongTermRetentionPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDatabaseLongTermRetentionPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o GetManagedDatabaseLongTermRetentionPolicyArrayOutput) ToGetManagedDatabaseLongTermRetentionPolicyArrayOutput() GetManagedDatabaseLongTermRetentionPolicyArrayOutput {
+	return o
+}
+
+func (o GetManagedDatabaseLongTermRetentionPolicyArrayOutput) ToGetManagedDatabaseLongTermRetentionPolicyArrayOutputWithContext(ctx context.Context) GetManagedDatabaseLongTermRetentionPolicyArrayOutput {
+	return o
+}
+
+func (o GetManagedDatabaseLongTermRetentionPolicyArrayOutput) Index(i pulumi.IntInput) GetManagedDatabaseLongTermRetentionPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDatabaseLongTermRetentionPolicy {
+		return vs[0].([]GetManagedDatabaseLongTermRetentionPolicy)[vs[1].(int)]
+	}).(GetManagedDatabaseLongTermRetentionPolicyOutput)
+}
+
+type GetManagedDatabasePointInTimeRestore struct {
+	// The point in time for the restore from `sourceDatabaseId`.
+	RestorePointInTime string `pulumi:"restorePointInTime"`
+	// The source database ID that is used to restore from.
+	SourceDatabaseId string `pulumi:"sourceDatabaseId"`
+}
+
+// GetManagedDatabasePointInTimeRestoreInput is an input type that accepts GetManagedDatabasePointInTimeRestoreArgs and GetManagedDatabasePointInTimeRestoreOutput values.
+// You can construct a concrete instance of `GetManagedDatabasePointInTimeRestoreInput` via:
+//
+//	GetManagedDatabasePointInTimeRestoreArgs{...}
+type GetManagedDatabasePointInTimeRestoreInput interface {
+	pulumi.Input
+
+	ToGetManagedDatabasePointInTimeRestoreOutput() GetManagedDatabasePointInTimeRestoreOutput
+	ToGetManagedDatabasePointInTimeRestoreOutputWithContext(context.Context) GetManagedDatabasePointInTimeRestoreOutput
+}
+
+type GetManagedDatabasePointInTimeRestoreArgs struct {
+	// The point in time for the restore from `sourceDatabaseId`.
+	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
+	// The source database ID that is used to restore from.
+	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
+}
+
+func (GetManagedDatabasePointInTimeRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (i GetManagedDatabasePointInTimeRestoreArgs) ToGetManagedDatabasePointInTimeRestoreOutput() GetManagedDatabasePointInTimeRestoreOutput {
+	return i.ToGetManagedDatabasePointInTimeRestoreOutputWithContext(context.Background())
+}
+
+func (i GetManagedDatabasePointInTimeRestoreArgs) ToGetManagedDatabasePointInTimeRestoreOutputWithContext(ctx context.Context) GetManagedDatabasePointInTimeRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDatabasePointInTimeRestoreOutput)
+}
+
+// GetManagedDatabasePointInTimeRestoreArrayInput is an input type that accepts GetManagedDatabasePointInTimeRestoreArray and GetManagedDatabasePointInTimeRestoreArrayOutput values.
+// You can construct a concrete instance of `GetManagedDatabasePointInTimeRestoreArrayInput` via:
+//
+//	GetManagedDatabasePointInTimeRestoreArray{ GetManagedDatabasePointInTimeRestoreArgs{...} }
+type GetManagedDatabasePointInTimeRestoreArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDatabasePointInTimeRestoreArrayOutput() GetManagedDatabasePointInTimeRestoreArrayOutput
+	ToGetManagedDatabasePointInTimeRestoreArrayOutputWithContext(context.Context) GetManagedDatabasePointInTimeRestoreArrayOutput
+}
+
+type GetManagedDatabasePointInTimeRestoreArray []GetManagedDatabasePointInTimeRestoreInput
+
+func (GetManagedDatabasePointInTimeRestoreArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (i GetManagedDatabasePointInTimeRestoreArray) ToGetManagedDatabasePointInTimeRestoreArrayOutput() GetManagedDatabasePointInTimeRestoreArrayOutput {
+	return i.ToGetManagedDatabasePointInTimeRestoreArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDatabasePointInTimeRestoreArray) ToGetManagedDatabasePointInTimeRestoreArrayOutputWithContext(ctx context.Context) GetManagedDatabasePointInTimeRestoreArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDatabasePointInTimeRestoreArrayOutput)
+}
+
+type GetManagedDatabasePointInTimeRestoreOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDatabasePointInTimeRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (o GetManagedDatabasePointInTimeRestoreOutput) ToGetManagedDatabasePointInTimeRestoreOutput() GetManagedDatabasePointInTimeRestoreOutput {
+	return o
+}
+
+func (o GetManagedDatabasePointInTimeRestoreOutput) ToGetManagedDatabasePointInTimeRestoreOutputWithContext(ctx context.Context) GetManagedDatabasePointInTimeRestoreOutput {
+	return o
+}
+
+// The point in time for the restore from `sourceDatabaseId`.
+func (o GetManagedDatabasePointInTimeRestoreOutput) RestorePointInTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDatabasePointInTimeRestore) string { return v.RestorePointInTime }).(pulumi.StringOutput)
+}
+
+// The source database ID that is used to restore from.
+func (o GetManagedDatabasePointInTimeRestoreOutput) SourceDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDatabasePointInTimeRestore) string { return v.SourceDatabaseId }).(pulumi.StringOutput)
+}
+
+type GetManagedDatabasePointInTimeRestoreArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDatabasePointInTimeRestoreArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (o GetManagedDatabasePointInTimeRestoreArrayOutput) ToGetManagedDatabasePointInTimeRestoreArrayOutput() GetManagedDatabasePointInTimeRestoreArrayOutput {
+	return o
+}
+
+func (o GetManagedDatabasePointInTimeRestoreArrayOutput) ToGetManagedDatabasePointInTimeRestoreArrayOutputWithContext(ctx context.Context) GetManagedDatabasePointInTimeRestoreArrayOutput {
+	return o
+}
+
+func (o GetManagedDatabasePointInTimeRestoreArrayOutput) Index(i pulumi.IntInput) GetManagedDatabasePointInTimeRestoreOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDatabasePointInTimeRestore {
+		return vs[0].([]GetManagedDatabasePointInTimeRestore)[vs[1].(int)]
+	}).(GetManagedDatabasePointInTimeRestoreOutput)
+}
+
 type GetManagedInstanceIdentity struct {
 	// A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -7082,6 +7321,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseIdentityArrayInput)(nil)).Elem(), GetDatabaseIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusInput)(nil)).Elem(), GetElasticPoolSkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusArrayInput)(nil)).Elem(), GetElasticPoolSkusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabaseLongTermRetentionPolicyInput)(nil)).Elem(), GetManagedDatabaseLongTermRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabaseLongTermRetentionPolicyArrayInput)(nil)).Elem(), GetManagedDatabaseLongTermRetentionPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabasePointInTimeRestoreInput)(nil)).Elem(), GetManagedDatabasePointInTimeRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabasePointInTimeRestoreArrayInput)(nil)).Elem(), GetManagedDatabasePointInTimeRestoreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityInput)(nil)).Elem(), GetManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityArrayInput)(nil)).Elem(), GetManagedInstanceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
@@ -7160,6 +7403,10 @@ func init() {
 	pulumi.RegisterOutputType(GetDatabaseIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDatabaseLongTermRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(GetManagedDatabaseLongTermRetentionPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDatabasePointInTimeRestoreOutput{})
+	pulumi.RegisterOutputType(GetManagedDatabasePointInTimeRestoreArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(GetManagedInstanceIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})

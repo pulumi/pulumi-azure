@@ -58,19 +58,19 @@ namespace Pulumi.Azure.Oracle
     public partial class ExadataInfrastructure : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The number of compute servers for the Cloud Exadata Infrastructure.
+        /// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("computeCount")]
         public Output<int> ComputeCount { get; private set; } = null!;
 
         /// <summary>
-        /// The email address used by Oracle to send notifications regarding databases and infrastructure.
+        /// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("customerContacts")]
         public Output<ImmutableArray<string>> CustomerContacts { get; private set; } = null!;
 
         /// <summary>
-        /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -82,31 +82,31 @@ namespace Pulumi.Azure.Oracle
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `maintenance_window` blocks as defined below.
+        /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("maintenanceWindows")]
         public Output<ImmutableArray<Outputs.ExadataInfrastructureMaintenanceWindow>> MaintenanceWindows { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Cloud Exadata Infrastructure.
+        /// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the ODB@A Infrastructure should exist.
+        /// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The shape of the ODB@A infrastructure resource.
+        /// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("shape")]
         public Output<string> Shape { get; private set; } = null!;
 
         /// <summary>
-        /// The number of storage servers for the Cloud Exadata Infrastructure.
+        /// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("storageCount")]
         public Output<int> StorageCount { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Oracle
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud Exadata Infrastructure zones.
+        /// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Oracle
     public sealed class ExadataInfrastructureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of compute servers for the Cloud Exadata Infrastructure.
+        /// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("computeCount", required: true)]
         public Input<int> ComputeCount { get; set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _customerContacts;
 
         /// <summary>
-        /// The email address used by Oracle to send notifications regarding databases and infrastructure.
+        /// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<string> CustomerContacts
         {
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<Inputs.ExadataInfrastructureMaintenanceWindowArgs>? _maintenanceWindows;
 
         /// <summary>
-        /// One or more `maintenance_window` blocks as defined below.
+        /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<Inputs.ExadataInfrastructureMaintenanceWindowArgs> MaintenanceWindows
         {
@@ -212,25 +212,25 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The name which should be used for this Cloud Exadata Infrastructure.
+        /// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the ODB@A Infrastructure should exist.
+        /// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The shape of the ODB@A infrastructure resource.
+        /// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("shape", required: true)]
         public Input<string> Shape { get; set; } = null!;
 
         /// <summary>
-        /// The number of storage servers for the Cloud Exadata Infrastructure.
+        /// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("storageCount", required: true)]
         public Input<int> StorageCount { get; set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Cloud Exadata Infrastructure zones.
+        /// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Oracle
     public sealed class ExadataInfrastructureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of compute servers for the Cloud Exadata Infrastructure.
+        /// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("computeCount")]
         public Input<int>? ComputeCount { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _customerContacts;
 
         /// <summary>
-        /// The email address used by Oracle to send notifications regarding databases and infrastructure.
+        /// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<string> CustomerContacts
         {
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+        /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<Inputs.ExadataInfrastructureMaintenanceWindowGetArgs>? _maintenanceWindows;
 
         /// <summary>
-        /// One or more `maintenance_window` blocks as defined below.
+        /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<Inputs.ExadataInfrastructureMaintenanceWindowGetArgs> MaintenanceWindows
         {
@@ -310,25 +310,25 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// The name which should be used for this Cloud Exadata Infrastructure.
+        /// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the ODB@A Infrastructure should exist.
+        /// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The shape of the ODB@A infrastructure resource.
+        /// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
 
         /// <summary>
-        /// The number of storage servers for the Cloud Exadata Infrastructure.
+        /// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Cloud Exadata Infrastructure zones.
+        /// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<string> Zones
         {

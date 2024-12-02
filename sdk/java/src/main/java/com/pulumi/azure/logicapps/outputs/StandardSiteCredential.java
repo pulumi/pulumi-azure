@@ -17,7 +17,7 @@ public final class StandardSiteCredential {
      */
     private @Nullable String password;
     /**
-     * @return The username which can be used to publish to this App Service
+     * @return The username which can be used to publish to this App Service.
      * 
      */
     private @Nullable String username;
@@ -31,7 +31,7 @@ public final class StandardSiteCredential {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The username which can be used to publish to this App Service
+     * @return The username which can be used to publish to this App Service.
      * 
      */
     public Optional<String> username() {

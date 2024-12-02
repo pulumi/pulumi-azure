@@ -8747,7 +8747,7 @@ class RegistryTaskAgentSetting(dict):
     def __init__(__self__, *,
                  cpu: int):
         """
-        :param int cpu: The number of cores required for the Container Registry Task.
+        :param int cpu: The number of cores required for the Container Registry Task. Possible value is `2`.
         """
         pulumi.set(__self__, "cpu", cpu)
 
@@ -8755,7 +8755,7 @@ class RegistryTaskAgentSetting(dict):
     @pulumi.getter
     def cpu(self) -> int:
         """
-        The number of cores required for the Container Registry Task.
+        The number of cores required for the Container Registry Task. Possible value is `2`.
         """
         return pulumi.get(self, "cpu")
 

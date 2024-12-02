@@ -82,42 +82,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:oracle/exadataInfrastructure:ExadataInfrastructure")
 public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
     /**
-     * The number of compute servers for the Cloud Exadata Infrastructure.
+     * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="computeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> computeCount;
 
     /**
-     * @return The number of compute servers for the Cloud Exadata Infrastructure.
+     * @return The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<Integer> computeCount() {
         return this.computeCount;
     }
     /**
-     * The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="customerContacts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> customerContacts;
 
     /**
-     * @return The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * @return The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<List<String>> customerContacts() {
         return this.customerContacts;
     }
     /**
-     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * @return The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> displayName() {
@@ -138,70 +138,70 @@ public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * One or more `maintenance_window` blocks as defined below.
+     * One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="maintenanceWindows", refs={List.class,ExadataInfrastructureMaintenanceWindow.class}, tree="[0,1]")
     private Output<List<ExadataInfrastructureMaintenanceWindow>> maintenanceWindows;
 
     /**
-     * @return One or more `maintenance_window` blocks as defined below.
+     * @return One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<List<ExadataInfrastructureMaintenanceWindow>> maintenanceWindows() {
         return this.maintenanceWindows;
     }
     /**
-     * The name which should be used for this Cloud Exadata Infrastructure.
+     * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Cloud Exadata Infrastructure.
+     * @return The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist.
+     * The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist.
+     * @return The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The shape of the ODB{@literal @}A infrastructure resource.
+     * The shape of the ODB{@literal @}A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="shape", refs={String.class}, tree="[0]")
     private Output<String> shape;
 
     /**
-     * @return The shape of the ODB{@literal @}A infrastructure resource.
+     * @return The shape of the ODB{@literal @}A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> shape() {
         return this.shape;
     }
     /**
-     * The number of storage servers for the Cloud Exadata Infrastructure.
+     * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="storageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCount;
 
     /**
-     * @return The number of storage servers for the Cloud Exadata Infrastructure.
+     * @return The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<Integer> storageCount() {
@@ -222,14 +222,14 @@ public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Cloud Exadata Infrastructure zones.
+     * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> zones;
 
     /**
-     * @return Cloud Exadata Infrastructure zones.
+     * @return Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<List<String>> zones() {

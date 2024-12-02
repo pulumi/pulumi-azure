@@ -140,6 +140,10 @@ namespace Pulumi.Azure.DataBricks
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// An `enhanced_security_compliance` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWorkspaceEnhancedSecurityComplianceResult> EnhancedSecurityCompliances;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -176,6 +180,8 @@ namespace Pulumi.Azure.DataBricks
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            ImmutableArray<Outputs.GetWorkspaceEnhancedSecurityComplianceResult> enhancedSecurityCompliances,
+
             string id,
 
             string location,
@@ -196,6 +202,7 @@ namespace Pulumi.Azure.DataBricks
 
             string workspaceUrl)
         {
+            EnhancedSecurityCompliances = enhancedSecurityCompliances;
             Id = id;
             Location = location;
             ManagedDiskIdentities = managedDiskIdentities;

@@ -45,6 +45,11 @@ export const getElasticPool: typeof import("./getElasticPool").getElasticPool = 
 export const getElasticPoolOutput: typeof import("./getElasticPool").getElasticPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
 
+export { GetManagedDatabaseArgs, GetManagedDatabaseResult, GetManagedDatabaseOutputArgs } from "./getManagedDatabase";
+export const getManagedDatabase: typeof import("./getManagedDatabase").getManagedDatabase = null as any;
+export const getManagedDatabaseOutput: typeof import("./getManagedDatabase").getManagedDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDatabase","getManagedDatabaseOutput"], () => require("./getManagedDatabase"));
+
 export { GetManagedInstanceArgs, GetManagedInstanceResult, GetManagedInstanceOutputArgs } from "./getManagedInstance";
 export const getManagedInstance: typeof import("./getManagedInstance").getManagedInstance = null as any;
 export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;

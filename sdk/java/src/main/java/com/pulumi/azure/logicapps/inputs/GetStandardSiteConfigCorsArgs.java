@@ -18,16 +18,32 @@ public final class GetStandardSiteConfigCorsArgs extends com.pulumi.resources.Re
 
     public static final GetStandardSiteConfigCorsArgs Empty = new GetStandardSiteConfigCorsArgs();
 
+    /**
+     * A list of origins which should be able to make cross-origin calls.
+     * 
+     */
     @Import(name="allowedOrigins", required=true)
     private Output<List<String>> allowedOrigins;
 
+    /**
+     * @return A list of origins which should be able to make cross-origin calls.
+     * 
+     */
     public Output<List<String>> allowedOrigins() {
         return this.allowedOrigins;
     }
 
+    /**
+     * Are credentials supported?
+     * 
+     */
     @Import(name="supportCredentials")
     private @Nullable Output<Boolean> supportCredentials;
 
+    /**
+     * @return Are credentials supported?
+     * 
+     */
     public Optional<Output<Boolean>> supportCredentials() {
         return Optional.ofNullable(this.supportCredentials);
     }
@@ -57,24 +73,54 @@ public final class GetStandardSiteConfigCorsArgs extends com.pulumi.resources.Re
             $ = new GetStandardSiteConfigCorsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowedOrigins A list of origins which should be able to make cross-origin calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedOrigins(Output<List<String>> allowedOrigins) {
             $.allowedOrigins = allowedOrigins;
             return this;
         }
 
+        /**
+         * @param allowedOrigins A list of origins which should be able to make cross-origin calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedOrigins(List<String> allowedOrigins) {
             return allowedOrigins(Output.of(allowedOrigins));
         }
 
+        /**
+         * @param allowedOrigins A list of origins which should be able to make cross-origin calls.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
 
+        /**
+         * @param supportCredentials Are credentials supported?
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportCredentials(@Nullable Output<Boolean> supportCredentials) {
             $.supportCredentials = supportCredentials;
             return this;
         }
 
+        /**
+         * @param supportCredentials Are credentials supported?
+         * 
+         * @return builder
+         * 
+         */
         public Builder supportCredentials(Boolean supportCredentials) {
             return supportCredentials(Output.of(supportCredentials));
         }

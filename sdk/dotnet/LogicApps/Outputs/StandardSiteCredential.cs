@@ -18,7 +18,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The username which can be used to publish to this App Service
+        /// The username which can be used to publish to this App Service.
         /// </summary>
         public readonly string? Username;
 

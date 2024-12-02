@@ -169,7 +169,7 @@ import (
 type Standard struct {
 	pulumi.CustomResourceState
 
-	// The ID of the App Service Plan within which to create this Logic App
+	// The ID of the App Service Plan within which to create this Logic App.
 	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//
@@ -181,7 +181,7 @@ type Standard struct {
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
-	// An `connectionString` block as defined below.
+	// A `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
@@ -203,13 +203,17 @@ type Standard struct {
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+	// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	//
+	// > **Note:** Setting this property will also set it in the Site Config.
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig StandardSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials StandardSiteCredentialArrayOutput `pulumi:"siteCredentials"`
-	// The access key which will be used to access the backend storage account for the Logic App
+	// The access key which will be used to access the backend storage account for the Logic App.
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName      pulumi.StringOutput `pulumi:"storageAccountName"`
@@ -274,7 +278,7 @@ func GetStandard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Standard resources.
 type standardState struct {
-	// The ID of the App Service Plan within which to create this Logic App
+	// The ID of the App Service Plan within which to create this Logic App.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//
@@ -286,7 +290,7 @@ type standardState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
-	// An `connectionString` block as defined below.
+	// A `connectionString` block as defined below.
 	ConnectionStrings []StandardConnectionString `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
@@ -308,13 +312,17 @@ type standardState struct {
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
+	// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	//
+	// > **Note:** Setting this property will also set it in the Site Config.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *StandardSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials []StandardSiteCredential `pulumi:"siteCredentials"`
-	// The access key which will be used to access the backend storage account for the Logic App
+	// The access key which will be used to access the backend storage account for the Logic App.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName      *string `pulumi:"storageAccountName"`
@@ -331,7 +339,7 @@ type standardState struct {
 }
 
 type StandardState struct {
-	// The ID of the App Service Plan within which to create this Logic App
+	// The ID of the App Service Plan within which to create this Logic App.
 	AppServicePlanId pulumi.StringPtrInput
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//
@@ -343,7 +351,7 @@ type StandardState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
-	// An `connectionString` block as defined below.
+	// A `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayInput
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId pulumi.StringPtrInput
@@ -365,13 +373,17 @@ type StandardState struct {
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
+	// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	//
+	// > **Note:** Setting this property will also set it in the Site Config.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` object as defined below.
 	SiteConfig StandardSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials StandardSiteCredentialArrayInput
-	// The access key which will be used to access the backend storage account for the Logic App
+	// The access key which will be used to access the backend storage account for the Logic App.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName      pulumi.StringPtrInput
@@ -392,7 +404,7 @@ func (StandardState) ElementType() reflect.Type {
 }
 
 type standardArgs struct {
-	// The ID of the App Service Plan within which to create this Logic App
+	// The ID of the App Service Plan within which to create this Logic App.
 	AppServicePlanId string `pulumi:"appServicePlanId"`
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//
@@ -404,7 +416,7 @@ type standardArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
-	// An `connectionString` block as defined below.
+	// A `connectionString` block as defined below.
 	ConnectionStrings []StandardConnectionString `pulumi:"connectionStrings"`
 	// Is the Logic App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -416,11 +428,15 @@ type standardArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Logic App Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	//
+	// > **Note:** Setting this property will also set it in the Site Config.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *StandardSiteConfig `pulumi:"siteConfig"`
-	// The access key which will be used to access the backend storage account for the Logic App
+	// The access key which will be used to access the backend storage account for the Logic App.
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName      string  `pulumi:"storageAccountName"`
@@ -438,7 +454,7 @@ type standardArgs struct {
 
 // The set of arguments for constructing a Standard resource.
 type StandardArgs struct {
-	// The ID of the App Service Plan within which to create this Logic App
+	// The ID of the App Service Plan within which to create this Logic App.
 	AppServicePlanId pulumi.StringInput
 	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 	//
@@ -450,7 +466,7 @@ type StandardArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
-	// An `connectionString` block as defined below.
+	// A `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayInput
 	// Is the Logic App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -462,11 +478,15 @@ type StandardArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Logic App Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	//
+	// > **Note:** Setting this property will also set it in the Site Config.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig StandardSiteConfigPtrInput
-	// The access key which will be used to access the backend storage account for the Logic App
+	// The access key which will be used to access the backend storage account for the Logic App.
 	StorageAccountAccessKey pulumi.StringInput
 	// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
 	StorageAccountName      pulumi.StringInput
@@ -569,7 +589,7 @@ func (o StandardOutput) ToStandardOutputWithContext(ctx context.Context) Standar
 	return o
 }
 
-// The ID of the App Service Plan within which to create this Logic App
+// The ID of the App Service Plan within which to create this Logic App.
 func (o StandardOutput) AppServicePlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.AppServicePlanId }).(pulumi.StringOutput)
 }
@@ -596,7 +616,7 @@ func (o StandardOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
 
-// An `connectionString` block as defined below.
+// A `connectionString` block as defined below.
 func (o StandardOutput) ConnectionStrings() StandardConnectionStringArrayOutput {
 	return o.ApplyT(func(v *Standard) StandardConnectionStringArrayOutput { return v.ConnectionStrings }).(StandardConnectionStringArrayOutput)
 }
@@ -651,6 +671,13 @@ func (o StandardOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+//
+// > **Note:** Setting this property will also set it in the Site Config.
+func (o StandardOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
 // The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 func (o StandardOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -666,7 +693,7 @@ func (o StandardOutput) SiteCredentials() StandardSiteCredentialArrayOutput {
 	return o.ApplyT(func(v *Standard) StandardSiteCredentialArrayOutput { return v.SiteCredentials }).(StandardSiteCredentialArrayOutput)
 }
 
-// The access key which will be used to access the backend storage account for the Logic App
+// The access key which will be used to access the backend storage account for the Logic App.
 func (o StandardOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }

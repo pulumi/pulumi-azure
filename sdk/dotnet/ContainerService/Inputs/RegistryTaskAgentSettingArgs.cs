@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryTaskAgentSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of cores required for the Container Registry Task.
+        /// The number of cores required for the Container Registry Task. Possible value is `2`.
         /// </summary>
         [Input("cpu", required: true)]
         public Input<int> Cpu { get; set; } = null!;

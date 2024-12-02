@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigIpRestrictionHeaders {
+    /**
+     * @return A list of allowed Azure FrontDoor IDs in UUID notation.
+     * 
+     */
     private @Nullable List<String> xAzureFdids;
+    /**
+     * @return A list to allow the Azure FrontDoor health probe header.
+     * 
+     */
     private @Nullable String xFdHealthProbe;
+    /**
+     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
+     * 
+     */
     private @Nullable List<String> xForwardedFors;
+    /**
+     * @return A list of allowed &#39;X-Forwarded-Host&#39; domains.
+     * 
+     */
     private @Nullable List<String> xForwardedHosts;
 
     private GetStandardSiteConfigIpRestrictionHeaders() {}
+    /**
+     * @return A list of allowed Azure FrontDoor IDs in UUID notation.
+     * 
+     */
     public List<String> xAzureFdids() {
         return this.xAzureFdids == null ? List.of() : this.xAzureFdids;
     }
+    /**
+     * @return A list to allow the Azure FrontDoor health probe header.
+     * 
+     */
     public Optional<String> xFdHealthProbe() {
         return Optional.ofNullable(this.xFdHealthProbe);
     }
+    /**
+     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation.
+     * 
+     */
     public List<String> xForwardedFors() {
         return this.xForwardedFors == null ? List.of() : this.xForwardedFors;
     }
+    /**
+     * @return A list of allowed &#39;X-Forwarded-Host&#39; domains.
+     * 
+     */
     public List<String> xForwardedHosts() {
         return this.xForwardedHosts == null ? List.of() : this.xForwardedHosts;
     }

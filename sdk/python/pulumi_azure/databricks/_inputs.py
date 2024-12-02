@@ -19,6 +19,8 @@ __all__ = [
     'AccessConnectorIdentityArgsDict',
     'WorkspaceCustomParametersArgs',
     'WorkspaceCustomParametersArgsDict',
+    'WorkspaceEnhancedSecurityComplianceArgs',
+    'WorkspaceEnhancedSecurityComplianceArgsDict',
     'WorkspaceManagedDiskIdentityArgs',
     'WorkspaceManagedDiskIdentityArgsDict',
     'WorkspaceStorageAccountIdentityArgs',
@@ -392,6 +394,122 @@ class WorkspaceCustomParametersArgs:
     @vnet_address_prefix.setter
     def vnet_address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_address_prefix", value)
+
+
+if not MYPY:
+    class WorkspaceEnhancedSecurityComplianceArgsDict(TypedDict):
+        automatic_cluster_update_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables automatic cluster updates for this workspace. Defaults to `false`.
+        """
+        compliance_security_profile_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables compliance security profile for this workspace. Defaults to `false`.
+
+        > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+
+        > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        """
+        compliance_security_profile_standards: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+
+        > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+
+        > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        """
+        enhanced_security_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        """
+elif False:
+    WorkspaceEnhancedSecurityComplianceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceEnhancedSecurityComplianceArgs:
+    def __init__(__self__, *,
+                 automatic_cluster_update_enabled: Optional[pulumi.Input[bool]] = None,
+                 compliance_security_profile_enabled: Optional[pulumi.Input[bool]] = None,
+                 compliance_security_profile_standards: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enhanced_security_monitoring_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] automatic_cluster_update_enabled: Enables automatic cluster updates for this workspace. Defaults to `false`.
+        :param pulumi.Input[bool] compliance_security_profile_enabled: Enables compliance security profile for this workspace. Defaults to `false`.
+               
+               > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+               
+               > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_security_profile_standards: A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+               
+               > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+               
+               > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        :param pulumi.Input[bool] enhanced_security_monitoring_enabled: Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        """
+        if automatic_cluster_update_enabled is not None:
+            pulumi.set(__self__, "automatic_cluster_update_enabled", automatic_cluster_update_enabled)
+        if compliance_security_profile_enabled is not None:
+            pulumi.set(__self__, "compliance_security_profile_enabled", compliance_security_profile_enabled)
+        if compliance_security_profile_standards is not None:
+            pulumi.set(__self__, "compliance_security_profile_standards", compliance_security_profile_standards)
+        if enhanced_security_monitoring_enabled is not None:
+            pulumi.set(__self__, "enhanced_security_monitoring_enabled", enhanced_security_monitoring_enabled)
+
+    @property
+    @pulumi.getter(name="automaticClusterUpdateEnabled")
+    def automatic_cluster_update_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables automatic cluster updates for this workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_cluster_update_enabled")
+
+    @automatic_cluster_update_enabled.setter
+    def automatic_cluster_update_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_cluster_update_enabled", value)
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfileEnabled")
+    def compliance_security_profile_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables compliance security profile for this workspace. Defaults to `false`.
+
+        > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+
+        > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        """
+        return pulumi.get(self, "compliance_security_profile_enabled")
+
+    @compliance_security_profile_enabled.setter
+    def compliance_security_profile_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compliance_security_profile_enabled", value)
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfileStandards")
+    def compliance_security_profile_standards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+
+        > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+
+        > **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        """
+        return pulumi.get(self, "compliance_security_profile_standards")
+
+    @compliance_security_profile_standards.setter
+    def compliance_security_profile_standards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "compliance_security_profile_standards", value)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityMonitoringEnabled")
+    def enhanced_security_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        """
+        return pulumi.get(self, "enhanced_security_monitoring_enabled")
+
+    @enhanced_security_monitoring_enabled.setter
+    def enhanced_security_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enhanced_security_monitoring_enabled", value)
 
 
 if not MYPY:

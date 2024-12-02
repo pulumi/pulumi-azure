@@ -297,6 +297,7 @@ class _ServiceState:
     def __init__(__self__, *,
                  allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_failure_mode: Optional[pulumi.Input[str]] = None,
+                 customer_managed_key_encryption_compliance_status: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  hosting_mode: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
@@ -321,6 +322,7 @@ class _ServiceState:
         :param pulumi.Input[str] authentication_failure_mode: Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
                
                > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+        :param pulumi.Input[str] customer_managed_key_encryption_compliance_status: Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         :param pulumi.Input[bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
                
@@ -352,6 +354,8 @@ class _ServiceState:
             pulumi.set(__self__, "allowed_ips", allowed_ips)
         if authentication_failure_mode is not None:
             pulumi.set(__self__, "authentication_failure_mode", authentication_failure_mode)
+        if customer_managed_key_encryption_compliance_status is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption_compliance_status", customer_managed_key_encryption_compliance_status)
         if customer_managed_key_enforcement_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enforcement_enabled", customer_managed_key_enforcement_enabled)
         if hosting_mode is not None:
@@ -412,6 +416,18 @@ class _ServiceState:
     @authentication_failure_mode.setter
     def authentication_failure_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication_failure_mode", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryptionComplianceStatus")
+    def customer_managed_key_encryption_compliance_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption_compliance_status")
+
+    @customer_managed_key_encryption_compliance_status.setter
+    def customer_managed_key_encryption_compliance_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_encryption_compliance_status", value)
 
     @property
     @pulumi.getter(name="customerManagedKeyEnforcementEnabled")
@@ -861,6 +877,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["customer_managed_key_encryption_compliance_status"] = None
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["query_keys"] = None
             __props__.__dict__["secondary_key"] = None
@@ -878,6 +895,7 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authentication_failure_mode: Optional[pulumi.Input[str]] = None,
+            customer_managed_key_encryption_compliance_status: Optional[pulumi.Input[str]] = None,
             customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
             hosting_mode: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
@@ -907,6 +925,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_failure_mode: Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
                
                > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+        :param pulumi.Input[str] customer_managed_key_encryption_compliance_status: Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         :param pulumi.Input[bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
                
@@ -940,6 +959,7 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["allowed_ips"] = allowed_ips
         __props__.__dict__["authentication_failure_mode"] = authentication_failure_mode
+        __props__.__dict__["customer_managed_key_encryption_compliance_status"] = customer_managed_key_encryption_compliance_status
         __props__.__dict__["customer_managed_key_enforcement_enabled"] = customer_managed_key_enforcement_enabled
         __props__.__dict__["hosting_mode"] = hosting_mode
         __props__.__dict__["identity"] = identity
@@ -977,6 +997,14 @@ class Service(pulumi.CustomResource):
         > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         """
         return pulumi.get(self, "authentication_failure_mode")
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryptionComplianceStatus")
+    def customer_managed_key_encryption_compliance_status(self) -> pulumi.Output[str]:
+        """
+        Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption_compliance_status")
 
     @property
     @pulumi.getter(name="customerManagedKeyEnforcementEnabled")

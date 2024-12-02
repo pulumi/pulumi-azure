@@ -27,6 +27,7 @@ class WorkspaceArgs:
                  custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -52,6 +53,7 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
+        :param pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs'] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -76,6 +78,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if default_storage_firewall_enabled is not None:
             pulumi.set(__self__, "default_storage_firewall_enabled", default_storage_firewall_enabled)
+        if enhanced_security_compliance is not None:
+            pulumi.set(__self__, "enhanced_security_compliance", enhanced_security_compliance)
         if infrastructure_encryption_enabled is not None:
             pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if load_balancer_backend_address_pool_id is not None:
@@ -178,6 +182,18 @@ class WorkspaceArgs:
     @default_storage_firewall_enabled.setter
     def default_storage_firewall_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "default_storage_firewall_enabled", value)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityCompliance")
+    def enhanced_security_compliance(self) -> Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]:
+        """
+        An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        """
+        return pulumi.get(self, "enhanced_security_compliance")
+
+    @enhanced_security_compliance.setter
+    def enhanced_security_compliance(self, value: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]):
+        pulumi.set(self, "enhanced_security_compliance", value)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -340,6 +356,7 @@ class _WorkspaceState:
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -369,6 +386,7 @@ class _WorkspaceState:
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+        :param pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs'] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -402,6 +420,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "default_storage_firewall_enabled", default_storage_firewall_enabled)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if enhanced_security_compliance is not None:
+            pulumi.set(__self__, "enhanced_security_compliance", enhanced_security_compliance)
         if infrastructure_encryption_enabled is not None:
             pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if load_balancer_backend_address_pool_id is not None:
@@ -504,6 +524,18 @@ class _WorkspaceState:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityCompliance")
+    def enhanced_security_compliance(self) -> Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]:
+        """
+        An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        """
+        return pulumi.get(self, "enhanced_security_compliance")
+
+    @enhanced_security_compliance.setter
+    def enhanced_security_compliance(self, value: Optional[pulumi.Input['WorkspaceEnhancedSecurityComplianceArgs']]):
+        pulumi.set(self, "enhanced_security_compliance", value)
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
@@ -753,6 +785,7 @@ class Workspace(pulumi.CustomResource):
                  custom_parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -786,6 +819,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
+        :param pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -838,6 +872,7 @@ class Workspace(pulumi.CustomResource):
                  custom_parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -866,6 +901,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["custom_parameters"] = custom_parameters
             __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
             __props__.__dict__["default_storage_firewall_enabled"] = default_storage_firewall_enabled
+            __props__.__dict__["enhanced_security_compliance"] = enhanced_security_compliance
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["load_balancer_backend_address_pool_id"] = load_balancer_backend_address_pool_id
             __props__.__dict__["location"] = location
@@ -906,6 +942,7 @@ class Workspace(pulumi.CustomResource):
             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
             default_storage_firewall_enabled: Optional[pulumi.Input[bool]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+            enhanced_security_compliance: Optional[pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -940,6 +977,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
+        :param pulumi.Input[Union['WorkspaceEnhancedSecurityComplianceArgs', 'WorkspaceEnhancedSecurityComplianceArgsDict']] enhanced_security_compliance: An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -972,6 +1010,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
         __props__.__dict__["default_storage_firewall_enabled"] = default_storage_firewall_enabled
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
+        __props__.__dict__["enhanced_security_compliance"] = enhanced_security_compliance
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["load_balancer_backend_address_pool_id"] = load_balancer_backend_address_pool_id
         __props__.__dict__["location"] = location
@@ -1035,6 +1074,14 @@ class Workspace(pulumi.CustomResource):
         The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         """
         return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="enhancedSecurityCompliance")
+    def enhanced_security_compliance(self) -> pulumi.Output[Optional['outputs.WorkspaceEnhancedSecurityCompliance']]:
+        """
+        An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+        """
+        return pulumi.get(self, "enhanced_security_compliance")
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")

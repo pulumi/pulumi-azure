@@ -40,182 +40,182 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:oracle/cloudVmCluster:CloudVmCluster")
 public class CloudVmCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+     * The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="backupSubnetCidr", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupSubnetCidr;
 
     /**
-     * @return The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+     * @return The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Optional<String>> backupSubnetCidr() {
         return Codegen.optional(this.backupSubnetCidr);
     }
     /**
-     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="cloudExadataInfrastructureId", refs={String.class}, tree="[0]")
     private Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> cloudExadataInfrastructureId() {
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * The cluster name for Cloud VM Cluster.
+     * The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
-     * @return The cluster name for Cloud VM Cluster.
+     * @return The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> clusterName() {
         return this.clusterName;
     }
     /**
-     * The number of CPU cores enabled on the Cloud VM Cluster.
+     * The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCount;
 
     /**
-     * @return The number of CPU cores enabled on the Cloud VM Cluster.
+     * @return The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Integer> cpuCoreCount() {
         return this.cpuCoreCount;
     }
     /**
-     * A `data_collection_options` block as defined below.
+     * A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="dataCollectionOptions", refs={CloudVmClusterDataCollectionOptions.class}, tree="[0]")
     private Output<CloudVmClusterDataCollectionOptions> dataCollectionOptions;
 
     /**
-     * @return A `data_collection_options` block as defined below.
+     * @return A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<CloudVmClusterDataCollectionOptions> dataCollectionOptions() {
         return this.dataCollectionOptions;
     }
     /**
-     * The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+     * The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
      * 
      */
     @Export(name="dataStoragePercentage", refs={Integer.class}, tree="[0]")
     private Output<Integer> dataStoragePercentage;
 
     /**
-     * @return The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+     * @return The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
      * 
      */
     public Output<Integer> dataStoragePercentage() {
         return this.dataStoragePercentage;
     }
     /**
-     * The data disk group size to be allocated in TBs.
+     * The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="dataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The data disk group size to be allocated in TBs.
+     * @return The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Double> dataStorageSizeInTbs() {
         return this.dataStorageSizeInTbs;
     }
     /**
-     * The local node storage to be allocated in GBs.
+     * The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="dbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> dbNodeStorageSizeInGbs;
 
     /**
-     * @return The local node storage to be allocated in GBs.
+     * @return The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Integer> dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * The list of DB servers.
+     * The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="dbServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dbServers;
 
     /**
-     * @return The list of DB servers.
+     * @return The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<List<String>> dbServers() {
         return this.dbServers;
     }
     /**
-     * The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+     * The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+     * @return The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
-     * @return The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * @return The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> domain() {
         return this.domain;
     }
     /**
-     * A valid Oracle Grid Infrastructure (GI) software version.
+     * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="giVersion", refs={String.class}, tree="[0]")
     private Output<String> giVersion;
 
     /**
-     * @return A valid Oracle Grid Infrastructure (GI) software version.
+     * @return A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> giVersion() {
         return this.giVersion;
     }
     /**
-     * The hostname for the Cloud VM Cluster without suffix.
+     * The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
-     * @return The hostname for the Cloud VM Cluster without suffix.
+     * @return The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> hostname() {
@@ -236,70 +236,70 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.hostnameActual;
     }
     /**
-     * The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+     * The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
     /**
-     * @return The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+     * @return The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> licenseModel() {
         return this.licenseModel;
     }
     /**
-     * If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+     * If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="localBackupEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> localBackupEnabled;
 
     /**
-     * @return If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+     * @return If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Boolean> localBackupEnabled() {
         return this.localBackupEnabled;
     }
     /**
-     * The Azure Region where the Cloud VM Cluster should exist.
+     * The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Cloud VM Cluster should exist.
+     * @return The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * The memory to be allocated in GBs.
+     * The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="memorySizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> memorySizeInGbs;
 
     /**
-     * @return The memory to be allocated in GBs.
+     * @return The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Integer> memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * The name which should be used for this Cloud VM Cluster.
+     * The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Cloud VM Cluster.
+     * @return The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> name() {
@@ -320,84 +320,84 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return this.ocid;
     }
     /**
-     * The name of the Resource Group where the Cloud VM Cluster should exist.
+     * The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Cloud VM Cluster should exist.
+     * @return The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="scanListenerPortTcp", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> scanListenerPortTcp;
 
     /**
-     * @return The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * @return The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Optional<Integer>> scanListenerPortTcp() {
         return Codegen.optional(this.scanListenerPortTcp);
     }
     /**
-     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="scanListenerPortTcpSsl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> scanListenerPortTcpSsl;
 
     /**
-     * @return The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * @return The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Optional<Integer>> scanListenerPortTcpSsl() {
         return Codegen.optional(this.scanListenerPortTcpSsl);
     }
     /**
-     * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+     * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="sparseDiskgroupEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> sparseDiskgroupEnabled;
 
     /**
-     * @return If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+     * @return If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Boolean> sparseDiskgroupEnabled() {
         return this.sparseDiskgroupEnabled;
     }
     /**
-     * The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+     * The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="sshPublicKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> sshPublicKeys;
 
     /**
-     * @return The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+     * @return The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<List<String>> sshPublicKeys() {
         return this.sshPublicKeys;
     }
     /**
-     * The ID of the subnet associated with the Cloud VM Cluster.
+     * The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet associated with the Cloud VM Cluster.
+     * @return The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> subnetId() {
@@ -418,42 +418,42 @@ public class CloudVmCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+     * The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**
-     * @return The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+     * @return The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> timeZone() {
         return this.timeZone;
     }
     /**
-     * The ID of the Virtual Network associated with the Cloud VM Cluster.
+     * The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
     private Output<String> virtualNetworkId;
 
     /**
-     * @return The ID of the Virtual Network associated with the Cloud VM Cluster.
+     * @return The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> virtualNetworkId() {
         return this.virtualNetworkId;
     }
     /**
-     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**
-     * @return The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * @return The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> zoneId() {

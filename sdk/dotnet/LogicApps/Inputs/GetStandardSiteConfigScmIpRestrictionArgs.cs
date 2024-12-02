@@ -12,12 +12,21 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
     public sealed class GetStandardSiteConfigScmIpRestrictionInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Does this restriction `Allow` or `Deny` access for this IP range.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The `headers` block for this specific `ip_restriction` as defined below.
+        /// </summary>
         [Input("headers", required: true)]
         public Input<Inputs.GetStandardSiteConfigScmIpRestrictionHeadersInputArgs> Headers { get; set; } = null!;
 
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
+        /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
@@ -27,12 +36,21 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// The Service Tag used for this IP Restriction.
+        /// </summary>
         [Input("serviceTag")]
         public Input<string>? ServiceTag { get; set; }
 
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

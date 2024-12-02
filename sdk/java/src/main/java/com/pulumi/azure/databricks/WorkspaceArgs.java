@@ -4,6 +4,7 @@
 package com.pulumi.azure.databricks;
 
 import com.pulumi.azure.databricks.inputs.WorkspaceCustomParametersArgs;
+import com.pulumi.azure.databricks.inputs.WorkspaceEnhancedSecurityComplianceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -81,6 +82,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> defaultStorageFirewallEnabled() {
         return Optional.ofNullable(this.defaultStorageFirewallEnabled);
+    }
+
+    /**
+     * An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * 
+     */
+    @Import(name="enhancedSecurityCompliance")
+    private @Nullable Output<WorkspaceEnhancedSecurityComplianceArgs> enhancedSecurityCompliance;
+
+    /**
+     * @return An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * 
+     */
+    public Optional<Output<WorkspaceEnhancedSecurityComplianceArgs>> enhancedSecurityCompliance() {
+        return Optional.ofNullable(this.enhancedSecurityCompliance);
     }
 
     /**
@@ -307,6 +323,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.customParameters = $.customParameters;
         this.customerManagedKeyEnabled = $.customerManagedKeyEnabled;
         this.defaultStorageFirewallEnabled = $.defaultStorageFirewallEnabled;
+        this.enhancedSecurityCompliance = $.enhancedSecurityCompliance;
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.loadBalancerBackendAddressPoolId = $.loadBalancerBackendAddressPoolId;
         this.location = $.location;
@@ -428,6 +445,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultStorageFirewallEnabled(Boolean defaultStorageFirewallEnabled) {
             return defaultStorageFirewallEnabled(Output.of(defaultStorageFirewallEnabled));
+        }
+
+        /**
+         * @param enhancedSecurityCompliance An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enhancedSecurityCompliance(@Nullable Output<WorkspaceEnhancedSecurityComplianceArgs> enhancedSecurityCompliance) {
+            $.enhancedSecurityCompliance = enhancedSecurityCompliance;
+            return this;
+        }
+
+        /**
+         * @param enhancedSecurityCompliance An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enhancedSecurityCompliance(WorkspaceEnhancedSecurityComplianceArgs enhancedSecurityCompliance) {
+            return enhancedSecurityCompliance(Output.of(enhancedSecurityCompliance));
         }
 
         /**

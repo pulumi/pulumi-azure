@@ -37,7 +37,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to `65000` if not specified.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

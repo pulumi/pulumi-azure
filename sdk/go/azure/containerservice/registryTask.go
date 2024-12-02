@@ -82,6 +82,8 @@ type RegistryTask struct {
 	// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
 	// A `agentSetting` block as defined below.
+	//
+	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting RegistryTaskAgentSettingPtrOutput `pulumi:"agentSetting"`
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger RegistryTaskBaseImageTriggerPtrOutput `pulumi:"baseImageTrigger"`
@@ -153,6 +155,8 @@ type registryTaskState struct {
 	// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// A `agentSetting` block as defined below.
+	//
+	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting *RegistryTaskAgentSetting `pulumi:"agentSetting"`
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger *RegistryTaskBaseImageTrigger `pulumi:"baseImageTrigger"`
@@ -192,6 +196,8 @@ type RegistryTaskState struct {
 	// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
 	AgentPoolName pulumi.StringPtrInput
 	// A `agentSetting` block as defined below.
+	//
+	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting RegistryTaskAgentSettingPtrInput
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger RegistryTaskBaseImageTriggerPtrInput
@@ -235,6 +241,8 @@ type registryTaskArgs struct {
 	// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// A `agentSetting` block as defined below.
+	//
+	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting *RegistryTaskAgentSetting `pulumi:"agentSetting"`
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger *RegistryTaskBaseImageTrigger `pulumi:"baseImageTrigger"`
@@ -275,6 +283,8 @@ type RegistryTaskArgs struct {
 	// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
 	AgentPoolName pulumi.StringPtrInput
 	// A `agentSetting` block as defined below.
+	//
+	// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
 	AgentSetting RegistryTaskAgentSettingPtrInput
 	// A `baseImageTrigger` block as defined below.
 	BaseImageTrigger RegistryTaskBaseImageTriggerPtrInput
@@ -403,6 +413,8 @@ func (o RegistryTaskOutput) AgentPoolName() pulumi.StringPtrOutput {
 }
 
 // A `agentSetting` block as defined below.
+//
+// > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
 func (o RegistryTaskOutput) AgentSetting() RegistryTaskAgentSettingPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) RegistryTaskAgentSettingPtrOutput { return v.AgentSetting }).(RegistryTaskAgentSettingPtrOutput)
 }

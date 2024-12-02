@@ -137,7 +137,7 @@ export class Standard extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the App Service Plan within which to create this Logic App
+     * The ID of the App Service Plan within which to create this Logic App.
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
     /**
-     * An `connectionString` block as defined below.
+     * A `connectionString` block as defined below.
      */
     public readonly connectionStrings!: pulumi.Output<outputs.logicapps.StandardConnectionString[]>;
     /**
@@ -203,6 +203,12 @@ export class Standard extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
+     * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     *
+     * > **Note:** Setting this property will also set it in the Site Config.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string>;
+    /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -215,7 +221,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.logicapps.StandardSiteCredential[]>;
     /**
-     * The access key which will be used to access the backend storage account for the Logic App
+     * The access key which will be used to access the backend storage account for the Logic App.
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string>;
     /**
@@ -268,6 +274,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
+            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
@@ -303,6 +310,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
@@ -331,7 +339,7 @@ export class Standard extends pulumi.CustomResource {
  */
 export interface StandardState {
     /**
-     * The ID of the App Service Plan within which to create this Logic App
+     * The ID of the App Service Plan within which to create this Logic App.
      */
     appServicePlanId?: pulumi.Input<string>;
     /**
@@ -353,7 +361,7 @@ export interface StandardState {
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
-     * An `connectionString` block as defined below.
+     * A `connectionString` block as defined below.
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[]>;
     /**
@@ -397,6 +405,12 @@ export interface StandardState {
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
+     * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     *
+     * > **Note:** Setting this property will also set it in the Site Config.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -409,7 +423,7 @@ export interface StandardState {
      */
     siteCredentials?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardSiteCredential>[]>;
     /**
-     * The access key which will be used to access the backend storage account for the Logic App
+     * The access key which will be used to access the backend storage account for the Logic App.
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
@@ -439,7 +453,7 @@ export interface StandardState {
  */
 export interface StandardArgs {
     /**
-     * The ID of the App Service Plan within which to create this Logic App
+     * The ID of the App Service Plan within which to create this Logic App.
      */
     appServicePlanId: pulumi.Input<string>;
     /**
@@ -461,7 +475,7 @@ export interface StandardArgs {
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
-     * An `connectionString` block as defined below.
+     * A `connectionString` block as defined below.
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[]>;
     /**
@@ -485,6 +499,12 @@ export interface StandardArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     *
+     * > **Note:** Setting this property will also set it in the Site Config.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -493,7 +513,7 @@ export interface StandardArgs {
      */
     siteConfig?: pulumi.Input<inputs.logicapps.StandardSiteConfig>;
     /**
-     * The access key which will be used to access the backend storage account for the Logic App
+     * The access key which will be used to access the backend storage account for the Logic App.
      */
     storageAccountAccessKey: pulumi.Input<string>;
     /**

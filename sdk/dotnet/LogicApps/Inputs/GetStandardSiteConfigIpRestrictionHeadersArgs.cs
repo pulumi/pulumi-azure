@@ -14,17 +14,28 @@ namespace Pulumi.Azure.LogicApps.Inputs
     {
         [Input("xAzureFdids")]
         private InputList<string>? _xAzureFdids;
+
+        /// <summary>
+        /// A list of allowed Azure FrontDoor IDs in UUID notation.
+        /// </summary>
         public InputList<string> XAzureFdids
         {
             get => _xAzureFdids ?? (_xAzureFdids = new InputList<string>());
             set => _xAzureFdids = value;
         }
 
+        /// <summary>
+        /// A list to allow the Azure FrontDoor health probe header.
+        /// </summary>
         [Input("xFdHealthProbe")]
         public Input<string>? XFdHealthProbe { get; set; }
 
         [Input("xForwardedFors")]
         private InputList<string>? _xForwardedFors;
+
+        /// <summary>
+        /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
+        /// </summary>
         public InputList<string> XForwardedFors
         {
             get => _xForwardedFors ?? (_xForwardedFors = new InputList<string>());
@@ -33,6 +44,10 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
         [Input("xForwardedHosts")]
         private InputList<string>? _xForwardedHosts;
+
+        /// <summary>
+        /// A list of allowed 'X-Forwarded-Host' domains.
+        /// </summary>
         public InputList<string> XForwardedHosts
         {
             get => _xForwardedHosts ?? (_xForwardedHosts = new InputList<string>());

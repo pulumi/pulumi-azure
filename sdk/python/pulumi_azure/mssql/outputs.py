@@ -53,6 +53,8 @@ __all__ = [
     'VirtualMachineWsfcDomainCredential',
     'GetDatabaseIdentityResult',
     'GetElasticPoolSkusResult',
+    'GetManagedDatabaseLongTermRetentionPolicyResult',
+    'GetManagedDatabasePointInTimeRestoreResult',
     'GetManagedInstanceIdentityResult',
     'GetServerIdentityResult',
 ]
@@ -2655,6 +2657,97 @@ class GetElasticPoolSkusResult(dict):
         The tier of the particular SKU.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class GetManagedDatabaseLongTermRetentionPolicyResult(dict):
+    def __init__(__self__, *,
+                 immutable_backups_enabled: bool,
+                 monthly_retention: str,
+                 week_of_year: int,
+                 weekly_retention: str,
+                 yearly_retention: str):
+        """
+        :param bool immutable_backups_enabled: Specifies if the backups are immutable.
+        :param str monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format.
+        :param int week_of_year: The week of year to take the yearly backup.
+        :param str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format.
+        :param str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format.
+        """
+        pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
+        pulumi.set(__self__, "monthly_retention", monthly_retention)
+        pulumi.set(__self__, "week_of_year", week_of_year)
+        pulumi.set(__self__, "weekly_retention", weekly_retention)
+        pulumi.set(__self__, "yearly_retention", yearly_retention)
+
+    @property
+    @pulumi.getter(name="immutableBackupsEnabled")
+    def immutable_backups_enabled(self) -> bool:
+        """
+        Specifies if the backups are immutable.
+        """
+        return pulumi.get(self, "immutable_backups_enabled")
+
+    @property
+    @pulumi.getter(name="monthlyRetention")
+    def monthly_retention(self) -> str:
+        """
+        The monthly retention policy for an LTR backup in an ISO 8601 format.
+        """
+        return pulumi.get(self, "monthly_retention")
+
+    @property
+    @pulumi.getter(name="weekOfYear")
+    def week_of_year(self) -> int:
+        """
+        The week of year to take the yearly backup.
+        """
+        return pulumi.get(self, "week_of_year")
+
+    @property
+    @pulumi.getter(name="weeklyRetention")
+    def weekly_retention(self) -> str:
+        """
+        The weekly retention policy for an LTR backup in an ISO 8601 format.
+        """
+        return pulumi.get(self, "weekly_retention")
+
+    @property
+    @pulumi.getter(name="yearlyRetention")
+    def yearly_retention(self) -> str:
+        """
+        The yearly retention policy for an LTR backup in an ISO 8601 format.
+        """
+        return pulumi.get(self, "yearly_retention")
+
+
+@pulumi.output_type
+class GetManagedDatabasePointInTimeRestoreResult(dict):
+    def __init__(__self__, *,
+                 restore_point_in_time: str,
+                 source_database_id: str):
+        """
+        :param str restore_point_in_time: The point in time for the restore from `source_database_id`.
+        :param str source_database_id: The source database ID that is used to restore from.
+        """
+        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        pulumi.set(__self__, "source_database_id", source_database_id)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> str:
+        """
+        The point in time for the restore from `source_database_id`.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> str:
+        """
+        The source database ID that is used to restore from.
+        """
+        return pulumi.get(self, "source_database_id")
 
 
 @pulumi.output_type

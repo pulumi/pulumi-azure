@@ -4,6 +4,7 @@
 package com.pulumi.azure.databricks.inputs;
 
 import com.pulumi.azure.databricks.inputs.WorkspaceCustomParametersArgs;
+import com.pulumi.azure.databricks.inputs.WorkspaceEnhancedSecurityComplianceArgs;
 import com.pulumi.azure.databricks.inputs.WorkspaceManagedDiskIdentityArgs;
 import com.pulumi.azure.databricks.inputs.WorkspaceStorageAccountIdentityArgs;
 import com.pulumi.core.Output;
@@ -98,6 +99,21 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
+    }
+
+    /**
+     * An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * 
+     */
+    @Import(name="enhancedSecurityCompliance")
+    private @Nullable Output<WorkspaceEnhancedSecurityComplianceArgs> enhancedSecurityCompliance;
+
+    /**
+     * @return An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+     * 
+     */
+    public Optional<Output<WorkspaceEnhancedSecurityComplianceArgs>> enhancedSecurityCompliance() {
+        return Optional.ofNullable(this.enhancedSecurityCompliance);
     }
 
     /**
@@ -400,6 +416,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.customerManagedKeyEnabled = $.customerManagedKeyEnabled;
         this.defaultStorageFirewallEnabled = $.defaultStorageFirewallEnabled;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
+        this.enhancedSecurityCompliance = $.enhancedSecurityCompliance;
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.loadBalancerBackendAddressPoolId = $.loadBalancerBackendAddressPoolId;
         this.location = $.location;
@@ -547,6 +564,27 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
             return diskEncryptionSetId(Output.of(diskEncryptionSetId));
+        }
+
+        /**
+         * @param enhancedSecurityCompliance An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enhancedSecurityCompliance(@Nullable Output<WorkspaceEnhancedSecurityComplianceArgs> enhancedSecurityCompliance) {
+            $.enhancedSecurityCompliance = enhancedSecurityCompliance;
+            return this;
+        }
+
+        /**
+         * @param enhancedSecurityCompliance An `enhanced_security_compliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enhancedSecurityCompliance(WorkspaceEnhancedSecurityComplianceArgs enhancedSecurityCompliance) {
+            return enhancedSecurityCompliance(Output.of(enhancedSecurityCompliance));
         }
 
         /**

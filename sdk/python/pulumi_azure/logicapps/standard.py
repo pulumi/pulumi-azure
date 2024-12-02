@@ -35,6 +35,7 @@ class StandardArgs:
                  identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
                  storage_account_share_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -43,9 +44,9 @@ class StandardArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Standard resource.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
@@ -53,12 +54,15 @@ class StandardArgs:
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+               
+               > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
@@ -90,6 +94,8 @@ class StandardArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if site_config is not None:
             pulumi.set(__self__, "site_config", site_config)
         if storage_account_share_name is not None:
@@ -107,7 +113,7 @@ class StandardArgs:
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> pulumi.Input[str]:
         """
-        The ID of the App Service Plan within which to create this Logic App
+        The ID of the App Service Plan within which to create this Logic App.
         """
         return pulumi.get(self, "app_service_plan_id")
 
@@ -131,7 +137,7 @@ class StandardArgs:
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> pulumi.Input[str]:
         """
-        The access key which will be used to access the backend storage account for the Logic App
+        The access key which will be used to access the backend storage account for the Logic App.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -205,7 +211,7 @@ class StandardArgs:
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]:
         """
-        An `connection_string` block as defined below.
+        A `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
@@ -272,6 +278,20 @@ class StandardArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+
+        > **Note:** Setting this property will also set it in the Site Config.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="siteConfig")
@@ -361,6 +381,7 @@ class _StandardState:
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]] = None,
@@ -373,14 +394,14 @@ class _StandardState:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Standard resources.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
@@ -391,10 +412,13 @@ class _StandardState:
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+               
+               > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
@@ -434,6 +458,8 @@ class _StandardState:
             pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
         if possible_outbound_ip_addresses is not None:
             pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if site_config is not None:
@@ -459,7 +485,7 @@ class _StandardState:
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the App Service Plan within which to create this Logic App
+        The ID of the App Service Plan within which to create this Logic App.
         """
         return pulumi.get(self, "app_service_plan_id")
 
@@ -521,7 +547,7 @@ class _StandardState:
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]]:
         """
-        An `connection_string` block as defined below.
+        A `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
@@ -650,6 +676,20 @@ class _StandardState:
         pulumi.set(self, "possible_outbound_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+
+        > **Note:** Setting this property will also set it in the Site Config.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -689,7 +729,7 @@ class _StandardState:
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The access key which will be used to access the backend storage account for the Logic App
+        The access key which will be used to access the backend storage account for the Logic App.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -782,6 +822,7 @@ class Standard(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -888,22 +929,25 @@ class Standard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+               
+               > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
@@ -1037,6 +1081,7 @@ class Standard(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -1068,6 +1113,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1117,6 +1163,7 @@ class Standard(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+            public_network_access: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]]] = None,
@@ -1134,14 +1181,14 @@ class Standard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
@@ -1152,10 +1199,13 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+               
+               > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
@@ -1183,6 +1233,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
@@ -1199,7 +1250,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> pulumi.Output[str]:
         """
-        The ID of the App Service Plan within which to create this Logic App
+        The ID of the App Service Plan within which to create this Logic App.
         """
         return pulumi.get(self, "app_service_plan_id")
 
@@ -1241,7 +1292,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> pulumi.Output[Sequence['outputs.StandardConnectionString']]:
         """
-        An `connection_string` block as defined below.
+        A `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
@@ -1326,6 +1377,16 @@ class Standard(pulumi.CustomResource):
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[str]:
+        """
+        Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+
+        > **Note:** Setting this property will also set it in the Site Config.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
@@ -1353,7 +1414,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> pulumi.Output[str]:
         """
-        The access key which will be used to access the backend storage account for the Logic App
+        The access key which will be used to access the backend storage account for the Logic App.
         """
         return pulumi.get(self, "storage_account_access_key")
 

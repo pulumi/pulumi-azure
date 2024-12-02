@@ -23,14 +23,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     public static final StandardState Empty = new StandardState();
 
     /**
-     * The ID of the App Service Plan within which to create this Logic App
+     * The ID of the App Service Plan within which to create this Logic App.
      * 
      */
     @Import(name="appServicePlanId")
     private @Nullable Output<String> appServicePlanId;
 
     /**
-     * @return The ID of the App Service Plan within which to create this Logic App
+     * @return The ID of the App Service Plan within which to create this Logic App.
      * 
      */
     public Optional<Output<String>> appServicePlanId() {
@@ -102,14 +102,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `connection_string` block as defined below.
+     * A `connection_string` block as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<StandardConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return An `connection_string` block as defined below.
+     * @return A `connection_string` block as defined below.
      * 
      */
     public Optional<Output<List<StandardConnectionStringArgs>>> connectionStrings() {
@@ -267,6 +267,25 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** Setting this property will also set it in the Site Config.
+     * 
+     */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** Setting this property will also set it in the Site Config.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
@@ -312,14 +331,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The access key which will be used to access the backend storage account for the Logic App
+     * The access key which will be used to access the backend storage account for the Logic App.
      * 
      */
     @Import(name="storageAccountAccessKey")
     private @Nullable Output<String> storageAccountAccessKey;
 
     /**
-     * @return The access key which will be used to access the backend storage account for the Logic App
+     * @return The access key which will be used to access the backend storage account for the Logic App.
      * 
      */
     public Optional<Output<String>> storageAccountAccessKey() {
@@ -423,6 +442,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.outboundIpAddresses = $.outboundIpAddresses;
         this.possibleOutboundIpAddresses = $.possibleOutboundIpAddresses;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
         this.siteConfig = $.siteConfig;
         this.siteCredentials = $.siteCredentials;
@@ -454,7 +474,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServicePlanId The ID of the App Service Plan within which to create this Logic App
+         * @param appServicePlanId The ID of the App Service Plan within which to create this Logic App.
          * 
          * @return builder
          * 
@@ -465,7 +485,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServicePlanId The ID of the App Service Plan within which to create this Logic App
+         * @param appServicePlanId The ID of the App Service Plan within which to create this Logic App.
          * 
          * @return builder
          * 
@@ -563,7 +583,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings A `connection_string` block as defined below.
          * 
          * @return builder
          * 
@@ -574,7 +594,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings A `connection_string` block as defined below.
          * 
          * @return builder
          * 
@@ -584,7 +604,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings An `connection_string` block as defined below.
+         * @param connectionStrings A `connection_string` block as defined below.
          * 
          * @return builder
          * 
@@ -804,6 +824,31 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param publicNetworkAccess Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+         * 
+         * &gt; **Note:** Setting this property will also set it in the Site Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+         * 
+         * &gt; **Note:** Setting this property will also set it in the Site Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
+        }
+
+        /**
          * @param resourceGroupName The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -877,7 +922,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App.
          * 
          * @return builder
          * 
@@ -888,7 +933,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App.
          * 
          * @return builder
          * 

@@ -23,14 +23,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     public static final CloudVmClusterArgs Empty = new CloudVmClusterArgs();
 
     /**
-     * The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+     * The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="backupSubnetCidr")
     private @Nullable Output<String> backupSubnetCidr;
 
     /**
-     * @return The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+     * @return The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> backupSubnetCidr() {
@@ -38,14 +38,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="cloudExadataInfrastructureId", required=true)
     private Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+     * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> cloudExadataInfrastructureId() {
@@ -53,14 +53,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The cluster name for Cloud VM Cluster.
+     * The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
     /**
-     * @return The cluster name for Cloud VM Cluster.
+     * @return The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> clusterName() {
@@ -68,14 +68,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The number of CPU cores enabled on the Cloud VM Cluster.
+     * The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="cpuCoreCount", required=true)
     private Output<Integer> cpuCoreCount;
 
     /**
-     * @return The number of CPU cores enabled on the Cloud VM Cluster.
+     * @return The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<Integer> cpuCoreCount() {
@@ -83,14 +83,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `data_collection_options` block as defined below.
+     * A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="dataCollectionOptions")
     private @Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
 
     /**
-     * @return A `data_collection_options` block as defined below.
+     * @return A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<CloudVmClusterDataCollectionOptionsArgs>> dataCollectionOptions() {
@@ -98,14 +98,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+     * The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
      * 
      */
     @Import(name="dataStoragePercentage")
     private @Nullable Output<Integer> dataStoragePercentage;
 
     /**
-     * @return The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+     * @return The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
      * 
      */
     public Optional<Output<Integer>> dataStoragePercentage() {
@@ -113,14 +113,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The data disk group size to be allocated in TBs.
+     * The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="dataStorageSizeInTbs")
     private @Nullable Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The data disk group size to be allocated in TBs.
+     * @return The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Double>> dataStorageSizeInTbs() {
@@ -128,14 +128,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The local node storage to be allocated in GBs.
+     * The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="dbNodeStorageSizeInGbs")
     private @Nullable Output<Integer> dbNodeStorageSizeInGbs;
 
     /**
-     * @return The local node storage to be allocated in GBs.
+     * @return The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Integer>> dbNodeStorageSizeInGbs() {
@@ -143,14 +143,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The list of DB servers.
+     * The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="dbServers", required=true)
     private Output<List<String>> dbServers;
 
     /**
-     * @return The list of DB servers.
+     * @return The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<List<String>> dbServers() {
@@ -158,14 +158,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+     * The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+     * @return The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
      * 
      */
     public Output<String> displayName() {
@@ -173,14 +173,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * @return The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -188,14 +188,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A valid Oracle Grid Infrastructure (GI) software version.
+     * A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="giVersion", required=true)
     private Output<String> giVersion;
 
     /**
-     * @return A valid Oracle Grid Infrastructure (GI) software version.
+     * @return A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> giVersion() {
@@ -203,14 +203,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The hostname for the Cloud VM Cluster without suffix.
+     * The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="hostname", required=true)
     private Output<String> hostname;
 
     /**
-     * @return The hostname for the Cloud VM Cluster without suffix.
+     * @return The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> hostname() {
@@ -218,14 +218,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+     * The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="licenseModel", required=true)
     private Output<String> licenseModel;
 
     /**
-     * @return The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+     * @return The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> licenseModel() {
@@ -233,14 +233,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+     * If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="localBackupEnabled")
     private @Nullable Output<Boolean> localBackupEnabled;
 
     /**
-     * @return If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+     * @return If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Boolean>> localBackupEnabled() {
@@ -248,14 +248,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Azure Region where the Cloud VM Cluster should exist.
+     * The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Cloud VM Cluster should exist.
+     * @return The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -263,14 +263,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The memory to be allocated in GBs.
+     * The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="memorySizeInGbs")
     private @Nullable Output<Integer> memorySizeInGbs;
 
     /**
-     * @return The memory to be allocated in GBs.
+     * @return The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Integer>> memorySizeInGbs() {
@@ -278,14 +278,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name which should be used for this Cloud VM Cluster.
+     * The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Cloud VM Cluster.
+     * @return The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -293,14 +293,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the Resource Group where the Cloud VM Cluster should exist.
+     * The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Cloud VM Cluster should exist.
+     * @return The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -308,14 +308,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="scanListenerPortTcp")
     private @Nullable Output<Integer> scanListenerPortTcp;
 
     /**
-     * @return The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+     * @return The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Integer>> scanListenerPortTcp() {
@@ -323,14 +323,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="scanListenerPortTcpSsl")
     private @Nullable Output<Integer> scanListenerPortTcpSsl;
 
     /**
-     * @return The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+     * @return The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Integer>> scanListenerPortTcpSsl() {
@@ -338,14 +338,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+     * If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="sparseDiskgroupEnabled")
     private @Nullable Output<Boolean> sparseDiskgroupEnabled;
 
     /**
-     * @return If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+     * @return If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<Boolean>> sparseDiskgroupEnabled() {
@@ -353,14 +353,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+     * The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="sshPublicKeys", required=true)
     private Output<List<String>> sshPublicKeys;
 
     /**
-     * @return The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+     * @return The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<List<String>> sshPublicKeys() {
@@ -368,14 +368,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the subnet associated with the Cloud VM Cluster.
+     * The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet associated with the Cloud VM Cluster.
+     * @return The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> subnetId() {
@@ -398,14 +398,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+     * The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+     * @return The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -413,14 +413,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the Virtual Network associated with the Cloud VM Cluster.
+     * The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="virtualNetworkId", required=true)
     private Output<String> virtualNetworkId;
 
     /**
-     * @return The ID of the Virtual Network associated with the Cloud VM Cluster.
+     * @return The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Output<String> virtualNetworkId() {
@@ -428,14 +428,14 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
-     * @return The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+     * @return The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<String>> zoneId() {
@@ -494,7 +494,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param backupSubnetCidr The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+         * @param backupSubnetCidr The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param backupSubnetCidr The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster.
+         * @param backupSubnetCidr The backup subnet CIDR of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cloudExadataInfrastructureId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+         * @param cloudExadataInfrastructureId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cloudExadataInfrastructureId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure.
+         * @param cloudExadataInfrastructureId The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clusterName The cluster name for Cloud VM Cluster.
+         * @param clusterName The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clusterName The cluster name for Cloud VM Cluster.
+         * @param clusterName The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cpuCoreCount The number of CPU cores enabled on the Cloud VM Cluster.
+         * @param cpuCoreCount The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param cpuCoreCount The number of CPU cores enabled on the Cloud VM Cluster.
+         * @param cpuCoreCount The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataCollectionOptions A `data_collection_options` block as defined below.
+         * @param dataCollectionOptions A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataCollectionOptions A `data_collection_options` block as defined below.
+         * @param dataCollectionOptions A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataStoragePercentage The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+         * @param dataStoragePercentage The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataStoragePercentage The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
+         * @param dataStoragePercentage The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataStorageSizeInTbs The data disk group size to be allocated in TBs.
+         * @param dataStorageSizeInTbs The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dataStorageSizeInTbs The data disk group size to be allocated in TBs.
+         * @param dataStorageSizeInTbs The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbNodeStorageSizeInGbs The local node storage to be allocated in GBs.
+         * @param dbNodeStorageSizeInGbs The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbNodeStorageSizeInGbs The local node storage to be allocated in GBs.
+         * @param dbNodeStorageSizeInGbs The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbServers The list of DB servers.
+         * @param dbServers The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbServers The list of DB servers.
+         * @param dbServers The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbServers The list of DB servers.
+         * @param dbServers The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+         * @param displayName The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param displayName The user-friendly name for the Cloud VM Cluster. The name does not need to be unique..
+         * @param displayName The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domain The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * @param domain The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -725,7 +725,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domain The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * @param domain The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param giVersion A valid Oracle Grid Infrastructure (GI) software version.
+         * @param giVersion A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param giVersion A valid Oracle Grid Infrastructure (GI) software version.
+         * @param giVersion A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostname The hostname for the Cloud VM Cluster without suffix.
+         * @param hostname The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostname The hostname for the Cloud VM Cluster without suffix.
+         * @param hostname The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param licenseModel The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+         * @param licenseModel The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param licenseModel The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`.
+         * @param licenseModel The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param localBackupEnabled If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+         * @param localBackupEnabled If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param localBackupEnabled If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster.
+         * @param localBackupEnabled If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location The Azure Region where the Cloud VM Cluster should exist.
+         * @param location The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location The Azure Region where the Cloud VM Cluster should exist.
+         * @param location The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param memorySizeInGbs The memory to be allocated in GBs.
+         * @param memorySizeInGbs The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param memorySizeInGbs The memory to be allocated in GBs.
+         * @param memorySizeInGbs The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name which should be used for this Cloud VM Cluster.
+         * @param name The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name which should be used for this Cloud VM Cluster.
+         * @param name The name which should be used for this Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Cloud VM Cluster should exist.
+         * @param resourceGroupName The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Cloud VM Cluster should exist.
+         * @param resourceGroupName The name of the Resource Group where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -903,7 +903,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scanListenerPortTcp The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+         * @param scanListenerPortTcp The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -914,7 +914,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scanListenerPortTcp The TCP Single Client Access Name (SCAN) port. The default port to 1521.
+         * @param scanListenerPortTcp The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -924,7 +924,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scanListenerPortTcpSsl The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+         * @param scanListenerPortTcpSsl The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -935,7 +935,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scanListenerPortTcpSsl The TCPS Single Client Access Name (SCAN) port. The default port to 2484.
+         * @param scanListenerPortTcpSsl The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -945,7 +945,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sparseDiskgroupEnabled If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+         * @param sparseDiskgroupEnabled If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sparseDiskgroupEnabled If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created.
+         * @param sparseDiskgroupEnabled If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -966,7 +966,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -977,7 +977,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster.
+         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -997,7 +997,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetId The ID of the subnet associated with the Cloud VM Cluster.
+         * @param subnetId The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetId The ID of the subnet associated with the Cloud VM Cluster.
+         * @param subnetId The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1039,7 +1039,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timeZone The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+         * @param timeZone The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1050,7 +1050,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timeZone The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm).
+         * @param timeZone The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1060,7 +1060,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param virtualNetworkId The ID of the Virtual Network associated with the Cloud VM Cluster.
+         * @param virtualNetworkId The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1071,7 +1071,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param virtualNetworkId The ID of the Virtual Network associated with the Cloud VM Cluster.
+         * @param virtualNetworkId The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1081,7 +1081,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param zoneId The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * @param zoneId The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -1092,7 +1092,7 @@ public final class CloudVmClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param zoneId The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name.
+         * @param zoneId The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 

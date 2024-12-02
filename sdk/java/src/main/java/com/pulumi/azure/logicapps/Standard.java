@@ -196,14 +196,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:logicapps/standard:Standard")
 public class Standard extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the App Service Plan within which to create this Logic App
+     * The ID of the App Service Plan within which to create this Logic App.
      * 
      */
     @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
     private Output<String> appServicePlanId;
 
     /**
-     * @return The ID of the App Service Plan within which to create this Logic App
+     * @return The ID of the App Service Plan within which to create this Logic App.
      * 
      */
     public Output<String> appServicePlanId() {
@@ -270,14 +270,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateMode);
     }
     /**
-     * An `connection_string` block as defined below.
+     * A `connection_string` block as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,StandardConnectionString.class}, tree="[0,1]")
     private Output<List<StandardConnectionString>> connectionStrings;
 
     /**
-     * @return An `connection_string` block as defined below.
+     * @return A `connection_string` block as defined below.
      * 
      */
     public Output<List<StandardConnectionString>> connectionStrings() {
@@ -424,6 +424,24 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddresses;
     }
     /**
+     * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** Setting this property will also set it in the Site Config.
+     * 
+     */
+    @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
+    private Output<String> publicNetworkAccess;
+
+    /**
+     * @return Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** Setting this property will also set it in the Site Config.
+     * 
+     */
+    public Output<String> publicNetworkAccess() {
+        return this.publicNetworkAccess;
+    }
+    /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
@@ -466,14 +484,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.siteCredentials;
     }
     /**
-     * The access key which will be used to access the backend storage account for the Logic App
+     * The access key which will be used to access the backend storage account for the Logic App.
      * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
     private Output<String> storageAccountAccessKey;
 
     /**
-     * @return The access key which will be used to access the backend storage account for the Logic App
+     * @return The access key which will be used to access the backend storage account for the Logic App.
      * 
      */
     public Output<String> storageAccountAccessKey() {

@@ -28,7 +28,7 @@ class GetStandardResult:
     """
     A collection of values returned by getStandard.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -80,6 +80,9 @@ class GetStandardResult:
         if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
             raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -114,51 +117,81 @@ class GetStandardResult:
     @property
     @pulumi.getter(name="appServicePlanId")
     def app_service_plan_id(self) -> str:
+        """
+        The ID of the App Service Plan.
+        """
         return pulumi.get(self, "app_service_plan_id")
 
     @property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Mapping[str, str]:
+        """
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        """
         return pulumi.get(self, "app_settings")
 
     @property
     @pulumi.getter(name="bundleVersion")
     def bundle_version(self) -> str:
+        """
+        Controls the allowed range for bundle versions.
+        """
         return pulumi.get(self, "bundle_version")
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
     def client_affinity_enabled(self) -> bool:
+        """
+        Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance.
+        """
         return pulumi.get(self, "client_affinity_enabled")
 
     @property
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> str:
+        """
+        The mode of the Logic App's client certificates requirement for incoming requests.
+        """
         return pulumi.get(self, "client_certificate_mode")
 
     @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Sequence['outputs.GetStandardConnectionStringResult']:
+        """
+        A `connection_string` block as defined below.
+        """
         return pulumi.get(self, "connection_strings")
 
     @property
     @pulumi.getter(name="customDomainVerificationId")
     def custom_domain_verification_id(self) -> str:
+        """
+        The custom domain verification of the Logic App.
+        """
         return pulumi.get(self, "custom_domain_verification_id")
 
     @property
     @pulumi.getter(name="defaultHostname")
     def default_hostname(self) -> str:
+        """
+        The default hostname of the Logic App.
+        """
         return pulumi.get(self, "default_hostname")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Whether the Logic App is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> bool:
+        """
+        Whether the Logic App can only be accessed via HTTPS.
+        """
         return pulumi.get(self, "https_only")
 
     @property
@@ -180,6 +213,9 @@ class GetStandardResult:
     @property
     @pulumi.getter
     def kind(self) -> str:
+        """
+        The kind of the Logic App.
+        """
         return pulumi.get(self, "kind")
 
     @property
@@ -193,17 +229,34 @@ class GetStandardResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name for this IP Restriction.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> str:
+        """
+        The outbound IP addresses of the Logic App.
+        """
         return pulumi.get(self, "outbound_ip_addresses")
 
     @property
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> str:
+        """
+        The possible outbound IP addresses of the Logic App.
+        """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> str:
+        """
+        Whether Public Network Access should be enabled or not.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,46 +266,73 @@ class GetStandardResult:
     @property
     @pulumi.getter(name="siteConfig")
     def site_config(self) -> 'outputs.GetStandardSiteConfigResult':
+        """
+        A `site_config` object as defined below.
+        """
         return pulumi.get(self, "site_config")
 
     @property
     @pulumi.getter(name="siteCredentials")
     def site_credentials(self) -> Sequence['outputs.GetStandardSiteCredentialResult']:
+        """
+        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
+        """
         return pulumi.get(self, "site_credentials")
 
     @property
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> str:
+        """
+        The access key which will be used to access the backend storage account for the Logic App.
+        """
         return pulumi.get(self, "storage_account_access_key")
 
     @property
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> str:
+        """
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data).
+        """
         return pulumi.get(self, "storage_account_name")
 
     @property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> str:
+        """
+        The name of the share used by the logic app.
+        """
         return pulumi.get(self, "storage_account_share_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="useExtensionBundle")
     def use_extension_bundle(self) -> bool:
+        """
+        Whether the logic app should use the bundled extension package.
+        """
         return pulumi.get(self, "use_extension_bundle")
 
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The runtime version associated with the Logic App.
+        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
 
@@ -279,6 +359,7 @@ class AwaitableGetStandardResult(GetStandardResult):
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
+            public_network_access=self.public_network_access,
             resource_group_name=self.resource_group_name,
             site_config=self.site_config,
             site_credentials=self.site_credentials,
@@ -294,7 +375,6 @@ class AwaitableGetStandardResult(GetStandardResult):
 def get_standard(name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  site_config: Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']] = None,
-                 tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardResult:
     """
     Use this data source to access information about an existing Logic App Standard instance.
@@ -313,12 +393,12 @@ def get_standard(name: Optional[str] = None,
 
     :param str name: The name of this Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
+    :param Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict'] site_config: A `site_config` object as defined below.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteConfig'] = site_config
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:logicapps/getStandard:getStandard', __args__, opts=opts, typ=GetStandardResult).value
 
@@ -340,6 +420,7 @@ def get_standard(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
         possible_outbound_ip_addresses=pulumi.get(__ret__, 'possible_outbound_ip_addresses'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         site_config=pulumi.get(__ret__, 'site_config'),
         site_credentials=pulumi.get(__ret__, 'site_credentials'),
@@ -353,7 +434,6 @@ def get_standard(name: Optional[str] = None,
 def get_standard_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         site_config: Optional[pulumi.Input[Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']]]] = None,
-                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
     """
     Use this data source to access information about an existing Logic App Standard instance.
@@ -372,12 +452,12 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of this Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
+    :param Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict'] site_config: A `site_config` object as defined below.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteConfig'] = site_config
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:logicapps/getStandard:getStandard', __args__, opts=opts, typ=GetStandardResult)
     return __ret__.apply(lambda __response__: GetStandardResult(
@@ -398,6 +478,7 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
         possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         site_config=pulumi.get(__response__, 'site_config'),
         site_credentials=pulumi.get(__response__, 'site_credentials'),

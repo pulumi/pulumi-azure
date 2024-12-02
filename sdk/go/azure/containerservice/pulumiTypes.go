@@ -18833,7 +18833,7 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) Regist
 }
 
 type RegistryTaskAgentSetting struct {
-	// The number of cores required for the Container Registry Task.
+	// The number of cores required for the Container Registry Task. Possible value is `2`.
 	Cpu int `pulumi:"cpu"`
 }
 
@@ -18849,7 +18849,7 @@ type RegistryTaskAgentSettingInput interface {
 }
 
 type RegistryTaskAgentSettingArgs struct {
-	// The number of cores required for the Container Registry Task.
+	// The number of cores required for the Container Registry Task. Possible value is `2`.
 	Cpu pulumi.IntInput `pulumi:"cpu"`
 }
 
@@ -18930,7 +18930,7 @@ func (o RegistryTaskAgentSettingOutput) ToRegistryTaskAgentSettingPtrOutputWithC
 	}).(RegistryTaskAgentSettingPtrOutput)
 }
 
-// The number of cores required for the Container Registry Task.
+// The number of cores required for the Container Registry Task. Possible value is `2`.
 func (o RegistryTaskAgentSettingOutput) Cpu() pulumi.IntOutput {
 	return o.ApplyT(func(v RegistryTaskAgentSetting) int { return v.Cpu }).(pulumi.IntOutput)
 }
@@ -18959,7 +18959,7 @@ func (o RegistryTaskAgentSettingPtrOutput) Elem() RegistryTaskAgentSettingOutput
 	}).(RegistryTaskAgentSettingOutput)
 }
 
-// The number of cores required for the Container Registry Task.
+// The number of cores required for the Container Registry Task. Possible value is `2`.
 func (o RegistryTaskAgentSettingPtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RegistryTaskAgentSetting) *int {
 		if v == nil {

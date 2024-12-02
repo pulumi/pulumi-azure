@@ -48,7 +48,7 @@ public final class StandardSiteConfig {
      */
     private @Nullable Integer elasticInstanceMinimum;
     /**
-     * @return State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+     * @return State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
      * 
      */
     private @Nullable String ftpsState;
@@ -58,7 +58,7 @@ public final class StandardSiteConfig {
      */
     private @Nullable String healthCheckPath;
     /**
-     * @return Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+     * @return Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
     private @Nullable Boolean http2Enabled;
@@ -70,12 +70,12 @@ public final class StandardSiteConfig {
      */
     private @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
     /**
-     * @return Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
      * 
      */
     private @Nullable String linuxFxVersion;
     /**
-     * @return The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+     * @return The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
      * 
      */
     private @Nullable String minTlsVersion;
@@ -85,9 +85,11 @@ public final class StandardSiteConfig {
      */
     private @Nullable Integer preWarmedInstanceCount;
     /**
-     * @return Is public network access enabled? Defaults to `true`.
+     * @deprecated
+     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
     private @Nullable Boolean publicNetworkAccessEnabled;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
@@ -178,7 +180,7 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.elasticInstanceMinimum);
     }
     /**
-     * @return State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+     * @return State of FTP / FTPS service for this Logic App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
      * 
      */
     public Optional<String> ftpsState() {
@@ -192,7 +194,7 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.healthCheckPath);
     }
     /**
-     * @return Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+     * @return Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
     public Optional<Boolean> http2Enabled() {
@@ -208,14 +210,14 @@ public final class StandardSiteConfig {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
     /**
-     * @return Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
      * 
      */
     public Optional<String> linuxFxVersion() {
         return Optional.ofNullable(this.linuxFxVersion);
     }
     /**
-     * @return The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+     * @return The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
      * 
      */
     public Optional<String> minTlsVersion() {
@@ -229,9 +231,11 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.preWarmedInstanceCount);
     }
     /**
-     * @return Is public network access enabled? Defaults to `true`.
+     * @deprecated
+     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Boolean> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }

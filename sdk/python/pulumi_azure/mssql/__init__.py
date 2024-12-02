@@ -13,6 +13,7 @@ from .failover_group import *
 from .firewall_rule import *
 from .get_database import *
 from .get_elastic_pool import *
+from .get_managed_database import *
 from .get_managed_instance import *
 from .get_server import *
 from .job_agent import *

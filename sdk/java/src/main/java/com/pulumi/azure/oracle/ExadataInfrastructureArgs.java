@@ -21,14 +21,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     public static final ExadataInfrastructureArgs Empty = new ExadataInfrastructureArgs();
 
     /**
-     * The number of compute servers for the Cloud Exadata Infrastructure.
+     * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="computeCount", required=true)
     private Output<Integer> computeCount;
 
     /**
-     * @return The number of compute servers for the Cloud Exadata Infrastructure.
+     * @return The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<Integer> computeCount() {
@@ -36,14 +36,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="customerContacts")
     private @Nullable Output<List<String>> customerContacts;
 
     /**
-     * @return The email address used by Oracle to send notifications regarding databases and infrastructure.
+     * @return The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<String>>> customerContacts() {
@@ -51,14 +51,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+     * @return The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> displayName() {
@@ -81,14 +81,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `maintenance_window` blocks as defined below.
+     * One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="maintenanceWindows")
     private @Nullable Output<List<ExadataInfrastructureMaintenanceWindowArgs>> maintenanceWindows;
 
     /**
-     * @return One or more `maintenance_window` blocks as defined below.
+     * @return One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<ExadataInfrastructureMaintenanceWindowArgs>>> maintenanceWindows() {
@@ -96,14 +96,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name which should be used for this Cloud Exadata Infrastructure.
+     * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Cloud Exadata Infrastructure.
+     * @return The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -111,14 +111,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist.
+     * The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist.
+     * @return The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -126,14 +126,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The shape of the ODB{@literal @}A infrastructure resource.
+     * The shape of the ODB{@literal @}A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="shape", required=true)
     private Output<String> shape;
 
     /**
-     * @return The shape of the ODB{@literal @}A infrastructure resource.
+     * @return The shape of the ODB{@literal @}A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<String> shape() {
@@ -141,14 +141,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The number of storage servers for the Cloud Exadata Infrastructure.
+     * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="storageCount", required=true)
     private Output<Integer> storageCount;
 
     /**
-     * @return The number of storage servers for the Cloud Exadata Infrastructure.
+     * @return The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<Integer> storageCount() {
@@ -171,14 +171,14 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Cloud Exadata Infrastructure zones.
+     * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="zones", required=true)
     private Output<List<String>> zones;
 
     /**
-     * @return Cloud Exadata Infrastructure zones.
+     * @return Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<List<String>> zones() {
@@ -220,7 +220,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param computeCount The number of compute servers for the Cloud Exadata Infrastructure.
+         * @param computeCount The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param computeCount The number of compute servers for the Cloud Exadata Infrastructure.
+         * @param computeCount The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerContacts The email address used by Oracle to send notifications regarding databases and infrastructure.
+         * @param customerContacts The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerContacts The email address used by Oracle to send notifications regarding databases and infrastructure.
+         * @param customerContacts The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param customerContacts The email address used by Oracle to send notifications regarding databases and infrastructure.
+         * @param customerContacts The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param displayName The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+         * @param displayName The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param displayName The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+         * @param displayName The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below.
+         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below.
+         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below.
+         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name which should be used for this Cloud Exadata Infrastructure.
+         * @param name The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name which should be used for this Cloud Exadata Infrastructure.
+         * @param name The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist.
+         * @param resourceGroupName The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist.
+         * @param resourceGroupName The name of the Resource Group where the ODB{@literal @}A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shape The shape of the ODB{@literal @}A infrastructure resource.
+         * @param shape The shape of the ODB{@literal @}A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shape The shape of the ODB{@literal @}A infrastructure resource.
+         * @param shape The shape of the ODB{@literal @}A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param storageCount The number of storage servers for the Cloud Exadata Infrastructure.
+         * @param storageCount The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param storageCount The number of storage servers for the Cloud Exadata Infrastructure.
+         * @param storageCount The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param zones Cloud Exadata Infrastructure zones.
+         * @param zones Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param zones Cloud Exadata Infrastructure zones.
+         * @param zones Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param zones Cloud Exadata Infrastructure zones.
+         * @param zones Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 

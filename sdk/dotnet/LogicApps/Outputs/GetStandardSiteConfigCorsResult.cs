@@ -13,7 +13,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetStandardSiteConfigCorsResult
     {
+        /// <summary>
+        /// A list of origins which should be able to make cross-origin calls.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// Are credentials supported?
+        /// </summary>
         public readonly bool? SupportCredentials;
 
         [OutputConstructor]

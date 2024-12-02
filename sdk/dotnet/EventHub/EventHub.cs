@@ -44,8 +44,7 @@ namespace Pulumi.Azure.EventHub
     ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
     ///         Name = "acceptanceTestEventHub",
-    ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = example.Name,
+    ///         NamespaceId = exampleEventHubNamespace.Id,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });
@@ -85,8 +84,11 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("namespaceId")]
+        public Output<string> NamespaceId { get; private set; } = null!;
+
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -106,9 +108,6 @@ namespace Pulumi.Azure.EventHub
         [Output("partitionIds")]
         public Output<ImmutableArray<string>> PartitionIds { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -185,10 +184,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceName", required: true)]
-        public Input<string> NamespaceName { get; set; } = null!;
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
+        [Input("namespaceName")]
+        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -200,11 +202,8 @@ namespace Pulumi.Azure.EventHub
         [Input("partitionCount", required: true)]
         public Input<int> PartitionCount { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
@@ -241,8 +240,11 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("namespaceId")]
+        public Input<string>? NamespaceId { get; set; }
+
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
@@ -268,9 +270,6 @@ namespace Pulumi.Azure.EventHub
             set => _partitionIds = value;
         }
 
-        /// <summary>
-        /// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

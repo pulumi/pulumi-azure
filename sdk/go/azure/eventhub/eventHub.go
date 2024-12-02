@@ -50,11 +50,10 @@ import (
 //				return err
 //			}
 //			_, err = eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
-//				Name:              pulumi.String("acceptanceTestEventHub"),
-//				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: example.Name,
-//				PartitionCount:    pulumi.Int(2),
-//				MessageRetention:  pulumi.Int(1),
+//				Name:             pulumi.String("acceptanceTestEventHub"),
+//				NamespaceId:      exampleEventHubNamespace.ID(),
+//				PartitionCount:   pulumi.Int(2),
+//				MessageRetention: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +82,9 @@ type EventHub struct {
 	MessageRetention pulumi.IntOutput `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
+	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub.
 	//
@@ -93,7 +94,7 @@ type EventHub struct {
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
-	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -109,14 +110,8 @@ func NewEventHub(ctx *pulumi.Context,
 	if args.MessageRetention == nil {
 		return nil, errors.New("invalid value for required argument 'MessageRetention'")
 	}
-	if args.NamespaceName == nil {
-		return nil, errors.New("invalid value for required argument 'NamespaceName'")
-	}
 	if args.PartitionCount == nil {
 		return nil, errors.New("invalid value for required argument 'PartitionCount'")
-	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventHub
@@ -149,7 +144,9 @@ type eventHubState struct {
 	MessageRetention *int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub.
 	//
@@ -159,7 +156,7 @@ type eventHubState struct {
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds []string `pulumi:"partitionIds"`
-	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
@@ -174,7 +171,9 @@ type EventHubState struct {
 	MessageRetention pulumi.IntPtrInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringPtrInput
+	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	NamespaceName pulumi.StringPtrInput
 	// Specifies the current number of shards on the Event Hub.
 	//
@@ -184,7 +183,7 @@ type EventHubState struct {
 	PartitionCount pulumi.IntPtrInput
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayInput
-	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
@@ -203,16 +202,18 @@ type eventHubArgs struct {
 	MessageRetention int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-	NamespaceName string `pulumi:"namespaceName"`
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
+	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount int `pulumi:"partitionCount"`
-	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 }
@@ -227,16 +228,18 @@ type EventHubArgs struct {
 	MessageRetention pulumi.IntInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-	NamespaceName pulumi.StringInput
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringPtrInput
+	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
+	NamespaceName pulumi.StringPtrInput
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntInput
-	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
+	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
+	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 }
@@ -345,7 +348,12 @@ func (o EventHubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+func (o EventHubOutput) NamespaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
+}
+
+// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 func (o EventHubOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
@@ -364,7 +372,7 @@ func (o EventHubOutput) PartitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringArrayOutput { return v.PartitionIds }).(pulumi.StringArrayOutput)
 }
 
-// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 func (o EventHubOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

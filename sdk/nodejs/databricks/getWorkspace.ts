@@ -54,6 +54,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * An `enhancedSecurityCompliance` block as documented below.
+     */
+    readonly enhancedSecurityCompliances: outputs.databricks.GetWorkspaceEnhancedSecurityCompliance[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

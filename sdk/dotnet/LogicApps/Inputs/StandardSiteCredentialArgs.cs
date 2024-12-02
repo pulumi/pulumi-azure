@@ -29,7 +29,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         }
 
         /// <summary>
-        /// The username which can be used to publish to this App Service
+        /// The username which can be used to publish to this App Service.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

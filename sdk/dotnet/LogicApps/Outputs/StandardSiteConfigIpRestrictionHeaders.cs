@@ -18,11 +18,11 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly ImmutableArray<string> XAzureFdids;
         /// <summary>
-        /// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        /// A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
         /// </summary>
         public readonly string? XFdHealthProbe;
         /// <summary>
-        /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        /// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8.
         /// </summary>
         public readonly ImmutableArray<string> XForwardedFors;
         /// <summary>

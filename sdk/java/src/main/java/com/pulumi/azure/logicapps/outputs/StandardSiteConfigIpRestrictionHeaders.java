@@ -18,12 +18,12 @@ public final class StandardSiteConfigIpRestrictionHeaders {
      */
     private @Nullable List<String> xAzureFdids;
     /**
-     * @return A list to allow the Azure FrontDoor health probe header. Only allowed value is &#34;1&#34;.
+     * @return A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
      * 
      */
     private @Nullable String xFdHealthProbe;
     /**
-     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
      * 
      */
     private @Nullable List<String> xForwardedFors;
@@ -42,14 +42,14 @@ public final class StandardSiteConfigIpRestrictionHeaders {
         return this.xAzureFdids == null ? List.of() : this.xAzureFdids;
     }
     /**
-     * @return A list to allow the Azure FrontDoor health probe header. Only allowed value is &#34;1&#34;.
+     * @return A list to allow the Azure FrontDoor health probe header. Only allowed value is `1`.
      * 
      */
     public Optional<String> xFdHealthProbe() {
         return Optional.ofNullable(this.xFdHealthProbe);
     }
     /**
-     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8
+     * @return A list of allowed &#39;X-Forwarded-For&#39; IPs in CIDR notation with a maximum of 8.
      * 
      */
     public List<String> xForwardedFors() {

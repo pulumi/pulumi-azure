@@ -17,23 +17,47 @@ public final class GetStandardSiteConfigIpRestriction extends com.pulumi.resourc
 
     public static final GetStandardSiteConfigIpRestriction Empty = new GetStandardSiteConfigIpRestriction();
 
+    /**
+     * Does this restriction `Allow` or `Deny` access for this IP range.
+     * 
+     */
     @Import(name="action")
     private @Nullable String action;
 
+    /**
+     * @return Does this restriction `Allow` or `Deny` access for this IP range.
+     * 
+     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
 
+    /**
+     * The `headers` block for this specific `ip_restriction` as defined below.
+     * 
+     */
     @Import(name="headers", required=true)
     private GetStandardSiteConfigIpRestrictionHeaders headers;
 
+    /**
+     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * 
+     */
     public GetStandardSiteConfigIpRestrictionHeaders headers() {
         return this.headers;
     }
 
+    /**
+     * The IP Address used for this IP Restriction in CIDR notation.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable String ipAddress;
 
+    /**
+     * @return The IP Address used for this IP Restriction in CIDR notation.
+     * 
+     */
     public Optional<String> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
@@ -53,23 +77,47 @@ public final class GetStandardSiteConfigIpRestriction extends com.pulumi.resourc
         return this.name;
     }
 
+    /**
+     * The priority for this IP Restriction. Restrictions are enforced in priority order.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Integer priority;
 
+    /**
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order.
+     * 
+     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * The Service Tag used for this IP Restriction.
+     * 
+     */
     @Import(name="serviceTag")
     private @Nullable String serviceTag;
 
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     public Optional<String> serviceTag() {
         return Optional.ofNullable(this.serviceTag);
     }
 
+    /**
+     * The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable String virtualNetworkSubnetId;
 
+    /**
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     */
     public Optional<String> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -104,16 +152,34 @@ public final class GetStandardSiteConfigIpRestriction extends com.pulumi.resourc
             $ = new GetStandardSiteConfigIpRestriction(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action Does this restriction `Allow` or `Deny` access for this IP range.
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(@Nullable String action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param headers The `headers` block for this specific `ip_restriction` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(GetStandardSiteConfigIpRestrictionHeaders headers) {
             $.headers = headers;
             return this;
         }
 
+        /**
+         * @param ipAddress The IP Address used for this IP Restriction in CIDR notation.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable String ipAddress) {
             $.ipAddress = ipAddress;
             return this;
@@ -130,16 +196,34 @@ public final class GetStandardSiteConfigIpRestriction extends com.pulumi.resourc
             return this;
         }
 
+        /**
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param serviceTag The Service Tag used for this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceTag(@Nullable String serviceTag) {
             $.serviceTag = serviceTag;
             return this;
         }
 
+        /**
+         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;

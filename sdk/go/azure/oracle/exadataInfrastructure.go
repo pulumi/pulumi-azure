@@ -67,27 +67,27 @@ import (
 type ExadataInfrastructure struct {
 	pulumi.CustomResourceState
 
-	// The number of compute servers for the Cloud Exadata Infrastructure.
+	// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ComputeCount pulumi.IntOutput `pulumi:"computeCount"`
-	// The email address used by Oracle to send notifications regarding databases and infrastructure.
+	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts pulumi.StringArrayOutput `pulumi:"customerContacts"`
-	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// One or more `maintenanceWindow` blocks as defined below.
+	// One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	MaintenanceWindows ExadataInfrastructureMaintenanceWindowArrayOutput `pulumi:"maintenanceWindows"`
-	// The name which should be used for this Cloud Exadata Infrastructure.
+	// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group where the ODB@A Infrastructure should exist.
+	// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The shape of the ODB@A infrastructure resource.
+	// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Shape pulumi.StringOutput `pulumi:"shape"`
-	// The number of storage servers for the Cloud Exadata Infrastructure.
+	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount pulumi.IntOutput `pulumi:"storageCount"`
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Cloud Exadata Infrastructure zones.
+	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -139,52 +139,52 @@ func GetExadataInfrastructure(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExadataInfrastructure resources.
 type exadataInfrastructureState struct {
-	// The number of compute servers for the Cloud Exadata Infrastructure.
+	// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ComputeCount *int `pulumi:"computeCount"`
-	// The email address used by Oracle to send notifications regarding databases and infrastructure.
+	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts []string `pulumi:"customerContacts"`
-	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Location *string `pulumi:"location"`
-	// One or more `maintenanceWindow` blocks as defined below.
+	// One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	MaintenanceWindows []ExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindows"`
-	// The name which should be used for this Cloud Exadata Infrastructure.
+	// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the ODB@A Infrastructure should exist.
+	// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The shape of the ODB@A infrastructure resource.
+	// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Shape *string `pulumi:"shape"`
-	// The number of storage servers for the Cloud Exadata Infrastructure.
+	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount *int `pulumi:"storageCount"`
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags map[string]string `pulumi:"tags"`
-	// Cloud Exadata Infrastructure zones.
+	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Zones []string `pulumi:"zones"`
 }
 
 type ExadataInfrastructureState struct {
-	// The number of compute servers for the Cloud Exadata Infrastructure.
+	// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ComputeCount pulumi.IntPtrInput
-	// The email address used by Oracle to send notifications regarding databases and infrastructure.
+	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts pulumi.StringArrayInput
-	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName pulumi.StringPtrInput
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Location pulumi.StringPtrInput
-	// One or more `maintenanceWindow` blocks as defined below.
+	// One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	MaintenanceWindows ExadataInfrastructureMaintenanceWindowArrayInput
-	// The name which should be used for this Cloud Exadata Infrastructure.
+	// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the ODB@A Infrastructure should exist.
+	// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The shape of the ODB@A infrastructure resource.
+	// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Shape pulumi.StringPtrInput
-	// The number of storage servers for the Cloud Exadata Infrastructure.
+	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags pulumi.StringMapInput
-	// Cloud Exadata Infrastructure zones.
+	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -193,53 +193,53 @@ func (ExadataInfrastructureState) ElementType() reflect.Type {
 }
 
 type exadataInfrastructureArgs struct {
-	// The number of compute servers for the Cloud Exadata Infrastructure.
+	// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ComputeCount int `pulumi:"computeCount"`
-	// The email address used by Oracle to send notifications regarding databases and infrastructure.
+	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts []string `pulumi:"customerContacts"`
-	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName string `pulumi:"displayName"`
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Location *string `pulumi:"location"`
-	// One or more `maintenanceWindow` blocks as defined below.
+	// One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	MaintenanceWindows []ExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindows"`
-	// The name which should be used for this Cloud Exadata Infrastructure.
+	// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the ODB@A Infrastructure should exist.
+	// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The shape of the ODB@A infrastructure resource.
+	// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Shape string `pulumi:"shape"`
-	// The number of storage servers for the Cloud Exadata Infrastructure.
+	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount int `pulumi:"storageCount"`
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags map[string]string `pulumi:"tags"`
-	// Cloud Exadata Infrastructure zones.
+	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a ExadataInfrastructure resource.
 type ExadataInfrastructureArgs struct {
-	// The number of compute servers for the Cloud Exadata Infrastructure.
+	// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ComputeCount pulumi.IntInput
-	// The email address used by Oracle to send notifications regarding databases and infrastructure.
+	// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	CustomerContacts pulumi.StringArrayInput
-	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+	// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	DisplayName pulumi.StringInput
 	// The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Location pulumi.StringPtrInput
-	// One or more `maintenanceWindow` blocks as defined below.
+	// One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	MaintenanceWindows ExadataInfrastructureMaintenanceWindowArrayInput
-	// The name which should be used for this Cloud Exadata Infrastructure.
+	// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the ODB@A Infrastructure should exist.
+	// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	ResourceGroupName pulumi.StringInput
-	// The shape of the ODB@A infrastructure resource.
+	// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Shape pulumi.StringInput
-	// The number of storage servers for the Cloud Exadata Infrastructure.
+	// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	StorageCount pulumi.IntInput
 	// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
 	Tags pulumi.StringMapInput
-	// Cloud Exadata Infrastructure zones.
+	// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -330,17 +330,17 @@ func (o ExadataInfrastructureOutput) ToExadataInfrastructureOutputWithContext(ct
 	return o
 }
 
-// The number of compute servers for the Cloud Exadata Infrastructure.
+// The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) ComputeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.IntOutput { return v.ComputeCount }).(pulumi.IntOutput)
 }
 
-// The email address used by Oracle to send notifications regarding databases and infrastructure.
+// The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) CustomerContacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringArrayOutput { return v.CustomerContacts }).(pulumi.StringArrayOutput)
 }
 
-// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
+// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -350,29 +350,29 @@ func (o ExadataInfrastructureOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// One or more `maintenanceWindow` blocks as defined below.
+// One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) MaintenanceWindows() ExadataInfrastructureMaintenanceWindowArrayOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) ExadataInfrastructureMaintenanceWindowArrayOutput {
 		return v.MaintenanceWindows
 	}).(ExadataInfrastructureMaintenanceWindowArrayOutput)
 }
 
-// The name which should be used for this Cloud Exadata Infrastructure.
+// The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the ODB@A Infrastructure should exist.
+// The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The shape of the ODB@A infrastructure resource.
+// The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringOutput { return v.Shape }).(pulumi.StringOutput)
 }
 
-// The number of storage servers for the Cloud Exadata Infrastructure.
+// The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) StorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.IntOutput { return v.StorageCount }).(pulumi.IntOutput)
 }
@@ -382,7 +382,7 @@ func (o ExadataInfrastructureOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Cloud Exadata Infrastructure zones.
+// Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
 func (o ExadataInfrastructureOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExadataInfrastructure) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

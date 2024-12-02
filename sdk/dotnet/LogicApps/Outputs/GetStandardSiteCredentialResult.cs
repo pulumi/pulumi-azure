@@ -13,7 +13,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetStandardSiteCredentialResult
     {
+        /// <summary>
+        /// The password associated with the username, which can be used to publish to this Logic App.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// The username which can be used to publish to this Logic App.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

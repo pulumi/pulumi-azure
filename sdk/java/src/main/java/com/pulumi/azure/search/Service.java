@@ -211,6 +211,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationFailureMode);
     }
     /**
+     * Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     * 
+     */
+    @Export(name="customerManagedKeyEncryptionComplianceStatus", refs={String.class}, tree="[0]")
+    private Output<String> customerManagedKeyEncryptionComplianceStatus;
+
+    /**
+     * @return Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     * 
+     */
+    public Output<String> customerManagedKeyEncryptionComplianceStatus() {
+        return this.customerManagedKeyEncryptionComplianceStatus;
+    }
+    /**
      * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
      * 
      */

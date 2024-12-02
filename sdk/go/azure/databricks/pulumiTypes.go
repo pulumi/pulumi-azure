@@ -585,6 +585,232 @@ func (o WorkspaceCustomParametersPtrOutput) VnetAddressPrefix() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceEnhancedSecurityCompliance struct {
+	// Enables automatic cluster updates for this workspace. Defaults to `false`.
+	AutomaticClusterUpdateEnabled *bool `pulumi:"automaticClusterUpdateEnabled"`
+	// Enables compliance security profile for this workspace. Defaults to `false`.
+	//
+	// > **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
+	//
+	// > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
+	ComplianceSecurityProfileEnabled *bool `pulumi:"complianceSecurityProfileEnabled"`
+	// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+	//
+	// > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
+	//
+	// > **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
+	ComplianceSecurityProfileStandards []string `pulumi:"complianceSecurityProfileStandards"`
+	// Enables enhanced security monitoring for this workspace. Defaults to `false`.
+	EnhancedSecurityMonitoringEnabled *bool `pulumi:"enhancedSecurityMonitoringEnabled"`
+}
+
+// WorkspaceEnhancedSecurityComplianceInput is an input type that accepts WorkspaceEnhancedSecurityComplianceArgs and WorkspaceEnhancedSecurityComplianceOutput values.
+// You can construct a concrete instance of `WorkspaceEnhancedSecurityComplianceInput` via:
+//
+//	WorkspaceEnhancedSecurityComplianceArgs{...}
+type WorkspaceEnhancedSecurityComplianceInput interface {
+	pulumi.Input
+
+	ToWorkspaceEnhancedSecurityComplianceOutput() WorkspaceEnhancedSecurityComplianceOutput
+	ToWorkspaceEnhancedSecurityComplianceOutputWithContext(context.Context) WorkspaceEnhancedSecurityComplianceOutput
+}
+
+type WorkspaceEnhancedSecurityComplianceArgs struct {
+	// Enables automatic cluster updates for this workspace. Defaults to `false`.
+	AutomaticClusterUpdateEnabled pulumi.BoolPtrInput `pulumi:"automaticClusterUpdateEnabled"`
+	// Enables compliance security profile for this workspace. Defaults to `false`.
+	//
+	// > **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
+	//
+	// > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
+	ComplianceSecurityProfileEnabled pulumi.BoolPtrInput `pulumi:"complianceSecurityProfileEnabled"`
+	// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+	//
+	// > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
+	//
+	// > **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
+	ComplianceSecurityProfileStandards pulumi.StringArrayInput `pulumi:"complianceSecurityProfileStandards"`
+	// Enables enhanced security monitoring for this workspace. Defaults to `false`.
+	EnhancedSecurityMonitoringEnabled pulumi.BoolPtrInput `pulumi:"enhancedSecurityMonitoringEnabled"`
+}
+
+func (WorkspaceEnhancedSecurityComplianceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (i WorkspaceEnhancedSecurityComplianceArgs) ToWorkspaceEnhancedSecurityComplianceOutput() WorkspaceEnhancedSecurityComplianceOutput {
+	return i.ToWorkspaceEnhancedSecurityComplianceOutputWithContext(context.Background())
+}
+
+func (i WorkspaceEnhancedSecurityComplianceArgs) ToWorkspaceEnhancedSecurityComplianceOutputWithContext(ctx context.Context) WorkspaceEnhancedSecurityComplianceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEnhancedSecurityComplianceOutput)
+}
+
+func (i WorkspaceEnhancedSecurityComplianceArgs) ToWorkspaceEnhancedSecurityCompliancePtrOutput() WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return i.ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceEnhancedSecurityComplianceArgs) ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(ctx context.Context) WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEnhancedSecurityComplianceOutput).ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(ctx)
+}
+
+// WorkspaceEnhancedSecurityCompliancePtrInput is an input type that accepts WorkspaceEnhancedSecurityComplianceArgs, WorkspaceEnhancedSecurityCompliancePtr and WorkspaceEnhancedSecurityCompliancePtrOutput values.
+// You can construct a concrete instance of `WorkspaceEnhancedSecurityCompliancePtrInput` via:
+//
+//	        WorkspaceEnhancedSecurityComplianceArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceEnhancedSecurityCompliancePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceEnhancedSecurityCompliancePtrOutput() WorkspaceEnhancedSecurityCompliancePtrOutput
+	ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(context.Context) WorkspaceEnhancedSecurityCompliancePtrOutput
+}
+
+type workspaceEnhancedSecurityCompliancePtrType WorkspaceEnhancedSecurityComplianceArgs
+
+func WorkspaceEnhancedSecurityCompliancePtr(v *WorkspaceEnhancedSecurityComplianceArgs) WorkspaceEnhancedSecurityCompliancePtrInput {
+	return (*workspaceEnhancedSecurityCompliancePtrType)(v)
+}
+
+func (*workspaceEnhancedSecurityCompliancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (i *workspaceEnhancedSecurityCompliancePtrType) ToWorkspaceEnhancedSecurityCompliancePtrOutput() WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return i.ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceEnhancedSecurityCompliancePtrType) ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(ctx context.Context) WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEnhancedSecurityCompliancePtrOutput)
+}
+
+type WorkspaceEnhancedSecurityComplianceOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceEnhancedSecurityComplianceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (o WorkspaceEnhancedSecurityComplianceOutput) ToWorkspaceEnhancedSecurityComplianceOutput() WorkspaceEnhancedSecurityComplianceOutput {
+	return o
+}
+
+func (o WorkspaceEnhancedSecurityComplianceOutput) ToWorkspaceEnhancedSecurityComplianceOutputWithContext(ctx context.Context) WorkspaceEnhancedSecurityComplianceOutput {
+	return o
+}
+
+func (o WorkspaceEnhancedSecurityComplianceOutput) ToWorkspaceEnhancedSecurityCompliancePtrOutput() WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return o.ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceEnhancedSecurityComplianceOutput) ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(ctx context.Context) WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceEnhancedSecurityCompliance) *WorkspaceEnhancedSecurityCompliance {
+		return &v
+	}).(WorkspaceEnhancedSecurityCompliancePtrOutput)
+}
+
+// Enables automatic cluster updates for this workspace. Defaults to `false`.
+func (o WorkspaceEnhancedSecurityComplianceOutput) AutomaticClusterUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceEnhancedSecurityCompliance) *bool { return v.AutomaticClusterUpdateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enables compliance security profile for this workspace. Defaults to `false`.
+//
+// > **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
+//
+// > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
+func (o WorkspaceEnhancedSecurityComplianceOutput) ComplianceSecurityProfileEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceEnhancedSecurityCompliance) *bool { return v.ComplianceSecurityProfileEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+//
+// > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
+//
+// > **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
+func (o WorkspaceEnhancedSecurityComplianceOutput) ComplianceSecurityProfileStandards() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkspaceEnhancedSecurityCompliance) []string { return v.ComplianceSecurityProfileStandards }).(pulumi.StringArrayOutput)
+}
+
+// Enables enhanced security monitoring for this workspace. Defaults to `false`.
+func (o WorkspaceEnhancedSecurityComplianceOutput) EnhancedSecurityMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceEnhancedSecurityCompliance) *bool { return v.EnhancedSecurityMonitoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type WorkspaceEnhancedSecurityCompliancePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceEnhancedSecurityCompliancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) ToWorkspaceEnhancedSecurityCompliancePtrOutput() WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return o
+}
+
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) ToWorkspaceEnhancedSecurityCompliancePtrOutputWithContext(ctx context.Context) WorkspaceEnhancedSecurityCompliancePtrOutput {
+	return o
+}
+
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) Elem() WorkspaceEnhancedSecurityComplianceOutput {
+	return o.ApplyT(func(v *WorkspaceEnhancedSecurityCompliance) WorkspaceEnhancedSecurityCompliance {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceEnhancedSecurityCompliance
+		return ret
+	}).(WorkspaceEnhancedSecurityComplianceOutput)
+}
+
+// Enables automatic cluster updates for this workspace. Defaults to `false`.
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) AutomaticClusterUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEnhancedSecurityCompliance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticClusterUpdateEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables compliance security profile for this workspace. Defaults to `false`.
+//
+// > **Note:** Changing the value of `complianceSecurityProfileEnabled` from `true` to `false` forces a replacement of the Databricks workspace.
+//
+// > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) ComplianceSecurityProfileEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEnhancedSecurityCompliance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityProfileEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+//
+// > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
+//
+// > **Note:** Removing a standard from the `complianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) ComplianceSecurityProfileStandards() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkspaceEnhancedSecurityCompliance) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceSecurityProfileStandards
+	}).(pulumi.StringArrayOutput)
+}
+
+// Enables enhanced security monitoring for this workspace. Defaults to `false`.
+func (o WorkspaceEnhancedSecurityCompliancePtrOutput) EnhancedSecurityMonitoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEnhancedSecurityCompliance) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedSecurityMonitoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type WorkspaceManagedDiskIdentity struct {
 	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
 	PrincipalId *string `pulumi:"principalId"`
@@ -937,6 +1163,130 @@ func (o GetAccessConnectorIdentityArrayOutput) Index(i pulumi.IntInput) GetAcces
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessConnectorIdentity {
 		return vs[0].([]GetAccessConnectorIdentity)[vs[1].(int)]
 	}).(GetAccessConnectorIdentityOutput)
+}
+
+type GetWorkspaceEnhancedSecurityCompliance struct {
+	// Whether automatic cluster updates for this workspace is enabled.
+	AutomaticClusterUpdateEnabled bool `pulumi:"automaticClusterUpdateEnabled"`
+	// Whether compliance security profile for this workspace is enabled.
+	ComplianceSecurityProfileEnabled bool `pulumi:"complianceSecurityProfileEnabled"`
+	// A list of standards enforced on this workspace.
+	ComplianceSecurityProfileStandards []string `pulumi:"complianceSecurityProfileStandards"`
+	// Whether enhanced security monitoring for this workspace is enabled.
+	EnhancedSecurityMonitoringEnabled bool `pulumi:"enhancedSecurityMonitoringEnabled"`
+}
+
+// GetWorkspaceEnhancedSecurityComplianceInput is an input type that accepts GetWorkspaceEnhancedSecurityComplianceArgs and GetWorkspaceEnhancedSecurityComplianceOutput values.
+// You can construct a concrete instance of `GetWorkspaceEnhancedSecurityComplianceInput` via:
+//
+//	GetWorkspaceEnhancedSecurityComplianceArgs{...}
+type GetWorkspaceEnhancedSecurityComplianceInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceEnhancedSecurityComplianceOutput() GetWorkspaceEnhancedSecurityComplianceOutput
+	ToGetWorkspaceEnhancedSecurityComplianceOutputWithContext(context.Context) GetWorkspaceEnhancedSecurityComplianceOutput
+}
+
+type GetWorkspaceEnhancedSecurityComplianceArgs struct {
+	// Whether automatic cluster updates for this workspace is enabled.
+	AutomaticClusterUpdateEnabled pulumi.BoolInput `pulumi:"automaticClusterUpdateEnabled"`
+	// Whether compliance security profile for this workspace is enabled.
+	ComplianceSecurityProfileEnabled pulumi.BoolInput `pulumi:"complianceSecurityProfileEnabled"`
+	// A list of standards enforced on this workspace.
+	ComplianceSecurityProfileStandards pulumi.StringArrayInput `pulumi:"complianceSecurityProfileStandards"`
+	// Whether enhanced security monitoring for this workspace is enabled.
+	EnhancedSecurityMonitoringEnabled pulumi.BoolInput `pulumi:"enhancedSecurityMonitoringEnabled"`
+}
+
+func (GetWorkspaceEnhancedSecurityComplianceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (i GetWorkspaceEnhancedSecurityComplianceArgs) ToGetWorkspaceEnhancedSecurityComplianceOutput() GetWorkspaceEnhancedSecurityComplianceOutput {
+	return i.ToGetWorkspaceEnhancedSecurityComplianceOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceEnhancedSecurityComplianceArgs) ToGetWorkspaceEnhancedSecurityComplianceOutputWithContext(ctx context.Context) GetWorkspaceEnhancedSecurityComplianceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceEnhancedSecurityComplianceOutput)
+}
+
+// GetWorkspaceEnhancedSecurityComplianceArrayInput is an input type that accepts GetWorkspaceEnhancedSecurityComplianceArray and GetWorkspaceEnhancedSecurityComplianceArrayOutput values.
+// You can construct a concrete instance of `GetWorkspaceEnhancedSecurityComplianceArrayInput` via:
+//
+//	GetWorkspaceEnhancedSecurityComplianceArray{ GetWorkspaceEnhancedSecurityComplianceArgs{...} }
+type GetWorkspaceEnhancedSecurityComplianceArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceEnhancedSecurityComplianceArrayOutput() GetWorkspaceEnhancedSecurityComplianceArrayOutput
+	ToGetWorkspaceEnhancedSecurityComplianceArrayOutputWithContext(context.Context) GetWorkspaceEnhancedSecurityComplianceArrayOutput
+}
+
+type GetWorkspaceEnhancedSecurityComplianceArray []GetWorkspaceEnhancedSecurityComplianceInput
+
+func (GetWorkspaceEnhancedSecurityComplianceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (i GetWorkspaceEnhancedSecurityComplianceArray) ToGetWorkspaceEnhancedSecurityComplianceArrayOutput() GetWorkspaceEnhancedSecurityComplianceArrayOutput {
+	return i.ToGetWorkspaceEnhancedSecurityComplianceArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceEnhancedSecurityComplianceArray) ToGetWorkspaceEnhancedSecurityComplianceArrayOutputWithContext(ctx context.Context) GetWorkspaceEnhancedSecurityComplianceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceEnhancedSecurityComplianceArrayOutput)
+}
+
+type GetWorkspaceEnhancedSecurityComplianceOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceEnhancedSecurityComplianceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (o GetWorkspaceEnhancedSecurityComplianceOutput) ToGetWorkspaceEnhancedSecurityComplianceOutput() GetWorkspaceEnhancedSecurityComplianceOutput {
+	return o
+}
+
+func (o GetWorkspaceEnhancedSecurityComplianceOutput) ToGetWorkspaceEnhancedSecurityComplianceOutputWithContext(ctx context.Context) GetWorkspaceEnhancedSecurityComplianceOutput {
+	return o
+}
+
+// Whether automatic cluster updates for this workspace is enabled.
+func (o GetWorkspaceEnhancedSecurityComplianceOutput) AutomaticClusterUpdateEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkspaceEnhancedSecurityCompliance) bool { return v.AutomaticClusterUpdateEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether compliance security profile for this workspace is enabled.
+func (o GetWorkspaceEnhancedSecurityComplianceOutput) ComplianceSecurityProfileEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkspaceEnhancedSecurityCompliance) bool { return v.ComplianceSecurityProfileEnabled }).(pulumi.BoolOutput)
+}
+
+// A list of standards enforced on this workspace.
+func (o GetWorkspaceEnhancedSecurityComplianceOutput) ComplianceSecurityProfileStandards() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetWorkspaceEnhancedSecurityCompliance) []string { return v.ComplianceSecurityProfileStandards }).(pulumi.StringArrayOutput)
+}
+
+// Whether enhanced security monitoring for this workspace is enabled.
+func (o GetWorkspaceEnhancedSecurityComplianceOutput) EnhancedSecurityMonitoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkspaceEnhancedSecurityCompliance) bool { return v.EnhancedSecurityMonitoringEnabled }).(pulumi.BoolOutput)
+}
+
+type GetWorkspaceEnhancedSecurityComplianceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceEnhancedSecurityComplianceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceEnhancedSecurityCompliance)(nil)).Elem()
+}
+
+func (o GetWorkspaceEnhancedSecurityComplianceArrayOutput) ToGetWorkspaceEnhancedSecurityComplianceArrayOutput() GetWorkspaceEnhancedSecurityComplianceArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceEnhancedSecurityComplianceArrayOutput) ToGetWorkspaceEnhancedSecurityComplianceArrayOutputWithContext(ctx context.Context) GetWorkspaceEnhancedSecurityComplianceArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceEnhancedSecurityComplianceArrayOutput) Index(i pulumi.IntInput) GetWorkspaceEnhancedSecurityComplianceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceEnhancedSecurityCompliance {
+		return vs[0].([]GetWorkspaceEnhancedSecurityCompliance)[vs[1].(int)]
+	}).(GetWorkspaceEnhancedSecurityComplianceOutput)
 }
 
 type GetWorkspaceManagedDiskIdentity struct {
@@ -1307,12 +1657,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessConnectorIdentityPtrInput)(nil)).Elem(), AccessConnectorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCustomParametersPtrInput)(nil)).Elem(), WorkspaceCustomParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEnhancedSecurityComplianceInput)(nil)).Elem(), WorkspaceEnhancedSecurityComplianceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEnhancedSecurityCompliancePtrInput)(nil)).Elem(), WorkspaceEnhancedSecurityComplianceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedDiskIdentityInput)(nil)).Elem(), WorkspaceManagedDiskIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedDiskIdentityArrayInput)(nil)).Elem(), WorkspaceManagedDiskIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessConnectorIdentityInput)(nil)).Elem(), GetAccessConnectorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessConnectorIdentityArrayInput)(nil)).Elem(), GetAccessConnectorIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceEnhancedSecurityComplianceInput)(nil)).Elem(), GetWorkspaceEnhancedSecurityComplianceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceEnhancedSecurityComplianceArrayInput)(nil)).Elem(), GetWorkspaceEnhancedSecurityComplianceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityArrayInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArgs{})
@@ -1323,12 +1677,16 @@ func init() {
 	pulumi.RegisterOutputType(AccessConnectorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceEnhancedSecurityComplianceOutput{})
+	pulumi.RegisterOutputType(WorkspaceEnhancedSecurityCompliancePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceManagedDiskIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceManagedDiskIdentityArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessConnectorIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccessConnectorIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceEnhancedSecurityComplianceOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceEnhancedSecurityComplianceArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionOutput{})

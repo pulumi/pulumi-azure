@@ -7,7 +7,6 @@ import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfig;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,18 +46,19 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
         return this.resourceGroupName;
     }
 
+    /**
+     * A `site_config` object as defined below.
+     * 
+     */
     @Import(name="siteConfig")
     private @Nullable GetStandardSiteConfig siteConfig;
 
+    /**
+     * @return A `site_config` object as defined below.
+     * 
+     */
     public Optional<GetStandardSiteConfig> siteConfig() {
         return Optional.ofNullable(this.siteConfig);
-    }
-
-    @Import(name="tags")
-    private @Nullable Map<String,String> tags;
-
-    public Optional<Map<String,String>> tags() {
-        return Optional.ofNullable(this.tags);
     }
 
     private GetStandardPlainArgs() {}
@@ -67,7 +67,6 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.siteConfig = $.siteConfig;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -110,13 +109,14 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
             return this;
         }
 
+        /**
+         * @param siteConfig A `site_config` object as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder siteConfig(@Nullable GetStandardSiteConfig siteConfig) {
             $.siteConfig = siteConfig;
-            return this;
-        }
-
-        public Builder tags(@Nullable Map<String,String> tags) {
-            $.tags = tags;
             return this;
         }
 

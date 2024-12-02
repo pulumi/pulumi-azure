@@ -52,6 +52,10 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+     */
+    readonly customerManagedKeyEncryptionComplianceStatus: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
