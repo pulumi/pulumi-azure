@@ -102,17 +102,18 @@ type LookupNetworkManagerNetworkGroupResult struct {
 }
 
 func LookupNetworkManagerNetworkGroupOutput(ctx *pulumi.Context, args LookupNetworkManagerNetworkGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerNetworkGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkManagerNetworkGroupResultOutput, error) {
 			args := v.(LookupNetworkManagerNetworkGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkManagerNetworkGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkManagerNetworkGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkManagerNetworkGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkManagerNetworkGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkManagerNetworkGroupResultOutput), nil
 			}

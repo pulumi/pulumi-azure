@@ -74,17 +74,18 @@ type LookupDeviceResult struct {
 }
 
 func LookupDeviceOutput(ctx *pulumi.Context, args LookupDeviceOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDeviceResultOutput, error) {
 			args := v.(LookupDeviceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDeviceResult
-			secret, err := ctx.InvokePackageRaw("azure:databoxedge/getDevice:getDevice", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:databoxedge/getDevice:getDevice", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDeviceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDeviceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDeviceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDeviceResultOutput), nil
 			}

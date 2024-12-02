@@ -67,17 +67,18 @@ type GetGiVersionsResult struct {
 }
 
 func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts ...pulumi.InvokeOption) GetGiVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGiVersionsResultOutput, error) {
 			args := v.(GetGiVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetGiVersionsResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getGiVersions:getGiVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getGiVersions:getGiVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetGiVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetGiVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetGiVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetGiVersionsResultOutput), nil
 			}

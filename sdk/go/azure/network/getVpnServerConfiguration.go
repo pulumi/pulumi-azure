@@ -86,17 +86,18 @@ type LookupVpnServerConfigurationResult struct {
 }
 
 func LookupVpnServerConfigurationOutput(ctx *pulumi.Context, args LookupVpnServerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupVpnServerConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpnServerConfigurationResultOutput, error) {
 			args := v.(LookupVpnServerConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpnServerConfigurationResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpnServerConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpnServerConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpnServerConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpnServerConfigurationResultOutput), nil
 			}

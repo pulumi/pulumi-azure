@@ -69,17 +69,18 @@ type GetKubernetesNodePoolSnapshotResult struct {
 }
 
 func GetKubernetesNodePoolSnapshotOutput(ctx *pulumi.Context, args GetKubernetesNodePoolSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesNodePoolSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetKubernetesNodePoolSnapshotResultOutput, error) {
 			args := v.(GetKubernetesNodePoolSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetKubernetesNodePoolSnapshotResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return GetKubernetesNodePoolSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetKubernetesNodePoolSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetKubernetesNodePoolSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetKubernetesNodePoolSnapshotResultOutput), nil
 			}

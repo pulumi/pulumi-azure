@@ -133,17 +133,18 @@ type LookupExadataInfrastructureResult struct {
 }
 
 func LookupExadataInfrastructureOutput(ctx *pulumi.Context, args LookupExadataInfrastructureOutputArgs, opts ...pulumi.InvokeOption) LookupExadataInfrastructureResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupExadataInfrastructureResultOutput, error) {
 			args := v.(LookupExadataInfrastructureArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupExadataInfrastructureResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args, &rv, "", opts...)
 			if err != nil {
 				return LookupExadataInfrastructureResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupExadataInfrastructureResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupExadataInfrastructureResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupExadataInfrastructureResultOutput), nil
 			}

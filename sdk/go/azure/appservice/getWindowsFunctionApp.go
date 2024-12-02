@@ -142,17 +142,18 @@ type LookupWindowsFunctionAppResult struct {
 }
 
 func LookupWindowsFunctionAppOutput(ctx *pulumi.Context, args LookupWindowsFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFunctionAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWindowsFunctionAppResultOutput, error) {
 			args := v.(LookupWindowsFunctionAppArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupWindowsFunctionAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, &rv, "", opts...)
 			if err != nil {
 				return LookupWindowsFunctionAppResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupWindowsFunctionAppResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupWindowsFunctionAppResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupWindowsFunctionAppResultOutput), nil
 			}

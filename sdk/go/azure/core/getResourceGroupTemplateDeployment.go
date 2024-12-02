@@ -41,17 +41,18 @@ type LookupResourceGroupTemplateDeploymentResult struct {
 }
 
 func LookupResourceGroupTemplateDeploymentOutput(ctx *pulumi.Context, args LookupResourceGroupTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceGroupTemplateDeploymentResultOutput, error) {
 			args := v.(LookupResourceGroupTemplateDeploymentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceGroupTemplateDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceGroupTemplateDeploymentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceGroupTemplateDeploymentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceGroupTemplateDeploymentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceGroupTemplateDeploymentResultOutput), nil
 			}

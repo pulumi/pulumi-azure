@@ -80,17 +80,18 @@ type LookupExpressRouteCircuitResult struct {
 }
 
 func LookupExpressRouteCircuitOutput(ctx *pulumi.Context, args LookupExpressRouteCircuitOutputArgs, opts ...pulumi.InvokeOption) LookupExpressRouteCircuitResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupExpressRouteCircuitResultOutput, error) {
 			args := v.(LookupExpressRouteCircuitArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupExpressRouteCircuitResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args, &rv, "", opts...)
 			if err != nil {
 				return LookupExpressRouteCircuitResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupExpressRouteCircuitResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupExpressRouteCircuitResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupExpressRouteCircuitResultOutput), nil
 			}

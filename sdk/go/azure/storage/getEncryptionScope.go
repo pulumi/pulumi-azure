@@ -78,17 +78,18 @@ type LookupEncryptionScopeResult struct {
 }
 
 func LookupEncryptionScopeOutput(ctx *pulumi.Context, args LookupEncryptionScopeOutputArgs, opts ...pulumi.InvokeOption) LookupEncryptionScopeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEncryptionScopeResultOutput, error) {
 			args := v.(LookupEncryptionScopeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEncryptionScopeResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getEncryptionScope:getEncryptionScope", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getEncryptionScope:getEncryptionScope", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEncryptionScopeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEncryptionScopeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEncryptionScopeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEncryptionScopeResultOutput), nil
 			}

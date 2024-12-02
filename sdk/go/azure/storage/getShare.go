@@ -92,17 +92,18 @@ type LookupShareResult struct {
 }
 
 func LookupShareOutput(ctx *pulumi.Context, args LookupShareOutputArgs, opts ...pulumi.InvokeOption) LookupShareResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupShareResultOutput, error) {
 			args := v.(LookupShareArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupShareResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getShare:getShare", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getShare:getShare", args, &rv, "", opts...)
 			if err != nil {
 				return LookupShareResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupShareResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupShareResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupShareResultOutput), nil
 			}

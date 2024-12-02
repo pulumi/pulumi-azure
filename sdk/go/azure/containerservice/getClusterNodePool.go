@@ -117,17 +117,18 @@ type GetClusterNodePoolResult struct {
 }
 
 func GetClusterNodePoolOutput(ctx *pulumi.Context, args GetClusterNodePoolOutputArgs, opts ...pulumi.InvokeOption) GetClusterNodePoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClusterNodePoolResultOutput, error) {
 			args := v.(GetClusterNodePoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetClusterNodePoolResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getClusterNodePool:getClusterNodePool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getClusterNodePool:getClusterNodePool", args, &rv, "", opts...)
 			if err != nil {
 				return GetClusterNodePoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetClusterNodePoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetClusterNodePoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetClusterNodePoolResultOutput), nil
 			}

@@ -68,17 +68,18 @@ type GetManagedApiResult struct {
 }
 
 func GetManagedApiOutput(ctx *pulumi.Context, args GetManagedApiOutputArgs, opts ...pulumi.InvokeOption) GetManagedApiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetManagedApiResultOutput, error) {
 			args := v.(GetManagedApiArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetManagedApiResult
-			secret, err := ctx.InvokePackageRaw("azure:connections/getManagedApi:getManagedApi", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:connections/getManagedApi:getManagedApi", args, &rv, "", opts...)
 			if err != nil {
 				return GetManagedApiResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetManagedApiResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetManagedApiResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetManagedApiResultOutput), nil
 			}

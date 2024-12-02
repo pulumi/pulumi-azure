@@ -74,17 +74,18 @@ type LookupRegistryScopeMapResult struct {
 }
 
 func LookupRegistryScopeMapOutput(ctx *pulumi.Context, args LookupRegistryScopeMapOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryScopeMapResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryScopeMapResultOutput, error) {
 			args := v.(LookupRegistryScopeMapArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryScopeMapResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryScopeMapResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryScopeMapResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryScopeMapResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryScopeMapResultOutput), nil
 			}

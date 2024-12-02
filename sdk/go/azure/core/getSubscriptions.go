@@ -67,17 +67,18 @@ type GetSubscriptionsResult struct {
 }
 
 func GetSubscriptionsOutput(ctx *pulumi.Context, args GetSubscriptionsOutputArgs, opts ...pulumi.InvokeOption) GetSubscriptionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSubscriptionsResultOutput, error) {
 			args := v.(GetSubscriptionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSubscriptionsResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getSubscriptions:getSubscriptions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:core/getSubscriptions:getSubscriptions", args, &rv, "", opts...)
 			if err != nil {
 				return GetSubscriptionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSubscriptionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSubscriptionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSubscriptionsResultOutput), nil
 			}

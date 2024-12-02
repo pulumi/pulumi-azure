@@ -83,17 +83,18 @@ type LookupPublicIpPrefixResult struct {
 }
 
 func LookupPublicIpPrefixOutput(ctx *pulumi.Context, args LookupPublicIpPrefixOutputArgs, opts ...pulumi.InvokeOption) LookupPublicIpPrefixResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPublicIpPrefixResultOutput, error) {
 			args := v.(LookupPublicIpPrefixArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPublicIpPrefixResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPublicIpPrefixResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPublicIpPrefixResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPublicIpPrefixResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPublicIpPrefixResultOutput), nil
 			}

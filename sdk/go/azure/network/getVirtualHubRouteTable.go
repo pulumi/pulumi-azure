@@ -78,17 +78,18 @@ type LookupVirtualHubRouteTableResult struct {
 }
 
 func LookupVirtualHubRouteTableOutput(ctx *pulumi.Context, args LookupVirtualHubRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubRouteTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualHubRouteTableResultOutput, error) {
 			args := v.(LookupVirtualHubRouteTableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualHubRouteTableResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualHubRouteTableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualHubRouteTableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualHubRouteTableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualHubRouteTableResultOutput), nil
 			}

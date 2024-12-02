@@ -71,17 +71,18 @@ type LookupApplicationSecurityGroupResult struct {
 }
 
 func LookupApplicationSecurityGroupOutput(ctx *pulumi.Context, args LookupApplicationSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationSecurityGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationSecurityGroupResultOutput, error) {
 			args := v.(LookupApplicationSecurityGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupApplicationSecurityGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupApplicationSecurityGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupApplicationSecurityGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupApplicationSecurityGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupApplicationSecurityGroupResultOutput), nil
 			}

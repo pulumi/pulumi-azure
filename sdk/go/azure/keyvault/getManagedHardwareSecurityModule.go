@@ -83,17 +83,18 @@ type LookupManagedHardwareSecurityModuleResult struct {
 }
 
 func LookupManagedHardwareSecurityModuleOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleResultOutput, error) {
 			args := v.(LookupManagedHardwareSecurityModuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedHardwareSecurityModuleResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedHardwareSecurityModuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedHardwareSecurityModuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedHardwareSecurityModuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedHardwareSecurityModuleResultOutput), nil
 			}

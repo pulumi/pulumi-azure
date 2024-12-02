@@ -70,17 +70,18 @@ type GetFirewallPolicyResult struct {
 }
 
 func GetFirewallPolicyOutput(ctx *pulumi.Context, args GetFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) GetFirewallPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFirewallPolicyResultOutput, error) {
 			args := v.(GetFirewallPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetFirewallPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:waf/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:waf/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return GetFirewallPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetFirewallPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetFirewallPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetFirewallPolicyResultOutput), nil
 			}

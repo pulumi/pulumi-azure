@@ -100,17 +100,18 @@ type LookupEnvironmentV3Result struct {
 }
 
 func LookupEnvironmentV3Output(ctx *pulumi.Context, args LookupEnvironmentV3OutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentV3ResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentV3ResultOutput, error) {
 			args := v.(LookupEnvironmentV3Args)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEnvironmentV3Result
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEnvironmentV3ResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEnvironmentV3ResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEnvironmentV3ResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEnvironmentV3ResultOutput), nil
 			}

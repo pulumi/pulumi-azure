@@ -75,17 +75,18 @@ type LookupEventHubResult struct {
 }
 
 func LookupEventHubOutput(ctx *pulumi.Context, args LookupEventHubOutputArgs, opts ...pulumi.InvokeOption) LookupEventHubResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventHubResultOutput, error) {
 			args := v.(LookupEventHubArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEventHubResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getEventHub:getEventHub", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventhub/getEventHub:getEventHub", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEventHubResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEventHubResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEventHubResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEventHubResultOutput), nil
 			}

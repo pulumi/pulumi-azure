@@ -98,17 +98,18 @@ type LookupConfigurationStoreResult struct {
 }
 
 func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfigurationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationStoreResultOutput, error) {
 			args := v.(LookupConfigurationStoreArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConfigurationStoreResult
-			secret, err := ctx.InvokePackageRaw("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConfigurationStoreResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConfigurationStoreResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConfigurationStoreResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConfigurationStoreResultOutput), nil
 			}

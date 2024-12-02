@@ -66,17 +66,18 @@ type LookupAccountEncryptionResult struct {
 }
 
 func LookupAccountEncryptionOutput(ctx *pulumi.Context, args LookupAccountEncryptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccountEncryptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccountEncryptionResultOutput, error) {
 			args := v.(LookupAccountEncryptionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAccountEncryptionResult
-			secret, err := ctx.InvokePackageRaw("azure:netapp/getAccountEncryption:getAccountEncryption", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:netapp/getAccountEncryption:getAccountEncryption", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAccountEncryptionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAccountEncryptionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAccountEncryptionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAccountEncryptionResultOutput), nil
 			}

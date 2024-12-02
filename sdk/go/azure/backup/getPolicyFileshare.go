@@ -70,17 +70,18 @@ type GetPolicyFileshareResult struct {
 }
 
 func GetPolicyFileshareOutput(ctx *pulumi.Context, args GetPolicyFileshareOutputArgs, opts ...pulumi.InvokeOption) GetPolicyFileshareResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPolicyFileshareResultOutput, error) {
 			args := v.(GetPolicyFileshareArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPolicyFileshareResult
-			secret, err := ctx.InvokePackageRaw("azure:backup/getPolicyFileshare:getPolicyFileshare", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:backup/getPolicyFileshare:getPolicyFileshare", args, &rv, "", opts...)
 			if err != nil {
 				return GetPolicyFileshareResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPolicyFileshareResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPolicyFileshareResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPolicyFileshareResultOutput), nil
 			}

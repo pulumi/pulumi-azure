@@ -68,17 +68,18 @@ type GetVirtualMachineManagerInventoryItemsResult struct {
 }
 
 func GetVirtualMachineManagerInventoryItemsOutput(ctx *pulumi.Context, args GetVirtualMachineManagerInventoryItemsOutputArgs, opts ...pulumi.InvokeOption) GetVirtualMachineManagerInventoryItemsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVirtualMachineManagerInventoryItemsResultOutput, error) {
 			args := v.(GetVirtualMachineManagerInventoryItemsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVirtualMachineManagerInventoryItemsResult
-			secret, err := ctx.InvokePackageRaw("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args, &rv, "", opts...)
 			if err != nil {
 				return GetVirtualMachineManagerInventoryItemsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVirtualMachineManagerInventoryItemsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVirtualMachineManagerInventoryItemsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVirtualMachineManagerInventoryItemsResultOutput), nil
 			}

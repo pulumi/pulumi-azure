@@ -121,7 +121,7 @@ def get_certificates(include_pending: Optional[bool] = None,
         names=pulumi.get(__ret__, 'names'))
 def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[bool]]] = None,
                             key_vault_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificatesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificatesResult]:
     """
     Use this data source to retrieve a list of certificate names from an existing Key Vault.
 
@@ -134,7 +134,7 @@ def get_certificates_output(include_pending: Optional[pulumi.Input[Optional[bool
     __args__ = dict()
     __args__['includePending'] = include_pending
     __args__['keyVaultId'] = key_vault_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificates:getCertificates', __args__, opts=opts, typ=GetCertificatesResult)
     return __ret__.apply(lambda __response__: GetCertificatesResult(
         certificates=pulumi.get(__response__, 'certificates'),

@@ -84,17 +84,18 @@ type LookupVolumeGroupResult struct {
 }
 
 func LookupVolumeGroupOutput(ctx *pulumi.Context, args LookupVolumeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVolumeGroupResultOutput, error) {
 			args := v.(LookupVolumeGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVolumeGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:elasticsan/getVolumeGroup:getVolumeGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:elasticsan/getVolumeGroup:getVolumeGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVolumeGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVolumeGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVolumeGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVolumeGroupResultOutput), nil
 			}

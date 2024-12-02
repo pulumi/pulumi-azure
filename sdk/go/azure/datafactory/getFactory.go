@@ -77,17 +77,18 @@ type LookupFactoryResult struct {
 }
 
 func LookupFactoryOutput(ctx *pulumi.Context, args LookupFactoryOutputArgs, opts ...pulumi.InvokeOption) LookupFactoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFactoryResultOutput, error) {
 			args := v.(LookupFactoryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFactoryResult
-			secret, err := ctx.InvokePackageRaw("azure:datafactory/getFactory:getFactory", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:datafactory/getFactory:getFactory", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFactoryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFactoryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFactoryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFactoryResultOutput), nil
 			}

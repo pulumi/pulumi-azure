@@ -94,17 +94,18 @@ type LookupBastionHostResult struct {
 }
 
 func LookupBastionHostOutput(ctx *pulumi.Context, args LookupBastionHostOutputArgs, opts ...pulumi.InvokeOption) LookupBastionHostResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBastionHostResultOutput, error) {
 			args := v.(LookupBastionHostArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBastionHostResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getBastionHost:getBastionHost", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:compute/getBastionHost:getBastionHost", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBastionHostResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBastionHostResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBastionHostResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBastionHostResultOutput), nil
 			}

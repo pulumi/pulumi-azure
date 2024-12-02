@@ -76,17 +76,18 @@ type GetConsumeGroupResult struct {
 }
 
 func GetConsumeGroupOutput(ctx *pulumi.Context, args GetConsumeGroupOutputArgs, opts ...pulumi.InvokeOption) GetConsumeGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConsumeGroupResultOutput, error) {
 			args := v.(GetConsumeGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetConsumeGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getConsumeGroup:getConsumeGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:eventhub/getConsumeGroup:getConsumeGroup", args, &rv, "", opts...)
 			if err != nil {
 				return GetConsumeGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetConsumeGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetConsumeGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetConsumeGroupResultOutput), nil
 			}

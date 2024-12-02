@@ -74,17 +74,18 @@ type LookupSqlDatabaseResult struct {
 }
 
 func LookupSqlDatabaseOutput(ctx *pulumi.Context, args LookupSqlDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupSqlDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSqlDatabaseResultOutput, error) {
 			args := v.(LookupSqlDatabaseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSqlDatabaseResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSqlDatabaseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSqlDatabaseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSqlDatabaseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSqlDatabaseResultOutput), nil
 			}

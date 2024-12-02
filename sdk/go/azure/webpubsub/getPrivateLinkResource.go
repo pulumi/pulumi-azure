@@ -79,17 +79,18 @@ type GetPrivateLinkResourceResult struct {
 }
 
 func GetPrivateLinkResourceOutput(ctx *pulumi.Context, args GetPrivateLinkResourceOutputArgs, opts ...pulumi.InvokeOption) GetPrivateLinkResourceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPrivateLinkResourceResultOutput, error) {
 			args := v.(GetPrivateLinkResourceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPrivateLinkResourceResult
-			secret, err := ctx.InvokePackageRaw("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, &rv, "", opts...)
 			if err != nil {
 				return GetPrivateLinkResourceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPrivateLinkResourceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPrivateLinkResourceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPrivateLinkResourceResultOutput), nil
 			}

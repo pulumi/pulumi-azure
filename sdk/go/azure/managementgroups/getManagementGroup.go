@@ -82,17 +82,18 @@ type LookupManagementGroupResult struct {
 }
 
 func LookupManagementGroupOutput(ctx *pulumi.Context, args LookupManagementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupManagementGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagementGroupResultOutput, error) {
 			args := v.(LookupManagementGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagementGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:managementgroups/getManagementGroup:getManagementGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:managementgroups/getManagementGroup:getManagementGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagementGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagementGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagementGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagementGroupResultOutput), nil
 			}

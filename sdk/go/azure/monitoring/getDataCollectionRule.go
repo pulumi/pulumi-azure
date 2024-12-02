@@ -89,17 +89,18 @@ type LookupDataCollectionRuleResult struct {
 }
 
 func LookupDataCollectionRuleOutput(ctx *pulumi.Context, args LookupDataCollectionRuleOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataCollectionRuleResultOutput, error) {
 			args := v.(LookupDataCollectionRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDataCollectionRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDataCollectionRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDataCollectionRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDataCollectionRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDataCollectionRuleResultOutput), nil
 			}

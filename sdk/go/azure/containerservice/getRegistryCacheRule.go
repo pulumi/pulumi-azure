@@ -45,17 +45,18 @@ type LookupRegistryCacheRuleResult struct {
 }
 
 func LookupRegistryCacheRuleOutput(ctx *pulumi.Context, args LookupRegistryCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryCacheRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryCacheRuleResultOutput, error) {
 			args := v.(LookupRegistryCacheRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryCacheRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryCacheRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryCacheRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryCacheRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryCacheRuleResultOutput), nil
 			}

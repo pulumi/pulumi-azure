@@ -82,17 +82,18 @@ type LookupAnalyticsWorkspaceResult struct {
 }
 
 func LookupAnalyticsWorkspaceOutput(ctx *pulumi.Context, args LookupAnalyticsWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupAnalyticsWorkspaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAnalyticsWorkspaceResultOutput, error) {
 			args := v.(LookupAnalyticsWorkspaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAnalyticsWorkspaceResult
-			secret, err := ctx.InvokePackageRaw("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAnalyticsWorkspaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAnalyticsWorkspaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAnalyticsWorkspaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAnalyticsWorkspaceResultOutput), nil
 			}

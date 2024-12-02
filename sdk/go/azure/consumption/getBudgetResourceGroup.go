@@ -78,17 +78,18 @@ type LookupBudgetResourceGroupResult struct {
 }
 
 func LookupBudgetResourceGroupOutput(ctx *pulumi.Context, args LookupBudgetResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetResourceGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBudgetResourceGroupResultOutput, error) {
 			args := v.(LookupBudgetResourceGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBudgetResourceGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBudgetResourceGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBudgetResourceGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBudgetResourceGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBudgetResourceGroupResultOutput), nil
 			}

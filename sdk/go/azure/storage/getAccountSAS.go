@@ -143,17 +143,18 @@ type GetAccountSASResult struct {
 }
 
 func GetAccountSASOutput(ctx *pulumi.Context, args GetAccountSASOutputArgs, opts ...pulumi.InvokeOption) GetAccountSASResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccountSASResultOutput, error) {
 			args := v.(GetAccountSASArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAccountSASResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getAccountSAS:getAccountSAS", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:storage/getAccountSAS:getAccountSAS", args, &rv, "", opts...)
 			if err != nil {
 				return GetAccountSASResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAccountSASResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAccountSASResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAccountSASResultOutput), nil
 			}

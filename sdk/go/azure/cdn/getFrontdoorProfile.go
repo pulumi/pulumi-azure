@@ -74,17 +74,18 @@ type LookupFrontdoorProfileResult struct {
 }
 
 func LookupFrontdoorProfileOutput(ctx *pulumi.Context, args LookupFrontdoorProfileOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorProfileResultOutput, error) {
 			args := v.(LookupFrontdoorProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrontdoorProfileResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrontdoorProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrontdoorProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrontdoorProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrontdoorProfileResultOutput), nil
 			}

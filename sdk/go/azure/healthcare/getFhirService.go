@@ -59,17 +59,18 @@ type LookupFhirServiceResult struct {
 }
 
 func LookupFhirServiceOutput(ctx *pulumi.Context, args LookupFhirServiceOutputArgs, opts ...pulumi.InvokeOption) LookupFhirServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFhirServiceResultOutput, error) {
 			args := v.(LookupFhirServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFhirServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:healthcare/getFhirService:getFhirService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("azure:healthcare/getFhirService:getFhirService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFhirServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFhirServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFhirServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFhirServiceResultOutput), nil
 			}
