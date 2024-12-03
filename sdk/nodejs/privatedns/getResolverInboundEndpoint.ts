@@ -81,7 +81,7 @@ export interface GetResolverInboundEndpointResult {
  * });
  * ```
  */
-export function getResolverInboundEndpointOutput(args: GetResolverInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverInboundEndpointResult> {
+export function getResolverInboundEndpointOutput(args: GetResolverInboundEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverInboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getResolverInboundEndpoint:getResolverInboundEndpoint", {
         "name": args.name,

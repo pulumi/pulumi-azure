@@ -91,7 +91,7 @@ export interface GetSrvRecordResult {
  * export const privateDnsSrvRecordId = exampleAzurermPrivateDnsSrvRecord.id;
  * ```
  */
-export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSrvRecordResult> {
+export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSrvRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getSrvRecord:getSrvRecord", {
         "name": args.name,
