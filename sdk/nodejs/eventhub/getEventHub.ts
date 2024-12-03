@@ -85,7 +85,7 @@ export interface GetEventHubResult {
  * export const eventhubId = example.then(example => example.id);
  * ```
  */
-export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
+export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:eventhub/getEventHub:getEventHub", {
         "name": args.name,

@@ -440,7 +440,7 @@ export interface GetAccountResult {
  * export const storageAccountTier = example.then(example => example.accountTier);
  * ```
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getAccount:getAccount", {
         "minTlsVersion": args.minTlsVersion,

@@ -149,7 +149,7 @@ export interface GetSharedImageResult {
  * });
  * ```
  */
-export function getSharedImageOutput(args: GetSharedImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageResult> {
+export function getSharedImageOutput(args: GetSharedImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getSharedImage:getSharedImage", {
         "galleryName": args.galleryName,

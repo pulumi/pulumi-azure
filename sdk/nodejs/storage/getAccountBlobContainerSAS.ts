@@ -207,7 +207,7 @@ export interface GetAccountBlobContainerSASResult {
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
  */
-export function getAccountBlobContainerSASOutput(args: GetAccountBlobContainerSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountBlobContainerSASResult> {
+export function getAccountBlobContainerSASOutput(args: GetAccountBlobContainerSASOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountBlobContainerSASResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", {
         "cacheControl": args.cacheControl,

@@ -89,7 +89,7 @@ export interface GetSubscriptionResult {
  * export const currentSubscriptionDisplayName = current.then(current => current.displayName);
  * ```
  */
-export function getSubscriptionOutput(args?: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
+export function getSubscriptionOutput(args?: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getSubscription:getSubscription", {
