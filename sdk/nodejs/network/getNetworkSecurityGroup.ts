@@ -86,7 +86,7 @@ export interface GetNetworkSecurityGroupResult {
  * export const location = example.then(example => example.location);
  * ```
  */
-export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
+export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", {
         "name": args.name,

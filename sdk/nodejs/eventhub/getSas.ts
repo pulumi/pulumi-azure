@@ -135,7 +135,7 @@ export interface GetSasResult {
  * }));
  * ```
  */
-export function getSasOutput(args: GetSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSasResult> {
+export function getSasOutput(args: GetSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:eventhub/getSas:getSas", {
         "connectionString": args.connectionString,

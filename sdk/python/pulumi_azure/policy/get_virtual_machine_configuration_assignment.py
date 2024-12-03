@@ -193,7 +193,7 @@ def get_virtual_machine_configuration_assignment(name: Optional[str] = None,
 def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         virtual_machine_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineConfigurationAssignmentResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineConfigurationAssignmentResult]:
     """
     Use this data source to access information about an existing Guest Configuration Policy.
 
@@ -218,7 +218,7 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment', __args__, opts=opts, typ=GetVirtualMachineConfigurationAssignmentResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineConfigurationAssignmentResult(
         assignment_hash=pulumi.get(__response__, 'assignment_hash'),
