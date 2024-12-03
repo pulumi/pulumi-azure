@@ -94,7 +94,7 @@ export interface GetApiVersionSetResult {
  * export const apiManagementApiVersionSetId = example.then(example => example.id);
  * ```
  */
-export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
+export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiVersionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
         "apiManagementName": args.apiManagementName,

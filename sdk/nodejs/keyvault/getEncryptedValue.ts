@@ -61,7 +61,7 @@ export interface GetEncryptedValueResult {
 /**
  * Encrypts or Decrypts a value using a Key Vault Key.
  */
-export function getEncryptedValueOutput(args: GetEncryptedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptedValueResult> {
+export function getEncryptedValueOutput(args: GetEncryptedValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptedValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getEncryptedValue:getEncryptedValue", {
         "algorithm": args.algorithm,

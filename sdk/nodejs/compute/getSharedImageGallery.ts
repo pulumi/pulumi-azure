@@ -84,7 +84,7 @@ export interface GetSharedImageGalleryResult {
  * });
  * ```
  */
-export function getSharedImageGalleryOutput(args: GetSharedImageGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageGalleryResult> {
+export function getSharedImageGalleryOutput(args: GetSharedImageGalleryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedImageGalleryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getSharedImageGallery:getSharedImageGallery", {
         "name": args.name,
