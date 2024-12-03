@@ -89,7 +89,7 @@ export interface GetDateTimeVariableResult {
  * export const variableId = example.then(example => example.id);
  * ```
  */
-export function getDateTimeVariableOutput(args: GetDateTimeVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDateTimeVariableResult> {
+export function getDateTimeVariableOutput(args: GetDateTimeVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDateTimeVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:automation/getDateTimeVariable:getDateTimeVariable", {
         "automationAccountName": args.automationAccountName,
