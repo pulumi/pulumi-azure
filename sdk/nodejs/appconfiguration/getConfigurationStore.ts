@@ -132,7 +132,7 @@ export interface GetConfigurationStoreResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
+export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appconfiguration/getConfigurationStore:getConfigurationStore", {
         "name": args.name,
