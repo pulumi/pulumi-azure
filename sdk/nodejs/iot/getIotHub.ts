@@ -85,7 +85,7 @@ export interface GetIotHubResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getIotHubOutput(args: GetIotHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResult> {
+export function getIotHubOutput(args: GetIotHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:iot/getIotHub:getIotHub", {
         "name": args.name,

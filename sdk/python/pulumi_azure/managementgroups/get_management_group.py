@@ -182,7 +182,7 @@ def get_management_group(display_name: Optional[str] = None,
         tenant_scoped_id=pulumi.get(__ret__, 'tenant_scoped_id'))
 def get_management_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupResult]:
     """
     Use this data source to access information about an existing Management Group.
 
@@ -206,7 +206,7 @@ def get_management_group_output(display_name: Optional[pulumi.Input[Optional[str
     __args__ = dict()
     __args__['displayName'] = display_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts, typ=GetManagementGroupResult)
     return __ret__.apply(lambda __response__: GetManagementGroupResult(
         all_management_group_ids=pulumi.get(__response__, 'all_management_group_ids'),

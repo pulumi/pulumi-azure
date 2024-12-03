@@ -87,7 +87,7 @@ export interface GetNetworkDataNetworkResult {
  * }));
  * ```
  */
-export function getNetworkDataNetworkOutput(args: GetNetworkDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDataNetworkResult> {
+export function getNetworkDataNetworkOutput(args: GetNetworkDataNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", {
         "mobileNetworkId": args.mobileNetworkId,

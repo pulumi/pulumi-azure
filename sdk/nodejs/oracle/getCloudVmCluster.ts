@@ -268,7 +268,7 @@ export interface GetCloudVmClusterResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudVmClusterResult> {
+export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getCloudVmCluster:getCloudVmCluster", {
         "name": args.name,

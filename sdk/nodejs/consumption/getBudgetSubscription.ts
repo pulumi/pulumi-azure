@@ -94,7 +94,7 @@ export interface GetBudgetSubscriptionResult {
  * export const id = exampleAzurermConsumptionBudget.id;
  * ```
  */
-export function getBudgetSubscriptionOutput(args: GetBudgetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetSubscriptionResult> {
+export function getBudgetSubscriptionOutput(args: GetBudgetSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:consumption/getBudgetSubscription:getBudgetSubscription", {
         "name": args.name,

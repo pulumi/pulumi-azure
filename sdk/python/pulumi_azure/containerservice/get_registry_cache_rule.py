@@ -128,7 +128,7 @@ def get_registry_cache_rule(container_registry_id: Optional[str] = None,
         target_repo=pulumi.get(__ret__, 'target_repo'))
 def get_registry_cache_rule_output(container_registry_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryCacheRuleResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryCacheRuleResult]:
     """
     Use this data source to access information about an existing Container Registry Cache Rule.
 
@@ -139,7 +139,7 @@ def get_registry_cache_rule_output(container_registry_id: Optional[pulumi.Input[
     __args__ = dict()
     __args__['containerRegistryId'] = container_registry_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getRegistryCacheRule:getRegistryCacheRule', __args__, opts=opts, typ=GetRegistryCacheRuleResult)
     return __ret__.apply(lambda __response__: GetRegistryCacheRuleResult(
         container_registry_id=pulumi.get(__response__, 'container_registry_id'),
