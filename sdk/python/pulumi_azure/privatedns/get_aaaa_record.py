@@ -166,7 +166,7 @@ def get_aaaa_record(name: Optional[str] = None,
 def get_aaaa_record_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            zone_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAAAARecordResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAAAARecordResult]:
     """
     ## Example Usage
 
@@ -190,7 +190,7 @@ def get_aaaa_record_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getAAAARecord:getAAAARecord', __args__, opts=opts, typ=GetAAAARecordResult)
     return __ret__.apply(lambda __response__: GetAAAARecordResult(
         fqdn=pulumi.get(__response__, 'fqdn'),

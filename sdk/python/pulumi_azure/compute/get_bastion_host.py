@@ -273,7 +273,7 @@ def get_bastion_host(name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Use this data source to access information about an existing Bastion Host.
 
@@ -295,7 +295,7 @@ def get_bastion_host_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getBastionHost:getBastionHost', __args__, opts=opts, typ=GetBastionHostResult)
     return __ret__.apply(lambda __response__: GetBastionHostResult(
         copy_paste_enabled=pulumi.get(__response__, 'copy_paste_enabled'),

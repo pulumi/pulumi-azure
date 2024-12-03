@@ -363,7 +363,7 @@ def get_cache(name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_cache_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheResult]:
     """
     Use this data source to access information about an existing Redis Cache
 
@@ -386,7 +386,7 @@ def get_cache_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:redis/getCache:getCache', __args__, opts=opts, typ=GetCacheResult)
     return __ret__.apply(lambda __response__: GetCacheResult(
         access_keys_authentication_enabled=pulumi.get(__response__, 'access_keys_authentication_enabled'),
