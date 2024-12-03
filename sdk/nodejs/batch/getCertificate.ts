@@ -93,7 +93,7 @@ export interface GetCertificateResult {
  * export const thumbprint = example.then(example => example.thumbprint);
  * ```
  */
-export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:batch/getCertificate:getCertificate", {
         "accountName": args.accountName,

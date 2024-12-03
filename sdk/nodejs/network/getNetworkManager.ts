@@ -129,7 +129,7 @@ export interface GetNetworkManagerResult {
  * });
  * ```
  */
-export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
+export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getNetworkManager:getNetworkManager", {
         "name": args.name,
