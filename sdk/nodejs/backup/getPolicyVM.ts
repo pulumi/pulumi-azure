@@ -75,7 +75,7 @@ export interface GetPolicyVMResult {
  * });
  * ```
  */
-export function getPolicyVMOutput(args: GetPolicyVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyVMResult> {
+export function getPolicyVMOutput(args: GetPolicyVMOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyVMResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:backup/getPolicyVM:getPolicyVM", {
         "name": args.name,

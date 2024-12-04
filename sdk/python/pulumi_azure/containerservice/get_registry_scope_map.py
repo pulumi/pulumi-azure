@@ -138,7 +138,7 @@ def get_registry_scope_map(container_registry_name: Optional[str] = None,
 def get_registry_scope_map_output(container_registry_name: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryScopeMapResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryScopeMapResult]:
     """
     Use this data source to access information about an existing Container Registry scope map.
 
@@ -163,7 +163,7 @@ def get_registry_scope_map_output(container_registry_name: Optional[pulumi.Input
     __args__['containerRegistryName'] = container_registry_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:containerservice/getRegistryScopeMap:getRegistryScopeMap', __args__, opts=opts, typ=GetRegistryScopeMapResult)
     return __ret__.apply(lambda __response__: GetRegistryScopeMapResult(
         actions=pulumi.get(__response__, 'actions'),

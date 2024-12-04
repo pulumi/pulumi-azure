@@ -93,7 +93,7 @@ export interface GetDirectoryResult {
  * export const tenantId = example.then(example => example.tenantId);
  * ```
  */
-export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
+export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:aadb2c/getDirectory:getDirectory", {
         "domainName": args.domainName,

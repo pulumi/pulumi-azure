@@ -171,7 +171,7 @@ def get_network_service(mobile_network_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_service_output(mobile_network_id: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkServiceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkServiceResult]:
     """
     Get information about a Mobile Network Service.
 
@@ -195,7 +195,7 @@ def get_network_service_output(mobile_network_id: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['mobileNetworkId'] = mobile_network_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkService:getNetworkService', __args__, opts=opts, typ=GetNetworkServiceResult)
     return __ret__.apply(lambda __response__: GetNetworkServiceResult(
         id=pulumi.get(__response__, 'id'),

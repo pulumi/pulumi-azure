@@ -62,7 +62,7 @@ export interface GetSourceControlTokenResult {
  * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
  */
-export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlTokenResult> {
+export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getSourceControlToken:getSourceControlToken", {
         "type": args.type,

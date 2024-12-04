@@ -219,7 +219,7 @@ def get_runbook(automation_account_name: Optional[str] = None,
 def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRunbookResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRunbookResult]:
     """
     Use this data source to access information about an existing Automation Runbook.
 
@@ -244,7 +244,7 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     __args__['automationAccountName'] = automation_account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:automation/getRunbook:getRunbook', __args__, opts=opts, typ=GetRunbookResult)
     return __ret__.apply(lambda __response__: GetRunbookResult(
         automation_account_name=pulumi.get(__response__, 'automation_account_name'),
