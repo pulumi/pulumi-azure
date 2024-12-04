@@ -61,7 +61,7 @@ export interface GetVariableObjectResult {
 /**
  * Use this data source to access information about an existing Automation Object Variable.
  */
-export function getVariableObjectOutput(args: GetVariableObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableObjectResult> {
+export function getVariableObjectOutput(args: GetVariableObjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableObjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:automation/getVariableObject:getVariableObject", {
         "automationAccountName": args.automationAccountName,

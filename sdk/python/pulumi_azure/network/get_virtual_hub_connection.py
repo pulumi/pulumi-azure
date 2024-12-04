@@ -171,7 +171,7 @@ def get_virtual_hub_connection(name: Optional[str] = None,
 def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubConnectionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubConnectionResult]:
     """
     Uses this data source to access information about an existing Virtual Hub Connection.
 
@@ -196,7 +196,7 @@ def get_virtual_hub_connection_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualHubConnection:getVirtualHubConnection', __args__, opts=opts, typ=GetVirtualHubConnectionResult)
     return __ret__.apply(lambda __response__: GetVirtualHubConnectionResult(
         id=pulumi.get(__response__, 'id'),

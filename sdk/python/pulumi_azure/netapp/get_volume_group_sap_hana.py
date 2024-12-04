@@ -171,7 +171,7 @@ def get_volume_group_sap_hana(account_name: Optional[str] = None,
 def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] = None,
                                      name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupSapHanaResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupSapHanaResult]:
     """
     Use this data source to access information about an existing Application Volume Group for SAP HANA application.
 
@@ -196,7 +196,7 @@ def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[str]] =
     __args__['accountName'] = account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana', __args__, opts=opts, typ=GetVolumeGroupSapHanaResult)
     return __ret__.apply(lambda __response__: GetVolumeGroupSapHanaResult(
         account_name=pulumi.get(__response__, 'account_name'),

@@ -140,7 +140,7 @@ def get_replication_policy(name: Optional[str] = None,
 def get_replication_policy_output(name: Optional[pulumi.Input[str]] = None,
                                   recovery_vault_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationPolicyResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationPolicyResult]:
     """
     Use this data source to access information about an existing Azure Site Recovery replication policy.
 
@@ -164,7 +164,7 @@ def get_replication_policy_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['recoveryVaultName'] = recovery_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:siterecovery/getReplicationPolicy:getReplicationPolicy', __args__, opts=opts, typ=GetReplicationPolicyResult)
     return __ret__.apply(lambda __response__: GetReplicationPolicyResult(
         application_consistent_snapshot_frequency_in_minutes=pulumi.get(__response__, 'application_consistent_snapshot_frequency_in_minutes'),

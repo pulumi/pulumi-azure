@@ -95,7 +95,7 @@ export interface GetCertificateIssuerResult {
  * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
  * ```
  */
-export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateIssuerResult> {
+export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateIssuerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getCertificateIssuer:getCertificateIssuer", {
         "keyVaultId": args.keyVaultId,
