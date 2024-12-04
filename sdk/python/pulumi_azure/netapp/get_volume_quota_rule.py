@@ -152,7 +152,7 @@ def get_volume_quota_rule(name: Optional[str] = None,
         volume_id=pulumi.get(__ret__, 'volume_id'))
 def get_volume_quota_rule_output(name: Optional[pulumi.Input[str]] = None,
                                  volume_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
     """
     Use this data source to access information about an existing Volume Quota Rule.
 
@@ -174,7 +174,7 @@ def get_volume_quota_rule_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['volumeId'] = volume_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule', __args__, opts=opts, typ=GetVolumeQuotaRuleResult)
     return __ret__.apply(lambda __response__: GetVolumeQuotaRuleResult(
         id=pulumi.get(__response__, 'id'),

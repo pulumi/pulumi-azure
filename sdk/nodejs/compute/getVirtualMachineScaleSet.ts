@@ -90,7 +90,7 @@ export interface GetVirtualMachineScaleSetResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
+export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet", {
         "name": args.name,

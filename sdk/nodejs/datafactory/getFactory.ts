@@ -91,7 +91,7 @@ export interface GetFactoryResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
+export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFactoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:datafactory/getFactory:getFactory", {
         "name": args.name,

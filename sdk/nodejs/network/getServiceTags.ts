@@ -95,7 +95,7 @@ export interface GetServiceTagsResult {
  * export const ipv4Cidrs = example.then(example => example.ipv4Cidrs);
  * ```
  */
-export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTagsResult> {
+export function getServiceTagsOutput(args: GetServiceTagsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceTagsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getServiceTags:getServiceTags", {
         "location": args.location,
