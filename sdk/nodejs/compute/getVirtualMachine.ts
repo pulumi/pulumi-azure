@@ -96,7 +96,7 @@ export interface GetVirtualMachineResult {
  * export const virtualMachineId = example.then(example => example.id);
  * ```
  */
-export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
+export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getVirtualMachine:getVirtualMachine", {
         "name": args.name,

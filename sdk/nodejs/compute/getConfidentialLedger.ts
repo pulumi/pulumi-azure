@@ -93,7 +93,7 @@ export interface GetConfidentialLedgerResult {
  * export const ledgerEndpoint = current.then(current => current.ledgerEndpoint);
  * ```
  */
-export function getConfidentialLedgerOutput(args: GetConfidentialLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfidentialLedgerResult> {
+export function getConfidentialLedgerOutput(args: GetConfidentialLedgerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfidentialLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getConfidentialLedger:getConfidentialLedger", {
         "name": args.name,

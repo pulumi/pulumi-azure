@@ -1279,7 +1279,7 @@ def get_account(min_tls_version: Optional[str] = None,
 def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Storage Account.
 
@@ -1303,7 +1303,7 @@ def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[str]]] = 
     __args__['minTlsVersion'] = min_tls_version
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         access_tier=pulumi.get(__response__, 'access_tier'),
