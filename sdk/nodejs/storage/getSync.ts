@@ -81,7 +81,7 @@ export interface GetSyncResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getSyncOutput(args: GetSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncResult> {
+export function getSyncOutput(args: GetSyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getSync:getSync", {
         "name": args.name,

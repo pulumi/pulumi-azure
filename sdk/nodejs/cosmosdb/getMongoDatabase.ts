@@ -81,7 +81,7 @@ export interface GetMongoDatabaseResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDatabaseResult> {
+export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cosmosdb/getMongoDatabase:getMongoDatabase", {
         "accountName": args.accountName,

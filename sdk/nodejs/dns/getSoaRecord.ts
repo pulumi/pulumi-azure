@@ -114,7 +114,7 @@ export interface GetSoaRecordResult {
  * export const dnsSoaRecordId = example.then(example => example.id);
  * ```
  */
-export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoaRecordResult> {
+export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoaRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getSoaRecord:getSoaRecord", {
         "name": args.name,

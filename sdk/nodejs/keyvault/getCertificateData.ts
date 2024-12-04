@@ -117,7 +117,7 @@ export interface GetCertificateDataResult {
  * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
  * ```
  */
-export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateDataResult> {
+export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getCertificateData:getCertificateData", {
         "keyVaultId": args.keyVaultId,

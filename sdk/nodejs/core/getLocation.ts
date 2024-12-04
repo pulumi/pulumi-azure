@@ -69,7 +69,7 @@ export interface GetLocationResult {
  * });
  * ```
  */
-export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
+export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getLocation:getLocation", {
         "location": args.location,
