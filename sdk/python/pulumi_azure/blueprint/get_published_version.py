@@ -189,7 +189,7 @@ def get_published_version(blueprint_name: Optional[str] = None,
 def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = None,
                                  scope_id: Optional[pulumi.Input[str]] = None,
                                  version: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublishedVersionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishedVersionResult]:
     """
     Use this data source to access information about an existing Blueprint Published Version
 
@@ -216,7 +216,7 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[str]] = N
     __args__['blueprintName'] = blueprint_name
     __args__['scopeId'] = scope_id
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:blueprint/getPublishedVersion:getPublishedVersion', __args__, opts=opts, typ=GetPublishedVersionResult)
     return __ret__.apply(lambda __response__: GetPublishedVersionResult(
         blueprint_name=pulumi.get(__response__, 'blueprint_name'),

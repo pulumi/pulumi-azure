@@ -73,7 +73,7 @@ export interface GetVirtualMachineManagerInventoryItemsResult {
  * });
  * ```
  */
-export function getVirtualMachineManagerInventoryItemsOutput(args: GetVirtualMachineManagerInventoryItemsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineManagerInventoryItemsResult> {
+export function getVirtualMachineManagerInventoryItemsOutput(args: GetVirtualMachineManagerInventoryItemsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineManagerInventoryItemsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", {
         "inventoryType": args.inventoryType,

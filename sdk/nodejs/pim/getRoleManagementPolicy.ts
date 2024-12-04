@@ -149,7 +149,7 @@ export interface GetRoleManagementPolicyResult {
  * }));
  * ```
  */
-export function getRoleManagementPolicyOutput(args: GetRoleManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleManagementPolicyResult> {
+export function getRoleManagementPolicyOutput(args: GetRoleManagementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", {
         "roleDefinitionId": args.roleDefinitionId,
