@@ -142,7 +142,7 @@ def get_variable_object(automation_account_name: Optional[str] = None,
 def get_variable_object_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableObjectResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableObjectResult]:
     """
     Use this data source to access information about an existing Automation Object Variable.
 
@@ -155,7 +155,7 @@ def get_variable_object_output(automation_account_name: Optional[pulumi.Input[st
     __args__['automationAccountName'] = automation_account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:automation/getVariableObject:getVariableObject', __args__, opts=opts, typ=GetVariableObjectResult)
     return __ret__.apply(lambda __response__: GetVariableObjectResult(
         automation_account_name=pulumi.get(__response__, 'automation_account_name'),
