@@ -105,7 +105,7 @@ export interface GetVirtualNetworkPeeringResult {
  * export const id = exampleGetVirtualNetworkPeering.then(exampleGetVirtualNetworkPeering => exampleGetVirtualNetworkPeering.id);
  * ```
  */
-export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
+export function getVirtualNetworkPeeringOutput(args: GetVirtualNetworkPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", {
         "name": args.name,

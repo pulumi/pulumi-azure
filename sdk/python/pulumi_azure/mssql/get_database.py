@@ -306,7 +306,7 @@ def get_database(name: Optional[str] = None,
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 def get_database_output(name: Optional[pulumi.Input[str]] = None,
                         server_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Use this data source to access information about an existing SQL database.
 
@@ -338,7 +338,7 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['serverId'] = server_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mssql/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         collation=pulumi.get(__response__, 'collation'),

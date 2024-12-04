@@ -95,7 +95,7 @@ export interface GetNetworkManagerConnectivityConfigurationResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getNetworkManagerConnectivityConfigurationOutput(args: GetNetworkManagerConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerConnectivityConfigurationResult> {
+export function getNetworkManagerConnectivityConfigurationOutput(args: GetNetworkManagerConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", {
         "name": args.name,

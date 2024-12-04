@@ -179,7 +179,7 @@ def get_subscription(subscription_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
 def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Use this data source to access information about an existing Subscription.
 
@@ -198,7 +198,7 @@ def get_subscription_output(subscription_id: Optional[pulumi.Input[Optional[str]
     """
     __args__ = dict()
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSubscriptionResult(
         display_name=pulumi.get(__response__, 'display_name'),

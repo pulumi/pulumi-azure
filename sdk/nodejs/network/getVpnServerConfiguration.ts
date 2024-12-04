@@ -110,7 +110,7 @@ export interface GetVpnServerConfigurationResult {
  * export const azurermVpnServerConfiguration = example.then(example => example.id);
  * ```
  */
-export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
+export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnServerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVpnServerConfiguration:getVpnServerConfiguration", {
         "name": args.name,

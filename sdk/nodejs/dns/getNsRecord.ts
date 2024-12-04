@@ -89,7 +89,7 @@ export interface GetNsRecordResult {
  * export const dnsNsRecordId = example.then(example => example.id);
  * ```
  */
-export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNsRecordResult> {
+export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNsRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getNsRecord:getNsRecord", {
         "name": args.name,

@@ -186,7 +186,7 @@ def get_confidential_ledger(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_confidential_ledger_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfidentialLedgerResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfidentialLedgerResult]:
     """
     Gets information about an existing Confidential Ledger.
 
@@ -208,7 +208,7 @@ def get_confidential_ledger_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getConfidentialLedger:getConfidentialLedger', __args__, opts=opts, typ=GetConfidentialLedgerResult)
     return __ret__.apply(lambda __response__: GetConfidentialLedgerResult(
         azuread_based_service_principals=pulumi.get(__response__, 'azuread_based_service_principals'),

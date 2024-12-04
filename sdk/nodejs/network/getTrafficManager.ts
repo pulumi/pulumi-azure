@@ -65,7 +65,7 @@ export interface GetTrafficManagerResult {
  * export const locationCode = example.then(example => example.id);
  * ```
  */
-export function getTrafficManagerOutput(args: GetTrafficManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerResult> {
+export function getTrafficManagerOutput(args: GetTrafficManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getTrafficManager:getTrafficManager", {
         "name": args.name,
