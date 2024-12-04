@@ -93,7 +93,7 @@ export interface GetPoolResult {
  * export const netappPoolId = example.then(example => example.id);
  * ```
  */
-export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getPool:getPool", {
         "accountName": args.accountName,

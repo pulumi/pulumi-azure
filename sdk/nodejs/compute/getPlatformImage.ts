@@ -91,7 +91,7 @@ export interface GetPlatformImageResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlatformImageResult> {
+export function getPlatformImageOutput(args: GetPlatformImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlatformImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getPlatformImage:getPlatformImage", {
         "location": args.location,

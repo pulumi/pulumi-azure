@@ -167,7 +167,7 @@ def get_managed_hardware_security_module_role_definition(managed_hsm_id: Optiona
         role_type=pulumi.get(__ret__, 'role_type'))
 def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: Optional[pulumi.Input[str]] = None,
                                                                 name: Optional[pulumi.Input[str]] = None,
-                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleRoleDefinitionResult]:
+                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleRoleDefinitionResult]:
     """
     Use this data source to access information about an existing KeyVault Role Definition.
 
@@ -177,7 +177,7 @@ def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: 
     __args__ = dict()
     __args__['managedHsmId'] = managed_hsm_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition', __args__, opts=opts, typ=GetManagedHardwareSecurityModuleRoleDefinitionResult)
     return __ret__.apply(lambda __response__: GetManagedHardwareSecurityModuleRoleDefinitionResult(
         assignable_scopes=pulumi.get(__response__, 'assignable_scopes'),

@@ -167,7 +167,7 @@ def get_backup_vault(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Use this data source to access information about an existing Backup Vault.
 
@@ -190,7 +190,7 @@ def get_backup_vault_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:dataprotection/getBackupVault:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult)
     return __ret__.apply(lambda __response__: GetBackupVaultResult(
         datastore_type=pulumi.get(__response__, 'datastore_type'),

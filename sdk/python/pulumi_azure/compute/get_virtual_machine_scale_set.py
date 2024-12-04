@@ -156,7 +156,7 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
     Use this data source to access information about an existing Virtual Machine Scale Set.
 
@@ -178,7 +178,7 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getVirtualMachineScaleSet:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetResult(
         id=pulumi.get(__response__, 'id'),
