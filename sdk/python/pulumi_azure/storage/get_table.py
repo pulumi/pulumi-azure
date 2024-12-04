@@ -126,7 +126,7 @@ def get_table(name: Optional[str] = None,
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
 def get_table_output(name: Optional[pulumi.Input[str]] = None,
                      storage_account_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Use this data source to access information about an existing Storage Table.
 
@@ -147,7 +147,7 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['storageAccountName'] = storage_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
         acls=pulumi.get(__response__, 'acls'),

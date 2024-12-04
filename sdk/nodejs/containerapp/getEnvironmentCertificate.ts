@@ -99,7 +99,7 @@ export interface GetEnvironmentCertificateResult {
  * }));
  * ```
  */
-export function getEnvironmentCertificateOutput(args: GetEnvironmentCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentCertificateResult> {
+export function getEnvironmentCertificateOutput(args: GetEnvironmentCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", {
         "containerAppEnvironmentId": args.containerAppEnvironmentId,

@@ -93,7 +93,7 @@ export interface GetCnameRecordResult {
  * export const dnsCnameRecordId = example.then(example => example.id);
  * ```
  */
-export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordResult> {
+export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCnameRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getCnameRecord:getCnameRecord", {
         "name": args.name,

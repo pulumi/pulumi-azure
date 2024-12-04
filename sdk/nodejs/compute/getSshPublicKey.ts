@@ -79,7 +79,7 @@ export interface GetSshPublicKeyResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
+export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSshPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getSshPublicKey:getSshPublicKey", {
         "name": args.name,

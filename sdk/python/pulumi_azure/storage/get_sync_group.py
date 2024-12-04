@@ -100,7 +100,7 @@ def get_sync_group(name: Optional[str] = None,
         storage_sync_id=pulumi.get(__ret__, 'storage_sync_id'))
 def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
                           storage_sync_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncGroupResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Use this data source to access information about an existing Storage Sync Group.
 
@@ -122,7 +122,7 @@ def get_sync_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['storageSyncId'] = storage_sync_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getSyncGroup:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult)
     return __ret__.apply(lambda __response__: GetSyncGroupResult(
         id=pulumi.get(__response__, 'id'),
