@@ -115,7 +115,7 @@ export interface GetManagedHardwareSecurityModuleKeyResult {
  * }
  * ```
  */
-export function getManagedHardwareSecurityModuleKeyOutput(args: GetManagedHardwareSecurityModuleKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHardwareSecurityModuleKeyResult> {
+export function getManagedHardwareSecurityModuleKeyOutput(args: GetManagedHardwareSecurityModuleKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHardwareSecurityModuleKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", {
         "managedHsmId": args.managedHsmId,

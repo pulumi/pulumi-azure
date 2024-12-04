@@ -168,7 +168,7 @@ def get_service_tags(location: Optional[str] = None,
 def get_service_tags_output(location: Optional[pulumi.Input[str]] = None,
                             location_filter: Optional[pulumi.Input[Optional[str]]] = None,
                             service: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceTagsResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceTagsResult]:
     """
     Use this data source to access information about Service Tags.
 
@@ -194,7 +194,7 @@ def get_service_tags_output(location: Optional[pulumi.Input[str]] = None,
     __args__['location'] = location
     __args__['locationFilter'] = location_filter
     __args__['service'] = service
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getServiceTags:getServiceTags', __args__, opts=opts, typ=GetServiceTagsResult)
     return __ret__.apply(lambda __response__: GetServiceTagsResult(
         address_prefixes=pulumi.get(__response__, 'address_prefixes'),

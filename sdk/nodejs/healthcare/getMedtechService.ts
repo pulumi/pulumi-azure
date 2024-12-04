@@ -91,7 +91,7 @@ export interface GetMedtechServiceResult {
  * export const azurermHealthcareMedtechServiceId = example.then(example => example.id);
  * ```
  */
-export function getMedtechServiceOutput(args: GetMedtechServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMedtechServiceResult> {
+export function getMedtechServiceOutput(args: GetMedtechServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMedtechServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:healthcare/getMedtechService:getMedtechService", {
         "name": args.name,

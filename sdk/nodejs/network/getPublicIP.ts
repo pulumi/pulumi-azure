@@ -245,7 +245,7 @@ export interface GetPublicIPResult {
  * export const publicIpAddress = example.apply(example => example.ipAddress);
  * ```
  */
-export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPResult> {
+export function getPublicIPOutput(args: GetPublicIPOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,

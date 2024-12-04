@@ -91,7 +91,7 @@ export interface GetVpnGatewayResult {
  * export const azurermVpnGatewayId = example.then(example => example.id);
  * ```
  */
-export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
+export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVpnGateway:getVpnGateway", {
         "name": args.name,

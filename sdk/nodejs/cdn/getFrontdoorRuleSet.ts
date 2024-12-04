@@ -79,7 +79,7 @@ export interface GetFrontdoorRuleSetResult {
  * });
  * ```
  */
-export function getFrontdoorRuleSetOutput(args: GetFrontdoorRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorRuleSetResult> {
+export function getFrontdoorRuleSetOutput(args: GetFrontdoorRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", {
         "name": args.name,
