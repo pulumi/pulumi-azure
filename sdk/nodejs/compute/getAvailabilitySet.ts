@@ -89,7 +89,7 @@ export interface GetAvailabilitySetResult {
  * export const availabilitySetId = example.then(example => example.id);
  * ```
  */
-export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
+export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilitySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getAvailabilitySet:getAvailabilitySet", {
         "name": args.name,

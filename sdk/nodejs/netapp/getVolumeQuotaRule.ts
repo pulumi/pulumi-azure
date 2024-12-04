@@ -85,7 +85,7 @@ export interface GetVolumeQuotaRuleResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
+export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", {
         "name": args.name,

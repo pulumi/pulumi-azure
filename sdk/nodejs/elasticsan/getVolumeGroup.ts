@@ -99,7 +99,7 @@ export interface GetVolumeGroupResult {
  * export const id = exampleGetVolumeGroup.then(exampleGetVolumeGroup => exampleGetVolumeGroup.id);
  * ```
  */
-export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
+export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:elasticsan/getVolumeGroup:getVolumeGroup", {
         "elasticSanId": args.elasticSanId,

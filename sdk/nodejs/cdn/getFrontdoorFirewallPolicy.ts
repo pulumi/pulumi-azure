@@ -87,7 +87,7 @@ export interface GetFrontdoorFirewallPolicyResult {
  * });
  * ```
  */
-export function getFrontdoorFirewallPolicyOutput(args: GetFrontdoorFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorFirewallPolicyResult> {
+export function getFrontdoorFirewallPolicyOutput(args: GetFrontdoorFirewallPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorFirewallPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", {
         "name": args.name,
