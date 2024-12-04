@@ -286,7 +286,7 @@ def get_network_packet_core_control_plane(name: Optional[str] = None,
         user_equipment_mtu_in_bytes=pulumi.get(__ret__, 'user_equipment_mtu_in_bytes'))
 def get_network_packet_core_control_plane_output(name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkPacketCoreControlPlaneResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPacketCoreControlPlaneResult]:
     """
     Get information about a Mobile Network Packet Core Control Plane.
 
@@ -307,7 +307,7 @@ def get_network_packet_core_control_plane_output(name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkPacketCoreControlPlane:getNetworkPacketCoreControlPlane', __args__, opts=opts, typ=GetNetworkPacketCoreControlPlaneResult)
     return __ret__.apply(lambda __response__: GetNetworkPacketCoreControlPlaneResult(
         control_plane_access_ipv4_address=pulumi.get(__response__, 'control_plane_access_ipv4_address'),

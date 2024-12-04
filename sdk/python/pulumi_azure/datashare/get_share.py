@@ -158,7 +158,7 @@ def get_share(account_id: Optional[str] = None,
         terms=pulumi.get(__ret__, 'terms'))
 def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """
     Use this data source to access information about an existing Data Share.
 
@@ -182,7 +182,7 @@ def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:datashare/getShare:getShare', __args__, opts=opts, typ=GetShareResult)
     return __ret__.apply(lambda __response__: GetShareResult(
         account_id=pulumi.get(__response__, 'account_id'),

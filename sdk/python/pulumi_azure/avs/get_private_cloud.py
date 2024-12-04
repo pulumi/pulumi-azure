@@ -298,7 +298,7 @@ def get_private_cloud(name: Optional[str] = None,
         vmotion_subnet_cidr=pulumi.get(__ret__, 'vmotion_subnet_cidr'))
 def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """
     Use this data source to access information about an existing Azure VMware Solution Private Cloud.
 
@@ -322,7 +322,7 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:avs/getPrivateCloud:getPrivateCloud', __args__, opts=opts, typ=GetPrivateCloudResult)
     return __ret__.apply(lambda __response__: GetPrivateCloudResult(
         circuits=pulumi.get(__response__, 'circuits'),

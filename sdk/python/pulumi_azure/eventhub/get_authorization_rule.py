@@ -246,7 +246,7 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
                                   namespace_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   send: Optional[pulumi.Input[Optional[bool]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationRuleResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationRuleResult]:
     """
     Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
 
@@ -276,7 +276,7 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['send'] = send
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:eventhub/getAuthorizationRule:getAuthorizationRule', __args__, opts=opts, typ=GetAuthorizationRuleResult)
     return __ret__.apply(lambda __response__: GetAuthorizationRuleResult(
         eventhub_name=pulumi.get(__response__, 'eventhub_name'),

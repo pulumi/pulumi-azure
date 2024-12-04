@@ -77,7 +77,7 @@ export interface GetMcaAccountScopeResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getMcaAccountScopeOutput(args: GetMcaAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMcaAccountScopeResult> {
+export function getMcaAccountScopeOutput(args: GetMcaAccountScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMcaAccountScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:billing/getMcaAccountScope:getMcaAccountScope", {
         "billingAccountName": args.billingAccountName,

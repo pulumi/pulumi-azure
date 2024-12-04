@@ -81,7 +81,7 @@ export interface GetDatasetKustoClusterResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDatasetKustoClusterOutput(args: GetDatasetKustoClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetKustoClusterResult> {
+export function getDatasetKustoClusterOutput(args: GetDatasetKustoClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetKustoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", {
         "name": args.name,

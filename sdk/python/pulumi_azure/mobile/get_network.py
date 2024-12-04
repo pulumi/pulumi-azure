@@ -164,7 +164,7 @@ def get_network(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     Get information about an Azure Mobile Network.
 
@@ -185,7 +185,7 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetwork:getNetwork', __args__, opts=opts, typ=GetNetworkResult)
     return __ret__.apply(lambda __response__: GetNetworkResult(
         id=pulumi.get(__response__, 'id'),

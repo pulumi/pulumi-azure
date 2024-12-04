@@ -137,7 +137,7 @@ def get_endpoint_connection(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 def get_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointConnectionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointConnectionResult]:
     """
     Use this data source to access the connection status information about an existing Private Endpoint Connection.
 
@@ -159,7 +159,7 @@ def get_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:privatelink/getEndpointConnection:getEndpointConnection', __args__, opts=opts, typ=GetEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetEndpointConnectionResult(
         id=pulumi.get(__response__, 'id'),

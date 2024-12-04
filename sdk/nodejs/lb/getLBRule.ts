@@ -87,7 +87,7 @@ export interface GetLBRuleResult {
 /**
  * Use this data source to access information about an existing Load Balancer Rule.
  */
-export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBRuleResult> {
+export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLBRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:lb/getLBRule:getLBRule", {
         "loadbalancerId": args.loadbalancerId,
