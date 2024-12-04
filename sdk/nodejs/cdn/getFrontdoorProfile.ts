@@ -83,7 +83,7 @@ export interface GetFrontdoorProfileResult {
  * });
  * ```
  */
-export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorProfileResult> {
+export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", {
         "name": args.name,

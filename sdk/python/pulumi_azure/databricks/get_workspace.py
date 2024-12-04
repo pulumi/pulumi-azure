@@ -209,7 +209,7 @@ def get_workspace(name: Optional[str] = None,
 def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Use this data source to access information about an existing Databricks workspace.
 
@@ -233,7 +233,7 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         enhanced_security_compliances=pulumi.get(__response__, 'enhanced_security_compliances'),
