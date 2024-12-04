@@ -208,7 +208,7 @@ def get_configuration_key(configuration_store_id: Optional[str] = None,
 def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[str]] = None,
                                  key: Optional[pulumi.Input[str]] = None,
                                  label: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationKeyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationKeyResult]:
     """
     Use this data source to access information about an existing Azure App Configuration Key.
 
@@ -235,7 +235,7 @@ def get_configuration_key_output(configuration_store_id: Optional[pulumi.Input[s
     __args__['configurationStoreId'] = configuration_store_id
     __args__['key'] = key
     __args__['label'] = label
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appconfiguration/getConfigurationKey:getConfigurationKey', __args__, opts=opts, typ=GetConfigurationKeyResult)
     return __ret__.apply(lambda __response__: GetConfigurationKeyResult(
         configuration_store_id=pulumi.get(__response__, 'configuration_store_id'),

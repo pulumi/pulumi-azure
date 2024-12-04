@@ -166,7 +166,7 @@ def get_factory(name: Optional[str] = None,
         vsts_configurations=pulumi.get(__ret__, 'vsts_configurations'))
 def get_factory_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFactoryResult]:
     """
     Use this data source to access information about an existing Azure Data Factory (Version 2).
 
@@ -188,7 +188,7 @@ def get_factory_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:datafactory/getFactory:getFactory', __args__, opts=opts, typ=GetFactoryResult)
     return __ret__.apply(lambda __response__: GetFactoryResult(
         github_configurations=pulumi.get(__response__, 'github_configurations'),

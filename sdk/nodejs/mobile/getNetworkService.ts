@@ -100,7 +100,7 @@ export interface GetNetworkServiceResult {
  * });
  * ```
  */
-export function getNetworkServiceOutput(args: GetNetworkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkServiceResult> {
+export function getNetworkServiceOutput(args: GetNetworkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkService:getNetworkService", {
         "mobileNetworkId": args.mobileNetworkId,

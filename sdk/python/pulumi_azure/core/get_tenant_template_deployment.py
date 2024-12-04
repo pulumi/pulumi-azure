@@ -88,7 +88,7 @@ def get_tenant_template_deployment(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         output_content=pulumi.get(__ret__, 'output_content'))
 def get_tenant_template_deployment_output(name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantTemplateDeploymentResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Tenant Template Deployment.
 
@@ -97,7 +97,7 @@ def get_tenant_template_deployment_output(name: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment', __args__, opts=opts, typ=GetTenantTemplateDeploymentResult)
     return __ret__.apply(lambda __response__: GetTenantTemplateDeploymentResult(
         id=pulumi.get(__response__, 'id'),
