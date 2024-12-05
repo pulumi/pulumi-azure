@@ -147,7 +147,7 @@ export interface GetAppServiceResult {
  * export const appServiceId = example.then(example => example.id);
  * ```
  */
-export function getAppServiceOutput(args: GetAppServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceResult> {
+export function getAppServiceOutput(args: GetAppServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getAppService:getAppService", {
         "name": args.name,

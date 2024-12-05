@@ -93,7 +93,7 @@ export interface GetSqlRoleDefinitionResult {
  * });
  * ```
  */
-export function getSqlRoleDefinitionOutput(args: GetSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlRoleDefinitionResult> {
+export function getSqlRoleDefinitionOutput(args: GetSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", {
         "accountName": args.accountName,

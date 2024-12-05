@@ -182,7 +182,7 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[str] = None,
         tcp_reset_enabled=pulumi.get(__ret__, 'tcp_reset_enabled'))
 def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLBOutboundRuleResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLBOutboundRuleResult]:
     """
     Use this data source to access information about an existing Load Balancer Outbound Rule.
 
@@ -204,7 +204,7 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:lb/getLBOutboundRule:getLBOutboundRule', __args__, opts=opts, typ=GetLBOutboundRuleResult)
     return __ret__.apply(lambda __response__: GetLBOutboundRuleResult(
         allocated_outbound_ports=pulumi.get(__response__, 'allocated_outbound_ports'),

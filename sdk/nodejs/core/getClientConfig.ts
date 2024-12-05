@@ -61,7 +61,7 @@ export interface GetClientConfigResult {
  * export const accountId = current.then(current => current.clientId);
  * ```
  */
-export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
+export function getClientConfigOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getClientConfig:getClientConfig", {
     }, opts);

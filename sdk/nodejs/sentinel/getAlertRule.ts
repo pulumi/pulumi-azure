@@ -77,7 +77,7 @@ export interface GetAlertRuleResult {
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
  */
-export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
+export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:sentinel/getAlertRule:getAlertRule", {
         "logAnalyticsWorkspaceId": args.logAnalyticsWorkspaceId,
