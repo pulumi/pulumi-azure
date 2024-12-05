@@ -95,7 +95,7 @@ export interface GetHubResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
+export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:notificationhub/getHub:getHub", {
         "name": args.name,

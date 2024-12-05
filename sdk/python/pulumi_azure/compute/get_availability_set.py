@@ -165,7 +165,7 @@ def get_availability_set(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Use this data source to access information about an existing Availability Set.
 
@@ -187,7 +187,7 @@ def get_availability_set_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getAvailabilitySet:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
     return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
         id=pulumi.get(__response__, 'id'),

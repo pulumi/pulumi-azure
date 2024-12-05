@@ -166,7 +166,7 @@ def get_disk_encryption_set(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_disk_encryption_set_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
     Use this data source to access information about an existing Disk Encryption Set.
 
@@ -188,7 +188,7 @@ def get_disk_encryption_set_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getDiskEncryptionSet:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult)
     return __ret__.apply(lambda __response__: GetDiskEncryptionSetResult(
         auto_key_rotation_enabled=pulumi.get(__response__, 'auto_key_rotation_enabled'),

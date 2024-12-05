@@ -69,7 +69,7 @@ export interface GetEnrollmentAccountScopeResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getEnrollmentAccountScopeOutput(args: GetEnrollmentAccountScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnrollmentAccountScopeResult> {
+export function getEnrollmentAccountScopeOutput(args: GetEnrollmentAccountScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnrollmentAccountScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", {
         "billingAccountName": args.billingAccountName,
