@@ -111,7 +111,7 @@ def get_location(location: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         zone_mappings=pulumi.get(__ret__, 'zone_mappings'))
 def get_location_output(location: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     Use this data source to access information of a specific physical location.
 
@@ -129,7 +129,7 @@ def get_location_output(location: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['location'] = location
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
     return __ret__.apply(lambda __response__: GetLocationResult(
         display_name=pulumi.get(__response__, 'display_name'),

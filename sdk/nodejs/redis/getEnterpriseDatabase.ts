@@ -65,7 +65,7 @@ export interface GetEnterpriseDatabaseResult {
 /**
  * Use this data source to access information about an existing Redis Enterprise Database
  */
-export function getEnterpriseDatabaseOutput(args: GetEnterpriseDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseDatabaseResult> {
+export function getEnterpriseDatabaseOutput(args: GetEnterpriseDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", {
         "clusterId": args.clusterId,

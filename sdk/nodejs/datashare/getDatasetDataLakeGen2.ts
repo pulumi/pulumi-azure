@@ -89,7 +89,7 @@ export interface GetDatasetDataLakeGen2Result {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDatasetDataLakeGen2Output(args: GetDatasetDataLakeGen2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetDataLakeGen2Result> {
+export function getDatasetDataLakeGen2Output(args: GetDatasetDataLakeGen2OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetDataLakeGen2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", {
         "name": args.name,

@@ -78,7 +78,7 @@ export interface GetRestorableDatabaseAccountsResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getRestorableDatabaseAccountsOutput(args: GetRestorableDatabaseAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorableDatabaseAccountsResult> {
+export function getRestorableDatabaseAccountsOutput(args: GetRestorableDatabaseAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestorableDatabaseAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", {
         "location": args.location,

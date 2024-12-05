@@ -90,7 +90,7 @@ export interface GetCnameRecordResult {
  * export const privateDnsCnameRecordId = exampleAzurermPrivateDnsCnameRecord.id;
  * ```
  */
-export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordResult> {
+export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCnameRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getCnameRecord:getCnameRecord", {
         "name": args.name,
