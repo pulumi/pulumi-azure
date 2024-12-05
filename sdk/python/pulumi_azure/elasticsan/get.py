@@ -247,7 +247,7 @@ def get(name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_output(name: Optional[pulumi.Input[str]] = None,
                resource_group_name: Optional[pulumi.Input[str]] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResult]:
+               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResult]:
     """
     Use this data source to access information about an existing Elastic SAN.
 
@@ -269,7 +269,7 @@ def get_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:elasticsan/get:get', __args__, opts=opts, typ=GetResult)
     return __ret__.apply(lambda __response__: GetResult(
         base_size_in_tib=pulumi.get(__response__, 'base_size_in_tib'),

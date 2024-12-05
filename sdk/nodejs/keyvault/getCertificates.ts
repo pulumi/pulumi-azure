@@ -58,7 +58,7 @@ export interface GetCertificatesResult {
 /**
  * Use this data source to retrieve a list of certificate names from an existing Key Vault.
  */
-export function getCertificatesOutput(args: GetCertificatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificatesResult> {
+export function getCertificatesOutput(args: GetCertificatesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificatesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getCertificates:getCertificates", {
         "includePending": args.includePending,

@@ -75,7 +75,7 @@ export interface GetDbNodesResult {
  * }
  * ```
  */
-export function getDbNodesOutput(args: GetDbNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbNodesResult> {
+export function getDbNodesOutput(args: GetDbNodesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getDbNodes:getDbNodes", {
         "cloudVmClusterId": args.cloudVmClusterId,

@@ -85,7 +85,7 @@ export interface GetFrontdoorSecretResult {
  * });
  * ```
  */
-export function getFrontdoorSecretOutput(args: GetFrontdoorSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorSecretResult> {
+export function getFrontdoorSecretOutput(args: GetFrontdoorSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", {
         "name": args.name,
