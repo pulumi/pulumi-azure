@@ -119,7 +119,7 @@ export interface GetAppServicePlanResult {
  * export const appServicePlanId = example.then(example => example.id);
  * ```
  */
-export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
+export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServicePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getAppServicePlan:getAppServicePlan", {
         "name": args.name,

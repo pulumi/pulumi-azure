@@ -116,7 +116,7 @@ export interface GetAccountResult {
  * export const primaryAccessKey = test.then(test => test.primaryAccessKey);
  * ```
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cognitive/getAccount:getAccount", {
         "name": args.name,

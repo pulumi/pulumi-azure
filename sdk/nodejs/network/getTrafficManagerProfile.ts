@@ -112,7 +112,7 @@ export interface GetTrafficManagerProfileResult {
  * export const trafficRoutingMethod = example.then(example => example.trafficRoutingMethod);
  * ```
  */
-export function getTrafficManagerProfileOutput(args: GetTrafficManagerProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerProfileResult> {
+export function getTrafficManagerProfileOutput(args: GetTrafficManagerProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficManagerProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", {
         "name": args.name,

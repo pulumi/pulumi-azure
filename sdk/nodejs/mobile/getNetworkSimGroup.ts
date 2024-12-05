@@ -93,7 +93,7 @@ export interface GetNetworkSimGroupResult {
  * }));
  * ```
  */
-export function getNetworkSimGroupOutput(args: GetNetworkSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSimGroupResult> {
+export function getNetworkSimGroupOutput(args: GetNetworkSimGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSimGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkSimGroup:getNetworkSimGroup", {
         "mobileNetworkId": args.mobileNetworkId,

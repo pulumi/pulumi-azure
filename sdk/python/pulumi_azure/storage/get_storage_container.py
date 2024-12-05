@@ -210,7 +210,7 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
                                  name: Optional[pulumi.Input[str]] = None,
                                  storage_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  storage_account_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageContainerResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageContainerResult]:
     """
     Use this data source to access information about an existing Storage Container.
 
@@ -239,7 +239,7 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
     __args__['name'] = name
     __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getStorageContainer:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult)
     return __ret__.apply(lambda __response__: GetStorageContainerResult(
         container_access_type=pulumi.get(__response__, 'container_access_type'),

@@ -108,7 +108,7 @@ export interface GetBlobResult {
  * });
  * ```
  */
-export function getBlobOutput(args: GetBlobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobResult> {
+export function getBlobOutput(args: GetBlobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getBlob:getBlob", {
         "metadata": args.metadata,

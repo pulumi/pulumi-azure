@@ -124,7 +124,7 @@ export interface GetFirewallResult {
  * export const firewallPrivateIp = example.then(example => example.ipConfigurations?.[0]?.privateIpAddress);
  * ```
  */
-export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
+export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getFirewall:getFirewall", {
         "dnsProxyEnabled": args.dnsProxyEnabled,

@@ -138,7 +138,7 @@ def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountId
 def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Uses this data source to access information about an existing NetApp Account.
 
@@ -161,7 +161,7 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccoun
     __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         id=pulumi.get(__response__, 'id'),
