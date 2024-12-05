@@ -89,7 +89,7 @@ export interface GetARecordResult {
  * export const privateDnsARecordId = example.then(example => example.id);
  * ```
  */
-export function getARecordOutput(args: GetARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetARecordResult> {
+export function getARecordOutput(args: GetARecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetARecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getARecord:getARecord", {
         "name": args.name,

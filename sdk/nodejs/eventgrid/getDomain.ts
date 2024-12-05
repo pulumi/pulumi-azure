@@ -115,7 +115,7 @@ export interface GetDomainResult {
  * export const eventgridDomainMappingTopic = example.then(example => example.inputMappingFields?.[0]?.topic);
  * ```
  */
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:eventgrid/getDomain:getDomain", {
         "name": args.name,

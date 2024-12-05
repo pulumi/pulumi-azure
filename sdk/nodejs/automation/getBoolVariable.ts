@@ -89,7 +89,7 @@ export interface GetBoolVariableResult {
  * export const variableId = example.then(example => example.id);
  * ```
  */
-export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBoolVariableResult> {
+export function getBoolVariableOutput(args: GetBoolVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBoolVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:automation/getBoolVariable:getBoolVariable", {
         "automationAccountName": args.automationAccountName,
