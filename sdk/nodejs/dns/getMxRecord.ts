@@ -91,7 +91,7 @@ export interface GetMxRecordResult {
  * export const dnsMxRecordId = example.then(example => example.id);
  * ```
  */
-export function getMxRecordOutput(args: GetMxRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMxRecordResult> {
+export function getMxRecordOutput(args: GetMxRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMxRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getMxRecord:getMxRecord", {
         "name": args.name,

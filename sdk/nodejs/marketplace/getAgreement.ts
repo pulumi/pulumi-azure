@@ -79,7 +79,7 @@ export interface GetAgreementResult {
  * export const azurermMarketplaceAgreementId = id;
  * ```
  */
-export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
+export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:marketplace/getAgreement:getAgreement", {
         "offer": args.offer,

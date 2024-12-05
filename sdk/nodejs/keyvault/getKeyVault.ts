@@ -120,7 +120,7 @@ export interface GetKeyVaultResult {
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
  */
-export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyVaultResult> {
+export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getKeyVault:getKeyVault", {
         "name": args.name,
