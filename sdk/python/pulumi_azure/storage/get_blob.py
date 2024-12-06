@@ -209,7 +209,7 @@ def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]
                     name: Optional[pulumi.Input[str]] = None,
                     storage_account_name: Optional[pulumi.Input[str]] = None,
                     storage_container_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobResult]:
     """
     Use this data source to access information about an existing Storage Blob.
 
@@ -235,7 +235,7 @@ def get_blob_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]
     __args__['name'] = name
     __args__['storageAccountName'] = storage_account_name
     __args__['storageContainerName'] = storage_container_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getBlob:getBlob', __args__, opts=opts, typ=GetBlobResult)
     return __ret__.apply(lambda __response__: GetBlobResult(
         access_tier=pulumi.get(__response__, 'access_tier'),

@@ -273,7 +273,7 @@ def get_network_interface(name: Optional[str] = None,
         virtual_machine_id=pulumi.get(__ret__, 'virtual_machine_id'))
 def get_network_interface_output(name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Use this data source to access information about an existing Network Interface.
 
@@ -295,7 +295,7 @@ def get_network_interface_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
     return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
         accelerated_networking_enabled=pulumi.get(__response__, 'accelerated_networking_enabled'),

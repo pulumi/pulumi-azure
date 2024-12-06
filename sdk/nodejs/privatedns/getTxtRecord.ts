@@ -91,7 +91,7 @@ export interface GetTxtRecordResult {
  * export const privateDnsTxtRecordId = exampleAzurermPrivateDnsTxtRecord.id;
  * ```
  */
-export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTxtRecordResult> {
+export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTxtRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getTxtRecord:getTxtRecord", {
         "name": args.name,

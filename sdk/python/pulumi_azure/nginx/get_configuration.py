@@ -135,7 +135,7 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
         protected_files=pulumi.get(__ret__, 'protected_files'),
         root_file=pulumi.get(__ret__, 'root_file'))
 def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Use this data source to access information about an existing Nginx Configuration.
 
@@ -154,7 +154,7 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['nginxDeploymentId'] = nginx_deployment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:nginx/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
     return __ret__.apply(lambda __response__: GetConfigurationResult(
         config_files=pulumi.get(__response__, 'config_files'),

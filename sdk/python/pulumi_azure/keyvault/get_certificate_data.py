@@ -211,7 +211,7 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
 def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
                                 version: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateDataResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateDataResult]:
     """
     Use this data source to access data stored in an existing Key Vault Certificate.
 
@@ -241,7 +241,7 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getCertificateData:getCertificateData', __args__, opts=opts, typ=GetCertificateDataResult)
     return __ret__.apply(lambda __response__: GetCertificateDataResult(
         certificates_count=pulumi.get(__response__, 'certificates_count'),

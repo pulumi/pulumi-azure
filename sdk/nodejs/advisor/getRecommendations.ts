@@ -82,7 +82,7 @@ export interface GetRecommendationsResult {
  * export const recommendations = example.then(example => example.recommendations);
  * ```
  */
-export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecommendationsResult> {
+export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRecommendationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:advisor/getRecommendations:getRecommendations", {

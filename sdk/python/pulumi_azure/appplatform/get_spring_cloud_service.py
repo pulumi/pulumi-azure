@@ -169,7 +169,7 @@ def get_spring_cloud_service(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpringCloudServiceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringCloudServiceResult]:
     """
     Use this data source to access information about an existing Spring Cloud Service.
 
@@ -191,7 +191,7 @@ def get_spring_cloud_service_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appplatform/getSpringCloudService:getSpringCloudService', __args__, opts=opts, typ=GetSpringCloudServiceResult)
     return __ret__.apply(lambda __response__: GetSpringCloudServiceResult(
         config_server_git_settings=pulumi.get(__response__, 'config_server_git_settings'),

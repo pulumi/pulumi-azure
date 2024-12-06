@@ -199,7 +199,7 @@ export interface GetApplicationGatewayResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
+export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getApplicationGateway:getApplicationGateway", {
         "name": args.name,
