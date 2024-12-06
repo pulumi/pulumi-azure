@@ -10,6 +10,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/providertest/optproviderupgrade"
+	"github.com/pulumi/providertest/pulumitest/assertup"
 )
 
 func Test_appinsights(t *testing.T) {
@@ -99,4 +100,10 @@ func Test_containerservice_k8scluster(t *testing.T) {
 func Test_hdinsight(t *testing.T) {
 	test(t, filepath.Join("test-programs", "hdinsight"),
 		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "hdinsight", "v6")))
+}
+
+func Test_RoleManagementPolicy(t *testing.T) {
+	pt := setupTest(t, filepath.Join("test-programs", "RoleManagementPolicy"))
+	upResult := pt.Up(t)
+	assertup.HasNoChanges(t, upResult)
 }

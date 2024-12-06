@@ -55,6 +55,20 @@ func test(t *testing.T, dir string, opts ...optproviderupgrade.PreviewProviderUp
 	assertpreview.HasNoDeletes(t, previewResult)
 }
 
+func setupTest(t *testing.T, dir string) *pulumitest.PulumiTest {
+	t.Helper()
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
+		return nil
+	}
+	subscriptionID := getSubscriptionID(t)
+	rpFactory := providers.ResourceProviderFactory(providerServer)
+	pt := pulumitest.NewPulumiTest(t, dir,
+		opttest.AttachProvider("azure", rpFactory))
+	pt.SetConfig(t, "azure:subscriptionId", subscriptionID)
+	return pt
+}
+
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
 }

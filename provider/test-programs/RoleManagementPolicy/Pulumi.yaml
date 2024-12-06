@@ -1,0 +1,142 @@
+name: RoleManagementPolicy
+runtime: yaml
+
+resources:
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  policy:
+    type: azure:pim:RoleManagementPolicy
+    properties:
+      scope: /subscriptions/06414010-48ba-4c6f-ac65-479ecad05c44/resourceGroups/${exampleResourceGroup.name}
+      roleDefinitionId: "/subscriptions/06414010-48ba-4c6f-ac65-479ecad05c44/providers/Microsoft.Authorization/roleDefinitions/roleDefinition.id"
+      activeAssignmentRules:
+        expirationRequired: false
+      eligibleAssignmentRules:
+        expirationRequired: false
+      activationRules:
+        requireApproval: true
+        approvalStage:
+          primaryApprovers:
+            - objectId: 06414010-48ba-4c6f-ac65-479ecad05c44
+              type: Group
+      notificationRules:
+        activeAssignments:
+          adminNotifications:
+            notificationLevel: All
+            defaultRecipients: true
+        eligibleAssignments:
+          adminNotifications:
+            notificationLevel: All
+            defaultRecipients: true
+        eligibleActivations:
+          adminNotifications:
+            notificationLevel: All
+            defaultRecipients: true
+# request from issue, missing expected Expiration_Admin_Assignment:
+#   {
+#     "id": "/subscriptions/<subscription-id>/resourceGroups/test-weu-fnd-jump-box-tmp0371/providers/Microsoft.Compute/virtualMachines/vm-test-weu-fnd-jump-box-tmp0371/providers/Microsoft.Authorization/roleManagementPolicies/1c0163c0-47e6-4577-8991-ea5c82e286e4",
+#     "name": "1c0163c0-47e6-4577-8991-ea5c82e286e4",
+#     "properties":
+#       {
+#         "rules":
+#           [
+#             {
+#               "id": "Expiration_Admin_Eligibility",
+#               "isExpirationRequired": false,
+#               "maximumDuration": "P365D",
+#               "ruleType": "RoleManagementPolicyExpirationRule",
+#               "target":
+#                 {
+#                   "caller": "Admin",
+#                   "enforcedSettings": [],
+#                   "inheritableSettings": [],
+#                   "level": "Eligibility",
+#                   "operations": ["All"],
+#                   "targetObjects": [],
+#                 },
+#             },
+#             {
+#               "id": "Approval_EndUser_Assignment",
+#               "ruleType": "RoleManagementPolicyApprovalRule",
+#               "setting":
+#                 {
+#                   "approvalMode": "SingleStage",
+#                   "approvalStages":
+#                     [
+#                       {
+#                         "primaryApprovers":
+#                           [{ "id": "<group-id>", "userType": "Group" }],
+#                       },
+#                     ],
+#                   "isApprovalRequired": true,
+#                   "isApprovalRequiredForExtension": false,
+#                   "isRequestorJustificationRequired": true,
+#                 },
+#               "target":
+#                 {
+#                   "caller": "EndUser",
+#                   "enforcedSettings": [],
+#                   "inheritableSettings": [],
+#                   "level": "Assignment",
+#                   "operations": ["All"],
+#                   "targetObjects": [],
+#                 },
+#             },
+#             {
+#               "id": "Notification_Admin_Admin_Eligibility",
+#               "isDefaultRecipientsEnabled": true,
+#               "notificationLevel": "Critical",
+#               "notificationType": "Email",
+#               "recipientType": "Admin",
+#               "ruleType": "RoleManagementPolicyNotificationRule",
+#               "target":
+#                 {
+#                   "caller": "Admin",
+#                   "enforcedSettings": [],
+#                   "inheritableSettings": [],
+#                   "level": "Eligibility",
+#                   "operations": ["All"],
+#                   "targetObjects": [],
+#                 },
+#             },
+#             {
+#               "id": "Notification_Admin_Admin_Assignment",
+#               "isDefaultRecipientsEnabled": true,
+#               "notificationLevel": "Critical",
+#               "notificationType": "Email",
+#               "recipientType": "Admin",
+#               "ruleType": "RoleManagementPolicyNotificationRule",
+#               "target":
+#                 {
+#                   "caller": "Admin",
+#                   "enforcedSettings": [],
+#                   "inheritableSettings": [],
+#                   "level": "Assignment",
+#                   "operations": ["All"],
+#                   "targetObjects": [],
+#                 },
+#             },
+#             {
+#               "id": "Notification_Admin_EndUser_Assignment",
+#               "isDefaultRecipientsEnabled": true,
+#               "notificationLevel": "Critical",
+#               "notificationType": "Email",
+#               "recipientType": "Admin",
+#               "ruleType": "RoleManagementPolicyNotificationRule",
+#               "target":
+#                 {
+#                   "caller": "EndUser",
+#                   "enforcedSettings": [],
+#                   "inheritableSettings": [],
+#                   "level": "Assignment",
+#                   "operations": ["All"],
+#                   "targetObjects": [],
+#                 },
+#             },
+#           ],
+#       },
+#     "type": "Microsoft.Authorization/roleManagementPolicies",
+#   }
