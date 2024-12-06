@@ -87,7 +87,7 @@ def get_traffic_manager(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_traffic_manager_output(name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficManagerResult]:
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
@@ -108,7 +108,7 @@ def get_traffic_manager_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts, typ=GetTrafficManagerResult)
     return __ret__.apply(lambda __response__: GetTrafficManagerResult(
         id=pulumi.get(__response__, 'id'),

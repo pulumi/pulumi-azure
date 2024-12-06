@@ -209,7 +209,7 @@ export interface GetAccountSASResult {
  * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
  */
-export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountSASResult> {
+export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountSASResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getAccountSAS:getAccountSAS", {
         "connectionString": args.connectionString,

@@ -100,7 +100,7 @@ def get_gi_versions(location: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         versions=pulumi.get(__ret__, 'versions'))
 def get_gi_versions_output(location: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGiVersionsResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGiVersionsResult]:
     """
     This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
 
@@ -121,7 +121,7 @@ def get_gi_versions_output(location: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['location'] = location
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getGiVersions:getGiVersions', __args__, opts=opts, typ=GetGiVersionsResult)
     return __ret__.apply(lambda __response__: GetGiVersionsResult(
         id=pulumi.get(__response__, 'id'),

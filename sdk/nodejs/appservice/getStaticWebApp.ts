@@ -81,7 +81,7 @@ export interface GetStaticWebAppResult {
  * });
  * ```
  */
-export function getStaticWebAppOutput(args: GetStaticWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticWebAppResult> {
+export function getStaticWebAppOutput(args: GetStaticWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getStaticWebApp:getStaticWebApp", {
         "name": args.name,

@@ -216,7 +216,7 @@ def get_subnet(name: Optional[str] = None,
 def get_subnet_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       virtual_network_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
 
@@ -241,7 +241,7 @@ def get_subnet_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getSubnet:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
     return __ret__.apply(lambda __response__: GetSubnetResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),

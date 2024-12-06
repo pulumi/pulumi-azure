@@ -113,7 +113,7 @@ export interface GetFlexibleServerResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlexibleServerResult> {
+export function getFlexibleServerOutput(args: GetFlexibleServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlexibleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:postgresql/getFlexibleServer:getFlexibleServer", {
         "name": args.name,

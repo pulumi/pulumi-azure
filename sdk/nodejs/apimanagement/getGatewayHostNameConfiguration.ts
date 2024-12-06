@@ -118,7 +118,7 @@ export interface GetGatewayHostNameConfigurationResult {
  * export const hostName = exampleGetGatewayHostNameConfiguration.then(exampleGetGatewayHostNameConfiguration => exampleGetGatewayHostNameConfiguration.hostName);
  * ```
  */
-export function getGatewayHostNameConfigurationOutput(args: GetGatewayHostNameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostNameConfigurationResult> {
+export function getGatewayHostNameConfigurationOutput(args: GetGatewayHostNameConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayHostNameConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", {
         "apiManagementId": args.apiManagementId,
