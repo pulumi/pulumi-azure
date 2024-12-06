@@ -98,7 +98,7 @@ def get_trigger_schedules(data_factory_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         items=pulumi.get(__ret__, 'items'))
 def get_trigger_schedules_output(data_factory_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerSchedulesResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerSchedulesResult]:
     """
     Use this data source to access information about all existing trigger schedules in Azure Data Factory.
 
@@ -117,7 +117,7 @@ def get_trigger_schedules_output(data_factory_id: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['dataFactoryId'] = data_factory_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:datafactory/getTriggerSchedules:getTriggerSchedules', __args__, opts=opts, typ=GetTriggerSchedulesResult)
     return __ret__.apply(lambda __response__: GetTriggerSchedulesResult(
         data_factory_id=pulumi.get(__response__, 'data_factory_id'),

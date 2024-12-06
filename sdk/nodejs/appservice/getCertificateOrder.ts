@@ -139,7 +139,7 @@ export interface GetCertificateOrderResult {
  * export const certificateOrderId = example.then(example => example.id);
  * ```
  */
-export function getCertificateOrderOutput(args: GetCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateOrderResult> {
+export function getCertificateOrderOutput(args: GetCertificateOrderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getCertificateOrder:getCertificateOrder", {
         "name": args.name,

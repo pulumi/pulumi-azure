@@ -168,7 +168,7 @@ def get_user(api_management_name: Optional[str] = None,
 def get_user_output(api_management_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to access information about an existing API Management User.
 
@@ -181,7 +181,7 @@ def get_user_output(api_management_name: Optional[pulumi.Input[str]] = None,
     __args__['apiManagementName'] = api_management_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userId'] = user_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         api_management_name=pulumi.get(__response__, 'api_management_name'),

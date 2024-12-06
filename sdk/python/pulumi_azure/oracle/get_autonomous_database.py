@@ -825,7 +825,7 @@ def get_autonomous_database(name: Optional[str] = None,
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 def get_autonomous_database_output(name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutonomousDatabaseResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutonomousDatabaseResult]:
     """
     Use this data source to access information about an existing Autonomous Database.
 
@@ -847,7 +847,7 @@ def get_autonomous_database_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getAutonomousDatabase:getAutonomousDatabase', __args__, opts=opts, typ=GetAutonomousDatabaseResult)
     return __ret__.apply(lambda __response__: GetAutonomousDatabaseResult(
         actual_used_data_storage_size_in_tbs=pulumi.get(__response__, 'actual_used_data_storage_size_in_tbs'),
