@@ -91,7 +91,7 @@ export interface GetSharedAccessPolicyResult {
  * });
  * ```
  */
-export function getSharedAccessPolicyOutput(args: GetSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedAccessPolicyResult> {
+export function getSharedAccessPolicyOutput(args: GetSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", {
         "iothubName": args.iothubName,

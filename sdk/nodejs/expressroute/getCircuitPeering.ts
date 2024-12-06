@@ -110,7 +110,7 @@ export interface GetCircuitPeeringResult {
  * });
  * ```
  */
-export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCircuitPeeringResult> {
+export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCircuitPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:expressroute/getCircuitPeering:getCircuitPeering", {
         "expressRouteCircuitName": args.expressRouteCircuitName,
