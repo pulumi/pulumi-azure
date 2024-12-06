@@ -169,7 +169,7 @@ def get_budget_resource_group(name: Optional[str] = None,
         time_periods=pulumi.get(__ret__, 'time_periods'))
 def get_budget_resource_group_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResourceGroupResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResourceGroupResult]:
     """
     Use this data source to access information about an existing Consumption Budget for a specific resource group.
 
@@ -191,7 +191,7 @@ def get_budget_resource_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupId'] = resource_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup', __args__, opts=opts, typ=GetBudgetResourceGroupResult)
     return __ret__.apply(lambda __response__: GetBudgetResourceGroupResult(
         amount=pulumi.get(__response__, 'amount'),
