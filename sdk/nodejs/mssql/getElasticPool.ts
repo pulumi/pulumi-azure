@@ -122,7 +122,7 @@ export interface GetElasticPoolResult {
  * export const elasticpoolId = example.then(example => example.id);
  * ```
  */
-export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
+export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mssql/getElasticPool:getElasticPool", {
         "name": args.name,

@@ -147,7 +147,7 @@ export interface GetQueueResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
+export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:servicebus/getQueue:getQueue", {
         "name": args.name,

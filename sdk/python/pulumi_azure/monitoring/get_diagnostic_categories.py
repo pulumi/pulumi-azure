@@ -125,7 +125,7 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
         metrics=pulumi.get(__ret__, 'metrics'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
 def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticCategoriesResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticCategoriesResult]:
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
 
@@ -145,7 +145,7 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts, typ=GetDiagnosticCategoriesResult)
     return __ret__.apply(lambda __response__: GetDiagnosticCategoriesResult(
         id=pulumi.get(__response__, 'id'),

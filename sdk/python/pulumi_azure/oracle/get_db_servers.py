@@ -114,7 +114,7 @@ def get_db_servers(cloud_exadata_infrastructure_name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 def get_db_servers_output(cloud_exadata_infrastructure_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbServersResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbServersResult]:
     """
     Use this data source to access information about existing DB Servers.
 
@@ -136,7 +136,7 @@ def get_db_servers_output(cloud_exadata_infrastructure_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['cloudExadataInfrastructureName'] = cloud_exadata_infrastructure_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getDbServers:getDbServers', __args__, opts=opts, typ=GetDbServersResult)
     return __ret__.apply(lambda __response__: GetDbServersResult(
         cloud_exadata_infrastructure_name=pulumi.get(__response__, 'cloud_exadata_infrastructure_name'),

@@ -100,7 +100,7 @@ def get_enrollment_account_scope(billing_account_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_enrollment_account_scope_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                         enrollment_account_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnrollmentAccountScopeResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnrollmentAccountScopeResult]:
     """
     Use this data source to access information about an existing Enrollment Account Billing Scope.
 
@@ -122,7 +122,7 @@ def get_enrollment_account_scope_output(billing_account_name: Optional[pulumi.In
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
     __args__['enrollmentAccountName'] = enrollment_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope', __args__, opts=opts, typ=GetEnrollmentAccountScopeResult)
     return __ret__.apply(lambda __response__: GetEnrollmentAccountScopeResult(
         billing_account_name=pulumi.get(__response__, 'billing_account_name'),
