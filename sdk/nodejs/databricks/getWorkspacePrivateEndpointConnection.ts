@@ -81,7 +81,7 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
  * export const databricksWorkspacePrivateEndpointConnectionStatus = example.then(example => example.connections?.[0]?.status);
  * ```
  */
-export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
+export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", {
         "privateEndpointId": args.privateEndpointId,

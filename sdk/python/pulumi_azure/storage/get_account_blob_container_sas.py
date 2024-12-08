@@ -289,7 +289,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
                                           ip_address: Optional[pulumi.Input[Optional[str]]] = None,
                                           permissions: Optional[pulumi.Input[Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict']]] = None,
                                           start: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountBlobContainerSASResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountBlobContainerSASResult]:
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
 
@@ -365,7 +365,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
     __args__['ipAddress'] = ip_address
     __args__['permissions'] = permissions
     __args__['start'] = start
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS', __args__, opts=opts, typ=GetAccountBlobContainerSASResult)
     return __ret__.apply(lambda __response__: GetAccountBlobContainerSASResult(
         cache_control=pulumi.get(__response__, 'cache_control'),

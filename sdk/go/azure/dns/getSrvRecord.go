@@ -77,21 +77,11 @@ type LookupSrvRecordResult struct {
 }
 
 func LookupSrvRecordOutput(ctx *pulumi.Context, args LookupSrvRecordOutputArgs, opts ...pulumi.InvokeOption) LookupSrvRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSrvRecordResultOutput, error) {
 			args := v.(LookupSrvRecordArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSrvRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getSrvRecord:getSrvRecord", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSrvRecordResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSrvRecordResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSrvRecordResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:dns/getSrvRecord:getSrvRecord", args, LookupSrvRecordResultOutput{}, options).(LookupSrvRecordResultOutput), nil
 		}).(LookupSrvRecordResultOutput)
 }
 

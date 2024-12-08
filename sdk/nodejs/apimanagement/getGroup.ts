@@ -93,7 +93,7 @@ export interface GetGroupResult {
  * export const groupType = example.then(example => example.type);
  * ```
  */
-export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:apimanagement/getGroup:getGroup", {
         "apiManagementName": args.apiManagementName,

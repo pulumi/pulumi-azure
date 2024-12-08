@@ -59,7 +59,7 @@ export interface GetProviderResult {
 /**
  * Use this data source to access information about an existing Attestation Provider.
  */
-export function getProviderOutput(args: GetProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderResult> {
+export function getProviderOutput(args: GetProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:attestation/getProvider:getProvider", {
         "name": args.name,

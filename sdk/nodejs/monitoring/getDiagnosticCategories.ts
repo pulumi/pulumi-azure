@@ -79,7 +79,7 @@ export interface GetDiagnosticCategoriesResult {
  * }));
  * ```
  */
-export function getDiagnosticCategoriesOutput(args: GetDiagnosticCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticCategoriesResult> {
+export function getDiagnosticCategoriesOutput(args: GetDiagnosticCategoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticCategoriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {
         "resourceId": args.resourceId,
