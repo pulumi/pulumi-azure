@@ -126,7 +126,7 @@ def get_access_policy(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         secret_permissions=pulumi.get(__ret__, 'secret_permissions'))
 def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
 
@@ -147,7 +147,7 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetAccessPolicyResult(
         certificate_permissions=pulumi.get(__response__, 'certificate_permissions'),

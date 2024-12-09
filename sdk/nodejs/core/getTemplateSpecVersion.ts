@@ -85,7 +85,7 @@ export interface GetTemplateSpecVersionResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
+export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", {
         "name": args.name,
