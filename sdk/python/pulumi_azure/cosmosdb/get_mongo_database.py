@@ -128,7 +128,7 @@ def get_mongo_database(account_name: Optional[str] = None,
 def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDatabaseResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoDatabaseResult]:
     """
     Use this data source to access information about an existing Cosmos DB Mongo Database.
 
@@ -153,7 +153,7 @@ def get_mongo_database_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:cosmosdb/getMongoDatabase:getMongoDatabase', __args__, opts=opts, typ=GetMongoDatabaseResult)
     return __ret__.apply(lambda __response__: GetMongoDatabaseResult(
         account_name=pulumi.get(__response__, 'account_name'),

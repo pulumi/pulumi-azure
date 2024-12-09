@@ -89,7 +89,7 @@ export interface GetDicomServiceResult {
  * export const azurermHealthcareDicomService = example.then(example => example.id);
  * ```
  */
-export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
+export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDicomServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:healthcare/getDicomService:getDicomService", {
         "name": args.name,

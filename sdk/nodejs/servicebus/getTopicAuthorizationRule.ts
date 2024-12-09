@@ -118,7 +118,7 @@ export interface GetTopicAuthorizationRuleResult {
  * export const servicebusAuthorizationRuleId = exampleAzuremServicebusTopicAuthorizationRule.id;
  * ```
  */
-export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
+export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
         "name": args.name,

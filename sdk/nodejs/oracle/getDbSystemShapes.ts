@@ -79,7 +79,7 @@ export interface GetDbSystemShapesResult {
  * }
  * ```
  */
-export function getDbSystemShapesOutput(args: GetDbSystemShapesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbSystemShapesResult> {
+export function getDbSystemShapesOutput(args: GetDbSystemShapesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbSystemShapesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getDbSystemShapes:getDbSystemShapes", {
         "location": args.location,

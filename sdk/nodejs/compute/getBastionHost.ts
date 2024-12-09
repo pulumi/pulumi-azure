@@ -126,7 +126,7 @@ export interface GetBastionHostResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
+export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBastionHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getBastionHost:getBastionHost", {
         "name": args.name,
