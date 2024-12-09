@@ -105,7 +105,7 @@ export interface GetLabResult {
  * export const uniqueIdentifier = example.then(example => example.uniqueIdentifier);
  * ```
  */
-export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:devtest/getLab:getLab", {
         "name": args.name,

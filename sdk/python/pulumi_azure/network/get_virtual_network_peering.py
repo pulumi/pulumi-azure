@@ -193,7 +193,7 @@ def get_virtual_network_peering(name: Optional[str] = None,
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 def get_virtual_network_peering_output(name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
     """
     Use this data source to access information about an existing virtual network peering.
 
@@ -217,7 +217,7 @@ def get_virtual_network_peering_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['virtualNetworkId'] = virtual_network_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering', __args__, opts=opts, typ=GetVirtualNetworkPeeringResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkPeeringResult(
         allow_forwarded_traffic=pulumi.get(__response__, 'allow_forwarded_traffic'),

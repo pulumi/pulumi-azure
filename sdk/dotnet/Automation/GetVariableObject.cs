@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public static Output<GetVariableObjectResult> Invoke(GetVariableObjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableObjectResult>("azure:automation/getVariableObject:getVariableObject", args ?? new GetVariableObjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Object Variable.
+        /// </summary>
+        public static Output<GetVariableObjectResult> Invoke(GetVariableObjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableObjectResult>("azure:automation/getVariableObject:getVariableObject", args ?? new GetVariableObjectInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Dashboard
         /// </summary>
         public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure:dashboard/getGrafana:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Grafana Dashboard.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Dashboard.GetGrafana.Invoke(new()
+        ///     {
+        ///         Name = "example-grafana-dashboard",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getGrafanaResult =&gt; getGrafanaResult.Name),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure:dashboard/getGrafana:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());
     }
 
 

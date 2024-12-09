@@ -70,6 +70,36 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         public static Output<GetSpringCloudAppResult> Invoke(GetSpringCloudAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringCloudAppResult>("azure:appplatform/getSpringCloudApp:getSpringCloudApp", args ?? new GetSpringCloudAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Spring Cloud Application.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppPlatform.GetSpringCloudApp.Invoke(new()
+        ///     {
+        ///         Name = exampleAzurermSpringCloudApp.Name,
+        ///         ResourceGroupName = exampleAzurermSpringCloudApp.ResourceGroupName,
+        ///         ServiceName = exampleAzurermSpringCloudApp.ServiceName,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["springCloudAppId"] = example.Apply(getSpringCloudAppResult =&gt; getSpringCloudAppResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSpringCloudAppResult> Invoke(GetSpringCloudAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpringCloudAppResult>("azure:appplatform/getSpringCloudApp:getSpringCloudApp", args ?? new GetSpringCloudAppInvokeArgs(), options.WithDefaults());
     }
 
 

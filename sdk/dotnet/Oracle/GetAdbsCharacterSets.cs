@@ -66,6 +66,34 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetAdbsCharacterSetsResult> Invoke(GetAdbsCharacterSetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdbsCharacterSetsResult>("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args ?? new GetAdbsCharacterSetsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a list of supported character sets.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetAdbsCharacterSets.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAdbsCharacterSetsResult> Invoke(GetAdbsCharacterSetsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdbsCharacterSetsResult>("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args ?? new GetAdbsCharacterSetsInvokeArgs(), options.WithDefaults());
     }
 
 

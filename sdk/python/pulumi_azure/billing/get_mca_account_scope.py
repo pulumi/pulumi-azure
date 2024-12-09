@@ -115,7 +115,7 @@ def get_mca_account_scope(billing_account_name: Optional[str] = None,
 def get_mca_account_scope_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                  billing_profile_name: Optional[pulumi.Input[str]] = None,
                                  invoice_section_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMcaAccountScopeResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMcaAccountScopeResult]:
     """
     Use this data source to access an ID for your MCA Account billing scope.
 
@@ -140,7 +140,7 @@ def get_mca_account_scope_output(billing_account_name: Optional[pulumi.Input[str
     __args__['billingAccountName'] = billing_account_name
     __args__['billingProfileName'] = billing_profile_name
     __args__['invoiceSectionName'] = invoice_section_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:billing/getMcaAccountScope:getMcaAccountScope', __args__, opts=opts, typ=GetMcaAccountScopeResult)
     return __ret__.apply(lambda __response__: GetMcaAccountScopeResult(
         billing_account_name=pulumi.get(__response__, 'billing_account_name'),

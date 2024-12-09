@@ -113,7 +113,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  * export const eventhubAuthorizationRuleId = example.then(example => example.id);
  * ```
  */
-export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,

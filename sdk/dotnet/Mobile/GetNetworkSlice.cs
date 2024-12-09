@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public static Output<GetNetworkSliceResult> Invoke(GetNetworkSliceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSliceResult>("azure:mobile/getNetworkSlice:getNetworkSlice", args ?? new GetNetworkSliceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a Mobile Network Slice.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-mn",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleGetNetworkSlice = Azure.Mobile.GetNetworkSlice.Invoke(new()
+        ///     {
+        ///         Name = "example-mns",
+        ///         MobileNetworkId = test.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkSliceResult> Invoke(GetNetworkSliceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSliceResult>("azure:mobile/getNetworkSlice:getNetworkSlice", args ?? new GetNetworkSliceInvokeArgs(), options.WithDefaults());
     }
 
 

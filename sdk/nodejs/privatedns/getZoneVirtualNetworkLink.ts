@@ -89,7 +89,7 @@ export interface GetZoneVirtualNetworkLinkResult {
  * export const privateDnsARecordId = example.then(example => example.id);
  * ```
  */
-export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
+export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", {
         "name": args.name,

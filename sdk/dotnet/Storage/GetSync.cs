@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetSyncResult> Invoke(GetSyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Sync.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetSync.Invoke(new()
+        ///     {
+        ///         Name = "existingStorageSyncName",
+        ///         ResourceGroupName = "existingResGroup",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSyncResult =&gt; getSyncResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSyncResult> Invoke(GetSyncInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncInvokeArgs(), options.WithDefaults());
     }
 
 

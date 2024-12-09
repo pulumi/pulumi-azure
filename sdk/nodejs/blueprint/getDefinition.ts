@@ -103,7 +103,7 @@ export interface GetDefinitionResult {
  * }));
  * ```
  */
-export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefinitionResult> {
+export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:blueprint/getDefinition:getDefinition", {
         "name": args.name,

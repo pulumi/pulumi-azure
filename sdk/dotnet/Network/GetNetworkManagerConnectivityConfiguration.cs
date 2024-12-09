@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetNetworkManagerConnectivityConfigurationResult> Invoke(GetNetworkManagerConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerConnectivityConfigurationResult>("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args ?? new GetNetworkManagerConnectivityConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Network Manager Connectivity Configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetNetworkManagerConnectivityConfiguration.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         NetworkManagerId = "TODO",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getNetworkManagerConnectivityConfigurationResult =&gt; getNetworkManagerConnectivityConfigurationResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkManagerConnectivityConfigurationResult> Invoke(GetNetworkManagerConnectivityConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerConnectivityConfigurationResult>("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args ?? new GetNetworkManagerConnectivityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

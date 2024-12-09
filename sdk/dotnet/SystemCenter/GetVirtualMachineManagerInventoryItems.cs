@@ -60,6 +60,31 @@ namespace Pulumi.Azure.SystemCenter
         /// </summary>
         public static Output<GetVirtualMachineManagerInventoryItemsResult> Invoke(GetVirtualMachineManagerInventoryItemsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing System Center Virtual Machine Manager Inventory Items.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.SystemCenter.GetVirtualMachineManagerInventoryItems.Invoke(new()
+        ///     {
+        ///         InventoryType = "Cloud",
+        ///         SystemCenterVirtualMachineManagerServerId = exampleAzurermSystemCenterVirtualMachineManagerServer.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualMachineManagerInventoryItemsResult> Invoke(GetVirtualMachineManagerInventoryItemsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineManagerInventoryItemsResult>("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", args ?? new GetVirtualMachineManagerInventoryItemsInvokeArgs(), options.WithDefaults());
     }
 
 

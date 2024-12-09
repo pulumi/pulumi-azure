@@ -70,6 +70,36 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure:netapp/getBackupVault:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing NetApp Backup Vault.
+        /// 
+        /// ## NetApp Backup Vault Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NetApp.GetBackupVault.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "example-resource-group",
+        ///         AccountName = "example-netappaccount",
+        ///         Name = "example-backupvault",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["backupVaultId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("azure:netapp/getBackupVault:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());
     }
 
 
