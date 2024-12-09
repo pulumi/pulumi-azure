@@ -71,7 +71,7 @@ export interface GetPlacementGroupResult {
  * export const proximityPlacementGroupId = example.then(example => example.id);
  * ```
  */
-export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
+export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlacementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:proximity/getPlacementGroup:getPlacementGroup", {
         "name": args.name,

@@ -113,7 +113,7 @@ def get_virtual_machine_manager_inventory_items(inventory_type: Optional[str] = 
         system_center_virtual_machine_manager_server_id=pulumi.get(__ret__, 'system_center_virtual_machine_manager_server_id'))
 def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[pulumi.Input[str]] = None,
                                                        system_center_virtual_machine_manager_server_id: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineManagerInventoryItemsResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineManagerInventoryItemsResult]:
     """
     Use this data source to access information about existing System Center Virtual Machine Manager Inventory Items.
 
@@ -134,7 +134,7 @@ def get_virtual_machine_manager_inventory_items_output(inventory_type: Optional[
     __args__ = dict()
     __args__['inventoryType'] = inventory_type
     __args__['systemCenterVirtualMachineManagerServerId'] = system_center_virtual_machine_manager_server_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems', __args__, opts=opts, typ=GetVirtualMachineManagerInventoryItemsResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineManagerInventoryItemsResult(
         id=pulumi.get(__response__, 'id'),

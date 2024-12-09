@@ -181,7 +181,7 @@ export interface GetAccountResult {
  * export const cosmosdbAccountEndpoint = example.then(example => example.endpoint);
  * ```
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cosmosdb/getAccount:getAccount", {
         "name": args.name,

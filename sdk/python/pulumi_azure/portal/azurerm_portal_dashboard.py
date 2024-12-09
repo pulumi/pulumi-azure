@@ -157,7 +157,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
                                     display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                     name: Optional[pulumi.Input[Optional[str]]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[Azurerm_portal_dashboardResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[Azurerm_portal_dashboardResult]:
     """
     Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
 
@@ -183,7 +183,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
     __args__['displayName'] = display_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard', __args__, opts=opts, typ=Azurerm_portal_dashboardResult)
     return __ret__.apply(lambda __response__: Azurerm_portal_dashboardResult(
         dashboard_properties=pulumi.get(__response__, 'dashboard_properties'),

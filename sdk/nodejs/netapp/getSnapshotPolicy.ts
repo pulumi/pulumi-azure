@@ -125,7 +125,7 @@ export interface GetSnapshotPolicyResult {
  * export const monthlySchedule = example.then(example => example.monthlySchedules);
  * ```
  */
-export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
+export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", {
         "accountName": args.accountName,
