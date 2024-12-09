@@ -38,7 +38,7 @@ class BackendArgs:
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] url: The URL of the backend host.
+        :param pulumi.Input[str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         :param pulumi.Input['BackendCredentialsArgs'] credentials: A `credentials` block as documented below.
         :param pulumi.Input[str] description: The description of the backend.
         :param pulumi.Input[str] name: The name of the API Management backend. Changing this forces a new resource to be created.
@@ -109,7 +109,7 @@ class BackendArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The URL of the backend host.
+        The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         return pulumi.get(self, "url")
 
@@ -242,7 +242,7 @@ class _BackendState:
         :param pulumi.Input['BackendServiceFabricClusterArgs'] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
         :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as documented below.
-        :param pulumi.Input[str] url: The URL of the backend host.
+        :param pulumi.Input[str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
@@ -405,7 +405,7 @@ class _BackendState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the backend host.
+        The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         return pulumi.get(self, "url")
 
@@ -456,7 +456,7 @@ class Backend(pulumi.CustomResource):
             resource_group_name=example.name,
             api_management_name=example_service.name,
             protocol="http",
-            url="https://backend")
+            url="https://backend.com/api")
         ```
 
         ## Import
@@ -480,7 +480,7 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
         :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']] tls: A `tls` block as documented below.
-        :param pulumi.Input[str] url: The URL of the backend host.
+        :param pulumi.Input[str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         ...
     @overload
@@ -512,7 +512,7 @@ class Backend(pulumi.CustomResource):
             resource_group_name=example.name,
             api_management_name=example_service.name,
             protocol="http",
-            url="https://backend")
+            url="https://backend.com/api")
         ```
 
         ## Import
@@ -619,7 +619,7 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[Union['BackendServiceFabricClusterArgs', 'BackendServiceFabricClusterArgsDict']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
         :param pulumi.Input[Union['BackendTlsArgs', 'BackendTlsArgsDict']] tls: A `tls` block as documented below.
-        :param pulumi.Input[str] url: The URL of the backend host.
+        :param pulumi.Input[str] url: The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -731,7 +731,7 @@ class Backend(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL of the backend host.
+        The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         """
         return pulumi.get(self, "url")
 

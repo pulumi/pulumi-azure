@@ -164,7 +164,7 @@ type Service struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
 	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
@@ -259,7 +259,7 @@ type serviceState struct {
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
 	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount *int `pulumi:"partitionCount"`
@@ -314,7 +314,7 @@ type ServiceState struct {
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
 	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount pulumi.IntPtrInput
@@ -371,7 +371,7 @@ type serviceArgs struct {
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
 	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount *int `pulumi:"partitionCount"`
@@ -419,7 +419,7 @@ type ServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	//
 	// > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 	PartitionCount pulumi.IntPtrInput
@@ -581,7 +581,7 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 //
 // > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
 func (o ServiceOutput) PartitionCount() pulumi.IntPtrOutput {

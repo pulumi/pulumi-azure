@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorOriginGroupHealthProbeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        /// Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
         /// </summary>
         [Input("intervalInSeconds", required: true)]
         public Input<int> IntervalInSeconds { get; set; } = null!;

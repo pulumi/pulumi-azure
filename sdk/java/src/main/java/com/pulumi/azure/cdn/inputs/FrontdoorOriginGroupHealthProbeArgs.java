@@ -18,14 +18,14 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
     public static final FrontdoorOriginGroupHealthProbeArgs Empty = new FrontdoorOriginGroupHealthProbeArgs();
 
     /**
-     * Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+     * Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
      * 
      */
     @Import(name="intervalInSeconds", required=true)
     private Output<Integer> intervalInSeconds;
 
     /**
-     * @return Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+     * @return Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
      * 
      */
     public Output<Integer> intervalInSeconds() {
@@ -109,7 +109,7 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param intervalInSeconds Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+         * @param intervalInSeconds Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param intervalInSeconds Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+         * @param intervalInSeconds Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
          * 
          * @return builder
          * 

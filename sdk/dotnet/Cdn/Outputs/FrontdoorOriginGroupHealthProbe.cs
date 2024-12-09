@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorOriginGroupHealthProbe
     {
         /// <summary>
-        /// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        /// Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
         /// </summary>
         public readonly int IntervalInSeconds;
         /// <summary>

@@ -13,6 +13,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     [OutputType]
     public sealed class GetStandardIdentityResult
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
         [OutputConstructor]
         private GetStandardIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

@@ -8,6 +8,7 @@ import com.pulumi.azure.cognitive.inputs.DeploymentSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +32,21 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> cognitiveAccountId() {
         return this.cognitiveAccountId;
+    }
+
+    /**
+     * Whether dynamic throttling is enabled.
+     * 
+     */
+    @Import(name="dynamicThrottlingEnabled")
+    private @Nullable Output<Boolean> dynamicThrottlingEnabled;
+
+    /**
+     * @return Whether dynamic throttling is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> dynamicThrottlingEnabled() {
+        return Optional.ofNullable(this.dynamicThrottlingEnabled);
     }
 
     /**
@@ -112,6 +128,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
     private DeploymentArgs(DeploymentArgs $) {
         this.cognitiveAccountId = $.cognitiveAccountId;
+        this.dynamicThrottlingEnabled = $.dynamicThrottlingEnabled;
         this.model = $.model;
         this.name = $.name;
         this.raiPolicyName = $.raiPolicyName;
@@ -156,6 +173,27 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cognitiveAccountId(String cognitiveAccountId) {
             return cognitiveAccountId(Output.of(cognitiveAccountId));
+        }
+
+        /**
+         * @param dynamicThrottlingEnabled Whether dynamic throttling is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicThrottlingEnabled(@Nullable Output<Boolean> dynamicThrottlingEnabled) {
+            $.dynamicThrottlingEnabled = dynamicThrottlingEnabled;
+            return this;
+        }
+
+        /**
+         * @param dynamicThrottlingEnabled Whether dynamic throttling is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicThrottlingEnabled(Boolean dynamicThrottlingEnabled) {
+            return dynamicThrottlingEnabled(Output.of(dynamicThrottlingEnabled));
         }
 
         /**

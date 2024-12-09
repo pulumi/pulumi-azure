@@ -24,6 +24,7 @@ class DeploymentArgs:
                  cognitive_account_id: pulumi.Input[str],
                  model: pulumi.Input['DeploymentModelArgs'],
                  sku: pulumi.Input['DeploymentSkuArgs'],
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
                  version_upgrade_option: Optional[pulumi.Input[str]] = None):
@@ -32,6 +33,7 @@ class DeploymentArgs:
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
@@ -39,6 +41,8 @@ class DeploymentArgs:
         pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
         pulumi.set(__self__, "model", model)
         pulumi.set(__self__, "sku", sku)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rai_policy_name is not None:
@@ -83,6 +87,18 @@ class DeploymentArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether dynamic throttling is enabled.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @dynamic_throttling_enabled.setter
+    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_throttling_enabled", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -123,6 +139,7 @@ class DeploymentArgs:
 class _DeploymentState:
     def __init__(__self__, *,
                  cognitive_account_id: Optional[pulumi.Input[str]] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
@@ -131,6 +148,7 @@ class _DeploymentState:
         """
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
         :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
@@ -139,6 +157,8 @@ class _DeploymentState:
         """
         if cognitive_account_id is not None:
             pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         if model is not None:
             pulumi.set(__self__, "model", model)
         if name is not None:
@@ -161,6 +181,18 @@ class _DeploymentState:
     @cognitive_account_id.setter
     def cognitive_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cognitive_account_id", value)
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether dynamic throttling is enabled.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @dynamic_throttling_enabled.setter
+    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_throttling_enabled", value)
 
     @property
     @pulumi.getter
@@ -229,6 +261,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cognitive_account_id: Optional[pulumi.Input[str]] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  model: Optional[pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
@@ -277,6 +310,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
         :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
@@ -344,6 +378,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cognitive_account_id: Optional[pulumi.Input[str]] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
                  model: Optional[pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
@@ -361,6 +396,7 @@ class Deployment(pulumi.CustomResource):
             if cognitive_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_account_id'")
             __props__.__dict__["cognitive_account_id"] = cognitive_account_id
+            __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
             if model is None and not opts.urn:
                 raise TypeError("Missing required property 'model'")
             __props__.__dict__["model"] = model
@@ -381,6 +417,7 @@ class Deployment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+            dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
             model: Optional[pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rai_policy_name: Optional[pulumi.Input[str]] = None,
@@ -394,6 +431,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
         :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
@@ -405,6 +443,7 @@ class Deployment(pulumi.CustomResource):
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
         __props__.__dict__["cognitive_account_id"] = cognitive_account_id
+        __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
         __props__.__dict__["model"] = model
         __props__.__dict__["name"] = name
         __props__.__dict__["rai_policy_name"] = rai_policy_name
@@ -419,6 +458,14 @@ class Deployment(pulumi.CustomResource):
         The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether dynamic throttling is enabled.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
 
     @property
     @pulumi.getter

@@ -84,7 +84,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly apiManagementId!: pulumi.Output<string>;
     /**
-     * The XML Content for this Policy as a string.
+     * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
      */
     public readonly xmlContent!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export interface PolicyState {
      */
     apiManagementId?: pulumi.Input<string>;
     /**
-     * The XML Content for this Policy as a string.
+     * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
      */
     xmlContent?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface PolicyArgs {
      */
     apiManagementId: pulumi.Input<string>;
     /**
-     * The XML Content for this Policy as a string.
+     * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
      */
     xmlContent?: pulumi.Input<string>;
     /**

@@ -74,6 +74,12 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> CognitiveAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether dynamic throttling is enabled.
+        /// </summary>
+        [Output("dynamicThrottlingEnabled")]
+        public Output<bool?> DynamicThrottlingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("model")]
@@ -156,6 +162,12 @@ namespace Pulumi.Azure.Cognitive
         public Input<string> CognitiveAccountId { get; set; } = null!;
 
         /// <summary>
+        /// Whether dynamic throttling is enabled.
+        /// </summary>
+        [Input("dynamicThrottlingEnabled")]
+        public Input<bool>? DynamicThrottlingEnabled { get; set; }
+
+        /// <summary>
         /// A `model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("model", required: true)]
@@ -198,6 +210,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("cognitiveAccountId")]
         public Input<string>? CognitiveAccountId { get; set; }
+
+        /// <summary>
+        /// Whether dynamic throttling is enabled.
+        /// </summary>
+        [Input("dynamicThrottlingEnabled")]
+        public Input<bool>? DynamicThrottlingEnabled { get; set; }
 
         /// <summary>
         /// A `model` block as defined below. Changing this forces a new resource to be created.

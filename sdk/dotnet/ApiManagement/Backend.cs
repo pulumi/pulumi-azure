@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,
     ///         Protocol = "http",
-    ///         Url = "https://backend",
+    ///         Url = "https://backend.com/api",
     ///     });
     /// 
     /// });
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.BackendTls?> Tls { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the backend host.
+        /// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.BackendTlsArgs>? Tls { get; set; }
 
         /// <summary>
-        /// The URL of the backend host.
+        /// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.BackendTlsGetArgs>? Tls { get; set; }
 
         /// <summary>
-        /// The URL of the backend host.
+        /// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

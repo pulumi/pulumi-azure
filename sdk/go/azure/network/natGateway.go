@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
-//				Name:                 pulumi.String("nat-Gateway"),
+//				Name:                 pulumi.String("nat-gateway"),
 //				Location:             example.Location,
 //				ResourceGroupName:    example.Name,
 //				SkuName:              pulumi.String("Standard"),

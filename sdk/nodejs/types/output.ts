@@ -22466,6 +22466,8 @@ export namespace cdn {
         protocolType: string;
         /**
          * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+         *
+         * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
         tlsVersion?: string;
     }
@@ -22477,6 +22479,8 @@ export namespace cdn {
         keyVaultSecretId: string;
         /**
          * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+         *
+         * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
         tlsVersion?: string;
     }
@@ -23278,7 +23282,7 @@ export namespace cdn {
 
     export interface FrontdoorOriginGroupHealthProbe {
         /**
-         * Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+         * Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
          */
         intervalInSeconds: number;
         /**
@@ -46551,6 +46555,7 @@ export namespace logicapps {
     }
 
     export interface GetStandardIdentity {
+        identityIds: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
          */

@@ -19,6 +19,8 @@ type EndpointCustomDomainCdnManagedHttps struct {
 	// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
 	ProtocolType string `pulumi:"protocolType"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	TlsVersion *string `pulumi:"tlsVersion"`
 }
 
@@ -39,6 +41,8 @@ type EndpointCustomDomainCdnManagedHttpsArgs struct {
 	// The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
 	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
 }
 
@@ -130,6 +134,8 @@ func (o EndpointCustomDomainCdnManagedHttpsOutput) ProtocolType() pulumi.StringO
 }
 
 // The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o EndpointCustomDomainCdnManagedHttpsOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointCustomDomainCdnManagedHttps) *string { return v.TlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -179,6 +185,8 @@ func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) ProtocolType() pulumi.Stri
 }
 
 // The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainCdnManagedHttps) *string {
 		if v == nil {
@@ -192,6 +200,8 @@ type EndpointCustomDomainUserManagedHttps struct {
 	// The ID of the Key Vault Secret that contains the HTTPS certificate.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	TlsVersion *string `pulumi:"tlsVersion"`
 }
 
@@ -210,6 +220,8 @@ type EndpointCustomDomainUserManagedHttpsArgs struct {
 	// The ID of the Key Vault Secret that contains the HTTPS certificate.
 	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
 }
 
@@ -296,6 +308,8 @@ func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultSecretId() pulumi.St
 }
 
 // The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o EndpointCustomDomainUserManagedHttpsOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.TlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -335,6 +349,8 @@ func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultSecretId() pulumi
 }
 
 // The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o EndpointCustomDomainUserManagedHttpsPtrOutput) TlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
 		if v == nil {
@@ -6200,7 +6216,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Inde
 }
 
 type FrontdoorOriginGroupHealthProbe struct {
-	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+	// Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
 	IntervalInSeconds int `pulumi:"intervalInSeconds"`
 	// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
 	//
@@ -6224,7 +6240,7 @@ type FrontdoorOriginGroupHealthProbeInput interface {
 }
 
 type FrontdoorOriginGroupHealthProbeArgs struct {
-	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+	// Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
 	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
 	// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
 	//
@@ -6313,7 +6329,7 @@ func (o FrontdoorOriginGroupHealthProbeOutput) ToFrontdoorOriginGroupHealthProbe
 	}).(FrontdoorOriginGroupHealthProbePtrOutput)
 }
 
-// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+// Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
 func (o FrontdoorOriginGroupHealthProbeOutput) IntervalInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v FrontdoorOriginGroupHealthProbe) int { return v.IntervalInSeconds }).(pulumi.IntOutput)
 }
@@ -6359,7 +6375,7 @@ func (o FrontdoorOriginGroupHealthProbePtrOutput) Elem() FrontdoorOriginGroupHea
 	}).(FrontdoorOriginGroupHealthProbeOutput)
 }
 
-// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+// Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
 func (o FrontdoorOriginGroupHealthProbePtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) *int {
 		if v == nil {
