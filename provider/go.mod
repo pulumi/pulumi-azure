@@ -10,8 +10,8 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.1.3
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.96.0
-	github.com/pulumi/pulumi/sdk/v3 v3.140.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.96.1-0.20241209153914-c1171a037064
+	github.com/pulumi/pulumi/sdk/v3 v3.142.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -200,9 +200,9 @@ require (
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.10.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
-	github.com/pulumi/pulumi-java/pkg v0.17.0 // indirect
-	github.com/pulumi/pulumi-yaml v1.11.2 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.140.0 // indirect
+	github.com/pulumi/pulumi-java/pkg v0.18.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.12.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.142.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
