@@ -96,7 +96,7 @@ export interface GetDnsZoneResult {
  * export const privateDnsZoneId = example.then(example => example.id);
  * ```
  */
-export function getDnsZoneOutput(args: GetDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsZoneResult> {
+export function getDnsZoneOutput(args: GetDnsZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getDnsZone:getDnsZone", {
         "name": args.name,

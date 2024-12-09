@@ -163,7 +163,7 @@ export interface GetAlertRuleAnomalyResult {
  * export const id = example.apply(example => example.id);
  * ```
  */
-export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleAnomalyResult> {
+export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleAnomalyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", {
         "displayName": args.displayName,

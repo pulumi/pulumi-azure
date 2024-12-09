@@ -101,7 +101,7 @@ export interface GetPublicIpPrefixResult {
  * export const publicIpPrefix = example.then(example => example.ipPrefix);
  * ```
  */
-export function getPublicIpPrefixOutput(args: GetPublicIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpPrefixResult> {
+export function getPublicIpPrefixOutput(args: GetPublicIpPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIpPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getPublicIpPrefix:getPublicIpPrefix", {
         "name": args.name,

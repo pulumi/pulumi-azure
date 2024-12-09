@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetVirtualHubRouteTableResult> Invoke(GetVirtualHubRouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing Virtual Hub Route Table.
+        /// 
+        /// ## Virtual Hub Route Table Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetVirtualHubRouteTable.Invoke(new()
+        ///     {
+        ///         Name = "example-hub-route-table",
+        ///         ResourceGroupName = "example-resources",
+        ///         VirtualHubName = "example-hub-name",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualHubRouteTableId"] = example.Apply(getVirtualHubRouteTableResult =&gt; getVirtualHubRouteTableResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualHubRouteTableResult> Invoke(GetVirtualHubRouteTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

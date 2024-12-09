@@ -68,6 +68,35 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public static Output<GetTriggerScheduleResult> Invoke(GetTriggerScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerScheduleResult>("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args ?? new GetTriggerScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about a trigger schedule in Azure Data Factory.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataFactory.GetTriggerSchedule.Invoke(new()
+        ///     {
+        ///         Name = "example_trigger",
+        ///         DataFactoryId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTriggerScheduleResult =&gt; getTriggerScheduleResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTriggerScheduleResult> Invoke(GetTriggerScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerScheduleResult>("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args ?? new GetTriggerScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

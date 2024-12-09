@@ -66,6 +66,34 @@ namespace Pulumi.Azure.Dns
         /// </summary>
         public static Output<GetAAAARecordResult> Invoke(GetAAAARecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAAAARecordResult>("azure:dns/getAAAARecord:getAAAARecord", args ?? new GetAAAARecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Dns.GetAAAARecord.Invoke(new()
+        ///     {
+        ///         Name = "test",
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dnsAaaaRecordId"] = example.Apply(getAAAARecordResult =&gt; getAAAARecordResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAAAARecordResult> Invoke(GetAAAARecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAAAARecordResult>("azure:dns/getAAAARecord:getAAAARecord", args ?? new GetAAAARecordInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -82,6 +82,42 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public static Output<GetBackendAddressPoolResult> Invoke(GetBackendAddressPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Load Balancer's Backend Address Pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
+        ///     {
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     var exampleGetBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+        ///     {
+        ///         Name = "first",
+        ///         LoadbalancerId = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["backendAddressPoolId"] = exampleGetBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+        ///         ["backendIpConfigurationIds"] = beap.BackendIpConfigurations.Select(__item =&gt; __item.Id).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBackendAddressPoolResult> Invoke(GetBackendAddressPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? new GetBackendAddressPoolInvokeArgs(), options.WithDefaults());
     }
 
 

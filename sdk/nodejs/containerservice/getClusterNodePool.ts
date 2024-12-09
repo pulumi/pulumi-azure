@@ -171,7 +171,7 @@ export interface GetClusterNodePoolResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterNodePoolResult> {
+export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterNodePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerservice/getClusterNodePool:getClusterNodePool", {
         "kubernetesClusterName": args.kubernetesClusterName,

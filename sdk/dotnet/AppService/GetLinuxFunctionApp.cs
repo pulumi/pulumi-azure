@@ -68,6 +68,35 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Output<GetLinuxFunctionAppResult> Invoke(GetLinuxFunctionAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Linux Function App.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetLinuxFunctionApp.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getLinuxFunctionAppResult =&gt; getLinuxFunctionAppResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLinuxFunctionAppResult> Invoke(GetLinuxFunctionAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppInvokeArgs(), options.WithDefaults());
     }
 
 

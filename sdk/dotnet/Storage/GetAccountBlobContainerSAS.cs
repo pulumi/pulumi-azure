@@ -152,6 +152,77 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetAccountBlobContainerSASResult> Invoke(GetAccountBlobContainerSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
+        /// 
+        /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var rg = new Azure.Core.ResourceGroup("rg", new()
+        ///     {
+        ///         Name = "resourceGroupName",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var storage = new Azure.Storage.Account("storage", new()
+        ///     {
+        ///         Name = "storageaccountname",
+        ///         ResourceGroupName = rg.Name,
+        ///         Location = rg.Location,
+        ///         AccountTier = "Standard",
+        ///         AccountReplicationType = "LRS",
+        ///     });
+        /// 
+        ///     var container = new Azure.Storage.Container("container", new()
+        ///     {
+        ///         Name = "mycontainer",
+        ///         StorageAccountName = storage.Name,
+        ///         ContainerAccessType = "private",
+        ///     });
+        /// 
+        ///     var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new()
+        ///     {
+        ///         ConnectionString = storage.PrimaryConnectionString,
+        ///         ContainerName = container.Name,
+        ///         HttpsOnly = true,
+        ///         IpAddress = "168.1.5.65",
+        ///         Start = "2018-03-21",
+        ///         Expiry = "2018-03-21",
+        ///         Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
+        ///         {
+        ///             Read = true,
+        ///             Add = true,
+        ///             Create = false,
+        ///             Write = false,
+        ///             Delete = true,
+        ///             List = true,
+        ///         },
+        ///         CacheControl = "max-age=5",
+        ///         ContentDisposition = "inline",
+        ///         ContentEncoding = "deflate",
+        ///         ContentLanguage = "en-US",
+        ///         ContentType = "application/json",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sasUrlQueryString"] = example.Apply(getAccountBlobContainerSASResult =&gt; getAccountBlobContainerSASResult.Sas),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAccountBlobContainerSASResult> Invoke(GetAccountBlobContainerSASInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASInvokeArgs(), options.WithDefaults());
     }
 
 

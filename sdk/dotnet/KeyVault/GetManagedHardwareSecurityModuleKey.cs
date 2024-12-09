@@ -74,6 +74,38 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleKeyResult> Invoke(GetManagedHardwareSecurityModuleKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleKeyResult>("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args ?? new GetManagedHardwareSecurityModuleKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Managed Hardware Security Module Key.
+        /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetManagedHardwareSecurityModuleKey.Invoke(new()
+        ///     {
+        ///         ManagedHsmId = exampleAzurermKeyVaultManagedHardwareSecurityModule.Id,
+        ///         Name = exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.Name,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["hsm-key-vesrion"] = example.Apply(getManagedHardwareSecurityModuleKeyResult =&gt; getManagedHardwareSecurityModuleKeyResult.Version),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetManagedHardwareSecurityModuleKeyResult> Invoke(GetManagedHardwareSecurityModuleKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleKeyResult>("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args ?? new GetManagedHardwareSecurityModuleKeyInvokeArgs(), options.WithDefaults());
     }
 
 

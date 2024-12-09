@@ -75,7 +75,7 @@ export interface GetResolverVirtualNetworkLinkResult {
  * });
  * ```
  */
-export function getResolverVirtualNetworkLinkOutput(args: GetResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverVirtualNetworkLinkResult> {
+export function getResolverVirtualNetworkLinkOutput(args: GetResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", {
         "dnsForwardingRulesetId": args.dnsForwardingRulesetId,
