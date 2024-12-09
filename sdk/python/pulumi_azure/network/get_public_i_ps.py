@@ -141,7 +141,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
                            attachment_status: Optional[pulumi.Input[Optional[str]]] = None,
                            name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIPsResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIPsResult]:
     """
     Use this data source to access information about a set of existing Public IP Addresses.
 
@@ -166,7 +166,7 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
     __args__['attachmentStatus'] = attachment_status
     __args__['namePrefix'] = name_prefix
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts, typ=GetPublicIPsResult)
     return __ret__.apply(lambda __response__: GetPublicIPsResult(
         allocation_type=pulumi.get(__response__, 'allocation_type'),

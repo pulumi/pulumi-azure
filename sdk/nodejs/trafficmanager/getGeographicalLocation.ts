@@ -68,7 +68,7 @@ export interface GetGeographicalLocationResult {
  * ```
  */
 /** @deprecated azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager */
-export function getGeographicalLocationOutput(args: GetGeographicalLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeographicalLocationResult> {
+export function getGeographicalLocationOutput(args: GetGeographicalLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGeographicalLocationResult> {
     pulumi.log.warn("getGeographicalLocation is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", {

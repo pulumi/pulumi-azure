@@ -85,7 +85,7 @@ export interface GetRegistryTokenResult {
  * export const scopeMapId = example.then(example => example.scopeMapId);
  * ```
  */
-export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryTokenResult> {
+export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerservice/getRegistryToken:getRegistryToken", {
         "containerRegistryName": args.containerRegistryName,

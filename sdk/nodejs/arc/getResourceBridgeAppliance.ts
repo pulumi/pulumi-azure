@@ -95,7 +95,7 @@ export interface GetResourceBridgeApplianceResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getResourceBridgeApplianceOutput(args: GetResourceBridgeApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceBridgeApplianceResult> {
+export function getResourceBridgeApplianceOutput(args: GetResourceBridgeApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceBridgeApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", {
         "name": args.name,
