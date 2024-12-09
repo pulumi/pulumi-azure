@@ -176,7 +176,7 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: O
                                                   namespace_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                   namespace_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                   resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
     """
     Use this data source to access information about an existing resource.
     """
@@ -186,7 +186,7 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: O
     __args__['namespaceId'] = namespace_id
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult)
     return __ret__.apply(lambda __response__: GetNamespaceDisasterRecoveryConfigResult(
         alias_authorization_rule_id=pulumi.get(__response__, 'alias_authorization_rule_id'),

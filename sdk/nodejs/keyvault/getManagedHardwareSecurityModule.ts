@@ -101,7 +101,7 @@ export interface GetManagedHardwareSecurityModuleResult {
  * export const hsmUri = example.then(example => example.hsmUri);
  * ```
  */
-export function getManagedHardwareSecurityModuleOutput(args: GetManagedHardwareSecurityModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHardwareSecurityModuleResult> {
+export function getManagedHardwareSecurityModuleOutput(args: GetManagedHardwareSecurityModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHardwareSecurityModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", {
         "name": args.name,

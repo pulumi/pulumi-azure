@@ -216,7 +216,7 @@ def get_managed_hardware_security_module_key(managed_hsm_id: Optional[str] = Non
         versioned_id=pulumi.get(__ret__, 'versioned_id'))
 def get_managed_hardware_security_module_key_output(managed_hsm_id: Optional[pulumi.Input[str]] = None,
                                                     name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleKeyResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleKeyResult]:
     """
     Use this data source to access information about an existing Managed Hardware Security Module Key.
 
@@ -243,7 +243,7 @@ def get_managed_hardware_security_module_key_output(managed_hsm_id: Optional[pul
     __args__ = dict()
     __args__['managedHsmId'] = managed_hsm_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey', __args__, opts=opts, typ=GetManagedHardwareSecurityModuleKeyResult)
     return __ret__.apply(lambda __response__: GetManagedHardwareSecurityModuleKeyResult(
         curve=pulumi.get(__response__, 'curve'),

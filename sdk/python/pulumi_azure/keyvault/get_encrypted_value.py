@@ -132,7 +132,7 @@ def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
                                encrypted_data: Optional[pulumi.Input[Optional[str]]] = None,
                                key_vault_key_id: Optional[pulumi.Input[str]] = None,
                                plain_text_value: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptedValueResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptedValueResult]:
     """
     Encrypts or Decrypts a value using a Key Vault Key.
 
@@ -149,7 +149,7 @@ def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
     __args__['encryptedData'] = encrypted_data
     __args__['keyVaultKeyId'] = key_vault_key_id
     __args__['plainTextValue'] = plain_text_value
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getEncryptedValue:getEncryptedValue', __args__, opts=opts, typ=GetEncryptedValueResult)
     return __ret__.apply(lambda __response__: GetEncryptedValueResult(
         algorithm=pulumi.get(__response__, 'algorithm'),

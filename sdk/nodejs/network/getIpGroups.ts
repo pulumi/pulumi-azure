@@ -79,7 +79,7 @@ export interface GetIpGroupsResult {
  * export const ids = example.then(example => example.ids);
  * ```
  */
-export function getIpGroupsOutput(args: GetIpGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupsResult> {
+export function getIpGroupsOutput(args: GetIpGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getIpGroups:getIpGroups", {
         "name": args.name,

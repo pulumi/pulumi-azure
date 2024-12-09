@@ -99,7 +99,7 @@ export interface GetScheduledQueryRulesLogResult {
  * export const queryRuleId = example.then(example => example.id);
  * ```
  */
-export function getScheduledQueryRulesLogOutput(args: GetScheduledQueryRulesLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesLogResult> {
+export function getScheduledQueryRulesLogOutput(args: GetScheduledQueryRulesLogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRulesLogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", {
         "name": args.name,
