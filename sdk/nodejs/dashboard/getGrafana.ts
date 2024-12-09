@@ -129,7 +129,7 @@ export interface GetGrafanaResult {
  * export const name = example.then(example => example.name);
  * ```
  */
-export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
+export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrafanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dashboard/getGrafana:getGrafana", {
         "identity": args.identity,

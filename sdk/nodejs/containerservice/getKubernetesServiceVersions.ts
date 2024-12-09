@@ -87,7 +87,7 @@ export interface GetKubernetesServiceVersionsResult {
  * export const latestVersion = current.then(current => current.latestVersion);
  * ```
  */
-export function getKubernetesServiceVersionsOutput(args: GetKubernetesServiceVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesServiceVersionsResult> {
+export function getKubernetesServiceVersionsOutput(args: GetKubernetesServiceVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesServiceVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", {
         "includePreview": args.includePreview,

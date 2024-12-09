@@ -90,7 +90,7 @@ export interface GetDpsResult {
  * });
  * ```
  */
-export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsResult> {
+export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDpsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:iot/getDps:getDps", {
         "name": args.name,
