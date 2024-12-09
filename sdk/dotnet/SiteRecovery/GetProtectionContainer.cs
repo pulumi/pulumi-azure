@@ -64,6 +64,33 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing site recovery services protection container.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var container = Azure.SiteRecovery.GetProtectionContainer.Invoke(new()
+        ///     {
+        ///         Name = "primary-container",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///         RecoveryFabricName = "primary-fabric",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
     }
 
 

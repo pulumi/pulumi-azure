@@ -68,6 +68,35 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Key Vault Key.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.KeyVault.GetKey.Invoke(new()
+        ///     {
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = existing.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["keyType"] = example.Apply(getKeyResult =&gt; getKeyResult.KeyType),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -89,7 +89,7 @@ export interface GetStringVariableResult {
  * export const variableId = example.then(example => example.id);
  * ```
  */
-export function getStringVariableOutput(args: GetStringVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStringVariableResult> {
+export function getStringVariableOutput(args: GetStringVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStringVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:automation/getStringVariable:getStringVariable", {
         "automationAccountName": args.automationAccountName,

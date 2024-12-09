@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Marketplace
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing Marketplace Agreement.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var barracuda = Azure.Marketplace.GetAgreement.Invoke(new()
+        ///     {
+        ///         Publisher = "barracudanetworks",
+        ///         Offer = "waf",
+        ///         Plan = "hourly",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermMarketplaceAgreementId"] = id,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
     }
 
 

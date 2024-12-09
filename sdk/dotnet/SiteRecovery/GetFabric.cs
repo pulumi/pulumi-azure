@@ -62,6 +62,32 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Site Recovery Replication Fabric.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var fabric = Azure.SiteRecovery.GetFabric.Invoke(new()
+        ///     {
+        ///         Name = "primary-fabric",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure:siterecovery/getFabric:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());
     }
 
 

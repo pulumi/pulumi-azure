@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Maintenance
         /// </summary>
         public static Output<GetPublicConfigurationsResult> Invoke(GetPublicConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Public Maintenance Configurations.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var existing = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///         Scope = "SQLManagedInstance",
+        ///         RecurEvery = "Monday-Thursday",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = existing.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPublicConfigurationsResult> Invoke(GetPublicConfigurationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

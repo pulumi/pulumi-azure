@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetDbServersResult> Invoke(GetDbServersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbServersResult>("azure:oracle/getDbServers:getDbServers", args ?? new GetDbServersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing DB Servers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetDbServers.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "existing",
+        ///         CloudExadataInfrastructureName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDbServersResult =&gt; getDbServersResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDbServersResult> Invoke(GetDbServersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDbServersResult>("azure:oracle/getDbServers:getDbServers", args ?? new GetDbServersInvokeArgs(), options.WithDefaults());
     }
 
 

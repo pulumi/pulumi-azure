@@ -102,7 +102,7 @@ def get_alert_rule(log_analytics_workspace_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                           name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleResult]:
     """
     Use this data source to access information about an existing Sentinel Alert Rule.
 
@@ -126,7 +126,7 @@ def get_alert_rule_output(log_analytics_workspace_id: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['logAnalyticsWorkspaceId'] = log_analytics_workspace_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:sentinel/getAlertRule:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult)
     return __ret__.apply(lambda __response__: GetAlertRuleResult(
         id=pulumi.get(__response__, 'id'),

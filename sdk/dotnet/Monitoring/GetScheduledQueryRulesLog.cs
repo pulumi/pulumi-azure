@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public static Output<GetScheduledQueryRulesLogResult> Invoke(GetScheduledQueryRulesLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Monitoring.GetScheduledQueryRulesLog.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "example-rg",
+        ///         Name = "tfex-queryrule",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["queryRuleId"] = example.Apply(getScheduledQueryRulesLogResult =&gt; getScheduledQueryRulesLogResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetScheduledQueryRulesLogResult> Invoke(GetScheduledQueryRulesLogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());
     }
 
 

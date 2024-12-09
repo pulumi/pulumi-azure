@@ -102,7 +102,7 @@ def get_resource_group_template_deployment(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
 def get_resource_group_template_deployment_output(name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupTemplateDeploymentResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGroupTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Resource Group Template Deployment.
 
@@ -113,7 +113,7 @@ def get_resource_group_template_deployment_output(name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment', __args__, opts=opts, typ=GetResourceGroupTemplateDeploymentResult)
     return __ret__.apply(lambda __response__: GetResourceGroupTemplateDeploymentResult(
         id=pulumi.get(__response__, 'id'),
