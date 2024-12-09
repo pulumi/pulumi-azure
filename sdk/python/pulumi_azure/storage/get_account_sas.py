@@ -258,7 +258,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
                            services: Optional[pulumi.Input[Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict']]] = None,
                            signed_version: Optional[pulumi.Input[Optional[str]]] = None,
                            start: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountSASResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountSASResult]:
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
 
@@ -339,7 +339,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
     __args__['services'] = services
     __args__['signedVersion'] = signed_version
     __args__['start'] = start
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts, typ=GetAccountSASResult)
     return __ret__.apply(lambda __response__: GetAccountSASResult(
         connection_string=pulumi.get(__response__, 'connection_string'),

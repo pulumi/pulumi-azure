@@ -455,7 +455,7 @@ def get(name: Optional[str] = None,
         vm_uuid=pulumi.get(__ret__, 'vm_uuid'))
 def get_output(name: Optional[pulumi.Input[str]] = None,
                resource_group_name: Optional[pulumi.Input[str]] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResult]:
+               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResult]:
     """
     Use this data source to access information about an existing Azure Arc machine.
 
@@ -477,7 +477,7 @@ def get_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:arcmachine/get:get', __args__, opts=opts, typ=GetResult)
     return __ret__.apply(lambda __response__: GetResult(
         active_directory_fqdn=pulumi.get(__response__, 'active_directory_fqdn'),

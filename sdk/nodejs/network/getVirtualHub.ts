@@ -97,7 +97,7 @@ export interface GetVirtualHubResult {
  * export const virtualHubId = example.then(example => example.id);
  * ```
  */
-export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
+export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVirtualHub:getVirtualHub", {
         "name": args.name,

@@ -165,7 +165,7 @@ def get_dataset_data_lake_gen2(name: Optional[str] = None,
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[str]] = None,
                                       share_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetDataLakeGen2Result]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetDataLakeGen2Result]:
     """
     Use this data source to access information about an existing Data Share Data Lake Gen2 Dataset.
 
@@ -187,7 +187,7 @@ def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['shareId'] = share_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2', __args__, opts=opts, typ=GetDatasetDataLakeGen2Result)
     return __ret__.apply(lambda __response__: GetDatasetDataLakeGen2Result(
         display_name=pulumi.get(__response__, 'display_name'),

@@ -85,7 +85,7 @@ export interface GetDedicatedHostResult {
  * export const dedicatedHostId = example.then(example => example.id);
  * ```
  */
-export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
+export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getDedicatedHost:getDedicatedHost", {
         "dedicatedHostGroupName": args.dedicatedHostGroupName,

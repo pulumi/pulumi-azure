@@ -569,7 +569,7 @@ def get_linux_web_app(name: Optional[str] = None,
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
 def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinuxWebAppResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinuxWebAppResult]:
     """
     Use this data source to access information about an existing Linux Web App.
 
@@ -591,7 +591,7 @@ def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appservice/getLinuxWebApp:getLinuxWebApp', __args__, opts=opts, typ=GetLinuxWebAppResult)
     return __ret__.apply(lambda __response__: GetLinuxWebAppResult(
         app_metadata=pulumi.get(__response__, 'app_metadata'),

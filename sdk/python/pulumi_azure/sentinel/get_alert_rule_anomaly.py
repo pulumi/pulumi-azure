@@ -310,7 +310,7 @@ def get_alert_rule_anomaly(display_name: Optional[str] = None,
 def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
                                   log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleAnomalyResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleAnomalyResult]:
     """
     Use this data source to access information about an existing Anomaly Alert Rule.
 
@@ -347,7 +347,7 @@ def get_alert_rule_anomaly_output(display_name: Optional[pulumi.Input[Optional[s
     __args__['displayName'] = display_name
     __args__['logAnalyticsWorkspaceId'] = log_analytics_workspace_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly', __args__, opts=opts, typ=GetAlertRuleAnomalyResult)
     return __ret__.apply(lambda __response__: GetAlertRuleAnomalyResult(
         anomaly_settings_version=pulumi.get(__response__, 'anomaly_settings_version'),
