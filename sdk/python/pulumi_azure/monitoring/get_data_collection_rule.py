@@ -244,7 +244,7 @@ def get_data_collection_rule(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Use this data source to access information about an existing Data Collection Rule.
 
@@ -266,7 +266,7 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:monitoring/getDataCollectionRule:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult)
     return __ret__.apply(lambda __response__: GetDataCollectionRuleResult(
         data_collection_endpoint_id=pulumi.get(__response__, 'data_collection_endpoint_id'),

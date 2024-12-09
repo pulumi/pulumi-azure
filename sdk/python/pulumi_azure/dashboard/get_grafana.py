@@ -285,7 +285,7 @@ def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaId
 def get_grafana_output(identity: Optional[pulumi.Input[Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict']]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrafanaResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrafanaResult]:
     """
     Use this data source to access information about an existing Grafana Dashboard.
 
@@ -309,7 +309,7 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[Union['GetGrafan
     __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:dashboard/getGrafana:getGrafana', __args__, opts=opts, typ=GetGrafanaResult)
     return __ret__.apply(lambda __response__: GetGrafanaResult(
         api_key_enabled=pulumi.get(__response__, 'api_key_enabled'),

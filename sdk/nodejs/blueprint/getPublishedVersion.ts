@@ -99,7 +99,7 @@ export interface GetPublishedVersionResult {
  * }));
  * ```
  */
-export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedVersionResult> {
+export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublishedVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:blueprint/getPublishedVersion:getPublishedVersion", {
         "blueprintName": args.blueprintName,

@@ -85,7 +85,7 @@ export interface GetPublicIPsResult {
  * });
  * ```
  */
-export function getPublicIPsOutput(args: GetPublicIPsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPsResult> {
+export function getPublicIPsOutput(args: GetPublicIPsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,

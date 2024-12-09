@@ -141,7 +141,7 @@ def get_frontdoor_secret(name: Optional[str] = None,
 def get_frontdoor_secret_output(name: Optional[pulumi.Input[str]] = None,
                                 profile_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontdoorSecretResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorSecretResult]:
     """
     Use this data source to access information about an existing Front Door (standard/premium) Secret.
 
@@ -165,7 +165,7 @@ def get_frontdoor_secret_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorSecret:getFrontdoorSecret', __args__, opts=opts, typ=GetFrontdoorSecretResult)
     return __ret__.apply(lambda __response__: GetFrontdoorSecretResult(
         cdn_frontdoor_profile_id=pulumi.get(__response__, 'cdn_frontdoor_profile_id'),
