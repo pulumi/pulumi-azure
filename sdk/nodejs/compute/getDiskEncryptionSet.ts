@@ -91,7 +91,7 @@ export interface GetDiskEncryptionSetResult {
  * export const id = existing.then(existing => existing.id);
  * ```
  */
-export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
+export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", {
         "name": args.name,

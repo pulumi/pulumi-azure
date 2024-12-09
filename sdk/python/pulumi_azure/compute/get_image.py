@@ -197,7 +197,7 @@ def get_image_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                      name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      sort_descending: Optional[pulumi.Input[Optional[bool]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to access information about an existing Image.
 
@@ -223,7 +223,7 @@ def get_image_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['nameRegex'] = name_regex
     __args__['resourceGroupName'] = resource_group_name
     __args__['sortDescending'] = sort_descending
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         data_disks=pulumi.get(__response__, 'data_disks'),

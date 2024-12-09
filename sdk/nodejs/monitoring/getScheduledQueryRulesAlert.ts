@@ -124,7 +124,7 @@ export interface GetScheduledQueryRulesAlertResult {
  * export const queryRuleId = example.then(example => example.id);
  * ```
  */
-export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
+export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", {
         "name": args.name,

@@ -117,7 +117,7 @@ def get_restorable_database_accounts(location: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorableDatabaseAccountsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestorableDatabaseAccountsResult]:
     """
     Use this data source to access information about Cosmos DB Restorable Database Accounts.
 
@@ -139,7 +139,7 @@ def get_restorable_database_accounts_output(location: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['location'] = location
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts', __args__, opts=opts, typ=GetRestorableDatabaseAccountsResult)
     return __ret__.apply(lambda __response__: GetRestorableDatabaseAccountsResult(
         accounts=pulumi.get(__response__, 'accounts'),

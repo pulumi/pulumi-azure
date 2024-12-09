@@ -337,7 +337,7 @@ def get_app_service(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceResult]:
     """
     Use this data source to access information about an existing App Service.
 
@@ -361,7 +361,7 @@ def get_app_service_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appservice/getAppService:getAppService', __args__, opts=opts, typ=GetAppServiceResult)
     return __ret__.apply(lambda __response__: GetAppServiceResult(
         app_service_plan_id=pulumi.get(__response__, 'app_service_plan_id'),

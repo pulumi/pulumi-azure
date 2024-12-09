@@ -191,7 +191,7 @@ def get_application_group(name: Optional[str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_application_group_output(name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Use this data source to access information about an existing Application Group.
 
@@ -213,7 +213,7 @@ def get_application_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:desktopvirtualization/getApplicationGroup:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult)
     return __ret__.apply(lambda __response__: GetApplicationGroupResult(
         description=pulumi.get(__response__, 'description'),

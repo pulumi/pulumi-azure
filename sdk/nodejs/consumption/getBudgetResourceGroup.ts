@@ -94,7 +94,7 @@ export interface GetBudgetResourceGroupResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getBudgetResourceGroupOutput(args: GetBudgetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResourceGroupResult> {
+export function getBudgetResourceGroupOutput(args: GetBudgetResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", {
         "name": args.name,

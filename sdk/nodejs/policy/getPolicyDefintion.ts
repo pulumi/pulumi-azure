@@ -108,7 +108,7 @@ export interface GetPolicyDefintionResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getPolicyDefintionOutput(args?: GetPolicyDefintionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefintionResult> {
+export function getPolicyDefintionOutput(args?: GetPolicyDefintionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefintionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:policy/getPolicyDefintion:getPolicyDefintion", {
