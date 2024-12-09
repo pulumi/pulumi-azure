@@ -101,7 +101,7 @@ export interface GetVirtualNetworkResult {
  * export const virtualNetworkId = example.then(example => example.id);
  * ```
  */
-export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVirtualNetwork:getVirtualNetwork", {
         "name": args.name,

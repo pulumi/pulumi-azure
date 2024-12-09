@@ -104,7 +104,7 @@ export interface GetBackupPolicyResult {
  * export const backupPolicyId = example.then(example => example.id);
  * ```
  */
-export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
+export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getBackupPolicy:getBackupPolicy", {
         "accountName": args.accountName,

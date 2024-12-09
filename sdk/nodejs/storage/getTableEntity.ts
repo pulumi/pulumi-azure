@@ -79,7 +79,7 @@ export interface GetTableEntityResult {
  * });
  * ```
  */
-export function getTableEntityOutput(args: GetTableEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableEntityResult> {
+export function getTableEntityOutput(args: GetTableEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getTableEntity:getTableEntity", {
         "partitionKey": args.partitionKey,

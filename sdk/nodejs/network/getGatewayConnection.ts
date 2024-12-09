@@ -164,7 +164,7 @@ export interface GetGatewayConnectionResult {
  * export const virtualNetworkGatewayConnectionId = example.then(example => example.id);
  * ```
  */
-export function getGatewayConnectionOutput(args: GetGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayConnectionResult> {
+export function getGatewayConnectionOutput(args: GetGatewayConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getGatewayConnection:getGatewayConnection", {
         "name": args.name,
