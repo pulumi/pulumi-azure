@@ -144,7 +144,7 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
                               publisher: Optional[pulumi.Input[str]] = None,
                               sku: Optional[pulumi.Input[str]] = None,
                               version: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlatformImageResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlatformImageResult]:
     """
     Use this data source to access information about a Platform Image.
 
@@ -174,7 +174,7 @@ def get_platform_image_output(location: Optional[pulumi.Input[str]] = None,
     __args__['publisher'] = publisher
     __args__['sku'] = sku
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts, typ=GetPlatformImageResult)
     return __ret__.apply(lambda __response__: GetPlatformImageResult(
         id=pulumi.get(__response__, 'id'),

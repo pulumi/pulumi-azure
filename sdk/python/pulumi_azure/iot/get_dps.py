@@ -177,7 +177,7 @@ def get_dps(name: Optional[str] = None,
 def get_dps_output(name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDpsResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDpsResult]:
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service.
 
@@ -199,7 +199,7 @@ def get_dps_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:iot/getDps:getDps', __args__, opts=opts, typ=GetDpsResult)
     return __ret__.apply(lambda __response__: GetDpsResult(
         allocation_policy=pulumi.get(__response__, 'allocation_policy'),

@@ -66,7 +66,7 @@ export interface GetManagedHardwareSecurityModuleRoleDefinitionResult {
 /**
  * Use this data source to access information about an existing KeyVault Role Definition.
  */
-export function getManagedHardwareSecurityModuleRoleDefinitionOutput(args: GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> {
+export function getManagedHardwareSecurityModuleRoleDefinitionOutput(args: GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", {
         "managedHsmId": args.managedHsmId,

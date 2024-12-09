@@ -98,7 +98,7 @@ export interface GetVolumeGroupSapHanaResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getVolumeGroupSapHanaOutput(args: GetVolumeGroupSapHanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupSapHanaResult> {
+export function getVolumeGroupSapHanaOutput(args: GetVolumeGroupSapHanaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupSapHanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", {
         "accountName": args.accountName,
