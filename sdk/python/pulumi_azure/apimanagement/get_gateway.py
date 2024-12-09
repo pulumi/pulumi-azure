@@ -131,7 +131,7 @@ def get_gateway(api_management_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Use this data source to access information about an existing API Management Gateway.
 
@@ -154,7 +154,7 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiManagementId'] = api_management_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:apimanagement/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         api_management_id=pulumi.get(__response__, 'api_management_id'),

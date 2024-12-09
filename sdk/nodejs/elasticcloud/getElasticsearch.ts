@@ -129,7 +129,7 @@ export interface GetElasticsearchResult {
  * export const kibanaEndpoint = example.then(example => example.kibanaServiceUrl);
  * ```
  */
-export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticsearchResult> {
+export function getElasticsearchOutput(args: GetElasticsearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticsearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:elasticcloud/getElasticsearch:getElasticsearch", {
         "logs": args.logs,

@@ -106,7 +106,7 @@ def get_source_control_token(type: Optional[str] = None,
         token_secret=pulumi.get(__ret__, 'token_secret'),
         type=pulumi.get(__ret__, 'type'))
 def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlTokenResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlTokenResult]:
     """
     ## Example Usage
 
@@ -123,7 +123,7 @@ def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appservice/getSourceControlToken:getSourceControlToken', __args__, opts=opts, typ=GetSourceControlTokenResult)
     return __ret__.apply(lambda __response__: GetSourceControlTokenResult(
         id=pulumi.get(__response__, 'id'),

@@ -77,7 +77,7 @@ export interface GetWorkspaceResult {
  * export const healthcareWorkspaceId = example.then(example => example.id);
  * ```
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:healthcare/getWorkspace:getWorkspace", {
         "name": args.name,

@@ -79,7 +79,7 @@ export interface GetBackupVaultResult {
  * export const backupVaultId = example.then(example => example.id);
  * ```
  */
-export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
+export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:netapp/getBackupVault:getBackupVault", {
         "accountName": args.accountName,

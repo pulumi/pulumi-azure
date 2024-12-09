@@ -91,7 +91,7 @@ export interface GetMxRecordResult {
  * export const privateDnsMxRecordId = exampleAzurermPrivateDnsMxRecord.id;
  * ```
  */
-export function getMxRecordOutput(args: GetMxRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMxRecordResult> {
+export function getMxRecordOutput(args: GetMxRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMxRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:privatedns/getMxRecord:getMxRecord", {
         "name": args.name,
