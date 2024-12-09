@@ -134,7 +134,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class GetSubscriptionResult
     {
         /// <summary>
-        /// The idle interval after which the topic is automatically deleted.
+        /// The idle interval after which the Subscription is automatically deleted.
         /// </summary>
         public readonly string AutoDeleteOnIdle;
         /// <summary>

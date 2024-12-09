@@ -62,7 +62,7 @@ export interface GetSubscriptionArgs {
  */
 export interface GetSubscriptionResult {
     /**
-     * The idle interval after which the topic is automatically deleted.
+     * The idle interval after which the Subscription is automatically deleted.
      */
     readonly autoDeleteOnIdle: string;
     /**

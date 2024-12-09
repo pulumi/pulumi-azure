@@ -81,6 +81,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly cognitiveAccountId!: pulumi.Output<string>;
     /**
+     * Whether dynamic throttling is enabled.
+     */
+    public readonly dynamicThrottlingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `model` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly model!: pulumi.Output<outputs.cognitive.DeploymentModel>;
@@ -115,6 +119,7 @@ export class Deployment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
             resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
+            resourceInputs["dynamicThrottlingEnabled"] = state ? state.dynamicThrottlingEnabled : undefined;
             resourceInputs["model"] = state ? state.model : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["raiPolicyName"] = state ? state.raiPolicyName : undefined;
@@ -132,6 +137,7 @@ export class Deployment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
+            resourceInputs["dynamicThrottlingEnabled"] = args ? args.dynamicThrottlingEnabled : undefined;
             resourceInputs["model"] = args ? args.model : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["raiPolicyName"] = args ? args.raiPolicyName : undefined;
@@ -151,6 +157,10 @@ export interface DeploymentState {
      * The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
      */
     cognitiveAccountId?: pulumi.Input<string>;
+    /**
+     * Whether dynamic throttling is enabled.
+     */
+    dynamicThrottlingEnabled?: pulumi.Input<boolean>;
     /**
      * A `model` block as defined below. Changing this forces a new resource to be created.
      */
@@ -181,6 +191,10 @@ export interface DeploymentArgs {
      * The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
      */
     cognitiveAccountId: pulumi.Input<string>;
+    /**
+     * Whether dynamic throttling is enabled.
+     */
+    dynamicThrottlingEnabled?: pulumi.Input<boolean>;
     /**
      * A `model` block as defined below. Changing this forces a new resource to be created.
      */

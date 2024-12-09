@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleNatGateway = new azure.network.NatGateway("example", {
- *     name: "nat-Gateway",
+ *     name: "nat-gateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Standard",

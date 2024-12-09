@@ -305,7 +305,7 @@ class NatGateway(pulumi.CustomResource):
             name="nat-gateway-example-rg",
             location="West Europe")
         example_nat_gateway = azure.network.NatGateway("example",
-            name="nat-Gateway",
+            name="nat-gateway",
             location=example.location,
             resource_group_name=example.name,
             sku_name="Standard",
@@ -354,7 +354,7 @@ class NatGateway(pulumi.CustomResource):
             name="nat-gateway-example-rg",
             location="West Europe")
         example_nat_gateway = azure.network.NatGateway("example",
-            name="nat-Gateway",
+            name="nat-gateway",
             location=example.location,
             resource_group_name=example.name,
             sku_name="Standard",

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNatGateway = new Azure.Network.NatGateway("example", new()
     ///     {
-    ///         Name = "nat-Gateway",
+    ///         Name = "nat-gateway",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",

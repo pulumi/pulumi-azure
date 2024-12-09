@@ -4770,6 +4770,7 @@ func (o GetStandardConnectionStringArrayOutput) Index(i pulumi.IntInput) GetStan
 }
 
 type GetStandardIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
@@ -4790,6 +4791,7 @@ type GetStandardIdentityInput interface {
 }
 
 type GetStandardIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
@@ -4847,6 +4849,10 @@ func (o GetStandardIdentityOutput) ToGetStandardIdentityOutput() GetStandardIden
 
 func (o GetStandardIdentityOutput) ToGetStandardIdentityOutputWithContext(ctx context.Context) GetStandardIdentityOutput {
 	return o
+}
+
+func (o GetStandardIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.

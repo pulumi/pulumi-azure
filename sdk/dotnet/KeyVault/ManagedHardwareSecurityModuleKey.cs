@@ -44,13 +44,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<string>> KeyOpts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keySize")]
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM` and `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
@@ -158,13 +158,13 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM` and `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
@@ -234,13 +234,13 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM` and `RSA-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }

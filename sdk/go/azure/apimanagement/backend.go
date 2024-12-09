@@ -52,7 +52,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				Protocol:          pulumi.String("http"),
-//				Url:               pulumi.String("https://backend"),
+//				Url:               pulumi.String("https://backend.com/api"),
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +95,7 @@ type Backend struct {
 	Title pulumi.StringPtrOutput `pulumi:"title"`
 	// A `tls` block as documented below.
 	Tls BackendTlsPtrOutput `pulumi:"tls"`
-	// The URL of the backend host.
+	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -163,7 +163,7 @@ type backendState struct {
 	Title *string `pulumi:"title"`
 	// A `tls` block as documented below.
 	Tls *BackendTls `pulumi:"tls"`
-	// The URL of the backend host.
+	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url *string `pulumi:"url"`
 }
 
@@ -190,7 +190,7 @@ type BackendState struct {
 	Title pulumi.StringPtrInput
 	// A `tls` block as documented below.
 	Tls BackendTlsPtrInput
-	// The URL of the backend host.
+	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url pulumi.StringPtrInput
 }
 
@@ -221,7 +221,7 @@ type backendArgs struct {
 	Title *string `pulumi:"title"`
 	// A `tls` block as documented below.
 	Tls *BackendTls `pulumi:"tls"`
-	// The URL of the backend host.
+	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url string `pulumi:"url"`
 }
 
@@ -249,7 +249,7 @@ type BackendArgs struct {
 	Title pulumi.StringPtrInput
 	// A `tls` block as documented below.
 	Tls BackendTlsPtrInput
-	// The URL of the backend host.
+	// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 	Url pulumi.StringInput
 }
 
@@ -395,7 +395,7 @@ func (o BackendOutput) Tls() BackendTlsPtrOutput {
 	return o.ApplyT(func(v *Backend) BackendTlsPtrOutput { return v.Tls }).(BackendTlsPtrOutput)
 }
 
-// The URL of the backend host.
+// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
 func (o BackendOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

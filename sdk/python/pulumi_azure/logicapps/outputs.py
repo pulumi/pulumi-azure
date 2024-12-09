@@ -1921,6 +1921,7 @@ class GetStandardConnectionStringResult(dict):
 @pulumi.output_type
 class GetStandardIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
@@ -1929,9 +1930,15 @@ class GetStandardIdentityResult(dict):
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         :param str type: The Type of Managed Identity assigned to this Logic App Workflow.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")

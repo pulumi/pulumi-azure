@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
- *             .name("nat-Gateway")
+ *             .name("nat-gateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")

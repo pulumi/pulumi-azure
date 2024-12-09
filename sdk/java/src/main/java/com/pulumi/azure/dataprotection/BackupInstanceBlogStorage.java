@@ -21,6 +21,90 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.dataprotection.BackupVault;
+ * import com.pulumi.azure.dataprotection.BackupVaultArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorage;
+ * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorageArgs;
+ * import com.pulumi.azure.dataprotection.BackupInstanceBlogStorage;
+ * import com.pulumi.azure.dataprotection.BackupInstanceBlogStorageArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("storageaccountname")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .build());
+ * 
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .name("example-backup-vault")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(exampleAccount.id())
+ *             .roleDefinitionName("Storage Account Backup Contributor")
+ *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .build());
+ * 
+ *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", BackupPolicyBlobStorageArgs.builder()
+ *             .name("example-backup-policy")
+ *             .vaultId(exampleBackupVault.id())
+ *             .operationalDefaultRetentionDuration("P30D")
+ *             .build());
+ * 
+ *         var exampleBackupInstanceBlogStorage = new BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", BackupInstanceBlogStorageArgs.builder()
+ *             .name("example-backup-instance")
+ *             .vaultId(exampleBackupVault.id())
+ *             .location(example.location())
+ *             .storageAccountId(exampleAccount.id())
+ *             .backupPolicyId(exampleBackupPolicyBlobStorage.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

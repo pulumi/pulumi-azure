@@ -6,10 +6,12 @@ package com.pulumi.azure.logicapps.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetStandardIdentity {
+    private List<String> identityIds;
     /**
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
      * 
@@ -27,6 +29,9 @@ public final class GetStandardIdentity {
     private String type;
 
     private GetStandardIdentity() {}
+    public List<String> identityIds() {
+        return this.identityIds;
+    }
     /**
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
      * 
@@ -58,17 +63,30 @@ public final class GetStandardIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetStandardIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(List<String> identityIds) {
+            if (identityIds == null) {
+              throw new MissingRequiredPropertyException("GetStandardIdentity", "identityIds");
+            }
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(String principalId) {
             if (principalId == null) {
@@ -95,6 +113,7 @@ public final class GetStandardIdentity {
         }
         public GetStandardIdentity build() {
             final var _resultValue = new GetStandardIdentity();
+            _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
             _resultValue.tenantId = tenantId;
             _resultValue.type = type;

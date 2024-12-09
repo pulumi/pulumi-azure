@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSubscriptionResult {
     /**
-     * @return The idle interval after which the topic is automatically deleted.
+     * @return The idle interval after which the Subscription is automatically deleted.
      * 
      */
     private String autoDeleteOnIdle;
@@ -95,7 +95,7 @@ public final class GetSubscriptionResult {
 
     private GetSubscriptionResult() {}
     /**
-     * @return The idle interval after which the topic is automatically deleted.
+     * @return The idle interval after which the Subscription is automatically deleted.
      * 
      */
     public String autoDeleteOnIdle() {

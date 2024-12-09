@@ -80,7 +80,7 @@ class GetSubscriptionResult:
     @pulumi.getter(name="autoDeleteOnIdle")
     def auto_delete_on_idle(self) -> str:
         """
-        The idle interval after which the topic is automatically deleted.
+        The idle interval after which the Subscription is automatically deleted.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 

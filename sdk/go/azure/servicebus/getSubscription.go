@@ -66,7 +66,7 @@ type LookupSubscriptionArgs struct {
 
 // A collection of values returned by getSubscription.
 type LookupSubscriptionResult struct {
-	// The idle interval after which the topic is automatically deleted.
+	// The idle interval after which the Subscription is automatically deleted.
 	AutoDeleteOnIdle string `pulumi:"autoDeleteOnIdle"`
 	// Does the ServiceBus Subscription have dead letter support on filter evaluation exceptions?
 	DeadLetteringOnFilterEvaluationError bool `pulumi:"deadLetteringOnFilterEvaluationError"`
@@ -150,7 +150,7 @@ func (o LookupSubscriptionResultOutput) ToLookupSubscriptionResultOutputWithCont
 	return o
 }
 
-// The idle interval after which the topic is automatically deleted.
+// The idle interval after which the Subscription is automatically deleted.
 func (o LookupSubscriptionResultOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
 }

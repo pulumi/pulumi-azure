@@ -79,6 +79,8 @@ type Deployment struct {
 
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringOutput `pulumi:"cognitiveAccountId"`
+	// Whether dynamic throttling is enabled.
+	DynamicThrottlingEnabled pulumi.BoolPtrOutput `pulumi:"dynamicThrottlingEnabled"`
 	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModelOutput `pulumi:"model"`
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
@@ -132,6 +134,8 @@ func GetDeployment(ctx *pulumi.Context,
 type deploymentState struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
+	// Whether dynamic throttling is enabled.
+	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
 	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model *DeploymentModel `pulumi:"model"`
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
@@ -147,6 +151,8 @@ type deploymentState struct {
 type DeploymentState struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
+	// Whether dynamic throttling is enabled.
+	DynamicThrottlingEnabled pulumi.BoolPtrInput
 	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModelPtrInput
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
@@ -166,6 +172,8 @@ func (DeploymentState) ElementType() reflect.Type {
 type deploymentArgs struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId string `pulumi:"cognitiveAccountId"`
+	// Whether dynamic throttling is enabled.
+	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
 	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModel `pulumi:"model"`
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
@@ -182,6 +190,8 @@ type deploymentArgs struct {
 type DeploymentArgs struct {
 	// The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringInput
+	// Whether dynamic throttling is enabled.
+	DynamicThrottlingEnabled pulumi.BoolPtrInput
 	// A `model` block as defined below. Changing this forces a new resource to be created.
 	Model DeploymentModelInput
 	// The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
@@ -284,6 +294,11 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 // The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
 func (o DeploymentOutput) CognitiveAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.CognitiveAccountId }).(pulumi.StringOutput)
+}
+
+// Whether dynamic throttling is enabled.
+func (o DeploymentOutput) DynamicThrottlingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.DynamicThrottlingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `model` block as defined below. Changing this forces a new resource to be created.

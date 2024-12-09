@@ -27058,7 +27058,14 @@
                         "maxItemsOne": false
                     },
                     "identity": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "site_config": {
                         "maxItemsOne": true,

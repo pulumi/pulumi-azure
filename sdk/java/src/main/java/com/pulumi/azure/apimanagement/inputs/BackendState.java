@@ -185,14 +185,14 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the backend host.
+     * The backend host URL should be specified in the format `&#34;https://backend.com/api&#34;`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the backend host.
+     * @return The backend host URL should be specified in the format `&#34;https://backend.com/api&#34;`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      * 
      */
     public Optional<Output<String>> url() {
@@ -466,7 +466,7 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the backend host.
+         * @param url The backend host URL should be specified in the format `&#34;https://backend.com/api&#34;`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class BackendState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the backend host.
+         * @param url The backend host URL should be specified in the format `&#34;https://backend.com/api&#34;`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
          * 
          * @return builder
          * 

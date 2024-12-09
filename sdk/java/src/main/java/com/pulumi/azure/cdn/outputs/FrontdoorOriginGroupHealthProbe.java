@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorOriginGroupHealthProbe {
     /**
-     * @return Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+     * @return Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
      * 
      */
     private Integer intervalInSeconds;
@@ -38,7 +38,7 @@ public final class FrontdoorOriginGroupHealthProbe {
 
     private FrontdoorOriginGroupHealthProbe() {}
     /**
-     * @return Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+     * @return Specifies the number of seconds between health probes. Possible values are between `1` and `255` seconds (inclusive).
      * 
      */
     public Integer intervalInSeconds() {

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     protocol: "http",
- *     url: "https://backend",
+ *     url: "https://backend.com/api",
  * });
  * ```
  *
@@ -117,7 +117,7 @@ export class Backend extends pulumi.CustomResource {
      */
     public readonly tls!: pulumi.Output<outputs.apimanagement.BackendTls | undefined>;
     /**
-     * The URL of the backend host.
+     * The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -227,7 +227,7 @@ export interface BackendState {
      */
     tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
     /**
-     * The URL of the backend host.
+     * The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      */
     url?: pulumi.Input<string>;
 }
@@ -281,7 +281,7 @@ export interface BackendArgs {
      */
     tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
     /**
-     * The URL of the backend host.
+     * The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      */
     url: pulumi.Input<string>;
 }
