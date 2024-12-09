@@ -86,7 +86,7 @@ export interface GetFhirServiceResult {
 /**
  * Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
  */
-export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
+export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFhirServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:healthcare/getFhirService:getFhirService", {
         "name": args.name,

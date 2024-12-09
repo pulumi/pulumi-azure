@@ -109,7 +109,7 @@ export interface GetRunbookResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
+export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRunbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:automation/getRunbook:getRunbook", {
         "automationAccountName": args.automationAccountName,

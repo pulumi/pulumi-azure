@@ -83,7 +83,7 @@ export interface GetAccessConnectorResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
+export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:databricks/getAccessConnector:getAccessConnector", {
         "name": args.name,

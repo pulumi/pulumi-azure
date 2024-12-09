@@ -226,7 +226,7 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
         user_plane_access_name=pulumi.get(__ret__, 'user_plane_access_name'))
 def get_network_attached_data_network_output(mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                                              mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAttachedDataNetworkResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkAttachedDataNetworkResult]:
     """
     Use this data source to access information about an existing Mobile Network Attached Data Network.
 
@@ -249,7 +249,7 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
     __args__ = dict()
     __args__['mobileNetworkDataNetworkName'] = mobile_network_data_network_name
     __args__['mobileNetworkPacketCoreDataPlaneId'] = mobile_network_packet_core_data_plane_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork', __args__, opts=opts, typ=GetNetworkAttachedDataNetworkResult)
     return __ret__.apply(lambda __response__: GetNetworkAttachedDataNetworkResult(
         dns_addresses=pulumi.get(__response__, 'dns_addresses'),
