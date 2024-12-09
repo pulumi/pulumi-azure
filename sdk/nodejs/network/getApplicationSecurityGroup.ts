@@ -77,7 +77,7 @@ export interface GetApplicationSecurityGroupResult {
  * export const applicationSecurityGroupId = example.then(example => example.id);
  * ```
  */
-export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
+export function getApplicationSecurityGroupOutput(args: GetApplicationSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", {
         "name": args.name,

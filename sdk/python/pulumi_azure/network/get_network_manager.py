@@ -194,7 +194,7 @@ def get_network_manager(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_manager_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkManagerResult]:
     """
     Use this data source to access information about a Network Manager.
 
@@ -231,7 +231,7 @@ def get_network_manager_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkManager:getNetworkManager', __args__, opts=opts, typ=GetNetworkManagerResult)
     return __ret__.apply(lambda __response__: GetNetworkManagerResult(
         cross_tenant_scopes=pulumi.get(__response__, 'cross_tenant_scopes'),

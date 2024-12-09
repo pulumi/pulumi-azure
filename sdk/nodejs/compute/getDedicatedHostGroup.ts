@@ -89,7 +89,7 @@ export interface GetDedicatedHostGroupResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostGroupResult> {
+export function getDedicatedHostGroupOutput(args: GetDedicatedHostGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHostGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", {
         "name": args.name,

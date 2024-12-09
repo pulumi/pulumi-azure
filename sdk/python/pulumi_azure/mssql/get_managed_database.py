@@ -155,7 +155,7 @@ def get_managed_database(managed_instance_id: Optional[str] = None,
         short_term_retention_days=pulumi.get(__ret__, 'short_term_retention_days'))
 def get_managed_database_output(managed_instance_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDatabaseResult]:
     """
     Use this data source to access information about an existing Azure SQL Azure Managed Database.
 
@@ -166,7 +166,7 @@ def get_managed_database_output(managed_instance_id: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['managedInstanceId'] = managed_instance_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:mssql/getManagedDatabase:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult)
     return __ret__.apply(lambda __response__: GetManagedDatabaseResult(
         id=pulumi.get(__response__, 'id'),

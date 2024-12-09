@@ -65,7 +65,7 @@ export interface GetTriggerSchedulesResult {
  * export const items = example.then(example => example.items);
  * ```
  */
-export function getTriggerSchedulesOutput(args: GetTriggerSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerSchedulesResult> {
+export function getTriggerSchedulesOutput(args: GetTriggerSchedulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerSchedulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:datafactory/getTriggerSchedules:getTriggerSchedules", {
         "dataFactoryId": args.dataFactoryId,
