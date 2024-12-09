@@ -111,7 +111,7 @@ export interface GetNetworkAttachedDataNetworkResult {
  * }));
  * ```
  */
-export function getNetworkAttachedDataNetworkOutput(args: GetNetworkAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAttachedDataNetworkResult> {
+export function getNetworkAttachedDataNetworkOutput(args: GetNetworkAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkAttachedDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", {
         "mobileNetworkDataNetworkName": args.mobileNetworkDataNetworkName,

@@ -97,7 +97,7 @@ export interface GetManagementGroupResult {
  * ```
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
-export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
+export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupResult> {
     pulumi.log.warn("getManagementGroup is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

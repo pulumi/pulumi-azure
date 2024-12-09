@@ -266,7 +266,7 @@ def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', '
 def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']]]]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticsearchResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticsearchResult]:
     """
     Use this data source to access information about an existing Elasticsearch resource.
 
@@ -291,7 +291,7 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union
     __args__['logs'] = logs
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:elasticcloud/getElasticsearch:getElasticsearch', __args__, opts=opts, typ=GetElasticsearchResult)
     return __ret__.apply(lambda __response__: GetElasticsearchResult(
         elastic_cloud_deployment_id=pulumi.get(__response__, 'elastic_cloud_deployment_id'),
