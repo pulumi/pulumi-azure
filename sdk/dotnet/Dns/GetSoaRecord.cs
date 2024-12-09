@@ -64,6 +64,33 @@ namespace Pulumi.Azure.Dns
         /// </summary>
         public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:dns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Dns.GetSoaRecord.Invoke(new()
+        ///     {
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dnsSoaRecordId"] = example.Apply(getSoaRecordResult =&gt; getSoaRecordResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:dns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source provides the list of DB System Shapes in Oracle Cloud Infrastructure Database service.
+        /// 
+        /// Gets a list of the shapes that can be used to launch a new DB system. The shape determines resources to allocate to the DB system - CPU cores and memory for VM shapes; CPU cores, memory and storage for non-VM (or bare metal) shapes.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetDbSystemShapes.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
     }
 
 

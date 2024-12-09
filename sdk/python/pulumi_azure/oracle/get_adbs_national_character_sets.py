@@ -99,7 +99,7 @@ def get_adbs_national_character_sets(location: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'))
 def get_adbs_national_character_sets_output(location: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdbsNationalCharacterSetsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdbsNationalCharacterSetsResult]:
     """
     Gets a list of supported national character sets.
 
@@ -118,7 +118,7 @@ def get_adbs_national_character_sets_output(location: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['location'] = location
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets', __args__, opts=opts, typ=GetAdbsNationalCharacterSetsResult)
     return __ret__.apply(lambda __response__: GetAdbsNationalCharacterSetsResult(
         character_sets=pulumi.get(__response__, 'character_sets'),

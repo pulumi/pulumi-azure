@@ -66,6 +66,34 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public static Output<GetSrvRecordResult> Invoke(GetSrvRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSrvRecordResult>("azure:privatedns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Azure.PrivateDns.SRVRecord("example", new()
+        ///     {
+        ///         Name = "test",
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsSrvRecordId"] = exampleAzurermPrivateDnsSrvRecord.Id,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSrvRecordResult> Invoke(GetSrvRecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSrvRecordResult>("azure:privatedns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordInvokeArgs(), options.WithDefaults());
     }
 
 

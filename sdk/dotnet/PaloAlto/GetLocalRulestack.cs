@@ -16,6 +16,9 @@ namespace Pulumi.Azure.PaloAlto
 
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure:paloalto/getLocalRulestack:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure:paloalto/getLocalRulestack:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

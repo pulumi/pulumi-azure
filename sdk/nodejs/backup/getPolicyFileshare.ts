@@ -75,7 +75,7 @@ export interface GetPolicyFileshareResult {
  * });
  * ```
  */
-export function getPolicyFileshareOutput(args: GetPolicyFileshareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFileshareResult> {
+export function getPolicyFileshareOutput(args: GetPolicyFileshareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyFileshareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:backup/getPolicyFileshare:getPolicyFileshare", {
         "name": args.name,

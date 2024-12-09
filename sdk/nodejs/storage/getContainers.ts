@@ -73,7 +73,7 @@ export interface GetContainersResult {
  * export const containerId = example.then(example => example.containers?.[0]?.resourceManagerId);
  * ```
  */
-export function getContainersOutput(args: GetContainersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainersResult> {
+export function getContainersOutput(args: GetContainersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getContainers:getContainers", {
         "namePrefix": args.namePrefix,

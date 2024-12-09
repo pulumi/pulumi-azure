@@ -68,6 +68,35 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Data Factory (Version 2).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataFactory.GetFactory.Invoke(new()
+        ///     {
+        ///         Name = "existing-adf",
+        ///         ResourceGroupName = "existing-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFactoryResult =&gt; getFactoryResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithDefaults());
     }
 
 

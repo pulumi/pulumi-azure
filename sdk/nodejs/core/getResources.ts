@@ -71,7 +71,7 @@ export interface GetResourcesResult {
 /**
  * Use this data source to access information about existing resources.
  */
-export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
+export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getResources:getResources", {

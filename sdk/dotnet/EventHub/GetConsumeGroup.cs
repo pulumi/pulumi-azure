@@ -64,6 +64,33 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public static Output<GetConsumeGroupResult> Invoke(GetConsumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Azure.EventHub.GetConsumeGroup.Invoke(new()
+        ///     {
+        ///         Name = testAzurermEventhubConsumerGroup.Name,
+        ///         NamespaceName = testAzurermEventhubNamespace.Name,
+        ///         EventhubName = testAzurermEventhub.Name,
+        ///         ResourceGroupName = testAzurermResourceGroup.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConsumeGroupResult> Invoke(GetConsumeGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupInvokeArgs(), options.WithDefaults());
     }
 
 

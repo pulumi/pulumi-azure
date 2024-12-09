@@ -136,7 +136,7 @@ export interface GetEnvironmentV3Result {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentV3Result> {
+export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentV3Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getEnvironmentV3:getEnvironmentV3", {
         "name": args.name,
