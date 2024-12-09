@@ -70,7 +70,7 @@ export interface GetDefinitionResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefinitionResult> {
+export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:managedapplication/getDefinition:getDefinition", {
         "name": args.name,

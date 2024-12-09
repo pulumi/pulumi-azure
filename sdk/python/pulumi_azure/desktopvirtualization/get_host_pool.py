@@ -269,7 +269,7 @@ def get_host_pool(name: Optional[str] = None,
         validate_environment=pulumi.get(__ret__, 'validate_environment'))
 def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Use this data source to access information about an existing Virtual Desktop Host Pool.
 
@@ -290,7 +290,7 @@ def get_host_pool_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:desktopvirtualization/getHostPool:getHostPool', __args__, opts=opts, typ=GetHostPoolResult)
     return __ret__.apply(lambda __response__: GetHostPoolResult(
         custom_rdp_properties=pulumi.get(__response__, 'custom_rdp_properties'),

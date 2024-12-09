@@ -75,7 +75,7 @@ export interface GetAdbsNationalCharacterSetsResult {
  * }
  * ```
  */
-export function getAdbsNationalCharacterSetsOutput(args: GetAdbsNationalCharacterSetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdbsNationalCharacterSetsResult> {
+export function getAdbsNationalCharacterSetsOutput(args: GetAdbsNationalCharacterSetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdbsNationalCharacterSetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", {
         "location": args.location,
