@@ -82,7 +82,7 @@ export interface GetRegistryScopeMapResult {
  * export const actions = example.then(example => example.actions);
  * ```
  */
-export function getRegistryScopeMapOutput(args: GetRegistryScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryScopeMapResult> {
+export function getRegistryScopeMapOutput(args: GetRegistryScopeMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", {
         "containerRegistryName": args.containerRegistryName,

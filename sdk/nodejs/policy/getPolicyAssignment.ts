@@ -111,7 +111,7 @@ export interface GetPolicyAssignmentResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
+export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:policy/getPolicyAssignment:getPolicyAssignment", {
         "name": args.name,

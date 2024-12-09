@@ -65,7 +65,7 @@ export interface GetManagedDatabaseResult {
 /**
  * Use this data source to access information about an existing Azure SQL Azure Managed Database.
  */
-export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseResult> {
+export function getManagedDatabaseOutput(args: GetManagedDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mssql/getManagedDatabase:getManagedDatabase", {
         "managedInstanceId": args.managedInstanceId,

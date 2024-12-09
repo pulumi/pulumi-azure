@@ -95,7 +95,7 @@ export interface GetResult {
  * export const loadTestId = example.then(example => example.id);
  * ```
  */
-export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResult> {
+export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:loadtest/get:get", {
         "name": args.name,

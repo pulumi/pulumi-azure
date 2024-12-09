@@ -95,7 +95,7 @@ export interface Azurerm_portal_dashboardResult {
  * ```
  */
 /** @deprecated azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
-export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
+export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<Azurerm_portal_dashboardResult> {
     pulumi.log.warn("azurerm_portal_dashboard is deprecated: azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", {

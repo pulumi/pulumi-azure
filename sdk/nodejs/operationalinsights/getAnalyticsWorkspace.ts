@@ -98,7 +98,7 @@ export interface GetAnalyticsWorkspaceResult {
  * export const logAnalyticsWorkspaceId = example.then(example => example.workspaceId);
  * ```
  */
-export function getAnalyticsWorkspaceOutput(args: GetAnalyticsWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsWorkspaceResult> {
+export function getAnalyticsWorkspaceOutput(args: GetAnalyticsWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalyticsWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", {
         "name": args.name,

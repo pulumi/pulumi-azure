@@ -176,7 +176,7 @@ def get_cname_record(name: Optional[str] = None,
 def get_cname_record_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             zone_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCnameRecordResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCnameRecordResult]:
     """
     ## Example Usage
 
@@ -200,7 +200,7 @@ def get_cname_record_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:privatedns/getCnameRecord:getCnameRecord', __args__, opts=opts, typ=GetCnameRecordResult)
     return __ret__.apply(lambda __response__: GetCnameRecordResult(
         fqdn=pulumi.get(__response__, 'fqdn'),
