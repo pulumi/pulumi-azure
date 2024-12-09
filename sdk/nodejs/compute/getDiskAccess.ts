@@ -70,7 +70,7 @@ export interface GetDiskAccessResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
+export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:compute/getDiskAccess:getDiskAccess", {
         "name": args.name,

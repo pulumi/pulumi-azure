@@ -87,7 +87,7 @@ export interface GetZoneResult {
  * export const dnsZoneId = example.then(example => example.id);
  * ```
  */
-export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:dns/getZone:getZone", {
         "name": args.name,

@@ -219,7 +219,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
 def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
     """
     Uses this data source to access information about an existing NetApp Snapshot Policy.
 
@@ -250,7 +250,7 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getSnapshotPolicy:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult)
     return __ret__.apply(lambda __response__: GetSnapshotPolicyResult(
         account_name=pulumi.get(__response__, 'account_name'),

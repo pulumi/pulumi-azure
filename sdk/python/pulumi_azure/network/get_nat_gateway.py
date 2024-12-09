@@ -201,7 +201,7 @@ def get_nat_gateway_output(name: Optional[pulumi.Input[str]] = None,
                            public_ip_address_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            public_ip_prefix_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Use this data source to access information about an existing NAT Gateway.
 
@@ -216,7 +216,7 @@ def get_nat_gateway_output(name: Optional[pulumi.Input[str]] = None,
     __args__['publicIpAddressIds'] = public_ip_address_ids
     __args__['publicIpPrefixIds'] = public_ip_prefix_ids
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getNatGateway:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
         id=pulumi.get(__response__, 'id'),
