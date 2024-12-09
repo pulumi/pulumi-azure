@@ -79,7 +79,7 @@ export interface GetFabricResult {
  * });
  * ```
  */
-export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
+export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:siterecovery/getFabric:getFabric", {
         "name": args.name,

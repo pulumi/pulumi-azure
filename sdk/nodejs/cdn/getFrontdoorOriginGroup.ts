@@ -94,7 +94,7 @@ export interface GetFrontdoorOriginGroupResult {
  * });
  * ```
  */
-export function getFrontdoorOriginGroupOutput(args: GetFrontdoorOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorOriginGroupResult> {
+export function getFrontdoorOriginGroupOutput(args: GetFrontdoorOriginGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", {
         "name": args.name,

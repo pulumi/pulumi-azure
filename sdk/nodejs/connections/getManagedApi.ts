@@ -70,7 +70,7 @@ export interface GetManagedApiResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getManagedApiOutput(args: GetManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedApiResult> {
+export function getManagedApiOutput(args: GetManagedApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:connections/getManagedApi:getManagedApi", {
         "location": args.location,

@@ -92,7 +92,7 @@ export interface GetAccountResult {
  * export const automationAccountId = example.then(example => example.id);
  * ```
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:automation/getAccount:getAccount", {
         "name": args.name,
