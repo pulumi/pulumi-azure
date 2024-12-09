@@ -93,7 +93,7 @@ export interface GetWorkspaceResult {
  * export const queryEndpoint = example.then(example => example.queryEndpoint);
  * ```
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getWorkspace:getWorkspace", {
         "name": args.name,

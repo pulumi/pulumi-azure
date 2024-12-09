@@ -81,7 +81,7 @@ export interface GetIpGroupResult {
  * export const cidrs = example.then(example => example.cidrs);
  * ```
  */
-export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
+export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getIpGroup:getIpGroup", {
         "name": args.name,

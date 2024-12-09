@@ -75,7 +75,7 @@ export interface GetVirtualWanResult {
 /**
  * Use this data source to access information about an existing Virtual Wan.
  */
-export function getVirtualWanOutput(args: GetVirtualWanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWanResult> {
+export function getVirtualWanOutput(args: GetVirtualWanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualWanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVirtualWan:getVirtualWan", {
         "name": args.name,
