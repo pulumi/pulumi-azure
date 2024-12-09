@@ -262,6 +262,132 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Public IP Address.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Reference An Existing)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetPublicIP.Invoke(new()
+        ///     {
+        ///         Name = "name_of_public_ip",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["domainNameLabel"] = example.Apply(getPublicIPResult =&gt; getPublicIPResult.DomainNameLabel),
+        ///         ["publicIpAddress"] = example.Apply(getPublicIPResult =&gt; getPublicIPResult.IpAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ### Retrieve The Dynamic Public IP Of A New VM)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "test-resources",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+        ///     {
+        ///         Name = "test-network",
+        ///         AddressSpaces = new[]
+        ///         {
+        ///             "10.0.0.0/16",
+        ///         },
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///     });
+        /// 
+        ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+        ///     {
+        ///         Name = "acctsub",
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+        ///         AddressPrefixes = new[]
+        ///         {
+        ///             "10.0.2.0/24",
+        ///         },
+        ///     });
+        /// 
+        ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+        ///     {
+        ///         Name = "test-pip",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         AllocationMethod = "Dynamic",
+        ///         IdleTimeoutInMinutes = 30,
+        ///         Tags = 
+        ///         {
+        ///             { "environment", "test" },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+        ///     {
+        ///         Name = "test-nic",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         IpConfigurations = new[]
+        ///         {
+        ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+        ///             {
+        ///                 Name = "testconfiguration1",
+        ///                 SubnetId = exampleSubnet.Id,
+        ///                 PrivateIpAddressAllocation = "Static",
+        ///                 PrivateIpAddress = "10.0.2.5",
+        ///                 PublicIpAddressId = examplePublicIp.Id,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
+        ///     {
+        ///         Name = "test-vm",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         NetworkInterfaceIds = new[]
+        ///         {
+        ///             exampleNetworkInterface.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var example = Azure.Network.GetPublicIP.Invoke(new()
+        ///     {
+        ///         Name = examplePublicIp.Name,
+        ///         ResourceGroupName = exampleVirtualMachine.ResourceGroupName,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["publicIpAddress"] = example.Apply(getPublicIPResult =&gt; getPublicIPResult.IpAddress),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
     }
 
 

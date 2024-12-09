@@ -97,7 +97,7 @@ export interface GetVolumeSnapshotResult {
  * export const id = exampleGetVolumeSnapshot.then(exampleGetVolumeSnapshot => exampleGetVolumeSnapshot.id);
  * ```
  */
-export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeSnapshotResult> {
+export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", {
         "name": args.name,

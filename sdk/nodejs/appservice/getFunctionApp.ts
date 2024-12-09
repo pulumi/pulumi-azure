@@ -133,7 +133,7 @@ export interface GetFunctionAppResult {
  * });
  * ```
  */
-export function getFunctionAppOutput(args: GetFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionAppResult> {
+export function getFunctionAppOutput(args: GetFunctionAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:appservice/getFunctionApp:getFunctionApp", {
         "name": args.name,

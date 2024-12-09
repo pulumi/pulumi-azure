@@ -64,6 +64,33 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Output<GetSharedImageVersionResult> Invoke(GetSharedImageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetSharedImageVersion.Invoke(new()
+        ///     {
+        ///         Name = "1.0.0",
+        ///         ImageName = "my-image",
+        ///         GalleryName = "my-image-gallery",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSharedImageVersionResult> Invoke(GetSharedImageVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -62,6 +62,32 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Output<GetSubscriptionsResult> Invoke(GetSubscriptionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about all the Subscriptions currently available.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var available = Azure.Core.GetSubscriptions.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availableSubscriptions"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions),
+        ///         ["firstAvailableSubscriptionDisplayName"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions[0]?.DisplayName),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSubscriptionsResult> Invoke(GetSubscriptionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsInvokeArgs(), options.WithDefaults());
     }
 
 

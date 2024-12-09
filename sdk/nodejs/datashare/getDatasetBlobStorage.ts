@@ -94,7 +94,7 @@ export interface GetDatasetBlobStorageResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetBlobStorageResult> {
+export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetBlobStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", {
         "dataShareId": args.dataShareId,

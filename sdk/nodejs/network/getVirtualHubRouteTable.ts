@@ -94,7 +94,7 @@ export interface GetVirtualHubRouteTableResult {
  * export const virtualHubRouteTableId = example.then(example => example.id);
  * ```
  */
-export function getVirtualHubRouteTableOutput(args: GetVirtualHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableResult> {
+export function getVirtualHubRouteTableOutput(args: GetVirtualHubRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", {
         "name": args.name,

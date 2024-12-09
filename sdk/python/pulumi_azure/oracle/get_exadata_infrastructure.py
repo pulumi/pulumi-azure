@@ -530,7 +530,7 @@ def get_exadata_infrastructure(name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_exadata_infrastructure_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExadataInfrastructureResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExadataInfrastructureResult]:
     """
     Use this data source to access information about an existing Cloud Exadata Infrastructure.
 
@@ -552,7 +552,7 @@ def get_exadata_infrastructure_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getExadataInfrastructure:getExadataInfrastructure', __args__, opts=opts, typ=GetExadataInfrastructureResult)
     return __ret__.apply(lambda __response__: GetExadataInfrastructureResult(
         activated_storage_count=pulumi.get(__response__, 'activated_storage_count'),

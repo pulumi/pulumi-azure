@@ -41,7 +41,7 @@ export interface GetTenantTemplateDeploymentResult {
 /**
  * Use this data source to access information about an existing Tenant Template Deployment.
  */
-export function getTenantTemplateDeploymentOutput(args: GetTenantTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantTemplateDeploymentResult> {
+export function getTenantTemplateDeploymentOutput(args: GetTenantTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantTemplateDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", {
         "name": args.name,

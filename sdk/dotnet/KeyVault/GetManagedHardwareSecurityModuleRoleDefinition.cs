@@ -22,6 +22,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> Invoke(GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleRoleDefinitionResult>("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args ?? new GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing KeyVault Role Definition.
+        /// </summary>
+        public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> Invoke(GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedHardwareSecurityModuleRoleDefinitionResult>("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args ?? new GetManagedHardwareSecurityModuleRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

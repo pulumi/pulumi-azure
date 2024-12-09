@@ -246,7 +246,7 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sort_versions_by_semver: Optional[pulumi.Input[Optional[bool]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSharedImageVersionResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedImageVersionResult]:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
 
@@ -281,7 +281,7 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
     __args__['resourceGroupName'] = resource_group_name
     __args__['sortVersionsBySemver'] = sort_versions_by_semver
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts, typ=GetSharedImageVersionResult)
     return __ret__.apply(lambda __response__: GetSharedImageVersionResult(
         exclude_from_latest=pulumi.get(__response__, 'exclude_from_latest'),

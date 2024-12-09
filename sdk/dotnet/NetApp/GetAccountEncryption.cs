@@ -66,6 +66,34 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public static Output<GetAccountEncryptionResult> Invoke(GetAccountEncryptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountEncryptionResult>("azure:netapp/getAccountEncryption:getAccountEncryption", args ?? new GetAccountEncryptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing NetApp Account Encryption Resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NetApp.GetAccountEncryption.Invoke(new()
+        ///     {
+        ///         NetappAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAccountEncryptionResult =&gt; getAccountEncryptionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAccountEncryptionResult> Invoke(GetAccountEncryptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountEncryptionResult>("azure:netapp/getAccountEncryption:getAccountEncryption", args ?? new GetAccountEncryptionInvokeArgs(), options.WithDefaults());
     }
 
 

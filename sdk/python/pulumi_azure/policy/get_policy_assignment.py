@@ -231,7 +231,7 @@ def get_policy_assignment(name: Optional[str] = None,
         scope_id=pulumi.get(__ret__, 'scope_id'))
 def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
                                  scope_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     Use this data source to access information about an existing Policy Assignment.
 
@@ -253,7 +253,7 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['scopeId'] = scope_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:policy/getPolicyAssignment:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetPolicyAssignmentResult(
         description=pulumi.get(__response__, 'description'),

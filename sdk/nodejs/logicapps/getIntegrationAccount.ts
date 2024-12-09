@@ -81,7 +81,7 @@ export interface GetIntegrationAccountResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountResult> {
+export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:logicapps/getIntegrationAccount:getIntegrationAccount", {
         "name": args.name,

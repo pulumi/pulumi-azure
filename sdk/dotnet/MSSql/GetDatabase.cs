@@ -100,6 +100,51 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing SQL database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "example-resources",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var exampleServer = new Azure.MSSql.Server("example", new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Location = exampleResourceGroup.Location,
+        ///         Version = "12.0",
+        ///         AdministratorLogin = "4dm1n157r470r",
+        ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+        ///     });
+        /// 
+        ///     var example = Azure.MSSql.GetDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example-mssql-db",
+        ///         ServerId = exampleServer.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databaseId"] = example.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 
