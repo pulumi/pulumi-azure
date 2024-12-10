@@ -99,7 +99,7 @@ export interface GetNetworkPacketCoreDataPlaneResult {
  * }));
  * ```
  */
-export function getNetworkPacketCoreDataPlaneOutput(args: GetNetworkPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketCoreDataPlaneResult> {
+export function getNetworkPacketCoreDataPlaneOutput(args: GetNetworkPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPacketCoreDataPlaneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", {
         "mobileNetworkPacketCoreControlPlaneId": args.mobileNetworkPacketCoreControlPlaneId,

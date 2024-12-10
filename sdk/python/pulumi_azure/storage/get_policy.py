@@ -100,7 +100,7 @@ def get_policy(storage_account_id: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Use this data source to access information about an existing Storage Management Policy.
 
@@ -120,7 +120,7 @@ def get_policy_output(storage_account_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['storageAccountId'] = storage_account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         id=pulumi.get(__response__, 'id'),

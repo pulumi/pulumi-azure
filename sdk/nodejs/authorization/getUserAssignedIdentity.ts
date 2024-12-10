@@ -97,7 +97,7 @@ export interface GetUserAssignedIdentityResult {
  * export const uaiTenantId = example.then(example => example.tenantId);
  * ```
  */
-export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
+export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", {
         "name": args.name,

@@ -126,7 +126,7 @@ export interface GetActionGroupResult {
  * export const actionGroupId = example.then(example => example.id);
  * ```
  */
-export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
+export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:monitoring/getActionGroup:getActionGroup", {
         "name": args.name,

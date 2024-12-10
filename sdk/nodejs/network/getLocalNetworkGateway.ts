@@ -95,7 +95,7 @@ export interface GetLocalNetworkGatewayResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
+export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", {
         "name": args.name,

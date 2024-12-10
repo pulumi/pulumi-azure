@@ -147,7 +147,7 @@ def get_enterprise_database(cluster_id: Optional[str] = None,
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
 def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseDatabaseResult]:
     """
     Use this data source to access information about an existing Redis Enterprise Database
 
@@ -158,7 +158,7 @@ def get_enterprise_database_output(cluster_id: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:redis/getEnterpriseDatabase:getEnterpriseDatabase', __args__, opts=opts, typ=GetEnterpriseDatabaseResult)
     return __ret__.apply(lambda __response__: GetEnterpriseDatabaseResult(
         cluster_id=pulumi.get(__response__, 'cluster_id'),

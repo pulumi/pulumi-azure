@@ -85,7 +85,7 @@ export interface GetEncryptionScopeResult {
  * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);
  * ```
  */
-export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
+export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getEncryptionScope:getEncryptionScope", {
         "name": args.name,

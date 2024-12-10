@@ -69,7 +69,7 @@ export interface GetUserResult {
 /**
  * Use this data source to access information about an existing API Management User.
  */
-export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:apimanagement/getUser:getUser", {
         "apiManagementName": args.apiManagementName,

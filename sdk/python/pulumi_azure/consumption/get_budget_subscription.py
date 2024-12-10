@@ -169,7 +169,7 @@ def get_budget_subscription(name: Optional[str] = None,
         time_periods=pulumi.get(__ret__, 'time_periods'))
 def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
                                    subscription_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetSubscriptionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetSubscriptionResult]:
     """
     Use this data source to access information about an existing Consumption Budget for a specific subscription.
 
@@ -191,7 +191,7 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:consumption/getBudgetSubscription:getBudgetSubscription', __args__, opts=opts, typ=GetBudgetSubscriptionResult)
     return __ret__.apply(lambda __response__: GetBudgetSubscriptionResult(
         amount=pulumi.get(__response__, 'amount'),

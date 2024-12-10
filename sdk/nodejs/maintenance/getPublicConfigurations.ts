@@ -90,7 +90,7 @@ export interface GetPublicConfigurationsResult {
  * export const name = existing.then(existing => existing.configs?.[0]?.name);
  * ```
  */
-export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicConfigurationsResult> {
+export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicConfigurationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:maintenance/getPublicConfigurations:getPublicConfigurations", {
