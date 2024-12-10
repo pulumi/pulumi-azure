@@ -77,21 +77,11 @@ type LookupDateTimeVariableResult struct {
 }
 
 func LookupDateTimeVariableOutput(ctx *pulumi.Context, args LookupDateTimeVariableOutputArgs, opts ...pulumi.InvokeOption) LookupDateTimeVariableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDateTimeVariableResultOutput, error) {
 			args := v.(LookupDateTimeVariableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDateTimeVariableResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getDateTimeVariable:getDateTimeVariable", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDateTimeVariableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDateTimeVariableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDateTimeVariableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:automation/getDateTimeVariable:getDateTimeVariable", args, LookupDateTimeVariableResultOutput{}, options).(LookupDateTimeVariableResultOutput), nil
 		}).(LookupDateTimeVariableResultOutput)
 }
 

@@ -83,21 +83,11 @@ type GetVariablesResult struct {
 }
 
 func GetVariablesOutput(ctx *pulumi.Context, args GetVariablesOutputArgs, opts ...pulumi.InvokeOption) GetVariablesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVariablesResultOutput, error) {
 			args := v.(GetVariablesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetVariablesResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getVariables:getVariables", args, &rv, "", opts...)
-			if err != nil {
-				return GetVariablesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetVariablesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetVariablesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:automation/getVariables:getVariables", args, GetVariablesResultOutput{}, options).(GetVariablesResultOutput), nil
 		}).(GetVariablesResultOutput)
 }
 

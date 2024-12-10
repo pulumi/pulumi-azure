@@ -74,21 +74,11 @@ type LookupReplicationPolicyResult struct {
 }
 
 func LookupReplicationPolicyOutput(ctx *pulumi.Context, args LookupReplicationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationPolicyResultOutput, error) {
 			args := v.(LookupReplicationPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupReplicationPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupReplicationPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupReplicationPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupReplicationPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args, LookupReplicationPolicyResultOutput{}, options).(LookupReplicationPolicyResultOutput), nil
 		}).(LookupReplicationPolicyResultOutput)
 }
 

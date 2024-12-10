@@ -102,21 +102,11 @@ type LookupFlexibleServerResult struct {
 }
 
 func LookupFlexibleServerOutput(ctx *pulumi.Context, args LookupFlexibleServerOutputArgs, opts ...pulumi.InvokeOption) LookupFlexibleServerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlexibleServerResultOutput, error) {
 			args := v.(LookupFlexibleServerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFlexibleServerResult
-			secret, err := ctx.InvokePackageRaw("azure:mysql/getFlexibleServer:getFlexibleServer", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFlexibleServerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFlexibleServerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFlexibleServerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:mysql/getFlexibleServer:getFlexibleServer", args, LookupFlexibleServerResultOutput{}, options).(LookupFlexibleServerResultOutput), nil
 		}).(LookupFlexibleServerResultOutput)
 }
 

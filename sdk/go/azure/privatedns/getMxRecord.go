@@ -77,21 +77,11 @@ type LookupMxRecordResult struct {
 }
 
 func LookupMxRecordOutput(ctx *pulumi.Context, args LookupMxRecordOutputArgs, opts ...pulumi.InvokeOption) LookupMxRecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMxRecordResultOutput, error) {
 			args := v.(LookupMxRecordArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMxRecordResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getMxRecord:getMxRecord", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMxRecordResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMxRecordResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMxRecordResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:privatedns/getMxRecord:getMxRecord", args, LookupMxRecordResultOutput{}, options).(LookupMxRecordResultOutput), nil
 		}).(LookupMxRecordResultOutput)
 }
 

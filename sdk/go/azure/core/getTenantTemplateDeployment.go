@@ -38,21 +38,11 @@ type LookupTenantTemplateDeploymentResult struct {
 }
 
 func LookupTenantTemplateDeploymentOutput(ctx *pulumi.Context, args LookupTenantTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupTenantTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTenantTemplateDeploymentResultOutput, error) {
 			args := v.(LookupTenantTemplateDeploymentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTenantTemplateDeploymentResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTenantTemplateDeploymentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTenantTemplateDeploymentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTenantTemplateDeploymentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, LookupTenantTemplateDeploymentResultOutput{}, options).(LookupTenantTemplateDeploymentResultOutput), nil
 		}).(LookupTenantTemplateDeploymentResultOutput)
 }
 
