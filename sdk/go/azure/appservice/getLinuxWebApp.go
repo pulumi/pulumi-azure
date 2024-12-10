@@ -139,21 +139,11 @@ type LookupLinuxWebAppResult struct {
 }
 
 func LookupLinuxWebAppOutput(ctx *pulumi.Context, args LookupLinuxWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxWebAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLinuxWebAppResultOutput, error) {
 			args := v.(LookupLinuxWebAppArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLinuxWebAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getLinuxWebApp:getLinuxWebApp", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLinuxWebAppResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLinuxWebAppResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLinuxWebAppResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:appservice/getLinuxWebApp:getLinuxWebApp", args, LookupLinuxWebAppResultOutput{}, options).(LookupLinuxWebAppResultOutput), nil
 		}).(LookupLinuxWebAppResultOutput)
 }
 
