@@ -64,21 +64,11 @@ type LookupSourceControlTokenResult struct {
 }
 
 func LookupSourceControlTokenOutput(ctx *pulumi.Context, args LookupSourceControlTokenOutputArgs, opts ...pulumi.InvokeOption) LookupSourceControlTokenResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSourceControlTokenResultOutput, error) {
 			args := v.(LookupSourceControlTokenArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSourceControlTokenResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getSourceControlToken:getSourceControlToken", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSourceControlTokenResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSourceControlTokenResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSourceControlTokenResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:appservice/getSourceControlToken:getSourceControlToken", args, LookupSourceControlTokenResultOutput{}, options).(LookupSourceControlTokenResultOutput), nil
 		}).(LookupSourceControlTokenResultOutput)
 }
 

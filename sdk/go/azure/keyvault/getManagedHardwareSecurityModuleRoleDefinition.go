@@ -50,21 +50,11 @@ type LookupManagedHardwareSecurityModuleRoleDefinitionResult struct {
 }
 
 func LookupManagedHardwareSecurityModuleRoleDefinitionOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput, error) {
 			args := v.(LookupManagedHardwareSecurityModuleRoleDefinitionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupManagedHardwareSecurityModuleRoleDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, &rv, "", opts...)
-			if err != nil {
-				return LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput{}, options).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput), nil
 		}).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput)
 }
 
