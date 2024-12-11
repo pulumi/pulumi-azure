@@ -75,21 +75,11 @@ type LookupRegistryTokenResult struct {
 }
 
 func LookupRegistryTokenOutput(ctx *pulumi.Context, args LookupRegistryTokenOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryTokenResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryTokenResultOutput, error) {
 			args := v.(LookupRegistryTokenArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRegistryTokenResult
-			secret, err := ctx.InvokePackageRaw("azure:containerservice/getRegistryToken:getRegistryToken", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRegistryTokenResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRegistryTokenResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRegistryTokenResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:containerservice/getRegistryToken:getRegistryToken", args, LookupRegistryTokenResultOutput{}, options).(LookupRegistryTokenResultOutput), nil
 		}).(LookupRegistryTokenResultOutput)
 }
 

@@ -70,21 +70,11 @@ type LookupResolverVirtualNetworkLinkResult struct {
 }
 
 func LookupResolverVirtualNetworkLinkOutput(ctx *pulumi.Context, args LookupResolverVirtualNetworkLinkOutputArgs, opts ...pulumi.InvokeOption) LookupResolverVirtualNetworkLinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverVirtualNetworkLinkResultOutput, error) {
 			args := v.(LookupResolverVirtualNetworkLinkArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResolverVirtualNetworkLinkResult
-			secret, err := ctx.InvokePackageRaw("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResolverVirtualNetworkLinkResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResolverVirtualNetworkLinkResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResolverVirtualNetworkLinkResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args, LookupResolverVirtualNetworkLinkResultOutput{}, options).(LookupResolverVirtualNetworkLinkResultOutput), nil
 		}).(LookupResolverVirtualNetworkLinkResultOutput)
 }
 
