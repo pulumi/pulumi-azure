@@ -87,21 +87,11 @@ type LookupHciClusterResult struct {
 }
 
 func LookupHciClusterOutput(ctx *pulumi.Context, args LookupHciClusterOutputArgs, opts ...pulumi.InvokeOption) LookupHciClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHciClusterResultOutput, error) {
 			args := v.(LookupHciClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupHciClusterResult
-			secret, err := ctx.InvokePackageRaw("azure:stack/getHciCluster:getHciCluster", args, &rv, "", opts...)
-			if err != nil {
-				return LookupHciClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupHciClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupHciClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:stack/getHciCluster:getHciCluster", args, LookupHciClusterResultOutput{}, options).(LookupHciClusterResultOutput), nil
 		}).(LookupHciClusterResultOutput)
 }
 

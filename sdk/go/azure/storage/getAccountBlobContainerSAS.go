@@ -145,21 +145,11 @@ type GetAccountBlobContainerSASResult struct {
 }
 
 func GetAccountBlobContainerSASOutput(ctx *pulumi.Context, args GetAccountBlobContainerSASOutputArgs, opts ...pulumi.InvokeOption) GetAccountBlobContainerSASResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccountBlobContainerSASResultOutput, error) {
 			args := v.(GetAccountBlobContainerSASArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAccountBlobContainerSASResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, &rv, "", opts...)
-			if err != nil {
-				return GetAccountBlobContainerSASResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAccountBlobContainerSASResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAccountBlobContainerSASResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, GetAccountBlobContainerSASResultOutput{}, options).(GetAccountBlobContainerSASResultOutput), nil
 		}).(GetAccountBlobContainerSASResultOutput)
 }
 

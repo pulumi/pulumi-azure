@@ -84,21 +84,11 @@ type LookupNetworkServiceResult struct {
 }
 
 func LookupNetworkServiceOutput(ctx *pulumi.Context, args LookupNetworkServiceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkServiceResultOutput, error) {
 			args := v.(LookupNetworkServiceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNetworkServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:mobile/getNetworkService:getNetworkService", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNetworkServiceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNetworkServiceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNetworkServiceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:mobile/getNetworkService:getNetworkService", args, LookupNetworkServiceResultOutput{}, options).(LookupNetworkServiceResultOutput), nil
 		}).(LookupNetworkServiceResultOutput)
 }
 
