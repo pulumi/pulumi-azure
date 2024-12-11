@@ -72,21 +72,11 @@ type LookupFrontdoorRuleSetResult struct {
 }
 
 func LookupFrontdoorRuleSetOutput(ctx *pulumi.Context, args LookupFrontdoorRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorRuleSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorRuleSetResultOutput, error) {
 			args := v.(LookupFrontdoorRuleSetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFrontdoorRuleSetResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFrontdoorRuleSetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFrontdoorRuleSetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFrontdoorRuleSetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args, LookupFrontdoorRuleSetResultOutput{}, options).(LookupFrontdoorRuleSetResultOutput), nil
 		}).(LookupFrontdoorRuleSetResultOutput)
 }
 

@@ -89,21 +89,11 @@ type LookupNamespaceAuthorizationRuleResult struct {
 }
 
 func LookupNamespaceAuthorizationRuleOutput(ctx *pulumi.Context, args LookupNamespaceAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceAuthorizationRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNamespaceAuthorizationRuleResultOutput, error) {
 			args := v.(LookupNamespaceAuthorizationRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNamespaceAuthorizationRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNamespaceAuthorizationRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNamespaceAuthorizationRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNamespaceAuthorizationRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args, LookupNamespaceAuthorizationRuleResultOutput{}, options).(LookupNamespaceAuthorizationRuleResultOutput), nil
 		}).(LookupNamespaceAuthorizationRuleResultOutput)
 }
 

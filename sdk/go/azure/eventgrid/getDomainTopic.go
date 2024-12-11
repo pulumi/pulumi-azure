@@ -70,21 +70,11 @@ type LookupDomainTopicResult struct {
 }
 
 func LookupDomainTopicOutput(ctx *pulumi.Context, args LookupDomainTopicOutputArgs, opts ...pulumi.InvokeOption) LookupDomainTopicResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainTopicResultOutput, error) {
 			args := v.(LookupDomainTopicArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDomainTopicResult
-			secret, err := ctx.InvokePackageRaw("azure:eventgrid/getDomainTopic:getDomainTopic", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDomainTopicResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDomainTopicResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDomainTopicResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:eventgrid/getDomainTopic:getDomainTopic", args, LookupDomainTopicResultOutput{}, options).(LookupDomainTopicResultOutput), nil
 		}).(LookupDomainTopicResultOutput)
 }
 

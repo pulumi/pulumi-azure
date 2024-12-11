@@ -84,21 +84,11 @@ type LookupBackendAddressPoolResult struct {
 }
 
 func LookupBackendAddressPoolOutput(ctx *pulumi.Context, args LookupBackendAddressPoolOutputArgs, opts ...pulumi.InvokeOption) LookupBackendAddressPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBackendAddressPoolResultOutput, error) {
 			args := v.(LookupBackendAddressPoolArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBackendAddressPoolResult
-			secret, err := ctx.InvokePackageRaw("azure:lb/getBackendAddressPool:getBackendAddressPool", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBackendAddressPoolResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBackendAddressPoolResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBackendAddressPoolResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:lb/getBackendAddressPool:getBackendAddressPool", args, LookupBackendAddressPoolResultOutput{}, options).(LookupBackendAddressPoolResultOutput), nil
 		}).(LookupBackendAddressPoolResultOutput)
 }
 
