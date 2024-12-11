@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Output<GetSubscriptionTemplateDeploymentResult> Invoke(GetSubscriptionTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Subscription Template Deployment.
+        /// </summary>
+        public static Output<GetSubscriptionTemplateDeploymentResult> Invoke(GetSubscriptionTemplateDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

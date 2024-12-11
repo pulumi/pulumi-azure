@@ -66,6 +66,34 @@ namespace Pulumi.Azure.Dns
         /// </summary>
         public static Output<GetCAARecordResult> Invoke(GetCAARecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Dns.GetCAARecord.Invoke(new()
+        ///     {
+        ///         Name = "test",
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dnsCaaRecordId"] = example.Apply(getCAARecordResult =&gt; getCAARecordResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCAARecordResult> Invoke(GetCAARecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());
     }
 
 

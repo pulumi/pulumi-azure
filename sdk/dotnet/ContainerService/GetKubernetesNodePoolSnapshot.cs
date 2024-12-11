@@ -60,6 +60,31 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public static Output<GetKubernetesNodePoolSnapshotResult> Invoke(GetKubernetesNodePoolSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerService.GetKubernetesNodePoolSnapshot.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetKubernetesNodePoolSnapshotResult> Invoke(GetKubernetesNodePoolSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

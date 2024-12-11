@@ -76,6 +76,39 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing File Share.
+        /// 
+        /// &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "exampleaccount",
+        ///         ResourceGroupName = "examples",
+        ///     });
+        /// 
+        ///     var exampleGetShare = Azure.Storage.GetShare.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
     }
 
 

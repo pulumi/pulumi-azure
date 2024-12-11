@@ -111,21 +111,11 @@ type GetRoleDefinitionResult struct {
 }
 
 func GetRoleDefinitionOutput(ctx *pulumi.Context, args GetRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRoleDefinitionResultOutput, error) {
 			args := v.(GetRoleDefinitionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRoleDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, "", opts...)
-			if err != nil {
-				return GetRoleDefinitionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRoleDefinitionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRoleDefinitionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:role/getRoleDefinition:getRoleDefinition", args, GetRoleDefinitionResultOutput{}, options).(GetRoleDefinitionResultOutput), nil
 		}).(GetRoleDefinitionResultOutput)
 }
 

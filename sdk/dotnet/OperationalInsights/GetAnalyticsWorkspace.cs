@@ -68,6 +68,35 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         public static Output<GetAnalyticsWorkspaceResult> Invoke(GetAnalyticsWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
+        ///     {
+        ///         Name = "acctest-01",
+        ///         ResourceGroupName = "acctest",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["logAnalyticsWorkspaceId"] = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.WorkspaceId),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAnalyticsWorkspaceResult> Invoke(GetAnalyticsWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -60,6 +60,31 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public static Output<GetFrontdoorFirewallPolicyResult> Invoke(GetFrontdoorFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorFirewallPolicyResult>("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args ?? new GetFrontdoorFirewallPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorFirewallPolicy.Invoke(new()
+        ///     {
+        ///         Name = "examplecdnfdwafpolicy",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFrontdoorFirewallPolicyResult> Invoke(GetFrontdoorFirewallPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorFirewallPolicyResult>("azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy", args ?? new GetFrontdoorFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

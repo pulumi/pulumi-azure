@@ -68,6 +68,35 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         public static Output<GetInsightsResult> Invoke(GetInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Application Insights component.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppInsights.GetInsights.Invoke(new()
+        ///     {
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["applicationInsightsInstrumentationKey"] = example.Apply(getInsightsResult =&gt; getInsightsResult.InstrumentationKey),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInsightsResult> Invoke(GetInsightsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithDefaults());
     }
 
 

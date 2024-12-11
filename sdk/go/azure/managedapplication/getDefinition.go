@@ -68,21 +68,11 @@ type LookupDefinitionResult struct {
 }
 
 func LookupDefinitionOutput(ctx *pulumi.Context, args LookupDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDefinitionResultOutput, error) {
 			args := v.(LookupDefinitionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDefinitionResult
-			secret, err := ctx.InvokePackageRaw("azure:managedapplication/getDefinition:getDefinition", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDefinitionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDefinitionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDefinitionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:managedapplication/getDefinition:getDefinition", args, LookupDefinitionResultOutput{}, options).(LookupDefinitionResultOutput), nil
 		}).(LookupDefinitionResultOutput)
 }
 

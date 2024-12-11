@@ -66,6 +66,34 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public static Output<GetARecordResult> Invoke(GetARecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PrivateDns.GetARecord.Invoke(new()
+        ///     {
+        ///         Name = "test",
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsARecordId"] = example.Apply(getARecordResult =&gt; getARecordResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetARecordResult> Invoke(GetARecordInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());
     }
 
 

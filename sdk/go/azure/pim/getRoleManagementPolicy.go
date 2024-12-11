@@ -137,21 +137,11 @@ type LookupRoleManagementPolicyResult struct {
 }
 
 func LookupRoleManagementPolicyOutput(ctx *pulumi.Context, args LookupRoleManagementPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupRoleManagementPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoleManagementPolicyResultOutput, error) {
 			args := v.(LookupRoleManagementPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRoleManagementPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRoleManagementPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRoleManagementPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRoleManagementPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args, LookupRoleManagementPolicyResultOutput{}, options).(LookupRoleManagementPolicyResultOutput), nil
 		}).(LookupRoleManagementPolicyResultOutput)
 }
 

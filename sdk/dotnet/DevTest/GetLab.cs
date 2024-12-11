@@ -68,6 +68,35 @@ namespace Pulumi.Azure.DevTest
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Dev Test Lab.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DevTest.GetLab.Invoke(new()
+        ///     {
+        ///         Name = "example-lab",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["uniqueIdentifier"] = example.Apply(getLabResult =&gt; getLabResult.UniqueIdentifier),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

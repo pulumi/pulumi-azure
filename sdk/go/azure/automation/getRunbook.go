@@ -87,21 +87,11 @@ type GetRunbookResult struct {
 }
 
 func GetRunbookOutput(ctx *pulumi.Context, args GetRunbookOutputArgs, opts ...pulumi.InvokeOption) GetRunbookResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRunbookResultOutput, error) {
 			args := v.(GetRunbookArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRunbookResult
-			secret, err := ctx.InvokePackageRaw("azure:automation/getRunbook:getRunbook", args, &rv, "", opts...)
-			if err != nil {
-				return GetRunbookResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRunbookResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRunbookResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:automation/getRunbook:getRunbook", args, GetRunbookResultOutput{}, options).(GetRunbookResultOutput), nil
 		}).(GetRunbookResultOutput)
 }
 

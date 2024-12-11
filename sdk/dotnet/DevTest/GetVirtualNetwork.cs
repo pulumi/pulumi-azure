@@ -70,6 +70,36 @@ namespace Pulumi.Azure.DevTest
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Dev Test Lab Virtual Network.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DevTest.GetVirtualNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-network",
+        ///         LabName = "examplelab",
+        ///         ResourceGroupName = "example-resource",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["labSubnetName"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.AllowedSubnets[0]?.LabSubnetName),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

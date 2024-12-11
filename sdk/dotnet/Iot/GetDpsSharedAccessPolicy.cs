@@ -62,6 +62,32 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public static Output<GetDpsSharedAccessPolicyResult> Invoke(GetDpsSharedAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? new GetDpsSharedAccessPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Iot.GetDpsSharedAccessPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         IothubDpsName = exampleAzurermIothubDps.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDpsSharedAccessPolicyResult> Invoke(GetDpsSharedAccessPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? new GetDpsSharedAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

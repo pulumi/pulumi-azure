@@ -60,6 +60,31 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetTableEntitiesResult> Invoke(GetTableEntitiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableEntitiesResult>("azure:storage/getTableEntities:getTableEntities", args ?? new GetTableEntitiesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Table Entity.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetTableEntities.Invoke(new()
+        ///     {
+        ///         StorageTableId = exampleAzurermStorageTable.Id,
+        ///         Filter = "PartitionKey eq 'example'",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTableEntitiesResult> Invoke(GetTableEntitiesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableEntitiesResult>("azure:storage/getTableEntities:getTableEntities", args ?? new GetTableEntitiesInvokeArgs(), options.WithDefaults());
     }
 
 
