@@ -92,21 +92,11 @@ type LookupQueueAuthorizationRuleResult struct {
 }
 
 func LookupQueueAuthorizationRuleOutput(ctx *pulumi.Context, args LookupQueueAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupQueueAuthorizationRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupQueueAuthorizationRuleResultOutput, error) {
 			args := v.(LookupQueueAuthorizationRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupQueueAuthorizationRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupQueueAuthorizationRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupQueueAuthorizationRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupQueueAuthorizationRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args, LookupQueueAuthorizationRuleResultOutput{}, options).(LookupQueueAuthorizationRuleResultOutput), nil
 		}).(LookupQueueAuthorizationRuleResultOutput)
 }
 

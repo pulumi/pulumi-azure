@@ -78,21 +78,11 @@ type LookupDatasetBlobStorageResult struct {
 }
 
 func LookupDatasetBlobStorageOutput(ctx *pulumi.Context, args LookupDatasetBlobStorageOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetBlobStorageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatasetBlobStorageResultOutput, error) {
 			args := v.(LookupDatasetBlobStorageArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDatasetBlobStorageResult
-			secret, err := ctx.InvokePackageRaw("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDatasetBlobStorageResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDatasetBlobStorageResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDatasetBlobStorageResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args, LookupDatasetBlobStorageResultOutput{}, options).(LookupDatasetBlobStorageResultOutput), nil
 		}).(LookupDatasetBlobStorageResultOutput)
 }
 

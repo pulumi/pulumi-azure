@@ -84,21 +84,11 @@ type GetServiceResult struct {
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceResultOutput, error) {
 			args := v.(GetServiceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServiceResult
-			secret, err := ctx.InvokePackageRaw("azure:privatelink/getService:getService", args, &rv, "", opts...)
-			if err != nil {
-				return GetServiceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServiceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServiceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:privatelink/getService:getService", args, GetServiceResultOutput{}, options).(GetServiceResultOutput), nil
 		}).(GetServiceResultOutput)
 }
 

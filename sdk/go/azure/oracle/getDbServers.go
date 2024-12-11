@@ -69,21 +69,11 @@ type GetDbServersResult struct {
 }
 
 func GetDbServersOutput(ctx *pulumi.Context, args GetDbServersOutputArgs, opts ...pulumi.InvokeOption) GetDbServersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDbServersResultOutput, error) {
 			args := v.(GetDbServersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetDbServersResult
-			secret, err := ctx.InvokePackageRaw("azure:oracle/getDbServers:getDbServers", args, &rv, "", opts...)
-			if err != nil {
-				return GetDbServersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetDbServersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetDbServersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:oracle/getDbServers:getDbServers", args, GetDbServersResultOutput{}, options).(GetDbServersResultOutput), nil
 		}).(GetDbServersResultOutput)
 }
 

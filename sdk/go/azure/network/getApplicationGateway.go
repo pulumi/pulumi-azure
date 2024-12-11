@@ -131,21 +131,11 @@ type LookupApplicationGatewayResult struct {
 }
 
 func LookupApplicationGatewayOutput(ctx *pulumi.Context, args LookupApplicationGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationGatewayResultOutput, error) {
 			args := v.(LookupApplicationGatewayArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApplicationGatewayResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getApplicationGateway:getApplicationGateway", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApplicationGatewayResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApplicationGatewayResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApplicationGatewayResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:network/getApplicationGateway:getApplicationGateway", args, LookupApplicationGatewayResultOutput{}, options).(LookupApplicationGatewayResultOutput), nil
 		}).(LookupApplicationGatewayResultOutput)
 }
 
