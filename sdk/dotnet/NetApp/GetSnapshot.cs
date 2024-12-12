@@ -74,6 +74,38 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Snapshot.
+        /// 
+        /// ## NetApp Snapshot Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Azure.NetApp.GetSnapshot.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "acctestRG",
+        ///         Name = "acctestnetappsnapshot",
+        ///         AccountName = "acctestnetappaccount",
+        ///         PoolName = "acctestnetapppool",
+        ///         VolumeName = "acctestnetappvolume",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["netappSnapshotId"] = example.Id,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

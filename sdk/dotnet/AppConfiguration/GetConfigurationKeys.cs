@@ -70,6 +70,36 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public static Output<GetConfigurationKeysResult> Invoke(GetConfigurationKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Azure App Configuration Keys.
+        /// 
+        /// &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Azure.AppConfiguration.GetConfigurationKeys.Invoke(new()
+        ///     {
+        ///         ConfigurationStoreId = appconf.Id,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["value"] = test.Apply(getConfigurationKeysResult =&gt; getConfigurationKeysResult.Items),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConfigurationKeysResult> Invoke(GetConfigurationKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysInvokeArgs(), options.WithDefaults());
     }
 
 

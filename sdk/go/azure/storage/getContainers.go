@@ -68,21 +68,11 @@ type GetContainersResult struct {
 }
 
 func GetContainersOutput(ctx *pulumi.Context, args GetContainersOutputArgs, opts ...pulumi.InvokeOption) GetContainersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetContainersResultOutput, error) {
 			args := v.(GetContainersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetContainersResult
-			secret, err := ctx.InvokePackageRaw("azure:storage/getContainers:getContainers", args, &rv, "", opts...)
-			if err != nil {
-				return GetContainersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetContainersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetContainersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:storage/getContainers:getContainers", args, GetContainersResultOutput{}, options).(GetContainersResultOutput), nil
 		}).(GetContainersResultOutput)
 }
 

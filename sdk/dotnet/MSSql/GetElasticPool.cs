@@ -70,6 +70,36 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing SQL elastic pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MSSql.GetElasticPool.Invoke(new()
+        ///     {
+        ///         Name = "mssqlelasticpoolname",
+        ///         ResourceGroupName = "example-resources",
+        ///         ServerName = "example-sql-server",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["elasticpoolId"] = example.Apply(getElasticPoolResult =&gt; getElasticPoolResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
     }
 
 

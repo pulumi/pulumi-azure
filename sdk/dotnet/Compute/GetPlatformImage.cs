@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Output<GetPlatformImageResult> Invoke(GetPlatformImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about a Platform Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetPlatformImage.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///         Publisher = "Canonical",
+        ///         Offer = "0001-com-ubuntu-server-focal",
+        ///         Sku = "20_04-lts",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPlatformImageResult =&gt; getPlatformImageResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPlatformImageResult> Invoke(GetPlatformImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());
     }
 
 

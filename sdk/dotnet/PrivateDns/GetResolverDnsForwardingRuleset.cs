@@ -60,6 +60,31 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public static Output<GetResolverDnsForwardingRulesetResult> Invoke(GetResolverDnsForwardingRulesetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverDnsForwardingRulesetResult>("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", args ?? new GetResolverDnsForwardingRulesetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an existing Private DNS Resolver Dns Forwarding Ruleset.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PrivateDns.GetResolverDnsForwardingRuleset.Invoke(new()
+        ///     {
+        ///         Name = "example-ruleset",
+        ///         ResourceGroupName = "example-ruleset-resourcegroup",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverDnsForwardingRulesetResult> Invoke(GetResolverDnsForwardingRulesetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverDnsForwardingRulesetResult>("azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset", args ?? new GetResolverDnsForwardingRulesetInvokeArgs(), options.WithDefaults());
     }
 
 

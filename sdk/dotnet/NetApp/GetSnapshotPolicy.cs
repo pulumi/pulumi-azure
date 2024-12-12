@@ -82,6 +82,42 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Snapshot Policy.
+        /// 
+        /// ## NetApp Snapshot Policy Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.NetApp.GetSnapshotPolicy.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "acctestRG",
+        ///         AccountName = "acctestnetappaccount",
+        ///         Name = "example-snapshot-policy",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Id),
+        ///         ["name"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Name),
+        ///         ["enabled"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.Enabled),
+        ///         ["hourlySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.HourlySchedules),
+        ///         ["dailySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.DailySchedules),
+        ///         ["weeklySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.WeeklySchedules),
+        ///         ["monthlySchedule"] = example.Apply(getSnapshotPolicyResult =&gt; getSnapshotPolicyResult.MonthlySchedules),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

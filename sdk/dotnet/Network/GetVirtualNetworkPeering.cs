@@ -80,6 +80,41 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing virtual network peering.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
+        ///     {
+        ///         Name = "vnet01",
+        ///         ResourceGroupName = "networking",
+        ///     });
+        /// 
+        ///     var exampleGetVirtualNetworkPeering = Azure.Network.GetVirtualNetworkPeering.Invoke(new()
+        ///     {
+        ///         Name = "peer-vnet01-to-vnet02",
+        ///         VirtualNetworkId = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleGetVirtualNetworkPeering.Apply(getVirtualNetworkPeeringResult =&gt; getVirtualNetworkPeeringResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

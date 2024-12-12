@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Connections
         /// </summary>
         public static Output<GetManagedApiResult> Invoke(GetManagedApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Uses this data source to access information about an existing Managed API.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Connections.GetManagedApi.Invoke(new()
+        ///     {
+        ///         Name = "servicebus",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getManagedApiResult =&gt; getManagedApiResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetManagedApiResult> Invoke(GetManagedApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -144,6 +144,73 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public static Output<GetSasResult> Invoke(GetSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSasResult>("azure:eventhub/getSas:getSas", args ?? new GetSasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "example-resources",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
+        ///     {
+        ///         Name = "example-ehn",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Sku = "Basic",
+        ///     });
+        /// 
+        ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
+        ///     {
+        ///         Name = "example-eh",
+        ///         NamespaceName = exampleEventHubNamespace.Name,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         PartitionCount = 1,
+        ///         MessageRetention = 1,
+        ///     });
+        /// 
+        ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("example", new()
+        ///     {
+        ///         Name = "example-ehar",
+        ///         NamespaceName = exampleEventHubNamespace.Name,
+        ///         EventhubName = exampleEventHub.Name,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Listen = true,
+        ///         Send = true,
+        ///         Manage = true,
+        ///     });
+        /// 
+        ///     var example = Azure.EventHub.GetAuthorizationRule.Invoke(new()
+        ///     {
+        ///         Name = exampleAuthorizationRule.Name,
+        ///         NamespaceName = exampleEventHubNamespace.Name,
+        ///         EventhubName = exampleEventHub.Name,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///     });
+        /// 
+        ///     var exampleGetSas = Azure.EventHub.GetSas.Invoke(new()
+        ///     {
+        ///         ConnectionString = example.Apply(getAuthorizationRuleResult =&gt; getAuthorizationRuleResult.PrimaryConnectionString),
+        ///         Expiry = "2023-06-23T00:00:00Z",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSasResult> Invoke(GetSasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSasResult>("azure:eventhub/getSas:getSas", args ?? new GetSasInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public static Output<GetStringVariableResult> Invoke(GetStringVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Automation String Variable.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetStringVariable.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getStringVariableResult =&gt; getStringVariableResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStringVariableResult> Invoke(GetStringVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableInvokeArgs(), options.WithDefaults());
     }
 
 
