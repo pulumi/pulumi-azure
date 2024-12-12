@@ -68,6 +68,35 @@ namespace Pulumi.Azure.DataShare
         /// </summary>
         public static Output<GetDatasetKustoDatabaseResult> Invoke(GetDatasetKustoDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Data Share Kusto Database Dataset.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataShare.GetDatasetKustoDatabase.Invoke(new()
+        ///     {
+        ///         Name = "example-dskdds",
+        ///         ShareId = "example-share-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetKustoDatabaseResult =&gt; getDatasetKustoDatabaseResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDatasetKustoDatabaseResult> Invoke(GetDatasetKustoDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

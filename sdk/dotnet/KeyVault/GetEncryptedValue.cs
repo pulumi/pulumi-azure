@@ -22,6 +22,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public static Output<GetEncryptedValueResult> Invoke(GetEncryptedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Encrypts or Decrypts a value using a Key Vault Key.
+        /// </summary>
+        public static Output<GetEncryptedValueResult> Invoke(GetEncryptedValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueInvokeArgs(), options.WithDefaults());
     }
 
 

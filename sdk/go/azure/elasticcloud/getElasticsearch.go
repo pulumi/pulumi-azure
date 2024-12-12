@@ -95,21 +95,11 @@ type LookupElasticsearchResult struct {
 }
 
 func LookupElasticsearchOutput(ctx *pulumi.Context, args LookupElasticsearchOutputArgs, opts ...pulumi.InvokeOption) LookupElasticsearchResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupElasticsearchResultOutput, error) {
 			args := v.(LookupElasticsearchArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupElasticsearchResult
-			secret, err := ctx.InvokePackageRaw("azure:elasticcloud/getElasticsearch:getElasticsearch", args, &rv, "", opts...)
-			if err != nil {
-				return LookupElasticsearchResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupElasticsearchResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupElasticsearchResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:elasticcloud/getElasticsearch:getElasticsearch", args, LookupElasticsearchResultOutput{}, options).(LookupElasticsearchResultOutput), nil
 		}).(LookupElasticsearchResultOutput)
 }
 

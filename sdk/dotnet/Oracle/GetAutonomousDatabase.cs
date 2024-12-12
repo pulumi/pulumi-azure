@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetAutonomousDatabaseResult> Invoke(GetAutonomousDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutonomousDatabaseResult>("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args ?? new GetAutonomousDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Autonomous Database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetAutonomousDatabase.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAutonomousDatabaseResult =&gt; getAutonomousDatabaseResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAutonomousDatabaseResult> Invoke(GetAutonomousDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutonomousDatabaseResult>("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args ?? new GetAutonomousDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

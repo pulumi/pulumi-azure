@@ -69,6 +69,35 @@ namespace Pulumi.Azure.Dashboard
         /// </summary>
         public static Output<Azurerm_portal_dashboardResult> Invoke(Azurerm_portal_dashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Portal.Azurerm_portal_dashboard.Invoke(new()
+        ///     {
+        ///         Name = "existing-dashboard",
+        ///         ResourceGroupName = "dashboard-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleAzurermDashboard.Id,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<Azurerm_portal_dashboardResult> Invoke(Azurerm_portal_dashboardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());
     }
 
 

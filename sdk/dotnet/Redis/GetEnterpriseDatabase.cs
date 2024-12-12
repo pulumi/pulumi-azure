@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public static Output<GetEnterpriseDatabaseResult> Invoke(GetEnterpriseDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Redis Enterprise Database
+        /// </summary>
+        public static Output<GetEnterpriseDatabaseResult> Invoke(GetEnterpriseDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 
