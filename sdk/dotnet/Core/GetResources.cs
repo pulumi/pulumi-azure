@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing resources.
+        /// </summary>
+        public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("azure:core/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

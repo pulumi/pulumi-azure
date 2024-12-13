@@ -62,6 +62,32 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorRuleSet.Invoke(new()
+        ///     {
+        ///         Name = "existing-rule-set",
+        ///         ProfileName = "existing-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class Aadb2cFunctions {
@@ -144,6 +145,50 @@ public final class Aadb2cFunctions {
      * 
      */
     public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:aadb2c/getDirectory:getDirectory", TypeShape.of(GetDirectoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing AAD B2C Directory.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.aadb2c.Aadb2cFunctions;
+     * import com.pulumi.azure.aadb2c.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Aadb2cFunctions.getDirectory(GetDirectoryArgs.builder()
+     *             .resourceGroupName("example-rg")
+     *             .domainName("exampleb2ctenant.onmicrosoft.com")
+     *             .build());
+     * 
+     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDirectoryResult> getDirectory(GetDirectoryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:aadb2c/getDirectory:getDirectory", TypeShape.of(GetDirectoryResult.class), args, Utilities.withVersion(options));
     }
     /**

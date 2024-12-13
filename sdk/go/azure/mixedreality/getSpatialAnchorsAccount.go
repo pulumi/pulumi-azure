@@ -74,21 +74,11 @@ type LookupSpatialAnchorsAccountResult struct {
 }
 
 func LookupSpatialAnchorsAccountOutput(ctx *pulumi.Context, args LookupSpatialAnchorsAccountOutputArgs, opts ...pulumi.InvokeOption) LookupSpatialAnchorsAccountResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSpatialAnchorsAccountResultOutput, error) {
 			args := v.(LookupSpatialAnchorsAccountArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSpatialAnchorsAccountResult
-			secret, err := ctx.InvokePackageRaw("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSpatialAnchorsAccountResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSpatialAnchorsAccountResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSpatialAnchorsAccountResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args, LookupSpatialAnchorsAccountResultOutput{}, options).(LookupSpatialAnchorsAccountResultOutput), nil
 		}).(LookupSpatialAnchorsAccountResultOutput)
 }
 

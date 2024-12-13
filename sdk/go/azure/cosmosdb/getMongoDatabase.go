@@ -73,21 +73,11 @@ type LookupMongoDatabaseResult struct {
 }
 
 func LookupMongoDatabaseOutput(ctx *pulumi.Context, args LookupMongoDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupMongoDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMongoDatabaseResultOutput, error) {
 			args := v.(LookupMongoDatabaseArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMongoDatabaseResult
-			secret, err := ctx.InvokePackageRaw("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMongoDatabaseResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMongoDatabaseResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMongoDatabaseResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, LookupMongoDatabaseResultOutput{}, options).(LookupMongoDatabaseResultOutput), nil
 		}).(LookupMongoDatabaseResultOutput)
 }
 

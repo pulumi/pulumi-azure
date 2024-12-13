@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Redis Cache
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Redis.GetCache.Invoke(new()
+        ///     {
+        ///         Name = "myrediscache",
+        ///         ResourceGroupName = "redis-cache",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["primaryAccessKey"] = example.Apply(getCacheResult =&gt; getCacheResult.PrimaryAccessKey),
+        ///         ["hostname"] = example.Apply(getCacheResult =&gt; getCacheResult.Hostname),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
     }
 
 

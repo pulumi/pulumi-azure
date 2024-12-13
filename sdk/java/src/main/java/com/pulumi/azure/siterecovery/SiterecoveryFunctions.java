@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SiterecoveryFunctions {
@@ -153,6 +154,50 @@ public final class SiterecoveryFunctions {
      * 
      */
     public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:siterecovery/getFabric:getFabric", TypeShape.of(GetFabricResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Site Recovery Replication Fabric.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetFabricArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fabric = SiterecoveryFunctions.getFabric(GetFabricArgs.builder()
+     *             .name("primary-fabric")
+     *             .recoveryVaultName("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFabricResult> getFabric(GetFabricArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getFabric:getFabric", TypeShape.of(GetFabricResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -376,6 +421,51 @@ public final class SiterecoveryFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetProtectionContainerResult> getProtectionContainer(GetProtectionContainerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:siterecovery/getProtectionContainer:getProtectionContainer", TypeShape.of(GetProtectionContainerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing site recovery services protection container.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetProtectionContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
+     *             .name("primary-container")
+     *             .recoveryVaultName("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
+     *             .recoveryFabricName("primary-fabric")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetProtectionContainerResult> getProtectionContainerPlain(GetProtectionContainerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:siterecovery/getProtectionContainer:getProtectionContainer", TypeShape.of(GetProtectionContainerResult.class), args, Utilities.withVersion(options));
     }
@@ -509,6 +599,50 @@ public final class SiterecoveryFunctions {
      * 
      */
     public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", TypeShape.of(GetReplicationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure Site Recovery replication policy.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var policy = SiterecoveryFunctions.getReplicationPolicy(GetReplicationPolicyArgs.builder()
+     *             .name("replication-policy")
+     *             .recoveryVaultName("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReplicationPolicyResult> getReplicationPolicy(GetReplicationPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", TypeShape.of(GetReplicationPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -703,6 +837,56 @@ public final class SiterecoveryFunctions {
      * 
      */
     public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", TypeShape.of(GetReplicationRecoveryPlanResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.recoveryservices.RecoveryservicesFunctions;
+     * import com.pulumi.azure.recoveryservices.inputs.GetVaultArgs;
+     * import com.pulumi.azure.siterecovery.SiterecoveryFunctions;
+     * import com.pulumi.azure.siterecovery.inputs.GetReplicationRecoveryPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var vault = RecoveryservicesFunctions.getVault(GetVaultArgs.builder()
+     *             .name("tfex-recovery_vault")
+     *             .resourceGroupName("tfex-resource_group")
+     *             .build());
+     * 
+     *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
+     *             .name("example-recovery-plan")
+     *             .recoveryVaultId(vault.applyValue(getVaultResult -> getVaultResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReplicationRecoveryPlanResult> getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", TypeShape.of(GetReplicationRecoveryPlanResult.class), args, Utilities.withVersion(options));
     }
     /**

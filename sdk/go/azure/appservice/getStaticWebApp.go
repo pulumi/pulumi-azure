@@ -78,21 +78,11 @@ type LookupStaticWebAppResult struct {
 }
 
 func LookupStaticWebAppOutput(ctx *pulumi.Context, args LookupStaticWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupStaticWebAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStaticWebAppResultOutput, error) {
 			args := v.(LookupStaticWebAppArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStaticWebAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getStaticWebApp:getStaticWebApp", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStaticWebAppResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStaticWebAppResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStaticWebAppResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:appservice/getStaticWebApp:getStaticWebApp", args, LookupStaticWebAppResultOutput{}, options).(LookupStaticWebAppResultOutput), nil
 		}).(LookupStaticWebAppResultOutput)
 }
 

@@ -94,21 +94,11 @@ type LookupScheduledQueryRulesAlertResult struct {
 }
 
 func LookupScheduledQueryRulesAlertOutput(ctx *pulumi.Context, args LookupScheduledQueryRulesAlertOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryRulesAlertResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupScheduledQueryRulesAlertResultOutput, error) {
 			args := v.(LookupScheduledQueryRulesAlertArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupScheduledQueryRulesAlertResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args, &rv, "", opts...)
-			if err != nil {
-				return LookupScheduledQueryRulesAlertResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupScheduledQueryRulesAlertResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupScheduledQueryRulesAlertResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args, LookupScheduledQueryRulesAlertResultOutput{}, options).(LookupScheduledQueryRulesAlertResultOutput), nil
 		}).(LookupScheduledQueryRulesAlertResultOutput)
 }
 

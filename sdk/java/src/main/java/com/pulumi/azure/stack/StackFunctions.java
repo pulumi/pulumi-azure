@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class StackFunctions {
@@ -150,6 +151,52 @@ public final class StackFunctions {
      * 
      */
     public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:stack/getHciCluster:getHciCluster", TypeShape.of(GetHciClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure Stack HCI Cluster instance.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.stack.StackFunctions;
+     * import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StackFunctions.getHciCluster(GetHciClusterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
+     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
+     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetHciClusterResult> getHciCluster(GetHciClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:stack/getHciCluster:getHciCluster", TypeShape.of(GetHciClusterResult.class), args, Utilities.withVersion(options));
     }
     /**

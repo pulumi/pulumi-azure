@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public static Output<GetNetworkSimResult> Invoke(GetNetworkSimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimResult>("azure:mobile/getNetworkSim:getNetworkSim", args ?? new GetNetworkSimInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a Mobile Network Sim.
+        /// </summary>
+        public static Output<GetNetworkSimResult> Invoke(GetNetworkSimInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimResult>("azure:mobile/getNetworkSim:getNetworkSim", args ?? new GetNetworkSimInvokeArgs(), options.WithDefaults());
     }
 
 

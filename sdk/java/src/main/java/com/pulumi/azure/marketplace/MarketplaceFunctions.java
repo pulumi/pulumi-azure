@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class MarketplaceFunctions {
@@ -147,6 +148,51 @@ public final class MarketplaceFunctions {
      * 
      */
     public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:marketplace/getAgreement:getAgreement", TypeShape.of(GetAgreementResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing Marketplace Agreement.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.marketplace.MarketplaceFunctions;
+     * import com.pulumi.azure.marketplace.inputs.GetAgreementArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var barracuda = MarketplaceFunctions.getAgreement(GetAgreementArgs.builder()
+     *             .publisher("barracudanetworks")
+     *             .offer("waf")
+     *             .plan("hourly")
+     *             .build());
+     * 
+     *         ctx.export("azurermMarketplaceAgreementId", id);
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAgreementResult> getAgreement(GetAgreementArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:marketplace/getAgreement:getAgreement", TypeShape.of(GetAgreementResult.class), args, Utilities.withVersion(options));
     }
     /**

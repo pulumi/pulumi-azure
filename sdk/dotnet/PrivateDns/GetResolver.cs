@@ -60,6 +60,31 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an existing Private DNS Resolver.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Azure.PrivateDns.GetResolver.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resourcegroup-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetGiVersionsResult> Invoke(GetGiVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGiVersionsResult>("azure:oracle/getGiVersions:getGiVersions", args ?? new GetGiVersionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
+        /// 
+        /// Gets a list of supported GI versions.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetGiVersions.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGiVersionsResult> Invoke(GetGiVersionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGiVersionsResult>("azure:oracle/getGiVersions:getGiVersions", args ?? new GetGiVersionsInvokeArgs(), options.WithDefaults());
     }
 
 
