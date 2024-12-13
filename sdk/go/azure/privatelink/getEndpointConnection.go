@@ -72,21 +72,11 @@ type GetEndpointConnectionResult struct {
 }
 
 func GetEndpointConnectionOutput(ctx *pulumi.Context, args GetEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) GetEndpointConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEndpointConnectionResultOutput, error) {
 			args := v.(GetEndpointConnectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetEndpointConnectionResult
-			secret, err := ctx.InvokePackageRaw("azure:privatelink/getEndpointConnection:getEndpointConnection", args, &rv, "", opts...)
-			if err != nil {
-				return GetEndpointConnectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetEndpointConnectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetEndpointConnectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:privatelink/getEndpointConnection:getEndpointConnection", args, GetEndpointConnectionResultOutput{}, options).(GetEndpointConnectionResultOutput), nil
 		}).(GetEndpointConnectionResultOutput)
 }
 

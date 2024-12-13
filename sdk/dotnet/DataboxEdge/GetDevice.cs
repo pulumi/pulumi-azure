@@ -60,6 +60,31 @@ namespace Pulumi.Azure.DataboxEdge
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure:databoxedge/getDevice:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a Databox Edge Device.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DataboxEdge.GetDevice.Invoke(new()
+        ///     {
+        ///         Name = "example-device",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure:databoxedge/getDevice:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

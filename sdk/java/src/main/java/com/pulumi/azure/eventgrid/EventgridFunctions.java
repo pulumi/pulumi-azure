@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class EventgridFunctions {
@@ -153,6 +154,50 @@ public final class EventgridFunctions {
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Domain
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getDomain(GetDomainArgs.builder()
+     *             .name("my-eventgrid-domain")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -368,6 +413,49 @@ public final class EventgridFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getDomainTopic:getDomainTopic", TypeShape.of(GetDomainTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Domain Topic
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetDomainTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getDomainTopic(GetDomainTopicArgs.builder()
+     *             .name("my-eventgrid-domain-topic")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventgrid/getDomainTopic:getDomainTopic", TypeShape.of(GetDomainTopicResult.class), args, Utilities.withVersion(options));
     }
@@ -540,6 +628,49 @@ public final class EventgridFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getSystemTopic:getSystemTopic", TypeShape.of(GetSystemTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid System Topic
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetSystemTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getSystemTopic(GetSystemTopicArgs.builder()
+     *             .name("eventgrid-system-topic")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:eventgrid/getSystemTopic:getSystemTopic", TypeShape.of(GetSystemTopicResult.class), args, Utilities.withVersion(options));
     }
@@ -670,6 +801,49 @@ public final class EventgridFunctions {
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:eventgrid/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing EventGrid Topic
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.eventgrid.EventgridFunctions;
+     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EventgridFunctions.getTopic(GetTopicArgs.builder()
+     *             .name("my-eventgrid-topic")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:eventgrid/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
     }
     /**

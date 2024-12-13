@@ -146,6 +146,74 @@ namespace Pulumi.Azure.Pim
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information on a role policy for an Azure Management Group, Subscription, Resource Group or resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Resource Group
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
+        ///     {
+        ///         Name = "example-rg",
+        ///     });
+        /// 
+        ///     var rgContributor = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         Name = "Contributor",
+        ///         Scope = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Id),
+        ///     });
+        /// 
+        ///     var exampleGetRoleManagementPolicy = Azure.Pim.GetRoleManagementPolicy.Invoke(new()
+        ///     {
+        ///         Scope = test.Id,
+        ///         RoleDefinitionId = contributor.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Management Group
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Management.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "example-group",
+        ///     });
+        /// 
+        ///     var mgContributor = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         Name = "Contributor",
+        ///         Scope = exampleAzurermManagementGroup.Id,
+        ///     });
+        /// 
+        ///     var exampleGetRoleManagementPolicy = Azure.Pim.GetRoleManagementPolicy.Invoke(new()
+        ///     {
+        ///         Scope = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         RoleDefinitionId = mgContributor.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetServiceTagsResult> Invoke(GetServiceTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about Service Tags.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetServiceTags.Invoke(new()
+        ///     {
+        ///         Location = "westcentralus",
+        ///         Service = "AzureKeyVault",
+        ///         LocationFilter = "northeurope",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["addressPrefixes"] = example.Apply(getServiceTagsResult =&gt; getServiceTagsResult.AddressPrefixes),
+        ///         ["ipv4Cidrs"] = example.Apply(getServiceTagsResult =&gt; getServiceTagsResult.Ipv4Cidrs),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceTagsResult> Invoke(GetServiceTagsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithDefaults());
     }
 
 

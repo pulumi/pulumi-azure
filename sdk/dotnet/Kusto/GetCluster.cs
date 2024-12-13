@@ -60,6 +60,31 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Kusto.GetCluster.Invoke(new()
+        ///     {
+        ///         Name = "kustocluster",
+        ///         ResourceGroupName = "test_resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

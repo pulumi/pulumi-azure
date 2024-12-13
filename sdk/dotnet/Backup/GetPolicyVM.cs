@@ -62,6 +62,32 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         public static Output<GetPolicyVMResult> Invoke(GetPolicyVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing VM Backup Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var policy = Azure.Backup.GetPolicyVM.Invoke(new()
+        ///     {
+        ///         Name = "policy",
+        ///         RecoveryVaultName = "recovery_vault",
+        ///         ResourceGroupName = "resource_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPolicyVMResult> Invoke(GetPolicyVMInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMInvokeArgs(), options.WithDefaults());
     }
 
 

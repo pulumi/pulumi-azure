@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public static Output<GetLBResult> Invoke(GetLBInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Load Balancer
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
+        ///     {
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["loadbalancerId"] = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLBResult> Invoke(GetLBInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBInvokeArgs(), options.WithDefaults());
     }
 
 

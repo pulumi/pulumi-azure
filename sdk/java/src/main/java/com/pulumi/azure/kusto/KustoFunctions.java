@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class KustoFunctions {
@@ -144,6 +145,49 @@ public final class KustoFunctions {
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:kusto/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KustoFunctions.getCluster(GetClusterArgs.builder()
+     *             .name("kustocluster")
+     *             .resourceGroupName("test_resource_group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:kusto/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -319,6 +363,50 @@ public final class KustoFunctions {
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:kusto/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kusto Database
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.kusto.KustoFunctions;
+     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
+     *             .name("my-kusto-database")
+     *             .resourceGroupName("test_resource_group")
+     *             .clusterName("test_cluster")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:kusto/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**

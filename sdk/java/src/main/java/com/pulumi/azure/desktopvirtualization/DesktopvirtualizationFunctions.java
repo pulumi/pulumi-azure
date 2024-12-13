@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DesktopvirtualizationFunctions {
@@ -150,6 +151,50 @@ public final class DesktopvirtualizationFunctions {
      * 
      */
     public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", TypeShape.of(GetApplicationGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Application Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
+     * import com.pulumi.azure.desktopvirtualization.inputs.GetApplicationGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DesktopvirtualizationFunctions.getApplicationGroup(GetApplicationGroupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApplicationGroupResult> getApplicationGroup(GetApplicationGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:desktopvirtualization/getApplicationGroup:getApplicationGroup", TypeShape.of(GetApplicationGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -365,6 +410,49 @@ public final class DesktopvirtualizationFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetHostPoolResult> getHostPool(GetHostPoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:desktopvirtualization/getHostPool:getHostPool", TypeShape.of(GetHostPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Virtual Desktop Host Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
+     * import com.pulumi.azure.desktopvirtualization.inputs.GetHostPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DesktopvirtualizationFunctions.getHostPool(GetHostPoolArgs.builder()
+     *             .name("example-pool")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetHostPoolResult> getHostPoolPlain(GetHostPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:desktopvirtualization/getHostPool:getHostPool", TypeShape.of(GetHostPoolResult.class), args, Utilities.withVersion(options));
     }
@@ -498,6 +586,50 @@ public final class DesktopvirtualizationFunctions {
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:desktopvirtualization/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Virtual Desktop Workspace.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.desktopvirtualization.DesktopvirtualizationFunctions;
+     * import com.pulumi.azure.desktopvirtualization.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DesktopvirtualizationFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:desktopvirtualization/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
     /**

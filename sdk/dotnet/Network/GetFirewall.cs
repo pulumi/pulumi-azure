@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Firewall.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetFirewall.Invoke(new()
+        ///     {
+        ///         Name = "firewall1",
+        ///         ResourceGroupName = "firewall-RG",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["firewallPrivateIp"] = example.Apply(getFirewallResult =&gt; getFirewallResult.IpConfigurations[0]?.PrivateIpAddress),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -68,6 +68,35 @@ namespace Pulumi.Azure.ArcMachine
         /// </summary>
         public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:arcmachine/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Arc machine.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ArcMachine.Get.Invoke(new()
+        ///     {
+        ///         Name = "existing-hcmachine",
+        ///         ResourceGroupName = "existing-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getResult =&gt; getResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:arcmachine/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
     }
 
 

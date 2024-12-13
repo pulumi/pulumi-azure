@@ -91,21 +91,11 @@ type LookupWorkflowResult struct {
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWorkflowResultOutput, error) {
 			args := v.(LookupWorkflowArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupWorkflowResult
-			secret, err := ctx.InvokePackageRaw("azure:logicapps/getWorkflow:getWorkflow", args, &rv, "", opts...)
-			if err != nil {
-				return LookupWorkflowResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupWorkflowResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupWorkflowResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:logicapps/getWorkflow:getWorkflow", args, LookupWorkflowResultOutput{}, options).(LookupWorkflowResultOutput), nil
 		}).(LookupWorkflowResultOutput)
 }
 

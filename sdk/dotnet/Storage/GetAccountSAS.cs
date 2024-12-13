@@ -174,6 +174,88 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetAccountSASResult> Invoke(GetAccountSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
+        /// 
+        /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
+        /// 
+        /// Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+        /// and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "resourceGroupName",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var exampleAccount = new Azure.Storage.Account("example", new()
+        ///     {
+        ///         Name = "storageaccountname",
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Location = exampleResourceGroup.Location,
+        ///         AccountTier = "Standard",
+        ///         AccountReplicationType = "GRS",
+        ///         Tags = 
+        ///         {
+        ///             { "environment", "staging" },
+        ///         },
+        ///     });
+        /// 
+        ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
+        ///     {
+        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+        ///         HttpsOnly = true,
+        ///         SignedVersion = "2017-07-29",
+        ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
+        ///         {
+        ///             Service = true,
+        ///             Container = false,
+        ///             Object = false,
+        ///         },
+        ///         Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
+        ///         {
+        ///             Blob = true,
+        ///             Queue = false,
+        ///             Table = false,
+        ///             File = false,
+        ///         },
+        ///         Start = "2018-03-21T00:00:00Z",
+        ///         Expiry = "2020-03-21T00:00:00Z",
+        ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
+        ///         {
+        ///             Read = true,
+        ///             Write = true,
+        ///             Delete = false,
+        ///             List = false,
+        ///             Add = true,
+        ///             Create = true,
+        ///             Update = false,
+        ///             Process = false,
+        ///             Tag = false,
+        ///             Filter = false,
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sasUrlQueryString"] = example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAccountSASResult> Invoke(GetAccountSASInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DevtestFunctions {
@@ -147,6 +148,50 @@ public final class DevtestFunctions {
      * 
      */
     public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:devtest/getLab:getLab", TypeShape.of(GetLabResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Test Lab.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetLabArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevtestFunctions.getLab(GetLabArgs.builder()
+     *             .name("example-lab")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLabResult> getLab(GetLabArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getLab:getLab", TypeShape.of(GetLabResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -326,6 +371,51 @@ public final class DevtestFunctions {
      * 
      */
     public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", TypeShape.of(GetVirtualNetworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Dev Test Lab Virtual Network.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.devtest.DevtestFunctions;
+     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DevtestFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+     *             .name("example-network")
+     *             .labName("examplelab")
+     *             .resourceGroupName("example-resource")
+     *             .build());
+     * 
+     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualNetworkResult> getVirtualNetwork(GetVirtualNetworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", TypeShape.of(GetVirtualNetworkResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -66,6 +66,34 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetDbNodesResult> Invoke(GetDbNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbNodesResult>("azure:oracle/getDbNodes:getDbNodes", args ?? new GetDbNodesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the database nodes for the specified Cloud VM Cluster.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetDbNodes.Invoke(new()
+        ///     {
+        ///         CloudVmClusterId = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDbNodesResult> Invoke(GetDbNodesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDbNodesResult>("azure:oracle/getDbNodes:getDbNodes", args ?? new GetDbNodesInvokeArgs(), options.WithDefaults());
     }
 
 

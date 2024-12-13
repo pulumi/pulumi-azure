@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Network Security Group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetNetworkSecurityGroup.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["location"] = example.Apply(getNetworkSecurityGroupResult =&gt; getNetworkSecurityGroupResult.Location),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

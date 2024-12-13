@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Arc
         /// </summary>
         public static Output<GetResourceBridgeApplianceResult> Invoke(GetResourceBridgeApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceBridgeApplianceResult>("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args ?? new GetResourceBridgeApplianceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Arc Resource Bridge Appliance.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Arc.GetResourceBridgeAppliance.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getResourceBridgeApplianceResult =&gt; getResourceBridgeApplianceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResourceBridgeApplianceResult> Invoke(GetResourceBridgeApplianceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceBridgeApplianceResult>("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args ?? new GetResourceBridgeApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

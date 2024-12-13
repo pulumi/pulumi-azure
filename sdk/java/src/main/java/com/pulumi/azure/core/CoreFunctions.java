@@ -42,6 +42,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -283,6 +284,46 @@ public final class CoreFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetClientConfigResult> getClientConfig(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access the configuration of the AzureRM provider.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = CoreFunctions.getClientConfig();
+     * 
+     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetClientConfigResult> getClientConfigPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
     }
@@ -451,6 +492,48 @@ public final class CoreFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetExtendedLocationsResult> getExtendedLocations(GetExtendedLocationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getExtendedLocations:getExtendedLocations", TypeShape.of(GetExtendedLocationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source return the available Extended Locations for a specific Azure Region.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getExtendedLocations(GetExtendedLocationsArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetExtendedLocationsResult> getExtendedLocationsPlain(GetExtendedLocationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getExtendedLocations:getExtendedLocations", TypeShape.of(GetExtendedLocationsResult.class), args, Utilities.withVersion(options));
     }
@@ -578,6 +661,48 @@ public final class CoreFunctions {
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information of a specific physical location.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -791,6 +916,49 @@ public final class CoreFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetResourceGroupResult> getResourceGroup(GetResourceGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getResourceGroup:getResourceGroup", TypeShape.of(GetResourceGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Resource Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetResourceGroupResult> getResourceGroupPlain(GetResourceGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getResourceGroup:getResourceGroup", TypeShape.of(GetResourceGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -813,6 +981,13 @@ public final class CoreFunctions {
      * 
      */
     public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", TypeShape.of(GetResourceGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Resource Group Template Deployment.
+     * 
+     */
+    public static Output<GetResourceGroupTemplateDeploymentResult> getResourceGroupTemplateDeployment(GetResourceGroupTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", TypeShape.of(GetResourceGroupTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -855,6 +1030,13 @@ public final class CoreFunctions {
      * 
      */
     public static Output<GetResourcesResult> getResources(GetResourcesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getResources:getResources", TypeShape.of(GetResourcesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing resources.
+     * 
+     */
+    public static Output<GetResourcesResult> getResources(GetResourcesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getResources:getResources", TypeShape.of(GetResourcesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1107,6 +1289,47 @@ public final class CoreFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
     }
@@ -1129,6 +1352,13 @@ public final class CoreFunctions {
      * 
      */
     public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", TypeShape.of(GetSubscriptionTemplateDeploymentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Subscription Template Deployment.
+     * 
+     */
+    public static Output<GetSubscriptionTemplateDeploymentResult> getSubscriptionTemplateDeployment(GetSubscriptionTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", TypeShape.of(GetSubscriptionTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1387,6 +1617,48 @@ public final class CoreFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSubscriptionsResult> getSubscriptions(GetSubscriptionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getSubscriptions:getSubscriptions", TypeShape.of(GetSubscriptionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about all the Subscriptions currently available.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var available = CoreFunctions.getSubscriptions();
+     * 
+     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSubscriptionsResult> getSubscriptionsPlain(GetSubscriptionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getSubscriptions:getSubscriptions", TypeShape.of(GetSubscriptionsResult.class), args, Utilities.withVersion(options));
     }
@@ -1567,6 +1839,51 @@ public final class CoreFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTemplateSpecVersionResult> getTemplateSpecVersion(GetTemplateSpecVersionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", TypeShape.of(GetTemplateSpecVersionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Template Spec Version.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+     *             .name("exampleTemplateSpec")
+     *             .resourceGroupName("MyResourceGroup")
+     *             .version("v1.0.4")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTemplateSpecVersionResult> getTemplateSpecVersionPlain(GetTemplateSpecVersionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", TypeShape.of(GetTemplateSpecVersionResult.class), args, Utilities.withVersion(options));
     }
@@ -1589,6 +1906,13 @@ public final class CoreFunctions {
      * 
      */
     public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", TypeShape.of(GetTenantTemplateDeploymentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Tenant Template Deployment.
+     * 
+     */
+    public static Output<GetTenantTemplateDeploymentResult> getTenantTemplateDeployment(GetTenantTemplateDeploymentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", TypeShape.of(GetTenantTemplateDeploymentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1752,6 +2076,58 @@ public final class CoreFunctions {
      */
     @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing User Assigned Identity.
+     * 
+     * ## Example Usage
+     * 
+     * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *             .name("name_of_user_assigned_identity")
+     *             .resourceGroupName("name_of_resource_group")
+     *             .build());
+     * 
+     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
+     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
+     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * @deprecated
+     * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
+     * 
+     */
+    @Deprecated /* azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
+    public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**

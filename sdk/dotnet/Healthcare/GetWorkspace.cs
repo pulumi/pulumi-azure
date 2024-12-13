@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:healthcare/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Healthcare Workspace
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Healthcare.GetWorkspace.Invoke(new()
+        ///     {
+        ///         Name = "example-healthcare_service",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["healthcareWorkspaceId"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:healthcare/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

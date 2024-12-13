@@ -62,6 +62,32 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetBlobResult> Invoke(GetBlobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Blob.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetBlob.Invoke(new()
+        ///     {
+        ///         Name = "example-blob-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         StorageContainerName = "example-storage-container-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBlobResult> Invoke(GetBlobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobResult>("azure:storage/getBlob:getBlob", args ?? new GetBlobInvokeArgs(), options.WithDefaults());
     }
 
 
