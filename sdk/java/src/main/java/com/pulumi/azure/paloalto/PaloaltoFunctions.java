@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PaloaltoFunctions {
@@ -21,6 +22,9 @@ public final class PaloaltoFunctions {
         return getLocalRulestackPlain(args, InvokeOptions.Empty);
     }
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:paloalto/getLocalRulestack:getLocalRulestack", TypeShape.of(GetLocalRulestackResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:paloalto/getLocalRulestack:getLocalRulestack", TypeShape.of(GetLocalRulestackResult.class), args, Utilities.withVersion(options));
     }
     public static CompletableFuture<GetLocalRulestackResult> getLocalRulestackPlain(GetLocalRulestackPlainArgs args, InvokeOptions options) {

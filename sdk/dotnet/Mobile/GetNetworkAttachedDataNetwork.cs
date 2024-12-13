@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public static Output<GetNetworkAttachedDataNetworkResult> Invoke(GetNetworkAttachedDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Mobile Network Attached Data Network.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     {
+        ///         Name = "example-mnpccp",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleGetNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
+        ///     {
+        ///         MobileNetworkDataNetworkName = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
+        ///         MobileNetworkPacketCoreDataPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkAttachedDataNetworkResult> Invoke(GetNetworkAttachedDataNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAttachedDataNetworkResult>("azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork", args ?? new GetNetworkAttachedDataNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

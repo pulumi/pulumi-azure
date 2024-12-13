@@ -60,6 +60,31 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:storage/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Queue.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Storage.GetQueue.Invoke(new()
+        ///     {
+        ///         Name = "example-queue-name",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:storage/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

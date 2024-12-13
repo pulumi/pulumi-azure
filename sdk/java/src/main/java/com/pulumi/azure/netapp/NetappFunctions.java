@@ -38,6 +38,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class NetappFunctions {
@@ -171,6 +172,50 @@ public final class NetappFunctions {
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing NetApp Account.
+     * 
+     * ## NetApp Account Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getAccount(GetAccountArgs.builder()
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappaccount")
+     *             .build());
+     * 
+     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -386,6 +431,49 @@ public final class NetappFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getAccountEncryption:getAccountEncryption", TypeShape.of(GetAccountEncryptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Account Encryption Resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
+     *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getAccountEncryption:getAccountEncryption", TypeShape.of(GetAccountEncryptionResult.class), args, Utilities.withVersion(options));
     }
@@ -522,6 +610,51 @@ public final class NetappFunctions {
      * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getBackupPolicy:getBackupPolicy", TypeShape.of(GetBackupPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupPolicy(GetBackupPolicyArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backuppolicy")
+     *             .build());
+     * 
+     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getBackupPolicy:getBackupPolicy", TypeShape.of(GetBackupPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -746,6 +879,51 @@ public final class NetappFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getBackupVault:getBackupVault", TypeShape.of(GetBackupVaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Backup Vault.
+     * 
+     * ## NetApp Backup Vault Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetBackupVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getBackupVault(GetBackupVaultArgs.builder()
+     *             .resourceGroupName("example-resource-group")
+     *             .accountName("example-netappaccount")
+     *             .name("example-backupvault")
+     *             .build());
+     * 
+     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getBackupVault:getBackupVault", TypeShape.of(GetBackupVaultResult.class), args, Utilities.withVersion(options));
     }
@@ -882,6 +1060,51 @@ public final class NetappFunctions {
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getPool:getPool", TypeShape.of(GetPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing NetApp Pool.
+     * 
+     * ## NetApp Pool Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getPool(GetPoolArgs.builder()
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("acctestnetapppool")
+     *             .build());
+     * 
+     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getPool:getPool", TypeShape.of(GetPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1068,6 +1291,53 @@ public final class NetappFunctions {
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing NetApp Snapshot.
+     * 
+     * ## NetApp Snapshot Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = NetappFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *             .resourceGroupName("acctestRG")
+     *             .name("acctestnetappsnapshot")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .volumeName("acctestnetappvolume")
+     *             .build());
+     * 
+     *         ctx.export("netappSnapshotId", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1318,6 +1588,57 @@ public final class NetappFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", TypeShape.of(GetSnapshotPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing NetApp Snapshot Policy.
+     * 
+     * ## NetApp Snapshot Policy Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getSnapshotPolicy(GetSnapshotPolicyArgs.builder()
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .name("example-snapshot-policy")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
+     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
+     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
+     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
+     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
+     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
+     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", TypeShape.of(GetSnapshotPolicyResult.class), args, Utilities.withVersion(options));
     }
@@ -1457,6 +1778,52 @@ public final class NetappFunctions {
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing NetApp Volume.
+     * 
+     * ## NetApp Volume Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolume(GetVolumeArgs.builder()
+     *             .resourceGroupName("acctestRG")
+     *             .accountName("acctestnetappaccount")
+     *             .poolName("acctestnetapppool")
+     *             .name("example-volume")
+     *             .build());
+     * 
+     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1682,6 +2049,51 @@ public final class NetappFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
+     *             .name("existing application volume group name")
+     *             .resourceGroupName("resource group name where the account and volume group belong to")
+     *             .accountName("existing account where the application volume group belong to")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
     }
@@ -1815,6 +2227,50 @@ public final class NetappFunctions {
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", TypeShape.of(GetVolumeQuotaRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Volume Quota Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeQuotaRule(GetVolumeQuotaRuleArgs.builder()
+     *             .name("exampleQuotaRule")
+     *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", TypeShape.of(GetVolumeQuotaRuleResult.class), args, Utilities.withVersion(options));
     }
     /**

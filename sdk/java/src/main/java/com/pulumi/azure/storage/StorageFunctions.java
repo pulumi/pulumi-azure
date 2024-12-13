@@ -53,6 +53,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class StorageFunctions {
@@ -186,6 +187,50 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("packerimages")
+     *             .resourceGroupName("packer-storage")
+     *             .build());
+     * 
+     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -497,6 +542,95 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetAccountBlobContainerSASResult> getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", TypeShape.of(GetAccountBlobContainerSASResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
+     * 
+     * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.Container;
+     * import com.pulumi.azure.storage.ContainerArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var rg = new ResourceGroup("rg", ResourceGroupArgs.builder()
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var storage = new Account("storage", AccountArgs.builder()
+     *             .name("storageaccountname")
+     *             .resourceGroupName(rg.name())
+     *             .location(rg.location())
+     *             .accountTier("Standard")
+     *             .accountReplicationType("LRS")
+     *             .build());
+     * 
+     *         var container = new Container("container", ContainerArgs.builder()
+     *             .name("mycontainer")
+     *             .storageAccountName(storage.name())
+     *             .containerAccessType("private")
+     *             .build());
+     * 
+     *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
+     *             .connectionString(storage.primaryConnectionString())
+     *             .containerName(container.name())
+     *             .httpsOnly(true)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
+     *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
+     *                 .read(true)
+     *                 .add(true)
+     *                 .create(false)
+     *                 .write(false)
+     *                 .delete(true)
+     *                 .list(true)
+     *                 .build())
+     *             .cacheControl("max-age=5")
+     *             .contentDisposition("inline")
+     *             .contentEncoding("deflate")
+     *             .contentLanguage("en-US")
+     *             .contentType("application/json")
+     *             .build());
+     * 
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccountBlobContainerSASResult> getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", TypeShape.of(GetAccountBlobContainerSASResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -969,6 +1103,102 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAccountSASResult> getAccountSAS(GetAccountSASArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getAccountSAS:getAccountSAS", TypeShape.of(GetAccountSASResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
+     * 
+     * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
+     * 
+     * Note that this is an [Account SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+     * and *not* a [Service SAS](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.storage.Account;
+     * import com.pulumi.azure.storage.AccountArgs;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
+     * import com.pulumi.azure.storage.inputs.GetAccountSASPermissionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("resourceGroupName")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+     *             .name("storageaccountname")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .location(exampleResourceGroup.location())
+     *             .accountTier("Standard")
+     *             .accountReplicationType("GRS")
+     *             .tags(Map.of("environment", "staging"))
+     *             .build());
+     * 
+     *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+     *             .connectionString(exampleAccount.primaryConnectionString())
+     *             .httpsOnly(true)
+     *             .signedVersion("2017-07-29")
+     *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
+     *                 .service(true)
+     *                 .container(false)
+     *                 .object(false)
+     *                 .build())
+     *             .services(GetAccountSASServicesArgs.builder()
+     *                 .blob(true)
+     *                 .queue(false)
+     *                 .table(false)
+     *                 .file(false)
+     *                 .build())
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
+     *             .permissions(GetAccountSASPermissionsArgs.builder()
+     *                 .read(true)
+     *                 .write(true)
+     *                 .delete(false)
+     *                 .list(false)
+     *                 .add(true)
+     *                 .create(true)
+     *                 .update(false)
+     *                 .process(false)
+     *                 .tag(false)
+     *                 .filter(false)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAccountSASResult> getAccountSASPlain(GetAccountSASPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getAccountSAS:getAccountSAS", TypeShape.of(GetAccountSASResult.class), args, Utilities.withVersion(options));
     }
@@ -1145,6 +1375,50 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetBlobResult> getBlob(GetBlobArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getBlob:getBlob", TypeShape.of(GetBlobResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Blob.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetBlobArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
+     *             .name("example-blob-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .storageContainerName("example-storage-container-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBlobResult> getBlobPlain(GetBlobPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getBlob:getBlob", TypeShape.of(GetBlobResult.class), args, Utilities.withVersion(options));
     }
@@ -1275,6 +1549,49 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetContainersResult> getContainers(GetContainersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getContainers:getContainers", TypeShape.of(GetContainersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about the existing Storage Containers within a Storage Account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetContainersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getContainers(GetContainersArgs.builder()
+     *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
+     *             .build());
+     * 
+     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetContainersResult> getContainers(GetContainersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getContainers:getContainers", TypeShape.of(GetContainersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1517,6 +1834,56 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEncryptionScopeResult> getEncryptionScope(GetEncryptionScopeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getEncryptionScope:getEncryptionScope", TypeShape.of(GetEncryptionScopeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Encryption Scope.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetEncryptionScopeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
+     *             .build());
+     * 
+     *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *             .name("existingStorageES")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEncryptionScopeResult> getEncryptionScopePlain(GetEncryptionScopePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getEncryptionScope:getEncryptionScope", TypeShape.of(GetEncryptionScopeResult.class), args, Utilities.withVersion(options));
     }
@@ -1709,6 +2076,54 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Management Policy.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("storageaccountname")
+     *             .resourceGroupName("resourcegroupname")
+     *             .build());
+     * 
+     *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
@@ -1839,6 +2254,49 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *             .name("example-queue-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2085,6 +2543,57 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getShare:getShare", TypeShape.of(GetShareResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing File Share.
+     * 
+     * &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
+     *             .name("existing")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getShare:getShare", TypeShape.of(GetShareResult.class), args, Utilities.withVersion(options));
     }
@@ -2233,6 +2742,55 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getStorageContainer:getStorageContainer", TypeShape.of(GetStorageContainerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Container.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
+     * import com.pulumi.azure.storage.inputs.GetStorageContainerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetStorageContainer = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
+     *             .name("example-container-name")
+     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetStorageContainerResult> getStorageContainer(GetStorageContainerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getStorageContainer:getStorageContainer", TypeShape.of(GetStorageContainerResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2457,6 +3015,50 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSyncResult> getSync(GetSyncArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getSync:getSync", TypeShape.of(GetSyncResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Sync.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getSync(GetSyncArgs.builder()
+     *             .name("existingStorageSyncName")
+     *             .resourceGroupName("existingResGroup")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSyncResult> getSyncPlain(GetSyncPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getSync:getSync", TypeShape.of(GetSyncResult.class), args, Utilities.withVersion(options));
     }
@@ -2590,6 +3192,50 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getSyncGroup:getSyncGroup", TypeShape.of(GetSyncGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Sync Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetSyncGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getSyncGroup(GetSyncGroupArgs.builder()
+     *             .name("existing-ss-group")
+     *             .storageSyncId("existing-ss-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSyncGroupResult> getSyncGroup(GetSyncGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getSyncGroup:getSyncGroup", TypeShape.of(GetSyncGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2805,6 +3451,49 @@ public final class StorageFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTableResult> getTable(GetTableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *             .name("example-table-name")
+     *             .storageAccountName("example-storage-account-name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:storage/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
     }
@@ -2935,6 +3624,49 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetTableEntitiesResult> getTableEntities(GetTableEntitiesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getTableEntities:getTableEntities", TypeShape.of(GetTableEntitiesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table Entity.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
+     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .filter("PartitionKey eq 'example'")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableEntitiesResult> getTableEntities(GetTableEntitiesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getTableEntities:getTableEntities", TypeShape.of(GetTableEntitiesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3110,6 +3842,50 @@ public final class StorageFunctions {
      * 
      */
     public static Output<GetTableEntityResult> getTableEntity(GetTableEntityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:storage/getTableEntity:getTableEntity", TypeShape.of(GetTableEntityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Storage Table Entity.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetTableEntityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .partitionKey("example-partition-key")
+     *             .rowKey("example-row-key")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableEntityResult> getTableEntity(GetTableEntityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getTableEntity:getTableEntity", TypeShape.of(GetTableEntityResult.class), args, Utilities.withVersion(options));
     }
     /**

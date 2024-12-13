@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Maps
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure Maps Account.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Maps.GetAccount.Invoke(new()
+        ///     {
+        ///         Name = "production",
+        ///         ResourceGroupName = "maps",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mapsAccountId"] = example.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

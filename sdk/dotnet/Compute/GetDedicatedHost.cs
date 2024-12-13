@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Dedicated Host.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Compute.GetDedicatedHost.Invoke(new()
+        ///     {
+        ///         Name = "example-host",
+        ///         DedicatedHostGroupName = "example-host-group",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dedicatedHostId"] = example.Apply(getDedicatedHostResult =&gt; getDedicatedHostResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
     }
 
 

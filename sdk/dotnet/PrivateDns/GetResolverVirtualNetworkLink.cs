@@ -60,6 +60,31 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public static Output<GetResolverVirtualNetworkLinkResult> Invoke(GetResolverVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an existing Private DNS Resolver Virtual Network Link.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PrivateDns.GetResolverVirtualNetworkLink.Invoke(new()
+        ///     {
+        ///         Name = "example-link",
+        ///         DnsForwardingRulesetId = "example-dns-forwarding-ruleset-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverVirtualNetworkLinkResult> Invoke(GetResolverVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverVirtualNetworkLinkResult>("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", args ?? new GetResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 

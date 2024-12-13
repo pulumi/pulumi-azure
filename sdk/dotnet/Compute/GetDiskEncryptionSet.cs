@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Disk Encryption Set.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var existing = Azure.Compute.GetDiskEncryptionSet.Invoke(new()
+        ///     {
+        ///         Name = "example-des",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = existing.Apply(getDiskEncryptionSetResult =&gt; getDiskEncryptionSetResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
     }
 
 

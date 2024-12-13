@@ -60,6 +60,31 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure:containerapp/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Container App.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ContainerApp.GetApp.Invoke(new()
+        ///     {
+        ///         Name = "example-app",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure:containerapp/getApp:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

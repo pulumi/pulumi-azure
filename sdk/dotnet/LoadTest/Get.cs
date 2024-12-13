@@ -68,6 +68,35 @@ namespace Pulumi.Azure.LoadTest
         /// </summary>
         public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:loadtest/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about a Load Test Service.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.LoadTest.Get.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "example-resources",
+        ///         Name = "example-load-test",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["loadTestId"] = example.Apply(getResult =&gt; getResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:loadtest/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
     }
 
 

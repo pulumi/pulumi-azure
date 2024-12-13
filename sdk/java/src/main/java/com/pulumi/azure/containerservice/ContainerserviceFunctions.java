@@ -35,6 +35,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ContainerserviceFunctions {
@@ -171,6 +172,51 @@ public final class ContainerserviceFunctions {
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", TypeShape.of(GetClusterNodePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getClusterNodePool(GetClusterNodePoolArgs.builder()
+     *             .name("existing")
+     *             .kubernetesClusterName("existing-cluster")
+     *             .resourceGroupName("existing-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", TypeShape.of(GetClusterNodePoolResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -399,6 +445,52 @@ public final class ContainerserviceFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Group instance.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getGroup(GetGroupArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
+     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
+     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -529,6 +621,49 @@ public final class ContainerserviceFunctions {
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", TypeShape.of(GetKubernetesClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getKubernetesCluster(GetKubernetesClusterArgs.builder()
+     *             .name("myakscluster")
+     *             .resourceGroupName("my-example-resource-group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", TypeShape.of(GetKubernetesClusterResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -743,6 +878,49 @@ public final class ContainerserviceFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
     }
@@ -876,6 +1054,50 @@ public final class ContainerserviceFunctions {
      * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", TypeShape.of(GetKubernetesServiceVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = ContainerserviceFunctions.getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
+     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", TypeShape.of(GetKubernetesServiceVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1095,6 +1317,50 @@ public final class ContainerserviceFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .resourceGroupName("test")
+     *             .build());
+     * 
+     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
     }
@@ -1228,6 +1494,50 @@ public final class ContainerserviceFunctions {
      * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("testacr")
+     *             .containerRegistryId("test")
+     *             .build());
+     * 
+     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1451,6 +1761,51 @@ public final class ContainerserviceFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", TypeShape.of(GetRegistryScopeMapResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry scope map.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistryScopeMap(GetRegistryScopeMapArgs.builder()
+     *             .name("example-scope-map")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
+     *             .build());
+     * 
+     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", TypeShape.of(GetRegistryScopeMapResult.class), args, Utilities.withVersion(options));
     }
@@ -1587,6 +1942,51 @@ public final class ContainerserviceFunctions {
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getRegistryToken:getRegistryToken", TypeShape.of(GetRegistryTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container Registry token.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getRegistryToken(GetRegistryTokenArgs.builder()
+     *             .name("exampletoken")
+     *             .resourceGroupName("example-resource-group")
+     *             .containerRegistryName("example-registry")
+     *             .build());
+     * 
+     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryToken:getRegistryToken", TypeShape.of(GetRegistryTokenResult.class), args, Utilities.withVersion(options));
     }
     /**

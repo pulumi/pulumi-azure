@@ -60,6 +60,31 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.MSSql.GetManagedInstance.Invoke(new()
+        ///     {
+        ///         Name = "managedsqlinstance",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -77,21 +77,11 @@ type LookupAvailabilitySetResult struct {
 }
 
 func LookupAvailabilitySetOutput(ctx *pulumi.Context, args LookupAvailabilitySetOutputArgs, opts ...pulumi.InvokeOption) LookupAvailabilitySetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAvailabilitySetResultOutput, error) {
 			args := v.(LookupAvailabilitySetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAvailabilitySetResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAvailabilitySetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAvailabilitySetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAvailabilitySetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:compute/getAvailabilitySet:getAvailabilitySet", args, LookupAvailabilitySetResultOutput{}, options).(LookupAvailabilitySetResultOutput), nil
 		}).(LookupAvailabilitySetResultOutput)
 }
 

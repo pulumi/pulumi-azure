@@ -68,6 +68,35 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Output<GetCertificateOrderResult> Invoke(GetCertificateOrderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing App Service Certificate Order.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetCertificateOrder.Invoke(new()
+        ///     {
+        ///         Name = "example-cert-order",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["certificateOrderId"] = example.Apply(getCertificateOrderResult =&gt; getCertificateOrderResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCertificateOrderResult> Invoke(GetCertificateOrderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderInvokeArgs(), options.WithDefaults());
     }
 
 

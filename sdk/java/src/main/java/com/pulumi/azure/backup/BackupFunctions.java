@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class BackupFunctions {
@@ -190,6 +191,50 @@ public final class BackupFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPolicyFileshareResult> getPolicyFileshare(GetPolicyFileshareArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:backup/getPolicyFileshare:getPolicyFileshare", TypeShape.of(GetPolicyFileshareResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing File Share Backup Policy.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyFileshareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var policy = BackupFunctions.getPolicyFileshare(GetPolicyFileshareArgs.builder()
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPolicyFileshareResult> getPolicyFilesharePlain(GetPolicyFilesharePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:backup/getPolicyFileshare:getPolicyFileshare", TypeShape.of(GetPolicyFileshareResult.class), args, Utilities.withVersion(options));
     }
@@ -323,6 +368,50 @@ public final class BackupFunctions {
      * 
      */
     public static Output<GetPolicyVMResult> getPolicyVM(GetPolicyVMArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:backup/getPolicyVM:getPolicyVM", TypeShape.of(GetPolicyVMResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing VM Backup Policy.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.backup.BackupFunctions;
+     * import com.pulumi.azure.backup.inputs.GetPolicyVMArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var policy = BackupFunctions.getPolicyVM(GetPolicyVMArgs.builder()
+     *             .name("policy")
+     *             .recoveryVaultName("recovery_vault")
+     *             .resourceGroupName("resource_group")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPolicyVMResult> getPolicyVM(GetPolicyVMArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:backup/getPolicyVM:getPolicyVM", TypeShape.of(GetPolicyVMResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AttestationFunctions {
@@ -33,6 +34,13 @@ public final class AttestationFunctions {
      * 
      */
     public static Output<GetProviderResult> getProvider(GetProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:attestation/getProvider:getProvider", TypeShape.of(GetProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Attestation Provider.
+     * 
+     */
+    public static Output<GetProviderResult> getProvider(GetProviderArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:attestation/getProvider:getProvider", TypeShape.of(GetProviderResult.class), args, Utilities.withVersion(options));
     }
     /**

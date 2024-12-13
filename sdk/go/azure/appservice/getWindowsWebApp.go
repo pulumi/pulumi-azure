@@ -132,21 +132,11 @@ type LookupWindowsWebAppResult struct {
 }
 
 func LookupWindowsWebAppOutput(ctx *pulumi.Context, args LookupWindowsWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsWebAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWindowsWebAppResultOutput, error) {
 			args := v.(LookupWindowsWebAppArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupWindowsWebAppResult
-			secret, err := ctx.InvokePackageRaw("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, &rv, "", opts...)
-			if err != nil {
-				return LookupWindowsWebAppResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupWindowsWebAppResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupWindowsWebAppResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, LookupWindowsWebAppResultOutput{}, options).(LookupWindowsWebAppResultOutput), nil
 		}).(LookupWindowsWebAppResultOutput)
 }
 

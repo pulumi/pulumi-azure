@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class WafFunctions {
@@ -144,6 +145,50 @@ public final class WafFunctions {
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:waf/getFirewallPolicy:getFirewallPolicy", TypeShape.of(GetFirewallPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Web Application Firewall Policy.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.waf.WafFunctions;
+     * import com.pulumi.azure.waf.inputs.GetFirewallPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = WafFunctions.getFirewallPolicy(GetFirewallPolicyArgs.builder()
+     *             .resourceGroupName("existing")
+     *             .name("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:waf/getFirewallPolicy:getFirewallPolicy", TypeShape.of(GetFirewallPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**

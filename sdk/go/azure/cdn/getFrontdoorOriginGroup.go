@@ -79,21 +79,11 @@ type LookupFrontdoorOriginGroupResult struct {
 }
 
 func LookupFrontdoorOriginGroupOutput(ctx *pulumi.Context, args LookupFrontdoorOriginGroupOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorOriginGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrontdoorOriginGroupResultOutput, error) {
 			args := v.(LookupFrontdoorOriginGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFrontdoorOriginGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFrontdoorOriginGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFrontdoorOriginGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFrontdoorOriginGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args, LookupFrontdoorOriginGroupResultOutput{}, options).(LookupFrontdoorOriginGroupResultOutput), nil
 		}).(LookupFrontdoorOriginGroupResultOutput)
 }
 
