@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public static Output<GetVirtualMachineConfigurationAssignmentResult> Invoke(GetVirtualMachineConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Guest Configuration Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Policy.GetVirtualMachineConfigurationAssignment.Invoke(new()
+        ///     {
+        ///         Name = "AzureWindowsBaseline",
+        ///         ResourceGroupName = "example-RG",
+        ///         VirtualMachineName = "example-vm",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["complianceStatus"] = example.Apply(getVirtualMachineConfigurationAssignmentResult =&gt; getVirtualMachineConfigurationAssignmentResult.ComplianceStatus),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualMachineConfigurationAssignmentResult> Invoke(GetVirtualMachineConfigurationAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

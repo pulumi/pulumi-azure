@@ -70,6 +70,36 @@ namespace Pulumi.Azure.ElasticCloud
         /// </summary>
         public static Output<GetElasticsearchResult> Invoke(GetElasticsearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Elasticsearch resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ElasticCloud.GetElasticsearch.Invoke(new()
+        ///     {
+        ///         Name = "my-elastic-search",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["elasticsearchEndpoint"] = example.Apply(getElasticsearchResult =&gt; getElasticsearchResult.ElasticsearchServiceUrl),
+        ///         ["kibanaEndpoint"] = example.Apply(getElasticsearchResult =&gt; getElasticsearchResult.KibanaServiceUrl),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetElasticsearchResult> Invoke(GetElasticsearchInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());
     }
 
 

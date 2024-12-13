@@ -58,6 +58,30 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Output<GetExtendedLocationsResult> Invoke(GetExtendedLocationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source return the available Extended Locations for a specific Azure Region.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetExtendedLocations.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetExtendedLocationsResult> Invoke(GetExtendedLocationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsInvokeArgs(), options.WithDefaults());
     }
 
 

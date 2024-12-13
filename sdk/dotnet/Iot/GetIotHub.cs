@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public static Output<GetIotHubResult> Invoke(GetIotHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing IoTHub.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Iot.GetIotHub.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getIotHubResult =&gt; getIotHubResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIotHubResult> Invoke(GetIotHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubInvokeArgs(), options.WithDefaults());
     }
 
 

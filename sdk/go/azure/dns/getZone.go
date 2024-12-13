@@ -77,21 +77,11 @@ type LookupZoneResult struct {
 }
 
 func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupZoneResultOutput, error) {
 			args := v.(LookupZoneArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupZoneResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getZone:getZone", args, &rv, "", opts...)
-			if err != nil {
-				return LookupZoneResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupZoneResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupZoneResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:dns/getZone:getZone", args, LookupZoneResultOutput{}, options).(LookupZoneResultOutput), nil
 		}).(LookupZoneResultOutput)
 }
 

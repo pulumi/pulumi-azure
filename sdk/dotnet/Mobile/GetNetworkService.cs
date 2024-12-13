@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public static Output<GetNetworkServiceResult> Invoke(GetNetworkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceResult>("azure:mobile/getNetworkService:getNetworkService", args ?? new GetNetworkServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a Mobile Network Service.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     {
+        ///         Name = "example-mn",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     var exampleNetworkService = new Azure.Mobile.NetworkService("example", new()
+        ///     {
+        ///         Name = "example-mns",
+        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkServiceResult> Invoke(GetNetworkServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceResult>("azure:mobile/getNetworkService:getNetworkService", args ?? new GetNetworkServiceInvokeArgs(), options.WithDefaults());
     }
 
 

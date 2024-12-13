@@ -60,6 +60,31 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure:desktopvirtualization/getHostPool:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Virtual Desktop Host Pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.DesktopVirtualization.GetHostPool.Invoke(new()
+        ///     {
+        ///         Name = "example-pool",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure:desktopvirtualization/getHostPool:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
     }
 
 

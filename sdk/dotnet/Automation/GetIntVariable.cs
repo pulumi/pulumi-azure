@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public static Output<GetIntVariableResult> Invoke(GetIntVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Int Variable.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetIntVariable.Invoke(new()
+        ///     {
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getIntVariableResult =&gt; getIntVariableResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIntVariableResult> Invoke(GetIntVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableInvokeArgs(), options.WithDefaults());
     }
 
 

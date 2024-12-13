@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Output<GetTenantTemplateDeploymentResult> Invoke(GetTenantTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Tenant Template Deployment.
+        /// </summary>
+        public static Output<GetTenantTemplateDeploymentResult> Invoke(GetTenantTemplateDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

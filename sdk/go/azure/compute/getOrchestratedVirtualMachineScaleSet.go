@@ -74,21 +74,11 @@ type LookupOrchestratedVirtualMachineScaleSetResult struct {
 }
 
 func LookupOrchestratedVirtualMachineScaleSetOutput(ctx *pulumi.Context, args LookupOrchestratedVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) LookupOrchestratedVirtualMachineScaleSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOrchestratedVirtualMachineScaleSetResultOutput, error) {
 			args := v.(LookupOrchestratedVirtualMachineScaleSetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupOrchestratedVirtualMachineScaleSetResult
-			secret, err := ctx.InvokePackageRaw("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupOrchestratedVirtualMachineScaleSetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupOrchestratedVirtualMachineScaleSetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupOrchestratedVirtualMachineScaleSetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, LookupOrchestratedVirtualMachineScaleSetResultOutput{}, options).(LookupOrchestratedVirtualMachineScaleSetResultOutput), nil
 		}).(LookupOrchestratedVirtualMachineScaleSetResultOutput)
 }
 

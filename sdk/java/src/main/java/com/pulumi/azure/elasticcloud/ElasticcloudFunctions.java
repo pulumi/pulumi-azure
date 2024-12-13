@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ElasticcloudFunctions {
@@ -147,6 +148,51 @@ public final class ElasticcloudFunctions {
      * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:elasticcloud/getElasticsearch:getElasticsearch", TypeShape.of(GetElasticsearchResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Elasticsearch resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.elasticcloud.ElasticcloudFunctions;
+     * import com.pulumi.azure.elasticcloud.inputs.GetElasticsearchArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticcloudFunctions.getElasticsearch(GetElasticsearchArgs.builder()
+     *             .name("my-elastic-search")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
+     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:elasticcloud/getElasticsearch:getElasticsearch", TypeShape.of(GetElasticsearchResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -66,6 +66,34 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public static Output<GetAdbsNationalCharacterSetsResult> Invoke(GetAdbsNationalCharacterSetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdbsNationalCharacterSetsResult>("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args ?? new GetAdbsNationalCharacterSetsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a list of supported national character sets.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Oracle.GetAdbsCharacterSets.Invoke(new()
+        ///     {
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = exampleAzurermOracleAdbsNationalCharacterSets,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAdbsNationalCharacterSetsResult> Invoke(GetAdbsNationalCharacterSetsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdbsNationalCharacterSetsResult>("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args ?? new GetAdbsNationalCharacterSetsInvokeArgs(), options.WithDefaults());
     }
 
 

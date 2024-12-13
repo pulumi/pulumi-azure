@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AppplatformFunctions {
@@ -194,6 +195,51 @@ public final class AppplatformFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSpringCloudAppResult> getSpringCloudApp(GetSpringCloudAppArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:appplatform/getSpringCloudApp:getSpringCloudApp", TypeShape.of(GetSpringCloudAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Spring Cloud Application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
+     *             .name(exampleAzurermSpringCloudApp.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudApp.resourceGroupName())
+     *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
+     *             .build());
+     * 
+     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSpringCloudAppResult> getSpringCloudAppPlain(GetSpringCloudAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appplatform/getSpringCloudApp:getSpringCloudApp", TypeShape.of(GetSpringCloudAppResult.class), args, Utilities.withVersion(options));
     }
@@ -327,6 +373,50 @@ public final class AppplatformFunctions {
      * 
      */
     public static Output<GetSpringCloudServiceResult> getSpringCloudService(GetSpringCloudServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:appplatform/getSpringCloudService:getSpringCloudService", TypeShape.of(GetSpringCloudServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Spring Cloud Service.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.appplatform.AppplatformFunctions;
+     * import com.pulumi.azure.appplatform.inputs.GetSpringCloudServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
+     *             .name(exampleAzurermSpringCloudService.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
+     *             .build());
+     * 
+     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSpringCloudServiceResult> getSpringCloudService(GetSpringCloudServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appplatform/getSpringCloudService:getSpringCloudService", TypeShape.of(GetSpringCloudServiceResult.class), args, Utilities.withVersion(options));
     }
     /**

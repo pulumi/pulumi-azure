@@ -32,6 +32,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AutomationFunctions {
@@ -165,6 +166,50 @@ public final class AutomationFunctions {
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -344,6 +389,51 @@ public final class AutomationFunctions {
      * 
      */
     public static Output<GetBoolVariableResult> getBoolVariable(GetBoolVariableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getBoolVariable:getBoolVariable", TypeShape.of(GetBoolVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Bool Variable.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetBoolVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getBoolVariable(GetBoolVariableArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBoolVariableResult> getBoolVariable(GetBoolVariableArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getBoolVariable:getBoolVariable", TypeShape.of(GetBoolVariableResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -568,6 +658,51 @@ public final class AutomationFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDateTimeVariableResult> getDateTimeVariable(GetDateTimeVariableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", TypeShape.of(GetDateTimeVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Datetime Variable.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetDateTimeVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getDateTimeVariable(GetDateTimeVariableArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDateTimeVariableResult> getDateTimeVariablePlain(GetDateTimeVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:automation/getDateTimeVariable:getDateTimeVariable", TypeShape.of(GetDateTimeVariableResult.class), args, Utilities.withVersion(options));
     }
@@ -704,6 +839,51 @@ public final class AutomationFunctions {
      * 
      */
     public static Output<GetIntVariableResult> getIntVariable(GetIntVariableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getIntVariable:getIntVariable", TypeShape.of(GetIntVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Int Variable.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetIntVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getIntVariable(GetIntVariableArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIntVariableResult> getIntVariable(GetIntVariableArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getIntVariable:getIntVariable", TypeShape.of(GetIntVariableResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -928,6 +1108,51 @@ public final class AutomationFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRunbookResult> getRunbook(GetRunbookArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getRunbook:getRunbook", TypeShape.of(GetRunbookResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Runbook.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetRunbookArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getRunbook(GetRunbookArgs.builder()
+     *             .name("existing-runbook")
+     *             .resourceGroupName("existing")
+     *             .automationAccountName("existing-automation")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRunbookResult> getRunbookPlain(GetRunbookPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:automation/getRunbook:getRunbook", TypeShape.of(GetRunbookResult.class), args, Utilities.withVersion(options));
     }
@@ -1108,6 +1333,51 @@ public final class AutomationFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetStringVariableResult> getStringVariable(GetStringVariableArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getStringVariable:getStringVariable", TypeShape.of(GetStringVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation String Variable.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetStringVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getStringVariable(GetStringVariableArgs.builder()
+     *             .name("tfex-example-var")
+     *             .resourceGroupName("tfex-example-rg")
+     *             .automationAccountName("tfex-example-account")
+     *             .build());
+     * 
+     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetStringVariableResult> getStringVariablePlain(GetStringVariablePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:automation/getStringVariable:getStringVariable", TypeShape.of(GetStringVariableResult.class), args, Utilities.withVersion(options));
     }
@@ -1130,6 +1400,13 @@ public final class AutomationFunctions {
      * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     */
+    public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1284,6 +1561,55 @@ public final class AutomationFunctions {
      * 
      */
     public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:automation/getVariables:getVariables", TypeShape.of(GetVariablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get all variables in an Automation Account.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.automation.AutomationFunctions;
+     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.automation.inputs.GetVariablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("example-account")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVariablesResult> getVariables(GetVariablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariables:getVariables", TypeShape.of(GetVariablesResult.class), args, Utilities.withVersion(options));
     }
     /**

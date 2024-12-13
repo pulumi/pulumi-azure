@@ -68,21 +68,11 @@ type LookupResourceGroupResult struct {
 }
 
 func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceGroupResultOutput, error) {
 			args := v.(LookupResourceGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResourceGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:core/getResourceGroup:getResourceGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResourceGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResourceGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResourceGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:core/getResourceGroup:getResourceGroup", args, LookupResourceGroupResultOutput{}, options).(LookupResourceGroupResultOutput), nil
 		}).(LookupResourceGroupResultOutput)
 }
 

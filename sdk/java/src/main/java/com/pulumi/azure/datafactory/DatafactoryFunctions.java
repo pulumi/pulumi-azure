@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DatafactoryFunctions {
@@ -150,6 +151,50 @@ public final class DatafactoryFunctions {
      * 
      */
     public static Output<GetFactoryResult> getFactory(GetFactoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:datafactory/getFactory:getFactory", TypeShape.of(GetFactoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure Data Factory (Version 2).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datafactory.DatafactoryFunctions;
+     * import com.pulumi.azure.datafactory.inputs.GetFactoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatafactoryFunctions.getFactory(GetFactoryArgs.builder()
+     *             .name("existing-adf")
+     *             .resourceGroupName("existing-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFactoryResult> getFactory(GetFactoryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datafactory/getFactory:getFactory", TypeShape.of(GetFactoryResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -369,6 +414,50 @@ public final class DatafactoryFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTriggerScheduleResult> getTriggerSchedule(GetTriggerScheduleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:datafactory/getTriggerSchedule:getTriggerSchedule", TypeShape.of(GetTriggerScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a trigger schedule in Azure Data Factory.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datafactory.DatafactoryFunctions;
+     * import com.pulumi.azure.datafactory.inputs.GetTriggerScheduleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatafactoryFunctions.getTriggerSchedule(GetTriggerScheduleArgs.builder()
+     *             .name("example_trigger")
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTriggerScheduleResult> getTriggerSchedulePlain(GetTriggerSchedulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:datafactory/getTriggerSchedule:getTriggerSchedule", TypeShape.of(GetTriggerScheduleResult.class), args, Utilities.withVersion(options));
     }
@@ -499,6 +588,49 @@ public final class DatafactoryFunctions {
      * 
      */
     public static Output<GetTriggerSchedulesResult> getTriggerSchedules(GetTriggerSchedulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:datafactory/getTriggerSchedules:getTriggerSchedules", TypeShape.of(GetTriggerSchedulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about all existing trigger schedules in Azure Data Factory.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.datafactory.DatafactoryFunctions;
+     * import com.pulumi.azure.datafactory.inputs.GetTriggerSchedulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatafactoryFunctions.getTriggerSchedules(GetTriggerSchedulesArgs.builder()
+     *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
+     *             .build());
+     * 
+     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTriggerSchedulesResult> getTriggerSchedules(GetTriggerSchedulesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datafactory/getTriggerSchedules:getTriggerSchedules", TypeShape.of(GetTriggerSchedulesResult.class), args, Utilities.withVersion(options));
     }
     /**
