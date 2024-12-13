@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
+        /// </summary>
+        public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
     }
 
 

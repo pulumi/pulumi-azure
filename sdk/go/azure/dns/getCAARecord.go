@@ -77,21 +77,11 @@ type GetCAARecordResult struct {
 }
 
 func GetCAARecordOutput(ctx *pulumi.Context, args GetCAARecordOutputArgs, opts ...pulumi.InvokeOption) GetCAARecordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCAARecordResultOutput, error) {
 			args := v.(GetCAARecordArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCAARecordResult
-			secret, err := ctx.InvokePackageRaw("azure:dns/getCAARecord:getCAARecord", args, &rv, "", opts...)
-			if err != nil {
-				return GetCAARecordResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCAARecordResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCAARecordResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:dns/getCAARecord:getCAARecord", args, GetCAARecordResultOutput{}, options).(GetCAARecordResultOutput), nil
 		}).(GetCAARecordResultOutput)
 }
 

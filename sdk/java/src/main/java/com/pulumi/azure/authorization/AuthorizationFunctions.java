@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AuthorizationFunctions {
@@ -410,6 +411,72 @@ public final class AuthorizationFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:authorization/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Role Definition.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
+     *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+     *             .name("CustomRoleDef")
+     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name("Contributor")
+     *             .build());
+     * 
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:authorization/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
@@ -555,6 +622,54 @@ public final class AuthorizationFunctions {
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing User Assigned Identity.
+     * 
+     * ## Example Usage
+     * 
+     * ### Reference An Existing)
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+     *             .name("name_of_user_assigned_identity")
+     *             .resourceGroupName("name_of_resource_group")
+     *             .build());
+     * 
+     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
+     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
+     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**

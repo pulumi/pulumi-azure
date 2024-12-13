@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SystemcenterFunctions {
@@ -141,6 +142,49 @@ public final class SystemcenterFunctions {
      * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", TypeShape.of(GetVirtualMachineManagerInventoryItemsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing System Center Virtual Machine Manager Inventory Items.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.systemcenter.SystemcenterFunctions;
+     * import com.pulumi.azure.systemcenter.inputs.GetVirtualMachineManagerInventoryItemsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
+     *             .inventoryType("Cloud")
+     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems", TypeShape.of(GetVirtualMachineManagerInventoryItemsResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Public IP Prefix.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Reference An Existing)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetPublicIpPrefix.Invoke(new()
+        ///     {
+        ///         Name = "name_of_public_ip",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["publicIpPrefix"] = example.Apply(getPublicIpPrefixResult =&gt; getPublicIpPrefixResult.IpPrefix),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

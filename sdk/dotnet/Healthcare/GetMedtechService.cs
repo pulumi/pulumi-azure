@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public static Output<GetMedtechServiceResult> Invoke(GetMedtechServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Healthcare Med Tech Service
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Healthcare.GetMedtechService.Invoke(new()
+        ///     {
+        ///         Name = "tfexmedtech",
+        ///         WorkspaceId = "tfexwks",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermHealthcareMedtechServiceId"] = example.Apply(getMedtechServiceResult =&gt; getMedtechServiceResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetMedtechServiceResult> Invoke(GetMedtechServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceInvokeArgs(), options.WithDefaults());
     }
 
 

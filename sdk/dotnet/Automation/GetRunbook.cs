@@ -70,6 +70,36 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure:automation/getRunbook:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Runbook.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Automation.GetRunbook.Invoke(new()
+        ///     {
+        ///         Name = "existing-runbook",
+        ///         ResourceGroupName = "existing",
+        ///         AutomationAccountName = "existing-automation",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getRunbookResult =&gt; getRunbookResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure:automation/getRunbook:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
     }
 
 

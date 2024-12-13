@@ -65,21 +65,11 @@ type GetTrafficManagerResult struct {
 }
 
 func GetTrafficManagerOutput(ctx *pulumi.Context, args GetTrafficManagerOutputArgs, opts ...pulumi.InvokeOption) GetTrafficManagerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTrafficManagerResultOutput, error) {
 			args := v.(GetTrafficManagerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetTrafficManagerResult
-			secret, err := ctx.InvokePackageRaw("azure:network/getTrafficManager:getTrafficManager", args, &rv, "", opts...)
-			if err != nil {
-				return GetTrafficManagerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetTrafficManagerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetTrafficManagerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:network/getTrafficManager:getTrafficManager", args, GetTrafficManagerResultOutput{}, options).(GetTrafficManagerResultOutput), nil
 		}).(GetTrafficManagerResultOutput)
 }
 

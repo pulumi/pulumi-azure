@@ -32,6 +32,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ServicebusFunctions {
@@ -165,6 +166,50 @@ public final class ServicebusFunctions {
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing ServiceBus Namespace.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespace(GetNamespaceArgs.builder()
+     *             .name("examplenamespace")
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -384,6 +429,50 @@ public final class ServicebusFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", TypeShape.of(GetNamespaceAuthorizationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs.builder()
+     *             .name("examplerule")
+     *             .namespaceId("examplenamespace")
+     *             .build());
+     * 
+     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", TypeShape.of(GetNamespaceAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
@@ -394,6 +483,9 @@ public final class ServicebusFunctions {
         return getNamespaceDisasterRecoveryConfigPlain(args, InvokeOptions.Empty);
     }
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", TypeShape.of(GetNamespaceDisasterRecoveryConfigResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", TypeShape.of(GetNamespaceDisasterRecoveryConfigResult.class), args, Utilities.withVersion(options));
     }
     public static CompletableFuture<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfigPlain(GetNamespaceDisasterRecoveryConfigPlainArgs args, InvokeOptions options) {
@@ -529,6 +621,50 @@ public final class ServicebusFunctions {
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Service Bus Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getQueue(GetQueueArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -756,6 +892,52 @@ public final class ServicebusFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetQueueAuthorizationRuleResult> getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", TypeShape.of(GetQueueAuthorizationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetQueueAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs.builder()
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .queueName("example-servicebus_queue")
+     *             .namespaceName("example-namespace")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetQueueAuthorizationRuleResult> getQueueAuthorizationRulePlain(GetQueueAuthorizationRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", TypeShape.of(GetQueueAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
@@ -889,6 +1071,50 @@ public final class ServicebusFunctions {
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing ServiceBus Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .name("examplesubscription")
+     *             .topicId("exampletopic")
+     *             .build());
+     * 
+     *         ctx.export("servicebusSubscription", exampleAzurermServicebusNamespace);
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1108,6 +1334,50 @@ public final class ServicebusFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Service Bus Topic.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getTopic(GetTopicArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:servicebus/getTopic:getTopic", TypeShape.of(GetTopicResult.class), args, Utilities.withVersion(options));
     }
@@ -1247,6 +1517,52 @@ public final class ServicebusFunctions {
      * 
      */
     public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", TypeShape.of(GetTopicAuthorizationRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicAuthorizationRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs.builder()
+     *             .name("example-tfex_name")
+     *             .resourceGroupName("example-resources")
+     *             .namespaceName("example-namespace")
+     *             .topicName("example-servicebus_topic")
+     *             .build());
+     * 
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", TypeShape.of(GetTopicAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
     /**

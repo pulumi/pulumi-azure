@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing IP Group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetIpGroup.Invoke(new()
+        ///     {
+        ///         Name = "example1-ipgroup",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cidrs"] = example.Apply(getIpGroupResult =&gt; getIpGroupResult.Cidrs),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
     }
 
 

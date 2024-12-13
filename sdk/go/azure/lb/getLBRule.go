@@ -61,21 +61,11 @@ type GetLBRuleResult struct {
 }
 
 func GetLBRuleOutput(ctx *pulumi.Context, args GetLBRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLBRuleResultOutput, error) {
 			args := v.(GetLBRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLBRuleResult
-			secret, err := ctx.InvokePackageRaw("azure:lb/getLBRule:getLBRule", args, &rv, "", opts...)
-			if err != nil {
-				return GetLBRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLBRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLBRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:lb/getLBRule:getLBRule", args, GetLBRuleResultOutput{}, options).(GetLBRuleResultOutput), nil
 		}).(GetLBRuleResultOutput)
 }
 

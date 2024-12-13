@@ -47,6 +47,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class KeyvaultFunctions {
@@ -177,6 +178,49 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetAccessPolicyResult> getAccessPolicy(GetAccessPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", TypeShape.of(GetAccessPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about the permissions from the Management Key Vault Templates.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetAccessPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var contributor = KeyvaultFunctions.getAccessPolicy(GetAccessPolicyArgs.builder()
+     *             .name("Key Management")
+     *             .build());
+     * 
+     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccessPolicyResult> getAccessPolicy(GetAccessPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", TypeShape.of(GetAccessPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -370,6 +414,56 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Key Vault Certificate.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
+     *             .build());
+     * 
+     *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -627,6 +721,58 @@ public final class KeyvaultFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCertificateDataResult> getCertificateData(GetCertificateDataArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getCertificateData:getCertificateData", TypeShape.of(GetCertificateDataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access data stored in an existing Key Vault Certificate.
+     * 
+     * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateDataArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name("examplekv")
+     *             .resourceGroupName("some-resource-group")
+     *             .build());
+     * 
+     *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *             .name("secret-sauce")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCertificateDataResult> getCertificateDataPlain(GetCertificateDataPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getCertificateData:getCertificateData", TypeShape.of(GetCertificateDataResult.class), args, Utilities.withVersion(options));
     }
@@ -827,6 +973,56 @@ public final class KeyvaultFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCertificateIssuerResult> getCertificateIssuer(GetCertificateIssuerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getCertificateIssuer:getCertificateIssuer", TypeShape.of(GetCertificateIssuerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Key Vault Certificate Issuer.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateIssuerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
+     *             .build());
+     * 
+     *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *             .name("existing")
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .build());
+     * 
+     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCertificateIssuerResult> getCertificateIssuerPlain(GetCertificateIssuerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getCertificateIssuer:getCertificateIssuer", TypeShape.of(GetCertificateIssuerResult.class), args, Utilities.withVersion(options));
     }
@@ -855,6 +1051,13 @@ public final class KeyvaultFunctions {
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
      */
+    public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
@@ -877,6 +1080,13 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", TypeShape.of(GetEncryptedValueResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Encrypts or Decrypts a value using a Key Vault Key.
+     * 
+     */
+    public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", TypeShape.of(GetEncryptedValueResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1016,6 +1226,50 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Key Vault Key.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
+     *             .name("secret-sauce")
+     *             .keyVaultId(existing.id())
+     *             .build());
+     * 
+     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getKey:getKey", TypeShape.of(GetKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1235,6 +1489,50 @@ public final class KeyvaultFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetKeyVaultResult> getKeyVault(GetKeyVaultArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getKeyVault:getKeyVault", TypeShape.of(GetKeyVaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Key Vault.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name("mykeyvault")
+     *             .resourceGroupName("some-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetKeyVaultResult> getKeyVaultPlain(GetKeyVaultPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getKeyVault:getKeyVault", TypeShape.of(GetKeyVaultResult.class), args, Utilities.withVersion(options));
     }
@@ -1368,6 +1666,50 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", TypeShape.of(GetManagedHardwareSecurityModuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs.builder()
+     *             .name("mykeyvaultHsm")
+     *             .resourceGroupName("some-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", TypeShape.of(GetManagedHardwareSecurityModuleResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1599,6 +1941,53 @@ public final class KeyvaultFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetManagedHardwareSecurityModuleKeyResult> getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", TypeShape.of(GetManagedHardwareSecurityModuleKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Hardware Security Module Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .build());
+     * 
+     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetManagedHardwareSecurityModuleKeyResult> getManagedHardwareSecurityModuleKeyPlain(GetManagedHardwareSecurityModuleKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", TypeShape.of(GetManagedHardwareSecurityModuleKeyResult.class), args, Utilities.withVersion(options));
     }
@@ -1732,6 +2121,50 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", TypeShape.of(GetManagedHardwareSecurityModuleRoleDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing KeyVault Role Definition.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
+     *             .vaultBaseUrl(test.hsmUri())
+     *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", TypeShape.of(GetManagedHardwareSecurityModuleRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1951,6 +2384,50 @@ public final class KeyvaultFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Key Vault Secret.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
+     *             .name("secret-sauce")
+     *             .keyVaultId(existing.id())
+     *             .build());
+     * 
+     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
     }
@@ -1973,6 +2450,13 @@ public final class KeyvaultFunctions {
      * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+     * 
+     */
+    public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**

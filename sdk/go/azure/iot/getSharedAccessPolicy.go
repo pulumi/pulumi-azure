@@ -78,21 +78,11 @@ type LookupSharedAccessPolicyResult struct {
 }
 
 func LookupSharedAccessPolicyOutput(ctx *pulumi.Context, args LookupSharedAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSharedAccessPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSharedAccessPolicyResultOutput, error) {
 			args := v.(LookupSharedAccessPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSharedAccessPolicyResult
-			secret, err := ctx.InvokePackageRaw("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSharedAccessPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSharedAccessPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSharedAccessPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args, LookupSharedAccessPolicyResultOutput{}, options).(LookupSharedAccessPolicyResultOutput), nil
 		}).(LookupSharedAccessPolicyResultOutput)
 }
 
