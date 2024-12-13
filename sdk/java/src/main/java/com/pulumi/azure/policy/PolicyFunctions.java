@@ -23,6 +23,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PolicyFunctions {
@@ -156,6 +157,50 @@ public final class PolicyFunctions {
      * 
      */
     public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:policy/getPolicyAssignment:getPolicyAssignment", TypeShape.of(GetPolicyAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Policy Assignment.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
+     *             .name("existing")
+     *             .scopeId(exampleAzurermResourceGroup.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPolicyAssignmentResult> getPolicyAssignment(GetPolicyAssignmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getPolicyAssignment:getPolicyAssignment", TypeShape.of(GetPolicyAssignmentResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -457,6 +502,49 @@ public final class PolicyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPolicyDefintionResult> getPolicyDefintion(GetPolicyDefintionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", TypeShape.of(GetPolicyDefintionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+     *             .displayName("Allowed resource types")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPolicyDefintionResult> getPolicyDefintionPlain(GetPolicyDefintionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:policy/getPolicyDefintion:getPolicyDefintion", TypeShape.of(GetPolicyDefintionResult.class), args, Utilities.withVersion(options));
     }
@@ -673,6 +761,49 @@ public final class PolicyFunctions {
      * 
      */
     public static Output<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", TypeShape.of(GetPolicyDefintionBuiltInResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicyDefintionBuiltInArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs.builder()
+     *             .displayName("Allowed resource types")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPolicyDefintionBuiltInResult> getPolicyDefintionBuiltIn(GetPolicyDefintionBuiltInArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", TypeShape.of(GetPolicyDefintionBuiltInResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -973,6 +1104,49 @@ public final class PolicyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPolicySetDefinitionResult> getPolicySetDefinition(GetPolicySetDefinitionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:policy/getPolicySetDefinition:getPolicySetDefinition", TypeShape.of(GetPolicySetDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Policy Set Definition.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+     *             .displayName("Policy Set Definition Example")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPolicySetDefinitionResult> getPolicySetDefinitionPlain(GetPolicySetDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:policy/getPolicySetDefinition:getPolicySetDefinition", TypeShape.of(GetPolicySetDefinitionResult.class), args, Utilities.withVersion(options));
     }
@@ -1109,6 +1283,51 @@ public final class PolicyFunctions {
      * 
      */
     public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", TypeShape.of(GetVirtualMachineConfigurationAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Guest Configuration Policy.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.policy.PolicyFunctions;
+     * import com.pulumi.azure.policy.inputs.GetVirtualMachineConfigurationAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs.builder()
+     *             .name("AzureWindowsBaseline")
+     *             .resourceGroupName("example-RG")
+     *             .virtualMachineName("example-vm")
+     *             .build());
+     * 
+     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVirtualMachineConfigurationAssignmentResult> getVirtualMachineConfigurationAssignment(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", TypeShape.of(GetVirtualMachineConfigurationAssignmentResult.class), args, Utilities.withVersion(options));
     }
     /**

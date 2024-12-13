@@ -60,6 +60,31 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Output<GetStaticWebAppResult> Invoke(GetStaticWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticWebAppResult>("azure:appservice/getStaticWebApp:getStaticWebApp", args ?? new GetStaticWebAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Static Web App.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetStaticWebApp.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStaticWebAppResult> Invoke(GetStaticWebAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticWebAppResult>("azure:appservice/getStaticWebApp:getStaticWebApp", args ?? new GetStaticWebAppInvokeArgs(), options.WithDefaults());
     }
 
 

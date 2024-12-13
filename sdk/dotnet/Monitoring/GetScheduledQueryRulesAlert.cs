@@ -68,6 +68,35 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public static Output<GetScheduledQueryRulesAlertResult> Invoke(GetScheduledQueryRulesAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access the properties of an AlertingAction scheduled query rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Monitoring.GetScheduledQueryRulesAlert.Invoke(new()
+        ///     {
+        ///         ResourceGroupName = "example-rg",
+        ///         Name = "tfex-queryrule",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["queryRuleId"] = example.Apply(getScheduledQueryRulesAlertResult =&gt; getScheduledQueryRulesAlertResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetScheduledQueryRulesAlertResult> Invoke(GetScheduledQueryRulesAlertInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());
     }
 
 

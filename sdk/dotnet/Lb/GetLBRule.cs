@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Load Balancer Rule.
+        /// </summary>
+        public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -92,6 +92,47 @@ namespace Pulumi.Azure.ElasticSan
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Elastic SAN Volume Snapshot.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ElasticSan.Get.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     var exampleGetVolumeGroup = Azure.ElasticSan.GetVolumeGroup.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ElasticSanId = example.Apply(getResult =&gt; getResult.Id),
+        ///     });
+        /// 
+        ///     var exampleGetVolumeSnapshot = Azure.ElasticSan.GetVolumeSnapshot.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         VolumeGroupId = exampleGetVolumeGroup.Apply(getVolumeGroupResult =&gt; getVolumeGroupResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleGetVolumeSnapshot.Apply(getVolumeSnapshotResult =&gt; getVolumeSnapshotResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

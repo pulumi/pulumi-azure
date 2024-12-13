@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Management
         /// </summary>
         public static Output<GetGroupTemplateDeploymentResult> Invoke(GetGroupTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Management Group Template Deployment.
+        /// </summary>
+        public static Output<GetGroupTemplateDeploymentResult> Invoke(GetGroupTemplateDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

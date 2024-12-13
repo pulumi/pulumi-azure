@@ -68,6 +68,35 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public static Output<GetServicePlanResult> Invoke(GetServicePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Service Plan.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.AppService.GetServicePlan.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServicePlanResult =&gt; getServicePlanResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServicePlanResult> Invoke(GetServicePlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanInvokeArgs(), options.WithDefaults());
     }
 
 

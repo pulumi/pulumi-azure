@@ -77,6 +77,39 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing User Assigned Identity.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Reference An Existing)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
+        ///     {
+        ///         Name = "name_of_user_assigned_identity",
+        ///         ResourceGroupName = "name_of_resource_group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["uaiClientId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.ClientId),
+        ///         ["uaiPrincipalId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.PrincipalId),
+        ///         ["uaiTenantId"] = example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.TenantId),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

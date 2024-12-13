@@ -94,21 +94,11 @@ type LookupActionGroupResult struct {
 }
 
 func LookupActionGroupOutput(ctx *pulumi.Context, args LookupActionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupActionGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupActionGroupResultOutput, error) {
 			args := v.(LookupActionGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupActionGroupResult
-			secret, err := ctx.InvokePackageRaw("azure:monitoring/getActionGroup:getActionGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupActionGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupActionGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupActionGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("azure:monitoring/getActionGroup:getActionGroup", args, LookupActionGroupResultOutput{}, options).(LookupActionGroupResultOutput), nil
 		}).(LookupActionGroupResultOutput)
 }
 

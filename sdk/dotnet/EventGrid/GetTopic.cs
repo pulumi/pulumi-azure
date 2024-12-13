@@ -60,6 +60,31 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing EventGrid Topic
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.EventGrid.GetTopic.Invoke(new()
+        ///     {
+        ///         Name = "my-eventgrid-topic",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public static Output<GetRegistryCacheRuleResult> Invoke(GetRegistryCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryCacheRuleResult>("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args ?? new GetRegistryCacheRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Container Registry Cache Rule.
+        /// </summary>
+        public static Output<GetRegistryCacheRuleResult> Invoke(GetRegistryCacheRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryCacheRuleResult>("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args ?? new GetRegistryCacheRuleInvokeArgs(), options.WithDefaults());
     }
 
 

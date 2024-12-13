@@ -62,6 +62,32 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing CosmosDB SQL Database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.CosmosDB.GetSqlDatabase.Invoke(new()
+        ///     {
+        ///         Name = "tfex-cosmosdb-sql-database",
+        ///         ResourceGroupName = "tfex-cosmosdb-sql-database-rg",
+        ///         AccountName = "tfex-cosmosdb-sql-database-account-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

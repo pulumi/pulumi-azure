@@ -72,6 +72,37 @@ namespace Pulumi.Azure.Search
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Manages a Search Service.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "example-resources",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var example = Azure.Search.GetService.Invoke(new()
+        ///     {
+        ///         Name = "example-search-service",
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

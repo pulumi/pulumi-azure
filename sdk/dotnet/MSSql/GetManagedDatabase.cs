@@ -22,6 +22,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Azure SQL Azure Managed Database.
+        /// </summary>
+        public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure:mssql/getManagedDatabase:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

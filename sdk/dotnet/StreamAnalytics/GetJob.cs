@@ -68,6 +68,35 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Stream Analytics Job.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
+        ///     {
+        ///         Name = "example-job",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["jobId"] = example.Apply(getJobResult =&gt; getJobResult.JobId),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

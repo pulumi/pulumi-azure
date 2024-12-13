@@ -60,6 +60,31 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public static Output<GetFrontdoorProfileResult> Invoke(GetFrontdoorProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Front Door (standard/premium) Profile.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Cdn.GetFrontdoorProfile.Invoke(new()
+        ///     {
+        ///         Name = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFrontdoorProfileResult> Invoke(GetFrontdoorProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());
     }
 
 

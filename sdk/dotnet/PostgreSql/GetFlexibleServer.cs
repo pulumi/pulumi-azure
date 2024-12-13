@@ -68,6 +68,35 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing PostgreSQL Flexible Server.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PostgreSql.GetFlexibleServer.Invoke(new()
+        ///     {
+        ///         Name = "existing-postgresql-fs",
+        ///         ResourceGroupName = "existing-postgresql-resgroup",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getFlexibleServerResult =&gt; getFlexibleServerResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFlexibleServerResult> Invoke(GetFlexibleServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlexibleServerResult>("azure:postgresql/getFlexibleServer:getFlexibleServer", args ?? new GetFlexibleServerInvokeArgs(), options.WithDefaults());
     }
 
 

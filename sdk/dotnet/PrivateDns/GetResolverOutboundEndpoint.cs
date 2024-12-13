@@ -60,6 +60,31 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         public static Output<GetResolverOutboundEndpointResult> Invoke(GetResolverOutboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverOutboundEndpointResult>("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", args ?? new GetResolverOutboundEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an existing Private DNS Resolver Outbound Endpoint.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.PrivateDns.GetResolverOutboundEndpoint.Invoke(new()
+        ///     {
+        ///         Name = "example-endpoint",
+        ///         PrivateDnsResolverId = "example-private-dns-resolver-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverOutboundEndpointResult> Invoke(GetResolverOutboundEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverOutboundEndpointResult>("azure:privatedns/getResolverOutboundEndpoint:getResolverOutboundEndpoint", args ?? new GetResolverOutboundEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

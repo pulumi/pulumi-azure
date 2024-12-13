@@ -68,6 +68,35 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Service Bus Queue.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ServiceBus.GetQueue.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         NamespaceId = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getQueueResult =&gt; getQueueResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:servicebus/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

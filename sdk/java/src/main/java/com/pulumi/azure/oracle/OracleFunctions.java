@@ -35,6 +35,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class OracleFunctions {
@@ -165,6 +166,49 @@ public final class OracleFunctions {
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", TypeShape.of(GetAdbsCharacterSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a list of supported character sets.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAdbsCharacterSets(GetAdbsCharacterSetsArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getAdbsCharacterSetsResult -> getAdbsCharacterSetsResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", TypeShape.of(GetAdbsCharacterSetsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -379,6 +423,49 @@ public final class OracleFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", TypeShape.of(GetAdbsNationalCharacterSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a list of supported national character sets.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAdbsCharacterSets(GetAdbsCharacterSetsArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         ctx.export("example", exampleAzurermOracleAdbsNationalCharacterSets);
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", TypeShape.of(GetAdbsNationalCharacterSetsResult.class), args, Utilities.withVersion(options));
     }
@@ -512,6 +599,50 @@ public final class OracleFunctions {
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Autonomous Database.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabase(GetAutonomousDatabaseArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getAutonomousDatabaseResult -> getAutonomousDatabaseResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -731,6 +862,50 @@ public final class OracleFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cloud VM Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getCloudVmCluster(GetCloudVmClusterArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getCloudVmClusterResult -> getCloudVmClusterResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
     }
@@ -861,6 +1036,49 @@ public final class OracleFunctions {
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the database nodes for the specified Cloud VM Cluster.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDbNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDbNodes(GetDbNodesArgs.builder()
+     *             .cloudVmClusterId("existing")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getDbNodesResult -> getDbNodesResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1036,6 +1254,50 @@ public final class OracleFunctions {
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing DB Servers.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDbServersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDbServers(GetDbServersArgs.builder()
+     *             .resourceGroupName("existing")
+     *             .cloudExadataInfrastructureName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getDbServersResult -> getDbServersResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1259,6 +1521,51 @@ public final class OracleFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source provides the list of DB System Shapes in Oracle Cloud Infrastructure Database service.
+     * 
+     * Gets a list of the shapes that can be used to launch a new DB system. The shape determines resources to allocate to the DB system - CPU cores and memory for VM shapes; CPU cores, memory and storage for non-VM (or bare metal) shapes.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetDbSystemShapesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getDbSystemShapesResult -> getDbSystemShapesResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
     }
@@ -1392,6 +1699,50 @@ public final class OracleFunctions {
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", TypeShape.of(GetExadataInfrastructureResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Cloud Exadata Infrastructure.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetExadataInfrastructureArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getExadataInfrastructure(GetExadataInfrastructureArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getExadataInfrastructureResult -> getExadataInfrastructureResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", TypeShape.of(GetExadataInfrastructureResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1571,6 +1922,51 @@ public final class OracleFunctions {
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
+     * 
+     * Gets a list of supported GI versions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getGiVersions(GetGiVersionsArgs.builder()
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         ctx.export("example", example.applyValue(getGiVersionsResult -> getGiVersionsResult));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**
