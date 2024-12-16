@@ -81,9 +81,11 @@ public final class GetDeploymentResult {
      */
     private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
     /**
-     * @return Auto-generated managed resource group for the NGINX Deployment.
+     * @deprecated
+     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     private String managedResourceGroup;
     /**
      * @return Name of the autoscaling profile.
@@ -198,9 +200,11 @@ public final class GetDeploymentResult {
         return this.loggingStorageAccounts;
     }
     /**
-     * @return Auto-generated managed resource group for the NGINX Deployment.
+     * @deprecated
+     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public String managedResourceGroup() {
         return this.managedResourceGroup;
     }

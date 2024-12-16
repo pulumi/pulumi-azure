@@ -474,6 +474,7 @@ class GetConfigurationProtectedFileResult(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.""")
     def content(self) -> str:
         """
         The base-64 encoded contents of this configuration file.

@@ -1094,6 +1094,8 @@ func (o GetConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) GetConfi
 
 type GetConfigurationProtectedFile struct {
 	// The base-64 encoded contents of this configuration file.
+	//
+	// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
 	Content string `pulumi:"content"`
 	// The path of this configuration file.
 	VirtualPath string `pulumi:"virtualPath"`
@@ -1112,6 +1114,8 @@ type GetConfigurationProtectedFileInput interface {
 
 type GetConfigurationProtectedFileArgs struct {
 	// The base-64 encoded contents of this configuration file.
+	//
+	// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
 	Content pulumi.StringInput `pulumi:"content"`
 	// The path of this configuration file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
@@ -1169,6 +1173,8 @@ func (o GetConfigurationProtectedFileOutput) ToGetConfigurationProtectedFileOutp
 }
 
 // The base-64 encoded contents of this configuration file.
+//
+// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
 func (o GetConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }

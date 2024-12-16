@@ -22,7 +22,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Automation Software Update Configuraion.
+ * Manages an Automation Software Update Configuration.
  * 
  * ## Example Usage
  * 

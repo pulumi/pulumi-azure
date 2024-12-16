@@ -55,6 +55,9 @@ export interface GetConfigurationResult {
      * The package data for this configuration.
      */
     readonly packageData: string;
+    /**
+     * A `protectedFile` block as defined below.
+     */
     readonly protectedFiles: outputs.nginx.GetConfigurationProtectedFile[];
     /**
      * The root file path of this Nginx Configuration.

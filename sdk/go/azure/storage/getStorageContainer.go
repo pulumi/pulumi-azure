@@ -62,7 +62,7 @@ type GetStorageContainerArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container.
 	Name string `pulumi:"name"`
-	// The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+	// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
 	//
 	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -108,7 +108,7 @@ type GetStorageContainerOutputArgs struct {
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the Container.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+	// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
 	//
 	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`

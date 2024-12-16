@@ -5222,7 +5222,7 @@ if not MYPY:
         """
         scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -5290,7 +5290,7 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[str] scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
                
                > **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
-        :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`. 
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
                
                > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -5557,7 +5557,7 @@ class FunctionAppSiteConfigArgs:
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -12013,7 +12013,9 @@ if not MYPY:
         """
         java_version: NotRequired[pulumi.Input[str]]
         """
-        The Version of Java to use. Supported versions include `8`, `11` & `17`.
+        The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+
+        > **NOTE:** The value `21` is currently in Preview for `java_version`.
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
@@ -12052,7 +12054,9 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
-        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+               
+               > **NOTE:** The value `21` is currently in Preview for `java_version`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
@@ -12104,7 +12108,9 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Version of Java to use. Supported versions include `8`, `11` & `17`.
+        The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+
+        > **NOTE:** The value `21` is currently in Preview for `java_version`.
         """
         return pulumi.get(self, "java_version")
 
@@ -16031,7 +16037,7 @@ if not MYPY:
         """
         minimum_tls_version: NotRequired[pulumi.Input[str]]
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
         """
@@ -16061,7 +16067,7 @@ if not MYPY:
         """
         scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         scm_type: NotRequired[pulumi.Input[str]]
         """
@@ -16158,7 +16164,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
@@ -16167,7 +16173,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
-        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker.
@@ -16558,7 +16564,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -16644,7 +16650,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -22070,7 +22076,7 @@ if not MYPY:
         """
         java_version: NotRequired[pulumi.Input[str]]
         """
-        The Version of Java to use. Possible values include `8`, `11`, and `17`.
+        The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
 
         > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
 
@@ -22128,7 +22134,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                
                > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
-        :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
+        :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
                
                > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
                
@@ -22273,7 +22279,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Version of Java to use. Possible values include `8`, `11`, and `17`.
+        The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
 
         > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
 
@@ -36440,7 +36446,7 @@ if not MYPY:
         """
         java_version: NotRequired[pulumi.Input[str]]
         """
-        The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
+        The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
@@ -36474,7 +36480,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
-        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
+        :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
                
@@ -36511,7 +36517,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
+        The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -40295,7 +40301,7 @@ if not MYPY:
         """
         minimum_tls_version: NotRequired[pulumi.Input[str]]
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
         """
@@ -40325,7 +40331,7 @@ if not MYPY:
         """
         scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         scm_type: NotRequired[pulumi.Input[str]]
         """
@@ -40421,7 +40427,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
-        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
@@ -40430,7 +40436,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
-        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Windows Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
@@ -40782,7 +40788,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -40868,7 +40874,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 

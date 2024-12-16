@@ -72,6 +72,7 @@ import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as expressroute from "./expressroute";
 import * as extendedlocation from "./extendedlocation";
+import * as fabric from "./fabric";
 import * as fluidrelay from "./fluidrelay";
 import * as frontdoor from "./frontdoor";
 import * as graph from "./graph";
@@ -207,6 +208,7 @@ export {
     eventhub,
     expressroute,
     extendedlocation,
+    fabric,
     fluidrelay,
     frontdoor,
     graph,

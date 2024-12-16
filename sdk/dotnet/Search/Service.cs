@@ -170,6 +170,12 @@ namespace Pulumi.Azure.Search
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        /// </summary>
+        [Output("networkRuleBypassOption")]
+        public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// 
         /// &gt; **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -349,6 +355,12 @@ namespace Pulumi.Azure.Search
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        /// </summary>
+        [Input("networkRuleBypassOption")]
+        public Input<string>? NetworkRuleBypassOption { get; set; }
+
+        /// <summary>
         /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// 
         /// &gt; **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -477,6 +489,12 @@ namespace Pulumi.Azure.Search
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        /// </summary>
+        [Input("networkRuleBypassOption")]
+        public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
         /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.

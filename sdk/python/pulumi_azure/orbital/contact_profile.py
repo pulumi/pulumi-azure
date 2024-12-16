@@ -368,6 +368,8 @@ class ContactProfile(pulumi.CustomResource):
         """
         Manages a Contact profile.
 
+        > **Note:** The `orbital.ContactProfile` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+
         ## Example Usage
 
         ```python
@@ -453,6 +455,8 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Contact profile.
+
+        > **Note:** The `orbital.ContactProfile` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 
         ## Example Usage
 

@@ -313,6 +313,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * 
+     */
+    @Export(name="networkRuleBypassOption", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> networkRuleBypassOption;
+
+    /**
+     * @return Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * 
+     */
+    public Output<Optional<String>> networkRuleBypassOption() {
+        return Codegen.optional(this.networkRuleBypassOption);
+    }
+    /**
      * Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      * 
      * &gt; **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.

@@ -211,8 +211,6 @@ export class ManagedDisk extends pulumi.CustomResource {
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
      */
     public readonly performancePlusEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -492,8 +490,6 @@ export interface ManagedDiskState {
     osType?: pulumi.Input<string>;
     /**
      * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
      */
     performancePlusEnabled?: pulumi.Input<boolean>;
     /**
@@ -674,8 +670,6 @@ export interface ManagedDiskArgs {
     osType?: pulumi.Input<string>;
     /**
      * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
      */
     performancePlusEnabled?: pulumi.Input<boolean>;
     /**

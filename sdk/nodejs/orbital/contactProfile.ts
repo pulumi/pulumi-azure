@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Contact profile.
  *
+ * > **Note:** The `azure.orbital.ContactProfile` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -181,7 +181,7 @@ def get_storage_container(metadata: Optional[Mapping[str, str]] = None,
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
-    :param str storage_account_id: The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+    :param str storage_account_id: The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
            
            > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
     :param str storage_account_name: The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
@@ -229,7 +229,7 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
 
     :param Mapping[str, str] metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
-    :param str storage_account_id: The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+    :param str storage_account_id: The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
            
            > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
     :param str storage_account_name: The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.

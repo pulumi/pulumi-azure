@@ -192,9 +192,6 @@ namespace Pulumi.Azure.Nginx
         /// A `logging_storage_account` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentLoggingStorageAccountResult> LoggingStorageAccounts;
-        /// <summary>
-        /// Auto-generated managed resource group for the NGINX Deployment.
-        /// </summary>
         public readonly string ManagedResourceGroup;
         /// <summary>
         /// Name of the autoscaling profile.

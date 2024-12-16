@@ -54,7 +54,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
  *     location: example.location,
- *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
  *     frontendPublic: {
  *         ipAddresses: [examplePublicIp.id],

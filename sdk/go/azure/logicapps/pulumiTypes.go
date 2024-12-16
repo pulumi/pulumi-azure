@@ -1803,6 +1803,8 @@ type StandardSiteConfig struct {
 	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
@@ -1815,6 +1817,8 @@ type StandardSiteConfig struct {
 	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions []StandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
 	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType *string `pulumi:"scmType"`
@@ -1867,6 +1871,8 @@ type StandardSiteConfigArgs struct {
 	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
@@ -1879,6 +1885,8 @@ type StandardSiteConfigArgs struct {
 	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions StandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
 	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
@@ -2029,6 +2037,8 @@ func (o StandardSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2056,6 +2066,8 @@ func (o StandardSiteConfigOutput) ScmIpRestrictions() StandardSiteConfigScmIpRes
 }
 
 // Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.ScmMinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2224,6 +2236,8 @@ func (o StandardSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {
@@ -2276,6 +2290,8 @@ func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIp
 }
 
 // Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+//
+// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o StandardSiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {

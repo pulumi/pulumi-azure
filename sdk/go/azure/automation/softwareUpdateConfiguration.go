@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Automation Software Update Configuraion.
+// Manages an Automation Software Update Configuration.
 //
 // ## Example Usage
 //

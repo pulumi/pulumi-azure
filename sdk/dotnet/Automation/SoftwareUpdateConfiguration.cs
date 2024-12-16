@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation
 {
     /// <summary>
-    /// Manages an Automation Software Update Configuraion.
+    /// Manages an Automation Software Update Configuration.
     /// 
     /// ## Example Usage
     /// 

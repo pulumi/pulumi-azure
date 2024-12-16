@@ -47,7 +47,7 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      * 
      * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
@@ -56,7 +56,7 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
     private @Nullable String storageAccountId;
 
     /**
-     * @return The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     * @return The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      * 
      * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
@@ -130,7 +130,7 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param storageAccountId The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+         * @param storageAccountId The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
          * 
          * &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 

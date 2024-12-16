@@ -53,7 +53,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "standardv2_Monthly",
  *     location: example.location,
- *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
  *     automaticUpgradeChannel: "stable",
  *     frontendPublic: {
@@ -150,7 +149,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly loggingStorageAccounts!: pulumi.Output<outputs.nginx.DeploymentLoggingStorageAccount[] | undefined>;
     /**
-     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
     public readonly managedResourceGroup!: pulumi.Output<string>;
     /**
@@ -289,7 +288,7 @@ export interface DeploymentState {
      */
     loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[]>;
     /**
-     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
     managedResourceGroup?: pulumi.Input<string>;
     /**
@@ -362,7 +361,7 @@ export interface DeploymentArgs {
      */
     loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[]>;
     /**
-     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
     managedResourceGroup?: pulumi.Input<string>;
     /**

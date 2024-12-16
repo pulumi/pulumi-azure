@@ -254,8 +254,6 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         /// </summary>
         [Output("performancePlusEnabled")]
         public Output<bool?> PerformancePlusEnabled { get; private set; } = null!;
@@ -546,8 +544,6 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         /// </summary>
         [Input("performancePlusEnabled")]
         public Input<bool>? PerformancePlusEnabled { get; set; }
@@ -806,8 +802,6 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         /// </summary>
         [Input("performancePlusEnabled")]
         public Input<bool>? PerformancePlusEnabled { get; set; }

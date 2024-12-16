@@ -190,8 +190,6 @@ type ManagedDisk struct {
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
 	PerformancePlusEnabled pulumi.BoolPtrOutput `pulumi:"performancePlusEnabled"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
@@ -340,8 +338,6 @@ type managedDiskState struct {
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
 	PerformancePlusEnabled *bool `pulumi:"performancePlusEnabled"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
@@ -452,8 +448,6 @@ type ManagedDiskState struct {
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
 	PerformancePlusEnabled pulumi.BoolPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
@@ -568,8 +562,6 @@ type managedDiskArgs struct {
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
 	PerformancePlusEnabled *bool `pulumi:"performancePlusEnabled"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
@@ -681,8 +673,6 @@ type ManagedDiskArgs struct {
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-	//
-	// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
 	PerformancePlusEnabled pulumi.BoolPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
 	//
@@ -942,8 +932,6 @@ func (o ManagedDiskOutput) OsType() pulumi.StringPtrOutput {
 }
 
 // Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-//
-// > **Note:** `performancePlusEnabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
 func (o ManagedDiskOutput) PerformancePlusEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.PerformancePlusEnabled }).(pulumi.BoolPtrOutput)
 }

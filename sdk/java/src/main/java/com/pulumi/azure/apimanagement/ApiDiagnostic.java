@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .protocols("https")
  *             .import_(ApiImportArgs.builder()
  *                 .contentFormat("swagger-link-json")
- *                 .contentValue("http://conferenceapi.azurewebsites.net/?format=json")
+ *                 .contentValue("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json")
  *                 .build())
  *             .build());
  * 

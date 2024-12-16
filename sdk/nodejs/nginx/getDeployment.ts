@@ -97,7 +97,7 @@ export interface GetDeploymentResult {
      */
     readonly loggingStorageAccounts: outputs.nginx.GetDeploymentLoggingStorageAccount[];
     /**
-     * Auto-generated managed resource group for the NGINX Deployment.
+     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
     readonly managedResourceGroup: string;
     /**

@@ -564,7 +564,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             protocols=["https"],
             import_={
                 "content_format": "swagger-link-json",
-                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
             })
         example_logger = azure.apimanagement.Logger("example",
             name="example-apimlogger",
@@ -684,7 +684,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             protocols=["https"],
             import_={
                 "content_format": "swagger-link-json",
-                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
             })
         example_logger = azure.apimanagement.Logger("example",
             name="example-apimlogger",

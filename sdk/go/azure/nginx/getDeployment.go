@@ -84,7 +84,7 @@ type LookupDeploymentResult struct {
 	Location string `pulumi:"location"`
 	// A `loggingStorageAccount` block as defined below.
 	LoggingStorageAccounts []GetDeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Auto-generated managed resource group for the NGINX Deployment.
+	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup string `pulumi:"managedResourceGroup"`
 	// Name of the autoscaling profile.
 	Name string `pulumi:"name"`
@@ -195,7 +195,7 @@ func (o LookupDeploymentResultOutput) LoggingStorageAccounts() GetDeploymentLogg
 	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentLoggingStorageAccount { return v.LoggingStorageAccounts }).(GetDeploymentLoggingStorageAccountArrayOutput)
 }
 
-// Auto-generated managed resource group for the NGINX Deployment.
+// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 func (o LookupDeploymentResultOutput) ManagedResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.ManagedResourceGroup }).(pulumi.StringOutput)
 }

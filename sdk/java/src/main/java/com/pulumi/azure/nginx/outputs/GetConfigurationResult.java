@@ -29,6 +29,10 @@ public final class GetConfigurationResult {
      * 
      */
     private String packageData;
+    /**
+     * @return A `protected_file` block as defined below.
+     * 
+     */
     private List<GetConfigurationProtectedFile> protectedFiles;
     /**
      * @return The root file path of this Nginx Configuration.
@@ -61,6 +65,10 @@ public final class GetConfigurationResult {
     public String packageData() {
         return this.packageData;
     }
+    /**
+     * @return A `protected_file` block as defined below.
+     * 
+     */
     public List<GetConfigurationProtectedFile> protectedFiles() {
         return this.protectedFiles;
     }

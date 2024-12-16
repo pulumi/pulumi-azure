@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Orbital
     /// <summary>
     /// Manages a Spacecraft.
     /// 
+    /// &gt; **Note:** The `azure.orbital.Spacecraft` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
