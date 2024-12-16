@@ -147,6 +147,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     */
+    public readonly networkRuleBypassOption!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      *
      * > **NOTE:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -217,6 +221,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkRuleBypassOption"] = state ? state.networkRuleBypassOption : undefined;
             resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
@@ -243,6 +248,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkRuleBypassOption"] = args ? args.networkRuleBypassOption : undefined;
             resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
@@ -308,6 +314,10 @@ export interface ServiceState {
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     */
+    networkRuleBypassOption?: pulumi.Input<string>;
     /**
      * Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      *
@@ -400,6 +410,10 @@ export interface ServiceArgs {
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     */
+    networkRuleBypassOption?: pulumi.Input<string>;
     /**
      * Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      *

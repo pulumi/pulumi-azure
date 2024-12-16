@@ -234,6 +234,8 @@ class Contact(pulumi.CustomResource):
         """
         Manages an orbital contact.
 
+        > **Note:** The `orbital.Contact` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+
         ## Example Usage
 
         ```python
@@ -342,6 +344,8 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an orbital contact.
+
+        > **Note:** The `orbital.Contact` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 
         ## Example Usage
 

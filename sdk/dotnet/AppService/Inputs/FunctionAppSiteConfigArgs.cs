@@ -135,7 +135,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to `false`. 
+        /// IP security restrictions for scm to use main. Defaults to `false`.
         /// 
         /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         /// </summary>

@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+        /// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
         /// 
         /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+        /// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
         /// 
         /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>

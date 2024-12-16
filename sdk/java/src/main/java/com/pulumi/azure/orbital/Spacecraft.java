@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Spacecraft.
  * 
+ * &gt; **Note:** The `azure.orbital.Spacecraft` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -184,10 +184,8 @@ class GetDeploymentResult:
 
     @property
     @pulumi.getter(name="managedResourceGroup")
+    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
     def managed_resource_group(self) -> str:
-        """
-        Auto-generated managed resource group for the NGINX Deployment.
-        """
         return pulumi.get(self, "managed_resource_group")
 
     @property

@@ -69,7 +69,7 @@ import (
 //				},
 //				Import: &apimanagement.ApiImportArgs{
 //					ContentFormat: pulumi.String("swagger-link-json"),
-//					ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
+//					ContentValue:  pulumi.String("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json"),
 //				},
 //			})
 //			if err != nil {

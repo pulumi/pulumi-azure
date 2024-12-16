@@ -89,7 +89,6 @@ import (
 //				ResourceGroupName:      example.Name,
 //				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
 //				Location:               example.Location,
-//				ManagedResourceGroup:   pulumi.String("example"),
 //				DiagnoseSupportEnabled: pulumi.Bool(true),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{

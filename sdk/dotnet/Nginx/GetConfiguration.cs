@@ -142,6 +142,9 @@ namespace Pulumi.Azure.Nginx
         /// The package data for this configuration.
         /// </summary>
         public readonly string PackageData;
+        /// <summary>
+        /// A `protected_file` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationProtectedFileResult> ProtectedFiles;
         /// <summary>
         /// The root file path of this Nginx Configuration.

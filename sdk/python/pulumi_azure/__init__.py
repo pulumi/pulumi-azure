@@ -126,6 +126,8 @@ if typing.TYPE_CHECKING:
     expressroute = __expressroute
     import pulumi_azure.extendedlocation as __extendedlocation
     extendedlocation = __extendedlocation
+    import pulumi_azure.fabric as __fabric
+    fabric = __fabric
     import pulumi_azure.fluidrelay as __fluidrelay
     fluidrelay = __fluidrelay
     import pulumi_azure.frontdoor as __frontdoor
@@ -333,6 +335,7 @@ else:
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
     expressroute = _utilities.lazy_import('pulumi_azure.expressroute')
     extendedlocation = _utilities.lazy_import('pulumi_azure.extendedlocation')
+    fabric = _utilities.lazy_import('pulumi_azure.fabric')
     fluidrelay = _utilities.lazy_import('pulumi_azure.fluidrelay')
     frontdoor = _utilities.lazy_import('pulumi_azure.frontdoor')
     graph = _utilities.lazy_import('pulumi_azure.graph')
@@ -2249,6 +2252,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cognitive",
   "classes": {
    "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey": "AccountCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountRaiBlocklist",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist": "AccountRaiBlocklist"
   }
  },
  {
@@ -4545,6 +4556,14 @@ _utilities.register(
   "fqn": "pulumi_azure.extendedlocation",
   "classes": {
    "azure:extendedlocation/customLocation:CustomLocation": "CustomLocation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "fabric/capacity",
+  "fqn": "pulumi_azure.fabric",
+  "classes": {
+   "azure:fabric/capacity:Capacity": "Capacity"
   }
  },
  {

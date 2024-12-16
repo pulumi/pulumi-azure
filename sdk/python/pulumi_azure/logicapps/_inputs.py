@@ -942,6 +942,8 @@ if not MYPY:
         min_tls_version: NotRequired[pulumi.Input[str]]
         """
         The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+
+        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
         """
@@ -961,6 +963,8 @@ if not MYPY:
         scm_min_tls_version: NotRequired[pulumi.Input[str]]
         """
         Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+
+        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         scm_type: NotRequired[pulumi.Input[str]]
         """
@@ -1027,12 +1031,16 @@ class StandardSiteConfigArgs:
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+               
+               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+               
+               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] scm_type: The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -1228,6 +1236,8 @@ class StandardSiteConfigArgs:
     def min_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+
+        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "min_tls_version")
 
@@ -1288,6 +1298,8 @@ class StandardSiteConfigArgs:
     def scm_min_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+
+        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "scm_min_tls_version")
 

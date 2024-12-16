@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DotnetVersion { get; set; }
 
         /// <summary>
-        /// The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
+        /// The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }

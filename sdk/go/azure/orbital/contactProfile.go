@@ -14,6 +14,8 @@ import (
 
 // Manages a Contact profile.
 //
+// > **Note:** The `orbital.ContactProfile` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+//
 // ## Example Usage
 //
 // ```go

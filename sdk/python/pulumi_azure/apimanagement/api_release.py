@@ -165,7 +165,7 @@ class ApiRelease(pulumi.CustomResource):
             protocols=["https"],
             import_={
                 "content_format": "swagger-link-json",
-                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
             })
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",
@@ -221,7 +221,7 @@ class ApiRelease(pulumi.CustomResource):
             protocols=["https"],
             import_={
                 "content_format": "swagger-link-json",
-                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
             })
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",

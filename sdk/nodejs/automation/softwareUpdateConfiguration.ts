@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Automation Software Update Configuraion.
+ * Manages an Automation Software Update Configuration.
  *
  * ## Example Usage
  *

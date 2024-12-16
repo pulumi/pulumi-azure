@@ -104,7 +104,6 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .sku("standardv2_Monthly")
  *             .location(example.location())
- *             .managedResourceGroup("example")
  *             .diagnoseSupportEnabled(true)
  *             .automaticUpgradeChannel("stable")
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
@@ -293,16 +292,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loggingStorageAccounts);
     }
     /**
-     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+     * @deprecated
+     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="managedResourceGroup", refs={String.class}, tree="[0]")
     private Output<String> managedResourceGroup;
 
-    /**
-     * @return Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-     * 
-     */
     public Output<String> managedResourceGroup() {
         return this.managedResourceGroup;
     }

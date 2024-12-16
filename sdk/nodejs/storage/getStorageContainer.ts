@@ -46,7 +46,7 @@ export interface GetStorageContainerArgs {
      */
     name: string;
     /**
-     * The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      *
      * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
@@ -139,7 +139,7 @@ export interface GetStorageContainerOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
+     * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      *
      * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */

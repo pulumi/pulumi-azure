@@ -88,6 +88,8 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
         /// <summary>
         /// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+        /// 
+        /// &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
@@ -123,6 +125,8 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
         /// <summary>
         /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+        /// 
+        /// &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Input("scmMinTlsVersion")]
         public Input<string>? ScmMinTlsVersion { get; set; }

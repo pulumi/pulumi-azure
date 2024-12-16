@@ -14,6 +14,8 @@ import (
 
 // Manages an orbital contact.
 //
+// > **Note:** The `orbital.Contact` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+//
 // ## Example Usage
 //
 // ```go

@@ -106,8 +106,6 @@ class ManagedDiskArgs:
                > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-               
-               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -505,8 +503,6 @@ class ManagedDiskArgs:
     def performance_plus_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-
-        > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         """
         return pulumi.get(self, "performance_plus_enabled")
 
@@ -743,8 +739,6 @@ class _ManagedDiskState:
                > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-               
-               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -1123,8 +1117,6 @@ class _ManagedDiskState:
     def performance_plus_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-
-        > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         """
         return pulumi.get(self, "performance_plus_enabled")
 
@@ -1456,8 +1448,6 @@ class ManagedDisk(pulumi.CustomResource):
                > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-               
-               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -1756,8 +1746,6 @@ class ManagedDisk(pulumi.CustomResource):
                > **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] performance_plus_enabled: Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-               
-               > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
                
                For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
@@ -2022,8 +2010,6 @@ class ManagedDisk(pulumi.CustomResource):
     def performance_plus_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-
-        > **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
         """
         return pulumi.get(self, "performance_plus_enabled")
 

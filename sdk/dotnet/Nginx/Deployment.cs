@@ -84,7 +84,6 @@ namespace Pulumi.Azure.Nginx
     ///         ResourceGroupName = example.Name,
     ///         Sku = "standardv2_Monthly",
     ///         Location = example.Location,
-    ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,
     ///         AutomaticUpgradeChannel = "stable",
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
@@ -187,9 +186,6 @@ namespace Pulumi.Azure.Nginx
         [Output("loggingStorageAccounts")]
         public Output<ImmutableArray<Outputs.DeploymentLoggingStorageAccount>> LoggingStorageAccounts { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-        /// </summary>
         [Output("managedResourceGroup")]
         public Output<string> ManagedResourceGroup { get; private set; } = null!;
 
@@ -352,9 +348,6 @@ namespace Pulumi.Azure.Nginx
             set => _loggingStorageAccounts = value;
         }
 
-        /// <summary>
-        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-        /// </summary>
         [Input("managedResourceGroup")]
         public Input<string>? ManagedResourceGroup { get; set; }
 
@@ -491,9 +484,6 @@ namespace Pulumi.Azure.Nginx
             set => _loggingStorageAccounts = value;
         }
 
-        /// <summary>
-        /// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-        /// </summary>
         [Input("managedResourceGroup")]
         public Input<string>? ManagedResourceGroup { get; set; }
 

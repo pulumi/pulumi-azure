@@ -63,7 +63,8 @@ type LookupConfigurationResult struct {
 	Id                string `pulumi:"id"`
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
 	// The package data for this configuration.
-	PackageData    string                          `pulumi:"packageData"`
+	PackageData string `pulumi:"packageData"`
+	// A `protectedFile` block as defined below.
 	ProtectedFiles []GetConfigurationProtectedFile `pulumi:"protectedFiles"`
 	// The root file path of this Nginx Configuration.
 	RootFile string `pulumi:"rootFile"`
@@ -122,6 +123,7 @@ func (o LookupConfigurationResultOutput) PackageData() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.PackageData }).(pulumi.StringOutput)
 }
 
+// A `protectedFile` block as defined below.
 func (o LookupConfigurationResultOutput) ProtectedFiles() GetConfigurationProtectedFileArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) []GetConfigurationProtectedFile { return v.ProtectedFiles }).(GetConfigurationProtectedFileArrayOutput)
 }

@@ -14,6 +14,8 @@ import (
 
 // Manages a Spacecraft.
 //
+// > **Note:** The `orbital.Spacecraft` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+//
 // ## Example Usage
 //
 // ```go

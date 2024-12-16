@@ -144,7 +144,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The Version of Java to use. Possible values include `8`, `11`, and `17`.
+     * The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
      * 
      * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
      * 
@@ -155,7 +155,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     private @Nullable Output<String> javaVersion;
 
     /**
-     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
+     * @return The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
      * 
      * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
      * 
@@ -447,7 +447,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
+         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
          * 
          * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
          * 
@@ -462,7 +462,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
+         * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
          * 
          * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
          * 

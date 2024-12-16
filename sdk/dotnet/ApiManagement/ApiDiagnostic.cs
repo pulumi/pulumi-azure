@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
     ///         {
     ///             ContentFormat = "swagger-link-json",
-    ///             ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
+    ///             ContentValue = "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
     ///         },
     ///     });
     /// 

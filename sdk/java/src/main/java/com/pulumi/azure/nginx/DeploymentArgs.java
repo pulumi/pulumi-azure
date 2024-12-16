@@ -181,16 +181,20 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+     * @deprecated
+     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="managedResourceGroup")
     private @Nullable Output<String> managedResourceGroup;
 
     /**
-     * @return Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+     * @deprecated
+     * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> managedResourceGroup() {
         return Optional.ofNullable(this.managedResourceGroup);
     }
@@ -546,22 +550,26 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedResourceGroup Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedResourceGroup(@Nullable Output<String> managedResourceGroup) {
             $.managedResourceGroup = managedResourceGroup;
             return this;
         }
 
         /**
-         * @param managedResourceGroup Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `managed_resource_group` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedResourceGroup(String managedResourceGroup) {
             return managedResourceGroup(Output.of(managedResourceGroup));
         }

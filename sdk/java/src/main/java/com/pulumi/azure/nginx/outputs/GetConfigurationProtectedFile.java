@@ -13,7 +13,11 @@ public final class GetConfigurationProtectedFile {
     /**
      * @return The base-64 encoded contents of this configuration file.
      * 
+     * @deprecated
+     * the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider. */
     private String content;
     /**
      * @return The path of this configuration file.
@@ -25,7 +29,11 @@ public final class GetConfigurationProtectedFile {
     /**
      * @return The base-64 encoded contents of this configuration file.
      * 
+     * @deprecated
+     * the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public String content() {
         return this.content;
     }

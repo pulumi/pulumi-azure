@@ -79,6 +79,9 @@ class GetConfigurationResult:
     @property
     @pulumi.getter(name="protectedFiles")
     def protected_files(self) -> Sequence['outputs.GetConfigurationProtectedFileResult']:
+        """
+        A `protected_file` block as defined below.
+        """
         return pulumi.get(self, "protected_files")
 
     @property

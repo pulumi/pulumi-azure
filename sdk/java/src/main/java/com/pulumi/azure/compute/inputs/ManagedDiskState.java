@@ -375,16 +375,12 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
-     * 
      */
     @Import(name="performancePlusEnabled")
     private @Nullable Output<Boolean> performancePlusEnabled;
 
     /**
      * @return Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
      * 
      */
     public Optional<Output<Boolean>> performancePlusEnabled() {
@@ -1146,8 +1142,6 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param performancePlusEnabled Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
-         * 
          * @return builder
          * 
          */
@@ -1158,8 +1152,6 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param performancePlusEnabled Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
          * 
          * @return builder
          * 

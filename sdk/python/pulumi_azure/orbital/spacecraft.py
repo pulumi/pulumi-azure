@@ -302,6 +302,8 @@ class Spacecraft(pulumi.CustomResource):
         """
         Manages a Spacecraft.
 
+        > **Note:** The `orbital.Spacecraft` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+
         ## Example Usage
 
         ```python
@@ -360,6 +362,8 @@ class Spacecraft(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spacecraft.
+
+        > **Note:** The `orbital.Spacecraft` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 
         ## Example Usage
 

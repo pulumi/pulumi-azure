@@ -88,7 +88,6 @@ import (
 //				ResourceGroupName:       example.Name,
 //				Sku:                     pulumi.String("standardv2_Monthly"),
 //				Location:                example.Location,
-//				ManagedResourceGroup:    pulumi.String("example"),
 //				DiagnoseSupportEnabled:  pulumi.Bool(true),
 //				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
@@ -147,7 +146,7 @@ type Deployment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayOutput `pulumi:"loggingStorageAccounts"`
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup pulumi.StringOutput `pulumi:"managedResourceGroup"`
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -222,7 +221,7 @@ type deploymentState struct {
 	Location *string `pulumi:"location"`
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts []DeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
@@ -262,7 +261,7 @@ type DeploymentState struct {
 	Location pulumi.StringPtrInput
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayInput
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup pulumi.StringPtrInput
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput
@@ -304,7 +303,7 @@ type deploymentArgs struct {
 	Location *string `pulumi:"location"`
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts []DeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
@@ -341,7 +340,7 @@ type DeploymentArgs struct {
 	Location pulumi.StringPtrInput
 	// One or more `loggingStorageAccount` blocks as defined below.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayInput
-	// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup pulumi.StringPtrInput
 	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput
@@ -498,7 +497,7 @@ func (o DeploymentOutput) LoggingStorageAccounts() DeploymentLoggingStorageAccou
 	return o.ApplyT(func(v *Deployment) DeploymentLoggingStorageAccountArrayOutput { return v.LoggingStorageAccounts }).(DeploymentLoggingStorageAccountArrayOutput)
 }
 
-// Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
+// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 func (o DeploymentOutput) ManagedResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ManagedResourceGroup }).(pulumi.StringOutput)
 }

@@ -18,7 +18,7 @@ index 3c4cde6ea2..433b20b500 100644
  			},
  
 diff --git a/internal/services/compute/windows_virtual_machine_resource.go b/internal/services/compute/windows_virtual_machine_resource.go
-index 0226497579..94cf07503c 100644
+index ff56d4122e..99e677060b 100644
 --- a/internal/services/compute/windows_virtual_machine_resource.go
 +++ b/internal/services/compute/windows_virtual_machine_resource.go
 @@ -386,7 +386,6 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {

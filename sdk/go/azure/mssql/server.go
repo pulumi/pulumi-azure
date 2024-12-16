@@ -208,6 +208,8 @@ type Server struct {
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
 	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -301,6 +303,8 @@ type serverState struct {
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
 	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -346,6 +350,8 @@ type ServerState struct {
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
 	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -393,6 +399,8 @@ type serverArgs struct {
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
 	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -435,6 +443,8 @@ type ServerArgs struct {
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
 	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -585,6 +595,8 @@ func (o ServerOutput) Location() pulumi.StringOutput {
 // The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 //
 // > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+//
+// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o ServerOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }

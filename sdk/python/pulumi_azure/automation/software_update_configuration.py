@@ -442,7 +442,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  windows: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an Automation Software Update Configuraion.
+        Manages an Automation Software Update Configuration.
 
         ## Example Usage
 
@@ -522,7 +522,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  args: SoftwareUpdateConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Automation Software Update Configuraion.
+        Manages an Automation Software Update Configuration.
 
         ## Example Usage
 

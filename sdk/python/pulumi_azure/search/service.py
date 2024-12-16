@@ -31,6 +31,7 @@ class ServiceArgs:
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
@@ -58,6 +59,7 @@ class ServiceArgs:
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
                
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -86,6 +88,8 @@ class ServiceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_bypass_option is not None:
+            pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
         if public_network_access_enabled is not None:
@@ -228,6 +232,18 @@ class ServiceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkRuleBypassOption")
+    def network_rule_bypass_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        """
+        return pulumi.get(self, "network_rule_bypass_option")
+
+    @network_rule_bypass_option.setter
+    def network_rule_bypass_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_rule_bypass_option", value)
+
+    @property
     @pulumi.getter(name="partitionCount")
     def partition_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -304,6 +320,7 @@ class _ServiceState:
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -331,6 +348,7 @@ class _ServiceState:
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
                
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -368,6 +386,8 @@ class _ServiceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_bypass_option is not None:
+            pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
         if primary_key is not None:
@@ -502,6 +522,18 @@ class _ServiceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkRuleBypassOption")
+    def network_rule_bypass_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        """
+        return pulumi.get(self, "network_rule_bypass_option")
+
+    @network_rule_bypass_option.setter
+    def network_rule_bypass_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_rule_bypass_option", value)
 
     @property
     @pulumi.getter(name="partitionCount")
@@ -645,6 +677,7 @@ class Service(pulumi.CustomResource):
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
@@ -733,6 +766,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
                
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -842,6 +876,7 @@ class Service(pulumi.CustomResource):
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
@@ -866,6 +901,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
             __props__.__dict__["partition_count"] = partition_count
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["replica_count"] = replica_count
@@ -902,6 +938,7 @@ class Service(pulumi.CustomResource):
             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
             partition_count: Optional[pulumi.Input[int]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -934,6 +971,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
                
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
@@ -966,6 +1004,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
         __props__.__dict__["partition_count"] = partition_count
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1055,6 +1094,14 @@ class Service(pulumi.CustomResource):
         The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleBypassOption")
+    def network_rule_bypass_option(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        """
+        return pulumi.get(self, "network_rule_bypass_option")
 
     @property
     @pulumi.getter(name="partitionCount")

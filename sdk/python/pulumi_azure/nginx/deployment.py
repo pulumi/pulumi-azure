@@ -52,7 +52,6 @@ class DeploymentArgs:
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
@@ -79,6 +78,9 @@ class DeploymentArgs:
             pulumi.set(__self__, "location", location)
         if logging_storage_accounts is not None:
             pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
+        if managed_resource_group is not None:
+            warnings.warn("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""managed_resource_group is deprecated: The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
         if managed_resource_group is not None:
             pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name is not None:
@@ -233,10 +235,8 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="managedResourceGroup")
+    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
     def managed_resource_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-        """
         return pulumi.get(self, "managed_resource_group")
 
     @managed_resource_group.setter
@@ -316,7 +316,6 @@ class _DeploymentState:
         :param pulumi.Input[str] ip_address: The IP address of the deployment.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
@@ -345,6 +344,9 @@ class _DeploymentState:
             pulumi.set(__self__, "location", location)
         if logging_storage_accounts is not None:
             pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
+        if managed_resource_group is not None:
+            warnings.warn("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""managed_resource_group is deprecated: The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
         if managed_resource_group is not None:
             pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name is not None:
@@ -496,10 +498,8 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="managedResourceGroup")
+    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
     def managed_resource_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-        """
         return pulumi.get(self, "managed_resource_group")
 
     @managed_resource_group.setter
@@ -641,7 +641,6 @@ class Deployment(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="standardv2_Monthly",
             location=example.location,
-            managed_resource_group="example",
             diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
             frontend_public={
@@ -676,7 +675,6 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
@@ -731,7 +729,6 @@ class Deployment(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="standardv2_Monthly",
             location=example.location,
-            managed_resource_group="example",
             diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
             frontend_public={
@@ -862,7 +859,6 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] ip_address: The IP address of the deployment.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
-        :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
@@ -985,10 +981,8 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroup")
+    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
     def managed_resource_group(self) -> pulumi.Output[str]:
-        """
-        Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
-        """
         return pulumi.get(self, "managed_resource_group")
 
     @property

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>
-        /// The Version of Java to use. Supported versions include `1.8`, `11` &amp; `17` (In-Preview).
+        /// The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>

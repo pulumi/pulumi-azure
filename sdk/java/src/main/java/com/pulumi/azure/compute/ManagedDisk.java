@@ -476,16 +476,12 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
-     * 
      */
     @Export(name="performancePlusEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> performancePlusEnabled;
 
     /**
      * @return Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** `performance_plus_enabled` can only be set to `true` when using a Managed Disk with an Ultra SSD.
      * 
      */
     public Output<Optional<Boolean>> performancePlusEnabled() {

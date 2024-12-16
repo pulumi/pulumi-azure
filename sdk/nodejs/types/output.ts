@@ -4464,7 +4464,7 @@ export namespace appservice {
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -10584,7 +10584,9 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `8`, `11` & `17`.
+         * The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
+         *
+         * > **NOTE:** The value `21` is currently in Preview for `javaVersion`.
          */
         javaVersion?: string;
         /**
@@ -11506,7 +11508,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -11536,7 +11538,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: outputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         /**
@@ -12714,7 +12716,7 @@ export namespace appservice {
          */
         javaServerVersion?: string;
         /**
-         * The Version of Java to use. Possible values include `8`, `11`, and `17`.
+         * The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
          *
          * > **NOTE:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --linux`.
          *
@@ -15708,7 +15710,7 @@ export namespace appservice {
          */
         dotnetVersion?: string;
         /**
-         * The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
+         * The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
          */
         javaVersion?: string;
         /**
@@ -16589,7 +16591,7 @@ export namespace appservice {
          */
         managedPipelineMode?: string;
         /**
-         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         minimumTlsVersion?: string;
         /**
@@ -16619,7 +16621,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: outputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         /**
@@ -41082,6 +41084,20 @@ export namespace extendedlocation {
 
 }
 
+export namespace fabric {
+    export interface CapacitySku {
+        /**
+         * The name of the SKU to use for the Fabric Capacity. Possible values are `F2`, `F4`, `F8`, `F16`, `F32`, `F64`, `F128`, `F256`, `F512`, `F1024`, `F2048`.
+         */
+        name: string;
+        /**
+         * The tier of the SKU to use for the Fabric Capacity. The only possible value is `Fabric`.
+         */
+        tier: string;
+    }
+
+}
+
 export namespace fluidrelay {
     export interface ServerCustomerManagedKey {
         /**
@@ -47013,6 +47029,8 @@ export namespace logicapps {
         linuxFxVersion: string;
         /**
          * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+         *
+         * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
         minTlsVersion: string;
         /**
@@ -47035,6 +47053,8 @@ export namespace logicapps {
         scmIpRestrictions: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+         *
+         * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          */
         scmMinTlsVersion: string;
         /**
@@ -58295,6 +58315,8 @@ export namespace nginx {
     export interface GetConfigurationProtectedFile {
         /**
          * The base-64 encoded contents of this configuration file.
+         *
+         * @deprecated the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
          */
         content: string;
         /**

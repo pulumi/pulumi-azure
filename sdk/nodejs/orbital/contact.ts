@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an orbital contact.
  *
+ * > **Note:** The `azure.orbital.Contact` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider.
+ *
  * ## Example Usage
  *
  * ```typescript
