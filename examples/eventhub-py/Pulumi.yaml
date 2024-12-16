@@ -1,3 +1,0 @@
-name: eventhub-py
-runtime: python
-description: Basic example of an Azure EventHub (in Python!)
