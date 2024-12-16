@@ -3664,6 +3664,10 @@
                 "current": "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey",
                 "majorVersion": 6
             },
+            "azurerm_cognitive_account_rai_blocklist": {
+                "current": "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist",
+                "majorVersion": 6
+            },
             "azurerm_cognitive_deployment": {
                 "current": "azure:cognitive/deployment:Deployment",
                 "majorVersion": 6,
@@ -7685,6 +7689,18 @@
                     },
                     "cluster_extension_ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_fabric_capacity": {
+                "current": "azure:fabric/capacity:Capacity",
+                "majorVersion": 6,
+                "fields": {
+                    "administration_members": {
+                        "maxItemsOne": false
+                    },
+                    "sku": {
+                        "maxItemsOne": true
                     }
                 }
             },

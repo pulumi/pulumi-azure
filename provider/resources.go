@@ -272,6 +272,7 @@ var moduleMap = map[string]string{
 	"dynatrace":               azureDynatrace,
 	"elastic_cloud":           azureElasticCloud,
 	"elastic_san":             "ElasticSan",
+	"fabric":                  "Fabric",
 	"fluid_relay":             azureFluidRelay,
 	"frontdoor":               azureFrontdoor,
 	"function":                azureAppService,

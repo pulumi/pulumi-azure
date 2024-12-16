@@ -293,7 +293,7 @@ index f997403600..b10ea52bc4 100644
  * `bearer_token_sending_methods` - (Optional) How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
  
 diff --git a/website/docs/r/api_management_api_diagnostic.html.markdown b/website/docs/r/api_management_api_diagnostic.html.markdown
-index e4924a5439..ea46c447fa 100644
+index 5c171b3703..9c893da103 100644
 --- a/website/docs/r/api_management_api_diagnostic.html.markdown
 +++ b/website/docs/r/api_management_api_diagnostic.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_api_management" "example" {
@@ -1465,7 +1465,7 @@ index 6b06ca628f..a2e544d3ef 100644
  
  ```hcl
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index d4c341247a..1af082b738 100644
+index ee0131e664..3a3c5fdbec 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -237,7 +237,7 @@ The following arguments are supported:
@@ -1999,7 +1999,7 @@ index 8cd3a53f29..7349e0e1e2 100644
 --> **NOTE:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 diff --git a/website/docs/r/managed_disk.html.markdown b/website/docs/r/managed_disk.html.markdown
-index 5581db562f..59d329aa24 100644
+index 762ffaf535..87ae15cdb8 100644
 --- a/website/docs/r/managed_disk.html.markdown
 +++ b/website/docs/r/managed_disk.html.markdown
 @@ -82,7 +82,14 @@ The following arguments are supported:
@@ -2051,7 +2051,7 @@ index 6ce94c3f96..96a0bc66c1 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index 90b738703a..e3a0c821ce 100644
+index 1fcfad3a05..ce6ab37003 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
