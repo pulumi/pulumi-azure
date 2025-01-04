@@ -21,7 +21,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 
-	"github.com/pulumi/pulumi-azure/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-azure/v6/provider/pkg/version"
 )
 
 // Use the non-embedded schema to avoid having to run generation before running the tests.
