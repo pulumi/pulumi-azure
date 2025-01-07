@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: example.then(example => example.id),
  *     ipAddress: "10.0.0.1",
  * });
- * const backend-pool-cr = exampleGetLB.then(exampleGetLB => azure.lb.getBackendAddressPool({
+ * const backend_pool_cr = exampleGetLB.then(exampleGetLB => azure.lb.getBackendAddressPool({
  *     name: "globalLBBackendPool",
  *     loadbalancerId: exampleGetLB.id,
  * }));
