@@ -31,6 +31,7 @@ class VirtualNetworkArgs:
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_vnet_policies: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -49,6 +50,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
@@ -72,6 +74,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint_vnet_policies is not None:
+            pulumi.set(__self__, "private_endpoint_vnet_policies", private_endpoint_vnet_policies)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
@@ -202,6 +206,18 @@ class VirtualNetworkArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateEndpointVnetPolicies")
+    def private_endpoint_vnet_policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "private_endpoint_vnet_policies")
+
+    @private_endpoint_vnet_policies.setter
+    def private_endpoint_vnet_policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_vnet_policies", value)
+
+    @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]:
         """
@@ -241,6 +257,7 @@ class _VirtualNetworkState:
                  guid: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_vnet_policies: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -260,6 +277,7 @@ class _VirtualNetworkState:
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
                
@@ -286,6 +304,8 @@ class _VirtualNetworkState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint_vnet_policies is not None:
+            pulumi.set(__self__, "private_endpoint_vnet_policies", private_endpoint_vnet_policies)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if subnets is not None:
@@ -418,6 +438,18 @@ class _VirtualNetworkState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateEndpointVnetPolicies")
+    def private_endpoint_vnet_policies(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "private_endpoint_vnet_policies")
+
+    @private_endpoint_vnet_policies.setter
+    def private_endpoint_vnet_policies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_vnet_policies", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -470,6 +502,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_vnet_policies: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -545,6 +578,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
                
@@ -637,6 +671,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_vnet_policies: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -660,6 +695,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_endpoint_vnet_policies"] = private_endpoint_vnet_policies
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -686,6 +722,7 @@ class VirtualNetwork(pulumi.CustomResource):
             guid: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            private_endpoint_vnet_policies: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualNetwork':
@@ -710,6 +747,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
                
@@ -730,6 +768,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["guid"] = guid
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_endpoint_vnet_policies"] = private_endpoint_vnet_policies
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["subnets"] = subnets
         __props__.__dict__["tags"] = tags
@@ -818,6 +857,14 @@ class VirtualNetwork(pulumi.CustomResource):
         The name of the virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointVnetPolicies")
+    def private_endpoint_vnet_policies(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "private_endpoint_vnet_policies")
 
     @property
     @pulumi.getter(name="resourceGroupName")

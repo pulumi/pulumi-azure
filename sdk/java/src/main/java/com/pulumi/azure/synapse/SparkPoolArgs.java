@@ -199,9 +199,17 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sparkLogFolder);
     }
 
+    /**
+     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * 
+     */
     @Import(name="sparkVersion", required=true)
     private Output<String> sparkVersion;
 
+    /**
+     * @return The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * 
+     */
     public Output<String> sparkVersion() {
         return this.sparkVersion;
     }
@@ -510,11 +518,23 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
             return sparkLogFolder(Output.of(sparkLogFolder));
         }
 
+        /**
+         * @param sparkVersion The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sparkVersion(Output<String> sparkVersion) {
             $.sparkVersion = sparkVersion;
             return this;
         }
 
+        /**
+         * @param sparkVersion The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sparkVersion(String sparkVersion) {
             return sparkVersion(Output.of(sparkVersion));
         }

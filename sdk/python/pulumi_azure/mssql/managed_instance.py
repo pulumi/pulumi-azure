@@ -21,14 +21,15 @@ __all__ = ['ManagedInstanceArgs', 'ManagedInstance']
 @pulumi.input_type
 class ManagedInstanceArgs:
     def __init__(__self__, *,
-                 administrator_login: pulumi.Input[str],
-                 administrator_login_password: pulumi.Input[str],
                  license_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  storage_size_in_gb: pulumi.Input[int],
                  subnet_id: pulumi.Input[str],
                  vcores: pulumi.Input[int],
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_administrator: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
@@ -45,20 +46,23 @@ class ManagedInstanceArgs:
                  zone_redundant_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ManagedInstance resource.
-        :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
-        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
+        :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs'] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -68,14 +72,18 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] zone_redundant_enabled: Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
         pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "vcores", vcores)
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if azure_active_directory_administrator is not None:
+            pulumi.set(__self__, "azure_active_directory_administrator", azure_active_directory_administrator)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
         if dns_zone_partner_id is not None:
@@ -104,30 +112,6 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "timezone_id", timezone_id)
         if zone_redundant_enabled is not None:
             pulumi.set(__self__, "zone_redundant_enabled", zone_redundant_enabled)
-
-    @property
-    @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> pulumi.Input[str]:
-        """
-        The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "administrator_login")
-
-    @administrator_login.setter
-    def administrator_login(self, value: pulumi.Input[str]):
-        pulumi.set(self, "administrator_login", value)
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Input[str]:
-        """
-        The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @administrator_login_password.setter
-    def administrator_login_password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "administrator_login_password", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -181,7 +165,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        The subnet resource id that the SQL Managed Instance will be associated with.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -200,6 +184,42 @@ class ManagedInstanceArgs:
     @vcores.setter
     def vcores(self, value: pulumi.Input[int]):
         pulumi.set(self, "vcores", value)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryAdministrator")
+    def azure_active_directory_administrator(self) -> Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]:
+        """
+        An `azure_active_directory_administrator` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_administrator")
+
+    @azure_active_directory_administrator.setter
+    def azure_active_directory_administrator(self, value: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]):
+        pulumi.set(self, "azure_active_directory_administrator", value)
 
     @property
     @pulumi.getter
@@ -266,6 +286,8 @@ class ManagedInstanceArgs:
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+
+        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -375,6 +397,7 @@ class _ManagedInstanceState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_administrator: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
@@ -401,6 +424,7 @@ class _ManagedInstanceState:
         Input properties used for looking up and filtering ManagedInstance resources.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs'] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
@@ -410,6 +434,8 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -418,7 +444,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
-        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
@@ -428,6 +454,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if azure_active_directory_administrator is not None:
+            pulumi.set(__self__, "azure_active_directory_administrator", azure_active_directory_administrator)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
         if dns_zone is not None:
@@ -496,6 +524,18 @@ class _ManagedInstanceState:
     @administrator_login_password.setter
     def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryAdministrator")
+    def azure_active_directory_administrator(self) -> Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]:
+        """
+        An `azure_active_directory_administrator` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_administrator")
+
+    @azure_active_directory_administrator.setter
+    def azure_active_directory_administrator(self, value: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']]):
+        pulumi.set(self, "azure_active_directory_administrator", value)
 
     @property
     @pulumi.getter
@@ -598,6 +638,8 @@ class _ManagedInstanceState:
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+
+        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -705,7 +747,7 @@ class _ManagedInstanceState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        The subnet resource id that the SQL Managed Instance will be associated with.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -769,6 +811,7 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
@@ -795,6 +838,177 @@ class ManagedInstance(pulumi.CustomResource):
 
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="database-rg",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="mi-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        allow_management_inbound = azure.network.NetworkSecurityRule("allow_management_inbound",
+            name="allow_management_inbound",
+            priority=106,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "9000",
+                "9003",
+                "1438",
+                "1440",
+                "1452",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allow_misubnet_inbound",
+            name="allow_misubnet_inbound",
+            priority=200,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allow_health_probe_inbound",
+            name="allow_health_probe_inbound",
+            priority=300,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="AzureLoadBalancer",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_tds_inbound = azure.network.NetworkSecurityRule("allow_tds_inbound",
+            name="allow_tds_inbound",
+            priority=1000,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_range="1433",
+            source_address_prefix="VirtualNetwork",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_inbound = azure.network.NetworkSecurityRule("deny_all_inbound",
+            name="deny_all_inbound",
+            priority=4096,
+            direction="Inbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_management_outbound = azure.network.NetworkSecurityRule("allow_management_outbound",
+            name="allow_management_outbound",
+            priority=102,
+            direction="Outbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "80",
+                "443",
+                "12000",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allow_misubnet_outbound",
+            name="allow_misubnet_outbound",
+            priority=200,
+            direction="Outbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_outbound = azure.network.NetworkSecurityRule("deny_all_outbound",
+            name="deny_all_outbound",
+            priority=4096,
+            direction="Outbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet-mi",
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            location=example.location)
+        example_subnet = azure.network.Subnet("example",
+            name="subnet-mi",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"],
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "service_delegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                },
+            }])
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_route_table = azure.network.RouteTable("example",
+            name="routetable-mi",
+            location=example.location,
+            resource_group_name=example.name,
+            bgp_route_propagation_enabled=True,
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
+            license_type="BasePrice",
+            sku_name="GP_Gen5",
+            storage_size_in_gb=32,
+            subnet_id=example_subnet.id,
+            vcores=4,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            opts = pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        ```
+
         ## Import
 
         Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
@@ -807,6 +1021,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -814,6 +1029,8 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -822,7 +1039,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
-        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
@@ -838,6 +1055,177 @@ class ManagedInstance(pulumi.CustomResource):
         Manages a Microsoft SQL Azure Managed Instance.
 
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
+        > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="database-rg",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="mi-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        allow_management_inbound = azure.network.NetworkSecurityRule("allow_management_inbound",
+            name="allow_management_inbound",
+            priority=106,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "9000",
+                "9003",
+                "1438",
+                "1440",
+                "1452",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allow_misubnet_inbound",
+            name="allow_misubnet_inbound",
+            priority=200,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allow_health_probe_inbound",
+            name="allow_health_probe_inbound",
+            priority=300,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="AzureLoadBalancer",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_tds_inbound = azure.network.NetworkSecurityRule("allow_tds_inbound",
+            name="allow_tds_inbound",
+            priority=1000,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_range="1433",
+            source_address_prefix="VirtualNetwork",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_inbound = azure.network.NetworkSecurityRule("deny_all_inbound",
+            name="deny_all_inbound",
+            priority=4096,
+            direction="Inbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_management_outbound = azure.network.NetworkSecurityRule("allow_management_outbound",
+            name="allow_management_outbound",
+            priority=102,
+            direction="Outbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "80",
+                "443",
+                "12000",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allow_misubnet_outbound",
+            name="allow_misubnet_outbound",
+            priority=200,
+            direction="Outbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_outbound = azure.network.NetworkSecurityRule("deny_all_outbound",
+            name="deny_all_outbound",
+            priority=4096,
+            direction="Outbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet-mi",
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            location=example.location)
+        example_subnet = azure.network.Subnet("example",
+            name="subnet-mi",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"],
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "service_delegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                },
+            }])
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_route_table = azure.network.RouteTable("example",
+            name="routetable-mi",
+            location=example.location,
+            resource_group_name=example.name,
+            bgp_route_propagation_enabled=True,
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
+            license_type="BasePrice",
+            sku_name="GP_Gen5",
+            storage_size_in_gb=32,
+            subnet_id=example_subnet.id,
+            vcores=4,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            opts = pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        ```
 
         ## Import
 
@@ -864,6 +1252,7 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
@@ -893,12 +1282,9 @@ class ManagedInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedInstanceArgs.__new__(ManagedInstanceArgs)
 
-            if administrator_login is None and not opts.urn:
-                raise TypeError("Missing required property 'administrator_login'")
             __props__.__dict__["administrator_login"] = administrator_login
-            if administrator_login_password is None and not opts.urn:
-                raise TypeError("Missing required property 'administrator_login_password'")
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
+            __props__.__dict__["azure_active_directory_administrator"] = azure_active_directory_administrator
             __props__.__dict__["collation"] = collation
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
             __props__.__dict__["identity"] = identity
@@ -949,6 +1335,7 @@ class ManagedInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_login_password: Optional[pulumi.Input[str]] = None,
+            azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
             collation: Optional[pulumi.Input[str]] = None,
             dns_zone: Optional[pulumi.Input[str]] = None,
             dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
@@ -980,6 +1367,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
@@ -989,6 +1377,8 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -997,7 +1387,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         :param pulumi.Input[int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
-        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
@@ -1009,6 +1399,7 @@ class ManagedInstance(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_login_password"] = administrator_login_password
+        __props__.__dict__["azure_active_directory_administrator"] = azure_active_directory_administrator
         __props__.__dict__["collation"] = collation
         __props__.__dict__["dns_zone"] = dns_zone
         __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
@@ -1035,7 +1426,7 @@ class ManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> pulumi.Output[str]:
+    def administrator_login(self) -> pulumi.Output[Optional[str]]:
         """
         The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         """
@@ -1043,11 +1434,19 @@ class ManagedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[str]:
+    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
         """
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         """
         return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryAdministrator")
+    def azure_active_directory_administrator(self) -> pulumi.Output[Optional['outputs.ManagedInstanceAzureActiveDirectoryAdministrator']]:
+        """
+        An `azure_active_directory_administrator` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_administrator")
 
     @property
     @pulumi.getter
@@ -1118,6 +1517,8 @@ class ManagedInstance(pulumi.CustomResource):
     def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+
+        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -1189,7 +1590,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+        The subnet resource id that the SQL Managed Instance will be associated with.
         """
         return pulumi.get(self, "subnet_id")
 

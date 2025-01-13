@@ -40,6 +40,11 @@ export const getClusterNodePool: typeof import("./getClusterNodePool").getCluste
 export const getClusterNodePoolOutput: typeof import("./getClusterNodePool").getClusterNodePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterNodePool","getClusterNodePoolOutput"], () => require("./getClusterNodePool"));
 
+export { GetFleetManagerArgs, GetFleetManagerResult, GetFleetManagerOutputArgs } from "./getFleetManager";
+export const getFleetManager: typeof import("./getFleetManager").getFleetManager = null as any;
+export const getFleetManagerOutput: typeof import("./getFleetManager").getFleetManagerOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetManager","getFleetManagerOutput"], () => require("./getFleetManager"));
+
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;

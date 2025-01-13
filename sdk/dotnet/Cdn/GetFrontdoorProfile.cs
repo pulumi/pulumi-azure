@@ -91,6 +91,12 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Inputs.GetFrontdoorProfileIdentityArgs? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Front Door Profile.
         /// </summary>
         [Input("name", required: true)]
@@ -110,6 +116,12 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class GetFrontdoorProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.GetFrontdoorProfileIdentityInputArgs>? Identity { get; set; }
+
         /// <summary>
         /// Specifies the name of the Front Door Profile.
         /// </summary>
@@ -136,6 +148,7 @@ namespace Pulumi.Azure.Cdn
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly Outputs.GetFrontdoorProfileIdentityResult? Identity;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -159,6 +172,8 @@ namespace Pulumi.Azure.Cdn
         private GetFrontdoorProfileResult(
             string id,
 
+            Outputs.GetFrontdoorProfileIdentityResult? identity,
+
             string name,
 
             string resourceGroupName,
@@ -172,6 +187,7 @@ namespace Pulumi.Azure.Cdn
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
+            Identity = identity;
             Name = name;
             ResourceGroupName = resourceGroupName;
             ResourceGuid = resourceGuid;

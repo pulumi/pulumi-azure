@@ -22,21 +22,35 @@ __all__ = ['DicomServiceArgs', 'DicomService']
 class DicomServiceArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[str],
+                 cors: Optional[pulumi.Input['DicomServiceCorsArgs']] = None,
+                 data_partitions_enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_key_url: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage: Optional[pulumi.Input['DicomServiceStorageArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DicomService resource.
-        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input['DicomServiceCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input[bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
+        :param pulumi.Input['DicomServiceStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare DICOM Service.
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if data_partitions_enabled is not None:
+            pulumi.set(__self__, "data_partitions_enabled", data_partitions_enabled)
+        if encryption_key_url is not None:
+            pulumi.set(__self__, "encryption_key_url", encryption_key_url)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -45,6 +59,8 @@ class DicomServiceArgs:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -52,13 +68,49 @@ class DicomServiceArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['DicomServiceCorsArgs']]:
+        """
+        A `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['DicomServiceCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="dataPartitionsEnabled")
+    def data_partitions_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        return pulumi.get(self, "data_partitions_enabled")
+
+    @data_partitions_enabled.setter
+    def data_partitions_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_partitions_enabled", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeyUrl")
+    def encryption_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        """
+        return pulumi.get(self, "encryption_key_url")
+
+    @encryption_key_url.setter
+    def encryption_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_url", value)
 
     @property
     @pulumi.getter
@@ -110,6 +162,18 @@ class DicomServiceArgs:
 
     @property
     @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['DicomServiceStorageArgs']]:
+        """
+        A `storage` block as defined below.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['DicomServiceStorageArgs']]):
+        pulumi.set(self, "storage", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the Healthcare DICOM Service.
@@ -125,27 +189,41 @@ class DicomServiceArgs:
 class _DicomServiceState:
     def __init__(__self__, *,
                  authentications: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]] = None,
+                 cors: Optional[pulumi.Input['DicomServiceCorsArgs']] = None,
+                 data_partitions_enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_key_url: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
+                 storage: Optional[pulumi.Input['DicomServiceStorageArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DicomService resources.
         :param pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]] authentications: The `authentication` block as defined below.
+        :param pulumi.Input['DicomServiceCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input[bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         :param pulumi.Input[str] service_url: The url of the Healthcare DICOM Services.
+        :param pulumi.Input['DicomServiceStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare DICOM Service.
-        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         if authentications is not None:
             pulumi.set(__self__, "authentications", authentications)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if data_partitions_enabled is not None:
+            pulumi.set(__self__, "data_partitions_enabled", data_partitions_enabled)
+        if encryption_key_url is not None:
+            pulumi.set(__self__, "encryption_key_url", encryption_key_url)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -158,6 +236,8 @@ class _DicomServiceState:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workspace_id is not None:
@@ -174,6 +254,42 @@ class _DicomServiceState:
     @authentications.setter
     def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]):
         pulumi.set(self, "authentications", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['DicomServiceCorsArgs']]:
+        """
+        A `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['DicomServiceCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="dataPartitionsEnabled")
+    def data_partitions_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        return pulumi.get(self, "data_partitions_enabled")
+
+    @data_partitions_enabled.setter
+    def data_partitions_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_partitions_enabled", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeyUrl")
+    def encryption_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        """
+        return pulumi.get(self, "encryption_key_url")
+
+    @encryption_key_url.setter
+    def encryption_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_url", value)
 
     @property
     @pulumi.getter
@@ -246,6 +362,18 @@ class _DicomServiceState:
 
     @property
     @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['DicomServiceStorageArgs']]:
+        """
+        A `storage` block as defined below.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['DicomServiceStorageArgs']]):
+        pulumi.set(self, "storage", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the Healthcare DICOM Service.
@@ -260,7 +388,7 @@ class _DicomServiceState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -274,10 +402,14 @@ class DicomService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cors: Optional[pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
+                 data_partitions_enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_key_url: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage: Optional[pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -316,12 +448,16 @@ class DicomService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']] cors: A `cors` block as defined below.
+        :param pulumi.Input[bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
+        :param pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare DICOM Service.
-        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         ...
     @overload
@@ -377,10 +513,14 @@ class DicomService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cors: Optional[pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
+                 data_partitions_enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_key_url: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage: Optional[pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -392,10 +532,14 @@ class DicomService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DicomServiceArgs.__new__(DicomServiceArgs)
 
+            __props__.__dict__["cors"] = cors
+            __props__.__dict__["data_partitions_enabled"] = data_partitions_enabled
+            __props__.__dict__["encryption_key_url"] = encryption_key_url
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+            __props__.__dict__["storage"] = storage
             __props__.__dict__["tags"] = tags
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
@@ -414,12 +558,16 @@ class DicomService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authentications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict']]]]] = None,
+            cors: Optional[pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']]] = None,
+            data_partitions_enabled: Optional[pulumi.Input[bool]] = None,
+            encryption_key_url: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DicomServicePrivateEndpointArgs', 'DicomServicePrivateEndpointArgsDict']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
+            storage: Optional[pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'DicomService':
         """
@@ -430,25 +578,33 @@ class DicomService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict']]]] authentications: The `authentication` block as defined below.
+        :param pulumi.Input[Union['DicomServiceCorsArgs', 'DicomServiceCorsArgsDict']] cors: A `cors` block as defined below.
+        :param pulumi.Input[bool] data_partitions_enabled: If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] encryption_key_url: The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
         :param pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         :param pulumi.Input[str] service_url: The url of the Healthcare DICOM Services.
+        :param pulumi.Input[Union['DicomServiceStorageArgs', 'DicomServiceStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare DICOM Service.
-        :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _DicomServiceState.__new__(_DicomServiceState)
 
         __props__.__dict__["authentications"] = authentications
+        __props__.__dict__["cors"] = cors
+        __props__.__dict__["data_partitions_enabled"] = data_partitions_enabled
+        __props__.__dict__["encryption_key_url"] = encryption_key_url
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["private_endpoints"] = private_endpoints
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["service_url"] = service_url
+        __props__.__dict__["storage"] = storage
         __props__.__dict__["tags"] = tags
         __props__.__dict__["workspace_id"] = workspace_id
         return DicomService(resource_name, opts=opts, __props__=__props__)
@@ -460,6 +616,30 @@ class DicomService(pulumi.CustomResource):
         The `authentication` block as defined below.
         """
         return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter
+    def cors(self) -> pulumi.Output['outputs.DicomServiceCors']:
+        """
+        A `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="dataPartitionsEnabled")
+    def data_partitions_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        return pulumi.get(self, "data_partitions_enabled")
+
+    @property
+    @pulumi.getter(name="encryptionKeyUrl")
+    def encryption_key_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        """
+        return pulumi.get(self, "encryption_key_url")
 
     @property
     @pulumi.getter
@@ -508,6 +688,14 @@ class DicomService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def storage(self) -> pulumi.Output['outputs.DicomServiceStorage']:
+        """
+        A `storage` block as defined below.
+        """
+        return pulumi.get(self, "storage")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Healthcare DICOM Service.
@@ -518,7 +706,7 @@ class DicomService(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "workspace_id")
 

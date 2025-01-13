@@ -208,7 +208,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * 
      * &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
-     * -&gt;**NOTE:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+     * -&gt;**Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
      * 
      */
     @Export(name="dnsZoneId", refs={String.class}, tree="[0]")
@@ -219,7 +219,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * 
      * &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
-     * -&gt;**NOTE:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+     * -&gt;**Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
      * 
      */
     public Output<Optional<String>> dnsZoneId() {

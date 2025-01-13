@@ -273,6 +273,10 @@ type ManagedInstanceTransparentDataEncryption struct {
 	// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	//
+	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
@@ -314,6 +318,10 @@ type managedInstanceTransparentDataEncryptionState struct {
 	// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	//
+	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
@@ -323,6 +331,10 @@ type ManagedInstanceTransparentDataEncryptionState struct {
 	// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	//
+	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringPtrInput
@@ -336,6 +348,10 @@ type managedInstanceTransparentDataEncryptionArgs struct {
 	// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	//
+	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
@@ -346,6 +362,10 @@ type ManagedInstanceTransparentDataEncryptionArgs struct {
 	// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	//
+	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringInput
@@ -444,6 +464,10 @@ func (o ManagedInstanceTransparentDataEncryptionOutput) AutoRotationEnabled() pu
 }
 
 // To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+//
+// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+//
+// > **NOTE:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 func (o ManagedInstanceTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceTransparentDataEncryption) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }

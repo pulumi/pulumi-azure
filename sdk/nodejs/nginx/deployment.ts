@@ -117,6 +117,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
+     * The dataplane API endpoint of the NGINX Deployment.
+     */
+    public /*out*/ readonly dataplaneApiEndpoint!: pulumi.Output<string>;
+    /**
      * Should the metrics be exported to Azure Monitor?
      */
     public readonly diagnoseSupportEnabled!: pulumi.Output<boolean | undefined>;
@@ -137,7 +141,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.nginx.DeploymentIdentity | undefined>;
     /**
-     * The IP address of the deployment.
+     * The IP address of the NGINX Deployment.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
@@ -145,7 +149,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * One or more `loggingStorageAccount` blocks as defined below.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      */
     public readonly loggingStorageAccounts!: pulumi.Output<outputs.nginx.DeploymentLoggingStorageAccount[] | undefined>;
     /**
@@ -161,7 +165,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.nginx.DeploymentNetworkInterface[] | undefined>;
     /**
-     * The version of deployed NGINX.
+     * The version of the NGINX Deployment.
      */
     public /*out*/ readonly nginxVersion!: pulumi.Output<string>;
     /**
@@ -190,6 +194,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["autoScaleProfiles"] = state ? state.autoScaleProfiles : undefined;
             resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["dataplaneApiEndpoint"] = state ? state.dataplaneApiEndpoint : undefined;
             resourceInputs["diagnoseSupportEnabled"] = state ? state.diagnoseSupportEnabled : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["frontendPrivates"] = state ? state.frontendPrivates : undefined;
@@ -229,6 +234,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataplaneApiEndpoint"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["nginxVersion"] = undefined /*out*/;
         }
@@ -256,6 +262,10 @@ export interface DeploymentState {
      */
     capacity?: pulumi.Input<number>;
     /**
+     * The dataplane API endpoint of the NGINX Deployment.
+     */
+    dataplaneApiEndpoint?: pulumi.Input<string>;
+    /**
      * Should the metrics be exported to Azure Monitor?
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
@@ -276,7 +286,7 @@ export interface DeploymentState {
      */
     identity?: pulumi.Input<inputs.nginx.DeploymentIdentity>;
     /**
-     * The IP address of the deployment.
+     * The IP address of the NGINX Deployment.
      */
     ipAddress?: pulumi.Input<string>;
     /**
@@ -284,7 +294,7 @@ export interface DeploymentState {
      */
     location?: pulumi.Input<string>;
     /**
-     * One or more `loggingStorageAccount` blocks as defined below.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      */
     loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[]>;
     /**
@@ -300,7 +310,7 @@ export interface DeploymentState {
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[]>;
     /**
-     * The version of deployed NGINX.
+     * The version of the NGINX Deployment.
      */
     nginxVersion?: pulumi.Input<string>;
     /**
@@ -357,7 +367,7 @@ export interface DeploymentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * One or more `loggingStorageAccount` blocks as defined below.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      */
     loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[]>;
     /**

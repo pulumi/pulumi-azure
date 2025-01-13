@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,10 +23,15 @@ public final class ReplicatedVMNetworkInterface {
      */
     private @Nullable String failoverTestStaticIp;
     /**
-     * @return Name of the subnet to to use when a test failover is done.
+     * @return Name of the subnet to use when a test failover is done.
      * 
      */
     private @Nullable String failoverTestSubnetName;
+    /**
+     * @return A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+     * 
+     */
+    private @Nullable List<String> recoveryLoadBalancerBackendAddressPoolIds;
     /**
      * @return Id of the public IP object to use when a failover is done.
      * 
@@ -42,7 +48,7 @@ public final class ReplicatedVMNetworkInterface {
      */
     private @Nullable String targetStaticIp;
     /**
-     * @return Name of the subnet to to use when a failover is done.
+     * @return Name of the subnet to use when a failover is done.
      * 
      */
     private @Nullable String targetSubnetName;
@@ -63,11 +69,18 @@ public final class ReplicatedVMNetworkInterface {
         return Optional.ofNullable(this.failoverTestStaticIp);
     }
     /**
-     * @return Name of the subnet to to use when a test failover is done.
+     * @return Name of the subnet to use when a test failover is done.
      * 
      */
     public Optional<String> failoverTestSubnetName() {
         return Optional.ofNullable(this.failoverTestSubnetName);
+    }
+    /**
+     * @return A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+     * 
+     */
+    public List<String> recoveryLoadBalancerBackendAddressPoolIds() {
+        return this.recoveryLoadBalancerBackendAddressPoolIds == null ? List.of() : this.recoveryLoadBalancerBackendAddressPoolIds;
     }
     /**
      * @return Id of the public IP object to use when a failover is done.
@@ -91,7 +104,7 @@ public final class ReplicatedVMNetworkInterface {
         return Optional.ofNullable(this.targetStaticIp);
     }
     /**
-     * @return Name of the subnet to to use when a failover is done.
+     * @return Name of the subnet to use when a failover is done.
      * 
      */
     public Optional<String> targetSubnetName() {
@@ -110,6 +123,7 @@ public final class ReplicatedVMNetworkInterface {
         private @Nullable String failoverTestPublicIpAddressId;
         private @Nullable String failoverTestStaticIp;
         private @Nullable String failoverTestSubnetName;
+        private @Nullable List<String> recoveryLoadBalancerBackendAddressPoolIds;
         private @Nullable String recoveryPublicIpAddressId;
         private @Nullable String sourceNetworkInterfaceId;
         private @Nullable String targetStaticIp;
@@ -120,6 +134,7 @@ public final class ReplicatedVMNetworkInterface {
     	      this.failoverTestPublicIpAddressId = defaults.failoverTestPublicIpAddressId;
     	      this.failoverTestStaticIp = defaults.failoverTestStaticIp;
     	      this.failoverTestSubnetName = defaults.failoverTestSubnetName;
+    	      this.recoveryLoadBalancerBackendAddressPoolIds = defaults.recoveryLoadBalancerBackendAddressPoolIds;
     	      this.recoveryPublicIpAddressId = defaults.recoveryPublicIpAddressId;
     	      this.sourceNetworkInterfaceId = defaults.sourceNetworkInterfaceId;
     	      this.targetStaticIp = defaults.targetStaticIp;
@@ -143,6 +158,15 @@ public final class ReplicatedVMNetworkInterface {
 
             this.failoverTestSubnetName = failoverTestSubnetName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder recoveryLoadBalancerBackendAddressPoolIds(@Nullable List<String> recoveryLoadBalancerBackendAddressPoolIds) {
+
+            this.recoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
+            return this;
+        }
+        public Builder recoveryLoadBalancerBackendAddressPoolIds(String... recoveryLoadBalancerBackendAddressPoolIds) {
+            return recoveryLoadBalancerBackendAddressPoolIds(List.of(recoveryLoadBalancerBackendAddressPoolIds));
         }
         @CustomType.Setter
         public Builder recoveryPublicIpAddressId(@Nullable String recoveryPublicIpAddressId) {
@@ -173,6 +197,7 @@ public final class ReplicatedVMNetworkInterface {
             _resultValue.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
             _resultValue.failoverTestStaticIp = failoverTestStaticIp;
             _resultValue.failoverTestSubnetName = failoverTestSubnetName;
+            _resultValue.recoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
             _resultValue.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
             _resultValue.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
             _resultValue.targetStaticIp = targetStaticIp;

@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Healthcare
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+        /// The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
         /// </summary>
         [Input("workspaceId", required: true)]
         public string WorkspaceId { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+        /// The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -149,6 +149,18 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDicomServiceAuthenticationResult> Authentications;
         /// <summary>
+        /// The `cors` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDicomServiceCorResult> Cors;
+        /// <summary>
+        /// If data partitions are enabled or not.
+        /// </summary>
+        public readonly bool DataPartitionsEnabled;
+        /// <summary>
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+        /// </summary>
+        public readonly string EncryptionKeyUrl;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -164,6 +176,10 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly string ServiceUrl;
         /// <summary>
+        /// The `storage` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDicomServiceStorageResult> Storages;
+        /// <summary>
         /// A map of tags assigned to the Healthcare DICOM Service.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -172,6 +188,12 @@ namespace Pulumi.Azure.Healthcare
         [OutputConstructor]
         private GetDicomServiceResult(
             ImmutableArray<Outputs.GetDicomServiceAuthenticationResult> authentications,
+
+            ImmutableArray<Outputs.GetDicomServiceCorResult> cors,
+
+            bool dataPartitionsEnabled,
+
+            string encryptionKeyUrl,
 
             string id,
 
@@ -185,17 +207,23 @@ namespace Pulumi.Azure.Healthcare
 
             string serviceUrl,
 
+            ImmutableArray<Outputs.GetDicomServiceStorageResult> storages,
+
             ImmutableDictionary<string, string> tags,
 
             string workspaceId)
         {
             Authentications = authentications;
+            Cors = cors;
+            DataPartitionsEnabled = dataPartitionsEnabled;
+            EncryptionKeyUrl = encryptionKeyUrl;
             Id = id;
             Identities = identities;
             Location = location;
             Name = name;
             PrivateEndpoints = privateEndpoints;
             ServiceUrl = serviceUrl;
+            Storages = storages;
             Tags = tags;
             WorkspaceId = workspaceId;
         }

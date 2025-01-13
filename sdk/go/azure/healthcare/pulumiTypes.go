@@ -116,6 +116,219 @@ func (o DicomServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) DicomSer
 	}).(DicomServiceAuthenticationOutput)
 }
 
+type DicomServiceCors struct {
+	// Whether to allow credentials in CORS. Defaults to `false`.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// A list of allowed headers for CORS.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// A list of allowed methods for CORS.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A list of allowed origins for CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+	MaxAgeInSeconds *int `pulumi:"maxAgeInSeconds"`
+}
+
+// DicomServiceCorsInput is an input type that accepts DicomServiceCorsArgs and DicomServiceCorsOutput values.
+// You can construct a concrete instance of `DicomServiceCorsInput` via:
+//
+//	DicomServiceCorsArgs{...}
+type DicomServiceCorsInput interface {
+	pulumi.Input
+
+	ToDicomServiceCorsOutput() DicomServiceCorsOutput
+	ToDicomServiceCorsOutputWithContext(context.Context) DicomServiceCorsOutput
+}
+
+type DicomServiceCorsArgs struct {
+	// Whether to allow credentials in CORS. Defaults to `false`.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// A list of allowed headers for CORS.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// A list of allowed methods for CORS.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A list of allowed origins for CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+	MaxAgeInSeconds pulumi.IntPtrInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (DicomServiceCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceCors)(nil)).Elem()
+}
+
+func (i DicomServiceCorsArgs) ToDicomServiceCorsOutput() DicomServiceCorsOutput {
+	return i.ToDicomServiceCorsOutputWithContext(context.Background())
+}
+
+func (i DicomServiceCorsArgs) ToDicomServiceCorsOutputWithContext(ctx context.Context) DicomServiceCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceCorsOutput)
+}
+
+func (i DicomServiceCorsArgs) ToDicomServiceCorsPtrOutput() DicomServiceCorsPtrOutput {
+	return i.ToDicomServiceCorsPtrOutputWithContext(context.Background())
+}
+
+func (i DicomServiceCorsArgs) ToDicomServiceCorsPtrOutputWithContext(ctx context.Context) DicomServiceCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceCorsOutput).ToDicomServiceCorsPtrOutputWithContext(ctx)
+}
+
+// DicomServiceCorsPtrInput is an input type that accepts DicomServiceCorsArgs, DicomServiceCorsPtr and DicomServiceCorsPtrOutput values.
+// You can construct a concrete instance of `DicomServiceCorsPtrInput` via:
+//
+//	        DicomServiceCorsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DicomServiceCorsPtrInput interface {
+	pulumi.Input
+
+	ToDicomServiceCorsPtrOutput() DicomServiceCorsPtrOutput
+	ToDicomServiceCorsPtrOutputWithContext(context.Context) DicomServiceCorsPtrOutput
+}
+
+type dicomServiceCorsPtrType DicomServiceCorsArgs
+
+func DicomServiceCorsPtr(v *DicomServiceCorsArgs) DicomServiceCorsPtrInput {
+	return (*dicomServiceCorsPtrType)(v)
+}
+
+func (*dicomServiceCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceCors)(nil)).Elem()
+}
+
+func (i *dicomServiceCorsPtrType) ToDicomServiceCorsPtrOutput() DicomServiceCorsPtrOutput {
+	return i.ToDicomServiceCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *dicomServiceCorsPtrType) ToDicomServiceCorsPtrOutputWithContext(ctx context.Context) DicomServiceCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceCorsPtrOutput)
+}
+
+type DicomServiceCorsOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceCors)(nil)).Elem()
+}
+
+func (o DicomServiceCorsOutput) ToDicomServiceCorsOutput() DicomServiceCorsOutput {
+	return o
+}
+
+func (o DicomServiceCorsOutput) ToDicomServiceCorsOutputWithContext(ctx context.Context) DicomServiceCorsOutput {
+	return o
+}
+
+func (o DicomServiceCorsOutput) ToDicomServiceCorsPtrOutput() DicomServiceCorsPtrOutput {
+	return o.ToDicomServiceCorsPtrOutputWithContext(context.Background())
+}
+
+func (o DicomServiceCorsOutput) ToDicomServiceCorsPtrOutputWithContext(ctx context.Context) DicomServiceCorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DicomServiceCors) *DicomServiceCors {
+		return &v
+	}).(DicomServiceCorsPtrOutput)
+}
+
+// Whether to allow credentials in CORS. Defaults to `false`.
+func (o DicomServiceCorsOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DicomServiceCors) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// A list of allowed headers for CORS.
+func (o DicomServiceCorsOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DicomServiceCors) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed methods for CORS.
+func (o DicomServiceCorsOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DicomServiceCors) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed origins for CORS.
+func (o DicomServiceCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DicomServiceCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+func (o DicomServiceCorsOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DicomServiceCors) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DicomServiceCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceCors)(nil)).Elem()
+}
+
+func (o DicomServiceCorsPtrOutput) ToDicomServiceCorsPtrOutput() DicomServiceCorsPtrOutput {
+	return o
+}
+
+func (o DicomServiceCorsPtrOutput) ToDicomServiceCorsPtrOutputWithContext(ctx context.Context) DicomServiceCorsPtrOutput {
+	return o
+}
+
+func (o DicomServiceCorsPtrOutput) Elem() DicomServiceCorsOutput {
+	return o.ApplyT(func(v *DicomServiceCors) DicomServiceCors {
+		if v != nil {
+			return *v
+		}
+		var ret DicomServiceCors
+		return ret
+	}).(DicomServiceCorsOutput)
+}
+
+// Whether to allow credentials in CORS. Defaults to `false`.
+func (o DicomServiceCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DicomServiceCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of allowed headers for CORS.
+func (o DicomServiceCorsPtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DicomServiceCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed methods for CORS.
+func (o DicomServiceCorsPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DicomServiceCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed origins for CORS.
+func (o DicomServiceCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DicomServiceCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+func (o DicomServiceCorsPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DicomServiceCors) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type DicomServiceIdentity struct {
 	// A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -406,6 +619,170 @@ func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomSe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DicomServicePrivateEndpoint {
 		return vs[0].([]DicomServicePrivateEndpoint)[vs[1].(int)]
 	}).(DicomServicePrivateEndpointOutput)
+}
+
+type DicomServiceStorage struct {
+	// The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+	FileSystemName string `pulumi:"fileSystemName"`
+	// The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+	//
+	// > **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// DicomServiceStorageInput is an input type that accepts DicomServiceStorageArgs and DicomServiceStorageOutput values.
+// You can construct a concrete instance of `DicomServiceStorageInput` via:
+//
+//	DicomServiceStorageArgs{...}
+type DicomServiceStorageInput interface {
+	pulumi.Input
+
+	ToDicomServiceStorageOutput() DicomServiceStorageOutput
+	ToDicomServiceStorageOutputWithContext(context.Context) DicomServiceStorageOutput
+}
+
+type DicomServiceStorageArgs struct {
+	// The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+	FileSystemName pulumi.StringInput `pulumi:"fileSystemName"`
+	// The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+	//
+	// > **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (DicomServiceStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceStorage)(nil)).Elem()
+}
+
+func (i DicomServiceStorageArgs) ToDicomServiceStorageOutput() DicomServiceStorageOutput {
+	return i.ToDicomServiceStorageOutputWithContext(context.Background())
+}
+
+func (i DicomServiceStorageArgs) ToDicomServiceStorageOutputWithContext(ctx context.Context) DicomServiceStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceStorageOutput)
+}
+
+func (i DicomServiceStorageArgs) ToDicomServiceStoragePtrOutput() DicomServiceStoragePtrOutput {
+	return i.ToDicomServiceStoragePtrOutputWithContext(context.Background())
+}
+
+func (i DicomServiceStorageArgs) ToDicomServiceStoragePtrOutputWithContext(ctx context.Context) DicomServiceStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceStorageOutput).ToDicomServiceStoragePtrOutputWithContext(ctx)
+}
+
+// DicomServiceStoragePtrInput is an input type that accepts DicomServiceStorageArgs, DicomServiceStoragePtr and DicomServiceStoragePtrOutput values.
+// You can construct a concrete instance of `DicomServiceStoragePtrInput` via:
+//
+//	        DicomServiceStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type DicomServiceStoragePtrInput interface {
+	pulumi.Input
+
+	ToDicomServiceStoragePtrOutput() DicomServiceStoragePtrOutput
+	ToDicomServiceStoragePtrOutputWithContext(context.Context) DicomServiceStoragePtrOutput
+}
+
+type dicomServiceStoragePtrType DicomServiceStorageArgs
+
+func DicomServiceStoragePtr(v *DicomServiceStorageArgs) DicomServiceStoragePtrInput {
+	return (*dicomServiceStoragePtrType)(v)
+}
+
+func (*dicomServiceStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceStorage)(nil)).Elem()
+}
+
+func (i *dicomServiceStoragePtrType) ToDicomServiceStoragePtrOutput() DicomServiceStoragePtrOutput {
+	return i.ToDicomServiceStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *dicomServiceStoragePtrType) ToDicomServiceStoragePtrOutputWithContext(ctx context.Context) DicomServiceStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceStoragePtrOutput)
+}
+
+type DicomServiceStorageOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceStorage)(nil)).Elem()
+}
+
+func (o DicomServiceStorageOutput) ToDicomServiceStorageOutput() DicomServiceStorageOutput {
+	return o
+}
+
+func (o DicomServiceStorageOutput) ToDicomServiceStorageOutputWithContext(ctx context.Context) DicomServiceStorageOutput {
+	return o
+}
+
+func (o DicomServiceStorageOutput) ToDicomServiceStoragePtrOutput() DicomServiceStoragePtrOutput {
+	return o.ToDicomServiceStoragePtrOutputWithContext(context.Background())
+}
+
+func (o DicomServiceStorageOutput) ToDicomServiceStoragePtrOutputWithContext(ctx context.Context) DicomServiceStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DicomServiceStorage) *DicomServiceStorage {
+		return &v
+	}).(DicomServiceStoragePtrOutput)
+}
+
+// The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+func (o DicomServiceStorageOutput) FileSystemName() pulumi.StringOutput {
+	return o.ApplyT(func(v DicomServiceStorage) string { return v.FileSystemName }).(pulumi.StringOutput)
+}
+
+// The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+//
+// > **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+func (o DicomServiceStorageOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v DicomServiceStorage) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type DicomServiceStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceStorage)(nil)).Elem()
+}
+
+func (o DicomServiceStoragePtrOutput) ToDicomServiceStoragePtrOutput() DicomServiceStoragePtrOutput {
+	return o
+}
+
+func (o DicomServiceStoragePtrOutput) ToDicomServiceStoragePtrOutputWithContext(ctx context.Context) DicomServiceStoragePtrOutput {
+	return o
+}
+
+func (o DicomServiceStoragePtrOutput) Elem() DicomServiceStorageOutput {
+	return o.ApplyT(func(v *DicomServiceStorage) DicomServiceStorage {
+		if v != nil {
+			return *v
+		}
+		var ret DicomServiceStorage
+		return ret
+	}).(DicomServiceStorageOutput)
+}
+
+// The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+func (o DicomServiceStoragePtrOutput) FileSystemName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomServiceStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+//
+// > **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+func (o DicomServiceStoragePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomServiceStorage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 type FhirServiceAuthentication struct {
@@ -2055,6 +2432,139 @@ func (o GetDicomServiceAuthenticationArrayOutput) Index(i pulumi.IntInput) GetDi
 	}).(GetDicomServiceAuthenticationOutput)
 }
 
+type GetDicomServiceCor struct {
+	// Whether to allow credentials in CORS.
+	AllowCredentials bool `pulumi:"allowCredentials"`
+	// A list of allowed headers for CORS.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// A list of allowed methods for CORS.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A list of allowed origins for CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// The maximum age in seconds for the CORS configuration.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// GetDicomServiceCorInput is an input type that accepts GetDicomServiceCorArgs and GetDicomServiceCorOutput values.
+// You can construct a concrete instance of `GetDicomServiceCorInput` via:
+//
+//	GetDicomServiceCorArgs{...}
+type GetDicomServiceCorInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceCorOutput() GetDicomServiceCorOutput
+	ToGetDicomServiceCorOutputWithContext(context.Context) GetDicomServiceCorOutput
+}
+
+type GetDicomServiceCorArgs struct {
+	// Whether to allow credentials in CORS.
+	AllowCredentials pulumi.BoolInput `pulumi:"allowCredentials"`
+	// A list of allowed headers for CORS.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// A list of allowed methods for CORS.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A list of allowed origins for CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// The maximum age in seconds for the CORS configuration.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (GetDicomServiceCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceCor)(nil)).Elem()
+}
+
+func (i GetDicomServiceCorArgs) ToGetDicomServiceCorOutput() GetDicomServiceCorOutput {
+	return i.ToGetDicomServiceCorOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceCorArgs) ToGetDicomServiceCorOutputWithContext(ctx context.Context) GetDicomServiceCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceCorOutput)
+}
+
+// GetDicomServiceCorArrayInput is an input type that accepts GetDicomServiceCorArray and GetDicomServiceCorArrayOutput values.
+// You can construct a concrete instance of `GetDicomServiceCorArrayInput` via:
+//
+//	GetDicomServiceCorArray{ GetDicomServiceCorArgs{...} }
+type GetDicomServiceCorArrayInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceCorArrayOutput() GetDicomServiceCorArrayOutput
+	ToGetDicomServiceCorArrayOutputWithContext(context.Context) GetDicomServiceCorArrayOutput
+}
+
+type GetDicomServiceCorArray []GetDicomServiceCorInput
+
+func (GetDicomServiceCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceCor)(nil)).Elem()
+}
+
+func (i GetDicomServiceCorArray) ToGetDicomServiceCorArrayOutput() GetDicomServiceCorArrayOutput {
+	return i.ToGetDicomServiceCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceCorArray) ToGetDicomServiceCorArrayOutputWithContext(ctx context.Context) GetDicomServiceCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceCorArrayOutput)
+}
+
+type GetDicomServiceCorOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceCor)(nil)).Elem()
+}
+
+func (o GetDicomServiceCorOutput) ToGetDicomServiceCorOutput() GetDicomServiceCorOutput {
+	return o
+}
+
+func (o GetDicomServiceCorOutput) ToGetDicomServiceCorOutputWithContext(ctx context.Context) GetDicomServiceCorOutput {
+	return o
+}
+
+// Whether to allow credentials in CORS.
+func (o GetDicomServiceCorOutput) AllowCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDicomServiceCor) bool { return v.AllowCredentials }).(pulumi.BoolOutput)
+}
+
+// A list of allowed headers for CORS.
+func (o GetDicomServiceCorOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDicomServiceCor) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed methods for CORS.
+func (o GetDicomServiceCorOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDicomServiceCor) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed origins for CORS.
+func (o GetDicomServiceCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDicomServiceCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// The maximum age in seconds for the CORS configuration.
+func (o GetDicomServiceCorOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDicomServiceCor) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type GetDicomServiceCorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceCor)(nil)).Elem()
+}
+
+func (o GetDicomServiceCorArrayOutput) ToGetDicomServiceCorArrayOutput() GetDicomServiceCorArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceCorArrayOutput) ToGetDicomServiceCorArrayOutputWithContext(ctx context.Context) GetDicomServiceCorArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceCorArrayOutput) Index(i pulumi.IntInput) GetDicomServiceCorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDicomServiceCor {
+		return vs[0].([]GetDicomServiceCor)[vs[1].(int)]
+	}).(GetDicomServiceCorOutput)
+}
+
 type GetDicomServiceIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId string   `pulumi:"principalId"`
@@ -2271,6 +2781,112 @@ func (o GetDicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDicomServicePrivateEndpoint {
 		return vs[0].([]GetDicomServicePrivateEndpoint)[vs[1].(int)]
 	}).(GetDicomServicePrivateEndpointOutput)
+}
+
+type GetDicomServiceStorage struct {
+	// The filesystem name of connected storage account.
+	FileSystemName string `pulumi:"fileSystemName"`
+	// The resource ID of connected storage account.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// GetDicomServiceStorageInput is an input type that accepts GetDicomServiceStorageArgs and GetDicomServiceStorageOutput values.
+// You can construct a concrete instance of `GetDicomServiceStorageInput` via:
+//
+//	GetDicomServiceStorageArgs{...}
+type GetDicomServiceStorageInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceStorageOutput() GetDicomServiceStorageOutput
+	ToGetDicomServiceStorageOutputWithContext(context.Context) GetDicomServiceStorageOutput
+}
+
+type GetDicomServiceStorageArgs struct {
+	// The filesystem name of connected storage account.
+	FileSystemName pulumi.StringInput `pulumi:"fileSystemName"`
+	// The resource ID of connected storage account.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (GetDicomServiceStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceStorage)(nil)).Elem()
+}
+
+func (i GetDicomServiceStorageArgs) ToGetDicomServiceStorageOutput() GetDicomServiceStorageOutput {
+	return i.ToGetDicomServiceStorageOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceStorageArgs) ToGetDicomServiceStorageOutputWithContext(ctx context.Context) GetDicomServiceStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceStorageOutput)
+}
+
+// GetDicomServiceStorageArrayInput is an input type that accepts GetDicomServiceStorageArray and GetDicomServiceStorageArrayOutput values.
+// You can construct a concrete instance of `GetDicomServiceStorageArrayInput` via:
+//
+//	GetDicomServiceStorageArray{ GetDicomServiceStorageArgs{...} }
+type GetDicomServiceStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetDicomServiceStorageArrayOutput() GetDicomServiceStorageArrayOutput
+	ToGetDicomServiceStorageArrayOutputWithContext(context.Context) GetDicomServiceStorageArrayOutput
+}
+
+type GetDicomServiceStorageArray []GetDicomServiceStorageInput
+
+func (GetDicomServiceStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceStorage)(nil)).Elem()
+}
+
+func (i GetDicomServiceStorageArray) ToGetDicomServiceStorageArrayOutput() GetDicomServiceStorageArrayOutput {
+	return i.ToGetDicomServiceStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetDicomServiceStorageArray) ToGetDicomServiceStorageArrayOutputWithContext(ctx context.Context) GetDicomServiceStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDicomServiceStorageArrayOutput)
+}
+
+type GetDicomServiceStorageOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDicomServiceStorage)(nil)).Elem()
+}
+
+func (o GetDicomServiceStorageOutput) ToGetDicomServiceStorageOutput() GetDicomServiceStorageOutput {
+	return o
+}
+
+func (o GetDicomServiceStorageOutput) ToGetDicomServiceStorageOutputWithContext(ctx context.Context) GetDicomServiceStorageOutput {
+	return o
+}
+
+// The filesystem name of connected storage account.
+func (o GetDicomServiceStorageOutput) FileSystemName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServiceStorage) string { return v.FileSystemName }).(pulumi.StringOutput)
+}
+
+// The resource ID of connected storage account.
+func (o GetDicomServiceStorageOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDicomServiceStorage) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type GetDicomServiceStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDicomServiceStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDicomServiceStorage)(nil)).Elem()
+}
+
+func (o GetDicomServiceStorageArrayOutput) ToGetDicomServiceStorageArrayOutput() GetDicomServiceStorageArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceStorageArrayOutput) ToGetDicomServiceStorageArrayOutputWithContext(ctx context.Context) GetDicomServiceStorageArrayOutput {
+	return o
+}
+
+func (o GetDicomServiceStorageArrayOutput) Index(i pulumi.IntInput) GetDicomServiceStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDicomServiceStorage {
+		return vs[0].([]GetDicomServiceStorage)[vs[1].(int)]
+	}).(GetDicomServiceStorageOutput)
 }
 
 type GetFhirServiceAuthentication struct {
@@ -3008,10 +3624,14 @@ func (o GetServiceCorsConfigurationArrayOutput) Index(i pulumi.IntInput) GetServ
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceAuthenticationInput)(nil)).Elem(), DicomServiceAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceAuthenticationArrayInput)(nil)).Elem(), DicomServiceAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceCorsInput)(nil)).Elem(), DicomServiceCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceCorsPtrInput)(nil)).Elem(), DicomServiceCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceIdentityInput)(nil)).Elem(), DicomServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceIdentityPtrInput)(nil)).Elem(), DicomServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServicePrivateEndpointInput)(nil)).Elem(), DicomServicePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DicomServicePrivateEndpointArrayInput)(nil)).Elem(), DicomServicePrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceStorageInput)(nil)).Elem(), DicomServiceStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DicomServiceStoragePtrInput)(nil)).Elem(), DicomServiceStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceAuthenticationInput)(nil)).Elem(), FhirServiceAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceAuthenticationPtrInput)(nil)).Elem(), FhirServiceAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceCorsInput)(nil)).Elem(), FhirServiceCorsArgs{})
@@ -3032,10 +3652,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePrivateEndpointConnectionArrayInput)(nil)).Elem(), WorkspacePrivateEndpointConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceAuthenticationInput)(nil)).Elem(), GetDicomServiceAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceAuthenticationArrayInput)(nil)).Elem(), GetDicomServiceAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceCorInput)(nil)).Elem(), GetDicomServiceCorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceCorArrayInput)(nil)).Elem(), GetDicomServiceCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceIdentityInput)(nil)).Elem(), GetDicomServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceIdentityArrayInput)(nil)).Elem(), GetDicomServiceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServicePrivateEndpointInput)(nil)).Elem(), GetDicomServicePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServicePrivateEndpointArrayInput)(nil)).Elem(), GetDicomServicePrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceStorageInput)(nil)).Elem(), GetDicomServiceStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDicomServiceStorageArrayInput)(nil)).Elem(), GetDicomServiceStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceAuthenticationInput)(nil)).Elem(), GetFhirServiceAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceAuthenticationArrayInput)(nil)).Elem(), GetFhirServiceAuthenticationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceCorInput)(nil)).Elem(), GetFhirServiceCorArgs{})
@@ -3050,10 +3674,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationArrayInput)(nil)).Elem(), GetServiceCorsConfigurationArray{})
 	pulumi.RegisterOutputType(DicomServiceAuthenticationOutput{})
 	pulumi.RegisterOutputType(DicomServiceAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(DicomServiceCorsOutput{})
+	pulumi.RegisterOutputType(DicomServiceCorsPtrOutput{})
 	pulumi.RegisterOutputType(DicomServiceIdentityOutput{})
 	pulumi.RegisterOutputType(DicomServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DicomServicePrivateEndpointOutput{})
 	pulumi.RegisterOutputType(DicomServicePrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(DicomServiceStorageOutput{})
+	pulumi.RegisterOutputType(DicomServiceStoragePtrOutput{})
 	pulumi.RegisterOutputType(FhirServiceAuthenticationOutput{})
 	pulumi.RegisterOutputType(FhirServiceAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(FhirServiceCorsOutput{})
@@ -3074,10 +3702,14 @@ func init() {
 	pulumi.RegisterOutputType(WorkspacePrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetDicomServiceAuthenticationOutput{})
 	pulumi.RegisterOutputType(GetDicomServiceAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceCorOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceCorArrayOutput{})
 	pulumi.RegisterOutputType(GetDicomServiceIdentityOutput{})
 	pulumi.RegisterOutputType(GetDicomServiceIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetDicomServicePrivateEndpointOutput{})
 	pulumi.RegisterOutputType(GetDicomServicePrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceStorageOutput{})
+	pulumi.RegisterOutputType(GetDicomServiceStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetFhirServiceAuthenticationOutput{})
 	pulumi.RegisterOutputType(GetFhirServiceAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(GetFhirServiceCorOutput{})

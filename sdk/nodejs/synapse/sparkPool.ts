@@ -66,6 +66,7 @@ import * as utilities from "../utilities";
  *         content: "spark.shuffle.spill                true\n",
  *         filename: "config.txt",
  *     },
+ *     sparkVersion: "3.2",
  *     tags: {
  *         ENV: "Production",
  *     },
@@ -148,6 +149,9 @@ export class SparkPool extends pulumi.CustomResource {
     public readonly sparkConfig!: pulumi.Output<outputs.synapse.SparkPoolSparkConfig | undefined>;
     public readonly sparkEventsFolder!: pulumi.Output<string | undefined>;
     public readonly sparkLogFolder!: pulumi.Output<string | undefined>;
+    /**
+     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     */
     public readonly sparkVersion!: pulumi.Output<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
@@ -270,6 +274,9 @@ export interface SparkPoolState {
     sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
+    /**
+     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     */
     sparkVersion?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
@@ -322,6 +329,9 @@ export interface SparkPoolArgs {
     sparkConfig?: pulumi.Input<inputs.synapse.SparkPoolSparkConfig>;
     sparkEventsFolder?: pulumi.Input<string>;
     sparkLogFolder?: pulumi.Input<string>;
+    /**
+     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     */
     sparkVersion: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Linux Function App.
-//
 // ## Example Usage
 //
 // ```go
@@ -171,7 +169,9 @@ type LinuxFunctionApp struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrOutput `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -317,7 +317,9 @@ type linuxFunctionAppState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
 	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -416,7 +418,9 @@ type LinuxFunctionAppState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -501,7 +505,9 @@ type linuxFunctionAppArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
 	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -583,7 +589,9 @@ type LinuxFunctionAppArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
@@ -888,7 +896,9 @@ func (o LinuxFunctionAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Is container image pull over virtual network enabled? Defaults to `false`.
+// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+//
+// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
 func (o LinuxFunctionAppOutput) VnetImagePullEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.VnetImagePullEnabled }).(pulumi.BoolPtrOutput)
 }

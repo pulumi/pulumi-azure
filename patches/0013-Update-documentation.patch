@@ -216,7 +216,7 @@ index dfd7e805a5..9d33203dbb 100644
  * `container_name` - Name of the container.
  
 diff --git a/website/docs/d/storage_account_sas.html.markdown b/website/docs/d/storage_account_sas.html.markdown
-index a078984a7b..1dff00245c 100644
+index 44a68ad68c..db0e31fef4 100644
 --- a/website/docs/d/storage_account_sas.html.markdown
 +++ b/website/docs/d/storage_account_sas.html.markdown
 @@ -78,7 +78,7 @@ output "sas_url_query_string" {
@@ -227,7 +227,7 @@ index a078984a7b..1dff00245c 100644
 +* `connection_string` - (Required) The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azurerm_storage_account` resource.
  * `https_only` - (Optional) Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
  * `ip_addresses` - (Optional) IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.  
- * `signed_version` - (Optional) Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+ * `signed_version` - (Optional) Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
 diff --git a/website/docs/guides/3.0-upgrade-guide.html.markdown b/website/docs/guides/3.0-upgrade-guide.html.markdown
 index 9a676c124f..684bf153a7 100644
 --- a/website/docs/guides/3.0-upgrade-guide.html.markdown
@@ -306,14 +306,15 @@ index 5c171b3703..9c893da103 100644
  }
  
 diff --git a/website/docs/r/api_management_api_policy.html.markdown b/website/docs/r/api_management_api_policy.html.markdown
-index 820a09f089..d8d31e7ce2 100644
+index e77172e1eb..d8d31e7ce2 100644
 --- a/website/docs/r/api_management_api_policy.html.markdown
 +++ b/website/docs/r/api_management_api_policy.html.markdown
-@@ -45,7 +45,7 @@ The following arguments are supported:
+@@ -45,8 +45,7 @@ The following arguments are supported:
  
  * `resource_group_name` - (Required) The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
  
--* `xml_content` - (Optional) The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option.
+-* `xml_content` - (Optional) The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. If you need to pass variables into your XML file, use Terraform's [templatefile function](https://developer.hashicorp.com/terraform/language/functions/templatefile).
+-
 +* `xml_content` - (Optional) The XML Content for this Policy as a string.
  
  * `xml_link` - (Optional) A link to a Policy XML Document, which must be publicly available.
@@ -1849,7 +1850,7 @@ index 656e81119f..b9a4cae44f 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 8cd9fd75f2..dda1a1fd9d 100644
+index 630069700a..c3aedcc200 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
@@ -2300,7 +2301,7 @@ index c82917be5a..131701e1d9 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index a90100d447..af92891cf8 100644
+index f613043486..21d73ac845 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2312,7 +2313,7 @@ index a90100d447..af92891cf8 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -160,7 +160,7 @@ redis_configuration {
+@@ -162,7 +162,7 @@ redis_configuration {
  * `rdb_backup_max_snapshot_count` - (Optional) The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
  * `rdb_storage_connection_string` - (Optional) The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
  
@@ -2827,7 +2828,7 @@ index f96d4cc7bd..416bf679b8 100644
  ---
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index e21ea3967f..31c126c3e9 100644
+index 5e8b4fb424..6494b3d882 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -2846,7 +2847,7 @@ index e21ea3967f..31c126c3e9 100644
  
  ## Example Usage
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index 45781e8d0b..7a87d33337 100644
+index bfd90952ef..1320d334ff 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Windows Virtual Machine.

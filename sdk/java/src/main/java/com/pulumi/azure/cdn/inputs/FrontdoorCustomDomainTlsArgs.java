@@ -33,7 +33,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     /**
      * Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
      * 
-     * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+     * -&gt;**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
      * 
      */
     @Import(name="certificateType")
@@ -42,7 +42,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     /**
      * @return Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
      * 
-     * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+     * -&gt;**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
      * 
      */
     public Optional<Output<String>> certificateType() {
@@ -50,20 +50,28 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+     * TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
      * 
-     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+     * &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+     * 
+     * @deprecated
+     * As of March 1, 2025, support for &#39;TLS10&#39; will be retired from Azure Front Door, therefore the &#39;TLS10&#39; property value will be removed in v5.0 of the provider.
      * 
      */
+    @Deprecated /* As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider. */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+     * @return TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
      * 
-     * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+     * &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+     * 
+     * @deprecated
+     * As of March 1, 2025, support for &#39;TLS10&#39; will be retired from Azure Front Door, therefore the &#39;TLS10&#39; property value will be removed in v5.0 of the provider.
      * 
      */
+    @Deprecated /* As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider. */
     public Optional<Output<String>> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
     }
@@ -118,7 +126,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         /**
          * @param certificateType Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          * 
-         * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+         * -&gt;**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
          * 
          * @return builder
          * 
@@ -131,7 +139,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         /**
          * @param certificateType Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          * 
-         * -&gt;**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+         * -&gt;**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
          * 
          * @return builder
          * 
@@ -141,26 +149,34 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param minimumTlsVersion TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+         * @param minimumTlsVersion TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
          * 
-         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+         * &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * As of March 1, 2025, support for &#39;TLS10&#39; will be retired from Azure Front Door, therefore the &#39;TLS10&#39; property value will be removed in v5.0 of the provider.
+         * 
          */
+        @Deprecated /* As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider. */
         public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
             $.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
 
         /**
-         * @param minimumTlsVersion TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+         * @param minimumTlsVersion TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
          * 
-         * &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+         * &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          * 
          * @return builder
          * 
+         * @deprecated
+         * As of March 1, 2025, support for &#39;TLS10&#39; will be retired from Azure Front Door, therefore the &#39;TLS10&#39; property value will be removed in v5.0 of the provider.
+         * 
          */
+        @Deprecated /* As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider. */
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             return minimumTlsVersion(Output.of(minimumTlsVersion));
         }

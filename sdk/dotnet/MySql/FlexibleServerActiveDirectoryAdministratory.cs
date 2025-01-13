@@ -9,21 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MySql
 {
+    /// <summary>
+    /// Manages an Active Directory administrator on a MySQL Flexible Server
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Name = "exampleUAI",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
+    ///     {
+    ///         Name = "example-mysqlfs",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AdministratorLogin = "_admin_Terraform_892123456789312",
+    ///         AdministratorPassword = "QAZwsx123",
+    ///         SkuName = "B_Standard_B1s",
+    ///         Zone = "2",
+    ///         Identity = new Azure.MySql.Inputs.FlexibleServerIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerActiveDirectoryAdministratory = new Azure.MySql.FlexibleServerActiveDirectoryAdministratory("example", new()
+    ///     {
+    ///         ServerId = exampleFlexibleServer.Id,
+    ///         IdentityId = exampleUserAssignedIdentity.Id,
+    ///         Login = "sqladmin",
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A MySQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory")]
     public partial class FlexibleServerActiveDirectoryAdministratory : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID of the identity used for AAD Authentication.
+        /// </summary>
         [Output("identityId")]
         public Output<string> IdentityId { get; private set; } = null!;
 
+        /// <summary>
+        /// The login name of the principal to set as the server administrator
+        /// </summary>
         [Output("login")]
         public Output<string> Login { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Azure Tenant ID.
+        /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
 
@@ -77,18 +159,33 @@ namespace Pulumi.Azure.MySql
 
     public sealed class FlexibleServerActiveDirectoryAdministratoryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource ID of the identity used for AAD Authentication.
+        /// </summary>
         [Input("identityId", required: true)]
         public Input<string> IdentityId { get; set; } = null!;
 
+        /// <summary>
+        /// The login name of the principal to set as the server administrator
+        /// </summary>
         [Input("login", required: true)]
         public Input<string> Login { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
 
+        /// <summary>
+        /// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
 
+        /// <summary>
+        /// The Azure Tenant ID.
+        /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
 
@@ -100,18 +197,33 @@ namespace Pulumi.Azure.MySql
 
     public sealed class FlexibleServerActiveDirectoryAdministratoryState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource ID of the identity used for AAD Authentication.
+        /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
 
+        /// <summary>
+        /// The login name of the principal to set as the server administrator
+        /// </summary>
         [Input("login")]
         public Input<string>? Login { get; set; }
 
+        /// <summary>
+        /// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
+        /// <summary>
+        /// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        /// <summary>
+        /// The Azure Tenant ID.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

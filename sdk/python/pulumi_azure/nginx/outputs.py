@@ -371,8 +371,7 @@ class DeploymentLoggingStorageAccount(dict):
                  container_name: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str container_name: Specify the container name in the Storage Account for logging.
-        :param str name: The name of the StorageAccount for NGINX Logging.
+        :param str name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -382,16 +381,13 @@ class DeploymentLoggingStorageAccount(dict):
     @property
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
-        """
-        Specify the container name in the Storage Account for logging.
-        """
         return pulumi.get(self, "container_name")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the StorageAccount for NGINX Logging.
+        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 
@@ -637,7 +633,6 @@ class GetDeploymentLoggingStorageAccountResult(dict):
                  container_name: str,
                  name: str):
         """
-        :param str container_name: The container name of Storage Account for logging.
         :param str name: The name of this NGINX Deployment.
         """
         pulumi.set(__self__, "container_name", container_name)
@@ -646,9 +641,6 @@ class GetDeploymentLoggingStorageAccountResult(dict):
     @property
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
-        """
-        The container name of Storage Account for logging.
-        """
         return pulumi.get(self, "container_name")
 
     @property

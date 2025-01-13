@@ -138,6 +138,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     */
+    public readonly privateEndpointVnetPolicies!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -175,6 +179,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["guid"] = state ? state.guid : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateEndpointVnetPolicies"] = state ? state.privateEndpointVnetPolicies : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["subnets"] = state ? state.subnets : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -195,6 +200,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateEndpointVnetPolicies"] = args ? args.privateEndpointVnetPolicies : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -253,6 +259,10 @@ export interface VirtualNetworkState {
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     */
+    privateEndpointVnetPolicies?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      */
@@ -313,6 +323,10 @@ export interface VirtualNetworkArgs {
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     */
+    privateEndpointVnetPolicies?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      */

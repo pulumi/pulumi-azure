@@ -1209,6 +1209,7 @@ class LinuxVirtualMachineOsDisk(dict):
                  diff_disk_settings: Optional['outputs.LinuxVirtualMachineOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[str] = None,
                  disk_size_gb: Optional[int] = None,
+                 id: Optional[str] = None,
                  name: Optional[str] = None,
                  secure_vm_disk_encryption_set_id: Optional[str] = None,
                  security_encryption_type: Optional[str] = None,
@@ -1225,6 +1226,7 @@ class LinuxVirtualMachineOsDisk(dict):
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
                
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        :param str id: The ID of the OS disk.
         :param str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param str secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
@@ -1246,6 +1248,8 @@ class LinuxVirtualMachineOsDisk(dict):
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secure_vm_disk_encryption_set_id is not None:
@@ -1300,6 +1304,14 @@ class LinuxVirtualMachineOsDisk(dict):
         > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the OS disk.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -9743,6 +9755,7 @@ class WindowsVirtualMachineOsDisk(dict):
                  diff_disk_settings: Optional['outputs.WindowsVirtualMachineOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[str] = None,
                  disk_size_gb: Optional[int] = None,
+                 id: Optional[str] = None,
                  name: Optional[str] = None,
                  secure_vm_disk_encryption_set_id: Optional[str] = None,
                  security_encryption_type: Optional[str] = None,
@@ -9759,6 +9772,7 @@ class WindowsVirtualMachineOsDisk(dict):
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
                
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        :param str id: The ID of the OS disk.
         :param str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param str secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
@@ -9780,6 +9794,8 @@ class WindowsVirtualMachineOsDisk(dict):
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secure_vm_disk_encryption_set_id is not None:
@@ -9834,6 +9850,14 @@ class WindowsVirtualMachineOsDisk(dict):
         > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the OS disk.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

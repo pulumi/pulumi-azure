@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// The contact can be imported using the `resource id`, e.g.
+// Security Center Contacts can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
@@ -62,7 +62,7 @@ type Contact struct {
 	AlertsToAdmins pulumi.BoolOutput `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// The name of the Security Center Contact. Defaults to `default1`.
+	// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The phone number of the Security Center Contact.
 	Phone pulumi.StringPtrOutput `pulumi:"phone"`
@@ -113,7 +113,7 @@ type contactState struct {
 	AlertsToAdmins *bool `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
 	Email *string `pulumi:"email"`
-	// The name of the Security Center Contact. Defaults to `default1`.
+	// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
 	Name *string `pulumi:"name"`
 	// The phone number of the Security Center Contact.
 	Phone *string `pulumi:"phone"`
@@ -126,7 +126,7 @@ type ContactState struct {
 	AlertsToAdmins pulumi.BoolPtrInput
 	// The email of the Security Center Contact.
 	Email pulumi.StringPtrInput
-	// The name of the Security Center Contact. Defaults to `default1`.
+	// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
 	Name pulumi.StringPtrInput
 	// The phone number of the Security Center Contact.
 	Phone pulumi.StringPtrInput
@@ -143,7 +143,7 @@ type contactArgs struct {
 	AlertsToAdmins bool `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
 	Email string `pulumi:"email"`
-	// The name of the Security Center Contact. Defaults to `default1`.
+	// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
 	Name *string `pulumi:"name"`
 	// The phone number of the Security Center Contact.
 	Phone *string `pulumi:"phone"`
@@ -157,7 +157,7 @@ type ContactArgs struct {
 	AlertsToAdmins pulumi.BoolInput
 	// The email of the Security Center Contact.
 	Email pulumi.StringInput
-	// The name of the Security Center Contact. Defaults to `default1`.
+	// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
 	Name pulumi.StringPtrInput
 	// The phone number of the Security Center Contact.
 	Phone pulumi.StringPtrInput
@@ -265,7 +265,7 @@ func (o ContactOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// The name of the Security Center Contact. Defaults to `default1`.
+// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
 func (o ContactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

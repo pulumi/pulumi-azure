@@ -635,14 +635,18 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      * 
      */
     @Import(name="vnetImagePullEnabled")
     private @Nullable Output<Boolean> vnetImagePullEnabled;
 
     /**
-     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * @return Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      * 
      */
     public Optional<Output<Boolean>> vnetImagePullEnabled() {
@@ -1646,7 +1650,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * @param vnetImagePullEnabled Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
          * 
          * @return builder
          * 
@@ -1657,7 +1663,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * @param vnetImagePullEnabled Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
          * 
          * @return builder
          * 

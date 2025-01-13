@@ -44,6 +44,7 @@ class PoolArgs:
                  network_configuration: Optional[pulumi.Input['PoolNetworkConfigurationArgs']] = None,
                  node_placements: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]]] = None,
                  os_disk_placement: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input['PoolSecurityProfileArgs']] = None,
                  start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  target_node_communication_mode: Optional[pulumi.Input[str]] = None,
@@ -75,6 +76,7 @@ class PoolArgs:
         :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
+        :param pulumi.Input['PoolSecurityProfileArgs'] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input[str] target_node_communication_mode: The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
@@ -127,6 +129,8 @@ class PoolArgs:
             pulumi.set(__self__, "node_placements", node_placements)
         if os_disk_placement is not None:
             pulumi.set(__self__, "os_disk_placement", os_disk_placement)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if start_task is not None:
             pulumi.set(__self__, "start_task", start_task)
         if stop_pending_resize_operation is not None:
@@ -417,6 +421,18 @@ class PoolArgs:
         pulumi.set(self, "os_disk_placement", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['PoolSecurityProfileArgs']]:
+        """
+        A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['PoolSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="startTask")
     def start_task(self) -> Optional[pulumi.Input['PoolStartTaskArgs']]:
         """
@@ -517,6 +533,7 @@ class _PoolState:
                  node_placements: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]]] = None,
                  os_disk_placement: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input['PoolSecurityProfileArgs']] = None,
                  start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input['PoolStorageImageReferenceArgs']] = None,
@@ -548,6 +565,7 @@ class _PoolState:
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input['PoolSecurityProfileArgs'] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
@@ -603,6 +621,8 @@ class _PoolState:
             pulumi.set(__self__, "os_disk_placement", os_disk_placement)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if start_task is not None:
             pulumi.set(__self__, "start_task", start_task)
         if stop_pending_resize_operation is not None:
@@ -873,6 +893,18 @@ class _PoolState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['PoolSecurityProfileArgs']]:
+        """
+        A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['PoolSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="startTask")
     def start_task(self) -> Optional[pulumi.Input['PoolStartTaskArgs']]:
         """
@@ -999,6 +1031,7 @@ class Pool(pulumi.CustomResource):
                  node_placements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]]] = None,
                  os_disk_placement: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']]] = None,
                  start_task: Optional[pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']]] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']]] = None,
@@ -1126,6 +1159,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
@@ -1276,6 +1310,7 @@ class Pool(pulumi.CustomResource):
                  node_placements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]]] = None,
                  os_disk_placement: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']]] = None,
                  start_task: Optional[pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']]] = None,
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']]] = None,
@@ -1320,6 +1355,7 @@ class Pool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["start_task"] = start_task
             __props__.__dict__["stop_pending_resize_operation"] = stop_pending_resize_operation
             if storage_image_reference is None and not opts.urn:
@@ -1363,6 +1399,7 @@ class Pool(pulumi.CustomResource):
             node_placements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]]] = None,
             os_disk_placement: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            security_profile: Optional[pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']]] = None,
             start_task: Optional[pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']]] = None,
             stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
             storage_image_reference: Optional[pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']]] = None,
@@ -1399,6 +1436,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
         :param pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
@@ -1437,6 +1475,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["node_placements"] = node_placements
         __props__.__dict__["os_disk_placement"] = os_disk_placement
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["security_profile"] = security_profile
         __props__.__dict__["start_task"] = start_task
         __props__.__dict__["stop_pending_resize_operation"] = stop_pending_resize_operation
         __props__.__dict__["storage_image_reference"] = storage_image_reference
@@ -1614,6 +1653,14 @@ class Pool(pulumi.CustomResource):
         The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.PoolSecurityProfile']]:
+        """
+        A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="startTask")

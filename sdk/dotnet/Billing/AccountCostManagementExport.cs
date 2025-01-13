@@ -50,6 +50,7 @@ namespace Pulumi.Azure.Billing
     ///         RecurrenceType = "Monthly",
     ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
     ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Billing.Inputs.AccountCostManagementExportExportDataStorageLocationArgs
     ///         {
     ///             ContainerId = exampleContainer.ResourceManagerId,
@@ -78,6 +79,8 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
+        /// 
+        /// * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
@@ -99,6 +102,9 @@ namespace Pulumi.Azure.Billing
         /// </summary>
         [Output("exportDataStorageLocation")]
         public Output<Outputs.AccountCostManagementExportExportDataStorageLocation> ExportDataStorageLocation { get; private set; } = null!;
+
+        [Output("fileFormat")]
+        public Output<string?> FileFormat { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
@@ -172,6 +178,8 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
+        /// 
+        /// * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -193,6 +201,9 @@ namespace Pulumi.Azure.Billing
         /// </summary>
         [Input("exportDataStorageLocation", required: true)]
         public Input<Inputs.AccountCostManagementExportExportDataStorageLocationArgs> ExportDataStorageLocation { get; set; } = null!;
+
+        [Input("fileFormat")]
+        public Input<string>? FileFormat { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
@@ -228,6 +239,8 @@ namespace Pulumi.Azure.Billing
     {
         /// <summary>
         /// Is the cost management export active? Default is `true`.
+        /// 
+        /// * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
@@ -249,6 +262,9 @@ namespace Pulumi.Azure.Billing
         /// </summary>
         [Input("exportDataStorageLocation")]
         public Input<Inputs.AccountCostManagementExportExportDataStorageLocationGetArgs>? ExportDataStorageLocation { get; set; }
+
+        [Input("fileFormat")]
+        public Input<string>? FileFormat { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.

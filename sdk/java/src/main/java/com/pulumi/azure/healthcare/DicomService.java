@@ -7,8 +7,10 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.healthcare.DicomServiceArgs;
 import com.pulumi.azure.healthcare.inputs.DicomServiceState;
 import com.pulumi.azure.healthcare.outputs.DicomServiceAuthentication;
+import com.pulumi.azure.healthcare.outputs.DicomServiceCors;
 import com.pulumi.azure.healthcare.outputs.DicomServiceIdentity;
 import com.pulumi.azure.healthcare.outputs.DicomServicePrivateEndpoint;
+import com.pulumi.azure.healthcare.outputs.DicomServiceStorage;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -99,6 +101,48 @@ public class DicomService extends com.pulumi.resources.CustomResource {
         return this.authentications;
     }
     /**
+     * A `cors` block as defined below.
+     * 
+     */
+    @Export(name="cors", refs={DicomServiceCors.class}, tree="[0]")
+    private Output<DicomServiceCors> cors;
+
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
+    public Output<DicomServiceCors> cors() {
+        return this.cors;
+    }
+    /**
+     * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     * 
+     */
+    @Export(name="dataPartitionsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> dataPartitionsEnabled;
+
+    /**
+     * @return If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> dataPartitionsEnabled() {
+        return Codegen.optional(this.dataPartitionsEnabled);
+    }
+    /**
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * 
+     */
+    @Export(name="encryptionKeyUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encryptionKeyUrl;
+
+    /**
+     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * 
+     */
+    public Output<Optional<String>> encryptionKeyUrl() {
+        return Codegen.optional(this.encryptionKeyUrl);
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -175,6 +219,20 @@ public class DicomService extends com.pulumi.resources.CustomResource {
         return this.serviceUrl;
     }
     /**
+     * A `storage` block as defined below.
+     * 
+     */
+    @Export(name="storage", refs={DicomServiceStorage.class}, tree="[0]")
+    private Output<DicomServiceStorage> storage;
+
+    /**
+     * @return A `storage` block as defined below.
+     * 
+     */
+    public Output<DicomServiceStorage> storage() {
+        return this.storage;
+    }
+    /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      * 
      */
@@ -189,14 +247,14 @@ public class DicomService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
-     * @return Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * @return Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
     public Output<String> workspaceId() {

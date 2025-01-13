@@ -677,14 +677,18 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      * 
      */
     @Export(name="vnetImagePullEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> vnetImagePullEnabled;
 
     /**
-     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * @return Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      * 
      */
     public Output<Optional<Boolean>> vnetImagePullEnabled() {

@@ -75,6 +75,21 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The dataplane API endpoint of the NGINX Deployment.
+     * 
+     */
+    @Import(name="dataplaneApiEndpoint")
+    private @Nullable Output<String> dataplaneApiEndpoint;
+
+    /**
+     * @return The dataplane API endpoint of the NGINX Deployment.
+     * 
+     */
+    public Optional<Output<String>> dataplaneApiEndpoint() {
+        return Optional.ofNullable(this.dataplaneApiEndpoint);
+    }
+
+    /**
      * Should the metrics be exported to Azure Monitor?
      * 
      */
@@ -150,14 +165,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address of the deployment.
+     * The IP address of the NGINX Deployment.
      * 
      */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
     /**
-     * @return The IP address of the deployment.
+     * @return The IP address of the NGINX Deployment.
      * 
      */
     public Optional<Output<String>> ipAddress() {
@@ -180,16 +195,20 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `logging_storage_account` blocks as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     @Import(name="loggingStorageAccounts")
     private @Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts;
 
     /**
-     * @return One or more `logging_storage_account` blocks as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     public Optional<Output<List<DeploymentLoggingStorageAccountArgs>>> loggingStorageAccounts() {
         return Optional.ofNullable(this.loggingStorageAccounts);
     }
@@ -244,14 +263,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of deployed NGINX.
+     * The version of the NGINX Deployment.
      * 
      */
     @Import(name="nginxVersion")
     private @Nullable Output<String> nginxVersion;
 
     /**
-     * @return The version of deployed NGINX.
+     * @return The version of the NGINX Deployment.
      * 
      */
     public Optional<Output<String>> nginxVersion() {
@@ -301,6 +320,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         this.autoScaleProfiles = $.autoScaleProfiles;
         this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.capacity = $.capacity;
+        this.dataplaneApiEndpoint = $.dataplaneApiEndpoint;
         this.diagnoseSupportEnabled = $.diagnoseSupportEnabled;
         this.email = $.email;
         this.frontendPrivates = $.frontendPrivates;
@@ -411,6 +431,27 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacity(Integer capacity) {
             return capacity(Output.of(capacity));
+        }
+
+        /**
+         * @param dataplaneApiEndpoint The dataplane API endpoint of the NGINX Deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataplaneApiEndpoint(@Nullable Output<String> dataplaneApiEndpoint) {
+            $.dataplaneApiEndpoint = dataplaneApiEndpoint;
+            return this;
+        }
+
+        /**
+         * @param dataplaneApiEndpoint The dataplane API endpoint of the NGINX Deployment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataplaneApiEndpoint(String dataplaneApiEndpoint) {
+            return dataplaneApiEndpoint(Output.of(dataplaneApiEndpoint));
         }
 
         /**
@@ -529,7 +570,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress The IP address of the deployment.
+         * @param ipAddress The IP address of the NGINX Deployment.
          * 
          * @return builder
          * 
@@ -540,7 +581,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddress The IP address of the deployment.
+         * @param ipAddress The IP address of the NGINX Deployment.
          * 
          * @return builder
          * 
@@ -571,32 +612,38 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingStorageAccounts One or more `logging_storage_account` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * 
          */
+        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(@Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts) {
             $.loggingStorageAccounts = loggingStorageAccounts;
             return this;
         }
 
         /**
-         * @param loggingStorageAccounts One or more `logging_storage_account` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * 
          */
+        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(List<DeploymentLoggingStorageAccountArgs> loggingStorageAccounts) {
             return loggingStorageAccounts(Output.of(loggingStorageAccounts));
         }
 
         /**
-         * @param loggingStorageAccounts One or more `logging_storage_account` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * 
          */
+        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(DeploymentLoggingStorageAccountArgs... loggingStorageAccounts) {
             return loggingStorageAccounts(List.of(loggingStorageAccounts));
         }
@@ -679,7 +726,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nginxVersion The version of deployed NGINX.
+         * @param nginxVersion The version of the NGINX Deployment.
          * 
          * @return builder
          * 
@@ -690,7 +737,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nginxVersion The version of deployed NGINX.
+         * @param nginxVersion The version of the NGINX Deployment.
          * 
          * @return builder
          * 

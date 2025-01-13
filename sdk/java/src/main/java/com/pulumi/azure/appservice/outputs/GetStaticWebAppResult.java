@@ -30,6 +30,8 @@ public final class GetStaticWebAppResult {
     private String name;
     private Boolean previewEnvironmentsEnabled;
     private Boolean publicNetworkAccessEnabled;
+    private String repositoryBranch;
+    private String repositoryUrl;
     private String resourceGroupName;
     private String skuSize;
     private String skuTier;
@@ -73,6 +75,12 @@ public final class GetStaticWebAppResult {
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
+    public String repositoryBranch() {
+        return this.repositoryBranch;
+    }
+    public String repositoryUrl() {
+        return this.repositoryUrl;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -106,6 +114,8 @@ public final class GetStaticWebAppResult {
         private String name;
         private Boolean previewEnvironmentsEnabled;
         private Boolean publicNetworkAccessEnabled;
+        private String repositoryBranch;
+        private String repositoryUrl;
         private String resourceGroupName;
         private String skuSize;
         private String skuTier;
@@ -124,6 +134,8 @@ public final class GetStaticWebAppResult {
     	      this.name = defaults.name;
     	      this.previewEnvironmentsEnabled = defaults.previewEnvironmentsEnabled;
     	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
+    	      this.repositoryBranch = defaults.repositoryBranch;
+    	      this.repositoryUrl = defaults.repositoryUrl;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.skuSize = defaults.skuSize;
     	      this.skuTier = defaults.skuTier;
@@ -225,6 +237,22 @@ public final class GetStaticWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder repositoryBranch(String repositoryBranch) {
+            if (repositoryBranch == null) {
+              throw new MissingRequiredPropertyException("GetStaticWebAppResult", "repositoryBranch");
+            }
+            this.repositoryBranch = repositoryBranch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder repositoryUrl(String repositoryUrl) {
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("GetStaticWebAppResult", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetStaticWebAppResult", "resourceGroupName");
@@ -269,6 +297,8 @@ public final class GetStaticWebAppResult {
             _resultValue.name = name;
             _resultValue.previewEnvironmentsEnabled = previewEnvironmentsEnabled;
             _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.repositoryBranch = repositoryBranch;
+            _resultValue.repositoryUrl = repositoryUrl;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.skuSize = skuSize;
             _resultValue.skuTier = skuTier;

@@ -141,6 +141,51 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * 
+     */
+    @Import(name="repositoryBranch")
+    private @Nullable Output<String> repositoryBranch;
+
+    /**
+     * @return Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * 
+     */
+    public Optional<Output<String>> repositoryBranch() {
+        return Optional.ofNullable(this.repositoryBranch);
+    }
+
+    /**
+     * Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * 
+     */
+    @Import(name="repositoryToken")
+    private @Nullable Output<String> repositoryToken;
+
+    /**
+     * @return Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * 
+     */
+    public Optional<Output<String>> repositoryToken() {
+        return Optional.ofNullable(this.repositoryToken);
+    }
+
+    /**
+     * Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * 
+     */
+    @Import(name="repositoryUrl")
+    private @Nullable Output<String> repositoryUrl;
+
+    /**
+     * @return Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * 
+     */
+    public Optional<Output<String>> repositoryUrl() {
+        return Optional.ofNullable(this.repositoryUrl);
+    }
+
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      * 
      */
@@ -211,6 +256,9 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.previewEnvironmentsEnabled = $.previewEnvironmentsEnabled;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
+        this.repositoryBranch = $.repositoryBranch;
+        this.repositoryToken = $.repositoryToken;
+        this.repositoryUrl = $.repositoryUrl;
         this.resourceGroupName = $.resourceGroupName;
         this.skuSize = $.skuSize;
         this.skuTier = $.skuTier;
@@ -401,6 +449,69 @@ public final class StaticWebAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
+        }
+
+        /**
+         * @param repositoryBranch Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryBranch(@Nullable Output<String> repositoryBranch) {
+            $.repositoryBranch = repositoryBranch;
+            return this;
+        }
+
+        /**
+         * @param repositoryBranch Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryBranch(String repositoryBranch) {
+            return repositoryBranch(Output.of(repositoryBranch));
+        }
+
+        /**
+         * @param repositoryToken Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryToken(@Nullable Output<String> repositoryToken) {
+            $.repositoryToken = repositoryToken;
+            return this;
+        }
+
+        /**
+         * @param repositoryToken Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryToken(String repositoryToken) {
+            return repositoryToken(Output.of(repositoryToken));
+        }
+
+        /**
+         * @param repositoryUrl Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryUrl(@Nullable Output<String> repositoryUrl) {
+            $.repositoryUrl = repositoryUrl;
+            return this;
+        }
+
+        /**
+         * @param repositoryUrl Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryUrl(String repositoryUrl) {
+            return repositoryUrl(Output.of(repositoryUrl));
         }
 
         /**

@@ -137,7 +137,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+     * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
     public readonly privateLinkFastPathEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface ExpressRouteConnectionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+     * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
     privateLinkFastPathEnabled?: pulumi.Input<boolean>;
     /**
@@ -265,7 +265,7 @@ export interface ExpressRouteConnectionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+     * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
     privateLinkFastPathEnabled?: pulumi.Input<boolean>;
     /**

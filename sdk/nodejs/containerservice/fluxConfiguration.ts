@@ -49,6 +49,15 @@ import * as utilities from "../utilities";
  *     },
  *     kustomizations: [{
  *         name: "kustomization-1",
+ *         postBuild: {
+ *             substitute: {
+ *                 example_var: "substitute_with_this",
+ *             },
+ *             substituteFroms: [{
+ *                 kind: "ConfigMap",
+ *                 name: "example-configmap",
+ *             }],
+ *         },
  *     }],
  * }, {
  *     dependsOn: [exampleKubernetesClusterExtension],

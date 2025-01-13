@@ -8790,7 +8790,7 @@ class LinuxFunctionAppSiteConfig(dict):
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Linux Function App.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
@@ -9133,7 +9133,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -27766,7 +27766,7 @@ class WindowsFunctionAppSiteConfig(dict):
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param str scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Windows Function App.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
@@ -28082,7 +28082,7 @@ class WindowsFunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[str]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mssql.inputs;
 
+import com.pulumi.azure.mssql.inputs.ManagedInstanceAzureActiveDirectoryAdministratorArgs;
 import com.pulumi.azure.mssql.inputs.ManagedInstanceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -47,6 +48,21 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> administratorLoginPassword() {
         return Optional.ofNullable(this.administratorLoginPassword);
+    }
+
+    /**
+     * An `azure_active_directory_administrator` block as defined below.
+     * 
+     */
+    @Import(name="azureActiveDirectoryAdministrator")
+    private @Nullable Output<ManagedInstanceAzureActiveDirectoryAdministratorArgs> azureActiveDirectoryAdministrator;
+
+    /**
+     * @return An `azure_active_directory_administrator` block as defined below.
+     * 
+     */
+    public Optional<Output<ManagedInstanceAzureActiveDirectoryAdministratorArgs>> azureActiveDirectoryAdministrator() {
+        return Optional.ofNullable(this.azureActiveDirectoryAdministrator);
     }
 
     /**
@@ -172,12 +188,16 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      * 
+     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * 
      */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
      * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -305,14 +325,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * The subnet resource id that the SQL Managed Instance will be associated with.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * @return The subnet resource id that the SQL Managed Instance will be associated with.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -384,6 +404,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     private ManagedInstanceState(ManagedInstanceState $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorLoginPassword = $.administratorLoginPassword;
+        this.azureActiveDirectoryAdministrator = $.azureActiveDirectoryAdministrator;
         this.collation = $.collation;
         this.dnsZone = $.dnsZone;
         this.dnsZonePartnerId = $.dnsZonePartnerId;
@@ -466,6 +487,27 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder administratorLoginPassword(String administratorLoginPassword) {
             return administratorLoginPassword(Output.of(administratorLoginPassword));
+        }
+
+        /**
+         * @param azureActiveDirectoryAdministrator An `azure_active_directory_administrator` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureActiveDirectoryAdministrator(@Nullable Output<ManagedInstanceAzureActiveDirectoryAdministratorArgs> azureActiveDirectoryAdministrator) {
+            $.azureActiveDirectoryAdministrator = azureActiveDirectoryAdministrator;
+            return this;
+        }
+
+        /**
+         * @param azureActiveDirectoryAdministrator An `azure_active_directory_administrator` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureActiveDirectoryAdministrator(ManagedInstanceAzureActiveDirectoryAdministratorArgs azureActiveDirectoryAdministrator) {
+            return azureActiveDirectoryAdministrator(Output.of(azureActiveDirectoryAdministrator));
         }
 
         /**
@@ -639,6 +681,8 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         /**
          * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
          * 
+         * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * 
          * @return builder
          * 
          */
@@ -649,6 +693,8 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * 
+         * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 
@@ -826,7 +872,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with.
          * 
          * @return builder
          * 
@@ -837,7 +883,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with.
          * 
          * @return builder
          * 

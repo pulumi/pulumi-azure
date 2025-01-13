@@ -68,6 +68,12 @@ type DicomService struct {
 
 	// The `authentication` block as defined below.
 	Authentications DicomServiceAuthenticationArrayOutput `pulumi:"authentications"`
+	// A `cors` block as defined below.
+	Cors DicomServiceCorsOutput `pulumi:"cors"`
+	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+	DataPartitionsEnabled pulumi.BoolPtrOutput `pulumi:"dataPartitionsEnabled"`
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	EncryptionKeyUrl pulumi.StringPtrOutput `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	Identity DicomServiceIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
@@ -79,9 +85,11 @@ type DicomService struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
+	// A `storage` block as defined below.
+	Storage DicomServiceStorageOutput `pulumi:"storage"`
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -120,6 +128,12 @@ func GetDicomService(ctx *pulumi.Context,
 type dicomServiceState struct {
 	// The `authentication` block as defined below.
 	Authentications []DicomServiceAuthentication `pulumi:"authentications"`
+	// A `cors` block as defined below.
+	Cors *DicomServiceCors `pulumi:"cors"`
+	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+	DataPartitionsEnabled *bool `pulumi:"dataPartitionsEnabled"`
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	Identity *DicomServiceIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
@@ -131,15 +145,23 @@ type dicomServiceState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl *string `pulumi:"serviceUrl"`
+	// A `storage` block as defined below.
+	Storage *DicomServiceStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type DicomServiceState struct {
 	// The `authentication` block as defined below.
 	Authentications DicomServiceAuthenticationArrayInput
+	// A `cors` block as defined below.
+	Cors DicomServiceCorsPtrInput
+	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+	DataPartitionsEnabled pulumi.BoolPtrInput
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DicomServiceIdentityPtrInput
 	// Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
@@ -151,9 +173,11 @@ type DicomServiceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringPtrInput
+	// A `storage` block as defined below.
+	Storage DicomServiceStoragePtrInput
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags pulumi.StringMapInput
-	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -162,6 +186,12 @@ func (DicomServiceState) ElementType() reflect.Type {
 }
 
 type dicomServiceArgs struct {
+	// A `cors` block as defined below.
+	Cors *DicomServiceCors `pulumi:"cors"`
+	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+	DataPartitionsEnabled *bool `pulumi:"dataPartitionsEnabled"`
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	EncryptionKeyUrl *string `pulumi:"encryptionKeyUrl"`
 	// An `identity` block as defined below.
 	Identity *DicomServiceIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
@@ -170,14 +200,22 @@ type dicomServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// A `storage` block as defined below.
+	Storage *DicomServiceStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a DicomService resource.
 type DicomServiceArgs struct {
+	// A `cors` block as defined below.
+	Cors DicomServiceCorsPtrInput
+	// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+	DataPartitionsEnabled pulumi.BoolPtrInput
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+	EncryptionKeyUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DicomServiceIdentityPtrInput
 	// Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
@@ -186,9 +224,11 @@ type DicomServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// A `storage` block as defined below.
+	Storage DicomServiceStoragePtrInput
 	// A mapping of tags to assign to the Healthcare DICOM Service.
 	Tags pulumi.StringMapInput
-	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+	// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -284,6 +324,21 @@ func (o DicomServiceOutput) Authentications() DicomServiceAuthenticationArrayOut
 	return o.ApplyT(func(v *DicomService) DicomServiceAuthenticationArrayOutput { return v.Authentications }).(DicomServiceAuthenticationArrayOutput)
 }
 
+// A `cors` block as defined below.
+func (o DicomServiceOutput) Cors() DicomServiceCorsOutput {
+	return o.ApplyT(func(v *DicomService) DicomServiceCorsOutput { return v.Cors }).(DicomServiceCorsOutput)
+}
+
+// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+func (o DicomServiceOutput) DataPartitionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.BoolPtrOutput { return v.DataPartitionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+func (o DicomServiceOutput) EncryptionKeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringPtrOutput { return v.EncryptionKeyUrl }).(pulumi.StringPtrOutput)
+}
+
 // An `identity` block as defined below.
 func (o DicomServiceOutput) Identity() DicomServiceIdentityPtrOutput {
 	return o.ApplyT(func(v *DicomService) DicomServiceIdentityPtrOutput { return v.Identity }).(DicomServiceIdentityPtrOutput)
@@ -313,12 +368,17 @@ func (o DicomServiceOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
 }
 
+// A `storage` block as defined below.
+func (o DicomServiceOutput) Storage() DicomServiceStorageOutput {
+	return o.ApplyT(func(v *DicomService) DicomServiceStorageOutput { return v.Storage }).(DicomServiceStorageOutput)
+}
+
 // A mapping of tags to assign to the Healthcare DICOM Service.
 func (o DicomServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
 func (o DicomServiceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

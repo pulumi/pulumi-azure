@@ -73,6 +73,17 @@ import (
 //				Kustomizations: containerservice.FluxConfigurationKustomizationArray{
 //					&containerservice.FluxConfigurationKustomizationArgs{
 //						Name: pulumi.String("kustomization-1"),
+//						PostBuild: &containerservice.FluxConfigurationKustomizationPostBuildArgs{
+//							Substitute: pulumi.StringMap{
+//								"example_var": pulumi.String("substitute_with_this"),
+//							},
+//							SubstituteFroms: containerservice.FluxConfigurationKustomizationPostBuildSubstituteFromArray{
+//								&containerservice.FluxConfigurationKustomizationPostBuildSubstituteFromArgs{
+//									Kind: pulumi.String("ConfigMap"),
+//									Name: pulumi.String("example-configmap"),
+//								},
+//							},
+//						},
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

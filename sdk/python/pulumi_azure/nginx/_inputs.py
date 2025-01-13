@@ -384,12 +384,9 @@ class DeploymentIdentityArgs:
 if not MYPY:
     class DeploymentLoggingStorageAccountArgsDict(TypedDict):
         container_name: NotRequired[pulumi.Input[str]]
-        """
-        Specify the container name in the Storage Account for logging.
-        """
         name: NotRequired[pulumi.Input[str]]
         """
-        The name of the StorageAccount for NGINX Logging.
+        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
 elif False:
     DeploymentLoggingStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
@@ -400,8 +397,7 @@ class DeploymentLoggingStorageAccountArgs:
                  container_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] container_name: Specify the container name in the Storage Account for logging.
-        :param pulumi.Input[str] name: The name of the StorageAccount for NGINX Logging.
+        :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
@@ -411,9 +407,6 @@ class DeploymentLoggingStorageAccountArgs:
     @property
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify the container name in the Storage Account for logging.
-        """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
@@ -424,7 +417,7 @@ class DeploymentLoggingStorageAccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the StorageAccount for NGINX Logging.
+        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "name")
 

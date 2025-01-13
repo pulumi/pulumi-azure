@@ -61,6 +61,10 @@ export interface GetDeploymentResult {
      */
     readonly capacity: number;
     /**
+     * The dataplane API endpoint of the NGINX Deployment.
+     */
+    readonly dataplaneApiEndpoint: string;
+    /**
      * Whether metrics are exported to Azure Monitor.
      */
     readonly diagnoseSupportEnabled: boolean;
@@ -93,7 +97,7 @@ export interface GetDeploymentResult {
      */
     readonly location: string;
     /**
-     * A `loggingStorageAccount` block as defined below.
+     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
     readonly loggingStorageAccounts: outputs.nginx.GetDeploymentLoggingStorageAccount[];
     /**

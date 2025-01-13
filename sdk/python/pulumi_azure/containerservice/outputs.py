@@ -30,6 +30,8 @@ __all__ = [
     'FluxConfigurationBucket',
     'FluxConfigurationGitRepository',
     'FluxConfigurationKustomization',
+    'FluxConfigurationKustomizationPostBuild',
+    'FluxConfigurationKustomizationPostBuildSubstituteFrom',
     'GroupContainer',
     'GroupContainerLivenessProbe',
     'GroupContainerLivenessProbeHttpGet',
@@ -1058,6 +1060,8 @@ class FluxConfigurationKustomization(dict):
             suggest = "depends_ons"
         elif key == "garbageCollectionEnabled":
             suggest = "garbage_collection_enabled"
+        elif key == "postBuild":
+            suggest = "post_build"
         elif key == "recreatingEnabled":
             suggest = "recreating_enabled"
         elif key == "retryIntervalInSeconds":
@@ -1083,19 +1087,23 @@ class FluxConfigurationKustomization(dict):
                  depends_ons: Optional[Sequence[str]] = None,
                  garbage_collection_enabled: Optional[bool] = None,
                  path: Optional[str] = None,
+                 post_build: Optional['outputs.FluxConfigurationKustomizationPostBuild'] = None,
                  recreating_enabled: Optional[bool] = None,
                  retry_interval_in_seconds: Optional[int] = None,
                  sync_interval_in_seconds: Optional[int] = None,
-                 timeout_in_seconds: Optional[int] = None):
+                 timeout_in_seconds: Optional[int] = None,
+                 wait: Optional[bool] = None):
         """
         :param str name: Specifies the name of the kustomization.
         :param Sequence[str] depends_ons: Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
         :param bool garbage_collection_enabled: Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
         :param str path: Specifies the path in the source reference to reconcile on the cluster.
+        :param 'FluxConfigurationKustomizationPostBuildArgs' post_build: A `post_build` block as defined below.
         :param bool recreating_enabled: Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
         :param int retry_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
         :param int sync_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
         :param int timeout_in_seconds: The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+        :param bool wait: Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         if depends_ons is not None:
@@ -1104,6 +1112,8 @@ class FluxConfigurationKustomization(dict):
             pulumi.set(__self__, "garbage_collection_enabled", garbage_collection_enabled)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if post_build is not None:
+            pulumi.set(__self__, "post_build", post_build)
         if recreating_enabled is not None:
             pulumi.set(__self__, "recreating_enabled", recreating_enabled)
         if retry_interval_in_seconds is not None:
@@ -1112,6 +1122,8 @@ class FluxConfigurationKustomization(dict):
             pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
 
     @property
     @pulumi.getter
@@ -1146,6 +1158,14 @@ class FluxConfigurationKustomization(dict):
         return pulumi.get(self, "path")
 
     @property
+    @pulumi.getter(name="postBuild")
+    def post_build(self) -> Optional['outputs.FluxConfigurationKustomizationPostBuild']:
+        """
+        A `post_build` block as defined below.
+        """
+        return pulumi.get(self, "post_build")
+
+    @property
     @pulumi.getter(name="recreatingEnabled")
     def recreating_enabled(self) -> Optional[bool]:
         """
@@ -1176,6 +1196,103 @@ class FluxConfigurationKustomization(dict):
         The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[bool]:
+        """
+        Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        """
+        return pulumi.get(self, "wait")
+
+
+@pulumi.output_type
+class FluxConfigurationKustomizationPostBuild(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "substituteFroms":
+            suggest = "substitute_froms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FluxConfigurationKustomizationPostBuild. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FluxConfigurationKustomizationPostBuild.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FluxConfigurationKustomizationPostBuild.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 substitute: Optional[Mapping[str, str]] = None,
+                 substitute_froms: Optional[Sequence['outputs.FluxConfigurationKustomizationPostBuildSubstituteFrom']] = None):
+        """
+        :param Mapping[str, str] substitute: Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+        :param Sequence['FluxConfigurationKustomizationPostBuildSubstituteFromArgs'] substitute_froms: A `substitute_from` block as defined below.
+        """
+        if substitute is not None:
+            pulumi.set(__self__, "substitute", substitute)
+        if substitute_froms is not None:
+            pulumi.set(__self__, "substitute_froms", substitute_froms)
+
+    @property
+    @pulumi.getter
+    def substitute(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+        """
+        return pulumi.get(self, "substitute")
+
+    @property
+    @pulumi.getter(name="substituteFroms")
+    def substitute_froms(self) -> Optional[Sequence['outputs.FluxConfigurationKustomizationPostBuildSubstituteFrom']]:
+        """
+        A `substitute_from` block as defined below.
+        """
+        return pulumi.get(self, "substitute_froms")
+
+
+@pulumi.output_type
+class FluxConfigurationKustomizationPostBuildSubstituteFrom(dict):
+    def __init__(__self__, *,
+                 kind: str,
+                 name: str,
+                 optional: Optional[bool] = None):
+        """
+        :param str kind: Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+        :param str name: Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        :param bool optional: Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        """
+        Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        """
+        return pulumi.get(self, "optional")
 
 
 @pulumi.output_type

@@ -6,6 +6,8 @@ package com.pulumi.azure.containerservice;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolArgs;
 import com.pulumi.azure.containerservice.inputs.GetClusterNodePoolPlainArgs;
+import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
+import com.pulumi.azure.containerservice.inputs.GetFleetManagerPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
 import com.pulumi.azure.containerservice.inputs.GetGroupPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
@@ -23,6 +25,7 @@ import com.pulumi.azure.containerservice.inputs.GetRegistryScopeMapPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryTokenArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryTokenPlainArgs;
 import com.pulumi.azure.containerservice.outputs.GetClusterNodePoolResult;
+import com.pulumi.azure.containerservice.outputs.GetFleetManagerResult;
 import com.pulumi.azure.containerservice.outputs.GetGroupResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesNodePoolSnapshotResult;
@@ -263,6 +266,226 @@ public final class ContainerserviceFunctions {
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getClusterNodePool:getClusterNodePool", TypeShape.of(GetClusterNodePoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Fleet Manager.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getFleetManager(GetFleetManagerArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFleetManagerResult> getFleetManager(GetFleetManagerArgs args) {
+        return getFleetManager(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Fleet Manager.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getFleetManager(GetFleetManagerArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFleetManagerResult> getFleetManagerPlain(GetFleetManagerPlainArgs args) {
+        return getFleetManagerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Fleet Manager.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getFleetManager(GetFleetManagerArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFleetManagerResult> getFleetManager(GetFleetManagerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getFleetManager:getFleetManager", TypeShape.of(GetFleetManagerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Fleet Manager.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getFleetManager(GetFleetManagerArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFleetManagerResult> getFleetManager(GetFleetManagerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getFleetManager:getFleetManager", TypeShape.of(GetFleetManagerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Fleet Manager.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetFleetManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getFleetManager(GetFleetManagerArgs.builder()
+     *             .name("example")
+     *             .resourceGroupName("example-resource-group")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFleetManagerResult> getFleetManagerPlain(GetFleetManagerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:containerservice/getFleetManager:getFleetManager", TypeShape.of(GetFleetManagerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Group instance.

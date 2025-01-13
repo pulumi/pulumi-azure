@@ -276,6 +276,12 @@ namespace Pulumi.Azure.Batch
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.PoolSecurityProfile?> SecurityProfile { get; private set; } = null!;
+
+        /// <summary>
         /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
         /// </summary>
         [Output("startTask")]
@@ -542,6 +548,12 @@ namespace Pulumi.Azure.Batch
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.PoolSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
         /// </summary>
         [Input("startTask")]
@@ -786,6 +798,12 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.PoolSecurityProfileGetArgs>? SecurityProfile { get; set; }
 
         /// <summary>
         /// A `start_task` block that describes the start task settings for the Batch pool as defined below.

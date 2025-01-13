@@ -120,6 +120,7 @@ import javax.annotation.Nullable;
  *                 """)
  *                 .filename("config.txt")
  *                 .build())
+ *             .sparkVersion(3.2)
  *             .tags(Map.of("ENV", "Production"))
  *             .build());
  * 
@@ -300,9 +301,17 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sparkLogFolder() {
         return Codegen.optional(this.sparkLogFolder);
     }
+    /**
+     * The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * 
+     */
     @Export(name="sparkVersion", refs={String.class}, tree="[0]")
     private Output<String> sparkVersion;
 
+    /**
+     * @return The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+     * 
+     */
     public Output<String> sparkVersion() {
         return this.sparkVersion;
     }

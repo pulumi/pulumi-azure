@@ -74,6 +74,18 @@ export class DicomService extends pulumi.CustomResource {
      */
     public /*out*/ readonly authentications!: pulumi.Output<outputs.healthcare.DicomServiceAuthentication[]>;
     /**
+     * A `cors` block as defined below.
+     */
+    public readonly cors!: pulumi.Output<outputs.healthcare.DicomServiceCors>;
+    /**
+     * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     */
+    public readonly dataPartitionsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     */
+    public readonly encryptionKeyUrl!: pulumi.Output<string | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.healthcare.DicomServiceIdentity | undefined>;
@@ -95,11 +107,15 @@ export class DicomService extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
     /**
+     * A `storage` block as defined below.
+     */
+    public readonly storage!: pulumi.Output<outputs.healthcare.DicomServiceStorage>;
+    /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -117,12 +133,16 @@ export class DicomService extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DicomServiceState | undefined;
             resourceInputs["authentications"] = state ? state.authentications : undefined;
+            resourceInputs["cors"] = state ? state.cors : undefined;
+            resourceInputs["dataPartitionsEnabled"] = state ? state.dataPartitionsEnabled : undefined;
+            resourceInputs["encryptionKeyUrl"] = state ? state.encryptionKeyUrl : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateEndpoints"] = state ? state.privateEndpoints : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
+            resourceInputs["storage"] = state ? state.storage : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
@@ -130,10 +150,14 @@ export class DicomService extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["dataPartitionsEnabled"] = args ? args.dataPartitionsEnabled : undefined;
+            resourceInputs["encryptionKeyUrl"] = args ? args.encryptionKeyUrl : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["storage"] = args ? args.storage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["authentications"] = undefined /*out*/;
@@ -153,6 +177,18 @@ export interface DicomServiceState {
      * The `authentication` block as defined below.
      */
     authentications?: pulumi.Input<pulumi.Input<inputs.healthcare.DicomServiceAuthentication>[]>;
+    /**
+     * A `cors` block as defined below.
+     */
+    cors?: pulumi.Input<inputs.healthcare.DicomServiceCors>;
+    /**
+     * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     */
+    dataPartitionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     */
+    encryptionKeyUrl?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -175,11 +211,15 @@ export interface DicomServiceState {
      */
     serviceUrl?: pulumi.Input<string>;
     /**
+     * A `storage` block as defined below.
+     */
+    storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage>;
+    /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -188,6 +228,18 @@ export interface DicomServiceState {
  * The set of arguments for constructing a DicomService resource.
  */
 export interface DicomServiceArgs {
+    /**
+     * A `cors` block as defined below.
+     */
+    cors?: pulumi.Input<inputs.healthcare.DicomServiceCors>;
+    /**
+     * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     */
+    dataPartitionsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     */
+    encryptionKeyUrl?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -205,11 +257,15 @@ export interface DicomServiceArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
+     * A `storage` block as defined below.
+     */
+    storage?: pulumi.Input<inputs.healthcare.DicomServiceStorage>;
+    /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      */
     workspaceId: pulumi.Input<string>;
 }

@@ -196,14 +196,17 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        /// </summary>
+        [Output("keyVaultKeyId")]
+        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
         /// &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         /// </summary>
-        [Output("keyVaultKeyId")]
-        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
-
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
 
@@ -267,14 +270,17 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
+        /// <summary>
+        /// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
         /// &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         /// </summary>
-        [Input("keyVaultKeyId")]
-        public Input<string>? KeyVaultKeyId { get; set; }
-
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 
@@ -300,14 +306,17 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        /// </summary>
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
+
+        /// <summary>
+        /// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
         /// &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         /// </summary>
-        [Input("keyVaultKeyId")]
-        public Input<string>? KeyVaultKeyId { get; set; }
-
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
 

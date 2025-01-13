@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:dynatrace/monitor:Monitor":
 		r = &Monitor{}
+	case "azure:dynatrace/tagRules:TagRules":
+		r = &TagRules{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dynatrace/monitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dynatrace/tagRules",
 		&module{version},
 	)
 }

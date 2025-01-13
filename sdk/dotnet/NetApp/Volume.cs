@@ -108,7 +108,7 @@ namespace Pulumi.Azure.NetApp
         /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         /// </summary>
         [Output("networkFeatures")]
-        public Output<string?> NetworkFeatures { get; private set; } = null!;
+        public Output<string> NetworkFeatures { get; private set; } = null!;
 
         /// <summary>
         /// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.

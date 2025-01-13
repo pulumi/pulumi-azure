@@ -258,6 +258,20 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     * 
+     */
+    @Export(name="privateEndpointVnetPolicies", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> privateEndpointVnetPolicies;
+
+    /**
+     * @return The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     * 
+     */
+    public Output<Optional<String>> privateEndpointVnetPolicies() {
+        return Codegen.optional(this.privateEndpointVnetPolicies);
+    }
+    /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      * 
      */

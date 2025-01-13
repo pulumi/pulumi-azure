@@ -26,6 +26,11 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
                  tenant_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
+        :param pulumi.Input[str] identity_id: The resource ID of the identity used for AAD Authentication.
+        :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        :param pulumi.Input[str] server_id: The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tenant_id: The Azure Tenant ID.
         """
         pulumi.set(__self__, "identity_id", identity_id)
         pulumi.set(__self__, "login", login)
@@ -36,6 +41,9 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
     @property
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the identity used for AAD Authentication.
+        """
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
@@ -45,6 +53,9 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
     @property
     @pulumi.getter
     def login(self) -> pulumi.Input[str]:
+        """
+        The login name of the principal to set as the server administrator
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -54,6 +65,9 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
@@ -63,6 +77,9 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
@@ -72,6 +89,9 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
+        """
+        The Azure Tenant ID.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -89,6 +109,11 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
+        :param pulumi.Input[str] identity_id: The resource ID of the identity used for AAD Authentication.
+        :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        :param pulumi.Input[str] server_id: The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tenant_id: The Azure Tenant ID.
         """
         if identity_id is not None:
             pulumi.set(__self__, "identity_id", identity_id)
@@ -104,6 +129,9 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
     @property
     @pulumi.getter(name="identityId")
     def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the identity used for AAD Authentication.
+        """
         return pulumi.get(self, "identity_id")
 
     @identity_id.setter
@@ -113,6 +141,9 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
     @property
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The login name of the principal to set as the server administrator
+        """
         return pulumi.get(self, "login")
 
     @login.setter
@@ -122,6 +153,9 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
@@ -131,6 +165,9 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
@@ -140,6 +177,9 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Tenant ID.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -159,9 +199,57 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, props, and options.
+        Manages an Active Directory administrator on a MySQL Flexible Server
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="exampleUAI",
+            resource_group_name=example.name,
+            location=example.location)
+        example_flexible_server = azure.mysql.FlexibleServer("example",
+            name="example-mysqlfs",
+            resource_group_name=example.name,
+            location=example.location,
+            administrator_login="_admin_Terraform_892123456789312",
+            administrator_password="QAZwsx123",
+            sku_name="B_Standard_B1s",
+            zone="2",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            })
+        example_flexible_server_active_directory_administratory = azure.mysql.FlexibleServerActiveDirectoryAdministratory("example",
+            server_id=example_flexible_server.id,
+            identity_id=example_user_assigned_identity.id,
+            login="sqladmin",
+            object_id=current.client_id,
+            tenant_id=current.tenant_id)
+        ```
+
+        ## Import
+
+        A MySQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] identity_id: The resource ID of the identity used for AAD Authentication.
+        :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        :param pulumi.Input[str] server_id: The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tenant_id: The Azure Tenant ID.
         """
         ...
     @overload
@@ -170,7 +258,50 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
                  args: FlexibleServerActiveDirectoryAdministratoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, props, and options.
+        Manages an Active Directory administrator on a MySQL Flexible Server
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="exampleUAI",
+            resource_group_name=example.name,
+            location=example.location)
+        example_flexible_server = azure.mysql.FlexibleServer("example",
+            name="example-mysqlfs",
+            resource_group_name=example.name,
+            location=example.location,
+            administrator_login="_admin_Terraform_892123456789312",
+            administrator_password="QAZwsx123",
+            sku_name="B_Standard_B1s",
+            zone="2",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            })
+        example_flexible_server_active_directory_administratory = azure.mysql.FlexibleServerActiveDirectoryAdministratory("example",
+            server_id=example_flexible_server.id,
+            identity_id=example_user_assigned_identity.id,
+            login="sqladmin",
+            object_id=current.client_id,
+            tenant_id=current.tenant_id)
+        ```
+
+        ## Import
+
+        A MySQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
+        ```
+
         :param str resource_name: The name of the resource.
         :param FlexibleServerActiveDirectoryAdministratoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,6 +370,11 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] identity_id: The resource ID of the identity used for AAD Authentication.
+        :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        :param pulumi.Input[str] server_id: The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tenant_id: The Azure Tenant ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -254,25 +390,40 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     @property
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID of the identity used for AAD Authentication.
+        """
         return pulumi.get(self, "identity_id")
 
     @property
     @pulumi.getter
     def login(self) -> pulumi.Output[str]:
+        """
+        The login name of the principal to set as the server administrator
+        """
         return pulumi.get(self, "login")
 
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+        """
         return pulumi.get(self, "object_id")
 
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
+        """
+        The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "server_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[str]:
+        """
+        The Azure Tenant ID.
+        """
         return pulumi.get(self, "tenant_id")
 

@@ -109,16 +109,20 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
+     * @deprecated
+     * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="privateLinkFastPathEnabled")
     private @Nullable Output<Boolean> privateLinkFastPathEnabled;
 
     /**
-     * @return Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
+     * @deprecated
+     * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> privateLinkFastPathEnabled() {
         return Optional.ofNullable(this.privateLinkFastPathEnabled);
     }
@@ -312,22 +316,26 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
         public Builder privateLinkFastPathEnabled(@Nullable Output<Boolean> privateLinkFastPathEnabled) {
             $.privateLinkFastPathEnabled = privateLinkFastPathEnabled;
             return this;
         }
 
         /**
-         * @param privateLinkFastPathEnabled Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
         public Builder privateLinkFastPathEnabled(Boolean privateLinkFastPathEnabled) {
             return privateLinkFastPathEnabled(Output.of(privateLinkFastPathEnabled));
         }

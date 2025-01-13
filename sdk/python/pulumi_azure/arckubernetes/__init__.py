@@ -8,5 +8,6 @@ import typing
 from .cluster import *
 from .cluster_extension import *
 from .flux_configuration import *
+from .provisioned_cluster import *
 from ._inputs import *
 from . import outputs

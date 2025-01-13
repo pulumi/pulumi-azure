@@ -3885,6 +3885,216 @@ func (o PoolNodePlacementArrayOutput) Index(i pulumi.IntInput) PoolNodePlacement
 	}).(PoolNodePlacementOutput)
 }
 
+type PoolSecurityProfile struct {
+	// Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
+	// Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
+	// The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+	SecurityType *string `pulumi:"securityType"`
+	// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+	//
+	// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
+}
+
+// PoolSecurityProfileInput is an input type that accepts PoolSecurityProfileArgs and PoolSecurityProfileOutput values.
+// You can construct a concrete instance of `PoolSecurityProfileInput` via:
+//
+//	PoolSecurityProfileArgs{...}
+type PoolSecurityProfileInput interface {
+	pulumi.Input
+
+	ToPoolSecurityProfileOutput() PoolSecurityProfileOutput
+	ToPoolSecurityProfileOutputWithContext(context.Context) PoolSecurityProfileOutput
+}
+
+type PoolSecurityProfileArgs struct {
+	// Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+	HostEncryptionEnabled pulumi.BoolPtrInput `pulumi:"hostEncryptionEnabled"`
+	// Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+	SecureBootEnabled pulumi.BoolPtrInput `pulumi:"secureBootEnabled"`
+	// The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+	SecurityType pulumi.StringPtrInput `pulumi:"securityType"`
+	// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+	//
+	// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+	VtpmEnabled pulumi.BoolPtrInput `pulumi:"vtpmEnabled"`
+}
+
+func (PoolSecurityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolSecurityProfile)(nil)).Elem()
+}
+
+func (i PoolSecurityProfileArgs) ToPoolSecurityProfileOutput() PoolSecurityProfileOutput {
+	return i.ToPoolSecurityProfileOutputWithContext(context.Background())
+}
+
+func (i PoolSecurityProfileArgs) ToPoolSecurityProfileOutputWithContext(ctx context.Context) PoolSecurityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolSecurityProfileOutput)
+}
+
+func (i PoolSecurityProfileArgs) ToPoolSecurityProfilePtrOutput() PoolSecurityProfilePtrOutput {
+	return i.ToPoolSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i PoolSecurityProfileArgs) ToPoolSecurityProfilePtrOutputWithContext(ctx context.Context) PoolSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolSecurityProfileOutput).ToPoolSecurityProfilePtrOutputWithContext(ctx)
+}
+
+// PoolSecurityProfilePtrInput is an input type that accepts PoolSecurityProfileArgs, PoolSecurityProfilePtr and PoolSecurityProfilePtrOutput values.
+// You can construct a concrete instance of `PoolSecurityProfilePtrInput` via:
+//
+//	        PoolSecurityProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type PoolSecurityProfilePtrInput interface {
+	pulumi.Input
+
+	ToPoolSecurityProfilePtrOutput() PoolSecurityProfilePtrOutput
+	ToPoolSecurityProfilePtrOutputWithContext(context.Context) PoolSecurityProfilePtrOutput
+}
+
+type poolSecurityProfilePtrType PoolSecurityProfileArgs
+
+func PoolSecurityProfilePtr(v *PoolSecurityProfileArgs) PoolSecurityProfilePtrInput {
+	return (*poolSecurityProfilePtrType)(v)
+}
+
+func (*poolSecurityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolSecurityProfile)(nil)).Elem()
+}
+
+func (i *poolSecurityProfilePtrType) ToPoolSecurityProfilePtrOutput() PoolSecurityProfilePtrOutput {
+	return i.ToPoolSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *poolSecurityProfilePtrType) ToPoolSecurityProfilePtrOutputWithContext(ctx context.Context) PoolSecurityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolSecurityProfilePtrOutput)
+}
+
+type PoolSecurityProfileOutput struct{ *pulumi.OutputState }
+
+func (PoolSecurityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolSecurityProfile)(nil)).Elem()
+}
+
+func (o PoolSecurityProfileOutput) ToPoolSecurityProfileOutput() PoolSecurityProfileOutput {
+	return o
+}
+
+func (o PoolSecurityProfileOutput) ToPoolSecurityProfileOutputWithContext(ctx context.Context) PoolSecurityProfileOutput {
+	return o
+}
+
+func (o PoolSecurityProfileOutput) ToPoolSecurityProfilePtrOutput() PoolSecurityProfilePtrOutput {
+	return o.ToPoolSecurityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o PoolSecurityProfileOutput) ToPoolSecurityProfilePtrOutputWithContext(ctx context.Context) PoolSecurityProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolSecurityProfile) *PoolSecurityProfile {
+		return &v
+	}).(PoolSecurityProfilePtrOutput)
+}
+
+// Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+func (o PoolSecurityProfileOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolSecurityProfile) *bool { return v.HostEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+func (o PoolSecurityProfileOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolSecurityProfile) *bool { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+func (o PoolSecurityProfileOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolSecurityProfile) *string { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+//
+// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+func (o PoolSecurityProfileOutput) VtpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolSecurityProfile) *bool { return v.VtpmEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type PoolSecurityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (PoolSecurityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolSecurityProfile)(nil)).Elem()
+}
+
+func (o PoolSecurityProfilePtrOutput) ToPoolSecurityProfilePtrOutput() PoolSecurityProfilePtrOutput {
+	return o
+}
+
+func (o PoolSecurityProfilePtrOutput) ToPoolSecurityProfilePtrOutputWithContext(ctx context.Context) PoolSecurityProfilePtrOutput {
+	return o
+}
+
+func (o PoolSecurityProfilePtrOutput) Elem() PoolSecurityProfileOutput {
+	return o.ApplyT(func(v *PoolSecurityProfile) PoolSecurityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret PoolSecurityProfile
+		return ret
+	}).(PoolSecurityProfileOutput)
+}
+
+// Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+func (o PoolSecurityProfilePtrOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PoolSecurityProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HostEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+func (o PoolSecurityProfilePtrOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PoolSecurityProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecureBootEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+func (o PoolSecurityProfilePtrOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolSecurityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+//
+// > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+func (o PoolSecurityProfilePtrOutput) VtpmEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PoolSecurityProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VtpmEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type PoolStartTask struct {
 	// The command line executed by the start task.
 	CommandLine string `pulumi:"commandLine"`
@@ -9428,6 +9638,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput)(nil)).Elem(), PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNodePlacementInput)(nil)).Elem(), PoolNodePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNodePlacementArrayInput)(nil)).Elem(), PoolNodePlacementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolSecurityProfileInput)(nil)).Elem(), PoolSecurityProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolSecurityProfilePtrInput)(nil)).Elem(), PoolSecurityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskInput)(nil)).Elem(), PoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskPtrInput)(nil)).Elem(), PoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskContainerInput)(nil)).Elem(), PoolStartTaskContainerArgs{})
@@ -9566,6 +9778,8 @@ func init() {
 	pulumi.RegisterOutputType(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput{})
 	pulumi.RegisterOutputType(PoolNodePlacementOutput{})
 	pulumi.RegisterOutputType(PoolNodePlacementArrayOutput{})
+	pulumi.RegisterOutputType(PoolSecurityProfileOutput{})
+	pulumi.RegisterOutputType(PoolSecurityProfilePtrOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskPtrOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskContainerOutput{})

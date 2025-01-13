@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cdn.FrontdoorProfileArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorProfileState;
+import com.pulumi.azure.cdn.outputs.FrontdoorProfileIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -75,6 +76,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:cdn/frontdoorProfile:FrontdoorProfile")
 public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={FrontdoorProfileIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ FrontdoorProfileIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<FrontdoorProfileIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      * 

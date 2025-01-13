@@ -10532,7 +10532,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: outputs.appservice.LinuxFunctionAppSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         /**
@@ -15658,7 +15658,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: outputs.appservice.WindowsFunctionAppSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
         /**
@@ -19678,6 +19678,36 @@ export namespace arckubernetes {
         timeoutInSeconds?: number;
     }
 
+    export interface ProvisionedClusterAzureActiveDirectory {
+        /**
+         * A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+         */
+        adminGroupObjectIds?: string[];
+        /**
+         * Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+         */
+        azureRbacEnabled?: boolean;
+        /**
+         * The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+         */
+        tenantId?: string;
+    }
+
+    export interface ProvisionedClusterIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+         */
+        type: string;
+    }
+
 }
 
 export namespace arcmachine {
@@ -22112,6 +22142,29 @@ export namespace batch {
         policy?: string;
     }
 
+    export interface PoolSecurityProfile {
+        /**
+         * Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+         */
+        hostEncryptionEnabled?: boolean;
+        /**
+         * Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+         */
+        secureBootEnabled?: boolean;
+        /**
+         * The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+         */
+        securityType?: string;
+        /**
+         * Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** `securityProfile` block can only be specified during creation and does not support updates.
+         *
+         * > **NOTE:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
+         */
+        vtpmEnabled?: boolean;
+    }
+
     export interface PoolStartTask {
         /**
          * The command line executed by the start task.
@@ -23093,13 +23146,15 @@ export namespace cdn {
         /**
          * Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          *
-         * ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+         * ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
          */
         certificateType?: string;
         /**
-         * TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+         * TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
          *
-         * > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+         * > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+         *
+         * @deprecated As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
          */
         minimumTlsVersion?: string;
     }
@@ -23184,7 +23239,7 @@ export namespace cdn {
          */
         type: string;
         /**
-         * The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+         * The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
          */
         version: string;
     }
@@ -23339,6 +23394,19 @@ export namespace cdn {
          * > **NOTE:** `targetType` cannot be specified when using a Load Balancer as an Origin.
          */
         targetType?: string;
+    }
+
+    export interface FrontdoorProfileIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        type: string;
     }
 
     export interface FrontdoorRouteCache {
@@ -24037,6 +24105,19 @@ export namespace cdn {
         successfulSamplesRequired: number;
     }
 
+    export interface GetFrontdoorProfileIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Front Door Profile.
+         */
+        type: string;
+    }
+
     export interface GetFrontdoorSecretSecret {
         /**
          * A `customerCertificate` block as defined below.
@@ -24310,16 +24391,13 @@ export namespace cognitive {
          * If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
          */
         family?: string;
-        /**
-         * The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-         */
         name: string;
         /**
          * The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
          */
         size?: string;
         /**
-         * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+         * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
          */
         tier?: string;
     }
@@ -25398,6 +25476,10 @@ export namespace compute {
          * > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
          */
         diskSizeGb: number;
+        /**
+         * The ID of the OS disk.
+         */
+        id: string;
         /**
          * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
@@ -27785,6 +27867,10 @@ export namespace compute {
          * > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
          */
         diskSizeGb: number;
+        /**
+         * The ID of the OS disk.
+         */
+        id: string;
         /**
          * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
@@ -31199,6 +31285,10 @@ export namespace containerservice {
          */
         path?: string;
         /**
+         * A `postBuild` block as defined below.
+         */
+        postBuild?: outputs.containerservice.FluxConfigurationKustomizationPostBuild;
+        /**
          * Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
          */
         recreatingEnabled?: boolean;
@@ -31214,6 +31304,36 @@ export namespace containerservice {
          * The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
          */
         timeoutInSeconds?: number;
+        /**
+         * Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+         */
+        wait?: boolean;
+    }
+
+    export interface FluxConfigurationKustomizationPostBuild {
+        /**
+         * Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+         */
+        substitute?: {[key: string]: string};
+        /**
+         * A `substituteFrom` block as defined below.
+         */
+        substituteFroms?: outputs.containerservice.FluxConfigurationKustomizationPostBuildSubstituteFrom[];
+    }
+
+    export interface FluxConfigurationKustomizationPostBuildSubstituteFrom {
+        /**
+         * Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+         */
+        kind: string;
+        /**
+         * Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+         */
+        name: string;
+        /**
+         * Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+         */
+        optional?: boolean;
     }
 
     export interface GetClusterNodePoolUpgradeSetting {
@@ -35458,7 +35578,7 @@ export namespace databricks {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -38814,6 +38934,62 @@ export namespace dynatrace {
          * phone number of the user by Dynatrace for contacting them if needed.
          */
         phoneNumber: string;
+    }
+
+    export interface TagRulesLogRule {
+        /**
+         * Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+         */
+        filteringTags: outputs.dynatrace.TagRulesLogRuleFilteringTag[];
+        /**
+         * Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+         */
+        sendActivityLogsEnabled?: boolean;
+        /**
+         * Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+         */
+        sendAzureActiveDirectoryLogsEnabled?: boolean;
+        /**
+         * Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+         */
+        sendSubscriptionLogsEnabled?: boolean;
+    }
+
+    export interface TagRulesLogRuleFilteringTag {
+        /**
+         * Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+         */
+        action: string;
+        /**
+         * Name of the filtering tag. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Value of the filtering tag. Changing this forces a new resource to be created.
+         */
+        value: string;
+    }
+
+    export interface TagRulesMetricRule {
+        /**
+         * Filtering tag for the metric rule. A `filteringTag` block as defined below.
+         */
+        filteringTags: outputs.dynatrace.TagRulesMetricRuleFilteringTag[];
+    }
+
+    export interface TagRulesMetricRuleFilteringTag {
+        /**
+         * Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+         */
+        action: string;
+        /**
+         * Name of the filtering tag. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Value of the filtering tag. Changing this forces a new resource to be created.
+         */
+        value: string;
     }
 
 }
@@ -44207,6 +44383,29 @@ export namespace healthcare {
         authority: string;
     }
 
+    export interface DicomServiceCors {
+        /**
+         * Whether to allow credentials in CORS. Defaults to `false`.
+         */
+        allowCredentials?: boolean;
+        /**
+         * A list of allowed headers for CORS.
+         */
+        allowedHeaders?: string[];
+        /**
+         * A list of allowed methods for CORS.
+         */
+        allowedMethods?: string[];
+        /**
+         * A list of allowed origins for CORS.
+         */
+        allowedOrigins?: string[];
+        /**
+         * The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+         */
+        maxAgeInSeconds?: number;
+    }
+
     export interface DicomServiceIdentity {
         /**
          * A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
@@ -44229,6 +44428,19 @@ export namespace healthcare {
          * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
          */
         name: string;
+    }
+
+    export interface DicomServiceStorage {
+        /**
+         * The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+         */
+        fileSystemName: string;
+        /**
+         * The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+         *
+         * > **Note:** The `isHnsEnabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+         */
+        storageAccountId: string;
     }
 
     export interface FhirServiceAuthentication {
@@ -44302,6 +44514,29 @@ export namespace healthcare {
         authority: string;
     }
 
+    export interface GetDicomServiceCor {
+        /**
+         * Whether to allow credentials in CORS.
+         */
+        allowCredentials: boolean;
+        /**
+         * A list of allowed headers for CORS.
+         */
+        allowedHeaders: string[];
+        /**
+         * A list of allowed methods for CORS.
+         */
+        allowedMethods: string[];
+        /**
+         * A list of allowed origins for CORS.
+         */
+        allowedOrigins: string[];
+        /**
+         * The maximum age in seconds for the CORS configuration.
+         */
+        maxAgeInSeconds: number;
+    }
+
     export interface GetDicomServiceIdentity {
         identityIds: string[];
         principalId: string;
@@ -44318,6 +44553,17 @@ export namespace healthcare {
          * The name of the Healthcare DICOM Service
          */
         name: string;
+    }
+
+    export interface GetDicomServiceStorage {
+        /**
+         * The filesystem name of connected storage account.
+         */
+        fileSystemName: string;
+        /**
+         * The resource ID of connected storage account.
+         */
+        storageAccountId: string;
     }
 
     export interface GetFhirServiceAuthentication {
@@ -50069,7 +50315,7 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
          */
         streams: string[];
         /**
@@ -51664,6 +51910,29 @@ export namespace mssql {
         sourceDatabaseId: string;
     }
 
+    export interface ManagedInstanceAzureActiveDirectoryAdministrator {
+        /**
+         * Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
+         */
+        azureadAuthenticationOnlyEnabled?: boolean;
+        /**
+         * The login username of the Azure AD Administrator of this SQL Managed Instance.
+         */
+        loginUsername: string;
+        /**
+         * The object id of the Azure AD Administrator of this SQL Managed Instance.
+         */
+        objectId: string;
+        /**
+         * The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+         */
+        principalType: string;
+        /**
+         * The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+         */
+        tenantId?: string;
+    }
+
     export interface ManagedInstanceFailoverGroupPartnerRegion {
         /**
          * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -51688,7 +51957,7 @@ export namespace mssql {
 
     export interface ManagedInstanceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
          *
          * > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
          */
@@ -51702,7 +51971,7 @@ export namespace mssql {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -53504,13 +53773,11 @@ export namespace network {
          */
         capacity?: number;
         /**
-         * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+         * The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
          */
         name: string;
         /**
-         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-         *
-         * !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+         * The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
          */
         tier: string;
     }
@@ -58284,12 +58551,9 @@ export namespace nginx {
     }
 
     export interface DeploymentLoggingStorageAccount {
-        /**
-         * Specify the container name in the Storage Account for logging.
-         */
         containerName?: string;
         /**
-         * The name of the StorageAccount for NGINX Logging.
+         * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          */
         name?: string;
     }
@@ -58376,9 +58640,6 @@ export namespace nginx {
     }
 
     export interface GetDeploymentLoggingStorageAccount {
-        /**
-         * The container name of Storage Account for logging.
-         */
         containerName: string;
         /**
          * The name of this NGINX Deployment.
@@ -63149,9 +63410,13 @@ export namespace siterecovery {
          */
         failoverTestStaticIp: string;
         /**
-         * Name of the subnet to to use when a test failover is done.
+         * Name of the subnet to use when a test failover is done.
          */
         failoverTestSubnetName: string;
+        /**
+         * A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+         */
+        recoveryLoadBalancerBackendAddressPoolIds?: string[];
         /**
          * Id of the public IP object to use when a failover is done.
          */
@@ -63165,7 +63430,7 @@ export namespace siterecovery {
          */
         targetStaticIp?: string;
         /**
-         * Name of the subnet to to use when a failover is done.
+         * Name of the subnet to use when a failover is done.
          */
         targetSubnetName?: string;
     }

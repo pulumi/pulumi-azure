@@ -39,7 +39,7 @@ export interface GetDicomServiceArgs {
      */
     name: string;
     /**
-     * The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+     * The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
      */
     workspaceId: string;
 }
@@ -52,6 +52,18 @@ export interface GetDicomServiceResult {
      * The `authentication` block as defined below.
      */
     readonly authentications: outputs.healthcare.GetDicomServiceAuthentication[];
+    /**
+     * The `cors` block as defined below.
+     */
+    readonly cors: outputs.healthcare.GetDicomServiceCor[];
+    /**
+     * If data partitions are enabled or not.
+     */
+    readonly dataPartitionsEnabled: boolean;
+    /**
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+     */
+    readonly encryptionKeyUrl: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -67,6 +79,10 @@ export interface GetDicomServiceResult {
      * The url of the Healthcare DICOM Services.
      */
     readonly serviceUrl: string;
+    /**
+     * The `storage` block as defined below.
+     */
+    readonly storages: outputs.healthcare.GetDicomServiceStorage[];
     /**
      * A map of tags assigned to the Healthcare DICOM Service.
      */
@@ -106,7 +122,7 @@ export interface GetDicomServiceOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+     * The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
      */
     workspaceId: pulumi.Input<string>;
 }

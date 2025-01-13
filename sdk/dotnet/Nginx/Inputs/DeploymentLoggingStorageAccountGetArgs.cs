@@ -12,14 +12,11 @@ namespace Pulumi.Azure.Nginx.Inputs
 
     public sealed class DeploymentLoggingStorageAccountGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specify the container name in the Storage Account for logging.
-        /// </summary>
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
         /// <summary>
-        /// The name of the StorageAccount for NGINX Logging.
+        /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

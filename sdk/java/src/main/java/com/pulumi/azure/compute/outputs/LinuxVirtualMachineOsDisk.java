@@ -42,6 +42,11 @@ public final class LinuxVirtualMachineOsDisk {
      */
     private @Nullable Integer diskSizeGb;
     /**
+     * @return The ID of the OS disk.
+     * 
+     */
+    private @Nullable String id;
+    /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
@@ -111,6 +116,13 @@ public final class LinuxVirtualMachineOsDisk {
         return Optional.ofNullable(this.diskSizeGb);
     }
     /**
+     * @return The ID of the OS disk.
+     * 
+     */
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+    /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
@@ -167,6 +179,7 @@ public final class LinuxVirtualMachineOsDisk {
         private @Nullable LinuxVirtualMachineOsDiskDiffDiskSettings diffDiskSettings;
         private @Nullable String diskEncryptionSetId;
         private @Nullable Integer diskSizeGb;
+        private @Nullable String id;
         private @Nullable String name;
         private @Nullable String secureVmDiskEncryptionSetId;
         private @Nullable String securityEncryptionType;
@@ -179,6 +192,7 @@ public final class LinuxVirtualMachineOsDisk {
     	      this.diffDiskSettings = defaults.diffDiskSettings;
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.diskSizeGb = defaults.diskSizeGb;
+    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.secureVmDiskEncryptionSetId = defaults.secureVmDiskEncryptionSetId;
     	      this.securityEncryptionType = defaults.securityEncryptionType;
@@ -210,6 +224,12 @@ public final class LinuxVirtualMachineOsDisk {
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
 
             this.diskSizeGb = diskSizeGb;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(@Nullable String id) {
+
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -250,6 +270,7 @@ public final class LinuxVirtualMachineOsDisk {
             _resultValue.diffDiskSettings = diffDiskSettings;
             _resultValue.diskEncryptionSetId = diskEncryptionSetId;
             _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
             _resultValue.securityEncryptionType = securityEncryptionType;

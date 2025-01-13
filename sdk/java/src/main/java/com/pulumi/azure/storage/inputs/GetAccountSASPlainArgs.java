@@ -129,14 +129,14 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+     * Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
      * 
      */
     @Import(name="signedVersion")
     private @Nullable String signedVersion;
 
     /**
-     * @return Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+     * @return Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
      * 
      */
     public Optional<String> signedVersion() {
@@ -270,7 +270,7 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param signedVersion Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+         * @param signedVersion Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
          * 
          * @return builder
          * 

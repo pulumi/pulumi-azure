@@ -14,37 +14,77 @@ public final class FlexibleServerActiveDirectoryAdministratoryArgs extends com.p
 
     public static final FlexibleServerActiveDirectoryAdministratoryArgs Empty = new FlexibleServerActiveDirectoryAdministratoryArgs();
 
+    /**
+     * The resource ID of the identity used for AAD Authentication.
+     * 
+     */
     @Import(name="identityId", required=true)
     private Output<String> identityId;
 
+    /**
+     * @return The resource ID of the identity used for AAD Authentication.
+     * 
+     */
     public Output<String> identityId() {
         return this.identityId;
     }
 
+    /**
+     * The login name of the principal to set as the server administrator
+     * 
+     */
     @Import(name="login", required=true)
     private Output<String> login;
 
+    /**
+     * @return The login name of the principal to set as the server administrator
+     * 
+     */
     public Output<String> login() {
         return this.login;
     }
 
+    /**
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+     * 
+     */
     @Import(name="objectId", required=true)
     private Output<String> objectId;
 
+    /**
+     * @return The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+     * 
+     */
     public Output<String> objectId() {
         return this.objectId;
     }
 
+    /**
+     * The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
+    /**
+     * @return The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> serverId() {
         return this.serverId;
     }
 
+    /**
+     * The Azure Tenant ID.
+     * 
+     */
     @Import(name="tenantId", required=true)
     private Output<String> tenantId;
 
+    /**
+     * @return The Azure Tenant ID.
+     * 
+     */
     public Output<String> tenantId() {
         return this.tenantId;
     }
@@ -77,47 +117,107 @@ public final class FlexibleServerActiveDirectoryAdministratoryArgs extends com.p
             $ = new FlexibleServerActiveDirectoryAdministratoryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityId The resource ID of the identity used for AAD Authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityId(Output<String> identityId) {
             $.identityId = identityId;
             return this;
         }
 
+        /**
+         * @param identityId The resource ID of the identity used for AAD Authentication.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityId(String identityId) {
             return identityId(Output.of(identityId));
         }
 
+        /**
+         * @param login The login name of the principal to set as the server administrator
+         * 
+         * @return builder
+         * 
+         */
         public Builder login(Output<String> login) {
             $.login = login;
             return this;
         }
 
+        /**
+         * @param login The login name of the principal to set as the server administrator
+         * 
+         * @return builder
+         * 
+         */
         public Builder login(String login) {
             return login(Output.of(login));
         }
 
+        /**
+         * @param objectId The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectId(Output<String> objectId) {
             $.objectId = objectId;
             return this;
         }
 
+        /**
+         * @param objectId The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder objectId(String objectId) {
             return objectId(Output.of(objectId));
         }
 
+        /**
+         * @param serverId The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverId(Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
+        /**
+         * @param serverId The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }
 
+        /**
+         * @param tenantId The Azure Tenant ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
+        /**
+         * @param tenantId The Azure Tenant ID.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }

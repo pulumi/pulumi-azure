@@ -42,6 +42,7 @@ __all__ = [
     'PoolNetworkConfigurationEndpointConfiguration',
     'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule',
     'PoolNodePlacement',
+    'PoolSecurityProfile',
     'PoolStartTask',
     'PoolStartTaskContainer',
     'PoolStartTaskContainerRegistry',
@@ -1817,6 +1818,92 @@ class PoolNodePlacement(dict):
         The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
         """
         return pulumi.get(self, "policy")
+
+
+@pulumi.output_type
+class PoolSecurityProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostEncryptionEnabled":
+            suggest = "host_encryption_enabled"
+        elif key == "secureBootEnabled":
+            suggest = "secure_boot_enabled"
+        elif key == "securityType":
+            suggest = "security_type"
+        elif key == "vtpmEnabled":
+            suggest = "vtpm_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolSecurityProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolSecurityProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolSecurityProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_encryption_enabled: Optional[bool] = None,
+                 secure_boot_enabled: Optional[bool] = None,
+                 security_type: Optional[str] = None,
+                 vtpm_enabled: Optional[bool] = None):
+        """
+        :param bool host_encryption_enabled: Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        :param bool secure_boot_enabled: Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        :param str security_type: The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+        :param bool vtpm_enabled: Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+               
+               > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        """
+        if host_encryption_enabled is not None:
+            pulumi.set(__self__, "host_encryption_enabled", host_encryption_enabled)
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
+
+    @property
+    @pulumi.getter(name="hostEncryptionEnabled")
+    def host_encryption_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "host_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[str]:
+        """
+        The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_type")
+
+    @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+
+        > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        """
+        return pulumi.get(self, "vtpm_enabled")
 
 
 @pulumi.output_type

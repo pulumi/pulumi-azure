@@ -51,7 +51,6 @@ class DeploymentArgs:
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
@@ -76,6 +75,9 @@ class DeploymentArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if logging_storage_accounts is not None:
+            warnings.warn("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""logging_storage_accounts is deprecated: The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
         if logging_storage_accounts is not None:
             pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
         if managed_resource_group is not None:
@@ -223,10 +225,8 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter(name="loggingStorageAccounts")
+    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
     def logging_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
-        """
-        One or more `logging_storage_account` blocks as defined below.
-        """
         return pulumi.get(self, "logging_storage_accounts")
 
     @logging_storage_accounts.setter
@@ -286,6 +286,7 @@ class _DeploymentState:
                  auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 dataplane_api_endpoint: Optional[pulumi.Input[str]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
@@ -308,17 +309,17 @@ class _DeploymentState:
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        :param pulumi.Input[str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_address: The IP address of the deployment.
+        :param pulumi.Input[str] ip_address: The IP address of the NGINX Deployment.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
+        :param pulumi.Input[str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
@@ -328,6 +329,8 @@ class _DeploymentState:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if dataplane_api_endpoint is not None:
+            pulumi.set(__self__, "dataplane_api_endpoint", dataplane_api_endpoint)
         if diagnose_support_enabled is not None:
             pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
@@ -342,6 +345,9 @@ class _DeploymentState:
             pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if logging_storage_accounts is not None:
+            warnings.warn("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""logging_storage_accounts is deprecated: The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
         if logging_storage_accounts is not None:
             pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
         if managed_resource_group is not None:
@@ -399,6 +405,18 @@ class _DeploymentState:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="dataplaneApiEndpoint")
+    def dataplane_api_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The dataplane API endpoint of the NGINX Deployment.
+        """
+        return pulumi.get(self, "dataplane_api_endpoint")
+
+    @dataplane_api_endpoint.setter
+    def dataplane_api_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataplane_api_endpoint", value)
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
@@ -464,7 +482,7 @@ class _DeploymentState:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP address of the deployment.
+        The IP address of the NGINX Deployment.
         """
         return pulumi.get(self, "ip_address")
 
@@ -486,10 +504,8 @@ class _DeploymentState:
 
     @property
     @pulumi.getter(name="loggingStorageAccounts")
+    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
     def logging_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
-        """
-        One or more `logging_storage_account` blocks as defined below.
-        """
         return pulumi.get(self, "logging_storage_accounts")
 
     @logging_storage_accounts.setter
@@ -534,7 +550,7 @@ class _DeploymentState:
     @pulumi.getter(name="nginxVersion")
     def nginx_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of deployed NGINX.
+        The version of the NGINX Deployment.
         """
         return pulumi.get(self, "nginx_version")
 
@@ -674,7 +690,6 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
@@ -809,6 +824,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["dataplane_api_endpoint"] = None
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["nginx_version"] = None
         super(Deployment, __self__).__init__(
@@ -824,6 +840,7 @@ class Deployment(pulumi.CustomResource):
             auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
             automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
+            dataplane_api_endpoint: Optional[pulumi.Input[str]] = None,
             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
             frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
@@ -851,17 +868,17 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        :param pulumi.Input[str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] ip_address: The IP address of the deployment.
+        :param pulumi.Input[str] ip_address: The IP address of the NGINX Deployment.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
+        :param pulumi.Input[str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
@@ -872,6 +889,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["auto_scale_profiles"] = auto_scale_profiles
         __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
         __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["dataplane_api_endpoint"] = dataplane_api_endpoint
         __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
         __props__.__dict__["email"] = email
         __props__.__dict__["frontend_privates"] = frontend_privates
@@ -914,6 +932,14 @@ class Deployment(pulumi.CustomResource):
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="dataplaneApiEndpoint")
+    def dataplane_api_endpoint(self) -> pulumi.Output[str]:
+        """
+        The dataplane API endpoint of the NGINX Deployment.
+        """
+        return pulumi.get(self, "dataplane_api_endpoint")
 
     @property
     @pulumi.getter(name="diagnoseSupportEnabled")
@@ -959,7 +985,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-        The IP address of the deployment.
+        The IP address of the NGINX Deployment.
         """
         return pulumi.get(self, "ip_address")
 
@@ -973,10 +999,8 @@ class Deployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loggingStorageAccounts")
+    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
     def logging_storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentLoggingStorageAccount']]]:
-        """
-        One or more `logging_storage_account` blocks as defined below.
-        """
         return pulumi.get(self, "logging_storage_accounts")
 
     @property
@@ -1005,7 +1029,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="nginxVersion")
     def nginx_version(self) -> pulumi.Output[str]:
         """
-        The version of deployed NGINX.
+        The version of the NGINX Deployment.
         """
         return pulumi.get(self, "nginx_version")
 

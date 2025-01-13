@@ -848,15 +848,17 @@ type ReplicatedVMNetworkInterface struct {
 	FailoverTestPublicIpAddressId *string `pulumi:"failoverTestPublicIpAddressId"`
 	// Static IP to assign when a test failover is done.
 	FailoverTestStaticIp *string `pulumi:"failoverTestStaticIp"`
-	// Name of the subnet to to use when a test failover is done.
+	// Name of the subnet to use when a test failover is done.
 	FailoverTestSubnetName *string `pulumi:"failoverTestSubnetName"`
+	// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+	RecoveryLoadBalancerBackendAddressPoolIds []string `pulumi:"recoveryLoadBalancerBackendAddressPoolIds"`
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
 	// (Required if the networkInterface block is specified) Id source network interface.
 	SourceNetworkInterfaceId *string `pulumi:"sourceNetworkInterfaceId"`
 	// Static IP to assign when a failover is done.
 	TargetStaticIp *string `pulumi:"targetStaticIp"`
-	// Name of the subnet to to use when a failover is done.
+	// Name of the subnet to use when a failover is done.
 	TargetSubnetName *string `pulumi:"targetSubnetName"`
 }
 
@@ -876,15 +878,17 @@ type ReplicatedVMNetworkInterfaceArgs struct {
 	FailoverTestPublicIpAddressId pulumi.StringPtrInput `pulumi:"failoverTestPublicIpAddressId"`
 	// Static IP to assign when a test failover is done.
 	FailoverTestStaticIp pulumi.StringPtrInput `pulumi:"failoverTestStaticIp"`
-	// Name of the subnet to to use when a test failover is done.
+	// Name of the subnet to use when a test failover is done.
 	FailoverTestSubnetName pulumi.StringPtrInput `pulumi:"failoverTestSubnetName"`
+	// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+	RecoveryLoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"recoveryLoadBalancerBackendAddressPoolIds"`
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId pulumi.StringPtrInput `pulumi:"recoveryPublicIpAddressId"`
 	// (Required if the networkInterface block is specified) Id source network interface.
 	SourceNetworkInterfaceId pulumi.StringPtrInput `pulumi:"sourceNetworkInterfaceId"`
 	// Static IP to assign when a failover is done.
 	TargetStaticIp pulumi.StringPtrInput `pulumi:"targetStaticIp"`
-	// Name of the subnet to to use when a failover is done.
+	// Name of the subnet to use when a failover is done.
 	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
 }
 
@@ -949,9 +953,14 @@ func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestStaticIp() pulumi.String
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestStaticIp }).(pulumi.StringPtrOutput)
 }
 
-// Name of the subnet to to use when a test failover is done.
+// Name of the subnet to use when a test failover is done.
 func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+func (o ReplicatedVMNetworkInterfaceOutput) RecoveryLoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) []string { return v.RecoveryLoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
 }
 
 // Id of the public IP object to use when a failover is done.
@@ -969,7 +978,7 @@ func (o ReplicatedVMNetworkInterfaceOutput) TargetStaticIp() pulumi.StringPtrOut
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.TargetStaticIp }).(pulumi.StringPtrOutput)
 }
 
-// Name of the subnet to to use when a failover is done.
+// Name of the subnet to use when a failover is done.
 func (o ReplicatedVMNetworkInterfaceOutput) TargetSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
 }

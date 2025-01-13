@@ -81,7 +81,7 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
      * 
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
@@ -90,7 +90,7 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
     private Output<String> protocol;
 
     /**
-     * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
      * 
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
@@ -296,7 +296,7 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
          * 
          * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
          * 
@@ -309,7 +309,7 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
          * 
          * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
          * 

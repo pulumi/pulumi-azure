@@ -29,6 +29,10 @@ __all__ = [
     'FluxConfigurationGitRepositoryArgsDict',
     'FluxConfigurationKustomizationArgs',
     'FluxConfigurationKustomizationArgsDict',
+    'ProvisionedClusterAzureActiveDirectoryArgs',
+    'ProvisionedClusterAzureActiveDirectoryArgsDict',
+    'ProvisionedClusterIdentityArgs',
+    'ProvisionedClusterIdentityArgsDict',
 ]
 
 MYPY = False
@@ -1024,5 +1028,148 @@ class FluxConfigurationKustomizationArgs:
     @timeout_in_seconds.setter
     def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_seconds", value)
+
+
+if not MYPY:
+    class ProvisionedClusterAzureActiveDirectoryArgsDict(TypedDict):
+        admin_group_object_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+        """
+        azure_rbac_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+        """
+elif False:
+    ProvisionedClusterAzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProvisionedClusterAzureActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_rbac_enabled: Optional[pulumi.Input[bool]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+        :param pulumi.Input[bool] azure_rbac_enabled: Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        :param pulumi.Input[str] tenant_id: The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+        """
+        if admin_group_object_ids is not None:
+            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if azure_rbac_enabled is not None:
+            pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @admin_group_object_ids.setter
+    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "admin_group_object_ids", value)
+
+    @property
+    @pulumi.getter(name="azureRbacEnabled")
+    def azure_rbac_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        """
+        return pulumi.get(self, "azure_rbac_enabled")
+
+    @azure_rbac_enabled.setter
+    def azure_rbac_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_rbac_enabled", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ProvisionedClusterIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ProvisionedClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProvisionedClusterIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 

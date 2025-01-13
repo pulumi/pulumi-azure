@@ -19,15 +19,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+        /// The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-        /// 
-        /// !&gt; **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;

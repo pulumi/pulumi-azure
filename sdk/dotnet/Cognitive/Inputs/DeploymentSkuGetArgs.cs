@@ -24,9 +24,6 @@ namespace Pulumi.Azure.Cognitive.Inputs
         [Input("family")]
         public Input<string>? Family { get; set; }
 
-        /// <summary>
-        /// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -37,7 +34,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+        /// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

@@ -12454,7 +12454,7 @@ func (o DataCollectionRuleDataSourcesSyslogArrayOutput) Index(i pulumi.IntInput)
 type DataCollectionRuleDataSourcesWindowsEventLog struct {
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 	Streams []string `pulumi:"streams"`
 	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries []string `pulumi:"xPathQueries"`
@@ -12474,7 +12474,7 @@ type DataCollectionRuleDataSourcesWindowsEventLogInput interface {
 type DataCollectionRuleDataSourcesWindowsEventLogArgs struct {
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 	// Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
@@ -12536,7 +12536,7 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Name() pulumi.String
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
 func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }

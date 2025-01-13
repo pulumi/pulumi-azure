@@ -6838,7 +6838,7 @@ if not MYPY:
         """
         streams: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
         """
         x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
@@ -6855,7 +6855,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
                  x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
         """
         pulumi.set(__self__, "name", name)
@@ -6878,7 +6878,7 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
     @pulumi.getter
     def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent` and `Microsoft-SecurityEvent`.
         """
         return pulumi.get(self, "streams")
 

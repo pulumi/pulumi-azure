@@ -157,6 +157,10 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly int Capacity;
         /// <summary>
+        /// The dataplane API endpoint of the NGINX Deployment.
+        /// </summary>
+        public readonly string DataplaneApiEndpoint;
+        /// <summary>
         /// Whether metrics are exported to Azure Monitor.
         /// </summary>
         public readonly bool DiagnoseSupportEnabled;
@@ -188,9 +192,6 @@ namespace Pulumi.Azure.Nginx
         /// The Azure Region where the NGINX Deployment exists.
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// A `logging_storage_account` block as defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentLoggingStorageAccountResult> LoggingStorageAccounts;
         public readonly string ManagedResourceGroup;
         /// <summary>
@@ -222,6 +223,8 @@ namespace Pulumi.Azure.Nginx
             string automaticUpgradeChannel,
 
             int capacity,
+
+            string dataplaneApiEndpoint,
 
             bool diagnoseSupportEnabled,
 
@@ -258,6 +261,7 @@ namespace Pulumi.Azure.Nginx
             AutoScaleProfiles = autoScaleProfiles;
             AutomaticUpgradeChannel = automaticUpgradeChannel;
             Capacity = capacity;
+            DataplaneApiEndpoint = dataplaneApiEndpoint;
             DiagnoseSupportEnabled = diagnoseSupportEnabled;
             Email = email;
             FrontendPrivates = frontendPrivates;

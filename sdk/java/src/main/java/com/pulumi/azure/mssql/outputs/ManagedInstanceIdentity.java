@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedInstanceIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
      * 
      * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
      * 
@@ -31,14 +31,14 @@ public final class ManagedInstanceIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
 
     private ManagedInstanceIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
      * 
      * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
      * 
@@ -61,7 +61,7 @@ public final class ManagedInstanceIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {

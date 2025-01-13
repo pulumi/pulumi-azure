@@ -10,6 +10,11 @@ export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
 
+export { TagRulesArgs, TagRulesState } from "./tagRules";
+export type TagRules = import("./tagRules").TagRules;
+export const TagRules: typeof import("./tagRules").TagRules = null as any;
+utilities.lazyLoad(exports, ["TagRules"], () => require("./tagRules"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:dynatrace/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "azure:dynatrace/tagRules:TagRules":
+                return new TagRules(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "dynatrace/monitor", _module)
+pulumi.runtime.registerResourceModule("azure", "dynatrace/tagRules", _module)

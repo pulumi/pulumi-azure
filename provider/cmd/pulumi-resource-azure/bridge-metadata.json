@@ -1819,6 +1819,25 @@
                     }
                 }
             },
+            "azurerm_arc_kubernetes_provisioned_cluster": {
+                "current": "azure:arckubernetes/provisionedCluster:ProvisionedCluster",
+                "majorVersion": 6,
+                "fields": {
+                    "azure_active_directory": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "admin_group_object_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_arc_machine": {
                 "current": "azure:arcmachine/arcMachine:ArcMachine",
                 "majorVersion": 6,
@@ -2655,6 +2674,9 @@
                     "node_placement": {
                         "maxItemsOne": false
                     },
+                    "security_profile": {
+                        "maxItemsOne": true
+                    },
                     "start_task": {
                         "maxItemsOne": true,
                         "elem": {
@@ -3209,7 +3231,19 @@
             },
             "azurerm_cdn_frontdoor_profile": {
                 "current": "azure:cdn/frontdoorProfile:FrontdoorProfile",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_cdn_frontdoor_route": {
                 "current": "azure:cdn/frontdoorRoute:FrontdoorRoute",
@@ -6654,6 +6688,32 @@
                     }
                 }
             },
+            "azurerm_dynatrace_tag_rules": {
+                "current": "azure:dynatrace/tagRules:TagRules",
+                "majorVersion": 6,
+                "fields": {
+                    "log_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "filtering_tag": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "metric_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "filtering_tag": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_elastic_cloud_elasticsearch": {
                 "current": "azure:elasticcloud/elasticsearch:Elasticsearch",
                 "majorVersion": 6,
@@ -9350,6 +9410,22 @@
                             }
                         }
                     },
+                    "cors": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "allowed_headers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "identity": {
                         "maxItemsOne": true,
                         "elem": {
@@ -9362,6 +9438,9 @@
                     },
                     "private_endpoint": {
                         "maxItemsOne": false
+                    },
+                    "storage": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -10608,6 +10687,16 @@
                             "fields": {
                                 "depends_on": {
                                     "maxItemsOne": false
+                                },
+                                "post_build": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "substitute_from": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -13014,6 +13103,14 @@
                 "current": "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn",
                 "majorVersion": 6
             },
+            "azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint": {
+                "current": "azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint",
+                "majorVersion": 6
+            },
+            "azurerm_machine_learning_workspace_network_outbound_rule_service_tag": {
+                "current": "azure:machinelearning/workspaceNetworkOutboundRuleServiceTag:WorkspaceNetworkOutboundRuleServiceTag",
+                "majorVersion": 6
+            },
             "azurerm_maintenance_assignment_dedicated_host": {
                 "current": "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost",
                 "majorVersion": 6
@@ -14646,6 +14743,9 @@
                 "current": "azure:mssql/managedInstance:ManagedInstance",
                 "majorVersion": 6,
                 "fields": {
+                    "azure_active_directory_administrator": {
+                        "maxItemsOne": true
+                    },
                     "identity": {
                         "maxItemsOne": true,
                         "elem": {
@@ -18423,7 +18523,14 @@
                         }
                     },
                     "network_interface": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "recovery_load_balancer_backend_address_pool_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "unmanaged_disk": {
                         "maxItemsOne": false
@@ -24471,7 +24578,19 @@
             },
             "azurerm_cdn_frontdoor_profile": {
                 "current": "azure:cdn/getFrontdoorProfile:getFrontdoorProfile",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_cdn_frontdoor_rule_set": {
                 "current": "azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet",
@@ -25683,6 +25802,22 @@
                             }
                         }
                     },
+                    "cors": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_headers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "identity": {
                         "maxItemsOne": false,
                         "elem": {
@@ -25694,6 +25829,9 @@
                         }
                     },
                     "private_endpoint": {
+                        "maxItemsOne": false
+                    },
+                    "storage": {
                         "maxItemsOne": false
                     }
                 }
@@ -26233,6 +26371,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_kubernetes_fleet_manager": {
+                "current": "azure:containerservice/getFleetManager:getFleetManager",
+                "majorVersion": 6
             },
             "azurerm_kubernetes_node_pool_snapshot": {
                 "current": "azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot",

@@ -36,6 +36,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? DiskSizeGb;
         /// <summary>
+        /// The ID of the OS disk.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Name;
@@ -74,6 +78,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             int? diskSizeGb,
 
+            string? id,
+
             string? name,
 
             string? secureVmDiskEncryptionSetId,
@@ -88,6 +94,7 @@ namespace Pulumi.Azure.Compute.Outputs
             DiffDiskSettings = diffDiskSettings;
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskSizeGb = diskSizeGb;
+            Id = id;
             Name = name;
             SecureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
             SecurityEncryptionType = securityEncryptionType;

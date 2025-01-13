@@ -148,9 +148,6 @@ namespace Pulumi.Azure.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
-        /// </summary>
         [Output("privateLinkFastPathEnabled")]
         public Output<bool?> PrivateLinkFastPathEnabled { get; private set; } = null!;
 
@@ -248,9 +245,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
-        /// </summary>
         [Input("privateLinkFastPathEnabled")]
         public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 
@@ -310,9 +304,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
-        /// </summary>
         [Input("privateLinkFastPathEnabled")]
         public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 

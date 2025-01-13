@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FrontdoorProfileArgs', 'FrontdoorProfile']
 
@@ -21,6 +23,7 @@ class FrontdoorProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -28,12 +31,15 @@ class FrontdoorProfileArgs:
         The set of arguments for constructing a FrontdoorProfile resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+        :param pulumi.Input['FrontdoorProfileIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[int] response_timeout_seconds: Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if response_timeout_seconds is not None:
@@ -64,6 +70,18 @@ class FrontdoorProfileArgs:
     @sku_name.setter
     def sku_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -105,6 +123,7 @@ class FrontdoorProfileArgs:
 @pulumi.input_type
 class _FrontdoorProfileState:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
@@ -113,6 +132,7 @@ class _FrontdoorProfileState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorProfile resources.
+        :param pulumi.Input['FrontdoorProfileIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
@@ -120,6 +140,8 @@ class _FrontdoorProfileState:
         :param pulumi.Input[str] sku_name: Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags to assign to the resource.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -132,6 +154,18 @@ class _FrontdoorProfileState:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -211,6 +245,7 @@ class FrontdoorProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  response_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -248,6 +283,7 @@ class FrontdoorProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[int] response_timeout_seconds: Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
@@ -304,6 +340,7 @@ class FrontdoorProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  response_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -318,6 +355,7 @@ class FrontdoorProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontdoorProfileArgs.__new__(FrontdoorProfileArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -338,6 +376,7 @@ class FrontdoorProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             resource_guid: Optional[pulumi.Input[str]] = None,
@@ -351,6 +390,7 @@ class FrontdoorProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
@@ -362,6 +402,7 @@ class FrontdoorProfile(pulumi.CustomResource):
 
         __props__ = _FrontdoorProfileState.__new__(_FrontdoorProfileState)
 
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["resource_guid"] = resource_guid
@@ -369,6 +410,14 @@ class FrontdoorProfile(pulumi.CustomResource):
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         return FrontdoorProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.FrontdoorProfileIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

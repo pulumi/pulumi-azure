@@ -67,14 +67,14 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -188,7 +188,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

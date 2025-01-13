@@ -36,6 +36,11 @@ public final class GetDeploymentResult {
      */
     private Integer capacity;
     /**
+     * @return The dataplane API endpoint of the NGINX Deployment.
+     * 
+     */
+    private String dataplaneApiEndpoint;
+    /**
      * @return Whether metrics are exported to Azure Monitor.
      * 
      */
@@ -76,9 +81,11 @@ public final class GetDeploymentResult {
      */
     private String location;
     /**
-     * @return A `logging_storage_account` block as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     private List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts;
     /**
      * @deprecated
@@ -137,6 +144,13 @@ public final class GetDeploymentResult {
         return this.capacity;
     }
     /**
+     * @return The dataplane API endpoint of the NGINX Deployment.
+     * 
+     */
+    public String dataplaneApiEndpoint() {
+        return this.dataplaneApiEndpoint;
+    }
+    /**
      * @return Whether metrics are exported to Azure Monitor.
      * 
      */
@@ -193,9 +207,11 @@ public final class GetDeploymentResult {
         return this.location;
     }
     /**
-     * @return A `logging_storage_account` block as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public List<GetDeploymentLoggingStorageAccount> loggingStorageAccounts() {
         return this.loggingStorageAccounts;
     }
@@ -259,6 +275,7 @@ public final class GetDeploymentResult {
         private List<GetDeploymentAutoScaleProfile> autoScaleProfiles;
         private String automaticUpgradeChannel;
         private Integer capacity;
+        private String dataplaneApiEndpoint;
         private Boolean diagnoseSupportEnabled;
         private String email;
         private List<GetDeploymentFrontendPrivate> frontendPrivates;
@@ -281,6 +298,7 @@ public final class GetDeploymentResult {
     	      this.autoScaleProfiles = defaults.autoScaleProfiles;
     	      this.automaticUpgradeChannel = defaults.automaticUpgradeChannel;
     	      this.capacity = defaults.capacity;
+    	      this.dataplaneApiEndpoint = defaults.dataplaneApiEndpoint;
     	      this.diagnoseSupportEnabled = defaults.diagnoseSupportEnabled;
     	      this.email = defaults.email;
     	      this.frontendPrivates = defaults.frontendPrivates;
@@ -324,6 +342,14 @@ public final class GetDeploymentResult {
               throw new MissingRequiredPropertyException("GetDeploymentResult", "capacity");
             }
             this.capacity = capacity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataplaneApiEndpoint(String dataplaneApiEndpoint) {
+            if (dataplaneApiEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDeploymentResult", "dataplaneApiEndpoint");
+            }
+            this.dataplaneApiEndpoint = dataplaneApiEndpoint;
             return this;
         }
         @CustomType.Setter
@@ -474,6 +500,7 @@ public final class GetDeploymentResult {
             _resultValue.autoScaleProfiles = autoScaleProfiles;
             _resultValue.automaticUpgradeChannel = automaticUpgradeChannel;
             _resultValue.capacity = capacity;
+            _resultValue.dataplaneApiEndpoint = dataplaneApiEndpoint;
             _resultValue.diagnoseSupportEnabled = diagnoseSupportEnabled;
             _resultValue.email = email;
             _resultValue.frontendPrivates = frontendPrivates;

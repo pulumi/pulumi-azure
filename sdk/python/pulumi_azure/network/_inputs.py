@@ -3434,13 +3434,11 @@ if not MYPY:
     class ApplicationGatewaySkuArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+        The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         """
         tier: pulumi.Input[str]
         """
-        The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-
-        !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+        The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         """
         capacity: NotRequired[pulumi.Input[int]]
         """
@@ -3456,10 +3454,8 @@ class ApplicationGatewaySkuArgs:
                  tier: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] name: The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
-        :param pulumi.Input[str] tier: The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-               
-               !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+        :param pulumi.Input[str] name: The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
+        :param pulumi.Input[str] tier: The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         :param pulumi.Input[int] capacity: The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
         """
         pulumi.set(__self__, "name", name)
@@ -3471,7 +3467,7 @@ class ApplicationGatewaySkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Basic`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
+        The Name of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         """
         return pulumi.get(self, "name")
 
@@ -3483,9 +3479,7 @@ class ApplicationGatewaySkuArgs:
     @pulumi.getter
     def tier(self) -> pulumi.Input[str]:
         """
-        The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-
-        !> **NOTE:** The `Standard` and `WAF` SKU have been deprecated in favour of the `Basic`, `Standard_v2` and `WAF_v2` SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
+        The Tier of the SKU to use for this Application Gateway. Possible values are `Basic`, `Standard_v2`, and `WAF_v2`.
         """
         return pulumi.get(self, "tier")
 

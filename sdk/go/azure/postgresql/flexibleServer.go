@@ -104,8 +104,8 @@ import (
 //				AdministratorPassword:      pulumi.String("H@Sh1CoR3!"),
 //				Zone:                       pulumi.String("1"),
 //				StorageMb:                  pulumi.Int(32768),
-//				StorageTier:                pulumi.String("P30"),
-//				SkuName:                    pulumi.String("GP_Standard_D4s_v3"),
+//				StorageTier:                pulumi.String("P4"),
+//				SkuName:                    pulumi.String("B_Standard_B1ms"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleZoneVirtualNetworkLink,
 //			}))

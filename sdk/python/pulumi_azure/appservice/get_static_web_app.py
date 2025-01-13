@@ -27,7 +27,7 @@ class GetStaticWebAppResult:
     """
     A collection of values returned by getStaticWebApp.
     """
-    def __init__(__self__, api_key=None, app_settings=None, basic_auths=None, configuration_file_changes_enabled=None, default_host_name=None, id=None, identities=None, location=None, name=None, preview_environments_enabled=None, public_network_access_enabled=None, resource_group_name=None, sku_size=None, sku_tier=None, tags=None):
+    def __init__(__self__, api_key=None, app_settings=None, basic_auths=None, configuration_file_changes_enabled=None, default_host_name=None, id=None, identities=None, location=None, name=None, preview_environments_enabled=None, public_network_access_enabled=None, repository_branch=None, repository_url=None, resource_group_name=None, sku_size=None, sku_tier=None, tags=None):
         if api_key and not isinstance(api_key, str):
             raise TypeError("Expected argument 'api_key' to be a str")
         pulumi.set(__self__, "api_key", api_key)
@@ -61,6 +61,12 @@ class GetStaticWebAppResult:
         if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
             raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
         pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if repository_branch and not isinstance(repository_branch, str):
+            raise TypeError("Expected argument 'repository_branch' to be a str")
+        pulumi.set(__self__, "repository_branch", repository_branch)
+        if repository_url and not isinstance(repository_url, str):
+            raise TypeError("Expected argument 'repository_url' to be a str")
+        pulumi.set(__self__, "repository_url", repository_url)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -133,6 +139,16 @@ class GetStaticWebAppResult:
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
+    @pulumi.getter(name="repositoryBranch")
+    def repository_branch(self) -> str:
+        return pulumi.get(self, "repository_branch")
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        return pulumi.get(self, "repository_url")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -170,6 +186,8 @@ class AwaitableGetStaticWebAppResult(GetStaticWebAppResult):
             name=self.name,
             preview_environments_enabled=self.preview_environments_enabled,
             public_network_access_enabled=self.public_network_access_enabled,
+            repository_branch=self.repository_branch,
+            repository_url=self.repository_url,
             resource_group_name=self.resource_group_name,
             sku_size=self.sku_size,
             sku_tier=self.sku_tier,
@@ -214,6 +232,8 @@ def get_static_web_app(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         preview_environments_enabled=pulumi.get(__ret__, 'preview_environments_enabled'),
         public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
+        repository_branch=pulumi.get(__ret__, 'repository_branch'),
+        repository_url=pulumi.get(__ret__, 'repository_url'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_size=pulumi.get(__ret__, 'sku_size'),
         sku_tier=pulumi.get(__ret__, 'sku_tier'),
@@ -255,6 +275,8 @@ def get_static_web_app_output(name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         preview_environments_enabled=pulumi.get(__response__, 'preview_environments_enabled'),
         public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
+        repository_branch=pulumi.get(__response__, 'repository_branch'),
+        repository_url=pulumi.get(__response__, 'repository_url'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         sku_size=pulumi.get(__response__, 'sku_size'),
         sku_tier=pulumi.get(__response__, 'sku_tier'),

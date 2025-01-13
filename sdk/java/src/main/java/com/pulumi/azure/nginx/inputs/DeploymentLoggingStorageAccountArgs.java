@@ -15,30 +15,22 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
 
     public static final DeploymentLoggingStorageAccountArgs Empty = new DeploymentLoggingStorageAccountArgs();
 
-    /**
-     * Specify the container name in the Storage Account for logging.
-     * 
-     */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
-    /**
-     * @return Specify the container name in the Storage Account for logging.
-     * 
-     */
     public Optional<Output<String>> containerName() {
         return Optional.ofNullable(this.containerName);
     }
 
     /**
-     * The name of the StorageAccount for NGINX Logging.
+     * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the StorageAccount for NGINX Logging.
+     * @return The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -70,29 +62,17 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
             $ = new DeploymentLoggingStorageAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerName Specify the container name in the Storage Account for logging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(@Nullable Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName Specify the container name in the Storage Account for logging.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
         /**
-         * @param name The name of the StorageAccount for NGINX Logging.
+         * @param name The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 
@@ -103,7 +83,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the StorageAccount for NGINX Logging.
+         * @param name The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          * 
          * @return builder
          * 

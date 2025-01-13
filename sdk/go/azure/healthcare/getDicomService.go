@@ -54,7 +54,7 @@ func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts 
 type LookupDicomServiceArgs struct {
 	// The name of the Healthcare DICOM Service
 	Name string `pulumi:"name"`
-	// The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+	// The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -62,6 +62,12 @@ type LookupDicomServiceArgs struct {
 type LookupDicomServiceResult struct {
 	// The `authentication` block as defined below.
 	Authentications []GetDicomServiceAuthentication `pulumi:"authentications"`
+	// The `cors` block as defined below.
+	Cors []GetDicomServiceCor `pulumi:"cors"`
+	// If data partitions are enabled or not.
+	DataPartitionsEnabled bool `pulumi:"dataPartitionsEnabled"`
+	// The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+	EncryptionKeyUrl string `pulumi:"encryptionKeyUrl"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string                    `pulumi:"id"`
 	Identities []GetDicomServiceIdentity `pulumi:"identities"`
@@ -71,6 +77,8 @@ type LookupDicomServiceResult struct {
 	PrivateEndpoints []GetDicomServicePrivateEndpoint `pulumi:"privateEndpoints"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl string `pulumi:"serviceUrl"`
+	// The `storage` block as defined below.
+	Storages []GetDicomServiceStorage `pulumi:"storages"`
 	// A map of tags assigned to the Healthcare DICOM Service.
 	Tags        map[string]string `pulumi:"tags"`
 	WorkspaceId string            `pulumi:"workspaceId"`
@@ -89,7 +97,7 @@ func LookupDicomServiceOutput(ctx *pulumi.Context, args LookupDicomServiceOutput
 type LookupDicomServiceOutputArgs struct {
 	// The name of the Healthcare DICOM Service
 	Name pulumi.StringInput `pulumi:"name"`
-	// The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+	// The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 
@@ -117,6 +125,21 @@ func (o LookupDicomServiceResultOutput) Authentications() GetDicomServiceAuthent
 	return o.ApplyT(func(v LookupDicomServiceResult) []GetDicomServiceAuthentication { return v.Authentications }).(GetDicomServiceAuthenticationArrayOutput)
 }
 
+// The `cors` block as defined below.
+func (o LookupDicomServiceResultOutput) Cors() GetDicomServiceCorArrayOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) []GetDicomServiceCor { return v.Cors }).(GetDicomServiceCorArrayOutput)
+}
+
+// If data partitions are enabled or not.
+func (o LookupDicomServiceResultOutput) DataPartitionsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) bool { return v.DataPartitionsEnabled }).(pulumi.BoolOutput)
+}
+
+// The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+func (o LookupDicomServiceResultOutput) EncryptionKeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.EncryptionKeyUrl }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDicomServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.Id }).(pulumi.StringOutput)
@@ -142,6 +165,11 @@ func (o LookupDicomServiceResultOutput) PrivateEndpoints() GetDicomServicePrivat
 // The url of the Healthcare DICOM Services.
 func (o LookupDicomServiceResultOutput) ServiceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.ServiceUrl }).(pulumi.StringOutput)
+}
+
+// The `storage` block as defined below.
+func (o LookupDicomServiceResultOutput) Storages() GetDicomServiceStorageArrayOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) []GetDicomServiceStorage { return v.Storages }).(GetDicomServiceStorageArrayOutput)
 }
 
 // A map of tags assigned to the Healthcare DICOM Service.

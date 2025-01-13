@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.ManagedInstanceArgs;
 import com.pulumi.azure.mssql.inputs.ManagedInstanceState;
+import com.pulumi.azure.mssql.outputs.ManagedInstanceAzureActiveDirectoryAdministrator;
 import com.pulumi.azure.mssql.outputs.ManagedInstanceIdentity;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -25,9 +26,247 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
+ * &gt; **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.NetworkSecurityRule;
+ * import com.pulumi.azure.network.NetworkSecurityRuleArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
+ * import com.pulumi.azure.network.RouteTable;
+ * import com.pulumi.azure.network.RouteTableArgs;
+ * import com.pulumi.azure.network.SubnetRouteTableAssociation;
+ * import com.pulumi.azure.network.SubnetRouteTableAssociationArgs;
+ * import com.pulumi.azure.mssql.ManagedInstance;
+ * import com.pulumi.azure.mssql.ManagedInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("database-rg")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
+ *             .name("mi-security-group")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var allowManagementInbound = new NetworkSecurityRule("allowManagementInbound", NetworkSecurityRuleArgs.builder()
+ *             .name("allow_management_inbound")
+ *             .priority(106)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("Tcp")
+ *             .sourcePortRange("*")
+ *             .destinationPortRanges(            
+ *                 "9000",
+ *                 "9003",
+ *                 "1438",
+ *                 "1440",
+ *                 "1452")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var allowMisubnetInbound = new NetworkSecurityRule("allowMisubnetInbound", NetworkSecurityRuleArgs.builder()
+ *             .name("allow_misubnet_inbound")
+ *             .priority(200)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("10.0.0.0/24")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var allowHealthProbeInbound = new NetworkSecurityRule("allowHealthProbeInbound", NetworkSecurityRuleArgs.builder()
+ *             .name("allow_health_probe_inbound")
+ *             .priority(300)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("AzureLoadBalancer")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var allowTdsInbound = new NetworkSecurityRule("allowTdsInbound", NetworkSecurityRuleArgs.builder()
+ *             .name("allow_tds_inbound")
+ *             .priority(1000)
+ *             .direction("Inbound")
+ *             .access("Allow")
+ *             .protocol("Tcp")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("1433")
+ *             .sourceAddressPrefix("VirtualNetwork")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var denyAllInbound = new NetworkSecurityRule("denyAllInbound", NetworkSecurityRuleArgs.builder()
+ *             .name("deny_all_inbound")
+ *             .priority(4096)
+ *             .direction("Inbound")
+ *             .access("Deny")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var allowManagementOutbound = new NetworkSecurityRule("allowManagementOutbound", NetworkSecurityRuleArgs.builder()
+ *             .name("allow_management_outbound")
+ *             .priority(102)
+ *             .direction("Outbound")
+ *             .access("Allow")
+ *             .protocol("Tcp")
+ *             .sourcePortRange("*")
+ *             .destinationPortRanges(            
+ *                 "80",
+ *                 "443",
+ *                 "12000")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var allowMisubnetOutbound = new NetworkSecurityRule("allowMisubnetOutbound", NetworkSecurityRuleArgs.builder()
+ *             .name("allow_misubnet_outbound")
+ *             .priority(200)
+ *             .direction("Outbound")
+ *             .access("Allow")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("10.0.0.0/24")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var denyAllOutbound = new NetworkSecurityRule("denyAllOutbound", NetworkSecurityRuleArgs.builder()
+ *             .name("deny_all_outbound")
+ *             .priority(4096)
+ *             .direction("Outbound")
+ *             .access("Deny")
+ *             .protocol("*")
+ *             .sourcePortRange("*")
+ *             .destinationPortRange("*")
+ *             .sourceAddressPrefix("*")
+ *             .destinationAddressPrefix("*")
+ *             .resourceGroupName(example.name())
+ *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("vnet-mi")
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("subnet-mi")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("managedinstancedelegation")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name("Microsoft.Sql/managedInstances")
+ *                     .actions(                    
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
+ *             .subnetId(exampleSubnet.id())
+ *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
+ *             .name("routetable-mi")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .bgpRoutePropagationEnabled(true)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSubnet)
+ *                 .build());
+ * 
+ *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()
+ *             .subnetId(exampleSubnet.id())
+ *             .routeTableId(exampleRouteTable.id())
+ *             .build());
+ * 
+ *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
+ *             .name("managedsqlinstance")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .licenseType("BasePrice")
+ *             .skuName("GP_Gen5")
+ *             .storageSizeInGb(32)
+ *             .subnetId(exampleSubnet.id())
+ *             .vcores(4)
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleSubnetNetworkSecurityGroupAssociation,
+ *                     exampleSubnetRouteTableAssociation)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -46,28 +285,42 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="administratorLogin", refs={String.class}, tree="[0]")
-    private Output<String> administratorLogin;
+    private Output</* @Nullable */ String> administratorLogin;
 
     /**
      * @return The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> administratorLogin() {
-        return this.administratorLogin;
+    public Output<Optional<String>> administratorLogin() {
+        return Codegen.optional(this.administratorLogin);
     }
     /**
      * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      * 
      */
     @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
-    private Output<String> administratorLoginPassword;
+    private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
      * @return The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      * 
      */
-    public Output<String> administratorLoginPassword() {
-        return this.administratorLoginPassword;
+    public Output<Optional<String>> administratorLoginPassword() {
+        return Codegen.optional(this.administratorLoginPassword);
+    }
+    /**
+     * An `azure_active_directory_administrator` block as defined below.
+     * 
+     */
+    @Export(name="azureActiveDirectoryAdministrator", refs={ManagedInstanceAzureActiveDirectoryAdministrator.class}, tree="[0]")
+    private Output</* @Nullable */ ManagedInstanceAzureActiveDirectoryAdministrator> azureActiveDirectoryAdministrator;
+
+    /**
+     * @return An `azure_active_directory_administrator` block as defined below.
+     * 
+     */
+    public Output<Optional<ManagedInstanceAzureActiveDirectoryAdministrator>> azureActiveDirectoryAdministrator() {
+        return Codegen.optional(this.azureActiveDirectoryAdministrator);
     }
     /**
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -184,12 +437,16 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
      * 
+     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * 
      */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
      * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {
@@ -308,14 +565,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.storageSizeInGb;
     }
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * The subnet resource id that the SQL Managed Instance will be associated with.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * @return The subnet resource id that the SQL Managed Instance will be associated with.
      * 
      */
     public Output<String> subnetId() {

@@ -20,6 +20,11 @@ export type FluxConfiguration = import("./fluxConfiguration").FluxConfiguration;
 export const FluxConfiguration: typeof import("./fluxConfiguration").FluxConfiguration = null as any;
 utilities.lazyLoad(exports, ["FluxConfiguration"], () => require("./fluxConfiguration"));
 
+export { ProvisionedClusterArgs, ProvisionedClusterState } from "./provisionedCluster";
+export type ProvisionedCluster = import("./provisionedCluster").ProvisionedCluster;
+export const ProvisionedCluster: typeof import("./provisionedCluster").ProvisionedCluster = null as any;
+utilities.lazyLoad(exports, ["ProvisionedCluster"], () => require("./provisionedCluster"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +36,8 @@ const _module = {
                 return new ClusterExtension(name, <any>undefined, { urn })
             case "azure:arckubernetes/fluxConfiguration:FluxConfiguration":
                 return new FluxConfiguration(name, <any>undefined, { urn })
+            case "azure:arckubernetes/provisionedCluster:ProvisionedCluster":
+                return new ProvisionedCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -39,3 +46,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "arckubernetes/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "arckubernetes/clusterExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "arckubernetes/fluxConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "arckubernetes/provisionedCluster", _module)

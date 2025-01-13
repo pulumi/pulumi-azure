@@ -103,6 +103,8 @@ __all__ = [
     'FrontdoorOriginGroupLoadBalancingArgsDict',
     'FrontdoorOriginPrivateLinkArgs',
     'FrontdoorOriginPrivateLinkArgsDict',
+    'FrontdoorProfileIdentityArgs',
+    'FrontdoorProfileIdentityArgsDict',
     'FrontdoorRouteCacheArgs',
     'FrontdoorRouteCacheArgsDict',
     'FrontdoorRuleActionsArgs',
@@ -169,6 +171,8 @@ __all__ = [
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict',
+    'GetFrontdoorProfileIdentityArgs',
+    'GetFrontdoorProfileIdentityArgsDict',
 ]
 
 MYPY = False
@@ -3174,13 +3178,13 @@ if not MYPY:
         """
         Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 
-        ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         """
         minimum_tls_version: NotRequired[pulumi.Input[str]]
         """
-        TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+        TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
 elif False:
     FrontdoorCustomDomainTlsArgsDict: TypeAlias = Mapping[str, Any]
@@ -3195,15 +3199,18 @@ class FrontdoorCustomDomainTlsArgs:
         :param pulumi.Input[str] cdn_frontdoor_secret_id: Resource ID of the Front Door Secret.
         :param pulumi.Input[str] certificate_type: Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
                
-               ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
-        :param pulumi.Input[str] minimum_tls_version: TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+               ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        :param pulumi.Input[str] minimum_tls_version: TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         if cdn_frontdoor_secret_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
         if certificate_type is not None:
             pulumi.set(__self__, "certificate_type", certificate_type)
+        if minimum_tls_version is not None:
+            warnings.warn("""As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""minimum_tls_version is deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.""")
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
 
@@ -3225,7 +3232,7 @@ class FrontdoorCustomDomainTlsArgs:
         """
         Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 
-        ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         """
         return pulumi.get(self, "certificate_type")
 
@@ -3235,11 +3242,12 @@ class FrontdoorCustomDomainTlsArgs:
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
+    @_utilities.deprecated("""As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.""")
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+        TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -3558,7 +3566,7 @@ if not MYPY:
         """
         version: pulumi.Input[str]
         """
-        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         """
         exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgsDict']]]]
         """
@@ -3582,7 +3590,7 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
         """
         :param pulumi.Input[str] action: The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
         :param pulumi.Input[str] type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
-        :param pulumi.Input[str] version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+        :param pulumi.Input[str] version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]] overrides: One or more `override` blocks as defined below.
         """
@@ -3622,7 +3630,7 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         """
         return pulumi.get(self, "version")
 
@@ -4333,6 +4341,83 @@ class FrontdoorOriginPrivateLinkArgs:
     @target_type.setter
     def target_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_type", value)
+
+
+if not MYPY:
+    class FrontdoorProfileIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    FrontdoorProfileIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontdoorProfileIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 if not MYPY:
@@ -7376,5 +7461,80 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:
     @active.setter
     def active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active", value)
+
+
+if not MYPY:
+    class GetFrontdoorProfileIdentityArgsDict(TypedDict):
+        principal_id: str
+        tenant_id: str
+        type: str
+        """
+        The type of Managed Service Identity that is configured on this Front Door Profile.
+        """
+        identity_ids: NotRequired[Sequence[str]]
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        """
+elif False:
+    GetFrontdoorProfileIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetFrontdoorProfileIdentityArgs:
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None):
+        """
+        :param str type: The type of Managed Service Identity that is configured on this Front Door Profile.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: str):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: str):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that is configured on this Front Door Profile.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "identity_ids", value)
 
 

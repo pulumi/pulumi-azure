@@ -56,7 +56,7 @@ import (
 //			example := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
 //				ConnectionString: exampleAccount.PrimaryConnectionString,
 //				HttpsOnly:        pulumi.Bool(true),
-//				SignedVersion:    pulumi.String("2017-07-29"),
+//				SignedVersion:    pulumi.String("2022-11-02"),
 //				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
 //					Service:   pulumi.Bool(true),
 //					Container: pulumi.Bool(false),
@@ -119,7 +119,7 @@ type GetAccountSASArgs struct {
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// A `services` block as defined below.
 	Services GetAccountSASServices `pulumi:"services"`
-	// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+	// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
 	SignedVersion *string `pulumi:"signedVersion"`
 	// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
 	Start string `pulumi:"start"`
@@ -169,7 +169,7 @@ type GetAccountSASOutputArgs struct {
 	ResourceTypes GetAccountSASResourceTypesInput `pulumi:"resourceTypes"`
 	// A `services` block as defined below.
 	Services GetAccountSASServicesInput `pulumi:"services"`
-	// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+	// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
 	SignedVersion pulumi.StringPtrInput `pulumi:"signedVersion"`
 	// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
 	Start pulumi.StringInput `pulumi:"start"`

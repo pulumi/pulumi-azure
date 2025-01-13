@@ -23,10 +23,6 @@ public final class DeploymentSku {
      * 
      */
     private @Nullable String family;
-    /**
-     * @return The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-     * 
-     */
     private String name;
     /**
      * @return The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
@@ -34,7 +30,7 @@ public final class DeploymentSku {
      */
     private @Nullable String size;
     /**
-     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String tier;
@@ -54,10 +50,6 @@ public final class DeploymentSku {
     public Optional<String> family() {
         return Optional.ofNullable(this.family);
     }
-    /**
-     * @return The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -69,7 +61,7 @@ public final class DeploymentSku {
         return Optional.ofNullable(this.size);
     }
     /**
-     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> tier() {

@@ -21,16 +21,13 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Family;
-        /// <summary>
-        /// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Size;
         /// <summary>
-        /// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+        /// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Tier;
 

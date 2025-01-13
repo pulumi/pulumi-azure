@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The contact can be imported using the `resource id`, e.g.
+ * Security Center Contacts can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
@@ -113,14 +113,14 @@ public class Contact extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * The name of the Security Center Contact. Defaults to `default1`.
+     * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Security Center Contact. Defaults to `default1`.
+     * @return The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      * 
      */
     public Output<String> name() {

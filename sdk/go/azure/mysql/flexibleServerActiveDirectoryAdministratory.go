@@ -12,14 +12,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Active Directory administrator on a MySQL Flexible Server
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("exampleUAI"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Name:                  pulumi.String("example-mysqlfs"),
+//				ResourceGroupName:     example.Name,
+//				Location:              example.Location,
+//				AdministratorLogin:    pulumi.String("_admin_Terraform_892123456789312"),
+//				AdministratorPassword: pulumi.String("QAZwsx123"),
+//				SkuName:               pulumi.String("B_Standard_B1s"),
+//				Zone:                  pulumi.String("2"),
+//				Identity: &mysql.FlexibleServerIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewFlexibleServerActiveDirectoryAdministratory(ctx, "example", &mysql.FlexibleServerActiveDirectoryAdministratoryArgs{
+//				ServerId:   exampleFlexibleServer.ID(),
+//				IdentityId: exampleUserAssignedIdentity.ID(),
+//				Login:      pulumi.String("sqladmin"),
+//				ObjectId:   pulumi.String(current.ClientId),
+//				TenantId:   pulumi.String(current.TenantId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// A MySQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
+//
+// ```sh
+// $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
+// ```
 type FlexibleServerActiveDirectoryAdministratory struct {
 	pulumi.CustomResourceState
 
+	// The resource ID of the identity used for AAD Authentication.
 	IdentityId pulumi.StringOutput `pulumi:"identityId"`
-	Login      pulumi.StringOutput `pulumi:"login"`
-	ObjectId   pulumi.StringOutput `pulumi:"objectId"`
-	ServerId   pulumi.StringOutput `pulumi:"serverId"`
-	TenantId   pulumi.StringOutput `pulumi:"tenantId"`
+	// The login name of the principal to set as the server administrator
+	Login pulumi.StringOutput `pulumi:"login"`
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+	ObjectId pulumi.StringOutput `pulumi:"objectId"`
+	// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+	ServerId pulumi.StringOutput `pulumi:"serverId"`
+	// The Azure Tenant ID.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
 // NewFlexibleServerActiveDirectoryAdministratory registers a new resource with the given unique name, arguments, and options.
@@ -73,19 +156,29 @@ func GetFlexibleServerActiveDirectoryAdministratory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
 type flexibleServerActiveDirectoryAdministratoryState struct {
+	// The resource ID of the identity used for AAD Authentication.
 	IdentityId *string `pulumi:"identityId"`
-	Login      *string `pulumi:"login"`
-	ObjectId   *string `pulumi:"objectId"`
-	ServerId   *string `pulumi:"serverId"`
-	TenantId   *string `pulumi:"tenantId"`
+	// The login name of the principal to set as the server administrator
+	Login *string `pulumi:"login"`
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+	ObjectId *string `pulumi:"objectId"`
+	// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+	ServerId *string `pulumi:"serverId"`
+	// The Azure Tenant ID.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 type FlexibleServerActiveDirectoryAdministratoryState struct {
+	// The resource ID of the identity used for AAD Authentication.
 	IdentityId pulumi.StringPtrInput
-	Login      pulumi.StringPtrInput
-	ObjectId   pulumi.StringPtrInput
-	ServerId   pulumi.StringPtrInput
-	TenantId   pulumi.StringPtrInput
+	// The login name of the principal to set as the server administrator
+	Login pulumi.StringPtrInput
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+	ObjectId pulumi.StringPtrInput
+	// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+	ServerId pulumi.StringPtrInput
+	// The Azure Tenant ID.
+	TenantId pulumi.StringPtrInput
 }
 
 func (FlexibleServerActiveDirectoryAdministratoryState) ElementType() reflect.Type {
@@ -93,20 +186,30 @@ func (FlexibleServerActiveDirectoryAdministratoryState) ElementType() reflect.Ty
 }
 
 type flexibleServerActiveDirectoryAdministratoryArgs struct {
+	// The resource ID of the identity used for AAD Authentication.
 	IdentityId string `pulumi:"identityId"`
-	Login      string `pulumi:"login"`
-	ObjectId   string `pulumi:"objectId"`
-	ServerId   string `pulumi:"serverId"`
-	TenantId   string `pulumi:"tenantId"`
+	// The login name of the principal to set as the server administrator
+	Login string `pulumi:"login"`
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+	ObjectId string `pulumi:"objectId"`
+	// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+	ServerId string `pulumi:"serverId"`
+	// The Azure Tenant ID.
+	TenantId string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
 type FlexibleServerActiveDirectoryAdministratoryArgs struct {
+	// The resource ID of the identity used for AAD Authentication.
 	IdentityId pulumi.StringInput
-	Login      pulumi.StringInput
-	ObjectId   pulumi.StringInput
-	ServerId   pulumi.StringInput
-	TenantId   pulumi.StringInput
+	// The login name of the principal to set as the server administrator
+	Login pulumi.StringInput
+	// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+	ObjectId pulumi.StringInput
+	// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+	ServerId pulumi.StringInput
+	// The Azure Tenant ID.
+	TenantId pulumi.StringInput
 }
 
 func (FlexibleServerActiveDirectoryAdministratoryArgs) ElementType() reflect.Type {
@@ -196,22 +299,27 @@ func (o FlexibleServerActiveDirectoryAdministratoryOutput) ToFlexibleServerActiv
 	return o
 }
 
+// The resource ID of the identity used for AAD Authentication.
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) IdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerActiveDirectoryAdministratory) pulumi.StringOutput { return v.IdentityId }).(pulumi.StringOutput)
 }
 
+// The login name of the principal to set as the server administrator
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) Login() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerActiveDirectoryAdministratory) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
 }
 
+// The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerActiveDirectoryAdministratory) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
 }
 
+// The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerActiveDirectoryAdministratory) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }
 
+// The Azure Tenant ID.
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerActiveDirectoryAdministratory) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

@@ -166,16 +166,20 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `logging_storage_account` blocks as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     @Import(name="loggingStorageAccounts")
     private @Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts;
 
     /**
-     * @return One or more `logging_storage_account` blocks as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     public Optional<Output<List<DeploymentLoggingStorageAccountArgs>>> loggingStorageAccounts() {
         return Optional.ofNullable(this.loggingStorageAccounts);
     }
@@ -519,32 +523,38 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingStorageAccounts One or more `logging_storage_account` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * 
          */
+        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(@Nullable Output<List<DeploymentLoggingStorageAccountArgs>> loggingStorageAccounts) {
             $.loggingStorageAccounts = loggingStorageAccounts;
             return this;
         }
 
         /**
-         * @param loggingStorageAccounts One or more `logging_storage_account` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * 
          */
+        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(List<DeploymentLoggingStorageAccountArgs> loggingStorageAccounts) {
             return loggingStorageAccounts(Output.of(loggingStorageAccounts));
         }
 
         /**
-         * @param loggingStorageAccounts One or more `logging_storage_account` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
+         * 
          */
+        @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
         public Builder loggingStorageAccounts(DeploymentLoggingStorageAccountArgs... loggingStorageAccounts) {
             return loggingStorageAccounts(List.of(loggingStorageAccounts));
         }

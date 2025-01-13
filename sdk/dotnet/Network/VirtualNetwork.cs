@@ -161,6 +161,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+        /// </summary>
+        [Output("privateEndpointVnetPolicies")]
+        public Output<string?> PrivateEndpointVnetPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -297,6 +303,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+        /// </summary>
+        [Input("privateEndpointVnetPolicies")]
+        public Input<string>? PrivateEndpointVnetPolicies { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -411,6 +423,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+        /// </summary>
+        [Input("privateEndpointVnetPolicies")]
+        public Input<string>? PrivateEndpointVnetPolicies { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.

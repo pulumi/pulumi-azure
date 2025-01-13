@@ -30,6 +30,9 @@ class StaticWebAppArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 repository_branch: Optional[pulumi.Input[str]] = None,
+                 repository_token: Optional[pulumi.Input[str]] = None,
+                 repository_url: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -44,6 +47,9 @@ class StaticWebAppArgs:
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
+        :param pulumi.Input[str] repository_branch: Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        :param pulumi.Input[str] repository_token: Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        :param pulumi.Input[str] repository_url: Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -65,6 +71,12 @@ class StaticWebAppArgs:
             pulumi.set(__self__, "preview_environments_enabled", preview_environments_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if repository_branch is not None:
+            pulumi.set(__self__, "repository_branch", repository_branch)
+        if repository_token is not None:
+            pulumi.set(__self__, "repository_token", repository_token)
+        if repository_url is not None:
+            pulumi.set(__self__, "repository_url", repository_url)
         if sku_size is not None:
             pulumi.set(__self__, "sku_size", sku_size)
         if sku_tier is not None:
@@ -181,6 +193,42 @@ class StaticWebAppArgs:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="repositoryBranch")
+    def repository_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        """
+        return pulumi.get(self, "repository_branch")
+
+    @repository_branch.setter
+    def repository_branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_branch", value)
+
+    @property
+    @pulumi.getter(name="repositoryToken")
+    def repository_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        """
+        return pulumi.get(self, "repository_token")
+
+    @repository_token.setter
+    def repository_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_token", value)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
     @pulumi.getter(name="skuSize")
     def sku_size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -230,6 +278,9 @@ class _StaticWebAppState:
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 repository_branch: Optional[pulumi.Input[str]] = None,
+                 repository_token: Optional[pulumi.Input[str]] = None,
+                 repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -246,6 +297,9 @@ class _StaticWebAppState:
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
+        :param pulumi.Input[str] repository_branch: Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        :param pulumi.Input[str] repository_token: Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        :param pulumi.Input[str] repository_url: Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -271,6 +325,12 @@ class _StaticWebAppState:
             pulumi.set(__self__, "preview_environments_enabled", preview_environments_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if repository_branch is not None:
+            pulumi.set(__self__, "repository_branch", repository_branch)
+        if repository_token is not None:
+            pulumi.set(__self__, "repository_token", repository_token)
+        if repository_url is not None:
+            pulumi.set(__self__, "repository_url", repository_url)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_size is not None:
@@ -401,6 +461,42 @@ class _StaticWebAppState:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="repositoryBranch")
+    def repository_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        """
+        return pulumi.get(self, "repository_branch")
+
+    @repository_branch.setter
+    def repository_branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_branch", value)
+
+    @property
+    @pulumi.getter(name="repositoryToken")
+    def repository_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        """
+        return pulumi.get(self, "repository_token")
+
+    @repository_token.setter
+    def repository_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_token", value)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -462,6 +558,9 @@ class StaticWebApp(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 repository_branch: Optional[pulumi.Input[str]] = None,
+                 repository_token: Optional[pulumi.Input[str]] = None,
+                 repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -503,6 +602,9 @@ class StaticWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
+        :param pulumi.Input[str] repository_branch: Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        :param pulumi.Input[str] repository_token: Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        :param pulumi.Input[str] repository_url: Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -563,6 +665,9 @@ class StaticWebApp(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 repository_branch: Optional[pulumi.Input[str]] = None,
+                 repository_token: Optional[pulumi.Input[str]] = None,
+                 repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
@@ -584,6 +689,9 @@ class StaticWebApp(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["preview_environments_enabled"] = preview_environments_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+            __props__.__dict__["repository_branch"] = repository_branch
+            __props__.__dict__["repository_token"] = None if repository_token is None else pulumi.Output.secret(repository_token)
+            __props__.__dict__["repository_url"] = repository_url
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -592,7 +700,7 @@ class StaticWebApp(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["api_key"] = None
             __props__.__dict__["default_host_name"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "basicAuth"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "basicAuth", "repositoryToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StaticWebApp, __self__).__init__(
             'azure:appservice/staticWebApp:StaticWebApp',
@@ -614,6 +722,9 @@ class StaticWebApp(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            repository_branch: Optional[pulumi.Input[str]] = None,
+            repository_token: Optional[pulumi.Input[str]] = None,
+            repository_url: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_size: Optional[pulumi.Input[str]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
@@ -635,6 +746,9 @@ class StaticWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Static Web App. Defaults to `true`.
+        :param pulumi.Input[str] repository_branch: Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        :param pulumi.Input[str] repository_token: Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        :param pulumi.Input[str] repository_url: Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] sku_size: Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -654,6 +768,9 @@ class StaticWebApp(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["preview_environments_enabled"] = preview_environments_enabled
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["repository_branch"] = repository_branch
+        __props__.__dict__["repository_token"] = repository_token
+        __props__.__dict__["repository_url"] = repository_url
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_size"] = sku_size
         __props__.__dict__["sku_tier"] = sku_tier
@@ -739,6 +856,30 @@ class StaticWebApp(pulumi.CustomResource):
         Should public network access be enabled for the Static Web App. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="repositoryBranch")
+    def repository_branch(self) -> pulumi.Output[Optional[str]]:
+        """
+        Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        """
+        return pulumi.get(self, "repository_branch")
+
+    @property
+    @pulumi.getter(name="repositoryToken")
+    def repository_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        """
+        return pulumi.get(self, "repository_token")
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        """
+        return pulumi.get(self, "repository_url")
 
     @property
     @pulumi.getter(name="resourceGroupName")

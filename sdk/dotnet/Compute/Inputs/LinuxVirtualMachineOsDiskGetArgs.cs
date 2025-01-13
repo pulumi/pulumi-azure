@@ -43,6 +43,12 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
+        /// The ID of the OS disk.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]

@@ -4956,11 +4956,13 @@ type FrontdoorCustomDomainTls struct {
 	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	//
-	// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+	// ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 	CertificateType *string `pulumi:"certificateType"`
-	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+	// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 	//
-	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+	// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+	//
+	// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 }
 
@@ -4980,11 +4982,13 @@ type FrontdoorCustomDomainTlsArgs struct {
 	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	//
-	// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+	// ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
-	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+	// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 	//
-	// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+	// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+	//
+	// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
 	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
 }
 
@@ -5072,14 +5076,16 @@ func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrO
 
 // Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 //
-// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+// ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 func (o FrontdoorCustomDomainTlsOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
 
-// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 //
-// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+//
+// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
 func (o FrontdoorCustomDomainTlsOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -5120,7 +5126,7 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringP
 
 // Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 //
-// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+// ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5130,9 +5136,11 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 //
-// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+//
+// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
 func (o FrontdoorCustomDomainTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5455,7 +5463,7 @@ type FrontdoorFirewallPolicyManagedRule struct {
 	Overrides []FrontdoorFirewallPolicyManagedRuleOverride `pulumi:"overrides"`
 	// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 	Type string `pulumi:"type"`
-	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
 	Version string `pulumi:"version"`
 }
 
@@ -5479,7 +5487,7 @@ type FrontdoorFirewallPolicyManagedRuleArgs struct {
 	Overrides FrontdoorFirewallPolicyManagedRuleOverrideArrayInput `pulumi:"overrides"`
 	// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -5558,7 +5566,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
 func (o FrontdoorFirewallPolicyManagedRuleOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -6799,6 +6807,192 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.TargetType
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorProfileIdentity struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// FrontdoorProfileIdentityInput is an input type that accepts FrontdoorProfileIdentityArgs and FrontdoorProfileIdentityOutput values.
+// You can construct a concrete instance of `FrontdoorProfileIdentityInput` via:
+//
+//	FrontdoorProfileIdentityArgs{...}
+type FrontdoorProfileIdentityInput interface {
+	pulumi.Input
+
+	ToFrontdoorProfileIdentityOutput() FrontdoorProfileIdentityOutput
+	ToFrontdoorProfileIdentityOutputWithContext(context.Context) FrontdoorProfileIdentityOutput
+}
+
+type FrontdoorProfileIdentityArgs struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FrontdoorProfileIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (i FrontdoorProfileIdentityArgs) ToFrontdoorProfileIdentityOutput() FrontdoorProfileIdentityOutput {
+	return i.ToFrontdoorProfileIdentityOutputWithContext(context.Background())
+}
+
+func (i FrontdoorProfileIdentityArgs) ToFrontdoorProfileIdentityOutputWithContext(ctx context.Context) FrontdoorProfileIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileIdentityOutput)
+}
+
+func (i FrontdoorProfileIdentityArgs) ToFrontdoorProfileIdentityPtrOutput() FrontdoorProfileIdentityPtrOutput {
+	return i.ToFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorProfileIdentityArgs) ToFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) FrontdoorProfileIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileIdentityOutput).ToFrontdoorProfileIdentityPtrOutputWithContext(ctx)
+}
+
+// FrontdoorProfileIdentityPtrInput is an input type that accepts FrontdoorProfileIdentityArgs, FrontdoorProfileIdentityPtr and FrontdoorProfileIdentityPtrOutput values.
+// You can construct a concrete instance of `FrontdoorProfileIdentityPtrInput` via:
+//
+//	        FrontdoorProfileIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorProfileIdentityPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorProfileIdentityPtrOutput() FrontdoorProfileIdentityPtrOutput
+	ToFrontdoorProfileIdentityPtrOutputWithContext(context.Context) FrontdoorProfileIdentityPtrOutput
+}
+
+type frontdoorProfileIdentityPtrType FrontdoorProfileIdentityArgs
+
+func FrontdoorProfileIdentityPtr(v *FrontdoorProfileIdentityArgs) FrontdoorProfileIdentityPtrInput {
+	return (*frontdoorProfileIdentityPtrType)(v)
+}
+
+func (*frontdoorProfileIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (i *frontdoorProfileIdentityPtrType) ToFrontdoorProfileIdentityPtrOutput() FrontdoorProfileIdentityPtrOutput {
+	return i.ToFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorProfileIdentityPtrType) ToFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) FrontdoorProfileIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileIdentityPtrOutput)
+}
+
+type FrontdoorProfileIdentityOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorProfileIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (o FrontdoorProfileIdentityOutput) ToFrontdoorProfileIdentityOutput() FrontdoorProfileIdentityOutput {
+	return o
+}
+
+func (o FrontdoorProfileIdentityOutput) ToFrontdoorProfileIdentityOutputWithContext(ctx context.Context) FrontdoorProfileIdentityOutput {
+	return o
+}
+
+func (o FrontdoorProfileIdentityOutput) ToFrontdoorProfileIdentityPtrOutput() FrontdoorProfileIdentityPtrOutput {
+	return o.ToFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorProfileIdentityOutput) ToFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) FrontdoorProfileIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorProfileIdentity) *FrontdoorProfileIdentity {
+		return &v
+	}).(FrontdoorProfileIdentityPtrOutput)
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o FrontdoorProfileIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorProfileIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorProfileIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorProfileIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o FrontdoorProfileIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorProfileIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o FrontdoorProfileIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorProfileIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FrontdoorProfileIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorProfileIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (o FrontdoorProfileIdentityPtrOutput) ToFrontdoorProfileIdentityPtrOutput() FrontdoorProfileIdentityPtrOutput {
+	return o
+}
+
+func (o FrontdoorProfileIdentityPtrOutput) ToFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) FrontdoorProfileIdentityPtrOutput {
+	return o
+}
+
+func (o FrontdoorProfileIdentityPtrOutput) Elem() FrontdoorProfileIdentityOutput {
+	return o.ApplyT(func(v *FrontdoorProfileIdentity) FrontdoorProfileIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorProfileIdentity
+		return ret
+	}).(FrontdoorProfileIdentityOutput)
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o FrontdoorProfileIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorProfileIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorProfileIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorProfileIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FrontdoorProfileIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorProfileIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o FrontdoorProfileIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorProfileIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12176,6 +12370,192 @@ func (o GetFrontdoorOriginGroupLoadBalancingArrayOutput) Index(i pulumi.IntInput
 	}).(GetFrontdoorOriginGroupLoadBalancingOutput)
 }
 
+type GetFrontdoorProfileIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Front Door Profile.
+	Type string `pulumi:"type"`
+}
+
+// GetFrontdoorProfileIdentityInput is an input type that accepts GetFrontdoorProfileIdentityArgs and GetFrontdoorProfileIdentityOutput values.
+// You can construct a concrete instance of `GetFrontdoorProfileIdentityInput` via:
+//
+//	GetFrontdoorProfileIdentityArgs{...}
+type GetFrontdoorProfileIdentityInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorProfileIdentityOutput() GetFrontdoorProfileIdentityOutput
+	ToGetFrontdoorProfileIdentityOutputWithContext(context.Context) GetFrontdoorProfileIdentityOutput
+}
+
+type GetFrontdoorProfileIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Front Door Profile.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFrontdoorProfileIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityOutput() GetFrontdoorProfileIdentityOutput {
+	return i.ToGetFrontdoorProfileIdentityOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileIdentityOutput)
+}
+
+func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
+	return i.ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileIdentityOutput).ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx)
+}
+
+// GetFrontdoorProfileIdentityPtrInput is an input type that accepts GetFrontdoorProfileIdentityArgs, GetFrontdoorProfileIdentityPtr and GetFrontdoorProfileIdentityPtrOutput values.
+// You can construct a concrete instance of `GetFrontdoorProfileIdentityPtrInput` via:
+//
+//	        GetFrontdoorProfileIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFrontdoorProfileIdentityPtrInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput
+	ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Context) GetFrontdoorProfileIdentityPtrOutput
+}
+
+type getFrontdoorProfileIdentityPtrType GetFrontdoorProfileIdentityArgs
+
+func GetFrontdoorProfileIdentityPtr(v *GetFrontdoorProfileIdentityArgs) GetFrontdoorProfileIdentityPtrInput {
+	return (*getFrontdoorProfileIdentityPtrType)(v)
+}
+
+func (*getFrontdoorProfileIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (i *getFrontdoorProfileIdentityPtrType) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
+	return i.ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *getFrontdoorProfileIdentityPtrType) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileIdentityPtrOutput)
+}
+
+type GetFrontdoorProfileIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorProfileIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityOutput() GetFrontdoorProfileIdentityOutput {
+	return o
+}
+
+func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityOutput {
+	return o
+}
+
+func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
+	return o.ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFrontdoorProfileIdentity) *GetFrontdoorProfileIdentity {
+		return &v
+	}).(GetFrontdoorProfileIdentityPtrOutput)
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+func (o GetFrontdoorProfileIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorProfileIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFrontdoorProfileIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorProfileIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetFrontdoorProfileIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorProfileIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Front Door Profile.
+func (o GetFrontdoorProfileIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorProfileIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFrontdoorProfileIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorProfileIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFrontdoorProfileIdentity)(nil)).Elem()
+}
+
+func (o GetFrontdoorProfileIdentityPtrOutput) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
+	return o
+}
+
+func (o GetFrontdoorProfileIdentityPtrOutput) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
+	return o
+}
+
+func (o GetFrontdoorProfileIdentityPtrOutput) Elem() GetFrontdoorProfileIdentityOutput {
+	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) GetFrontdoorProfileIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GetFrontdoorProfileIdentity
+		return ret
+	}).(GetFrontdoorProfileIdentityOutput)
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+func (o GetFrontdoorProfileIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetFrontdoorProfileIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetFrontdoorProfileIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Front Door Profile.
+func (o GetFrontdoorProfileIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetFrontdoorSecretSecret struct {
 	// A `customerCertificate` block as defined below.
 	CustomerCertificates []GetFrontdoorSecretSecretCustomerCertificate `pulumi:"customerCertificates"`
@@ -12479,6 +12859,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingPtrInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkPtrInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorProfileIdentityInput)(nil)).Elem(), FrontdoorProfileIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorProfileIdentityPtrInput)(nil)).Elem(), FrontdoorProfileIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRouteCacheInput)(nil)).Elem(), FrontdoorRouteCacheArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRouteCachePtrInput)(nil)).Elem(), FrontdoorRouteCacheArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsInput)(nil)).Elem(), FrontdoorRuleActionsArgs{})
@@ -12551,6 +12933,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorProfileIdentityInput)(nil)).Elem(), GetFrontdoorProfileIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorProfileIdentityPtrInput)(nil)).Elem(), GetFrontdoorProfileIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretInput)(nil)).Elem(), GetFrontdoorSecretSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretArrayInput)(nil)).Elem(), GetFrontdoorSecretSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificateInput)(nil)).Elem(), GetFrontdoorSecretSecretCustomerCertificateArgs{})
@@ -12643,6 +13027,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorProfileIdentityOutput{})
+	pulumi.RegisterOutputType(FrontdoorProfileIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRouteCacheOutput{})
 	pulumi.RegisterOutputType(FrontdoorRouteCachePtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRuleActionsOutput{})
@@ -12715,6 +13101,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorProfileIdentityOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorProfileIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretCustomerCertificateOutput{})

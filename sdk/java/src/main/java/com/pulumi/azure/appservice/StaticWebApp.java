@@ -218,6 +218,48 @@ public class StaticWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
+     * Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * 
+     */
+    @Export(name="repositoryBranch", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> repositoryBranch;
+
+    /**
+     * @return Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * 
+     */
+    public Output<Optional<String>> repositoryBranch() {
+        return Codegen.optional(this.repositoryBranch);
+    }
+    /**
+     * Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * 
+     */
+    @Export(name="repositoryToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> repositoryToken;
+
+    /**
+     * @return Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * 
+     */
+    public Output<Optional<String>> repositoryToken() {
+        return Codegen.optional(this.repositoryToken);
+    }
+    /**
+     * Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * 
+     */
+    @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> repositoryUrl;
+
+    /**
+     * @return Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * 
+     */
+    public Output<Optional<String>> repositoryUrl() {
+        return Codegen.optional(this.repositoryUrl);
+    }
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      * 
      */
@@ -315,7 +357,8 @@ public class StaticWebApp extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "apiKey",
-                "basicAuth"
+                "basicAuth",
+                "repositoryToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

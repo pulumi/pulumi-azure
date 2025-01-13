@@ -31,7 +31,7 @@ public final class AccessConnectorIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
      * 
      */
     private String type;
@@ -61,7 +61,7 @@ public final class AccessConnectorIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
      * 
      */
     public String type() {

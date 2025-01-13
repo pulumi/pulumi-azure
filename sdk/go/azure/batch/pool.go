@@ -198,6 +198,8 @@ type Pool struct {
 	OsDiskPlacement pulumi.StringPtrOutput `pulumi:"osDiskPlacement"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+	SecurityProfile PoolSecurityProfilePtrOutput `pulumi:"securityProfile"`
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask PoolStartTaskPtrOutput `pulumi:"startTask"`
 	// Whether to stop if there is a pending resize operation on this pool.
@@ -307,6 +309,8 @@ type poolState struct {
 	OsDiskPlacement *string `pulumi:"osDiskPlacement"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+	SecurityProfile *PoolSecurityProfile `pulumi:"securityProfile"`
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask *PoolStartTask `pulumi:"startTask"`
 	// Whether to stop if there is a pending resize operation on this pool.
@@ -372,6 +376,8 @@ type PoolState struct {
 	OsDiskPlacement pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+	SecurityProfile PoolSecurityProfilePtrInput
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask PoolStartTaskPtrInput
 	// Whether to stop if there is a pending resize operation on this pool.
@@ -441,6 +447,8 @@ type poolArgs struct {
 	OsDiskPlacement *string `pulumi:"osDiskPlacement"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+	SecurityProfile *PoolSecurityProfile `pulumi:"securityProfile"`
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask *PoolStartTask `pulumi:"startTask"`
 	// Whether to stop if there is a pending resize operation on this pool.
@@ -507,6 +515,8 @@ type PoolArgs struct {
 	OsDiskPlacement pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+	SecurityProfile PoolSecurityProfilePtrInput
 	// A `startTask` block that describes the start task settings for the Batch pool as defined below.
 	StartTask PoolStartTaskPtrInput
 	// Whether to stop if there is a pending resize operation on this pool.
@@ -719,6 +729,11 @@ func (o PoolOutput) OsDiskPlacement() pulumi.StringPtrOutput {
 // The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+func (o PoolOutput) SecurityProfile() PoolSecurityProfilePtrOutput {
+	return o.ApplyT(func(v *Pool) PoolSecurityProfilePtrOutput { return v.SecurityProfile }).(PoolSecurityProfilePtrOutput)
 }
 
 // A `startTask` block that describes the start task settings for the Batch pool as defined below.

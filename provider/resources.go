@@ -591,6 +591,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		IgnoreMappings: []string{
+			"azurerm_network_packet_capture",
 			// was replaced by azurerm_virtual_machine_restore_point_collection which is identical
 			// except for the name, see https://github.com/hashicorp/terraform-provider-azurerm/pull/26526
 			"azurerm_restore_point_collection",
@@ -1864,8 +1865,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_firewall_application_rule_collection":  {Tok: azureResource(azureNetwork, "FirewallApplicationRuleCollection")},
 			"azurerm_firewall_nat_rule_collection":          {Tok: azureResource(azureNetwork, "FirewallNatRuleCollection")},
 			"azurerm_firewall_network_rule_collection":      {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
-			"azurerm_network_connection_monitor":            {Tok: azureResource(azureNetwork, "NetworkConnectionMonitor")},
-			"azurerm_network_ddos_protection_plan":          {Tok: azureResource(azureNetwork, "DdosProtectionPlan")},
+
+			"azurerm_network_connection_monitor":   {Tok: azureResource(azureNetwork, "NetworkConnectionMonitor")},
+			"azurerm_network_ddos_protection_plan": {Tok: azureResource(azureNetwork, "DdosProtectionPlan")},
 			"azurerm_network_interface": {
 				Tok: azureResource(azureNetwork, "NetworkInterface"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1913,8 +1915,9 @@ func Provider() tfbridge.ProviderInfo {
 					"destination_application_security_group_ids": {MaxItemsOne: ref(true)},
 				},
 			},
-			"azurerm_network_watcher":                              {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_network_watcher_flow_log":                     {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+			"azurerm_network_watcher":          {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_network_watcher_flow_log": {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+
 			"azurerm_network_manager":                              {Tok: azureResource(azureNetwork, "NetworkManager")},
 			"azurerm_network_manager_deployment":                   {Tok: azureResource(azureNetwork, "NetworkManagerDeployment")},
 			"azurerm_network_manager_network_group":                {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},

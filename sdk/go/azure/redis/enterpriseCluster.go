@@ -66,12 +66,14 @@ type EnterpriseCluster struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
+	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E1`, `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -120,12 +122,14 @@ type enterpriseClusterState struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
+	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E1`, `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -139,12 +143,14 @@ type EnterpriseClusterState struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
+	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E1`, `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapInput
@@ -160,12 +166,14 @@ type enterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
+	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E1`, `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -178,12 +186,14 @@ type EnterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	ResourceGroupName pulumi.StringInput
-	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
+	// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E1`, `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Redis Enterprise Cluster.
 	Tags pulumi.StringMapInput
@@ -289,6 +299,8 @@ func (o EnterpriseClusterOutput) Location() pulumi.StringOutput {
 }
 
 // The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+//
+// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o EnterpriseClusterOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseCluster) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -303,7 +315,7 @@ func (o EnterpriseClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseCluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
+// The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E1`, `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
 func (o EnterpriseClusterOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseCluster) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

@@ -139,6 +139,12 @@ namespace Pulumi.Azure.Nginx
         public Output<int?> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// The dataplane API endpoint of the NGINX Deployment.
+        /// </summary>
+        [Output("dataplaneApiEndpoint")]
+        public Output<string> DataplaneApiEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Should the metrics be exported to Azure Monitor?
         /// </summary>
         [Output("diagnoseSupportEnabled")]
@@ -169,7 +175,7 @@ namespace Pulumi.Azure.Nginx
         public Output<Outputs.DeploymentIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address of the deployment.
+        /// The IP address of the NGINX Deployment.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -180,9 +186,6 @@ namespace Pulumi.Azure.Nginx
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more `logging_storage_account` blocks as defined below.
-        /// </summary>
         [Output("loggingStorageAccounts")]
         public Output<ImmutableArray<Outputs.DeploymentLoggingStorageAccount>> LoggingStorageAccounts { get; private set; } = null!;
 
@@ -202,7 +205,7 @@ namespace Pulumi.Azure.Nginx
         public Output<ImmutableArray<Outputs.DeploymentNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// The version of deployed NGINX.
+        /// The version of the NGINX Deployment.
         /// </summary>
         [Output("nginxVersion")]
         public Output<string> NginxVersion { get; private set; } = null!;
@@ -338,10 +341,7 @@ namespace Pulumi.Azure.Nginx
 
         [Input("loggingStorageAccounts")]
         private InputList<Inputs.DeploymentLoggingStorageAccountArgs>? _loggingStorageAccounts;
-
-        /// <summary>
-        /// One or more `logging_storage_account` blocks as defined below.
-        /// </summary>
+        [Obsolete(@"The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
         public InputList<Inputs.DeploymentLoggingStorageAccountArgs> LoggingStorageAccounts
         {
             get => _loggingStorageAccounts ?? (_loggingStorageAccounts = new InputList<Inputs.DeploymentLoggingStorageAccountArgs>());
@@ -425,6 +425,12 @@ namespace Pulumi.Azure.Nginx
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// The dataplane API endpoint of the NGINX Deployment.
+        /// </summary>
+        [Input("dataplaneApiEndpoint")]
+        public Input<string>? DataplaneApiEndpoint { get; set; }
+
+        /// <summary>
         /// Should the metrics be exported to Azure Monitor?
         /// </summary>
         [Input("diagnoseSupportEnabled")]
@@ -461,7 +467,7 @@ namespace Pulumi.Azure.Nginx
         public Input<Inputs.DeploymentIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The IP address of the deployment.
+        /// The IP address of the NGINX Deployment.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
@@ -474,10 +480,7 @@ namespace Pulumi.Azure.Nginx
 
         [Input("loggingStorageAccounts")]
         private InputList<Inputs.DeploymentLoggingStorageAccountGetArgs>? _loggingStorageAccounts;
-
-        /// <summary>
-        /// One or more `logging_storage_account` blocks as defined below.
-        /// </summary>
+        [Obsolete(@"The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
         public InputList<Inputs.DeploymentLoggingStorageAccountGetArgs> LoggingStorageAccounts
         {
             get => _loggingStorageAccounts ?? (_loggingStorageAccounts = new InputList<Inputs.DeploymentLoggingStorageAccountGetArgs>());
@@ -506,7 +509,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// The version of deployed NGINX.
+        /// The version of the NGINX Deployment.
         /// </summary>
         [Input("nginxVersion")]
         public Input<string>? NginxVersion { get; set; }

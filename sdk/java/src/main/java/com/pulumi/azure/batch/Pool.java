@@ -17,6 +17,7 @@ import com.pulumi.azure.batch.outputs.PoolIdentity;
 import com.pulumi.azure.batch.outputs.PoolMount;
 import com.pulumi.azure.batch.outputs.PoolNetworkConfiguration;
 import com.pulumi.azure.batch.outputs.PoolNodePlacement;
+import com.pulumi.azure.batch.outputs.PoolSecurityProfile;
 import com.pulumi.azure.batch.outputs.PoolStartTask;
 import com.pulumi.azure.batch.outputs.PoolStorageImageReference;
 import com.pulumi.azure.batch.outputs.PoolTaskSchedulingPolicy;
@@ -471,6 +472,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="securityProfile", refs={PoolSecurityProfile.class}, tree="[0]")
+    private Output</* @Nullable */ PoolSecurityProfile> securityProfile;
+
+    /**
+     * @return A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<PoolSecurityProfile>> securityProfile() {
+        return Codegen.optional(this.securityProfile);
     }
     /**
      * A `start_task` block that describes the start task settings for the Batch pool as defined below.

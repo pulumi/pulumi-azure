@@ -55,6 +55,16 @@ export type WorkspaceNetworkOutboundRuleFqdn = import("./workspaceNetworkOutboun
 export const WorkspaceNetworkOutboundRuleFqdn: typeof import("./workspaceNetworkOutboundRuleFqdn").WorkspaceNetworkOutboundRuleFqdn = null as any;
 utilities.lazyLoad(exports, ["WorkspaceNetworkOutboundRuleFqdn"], () => require("./workspaceNetworkOutboundRuleFqdn"));
 
+export { WorkspaceNetworkOutboundRulePrivateEndpointArgs, WorkspaceNetworkOutboundRulePrivateEndpointState } from "./workspaceNetworkOutboundRulePrivateEndpoint";
+export type WorkspaceNetworkOutboundRulePrivateEndpoint = import("./workspaceNetworkOutboundRulePrivateEndpoint").WorkspaceNetworkOutboundRulePrivateEndpoint;
+export const WorkspaceNetworkOutboundRulePrivateEndpoint: typeof import("./workspaceNetworkOutboundRulePrivateEndpoint").WorkspaceNetworkOutboundRulePrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNetworkOutboundRulePrivateEndpoint"], () => require("./workspaceNetworkOutboundRulePrivateEndpoint"));
+
+export { WorkspaceNetworkOutboundRuleServiceTagArgs, WorkspaceNetworkOutboundRuleServiceTagState } from "./workspaceNetworkOutboundRuleServiceTag";
+export type WorkspaceNetworkOutboundRuleServiceTag = import("./workspaceNetworkOutboundRuleServiceTag").WorkspaceNetworkOutboundRuleServiceTag;
+export const WorkspaceNetworkOutboundRuleServiceTag: typeof import("./workspaceNetworkOutboundRuleServiceTag").WorkspaceNetworkOutboundRuleServiceTag = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNetworkOutboundRuleServiceTag"], () => require("./workspaceNetworkOutboundRuleServiceTag"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -78,6 +88,10 @@ const _module = {
                 return new Workspace(name, <any>undefined, { urn })
             case "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn":
                 return new WorkspaceNetworkOutboundRuleFqdn(name, <any>undefined, { urn })
+            case "azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint":
+                return new WorkspaceNetworkOutboundRulePrivateEndpoint(name, <any>undefined, { urn })
+            case "azure:machinelearning/workspaceNetworkOutboundRuleServiceTag:WorkspaceNetworkOutboundRuleServiceTag":
+                return new WorkspaceNetworkOutboundRuleServiceTag(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -92,3 +106,5 @@ pulumi.runtime.registerResourceModule("azure", "machinelearning/inferenceCluster
 pulumi.runtime.registerResourceModule("azure", "machinelearning/synapseSpark", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspaceNetworkOutboundRuleFqdn", _module)
+pulumi.runtime.registerResourceModule("azure", "machinelearning/workspaceNetworkOutboundRulePrivateEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "machinelearning/workspaceNetworkOutboundRuleServiceTag", _module)

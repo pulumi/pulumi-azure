@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDeploymentLoggingStorageAccount {
-    /**
-     * @return The container name of Storage Account for logging.
-     * 
-     */
     private String containerName;
     /**
      * @return The name of this NGINX Deployment.
@@ -22,10 +18,6 @@ public final class GetDeploymentLoggingStorageAccount {
     private String name;
 
     private GetDeploymentLoggingStorageAccount() {}
-    /**
-     * @return The container name of Storage Account for logging.
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }

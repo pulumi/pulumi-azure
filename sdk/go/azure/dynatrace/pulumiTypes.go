@@ -587,6 +587,567 @@ func (o MonitorUserPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagRulesLogRule struct {
+	// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+	FilteringTags []TagRulesLogRuleFilteringTag `pulumi:"filteringTags"`
+	// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+	SendActivityLogsEnabled *bool `pulumi:"sendActivityLogsEnabled"`
+	// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+	SendAzureActiveDirectoryLogsEnabled *bool `pulumi:"sendAzureActiveDirectoryLogsEnabled"`
+	// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+	SendSubscriptionLogsEnabled *bool `pulumi:"sendSubscriptionLogsEnabled"`
+}
+
+// TagRulesLogRuleInput is an input type that accepts TagRulesLogRuleArgs and TagRulesLogRuleOutput values.
+// You can construct a concrete instance of `TagRulesLogRuleInput` via:
+//
+//	TagRulesLogRuleArgs{...}
+type TagRulesLogRuleInput interface {
+	pulumi.Input
+
+	ToTagRulesLogRuleOutput() TagRulesLogRuleOutput
+	ToTagRulesLogRuleOutputWithContext(context.Context) TagRulesLogRuleOutput
+}
+
+type TagRulesLogRuleArgs struct {
+	// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+	FilteringTags TagRulesLogRuleFilteringTagArrayInput `pulumi:"filteringTags"`
+	// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+	SendActivityLogsEnabled pulumi.BoolPtrInput `pulumi:"sendActivityLogsEnabled"`
+	// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+	SendAzureActiveDirectoryLogsEnabled pulumi.BoolPtrInput `pulumi:"sendAzureActiveDirectoryLogsEnabled"`
+	// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+	SendSubscriptionLogsEnabled pulumi.BoolPtrInput `pulumi:"sendSubscriptionLogsEnabled"`
+}
+
+func (TagRulesLogRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesLogRule)(nil)).Elem()
+}
+
+func (i TagRulesLogRuleArgs) ToTagRulesLogRuleOutput() TagRulesLogRuleOutput {
+	return i.ToTagRulesLogRuleOutputWithContext(context.Background())
+}
+
+func (i TagRulesLogRuleArgs) ToTagRulesLogRuleOutputWithContext(ctx context.Context) TagRulesLogRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesLogRuleOutput)
+}
+
+func (i TagRulesLogRuleArgs) ToTagRulesLogRulePtrOutput() TagRulesLogRulePtrOutput {
+	return i.ToTagRulesLogRulePtrOutputWithContext(context.Background())
+}
+
+func (i TagRulesLogRuleArgs) ToTagRulesLogRulePtrOutputWithContext(ctx context.Context) TagRulesLogRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesLogRuleOutput).ToTagRulesLogRulePtrOutputWithContext(ctx)
+}
+
+// TagRulesLogRulePtrInput is an input type that accepts TagRulesLogRuleArgs, TagRulesLogRulePtr and TagRulesLogRulePtrOutput values.
+// You can construct a concrete instance of `TagRulesLogRulePtrInput` via:
+//
+//	        TagRulesLogRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagRulesLogRulePtrInput interface {
+	pulumi.Input
+
+	ToTagRulesLogRulePtrOutput() TagRulesLogRulePtrOutput
+	ToTagRulesLogRulePtrOutputWithContext(context.Context) TagRulesLogRulePtrOutput
+}
+
+type tagRulesLogRulePtrType TagRulesLogRuleArgs
+
+func TagRulesLogRulePtr(v *TagRulesLogRuleArgs) TagRulesLogRulePtrInput {
+	return (*tagRulesLogRulePtrType)(v)
+}
+
+func (*tagRulesLogRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagRulesLogRule)(nil)).Elem()
+}
+
+func (i *tagRulesLogRulePtrType) ToTagRulesLogRulePtrOutput() TagRulesLogRulePtrOutput {
+	return i.ToTagRulesLogRulePtrOutputWithContext(context.Background())
+}
+
+func (i *tagRulesLogRulePtrType) ToTagRulesLogRulePtrOutputWithContext(ctx context.Context) TagRulesLogRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesLogRulePtrOutput)
+}
+
+type TagRulesLogRuleOutput struct{ *pulumi.OutputState }
+
+func (TagRulesLogRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesLogRule)(nil)).Elem()
+}
+
+func (o TagRulesLogRuleOutput) ToTagRulesLogRuleOutput() TagRulesLogRuleOutput {
+	return o
+}
+
+func (o TagRulesLogRuleOutput) ToTagRulesLogRuleOutputWithContext(ctx context.Context) TagRulesLogRuleOutput {
+	return o
+}
+
+func (o TagRulesLogRuleOutput) ToTagRulesLogRulePtrOutput() TagRulesLogRulePtrOutput {
+	return o.ToTagRulesLogRulePtrOutputWithContext(context.Background())
+}
+
+func (o TagRulesLogRuleOutput) ToTagRulesLogRulePtrOutputWithContext(ctx context.Context) TagRulesLogRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagRulesLogRule) *TagRulesLogRule {
+		return &v
+	}).(TagRulesLogRulePtrOutput)
+}
+
+// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleOutput) FilteringTags() TagRulesLogRuleFilteringTagArrayOutput {
+	return o.ApplyT(func(v TagRulesLogRule) []TagRulesLogRuleFilteringTag { return v.FilteringTags }).(TagRulesLogRuleFilteringTagArrayOutput)
+}
+
+// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleOutput) SendActivityLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagRulesLogRule) *bool { return v.SendActivityLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleOutput) SendAzureActiveDirectoryLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagRulesLogRule) *bool { return v.SendAzureActiveDirectoryLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleOutput) SendSubscriptionLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TagRulesLogRule) *bool { return v.SendSubscriptionLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type TagRulesLogRulePtrOutput struct{ *pulumi.OutputState }
+
+func (TagRulesLogRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagRulesLogRule)(nil)).Elem()
+}
+
+func (o TagRulesLogRulePtrOutput) ToTagRulesLogRulePtrOutput() TagRulesLogRulePtrOutput {
+	return o
+}
+
+func (o TagRulesLogRulePtrOutput) ToTagRulesLogRulePtrOutputWithContext(ctx context.Context) TagRulesLogRulePtrOutput {
+	return o
+}
+
+func (o TagRulesLogRulePtrOutput) Elem() TagRulesLogRuleOutput {
+	return o.ApplyT(func(v *TagRulesLogRule) TagRulesLogRule {
+		if v != nil {
+			return *v
+		}
+		var ret TagRulesLogRule
+		return ret
+	}).(TagRulesLogRuleOutput)
+}
+
+// Filtering tag for the log rule. A `filteringTag` block as defined below. Changing this forces a new resource to be created.
+func (o TagRulesLogRulePtrOutput) FilteringTags() TagRulesLogRuleFilteringTagArrayOutput {
+	return o.ApplyT(func(v *TagRulesLogRule) []TagRulesLogRuleFilteringTag {
+		if v == nil {
+			return nil
+		}
+		return v.FilteringTags
+	}).(TagRulesLogRuleFilteringTagArrayOutput)
+}
+
+// Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+func (o TagRulesLogRulePtrOutput) SendActivityLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagRulesLogRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendActivityLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+func (o TagRulesLogRulePtrOutput) SendAzureActiveDirectoryLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagRulesLogRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendAzureActiveDirectoryLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+func (o TagRulesLogRulePtrOutput) SendSubscriptionLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagRulesLogRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendSubscriptionLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type TagRulesLogRuleFilteringTag struct {
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	Action string `pulumi:"action"`
+	// Name of the filtering tag. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Value of the filtering tag. Changing this forces a new resource to be created.
+	Value string `pulumi:"value"`
+}
+
+// TagRulesLogRuleFilteringTagInput is an input type that accepts TagRulesLogRuleFilteringTagArgs and TagRulesLogRuleFilteringTagOutput values.
+// You can construct a concrete instance of `TagRulesLogRuleFilteringTagInput` via:
+//
+//	TagRulesLogRuleFilteringTagArgs{...}
+type TagRulesLogRuleFilteringTagInput interface {
+	pulumi.Input
+
+	ToTagRulesLogRuleFilteringTagOutput() TagRulesLogRuleFilteringTagOutput
+	ToTagRulesLogRuleFilteringTagOutputWithContext(context.Context) TagRulesLogRuleFilteringTagOutput
+}
+
+type TagRulesLogRuleFilteringTagArgs struct {
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Name of the filtering tag. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the filtering tag. Changing this forces a new resource to be created.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagRulesLogRuleFilteringTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesLogRuleFilteringTag)(nil)).Elem()
+}
+
+func (i TagRulesLogRuleFilteringTagArgs) ToTagRulesLogRuleFilteringTagOutput() TagRulesLogRuleFilteringTagOutput {
+	return i.ToTagRulesLogRuleFilteringTagOutputWithContext(context.Background())
+}
+
+func (i TagRulesLogRuleFilteringTagArgs) ToTagRulesLogRuleFilteringTagOutputWithContext(ctx context.Context) TagRulesLogRuleFilteringTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesLogRuleFilteringTagOutput)
+}
+
+// TagRulesLogRuleFilteringTagArrayInput is an input type that accepts TagRulesLogRuleFilteringTagArray and TagRulesLogRuleFilteringTagArrayOutput values.
+// You can construct a concrete instance of `TagRulesLogRuleFilteringTagArrayInput` via:
+//
+//	TagRulesLogRuleFilteringTagArray{ TagRulesLogRuleFilteringTagArgs{...} }
+type TagRulesLogRuleFilteringTagArrayInput interface {
+	pulumi.Input
+
+	ToTagRulesLogRuleFilteringTagArrayOutput() TagRulesLogRuleFilteringTagArrayOutput
+	ToTagRulesLogRuleFilteringTagArrayOutputWithContext(context.Context) TagRulesLogRuleFilteringTagArrayOutput
+}
+
+type TagRulesLogRuleFilteringTagArray []TagRulesLogRuleFilteringTagInput
+
+func (TagRulesLogRuleFilteringTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRulesLogRuleFilteringTag)(nil)).Elem()
+}
+
+func (i TagRulesLogRuleFilteringTagArray) ToTagRulesLogRuleFilteringTagArrayOutput() TagRulesLogRuleFilteringTagArrayOutput {
+	return i.ToTagRulesLogRuleFilteringTagArrayOutputWithContext(context.Background())
+}
+
+func (i TagRulesLogRuleFilteringTagArray) ToTagRulesLogRuleFilteringTagArrayOutputWithContext(ctx context.Context) TagRulesLogRuleFilteringTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesLogRuleFilteringTagArrayOutput)
+}
+
+type TagRulesLogRuleFilteringTagOutput struct{ *pulumi.OutputState }
+
+func (TagRulesLogRuleFilteringTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesLogRuleFilteringTag)(nil)).Elem()
+}
+
+func (o TagRulesLogRuleFilteringTagOutput) ToTagRulesLogRuleFilteringTagOutput() TagRulesLogRuleFilteringTagOutput {
+	return o
+}
+
+func (o TagRulesLogRuleFilteringTagOutput) ToTagRulesLogRuleFilteringTagOutputWithContext(ctx context.Context) TagRulesLogRuleFilteringTagOutput {
+	return o
+}
+
+// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleFilteringTagOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRulesLogRuleFilteringTag) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Name of the filtering tag. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleFilteringTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRulesLogRuleFilteringTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the filtering tag. Changing this forces a new resource to be created.
+func (o TagRulesLogRuleFilteringTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRulesLogRuleFilteringTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagRulesLogRuleFilteringTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TagRulesLogRuleFilteringTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRulesLogRuleFilteringTag)(nil)).Elem()
+}
+
+func (o TagRulesLogRuleFilteringTagArrayOutput) ToTagRulesLogRuleFilteringTagArrayOutput() TagRulesLogRuleFilteringTagArrayOutput {
+	return o
+}
+
+func (o TagRulesLogRuleFilteringTagArrayOutput) ToTagRulesLogRuleFilteringTagArrayOutputWithContext(ctx context.Context) TagRulesLogRuleFilteringTagArrayOutput {
+	return o
+}
+
+func (o TagRulesLogRuleFilteringTagArrayOutput) Index(i pulumi.IntInput) TagRulesLogRuleFilteringTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagRulesLogRuleFilteringTag {
+		return vs[0].([]TagRulesLogRuleFilteringTag)[vs[1].(int)]
+	}).(TagRulesLogRuleFilteringTagOutput)
+}
+
+type TagRulesMetricRule struct {
+	// Filtering tag for the metric rule. A `filteringTag` block as defined below.
+	FilteringTags []TagRulesMetricRuleFilteringTag `pulumi:"filteringTags"`
+}
+
+// TagRulesMetricRuleInput is an input type that accepts TagRulesMetricRuleArgs and TagRulesMetricRuleOutput values.
+// You can construct a concrete instance of `TagRulesMetricRuleInput` via:
+//
+//	TagRulesMetricRuleArgs{...}
+type TagRulesMetricRuleInput interface {
+	pulumi.Input
+
+	ToTagRulesMetricRuleOutput() TagRulesMetricRuleOutput
+	ToTagRulesMetricRuleOutputWithContext(context.Context) TagRulesMetricRuleOutput
+}
+
+type TagRulesMetricRuleArgs struct {
+	// Filtering tag for the metric rule. A `filteringTag` block as defined below.
+	FilteringTags TagRulesMetricRuleFilteringTagArrayInput `pulumi:"filteringTags"`
+}
+
+func (TagRulesMetricRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesMetricRule)(nil)).Elem()
+}
+
+func (i TagRulesMetricRuleArgs) ToTagRulesMetricRuleOutput() TagRulesMetricRuleOutput {
+	return i.ToTagRulesMetricRuleOutputWithContext(context.Background())
+}
+
+func (i TagRulesMetricRuleArgs) ToTagRulesMetricRuleOutputWithContext(ctx context.Context) TagRulesMetricRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesMetricRuleOutput)
+}
+
+func (i TagRulesMetricRuleArgs) ToTagRulesMetricRulePtrOutput() TagRulesMetricRulePtrOutput {
+	return i.ToTagRulesMetricRulePtrOutputWithContext(context.Background())
+}
+
+func (i TagRulesMetricRuleArgs) ToTagRulesMetricRulePtrOutputWithContext(ctx context.Context) TagRulesMetricRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesMetricRuleOutput).ToTagRulesMetricRulePtrOutputWithContext(ctx)
+}
+
+// TagRulesMetricRulePtrInput is an input type that accepts TagRulesMetricRuleArgs, TagRulesMetricRulePtr and TagRulesMetricRulePtrOutput values.
+// You can construct a concrete instance of `TagRulesMetricRulePtrInput` via:
+//
+//	        TagRulesMetricRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TagRulesMetricRulePtrInput interface {
+	pulumi.Input
+
+	ToTagRulesMetricRulePtrOutput() TagRulesMetricRulePtrOutput
+	ToTagRulesMetricRulePtrOutputWithContext(context.Context) TagRulesMetricRulePtrOutput
+}
+
+type tagRulesMetricRulePtrType TagRulesMetricRuleArgs
+
+func TagRulesMetricRulePtr(v *TagRulesMetricRuleArgs) TagRulesMetricRulePtrInput {
+	return (*tagRulesMetricRulePtrType)(v)
+}
+
+func (*tagRulesMetricRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagRulesMetricRule)(nil)).Elem()
+}
+
+func (i *tagRulesMetricRulePtrType) ToTagRulesMetricRulePtrOutput() TagRulesMetricRulePtrOutput {
+	return i.ToTagRulesMetricRulePtrOutputWithContext(context.Background())
+}
+
+func (i *tagRulesMetricRulePtrType) ToTagRulesMetricRulePtrOutputWithContext(ctx context.Context) TagRulesMetricRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesMetricRulePtrOutput)
+}
+
+type TagRulesMetricRuleOutput struct{ *pulumi.OutputState }
+
+func (TagRulesMetricRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesMetricRule)(nil)).Elem()
+}
+
+func (o TagRulesMetricRuleOutput) ToTagRulesMetricRuleOutput() TagRulesMetricRuleOutput {
+	return o
+}
+
+func (o TagRulesMetricRuleOutput) ToTagRulesMetricRuleOutputWithContext(ctx context.Context) TagRulesMetricRuleOutput {
+	return o
+}
+
+func (o TagRulesMetricRuleOutput) ToTagRulesMetricRulePtrOutput() TagRulesMetricRulePtrOutput {
+	return o.ToTagRulesMetricRulePtrOutputWithContext(context.Background())
+}
+
+func (o TagRulesMetricRuleOutput) ToTagRulesMetricRulePtrOutputWithContext(ctx context.Context) TagRulesMetricRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagRulesMetricRule) *TagRulesMetricRule {
+		return &v
+	}).(TagRulesMetricRulePtrOutput)
+}
+
+// Filtering tag for the metric rule. A `filteringTag` block as defined below.
+func (o TagRulesMetricRuleOutput) FilteringTags() TagRulesMetricRuleFilteringTagArrayOutput {
+	return o.ApplyT(func(v TagRulesMetricRule) []TagRulesMetricRuleFilteringTag { return v.FilteringTags }).(TagRulesMetricRuleFilteringTagArrayOutput)
+}
+
+type TagRulesMetricRulePtrOutput struct{ *pulumi.OutputState }
+
+func (TagRulesMetricRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagRulesMetricRule)(nil)).Elem()
+}
+
+func (o TagRulesMetricRulePtrOutput) ToTagRulesMetricRulePtrOutput() TagRulesMetricRulePtrOutput {
+	return o
+}
+
+func (o TagRulesMetricRulePtrOutput) ToTagRulesMetricRulePtrOutputWithContext(ctx context.Context) TagRulesMetricRulePtrOutput {
+	return o
+}
+
+func (o TagRulesMetricRulePtrOutput) Elem() TagRulesMetricRuleOutput {
+	return o.ApplyT(func(v *TagRulesMetricRule) TagRulesMetricRule {
+		if v != nil {
+			return *v
+		}
+		var ret TagRulesMetricRule
+		return ret
+	}).(TagRulesMetricRuleOutput)
+}
+
+// Filtering tag for the metric rule. A `filteringTag` block as defined below.
+func (o TagRulesMetricRulePtrOutput) FilteringTags() TagRulesMetricRuleFilteringTagArrayOutput {
+	return o.ApplyT(func(v *TagRulesMetricRule) []TagRulesMetricRuleFilteringTag {
+		if v == nil {
+			return nil
+		}
+		return v.FilteringTags
+	}).(TagRulesMetricRuleFilteringTagArrayOutput)
+}
+
+type TagRulesMetricRuleFilteringTag struct {
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	Action string `pulumi:"action"`
+	// Name of the filtering tag. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Value of the filtering tag. Changing this forces a new resource to be created.
+	Value string `pulumi:"value"`
+}
+
+// TagRulesMetricRuleFilteringTagInput is an input type that accepts TagRulesMetricRuleFilteringTagArgs and TagRulesMetricRuleFilteringTagOutput values.
+// You can construct a concrete instance of `TagRulesMetricRuleFilteringTagInput` via:
+//
+//	TagRulesMetricRuleFilteringTagArgs{...}
+type TagRulesMetricRuleFilteringTagInput interface {
+	pulumi.Input
+
+	ToTagRulesMetricRuleFilteringTagOutput() TagRulesMetricRuleFilteringTagOutput
+	ToTagRulesMetricRuleFilteringTagOutputWithContext(context.Context) TagRulesMetricRuleFilteringTagOutput
+}
+
+type TagRulesMetricRuleFilteringTagArgs struct {
+	// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Name of the filtering tag. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the filtering tag. Changing this forces a new resource to be created.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagRulesMetricRuleFilteringTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesMetricRuleFilteringTag)(nil)).Elem()
+}
+
+func (i TagRulesMetricRuleFilteringTagArgs) ToTagRulesMetricRuleFilteringTagOutput() TagRulesMetricRuleFilteringTagOutput {
+	return i.ToTagRulesMetricRuleFilteringTagOutputWithContext(context.Background())
+}
+
+func (i TagRulesMetricRuleFilteringTagArgs) ToTagRulesMetricRuleFilteringTagOutputWithContext(ctx context.Context) TagRulesMetricRuleFilteringTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesMetricRuleFilteringTagOutput)
+}
+
+// TagRulesMetricRuleFilteringTagArrayInput is an input type that accepts TagRulesMetricRuleFilteringTagArray and TagRulesMetricRuleFilteringTagArrayOutput values.
+// You can construct a concrete instance of `TagRulesMetricRuleFilteringTagArrayInput` via:
+//
+//	TagRulesMetricRuleFilteringTagArray{ TagRulesMetricRuleFilteringTagArgs{...} }
+type TagRulesMetricRuleFilteringTagArrayInput interface {
+	pulumi.Input
+
+	ToTagRulesMetricRuleFilteringTagArrayOutput() TagRulesMetricRuleFilteringTagArrayOutput
+	ToTagRulesMetricRuleFilteringTagArrayOutputWithContext(context.Context) TagRulesMetricRuleFilteringTagArrayOutput
+}
+
+type TagRulesMetricRuleFilteringTagArray []TagRulesMetricRuleFilteringTagInput
+
+func (TagRulesMetricRuleFilteringTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRulesMetricRuleFilteringTag)(nil)).Elem()
+}
+
+func (i TagRulesMetricRuleFilteringTagArray) ToTagRulesMetricRuleFilteringTagArrayOutput() TagRulesMetricRuleFilteringTagArrayOutput {
+	return i.ToTagRulesMetricRuleFilteringTagArrayOutputWithContext(context.Background())
+}
+
+func (i TagRulesMetricRuleFilteringTagArray) ToTagRulesMetricRuleFilteringTagArrayOutputWithContext(ctx context.Context) TagRulesMetricRuleFilteringTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagRulesMetricRuleFilteringTagArrayOutput)
+}
+
+type TagRulesMetricRuleFilteringTagOutput struct{ *pulumi.OutputState }
+
+func (TagRulesMetricRuleFilteringTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagRulesMetricRuleFilteringTag)(nil)).Elem()
+}
+
+func (o TagRulesMetricRuleFilteringTagOutput) ToTagRulesMetricRuleFilteringTagOutput() TagRulesMetricRuleFilteringTagOutput {
+	return o
+}
+
+func (o TagRulesMetricRuleFilteringTagOutput) ToTagRulesMetricRuleFilteringTagOutputWithContext(ctx context.Context) TagRulesMetricRuleFilteringTagOutput {
+	return o
+}
+
+// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+func (o TagRulesMetricRuleFilteringTagOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRulesMetricRuleFilteringTag) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Name of the filtering tag. Changing this forces a new resource to be created.
+func (o TagRulesMetricRuleFilteringTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRulesMetricRuleFilteringTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the filtering tag. Changing this forces a new resource to be created.
+func (o TagRulesMetricRuleFilteringTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagRulesMetricRuleFilteringTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagRulesMetricRuleFilteringTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TagRulesMetricRuleFilteringTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagRulesMetricRuleFilteringTag)(nil)).Elem()
+}
+
+func (o TagRulesMetricRuleFilteringTagArrayOutput) ToTagRulesMetricRuleFilteringTagArrayOutput() TagRulesMetricRuleFilteringTagArrayOutput {
+	return o
+}
+
+func (o TagRulesMetricRuleFilteringTagArrayOutput) ToTagRulesMetricRuleFilteringTagArrayOutputWithContext(ctx context.Context) TagRulesMetricRuleFilteringTagArrayOutput {
+	return o
+}
+
+func (o TagRulesMetricRuleFilteringTagArrayOutput) Index(i pulumi.IntInput) TagRulesMetricRuleFilteringTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagRulesMetricRuleFilteringTag {
+		return vs[0].([]TagRulesMetricRuleFilteringTag)[vs[1].(int)]
+	}).(TagRulesMetricRuleFilteringTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityInput)(nil)).Elem(), MonitorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityPtrInput)(nil)).Elem(), MonitorIdentityArgs{})
@@ -594,10 +1155,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorPlanPtrInput)(nil)).Elem(), MonitorPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserInput)(nil)).Elem(), MonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorUserPtrInput)(nil)).Elem(), MonitorUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesLogRuleInput)(nil)).Elem(), TagRulesLogRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesLogRulePtrInput)(nil)).Elem(), TagRulesLogRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesLogRuleFilteringTagInput)(nil)).Elem(), TagRulesLogRuleFilteringTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesLogRuleFilteringTagArrayInput)(nil)).Elem(), TagRulesLogRuleFilteringTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRuleInput)(nil)).Elem(), TagRulesMetricRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRulePtrInput)(nil)).Elem(), TagRulesMetricRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRuleFilteringTagInput)(nil)).Elem(), TagRulesMetricRuleFilteringTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRuleFilteringTagArrayInput)(nil)).Elem(), TagRulesMetricRuleFilteringTagArray{})
 	pulumi.RegisterOutputType(MonitorIdentityOutput{})
 	pulumi.RegisterOutputType(MonitorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPlanOutput{})
 	pulumi.RegisterOutputType(MonitorPlanPtrOutput{})
 	pulumi.RegisterOutputType(MonitorUserOutput{})
 	pulumi.RegisterOutputType(MonitorUserPtrOutput{})
+	pulumi.RegisterOutputType(TagRulesLogRuleOutput{})
+	pulumi.RegisterOutputType(TagRulesLogRulePtrOutput{})
+	pulumi.RegisterOutputType(TagRulesLogRuleFilteringTagOutput{})
+	pulumi.RegisterOutputType(TagRulesLogRuleFilteringTagArrayOutput{})
+	pulumi.RegisterOutputType(TagRulesMetricRuleOutput{})
+	pulumi.RegisterOutputType(TagRulesMetricRulePtrOutput{})
+	pulumi.RegisterOutputType(TagRulesMetricRuleFilteringTagOutput{})
+	pulumi.RegisterOutputType(TagRulesMetricRuleFilteringTagArrayOutput{})
 }

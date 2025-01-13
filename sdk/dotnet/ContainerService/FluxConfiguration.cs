@@ -69,6 +69,21 @@ namespace Pulumi.Azure.ContainerService
     ///             new Azure.ContainerService.Inputs.FluxConfigurationKustomizationArgs
     ///             {
     ///                 Name = "kustomization-1",
+    ///                 PostBuild = new Azure.ContainerService.Inputs.FluxConfigurationKustomizationPostBuildArgs
+    ///                 {
+    ///                     Substitute = 
+    ///                     {
+    ///                         { "example_var", "substitute_with_this" },
+    ///                     },
+    ///                     SubstituteFroms = new[]
+    ///                     {
+    ///                         new Azure.ContainerService.Inputs.FluxConfigurationKustomizationPostBuildSubstituteFromArgs
+    ///                         {
+    ///                             Kind = "ConfigMap",
+    ///                             Name = "example-configmap",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

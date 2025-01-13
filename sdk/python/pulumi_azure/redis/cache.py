@@ -55,6 +55,8 @@ class CacheArgs:
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -206,6 +208,8 @@ class CacheArgs:
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+
+        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -427,6 +431,8 @@ class _CacheState:
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -592,6 +598,8 @@ class _CacheState:
     def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+
+        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -948,6 +956,8 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -1157,6 +1167,8 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+               
+               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -1274,6 +1286,8 @@ class Cache(pulumi.CustomResource):
     def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+
+        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 

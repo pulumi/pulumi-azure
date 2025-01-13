@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Storage
         ///     {
         ///         ConnectionString = exampleAccount.PrimaryConnectionString,
         ///         HttpsOnly = true,
-        ///         SignedVersion = "2017-07-29",
+        ///         SignedVersion = "2022-11-02",
         ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///         {
         ///             Service = true,
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Storage
         ///     {
         ///         ConnectionString = exampleAccount.PrimaryConnectionString,
         ///         HttpsOnly = true,
-        ///         SignedVersion = "2017-07-29",
+        ///         SignedVersion = "2022-11-02",
         ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///         {
         ///             Service = true,
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Storage
         ///     {
         ///         ConnectionString = exampleAccount.PrimaryConnectionString,
         ///         HttpsOnly = true,
-        ///         SignedVersion = "2017-07-29",
+        ///         SignedVersion = "2022-11-02",
         ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///         {
         ///             Service = true,
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Storage
         public Inputs.GetAccountSASServicesArgs Services { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+        /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
         /// </summary>
         [Input("signedVersion")]
         public string? SignedVersion { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.GetAccountSASServicesInputArgs> Services { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+        /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
         /// </summary>
         [Input("signedVersion")]
         public Input<string>? SignedVersion { get; set; }

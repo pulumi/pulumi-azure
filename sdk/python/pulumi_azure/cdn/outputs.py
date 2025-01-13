@@ -60,6 +60,7 @@ __all__ = [
     'FrontdoorOriginGroupHealthProbe',
     'FrontdoorOriginGroupLoadBalancing',
     'FrontdoorOriginPrivateLink',
+    'FrontdoorProfileIdentity',
     'FrontdoorRouteCache',
     'FrontdoorRuleActions',
     'FrontdoorRuleActionsRequestHeaderAction',
@@ -96,6 +97,7 @@ __all__ = [
     'GetFrontdoorCustomDomainTlResult',
     'GetFrontdoorOriginGroupHealthProbeResult',
     'GetFrontdoorOriginGroupLoadBalancingResult',
+    'GetFrontdoorProfileIdentityResult',
     'GetFrontdoorSecretSecretResult',
     'GetFrontdoorSecretSecretCustomerCertificateResult',
 ]
@@ -2406,10 +2408,10 @@ class FrontdoorCustomDomainTls(dict):
         :param str cdn_frontdoor_secret_id: Resource ID of the Front Door Secret.
         :param str certificate_type: Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
                
-               ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
-        :param str minimum_tls_version: TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+               ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        :param str minimum_tls_version: TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         if cdn_frontdoor_secret_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
@@ -2432,17 +2434,18 @@ class FrontdoorCustomDomainTls(dict):
         """
         Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 
-        ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         """
         return pulumi.get(self, "certificate_type")
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
+    @_utilities.deprecated("""As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.""")
     def minimum_tls_version(self) -> Optional[str]:
         """
-        TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+        TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -2676,7 +2679,7 @@ class FrontdoorFirewallPolicyManagedRule(dict):
         """
         :param str action: The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
         :param str type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
-        :param str version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+        :param str version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         :param Sequence['FrontdoorFirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
         :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
         """
@@ -2708,7 +2711,7 @@ class FrontdoorFirewallPolicyManagedRule(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         """
         return pulumi.get(self, "version")
 
@@ -3277,6 +3280,73 @@ class FrontdoorOriginPrivateLink(dict):
         > **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
         """
         return pulumi.get(self, "target_type")
+
+
+@pulumi.output_type
+class FrontdoorProfileIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorProfileIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorProfileIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorProfileIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+        :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -5886,6 +5956,50 @@ class GetFrontdoorOriginGroupLoadBalancingResult(dict):
         Specifies the number of samples within the sample period that must succeed.
         """
         return pulumi.get(self, "successful_samples_required")
+
+
+@pulumi.output_type
+class GetFrontdoorProfileIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None):
+        """
+        :param str type: The type of Managed Service Identity that is configured on this Front Door Profile.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that is configured on this Front Door Profile.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        """
+        return pulumi.get(self, "identity_ids")
 
 
 @pulumi.output_type
