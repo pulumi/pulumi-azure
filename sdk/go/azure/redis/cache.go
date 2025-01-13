@@ -89,6 +89,8 @@ type Cache struct {
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -204,6 +206,8 @@ type cacheState struct {
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -271,6 +275,8 @@ type CacheState struct {
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -340,6 +346,8 @@ type cacheArgs struct {
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -394,6 +402,8 @@ type CacheArgs struct {
 	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -553,6 +563,8 @@ func (o CacheOutput) Location() pulumi.StringOutput {
 }
 
 // The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+//
+// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o CacheOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }

@@ -4,10 +4,13 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.azure.healthcare.outputs.GetDicomServiceAuthentication;
+import com.pulumi.azure.healthcare.outputs.GetDicomServiceCor;
 import com.pulumi.azure.healthcare.outputs.GetDicomServiceIdentity;
 import com.pulumi.azure.healthcare.outputs.GetDicomServicePrivateEndpoint;
+import com.pulumi.azure.healthcare.outputs.GetDicomServiceStorage;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +23,21 @@ public final class GetDicomServiceResult {
      * 
      */
     private List<GetDicomServiceAuthentication> authentications;
+    /**
+     * @return The `cors` block as defined below.
+     * 
+     */
+    private List<GetDicomServiceCor> cors;
+    /**
+     * @return If data partitions are enabled or not.
+     * 
+     */
+    private Boolean dataPartitionsEnabled;
+    /**
+     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+     * 
+     */
+    private String encryptionKeyUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -39,6 +57,11 @@ public final class GetDicomServiceResult {
      */
     private String serviceUrl;
     /**
+     * @return The `storage` block as defined below.
+     * 
+     */
+    private List<GetDicomServiceStorage> storages;
+    /**
      * @return A map of tags assigned to the Healthcare DICOM Service.
      * 
      */
@@ -52,6 +75,27 @@ public final class GetDicomServiceResult {
      */
     public List<GetDicomServiceAuthentication> authentications() {
         return this.authentications;
+    }
+    /**
+     * @return The `cors` block as defined below.
+     * 
+     */
+    public List<GetDicomServiceCor> cors() {
+        return this.cors;
+    }
+    /**
+     * @return If data partitions are enabled or not.
+     * 
+     */
+    public Boolean dataPartitionsEnabled() {
+        return this.dataPartitionsEnabled;
+    }
+    /**
+     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+     * 
+     */
+    public String encryptionKeyUrl() {
+        return this.encryptionKeyUrl;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -84,6 +128,13 @@ public final class GetDicomServiceResult {
         return this.serviceUrl;
     }
     /**
+     * @return The `storage` block as defined below.
+     * 
+     */
+    public List<GetDicomServiceStorage> storages() {
+        return this.storages;
+    }
+    /**
      * @return A map of tags assigned to the Healthcare DICOM Service.
      * 
      */
@@ -104,24 +155,32 @@ public final class GetDicomServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetDicomServiceAuthentication> authentications;
+        private List<GetDicomServiceCor> cors;
+        private Boolean dataPartitionsEnabled;
+        private String encryptionKeyUrl;
         private String id;
         private List<GetDicomServiceIdentity> identities;
         private String location;
         private String name;
         private List<GetDicomServicePrivateEndpoint> privateEndpoints;
         private String serviceUrl;
+        private List<GetDicomServiceStorage> storages;
         private Map<String,String> tags;
         private String workspaceId;
         public Builder() {}
         public Builder(GetDicomServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authentications = defaults.authentications;
+    	      this.cors = defaults.cors;
+    	      this.dataPartitionsEnabled = defaults.dataPartitionsEnabled;
+    	      this.encryptionKeyUrl = defaults.encryptionKeyUrl;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.privateEndpoints = defaults.privateEndpoints;
     	      this.serviceUrl = defaults.serviceUrl;
+    	      this.storages = defaults.storages;
     	      this.tags = defaults.tags;
     	      this.workspaceId = defaults.workspaceId;
         }
@@ -136,6 +195,33 @@ public final class GetDicomServiceResult {
         }
         public Builder authentications(GetDicomServiceAuthentication... authentications) {
             return authentications(List.of(authentications));
+        }
+        @CustomType.Setter
+        public Builder cors(List<GetDicomServiceCor> cors) {
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "cors");
+            }
+            this.cors = cors;
+            return this;
+        }
+        public Builder cors(GetDicomServiceCor... cors) {
+            return cors(List.of(cors));
+        }
+        @CustomType.Setter
+        public Builder dataPartitionsEnabled(Boolean dataPartitionsEnabled) {
+            if (dataPartitionsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "dataPartitionsEnabled");
+            }
+            this.dataPartitionsEnabled = dataPartitionsEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryptionKeyUrl(String encryptionKeyUrl) {
+            if (encryptionKeyUrl == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "encryptionKeyUrl");
+            }
+            this.encryptionKeyUrl = encryptionKeyUrl;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -192,6 +278,17 @@ public final class GetDicomServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storages(List<GetDicomServiceStorage> storages) {
+            if (storages == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "storages");
+            }
+            this.storages = storages;
+            return this;
+        }
+        public Builder storages(GetDicomServiceStorage... storages) {
+            return storages(List.of(storages));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetDicomServiceResult", "tags");
@@ -210,12 +307,16 @@ public final class GetDicomServiceResult {
         public GetDicomServiceResult build() {
             final var _resultValue = new GetDicomServiceResult();
             _resultValue.authentications = authentications;
+            _resultValue.cors = cors;
+            _resultValue.dataPartitionsEnabled = dataPartitionsEnabled;
+            _resultValue.encryptionKeyUrl = encryptionKeyUrl;
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.privateEndpoints = privateEndpoints;
             _resultValue.serviceUrl = serviceUrl;
+            _resultValue.storages = storages;
             _resultValue.tags = tags;
             _resultValue.workspaceId = workspaceId;
             return _resultValue;

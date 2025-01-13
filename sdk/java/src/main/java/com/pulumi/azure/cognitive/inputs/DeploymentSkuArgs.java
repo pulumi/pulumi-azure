@@ -47,17 +47,9 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.family);
     }
 
-    /**
-     * The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -78,14 +70,14 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
     /**
-     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+     * @return Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> tier() {
@@ -162,23 +154,11 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
             return family(Output.of(family));
         }
 
-        /**
-         * @param name The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -205,7 +185,7 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tier Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+         * @param tier Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -216,7 +196,7 @@ public final class DeploymentSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tier Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+         * @param tier Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

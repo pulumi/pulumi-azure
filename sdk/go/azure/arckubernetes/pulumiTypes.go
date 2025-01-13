@@ -1605,6 +1605,356 @@ func (o FluxConfigurationKustomizationArrayOutput) Index(i pulumi.IntInput) Flux
 	}).(FluxConfigurationKustomizationOutput)
 }
 
+type ProvisionedClusterAzureActiveDirectory struct {
+	// A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
+	// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
+	// The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ProvisionedClusterAzureActiveDirectoryInput is an input type that accepts ProvisionedClusterAzureActiveDirectoryArgs and ProvisionedClusterAzureActiveDirectoryOutput values.
+// You can construct a concrete instance of `ProvisionedClusterAzureActiveDirectoryInput` via:
+//
+//	ProvisionedClusterAzureActiveDirectoryArgs{...}
+type ProvisionedClusterAzureActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToProvisionedClusterAzureActiveDirectoryOutput() ProvisionedClusterAzureActiveDirectoryOutput
+	ToProvisionedClusterAzureActiveDirectoryOutputWithContext(context.Context) ProvisionedClusterAzureActiveDirectoryOutput
+}
+
+type ProvisionedClusterAzureActiveDirectoryArgs struct {
+	// A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
+	// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
+	// The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ProvisionedClusterAzureActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedClusterAzureActiveDirectory)(nil)).Elem()
+}
+
+func (i ProvisionedClusterAzureActiveDirectoryArgs) ToProvisionedClusterAzureActiveDirectoryOutput() ProvisionedClusterAzureActiveDirectoryOutput {
+	return i.ToProvisionedClusterAzureActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i ProvisionedClusterAzureActiveDirectoryArgs) ToProvisionedClusterAzureActiveDirectoryOutputWithContext(ctx context.Context) ProvisionedClusterAzureActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedClusterAzureActiveDirectoryOutput)
+}
+
+func (i ProvisionedClusterAzureActiveDirectoryArgs) ToProvisionedClusterAzureActiveDirectoryPtrOutput() ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return i.ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i ProvisionedClusterAzureActiveDirectoryArgs) ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedClusterAzureActiveDirectoryOutput).ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(ctx)
+}
+
+// ProvisionedClusterAzureActiveDirectoryPtrInput is an input type that accepts ProvisionedClusterAzureActiveDirectoryArgs, ProvisionedClusterAzureActiveDirectoryPtr and ProvisionedClusterAzureActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `ProvisionedClusterAzureActiveDirectoryPtrInput` via:
+//
+//	        ProvisionedClusterAzureActiveDirectoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProvisionedClusterAzureActiveDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToProvisionedClusterAzureActiveDirectoryPtrOutput() ProvisionedClusterAzureActiveDirectoryPtrOutput
+	ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(context.Context) ProvisionedClusterAzureActiveDirectoryPtrOutput
+}
+
+type provisionedClusterAzureActiveDirectoryPtrType ProvisionedClusterAzureActiveDirectoryArgs
+
+func ProvisionedClusterAzureActiveDirectoryPtr(v *ProvisionedClusterAzureActiveDirectoryArgs) ProvisionedClusterAzureActiveDirectoryPtrInput {
+	return (*provisionedClusterAzureActiveDirectoryPtrType)(v)
+}
+
+func (*provisionedClusterAzureActiveDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedClusterAzureActiveDirectory)(nil)).Elem()
+}
+
+func (i *provisionedClusterAzureActiveDirectoryPtrType) ToProvisionedClusterAzureActiveDirectoryPtrOutput() ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return i.ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *provisionedClusterAzureActiveDirectoryPtrType) ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedClusterAzureActiveDirectoryPtrOutput)
+}
+
+type ProvisionedClusterAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedClusterAzureActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedClusterAzureActiveDirectory)(nil)).Elem()
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryOutput) ToProvisionedClusterAzureActiveDirectoryOutput() ProvisionedClusterAzureActiveDirectoryOutput {
+	return o
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryOutput) ToProvisionedClusterAzureActiveDirectoryOutputWithContext(ctx context.Context) ProvisionedClusterAzureActiveDirectoryOutput {
+	return o
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryOutput) ToProvisionedClusterAzureActiveDirectoryPtrOutput() ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return o.ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryOutput) ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedClusterAzureActiveDirectory) *ProvisionedClusterAzureActiveDirectory {
+		return &v
+	}).(ProvisionedClusterAzureActiveDirectoryPtrOutput)
+}
+
+// A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+func (o ProvisionedClusterAzureActiveDirectoryOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProvisionedClusterAzureActiveDirectory) []string { return v.AdminGroupObjectIds }).(pulumi.StringArrayOutput)
+}
+
+// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+func (o ProvisionedClusterAzureActiveDirectoryOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProvisionedClusterAzureActiveDirectory) *bool { return v.AzureRbacEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+func (o ProvisionedClusterAzureActiveDirectoryOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedClusterAzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ProvisionedClusterAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedClusterAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedClusterAzureActiveDirectory)(nil)).Elem()
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryPtrOutput) ToProvisionedClusterAzureActiveDirectoryPtrOutput() ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryPtrOutput) ToProvisionedClusterAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ProvisionedClusterAzureActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o ProvisionedClusterAzureActiveDirectoryPtrOutput) Elem() ProvisionedClusterAzureActiveDirectoryOutput {
+	return o.ApplyT(func(v *ProvisionedClusterAzureActiveDirectory) ProvisionedClusterAzureActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisionedClusterAzureActiveDirectory
+		return ret
+	}).(ProvisionedClusterAzureActiveDirectoryOutput)
+}
+
+// A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+func (o ProvisionedClusterAzureActiveDirectoryPtrOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProvisionedClusterAzureActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminGroupObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+func (o ProvisionedClusterAzureActiveDirectoryPtrOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProvisionedClusterAzureActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AzureRbacEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+func (o ProvisionedClusterAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedClusterAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProvisionedClusterIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+	Type string `pulumi:"type"`
+}
+
+// ProvisionedClusterIdentityInput is an input type that accepts ProvisionedClusterIdentityArgs and ProvisionedClusterIdentityOutput values.
+// You can construct a concrete instance of `ProvisionedClusterIdentityInput` via:
+//
+//	ProvisionedClusterIdentityArgs{...}
+type ProvisionedClusterIdentityInput interface {
+	pulumi.Input
+
+	ToProvisionedClusterIdentityOutput() ProvisionedClusterIdentityOutput
+	ToProvisionedClusterIdentityOutputWithContext(context.Context) ProvisionedClusterIdentityOutput
+}
+
+type ProvisionedClusterIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProvisionedClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedClusterIdentity)(nil)).Elem()
+}
+
+func (i ProvisionedClusterIdentityArgs) ToProvisionedClusterIdentityOutput() ProvisionedClusterIdentityOutput {
+	return i.ToProvisionedClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i ProvisionedClusterIdentityArgs) ToProvisionedClusterIdentityOutputWithContext(ctx context.Context) ProvisionedClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedClusterIdentityOutput)
+}
+
+func (i ProvisionedClusterIdentityArgs) ToProvisionedClusterIdentityPtrOutput() ProvisionedClusterIdentityPtrOutput {
+	return i.ToProvisionedClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ProvisionedClusterIdentityArgs) ToProvisionedClusterIdentityPtrOutputWithContext(ctx context.Context) ProvisionedClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedClusterIdentityOutput).ToProvisionedClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// ProvisionedClusterIdentityPtrInput is an input type that accepts ProvisionedClusterIdentityArgs, ProvisionedClusterIdentityPtr and ProvisionedClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `ProvisionedClusterIdentityPtrInput` via:
+//
+//	        ProvisionedClusterIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProvisionedClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToProvisionedClusterIdentityPtrOutput() ProvisionedClusterIdentityPtrOutput
+	ToProvisionedClusterIdentityPtrOutputWithContext(context.Context) ProvisionedClusterIdentityPtrOutput
+}
+
+type provisionedClusterIdentityPtrType ProvisionedClusterIdentityArgs
+
+func ProvisionedClusterIdentityPtr(v *ProvisionedClusterIdentityArgs) ProvisionedClusterIdentityPtrInput {
+	return (*provisionedClusterIdentityPtrType)(v)
+}
+
+func (*provisionedClusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedClusterIdentity)(nil)).Elem()
+}
+
+func (i *provisionedClusterIdentityPtrType) ToProvisionedClusterIdentityPtrOutput() ProvisionedClusterIdentityPtrOutput {
+	return i.ToProvisionedClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *provisionedClusterIdentityPtrType) ToProvisionedClusterIdentityPtrOutputWithContext(ctx context.Context) ProvisionedClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedClusterIdentityPtrOutput)
+}
+
+type ProvisionedClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedClusterIdentity)(nil)).Elem()
+}
+
+func (o ProvisionedClusterIdentityOutput) ToProvisionedClusterIdentityOutput() ProvisionedClusterIdentityOutput {
+	return o
+}
+
+func (o ProvisionedClusterIdentityOutput) ToProvisionedClusterIdentityOutputWithContext(ctx context.Context) ProvisionedClusterIdentityOutput {
+	return o
+}
+
+func (o ProvisionedClusterIdentityOutput) ToProvisionedClusterIdentityPtrOutput() ProvisionedClusterIdentityPtrOutput {
+	return o.ToProvisionedClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisionedClusterIdentityOutput) ToProvisionedClusterIdentityPtrOutputWithContext(ctx context.Context) ProvisionedClusterIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedClusterIdentity) *ProvisionedClusterIdentity {
+		return &v
+	}).(ProvisionedClusterIdentityPtrOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ProvisionedClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ProvisionedClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+func (o ProvisionedClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProvisionedClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProvisionedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedClusterIdentity)(nil)).Elem()
+}
+
+func (o ProvisionedClusterIdentityPtrOutput) ToProvisionedClusterIdentityPtrOutput() ProvisionedClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ProvisionedClusterIdentityPtrOutput) ToProvisionedClusterIdentityPtrOutputWithContext(ctx context.Context) ProvisionedClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ProvisionedClusterIdentityPtrOutput) Elem() ProvisionedClusterIdentityOutput {
+	return o.ApplyT(func(v *ProvisionedClusterIdentity) ProvisionedClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisionedClusterIdentity
+		return ret
+	}).(ProvisionedClusterIdentityOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ProvisionedClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ProvisionedClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+func (o ProvisionedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProvisionedClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExtensionIdentityInput)(nil)).Elem(), ClusterExtensionIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExtensionIdentityPtrInput)(nil)).Elem(), ClusterExtensionIdentityArgs{})
@@ -1620,6 +1970,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationGitRepositoryPtrInput)(nil)).Elem(), FluxConfigurationGitRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationInput)(nil)).Elem(), FluxConfigurationKustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationArrayInput)(nil)).Elem(), FluxConfigurationKustomizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedClusterAzureActiveDirectoryInput)(nil)).Elem(), ProvisionedClusterAzureActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedClusterAzureActiveDirectoryPtrInput)(nil)).Elem(), ProvisionedClusterAzureActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedClusterIdentityInput)(nil)).Elem(), ProvisionedClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedClusterIdentityPtrInput)(nil)).Elem(), ProvisionedClusterIdentityArgs{})
 	pulumi.RegisterOutputType(ClusterExtensionIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterExtensionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
@@ -1634,4 +1988,8 @@ func init() {
 	pulumi.RegisterOutputType(FluxConfigurationGitRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationKustomizationOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationKustomizationArrayOutput{})
+	pulumi.RegisterOutputType(ProvisionedClusterAzureActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(ProvisionedClusterAzureActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(ProvisionedClusterIdentityOutput{})
+	pulumi.RegisterOutputType(ProvisionedClusterIdentityPtrOutput{})
 }

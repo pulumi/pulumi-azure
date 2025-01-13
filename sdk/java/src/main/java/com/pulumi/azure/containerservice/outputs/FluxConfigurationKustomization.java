@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.FluxConfigurationKustomizationPostBuild;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -36,6 +37,11 @@ public final class FluxConfigurationKustomization {
      */
     private @Nullable String path;
     /**
+     * @return A `post_build` block as defined below.
+     * 
+     */
+    private @Nullable FluxConfigurationKustomizationPostBuild postBuild;
+    /**
      * @return Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
      * 
      */
@@ -55,6 +61,11 @@ public final class FluxConfigurationKustomization {
      * 
      */
     private @Nullable Integer timeoutInSeconds;
+    /**
+     * @return Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean wait;
 
     private FluxConfigurationKustomization() {}
     /**
@@ -86,6 +97,13 @@ public final class FluxConfigurationKustomization {
         return Optional.ofNullable(this.path);
     }
     /**
+     * @return A `post_build` block as defined below.
+     * 
+     */
+    public Optional<FluxConfigurationKustomizationPostBuild> postBuild() {
+        return Optional.ofNullable(this.postBuild);
+    }
+    /**
      * @return Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
      * 
      */
@@ -113,6 +131,13 @@ public final class FluxConfigurationKustomization {
     public Optional<Integer> timeoutInSeconds() {
         return Optional.ofNullable(this.timeoutInSeconds);
     }
+    /**
+     * @return Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> wait_() {
+        return Optional.ofNullable(this.wait);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -127,10 +152,12 @@ public final class FluxConfigurationKustomization {
         private @Nullable Boolean garbageCollectionEnabled;
         private String name;
         private @Nullable String path;
+        private @Nullable FluxConfigurationKustomizationPostBuild postBuild;
         private @Nullable Boolean recreatingEnabled;
         private @Nullable Integer retryIntervalInSeconds;
         private @Nullable Integer syncIntervalInSeconds;
         private @Nullable Integer timeoutInSeconds;
+        private @Nullable Boolean wait;
         public Builder() {}
         public Builder(FluxConfigurationKustomization defaults) {
     	      Objects.requireNonNull(defaults);
@@ -138,10 +165,12 @@ public final class FluxConfigurationKustomization {
     	      this.garbageCollectionEnabled = defaults.garbageCollectionEnabled;
     	      this.name = defaults.name;
     	      this.path = defaults.path;
+    	      this.postBuild = defaults.postBuild;
     	      this.recreatingEnabled = defaults.recreatingEnabled;
     	      this.retryIntervalInSeconds = defaults.retryIntervalInSeconds;
     	      this.syncIntervalInSeconds = defaults.syncIntervalInSeconds;
     	      this.timeoutInSeconds = defaults.timeoutInSeconds;
+    	      this.wait = defaults.wait;
         }
 
         @CustomType.Setter
@@ -174,6 +203,12 @@ public final class FluxConfigurationKustomization {
             return this;
         }
         @CustomType.Setter
+        public Builder postBuild(@Nullable FluxConfigurationKustomizationPostBuild postBuild) {
+
+            this.postBuild = postBuild;
+            return this;
+        }
+        @CustomType.Setter
         public Builder recreatingEnabled(@Nullable Boolean recreatingEnabled) {
 
             this.recreatingEnabled = recreatingEnabled;
@@ -197,16 +232,24 @@ public final class FluxConfigurationKustomization {
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
+        @CustomType.Setter("wait")
+        public Builder wait_(@Nullable Boolean wait) {
+
+            this.wait = wait;
+            return this;
+        }
         public FluxConfigurationKustomization build() {
             final var _resultValue = new FluxConfigurationKustomization();
             _resultValue.dependsOns = dependsOns;
             _resultValue.garbageCollectionEnabled = garbageCollectionEnabled;
             _resultValue.name = name;
             _resultValue.path = path;
+            _resultValue.postBuild = postBuild;
             _resultValue.recreatingEnabled = recreatingEnabled;
             _resultValue.retryIntervalInSeconds = retryIntervalInSeconds;
             _resultValue.syncIntervalInSeconds = syncIntervalInSeconds;
             _resultValue.timeoutInSeconds = timeoutInSeconds;
+            _resultValue.wait = wait;
             return _resultValue;
         }
     }

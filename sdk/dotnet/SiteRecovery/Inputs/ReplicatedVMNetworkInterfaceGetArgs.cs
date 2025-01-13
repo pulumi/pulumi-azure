@@ -25,10 +25,22 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string>? FailoverTestStaticIp { get; set; }
 
         /// <summary>
-        /// Name of the subnet to to use when a test failover is done.
+        /// Name of the subnet to use when a test failover is done.
         /// </summary>
         [Input("failoverTestSubnetName")]
         public Input<string>? FailoverTestSubnetName { get; set; }
+
+        [Input("recoveryLoadBalancerBackendAddressPoolIds")]
+        private InputList<string>? _recoveryLoadBalancerBackendAddressPoolIds;
+
+        /// <summary>
+        /// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+        /// </summary>
+        public InputList<string> RecoveryLoadBalancerBackendAddressPoolIds
+        {
+            get => _recoveryLoadBalancerBackendAddressPoolIds ?? (_recoveryLoadBalancerBackendAddressPoolIds = new InputList<string>());
+            set => _recoveryLoadBalancerBackendAddressPoolIds = value;
+        }
 
         /// <summary>
         /// Id of the public IP object to use when a failover is done.
@@ -49,7 +61,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string>? TargetStaticIp { get; set; }
 
         /// <summary>
-        /// Name of the subnet to to use when a failover is done.
+        /// Name of the subnet to use when a failover is done.
         /// </summary>
         [Input("targetSubnetName")]
         public Input<string>? TargetSubnetName { get; set; }

@@ -374,6 +374,15 @@ class FluxConfiguration(pulumi.CustomResource):
             },
             kustomizations=[{
                 "name": "kustomization-1",
+                "post_build": {
+                    "substitute": {
+                        "example_var": "substitute_with_this",
+                    },
+                    "substitute_froms": [{
+                        "kind": "ConfigMap",
+                        "name": "example-configmap",
+                    }],
+                },
             }],
             opts = pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
         ```
@@ -444,6 +453,15 @@ class FluxConfiguration(pulumi.CustomResource):
             },
             kustomizations=[{
                 "name": "kustomization-1",
+                "post_build": {
+                    "substitute": {
+                        "example_var": "substitute_with_this",
+                    },
+                    "substitute_froms": [{
+                        "kind": "ConfigMap",
+                        "name": "example-configmap",
+                    }],
+                },
             }],
             opts = pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
         ```

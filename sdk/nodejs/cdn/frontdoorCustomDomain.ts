@@ -131,7 +131,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
      *
      * <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      *
-     * ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+     * ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
      */
     public readonly dnsZoneId!: pulumi.Output<string | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface FrontdoorCustomDomainState {
      *
      * <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      *
-     * ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+     * ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
      */
     dnsZoneId?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface FrontdoorCustomDomainArgs {
      *
      * <!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      *
-     * ->**NOTE:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
+     * ->**Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
      */
     dnsZoneId?: pulumi.Input<string>;
     /**

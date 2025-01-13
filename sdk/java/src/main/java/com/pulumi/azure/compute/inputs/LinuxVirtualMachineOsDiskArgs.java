@@ -92,6 +92,21 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The ID of the OS disk.
+     * 
+     */
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    /**
+     * @return The ID of the OS disk.
+     * 
+     */
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
      * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
@@ -189,6 +204,7 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
         this.diffDiskSettings = $.diffDiskSettings;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.diskSizeGb = $.diskSizeGb;
+        this.id = $.id;
         this.name = $.name;
         this.secureVmDiskEncryptionSetId = $.secureVmDiskEncryptionSetId;
         this.securityEncryptionType = $.securityEncryptionType;
@@ -308,6 +324,27 @@ public final class LinuxVirtualMachineOsDiskArgs extends com.pulumi.resources.Re
          */
         public Builder diskSizeGb(Integer diskSizeGb) {
             return diskSizeGb(Output.of(diskSizeGb));
+        }
+
+        /**
+         * @param id The ID of the OS disk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param id The ID of the OS disk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         /**

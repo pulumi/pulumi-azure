@@ -80,7 +80,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
      * 
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
@@ -89,7 +89,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+     * @return Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
      * 
      * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      * 
@@ -295,7 +295,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
         }
 
         /**
-         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
          * 
          * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
          * 
@@ -308,7 +308,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
         }
 
         /**
-         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+         * @param protocol Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
          * 
          * &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
          * 

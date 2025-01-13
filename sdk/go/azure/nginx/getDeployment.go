@@ -66,6 +66,8 @@ type LookupDeploymentResult struct {
 	AutomaticUpgradeChannel string `pulumi:"automaticUpgradeChannel"`
 	// The number of NGINX capacity units for this NGINX Deployment.
 	Capacity int `pulumi:"capacity"`
+	// The dataplane API endpoint of the NGINX Deployment.
+	DataplaneApiEndpoint string `pulumi:"dataplaneApiEndpoint"`
 	// Whether metrics are exported to Azure Monitor.
 	DiagnoseSupportEnabled bool `pulumi:"diagnoseSupportEnabled"`
 	// Preferred email associated with the NGINX Deployment.
@@ -82,7 +84,7 @@ type LookupDeploymentResult struct {
 	IpAddress string `pulumi:"ipAddress"`
 	// The Azure Region where the NGINX Deployment exists.
 	Location string `pulumi:"location"`
-	// A `loggingStorageAccount` block as defined below.
+	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	LoggingStorageAccounts []GetDeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
 	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup string `pulumi:"managedResourceGroup"`
@@ -150,6 +152,11 @@ func (o LookupDeploymentResultOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
+// The dataplane API endpoint of the NGINX Deployment.
+func (o LookupDeploymentResultOutput) DataplaneApiEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) string { return v.DataplaneApiEndpoint }).(pulumi.StringOutput)
+}
+
 // Whether metrics are exported to Azure Monitor.
 func (o LookupDeploymentResultOutput) DiagnoseSupportEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) bool { return v.DiagnoseSupportEnabled }).(pulumi.BoolOutput)
@@ -190,7 +197,7 @@ func (o LookupDeploymentResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// A `loggingStorageAccount` block as defined below.
+// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 func (o LookupDeploymentResultOutput) LoggingStorageAccounts() GetDeploymentLoggingStorageAccountArrayOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentLoggingStorageAccount { return v.LoggingStorageAccounts }).(GetDeploymentLoggingStorageAccountArrayOutput)
 }

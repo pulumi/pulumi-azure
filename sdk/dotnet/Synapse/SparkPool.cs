@@ -88,6 +88,7 @@ namespace Pulumi.Azure.Synapse
     /// ",
     ///             Filename = "config.txt",
     ///         },
+    ///         SparkVersion = "3.2",
     ///         Tags = 
     ///         {
     ///             { "ENV", "Production" },
@@ -180,6 +181,9 @@ namespace Pulumi.Azure.Synapse
         [Output("sparkLogFolder")]
         public Output<string?> SparkLogFolder { get; private set; } = null!;
 
+        /// <summary>
+        /// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+        /// </summary>
         [Output("sparkVersion")]
         public Output<string> SparkVersion { get; private set; } = null!;
 
@@ -310,6 +314,9 @@ namespace Pulumi.Azure.Synapse
         [Input("sparkLogFolder")]
         public Input<string>? SparkLogFolder { get; set; }
 
+        /// <summary>
+        /// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+        /// </summary>
         [Input("sparkVersion", required: true)]
         public Input<string> SparkVersion { get; set; } = null!;
 
@@ -407,6 +414,9 @@ namespace Pulumi.Azure.Synapse
         [Input("sparkLogFolder")]
         public Input<string>? SparkLogFolder { get; set; }
 
+        /// <summary>
+        /// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+        /// </summary>
         [Input("sparkVersion")]
         public Input<string>? SparkVersion { get; set; }
 

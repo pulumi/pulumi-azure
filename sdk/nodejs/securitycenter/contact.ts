@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The contact can be imported using the `resource id`, e.g.
+ * Security Center Contacts can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
@@ -73,7 +73,7 @@ export class Contact extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * The name of the Security Center Contact. Defaults to `default1`.
+     * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export interface ContactState {
      */
     email?: pulumi.Input<string>;
     /**
-     * The name of the Security Center Contact. Defaults to `default1`.
+     * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -164,7 +164,7 @@ export interface ContactArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * The name of the Security Center Contact. Defaults to `default1`.
+     * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      */
     name?: pulumi.Input<string>;
     /**

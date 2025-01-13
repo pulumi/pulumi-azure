@@ -22,9 +22,13 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly string? FailoverTestStaticIp;
         /// <summary>
-        /// Name of the subnet to to use when a test failover is done.
+        /// Name of the subnet to use when a test failover is done.
         /// </summary>
         public readonly string? FailoverTestSubnetName;
+        /// <summary>
+        /// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+        /// </summary>
+        public readonly ImmutableArray<string> RecoveryLoadBalancerBackendAddressPoolIds;
         /// <summary>
         /// Id of the public IP object to use when a failover is done.
         /// </summary>
@@ -38,7 +42,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly string? TargetStaticIp;
         /// <summary>
-        /// Name of the subnet to to use when a failover is done.
+        /// Name of the subnet to use when a failover is done.
         /// </summary>
         public readonly string? TargetSubnetName;
 
@@ -49,6 +53,8 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
             string? failoverTestStaticIp,
 
             string? failoverTestSubnetName,
+
+            ImmutableArray<string> recoveryLoadBalancerBackendAddressPoolIds,
 
             string? recoveryPublicIpAddressId,
 
@@ -61,6 +67,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
             FailoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
             FailoverTestStaticIp = failoverTestStaticIp;
             FailoverTestSubnetName = failoverTestSubnetName;
+            RecoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
             RecoveryPublicIpAddressId = recoveryPublicIpAddressId;
             SourceNetworkInterfaceId = sourceNetworkInterfaceId;
             TargetStaticIp = targetStaticIp;

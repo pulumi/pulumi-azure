@@ -1544,6 +1544,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "arckubernetes/provisionedCluster",
+  "fqn": "pulumi_azure.arckubernetes",
+  "classes": {
+   "azure:arckubernetes/provisionedCluster:ProvisionedCluster": "ProvisionedCluster"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "arcmachine/arcMachine",
   "fqn": "pulumi_azure.arcmachine",
   "classes": {
@@ -4288,6 +4296,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dynatrace/tagRules",
+  "fqn": "pulumi_azure.dynatrace",
+  "classes": {
+   "azure:dynatrace/tagRules:TagRules": "TagRules"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "elasticcloud/elasticsearch",
   "fqn": "pulumi_azure.elasticcloud",
   "classes": {
@@ -5524,6 +5540,22 @@ _utilities.register(
   "fqn": "pulumi_azure.machinelearning",
   "classes": {
    "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn": "WorkspaceNetworkOutboundRuleFqdn"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "machinelearning/workspaceNetworkOutboundRulePrivateEndpoint",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint": "WorkspaceNetworkOutboundRulePrivateEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "machinelearning/workspaceNetworkOutboundRuleServiceTag",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/workspaceNetworkOutboundRuleServiceTag:WorkspaceNetworkOutboundRuleServiceTag": "WorkspaceNetworkOutboundRuleServiceTag"
   }
  },
  {

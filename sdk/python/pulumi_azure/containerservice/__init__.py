@@ -12,6 +12,7 @@ from .fleet_update_run import *
 from .fleet_update_strategy import *
 from .flux_configuration import *
 from .get_cluster_node_pool import *
+from .get_fleet_manager import *
 from .get_group import *
 from .get_kubernetes_cluster import *
 from .get_kubernetes_node_pool_snapshot import *

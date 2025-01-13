@@ -166,6 +166,21 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     * 
+     */
+    @Import(name="privateEndpointVnetPolicies")
+    private @Nullable Output<String> privateEndpointVnetPolicies;
+
+    /**
+     * @return The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+     * 
+     */
+    public Optional<Output<String>> privateEndpointVnetPolicies() {
+        return Optional.ofNullable(this.privateEndpointVnetPolicies);
+    }
+
+    /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      * 
      */
@@ -226,6 +241,7 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         this.flowTimeoutInMinutes = $.flowTimeoutInMinutes;
         this.location = $.location;
         this.name = $.name;
+        this.privateEndpointVnetPolicies = $.privateEndpointVnetPolicies;
         this.resourceGroupName = $.resourceGroupName;
         this.subnets = $.subnets;
         this.tags = $.tags;
@@ -466,6 +482,27 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param privateEndpointVnetPolicies The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointVnetPolicies(@Nullable Output<String> privateEndpointVnetPolicies) {
+            $.privateEndpointVnetPolicies = privateEndpointVnetPolicies;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointVnetPolicies The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointVnetPolicies(String privateEndpointVnetPolicies) {
+            return privateEndpointVnetPolicies(Output.of(privateEndpointVnetPolicies));
         }
 
         /**

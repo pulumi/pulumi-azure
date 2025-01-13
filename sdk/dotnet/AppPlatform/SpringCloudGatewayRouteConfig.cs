@@ -124,7 +124,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> Predicates { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
         /// 
         /// &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         /// </summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
         /// 
         /// &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         /// </summary>
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
+        /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
         /// 
         /// &gt; **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
         /// </summary>

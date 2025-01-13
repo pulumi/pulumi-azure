@@ -22,12 +22,16 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
     /**
      * Is the cost management export active? Default is `true`.
      * 
+     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
      * @return Is the cost management export active? Default is `true`.
+     * 
+     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -77,6 +81,13 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
      */
     public Output<AccountCostManagementExportExportDataStorageLocationArgs> exportDataStorageLocation() {
         return this.exportDataStorageLocation;
+    }
+
+    @Import(name="fileFormat")
+    private @Nullable Output<String> fileFormat;
+
+    public Optional<Output<String>> fileFormat() {
+        return Optional.ofNullable(this.fileFormat);
     }
 
     /**
@@ -146,6 +157,7 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
         this.billingAccountId = $.billingAccountId;
         this.exportDataOptions = $.exportDataOptions;
         this.exportDataStorageLocation = $.exportDataStorageLocation;
+        this.fileFormat = $.fileFormat;
         this.name = $.name;
         this.recurrencePeriodEndDate = $.recurrencePeriodEndDate;
         this.recurrencePeriodStartDate = $.recurrencePeriodStartDate;
@@ -173,6 +185,8 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
         /**
          * @param active Is the cost management export active? Default is `true`.
          * 
+         * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * 
          * @return builder
          * 
          */
@@ -183,6 +197,8 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
 
         /**
          * @param active Is the cost management export active? Default is `true`.
+         * 
+         * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
          * 
          * @return builder
          * 
@@ -252,6 +268,15 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
          */
         public Builder exportDataStorageLocation(AccountCostManagementExportExportDataStorageLocationArgs exportDataStorageLocation) {
             return exportDataStorageLocation(Output.of(exportDataStorageLocation));
+        }
+
+        public Builder fileFormat(@Nullable Output<String> fileFormat) {
+            $.fileFormat = fileFormat;
+            return this;
+        }
+
+        public Builder fileFormat(String fileFormat) {
+            return fileFormat(Output.of(fileFormat));
         }
 
         /**

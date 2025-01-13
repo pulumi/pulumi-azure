@@ -1406,7 +1406,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkFeatures")
-    def network_features(self) -> pulumi.Output[Optional[str]]:
+    def network_features(self) -> pulumi.Output[str]:
         """
         Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         """

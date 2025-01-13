@@ -54,6 +54,12 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorProfile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.FrontdoorProfileIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -136,6 +142,12 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.FrontdoorProfileIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -179,6 +191,12 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class FrontdoorProfileState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.FrontdoorProfileIdentityGetArgs>? Identity { get; set; }
+
         /// <summary>
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>

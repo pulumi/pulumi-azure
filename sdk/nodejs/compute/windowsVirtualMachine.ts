@@ -233,7 +233,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
-     * A `osDisk` block as defined below.
+     * An `osDisk` block as defined below.
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineOsDisk>;
     /**
@@ -651,7 +651,7 @@ export interface WindowsVirtualMachineState {
      */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `osDisk` block as defined below.
+     * An `osDisk` block as defined below.
      */
     osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
@@ -915,7 +915,7 @@ export interface WindowsVirtualMachineArgs {
      */
     networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `osDisk` block as defined below.
+     * An `osDisk` block as defined below.
      */
     osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**

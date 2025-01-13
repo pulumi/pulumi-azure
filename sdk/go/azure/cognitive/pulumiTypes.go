@@ -1708,11 +1708,10 @@ type DeploymentSku struct {
 	Capacity *int `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family *string `pulumi:"family"`
-	// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
-	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -1732,11 +1731,10 @@ type DeploymentSkuArgs struct {
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+	// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -1827,7 +1825,6 @@ func (o DeploymentSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
 func (o DeploymentSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1837,7 +1834,7 @@ func (o DeploymentSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
 func (o DeploymentSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1886,7 +1883,6 @@ func (o DeploymentSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Possible values include `Standard`, `DataZoneStandard`, `GlobalBatch`, `GlobalStandard` and `ProvisionedManaged`.
 func (o DeploymentSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSku) *string {
 		if v == nil {
@@ -1906,7 +1902,7 @@ func (o DeploymentSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+// Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. This property is required only when multiple tiers are available with the SKU name. Changing this forces a new resource to be created.
 func (o DeploymentSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSku) *string {
 		if v == nil {

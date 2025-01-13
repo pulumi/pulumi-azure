@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,18 +47,33 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     }
 
     /**
-     * Name of the subnet to to use when a test failover is done.
+     * Name of the subnet to use when a test failover is done.
      * 
      */
     @Import(name="failoverTestSubnetName")
     private @Nullable Output<String> failoverTestSubnetName;
 
     /**
-     * @return Name of the subnet to to use when a test failover is done.
+     * @return Name of the subnet to use when a test failover is done.
      * 
      */
     public Optional<Output<String>> failoverTestSubnetName() {
         return Optional.ofNullable(this.failoverTestSubnetName);
+    }
+
+    /**
+     * A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+     * 
+     */
+    @Import(name="recoveryLoadBalancerBackendAddressPoolIds")
+    private @Nullable Output<List<String>> recoveryLoadBalancerBackendAddressPoolIds;
+
+    /**
+     * @return A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+     * 
+     */
+    public Optional<Output<List<String>>> recoveryLoadBalancerBackendAddressPoolIds() {
+        return Optional.ofNullable(this.recoveryLoadBalancerBackendAddressPoolIds);
     }
 
     /**
@@ -106,14 +122,14 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     }
 
     /**
-     * Name of the subnet to to use when a failover is done.
+     * Name of the subnet to use when a failover is done.
      * 
      */
     @Import(name="targetSubnetName")
     private @Nullable Output<String> targetSubnetName;
 
     /**
-     * @return Name of the subnet to to use when a failover is done.
+     * @return Name of the subnet to use when a failover is done.
      * 
      */
     public Optional<Output<String>> targetSubnetName() {
@@ -126,6 +142,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         this.failoverTestPublicIpAddressId = $.failoverTestPublicIpAddressId;
         this.failoverTestStaticIp = $.failoverTestStaticIp;
         this.failoverTestSubnetName = $.failoverTestSubnetName;
+        this.recoveryLoadBalancerBackendAddressPoolIds = $.recoveryLoadBalancerBackendAddressPoolIds;
         this.recoveryPublicIpAddressId = $.recoveryPublicIpAddressId;
         this.sourceNetworkInterfaceId = $.sourceNetworkInterfaceId;
         this.targetStaticIp = $.targetStaticIp;
@@ -193,7 +210,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param failoverTestSubnetName Name of the subnet to to use when a test failover is done.
+         * @param failoverTestSubnetName Name of the subnet to use when a test failover is done.
          * 
          * @return builder
          * 
@@ -204,13 +221,44 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param failoverTestSubnetName Name of the subnet to to use when a test failover is done.
+         * @param failoverTestSubnetName Name of the subnet to use when a test failover is done.
          * 
          * @return builder
          * 
          */
         public Builder failoverTestSubnetName(String failoverTestSubnetName) {
             return failoverTestSubnetName(Output.of(failoverTestSubnetName));
+        }
+
+        /**
+         * @param recoveryLoadBalancerBackendAddressPoolIds A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryLoadBalancerBackendAddressPoolIds(@Nullable Output<List<String>> recoveryLoadBalancerBackendAddressPoolIds) {
+            $.recoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
+            return this;
+        }
+
+        /**
+         * @param recoveryLoadBalancerBackendAddressPoolIds A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryLoadBalancerBackendAddressPoolIds(List<String> recoveryLoadBalancerBackendAddressPoolIds) {
+            return recoveryLoadBalancerBackendAddressPoolIds(Output.of(recoveryLoadBalancerBackendAddressPoolIds));
+        }
+
+        /**
+         * @param recoveryLoadBalancerBackendAddressPoolIds A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryLoadBalancerBackendAddressPoolIds(String... recoveryLoadBalancerBackendAddressPoolIds) {
+            return recoveryLoadBalancerBackendAddressPoolIds(List.of(recoveryLoadBalancerBackendAddressPoolIds));
         }
 
         /**
@@ -277,7 +325,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetSubnetName Name of the subnet to to use when a failover is done.
+         * @param targetSubnetName Name of the subnet to use when a failover is done.
          * 
          * @return builder
          * 
@@ -288,7 +336,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetSubnetName Name of the subnet to to use when a failover is done.
+         * @param targetSubnetName Name of the subnet to use when a failover is done.
          * 
          * @return builder
          * 

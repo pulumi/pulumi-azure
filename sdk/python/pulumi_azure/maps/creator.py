@@ -204,6 +204,8 @@ class Creator(pulumi.CustomResource):
         """
         Manages an Azure Maps Creator.
 
+        > **Note:** The `maps.Creator` resource has been deprecated because the service is retiring from 2024-09-23 and will be removed in v5.0 of the AzureRM Provider.
+
         ## Example Usage
 
         ```python
@@ -254,6 +256,8 @@ class Creator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Maps Creator.
+
+        > **Note:** The `maps.Creator` resource has been deprecated because the service is retiring from 2024-09-23 and will be removed in v5.0 of the AzureRM Provider.
 
         ## Example Usage
 

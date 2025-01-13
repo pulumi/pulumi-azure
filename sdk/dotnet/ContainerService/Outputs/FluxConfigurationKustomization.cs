@@ -30,6 +30,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
+        /// A `post_build` block as defined below.
+        /// </summary>
+        public readonly Outputs.FluxConfigurationKustomizationPostBuild? PostBuild;
+        /// <summary>
         /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
         /// </summary>
         public readonly bool? RecreatingEnabled;
@@ -45,6 +49,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
         /// </summary>
         public readonly int? TimeoutInSeconds;
+        /// <summary>
+        /// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        /// </summary>
+        public readonly bool? Wait;
 
         [OutputConstructor]
         private FluxConfigurationKustomization(
@@ -56,22 +64,28 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? path,
 
+            Outputs.FluxConfigurationKustomizationPostBuild? postBuild,
+
             bool? recreatingEnabled,
 
             int? retryIntervalInSeconds,
 
             int? syncIntervalInSeconds,
 
-            int? timeoutInSeconds)
+            int? timeoutInSeconds,
+
+            bool? wait)
         {
             DependsOns = dependsOns;
             GarbageCollectionEnabled = garbageCollectionEnabled;
             Name = name;
             Path = path;
+            PostBuild = postBuild;
             RecreatingEnabled = recreatingEnabled;
             RetryIntervalInSeconds = retryIntervalInSeconds;
             SyncIntervalInSeconds = syncIntervalInSeconds;
             TimeoutInSeconds = timeoutInSeconds;
+            Wait = wait;
         }
     }
 }

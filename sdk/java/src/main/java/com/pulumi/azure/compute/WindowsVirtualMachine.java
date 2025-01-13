@@ -554,14 +554,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceIds;
     }
     /**
-     * A `os_disk` block as defined below.
+     * An `os_disk` block as defined below.
      * 
      */
     @Export(name="osDisk", refs={WindowsVirtualMachineOsDisk.class}, tree="[0]")
     private Output<WindowsVirtualMachineOsDisk> osDisk;
 
     /**
-     * @return A `os_disk` block as defined below.
+     * @return An `os_disk` block as defined below.
      * 
      */
     public Output<WindowsVirtualMachineOsDisk> osDisk() {

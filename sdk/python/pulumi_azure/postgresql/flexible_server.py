@@ -1052,8 +1052,8 @@ class FlexibleServer(pulumi.CustomResource):
             administrator_password="H@Sh1CoR3!",
             zone="1",
             storage_mb=32768,
-            storage_tier="P30",
-            sku_name="GP_Standard_D4s_v3",
+            storage_tier="P4",
+            sku_name="B_Standard_B1ms",
             opts = pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 
@@ -1195,8 +1195,8 @@ class FlexibleServer(pulumi.CustomResource):
             administrator_password="H@Sh1CoR3!",
             zone="1",
             storage_mb=32768,
-            storage_tier="P30",
-            sku_name="GP_Standard_D4s_v3",
+            storage_tier="P4",
+            sku_name="B_Standard_B1ms",
             opts = pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
         ```
 

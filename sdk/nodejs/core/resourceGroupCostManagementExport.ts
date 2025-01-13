@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  *     recurrenceType: "Monthly",
  *     recurrencePeriodStartDate: "2020-08-18T00:00:00Z",
  *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",
+ *     fileFormat: "Csv",
  *     exportDataStorageLocation: {
  *         containerId: exampleContainer.resourceManagerId,
  *         rootFolderPath: "/root/updated",
@@ -96,6 +97,10 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
      */
     public readonly exportDataStorageLocation!: pulumi.Output<outputs.core.ResourceGroupCostManagementExportExportDataStorageLocation>;
     /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     */
+    public readonly fileFormat!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -132,6 +137,7 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
             resourceInputs["active"] = state ? state.active : undefined;
             resourceInputs["exportDataOptions"] = state ? state.exportDataOptions : undefined;
             resourceInputs["exportDataStorageLocation"] = state ? state.exportDataStorageLocation : undefined;
+            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recurrencePeriodEndDate"] = state ? state.recurrencePeriodEndDate : undefined;
             resourceInputs["recurrencePeriodStartDate"] = state ? state.recurrencePeriodStartDate : undefined;
@@ -160,6 +166,7 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
             resourceInputs["active"] = args ? args.active : undefined;
             resourceInputs["exportDataOptions"] = args ? args.exportDataOptions : undefined;
             resourceInputs["exportDataStorageLocation"] = args ? args.exportDataStorageLocation : undefined;
+            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recurrencePeriodEndDate"] = args ? args.recurrencePeriodEndDate : undefined;
             resourceInputs["recurrencePeriodStartDate"] = args ? args.recurrencePeriodStartDate : undefined;
@@ -187,6 +194,10 @@ export interface ResourceGroupCostManagementExportState {
      * A `exportDataStorageLocation` block as defined below.
      */
     exportDataStorageLocation?: pulumi.Input<inputs.core.ResourceGroupCostManagementExportExportDataStorageLocation>;
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     */
+    fileFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
@@ -225,6 +236,10 @@ export interface ResourceGroupCostManagementExportArgs {
      * A `exportDataStorageLocation` block as defined below.
      */
     exportDataStorageLocation: pulumi.Input<inputs.core.ResourceGroupCostManagementExportExportDataStorageLocation>;
+    /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     */
+    fileFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */

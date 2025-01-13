@@ -80,6 +80,12 @@ type StaticWebApp struct {
 	PreviewEnvironmentsEnabled pulumi.BoolPtrOutput `pulumi:"previewEnvironmentsEnabled"`
 	// Should public network access be enabled for the Static Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
+	// Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+	RepositoryBranch pulumi.StringPtrOutput `pulumi:"repositoryBranch"`
+	// Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+	RepositoryToken pulumi.StringPtrOutput `pulumi:"repositoryToken"`
+	// Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+	RepositoryUrl pulumi.StringPtrOutput `pulumi:"repositoryUrl"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -103,9 +109,13 @@ func NewStaticWebApp(ctx *pulumi.Context,
 	if args.BasicAuth != nil {
 		args.BasicAuth = pulumi.ToSecret(args.BasicAuth).(StaticWebAppBasicAuthPtrInput)
 	}
+	if args.RepositoryToken != nil {
+		args.RepositoryToken = pulumi.ToSecret(args.RepositoryToken).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",
 		"basicAuth",
+		"repositoryToken",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -151,6 +161,12 @@ type staticWebAppState struct {
 	PreviewEnvironmentsEnabled *bool `pulumi:"previewEnvironmentsEnabled"`
 	// Should public network access be enabled for the Static Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+	RepositoryBranch *string `pulumi:"repositoryBranch"`
+	// Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+	RepositoryToken *string `pulumi:"repositoryToken"`
+	// Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -182,6 +198,12 @@ type StaticWebAppState struct {
 	PreviewEnvironmentsEnabled pulumi.BoolPtrInput
 	// Should public network access be enabled for the Static Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+	RepositoryBranch pulumi.StringPtrInput
+	// Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+	RepositoryToken pulumi.StringPtrInput
+	// Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+	RepositoryUrl pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -213,6 +235,12 @@ type staticWebAppArgs struct {
 	PreviewEnvironmentsEnabled *bool `pulumi:"previewEnvironmentsEnabled"`
 	// Should public network access be enabled for the Static Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
+	// Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+	RepositoryBranch *string `pulumi:"repositoryBranch"`
+	// Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+	RepositoryToken *string `pulumi:"repositoryToken"`
+	// Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -241,6 +269,12 @@ type StaticWebAppArgs struct {
 	PreviewEnvironmentsEnabled pulumi.BoolPtrInput
 	// Should public network access be enabled for the Static Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	// Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+	RepositoryBranch pulumi.StringPtrInput
+	// Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+	RepositoryToken pulumi.StringPtrInput
+	// Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+	RepositoryUrl pulumi.StringPtrInput
 	// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
@@ -386,6 +420,21 @@ func (o StaticWebAppOutput) PreviewEnvironmentsEnabled() pulumi.BoolPtrOutput {
 // Should public network access be enabled for the Static Web App. Defaults to `true`.
 func (o StaticWebAppOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StaticWebApp) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+func (o StaticWebAppOutput) RepositoryBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticWebApp) pulumi.StringPtrOutput { return v.RepositoryBranch }).(pulumi.StringPtrOutput)
+}
+
+// Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+func (o StaticWebAppOutput) RepositoryToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticWebApp) pulumi.StringPtrOutput { return v.RepositoryToken }).(pulumi.StringPtrOutput)
+}
+
+// Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+func (o StaticWebAppOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticWebApp) pulumi.StringPtrOutput { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.

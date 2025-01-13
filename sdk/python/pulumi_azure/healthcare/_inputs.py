@@ -17,10 +17,14 @@ from .. import _utilities
 __all__ = [
     'DicomServiceAuthenticationArgs',
     'DicomServiceAuthenticationArgsDict',
+    'DicomServiceCorsArgs',
+    'DicomServiceCorsArgsDict',
     'DicomServiceIdentityArgs',
     'DicomServiceIdentityArgsDict',
     'DicomServicePrivateEndpointArgs',
     'DicomServicePrivateEndpointArgsDict',
+    'DicomServiceStorageArgs',
+    'DicomServiceStorageArgsDict',
     'FhirServiceAuthenticationArgs',
     'FhirServiceAuthenticationArgsDict',
     'FhirServiceCorsArgs',
@@ -86,6 +90,118 @@ class DicomServiceAuthenticationArgs:
     @authority.setter
     def authority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authority", value)
+
+
+if not MYPY:
+    class DicomServiceCorsArgsDict(TypedDict):
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to allow credentials in CORS. Defaults to `false`.
+        """
+        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed headers for CORS.
+        """
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed methods for CORS.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed origins for CORS.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+        """
+elif False:
+    DicomServiceCorsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DicomServiceCorsArgs:
+    def __init__(__self__, *,
+                 allow_credentials: Optional[pulumi.Input[bool]] = None,
+                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] allow_credentials: Whether to allow credentials in CORS. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of allowed headers for CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of allowed methods for CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of allowed origins for CORS.
+        :param pulumi.Input[int] max_age_in_seconds: The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to allow credentials in CORS. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @allow_credentials.setter
+    def allow_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_credentials", value)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed headers for CORS.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed methods for CORS.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed origins for CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    @max_age_in_seconds.setter
+    def max_age_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_age_in_seconds", value)
 
 
 if not MYPY:
@@ -215,6 +331,62 @@ class DicomServicePrivateEndpointArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class DicomServiceStorageArgsDict(TypedDict):
+        file_system_name: pulumi.Input[str]
+        """
+        The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        storage_account_id: pulumi.Input[str]
+        """
+        The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+
+        > **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+        """
+elif False:
+    DicomServiceStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DicomServiceStorageArgs:
+    def __init__(__self__, *,
+                 file_system_name: pulumi.Input[str],
+                 storage_account_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] file_system_name: The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+        :param pulumi.Input[str] storage_account_id: The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+               
+               > **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+        """
+        pulumi.set(__self__, "file_system_name", file_system_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="fileSystemName")
+    def file_system_name(self) -> pulumi.Input[str]:
+        """
+        The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        return pulumi.get(self, "file_system_name")
+
+    @file_system_name.setter
+    def file_system_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+
+        > **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
 
 
 if not MYPY:

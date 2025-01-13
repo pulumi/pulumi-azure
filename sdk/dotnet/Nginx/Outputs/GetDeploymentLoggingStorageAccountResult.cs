@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Nginx.Outputs
     [OutputType]
     public sealed class GetDeploymentLoggingStorageAccountResult
     {
-        /// <summary>
-        /// The container name of Storage Account for logging.
-        /// </summary>
         public readonly string ContainerName;
         /// <summary>
         /// The name of this NGINX Deployment.

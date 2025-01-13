@@ -130,6 +130,8 @@ type Deployment struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
+	// The dataplane API endpoint of the NGINX Deployment.
+	DataplaneApiEndpoint pulumi.StringOutput `pulumi:"dataplaneApiEndpoint"`
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -140,11 +142,11 @@ type Deployment struct {
 	FrontendPublic DeploymentFrontendPublicPtrOutput `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrOutput `pulumi:"identity"`
-	// The IP address of the deployment.
+	// The IP address of the NGINX Deployment.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// One or more `loggingStorageAccount` blocks as defined below.
+	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayOutput `pulumi:"loggingStorageAccounts"`
 	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup pulumi.StringOutput `pulumi:"managedResourceGroup"`
@@ -152,7 +154,7 @@ type Deployment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	// The version of deployed NGINX.
+	// The version of the NGINX Deployment.
 	NginxVersion pulumi.StringOutput `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -205,6 +207,8 @@ type deploymentState struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
+	// The dataplane API endpoint of the NGINX Deployment.
+	DataplaneApiEndpoint *string `pulumi:"dataplaneApiEndpoint"`
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -215,11 +219,11 @@ type deploymentState struct {
 	FrontendPublic *DeploymentFrontendPublic `pulumi:"frontendPublic"`
 	// An `identity` block as defined below.
 	Identity *DeploymentIdentity `pulumi:"identity"`
-	// The IP address of the deployment.
+	// The IP address of the NGINX Deployment.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location *string `pulumi:"location"`
-	// One or more `loggingStorageAccount` blocks as defined below.
+	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.
 	LoggingStorageAccounts []DeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
 	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
@@ -227,7 +231,7 @@ type deploymentState struct {
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces []DeploymentNetworkInterface `pulumi:"networkInterfaces"`
-	// The version of deployed NGINX.
+	// The version of the NGINX Deployment.
 	NginxVersion *string `pulumi:"nginxVersion"`
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -245,6 +249,8 @@ type DeploymentState struct {
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
+	// The dataplane API endpoint of the NGINX Deployment.
+	DataplaneApiEndpoint pulumi.StringPtrInput
 	// Should the metrics be exported to Azure Monitor?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
 	// Specify the preferred support contact email address for receiving alerts and notifications.
@@ -255,11 +261,11 @@ type DeploymentState struct {
 	FrontendPublic DeploymentFrontendPublicPtrInput
 	// An `identity` block as defined below.
 	Identity DeploymentIdentityPtrInput
-	// The IP address of the deployment.
+	// The IP address of the NGINX Deployment.
 	IpAddress pulumi.StringPtrInput
 	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location pulumi.StringPtrInput
-	// One or more `loggingStorageAccount` blocks as defined below.
+	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayInput
 	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup pulumi.StringPtrInput
@@ -267,7 +273,7 @@ type DeploymentState struct {
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
 	NetworkInterfaces DeploymentNetworkInterfaceArrayInput
-	// The version of deployed NGINX.
+	// The version of the NGINX Deployment.
 	NginxVersion pulumi.StringPtrInput
 	// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -301,7 +307,7 @@ type deploymentArgs struct {
 	Identity *DeploymentIdentity `pulumi:"identity"`
 	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location *string `pulumi:"location"`
-	// One or more `loggingStorageAccount` blocks as defined below.
+	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.
 	LoggingStorageAccounts []DeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
 	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup *string `pulumi:"managedResourceGroup"`
@@ -338,7 +344,7 @@ type DeploymentArgs struct {
 	Identity DeploymentIdentityPtrInput
 	// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
 	Location pulumi.StringPtrInput
-	// One or more `loggingStorageAccount` blocks as defined below.
+	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.
 	LoggingStorageAccounts DeploymentLoggingStorageAccountArrayInput
 	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
 	ManagedResourceGroup pulumi.StringPtrInput
@@ -457,6 +463,11 @@ func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
+// The dataplane API endpoint of the NGINX Deployment.
+func (o DeploymentOutput) DataplaneApiEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DataplaneApiEndpoint }).(pulumi.StringOutput)
+}
+
 // Should the metrics be exported to Azure Monitor?
 func (o DeploymentOutput) DiagnoseSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.DiagnoseSupportEnabled }).(pulumi.BoolPtrOutput)
@@ -482,7 +493,7 @@ func (o DeploymentOutput) Identity() DeploymentIdentityPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentIdentityPtrOutput { return v.Identity }).(DeploymentIdentityPtrOutput)
 }
 
-// The IP address of the deployment.
+// The IP address of the NGINX Deployment.
 func (o DeploymentOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -492,7 +503,7 @@ func (o DeploymentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// One or more `loggingStorageAccount` blocks as defined below.
+// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.
 func (o DeploymentOutput) LoggingStorageAccounts() DeploymentLoggingStorageAccountArrayOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentLoggingStorageAccountArrayOutput { return v.LoggingStorageAccounts }).(DeploymentLoggingStorageAccountArrayOutput)
 }
@@ -512,7 +523,7 @@ func (o DeploymentOutput) NetworkInterfaces() DeploymentNetworkInterfaceArrayOut
 	return o.ApplyT(func(v *Deployment) DeploymentNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(DeploymentNetworkInterfaceArrayOutput)
 }
 
-// The version of deployed NGINX.
+// The version of the NGINX Deployment.
 func (o DeploymentOutput) NginxVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.NginxVersion }).(pulumi.StringOutput)
 }

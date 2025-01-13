@@ -3,15 +3,33 @@
 
 package com.pulumi.azure.cdn.inputs;
 
+import com.pulumi.azure.cdn.inputs.GetFrontdoorProfileIdentity;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFrontdoorProfilePlainArgs Empty = new GetFrontdoorProfilePlainArgs();
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable GetFrontdoorProfileIdentity identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<GetFrontdoorProfileIdentity> identity() {
+        return Optional.ofNullable(this.identity);
+    }
 
     /**
      * Specifies the name of the Front Door Profile.
@@ -46,6 +64,7 @@ public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.Inv
     private GetFrontdoorProfilePlainArgs() {}
 
     private GetFrontdoorProfilePlainArgs(GetFrontdoorProfilePlainArgs $) {
+        this.identity = $.identity;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -66,6 +85,17 @@ public final class GetFrontdoorProfilePlainArgs extends com.pulumi.resources.Inv
 
         public Builder(GetFrontdoorProfilePlainArgs defaults) {
             $ = new GetFrontdoorProfilePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable GetFrontdoorProfileIdentity identity) {
+            $.identity = identity;
+            return this;
         }
 
         /**

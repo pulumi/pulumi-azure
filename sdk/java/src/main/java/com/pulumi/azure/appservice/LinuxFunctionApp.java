@@ -28,8 +28,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Linux Function App.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -677,14 +675,18 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      * 
      */
     @Export(name="vnetImagePullEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> vnetImagePullEnabled;
 
     /**
-     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * @return Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      * 
      */
     public Output<Optional<Boolean>> vnetImagePullEnabled() {

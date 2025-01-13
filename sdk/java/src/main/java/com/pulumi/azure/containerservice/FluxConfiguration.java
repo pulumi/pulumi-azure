@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.FluxConfigurationArgs;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationGitRepositoryArgs;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationArgs;
+ * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationPostBuildArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -96,6 +97,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .kustomizations(FluxConfigurationKustomizationArgs.builder()
  *                 .name("kustomization-1")
+ *                 .postBuild(FluxConfigurationKustomizationPostBuildArgs.builder()
+ *                     .substitute(Map.of("example_var", "substitute_with_this"))
+ *                     .substituteFroms(FluxConfigurationKustomizationPostBuildSubstituteFromArgs.builder()
+ *                         .kind("ConfigMap")
+ *                         .name("example-configmap")
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleKubernetesClusterExtension)

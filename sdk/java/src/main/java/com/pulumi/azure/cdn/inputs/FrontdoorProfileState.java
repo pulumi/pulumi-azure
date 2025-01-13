@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.cdn.inputs;
 
+import com.pulumi.azure.cdn.inputs.FrontdoorProfileIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class FrontdoorProfileState extends com.pulumi.resources.ResourceArgs {
 
     public static final FrontdoorProfileState Empty = new FrontdoorProfileState();
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<FrontdoorProfileIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<FrontdoorProfileIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
 
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
@@ -110,6 +126,7 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
     private FrontdoorProfileState() {}
 
     private FrontdoorProfileState(FrontdoorProfileState $) {
+        this.identity = $.identity;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.resourceGuid = $.resourceGuid;
@@ -134,6 +151,27 @@ public final class FrontdoorProfileState extends com.pulumi.resources.ResourceAr
 
         public Builder(FrontdoorProfileState defaults) {
             $ = new FrontdoorProfileState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<FrontdoorProfileIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(FrontdoorProfileIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

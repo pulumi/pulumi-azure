@@ -43,6 +43,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
+        /// A `post_build` block as defined below.
+        /// </summary>
+        [Input("postBuild")]
+        public Input<Inputs.FluxConfigurationKustomizationPostBuildArgs>? PostBuild { get; set; }
+
+        /// <summary>
         /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
         /// </summary>
         [Input("recreatingEnabled")]
@@ -65,6 +71,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
+
+        /// <summary>
+        /// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        /// </summary>
+        [Input("wait")]
+        public Input<bool>? Wait { get; set; }
 
         public FluxConfigurationKustomizationArgs()
         {

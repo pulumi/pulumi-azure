@@ -50,6 +50,7 @@ namespace Pulumi.Azure.Core
     ///         RecurrenceType = "Monthly",
     ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
     ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs
     ///         {
     ///             ContainerId = exampleContainer.ResourceManagerId,
@@ -93,6 +94,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Output("exportDataStorageLocation")]
         public Output<Outputs.ResourceGroupCostManagementExportExportDataStorageLocation> ExportDataStorageLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Format for export. Valid values are `Csv` only. Default is `Csv`.
+        /// </summary>
+        [Output("fileFormat")]
+        public Output<string?> FileFormat { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
@@ -189,6 +196,12 @@ namespace Pulumi.Azure.Core
         public Input<Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs> ExportDataStorageLocation { get; set; } = null!;
 
         /// <summary>
+        /// Format for export. Valid values are `Csv` only. Default is `Csv`.
+        /// </summary>
+        [Input("fileFormat")]
+        public Input<string>? FileFormat { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -243,6 +256,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("exportDataStorageLocation")]
         public Input<Inputs.ResourceGroupCostManagementExportExportDataStorageLocationGetArgs>? ExportDataStorageLocation { get; set; }
+
+        /// <summary>
+        /// Format for export. Valid values are `Csv` only. Default is `Csv`.
+        /// </summary>
+        [Input("fileFormat")]
+        public Input<string>? FileFormat { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.

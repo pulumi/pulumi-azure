@@ -1572,6 +1572,10 @@ if not MYPY:
 
         > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the OS disk.
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -1607,6 +1611,7 @@ class LinuxVirtualMachineOsDiskArgs:
                  diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  security_encryption_type: Optional[pulumi.Input[str]] = None,
@@ -1623,6 +1628,7 @@ class LinuxVirtualMachineOsDiskArgs:
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
                
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        :param pulumi.Input[str] id: The ID of the OS disk.
         :param pulumi.Input[str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
@@ -1644,6 +1650,8 @@ class LinuxVirtualMachineOsDiskArgs:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secure_vm_disk_encryption_set_id is not None:
@@ -1718,6 +1726,18 @@ class LinuxVirtualMachineOsDiskArgs:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the OS disk.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -12594,6 +12614,10 @@ if not MYPY:
 
         > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the OS disk.
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -12629,6 +12653,7 @@ class WindowsVirtualMachineOsDiskArgs:
                  diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  security_encryption_type: Optional[pulumi.Input[str]] = None,
@@ -12645,6 +12670,7 @@ class WindowsVirtualMachineOsDiskArgs:
         :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
                
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        :param pulumi.Input[str] id: The ID of the OS disk.
         :param pulumi.Input[str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
@@ -12666,6 +12692,8 @@ class WindowsVirtualMachineOsDiskArgs:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secure_vm_disk_encryption_set_id is not None:
@@ -12740,6 +12768,18 @@ class WindowsVirtualMachineOsDiskArgs:
     @disk_size_gb.setter
     def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the OS disk.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter

@@ -140,7 +140,7 @@ type ExpressRouteConnection struct {
 	ExpressRouteGatewayId pulumi.StringOutput `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
 	PrivateLinkFastPathEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkFastPathEnabled"`
 	// A `routing` block as defined below.
 	Routing ExpressRouteConnectionRoutingOutput `pulumi:"routing"`
@@ -196,7 +196,7 @@ type expressRouteConnectionState struct {
 	ExpressRouteGatewayId *string `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
 	PrivateLinkFastPathEnabled *bool `pulumi:"privateLinkFastPathEnabled"`
 	// A `routing` block as defined below.
 	Routing *ExpressRouteConnectionRouting `pulumi:"routing"`
@@ -217,7 +217,7 @@ type ExpressRouteConnectionState struct {
 	ExpressRouteGatewayId pulumi.StringPtrInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
 	PrivateLinkFastPathEnabled pulumi.BoolPtrInput
 	// A `routing` block as defined below.
 	Routing ExpressRouteConnectionRoutingPtrInput
@@ -242,7 +242,7 @@ type expressRouteConnectionArgs struct {
 	ExpressRouteGatewayId string `pulumi:"expressRouteGatewayId"`
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
 	PrivateLinkFastPathEnabled *bool `pulumi:"privateLinkFastPathEnabled"`
 	// A `routing` block as defined below.
 	Routing *ExpressRouteConnectionRouting `pulumi:"routing"`
@@ -264,7 +264,7 @@ type ExpressRouteConnectionArgs struct {
 	ExpressRouteGatewayId pulumi.StringInput
 	// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+	// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
 	PrivateLinkFastPathEnabled pulumi.BoolPtrInput
 	// A `routing` block as defined below.
 	Routing ExpressRouteConnectionRoutingPtrInput
@@ -389,7 +389,7 @@ func (o ExpressRouteConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypassEnabled` must be set to `true`.
+// Deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
 func (o ExpressRouteConnectionOutput) PrivateLinkFastPathEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolPtrOutput { return v.PrivateLinkFastPathEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -11,6 +11,195 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
+ * > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "database-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     name: "mi-security-group",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const allowManagementInbound = new azure.network.NetworkSecurityRule("allow_management_inbound", {
+ *     name: "allow_management_inbound",
+ *     priority: 106,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRanges: [
+ *         "9000",
+ *         "9003",
+ *         "1438",
+ *         "1440",
+ *         "1452",
+ *     ],
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowMisubnetInbound = new azure.network.NetworkSecurityRule("allow_misubnet_inbound", {
+ *     name: "allow_misubnet_inbound",
+ *     priority: 200,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "10.0.0.0/24",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowHealthProbeInbound = new azure.network.NetworkSecurityRule("allow_health_probe_inbound", {
+ *     name: "allow_health_probe_inbound",
+ *     priority: 300,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "AzureLoadBalancer",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowTdsInbound = new azure.network.NetworkSecurityRule("allow_tds_inbound", {
+ *     name: "allow_tds_inbound",
+ *     priority: 1000,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "1433",
+ *     sourceAddressPrefix: "VirtualNetwork",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const denyAllInbound = new azure.network.NetworkSecurityRule("deny_all_inbound", {
+ *     name: "deny_all_inbound",
+ *     priority: 4096,
+ *     direction: "Inbound",
+ *     access: "Deny",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowManagementOutbound = new azure.network.NetworkSecurityRule("allow_management_outbound", {
+ *     name: "allow_management_outbound",
+ *     priority: 102,
+ *     direction: "Outbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRanges: [
+ *         "80",
+ *         "443",
+ *         "12000",
+ *     ],
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowMisubnetOutbound = new azure.network.NetworkSecurityRule("allow_misubnet_outbound", {
+ *     name: "allow_misubnet_outbound",
+ *     priority: 200,
+ *     direction: "Outbound",
+ *     access: "Allow",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "10.0.0.0/24",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const denyAllOutbound = new azure.network.NetworkSecurityRule("deny_all_outbound", {
+ *     name: "deny_all_outbound",
+ *     priority: 4096,
+ *     direction: "Outbound",
+ *     access: "Deny",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "vnet-mi",
+ *     resourceGroupName: example.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "subnet-mi",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
+ *     delegations: [{
+ *         name: "managedinstancedelegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Sql/managedInstances",
+ *             actions: [
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
+ *     subnetId: exampleSubnet.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * const exampleRouteTable = new azure.network.RouteTable("example", {
+ *     name: "routetable-mi",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     bgpRoutePropagationEnabled: true,
+ * }, {
+ *     dependsOn: [exampleSubnet],
+ * });
+ * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
+ *     subnetId: exampleSubnet.id,
+ *     routeTableId: exampleRouteTable.id,
+ * });
+ * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     name: "managedsqlinstance",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     licenseType: "BasePrice",
+ *     skuName: "GP_Gen5",
+ *     storageSizeInGb: 32,
+ *     subnetId: exampleSubnet.id,
+ *     vcores: 4,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
@@ -50,11 +239,15 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin!: pulumi.Output<string>;
+    public readonly administratorLogin!: pulumi.Output<string | undefined>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string>;
+    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * An `azureActiveDirectoryAdministrator` block as defined below.
+     */
+    public readonly azureActiveDirectoryAdministrator!: pulumi.Output<outputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator | undefined>;
     /**
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
@@ -89,6 +282,8 @@ export class ManagedInstance extends pulumi.CustomResource {
     public readonly maintenanceConfigurationName!: pulumi.Output<string | undefined>;
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     *
+     * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -124,7 +319,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly storageSizeInGb!: pulumi.Output<number>;
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * The subnet resource id that the SQL Managed Instance will be associated with.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -159,6 +354,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             const state = argsOrState as ManagedInstanceState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["azureActiveDirectoryAdministrator"] = state ? state.azureActiveDirectoryAdministrator : undefined;
             resourceInputs["collation"] = state ? state.collation : undefined;
             resourceInputs["dnsZone"] = state ? state.dnsZone : undefined;
             resourceInputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
@@ -183,12 +379,6 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["zoneRedundantEnabled"] = state ? state.zoneRedundantEnabled : undefined;
         } else {
             const args = argsOrState as ManagedInstanceArgs | undefined;
-            if ((!args || args.administratorLogin === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administratorLogin'");
-            }
-            if ((!args || args.administratorLoginPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administratorLoginPassword'");
-            }
             if ((!args || args.licenseType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
@@ -209,6 +399,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
+            resourceInputs["azureActiveDirectoryAdministrator"] = args ? args.azureActiveDirectoryAdministrator : undefined;
             resourceInputs["collation"] = args ? args.collation : undefined;
             resourceInputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -254,6 +445,10 @@ export interface ManagedInstanceState {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
+     * An `azureActiveDirectoryAdministrator` block as defined below.
+     */
+    azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator>;
+    /**
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
@@ -287,6 +482,8 @@ export interface ManagedInstanceState {
     maintenanceConfigurationName?: pulumi.Input<string>;
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     *
+     * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -322,7 +519,7 @@ export interface ManagedInstanceState {
      */
     storageSizeInGb?: pulumi.Input<number>;
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * The subnet resource id that the SQL Managed Instance will be associated with.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -350,11 +547,15 @@ export interface ManagedInstanceArgs {
     /**
      * The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    administratorLogin: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
-    administratorLoginPassword: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * An `azureActiveDirectoryAdministrator` block as defined below.
+     */
+    azureActiveDirectoryAdministrator?: pulumi.Input<inputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator>;
     /**
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
@@ -381,6 +582,8 @@ export interface ManagedInstanceArgs {
     maintenanceConfigurationName?: pulumi.Input<string>;
     /**
      * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     *
+     * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -416,7 +619,7 @@ export interface ManagedInstanceArgs {
      */
     storageSizeInGb: pulumi.Input<number>;
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+     * The subnet resource id that the SQL Managed Instance will be associated with.
      */
     subnetId: pulumi.Input<string>;
     /**

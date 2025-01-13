@@ -23,6 +23,8 @@ __all__ = [
     'FluxConfigurationBucket',
     'FluxConfigurationGitRepository',
     'FluxConfigurationKustomization',
+    'ProvisionedClusterAzureActiveDirectory',
+    'ProvisionedClusterIdentity',
 ]
 
 @pulumi.output_type
@@ -798,5 +800,130 @@ class FluxConfigurationKustomization(dict):
         The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
+
+
+@pulumi.output_type
+class ProvisionedClusterAzureActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminGroupObjectIds":
+            suggest = "admin_group_object_ids"
+        elif key == "azureRbacEnabled":
+            suggest = "azure_rbac_enabled"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClusterAzureActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProvisionedClusterAzureActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProvisionedClusterAzureActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_group_object_ids: Optional[Sequence[str]] = None,
+                 azure_rbac_enabled: Optional[bool] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param Sequence[str] admin_group_object_ids: A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+        :param bool azure_rbac_enabled: Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        :param str tenant_id: The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+        """
+        if admin_group_object_ids is not None:
+            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if azure_rbac_enabled is not None:
+            pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of IDs of Microsoft Entra ID Groups. All members of the specified Microsoft Entra ID Groups have the cluster administrator access to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @property
+    @pulumi.getter(name="azureRbacEnabled")
+    def azure_rbac_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization. Defaults to `false`.
+        """
+        return pulumi.get(self, "azure_rbac_enabled")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID to use for authentication. If not specified, the Tenant of the Arc Kubernetes Cluster will be used.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ProvisionedClusterIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProvisionedClusterIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProvisionedClusterIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProvisionedClusterIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Managed Identity. The only possible value is `SystemAssigned`. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
 

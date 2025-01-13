@@ -15,5 +15,7 @@ from .inference_cluster import *
 from .synapse_spark import *
 from .workspace import *
 from .workspace_network_outbound_rule_fqdn import *
+from .workspace_network_outbound_rule_private_endpoint import *
+from .workspace_network_outbound_rule_service_tag import *
 from ._inputs import *
 from . import outputs

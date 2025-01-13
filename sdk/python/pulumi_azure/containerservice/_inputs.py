@@ -43,6 +43,10 @@ __all__ = [
     'FluxConfigurationGitRepositoryArgsDict',
     'FluxConfigurationKustomizationArgs',
     'FluxConfigurationKustomizationArgsDict',
+    'FluxConfigurationKustomizationPostBuildArgs',
+    'FluxConfigurationKustomizationPostBuildArgsDict',
+    'FluxConfigurationKustomizationPostBuildSubstituteFromArgs',
+    'FluxConfigurationKustomizationPostBuildSubstituteFromArgsDict',
     'GroupContainerArgs',
     'GroupContainerArgsDict',
     'GroupContainerLivenessProbeArgs',
@@ -1421,6 +1425,10 @@ if not MYPY:
         """
         Specifies the path in the source reference to reconcile on the cluster.
         """
+        post_build: NotRequired[pulumi.Input['FluxConfigurationKustomizationPostBuildArgsDict']]
+        """
+        A `post_build` block as defined below.
+        """
         recreating_enabled: NotRequired[pulumi.Input[bool]]
         """
         Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
@@ -1437,6 +1445,10 @@ if not MYPY:
         """
         The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
         """
+        wait: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        """
 elif False:
     FluxConfigurationKustomizationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1447,19 +1459,23 @@ class FluxConfigurationKustomizationArgs:
                  depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  garbage_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  path: Optional[pulumi.Input[str]] = None,
+                 post_build: Optional[pulumi.Input['FluxConfigurationKustomizationPostBuildArgs']] = None,
                  recreating_enabled: Optional[pulumi.Input[bool]] = None,
                  retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 wait: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name of the kustomization.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_ons: Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
         :param pulumi.Input[bool] garbage_collection_enabled: Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
         :param pulumi.Input[str] path: Specifies the path in the source reference to reconcile on the cluster.
+        :param pulumi.Input['FluxConfigurationKustomizationPostBuildArgs'] post_build: A `post_build` block as defined below.
         :param pulumi.Input[bool] recreating_enabled: Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
         :param pulumi.Input[int] retry_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
         :param pulumi.Input[int] sync_interval_in_seconds: The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
         :param pulumi.Input[int] timeout_in_seconds: The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+        :param pulumi.Input[bool] wait: Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         if depends_ons is not None:
@@ -1468,6 +1484,8 @@ class FluxConfigurationKustomizationArgs:
             pulumi.set(__self__, "garbage_collection_enabled", garbage_collection_enabled)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if post_build is not None:
+            pulumi.set(__self__, "post_build", post_build)
         if recreating_enabled is not None:
             pulumi.set(__self__, "recreating_enabled", recreating_enabled)
         if retry_interval_in_seconds is not None:
@@ -1476,6 +1494,8 @@ class FluxConfigurationKustomizationArgs:
             pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if wait is not None:
+            pulumi.set(__self__, "wait", wait)
 
     @property
     @pulumi.getter
@@ -1526,6 +1546,18 @@ class FluxConfigurationKustomizationArgs:
         pulumi.set(self, "path", value)
 
     @property
+    @pulumi.getter(name="postBuild")
+    def post_build(self) -> Optional[pulumi.Input['FluxConfigurationKustomizationPostBuildArgs']]:
+        """
+        A `post_build` block as defined below.
+        """
+        return pulumi.get(self, "post_build")
+
+    @post_build.setter
+    def post_build(self, value: Optional[pulumi.Input['FluxConfigurationKustomizationPostBuildArgs']]):
+        pulumi.set(self, "post_build", value)
+
+    @property
     @pulumi.getter(name="recreatingEnabled")
     def recreating_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1572,6 +1604,140 @@ class FluxConfigurationKustomizationArgs:
     @timeout_in_seconds.setter
     def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def wait(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        """
+        return pulumi.get(self, "wait")
+
+    @wait.setter
+    def wait(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wait", value)
+
+
+if not MYPY:
+    class FluxConfigurationKustomizationPostBuildArgsDict(TypedDict):
+        substitute: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+        """
+        substitute_froms: NotRequired[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgsDict']]]]
+        """
+        A `substitute_from` block as defined below.
+        """
+elif False:
+    FluxConfigurationKustomizationPostBuildArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FluxConfigurationKustomizationPostBuildArgs:
+    def __init__(__self__, *,
+                 substitute: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 substitute_froms: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgs']]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] substitute: Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+        :param pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgs']]] substitute_froms: A `substitute_from` block as defined below.
+        """
+        if substitute is not None:
+            pulumi.set(__self__, "substitute", substitute)
+        if substitute_froms is not None:
+            pulumi.set(__self__, "substitute_froms", substitute_froms)
+
+    @property
+    @pulumi.getter
+    def substitute(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+        """
+        return pulumi.get(self, "substitute")
+
+    @substitute.setter
+    def substitute(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "substitute", value)
+
+    @property
+    @pulumi.getter(name="substituteFroms")
+    def substitute_froms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgs']]]]:
+        """
+        A `substitute_from` block as defined below.
+        """
+        return pulumi.get(self, "substitute_froms")
+
+    @substitute_froms.setter
+    def substitute_froms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgs']]]]):
+        pulumi.set(self, "substitute_froms", value)
+
+
+if not MYPY:
+    class FluxConfigurationKustomizationPostBuildSubstituteFromArgsDict(TypedDict):
+        kind: pulumi.Input[str]
+        """
+        Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        """
+        optional: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        """
+elif False:
+    FluxConfigurationKustomizationPostBuildSubstituteFromArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FluxConfigurationKustomizationPostBuildSubstituteFromArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 optional: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+        :param pulumi.Input[str] name: Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        :param pulumi.Input[bool] optional: Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+        """
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
 
 
 if not MYPY:

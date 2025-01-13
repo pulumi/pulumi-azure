@@ -63,6 +63,7 @@ import (
 //				RecurrenceType:            pulumi.String("Monthly"),
 //				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
 //				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
+//				FileFormat:                pulumi.String("Csv"),
 //				ExportDataStorageLocation: &core.SubscriptionCostManagementExportExportDataStorageLocationArgs{
 //					ContainerId:    exampleContainer.ResourceManagerId,
 //					RootFolderPath: pulumi.String("/root/updated"),
@@ -97,6 +98,8 @@ type SubscriptionCostManagementExport struct {
 	ExportDataOptions SubscriptionCostManagementExportExportDataOptionsOutput `pulumi:"exportDataOptions"`
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation SubscriptionCostManagementExportExportDataStorageLocationOutput `pulumi:"exportDataStorageLocation"`
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The date the export will stop capturing information.
@@ -163,6 +166,8 @@ type subscriptionCostManagementExportState struct {
 	ExportDataOptions *SubscriptionCostManagementExportExportDataOptions `pulumi:"exportDataOptions"`
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation *SubscriptionCostManagementExportExportDataStorageLocation `pulumi:"exportDataStorageLocation"`
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The date the export will stop capturing information.
@@ -182,6 +187,8 @@ type SubscriptionCostManagementExportState struct {
 	ExportDataOptions SubscriptionCostManagementExportExportDataOptionsPtrInput
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation SubscriptionCostManagementExportExportDataStorageLocationPtrInput
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat pulumi.StringPtrInput
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The date the export will stop capturing information.
@@ -205,6 +212,8 @@ type subscriptionCostManagementExportArgs struct {
 	ExportDataOptions SubscriptionCostManagementExportExportDataOptions `pulumi:"exportDataOptions"`
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation SubscriptionCostManagementExportExportDataStorageLocation `pulumi:"exportDataStorageLocation"`
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The date the export will stop capturing information.
@@ -225,6 +234,8 @@ type SubscriptionCostManagementExportArgs struct {
 	ExportDataOptions SubscriptionCostManagementExportExportDataOptionsInput
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation SubscriptionCostManagementExportExportDataStorageLocationInput
+	// Format for export. Valid values are `Csv` only. Default is `Csv`.
+	FileFormat pulumi.StringPtrInput
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The date the export will stop capturing information.
@@ -341,6 +352,11 @@ func (o SubscriptionCostManagementExportOutput) ExportDataStorageLocation() Subs
 	return o.ApplyT(func(v *SubscriptionCostManagementExport) SubscriptionCostManagementExportExportDataStorageLocationOutput {
 		return v.ExportDataStorageLocation
 	}).(SubscriptionCostManagementExportExportDataStorageLocationOutput)
+}
+
+// Format for export. Valid values are `Csv` only. Default is `Csv`.
+func (o SubscriptionCostManagementExportOutput) FileFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementExport) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.

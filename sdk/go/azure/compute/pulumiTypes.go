@@ -2358,6 +2358,8 @@ type LinuxVirtualMachineOsDisk struct {
 	//
 	// > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The ID of the OS disk.
+	Id *string `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
@@ -2404,6 +2406,8 @@ type LinuxVirtualMachineOsDiskArgs struct {
 	//
 	// > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The ID of the OS disk.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
@@ -2529,6 +2533,11 @@ func (o LinuxVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the OS disk.
+func (o LinuxVirtualMachineOsDiskOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -2630,6 +2639,16 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
 		}
 		return v.DiskSizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the OS disk.
+func (o LinuxVirtualMachineOsDiskPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
@@ -23224,6 +23243,8 @@ type WindowsVirtualMachineOsDisk struct {
 	//
 	// > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The ID of the OS disk.
+	Id *string `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
@@ -23270,6 +23291,8 @@ type WindowsVirtualMachineOsDiskArgs struct {
 	//
 	// > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The ID of the OS disk.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
@@ -23395,6 +23418,11 @@ func (o WindowsVirtualMachineOsDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the OS disk.
+func (o WindowsVirtualMachineOsDiskOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -23496,6 +23524,16 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) DiskSizeGb() pulumi.IntPtrOutput {
 		}
 		return v.DiskSizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the OS disk.
+func (o WindowsVirtualMachineOsDiskPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.

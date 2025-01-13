@@ -77,6 +77,7 @@ import javax.annotation.Nullable;
  *             .recurrenceType("Monthly")
  *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
  *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
+ *             .fileFormat("Csv")
  *             .exportDataStorageLocation(AccountCostManagementExportExportDataStorageLocationArgs.builder()
  *                 .containerId(exampleContainer.resourceManagerId())
  *                 .rootFolderPath("/root/updated")
@@ -107,12 +108,16 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
     /**
      * Is the cost management export active? Default is `true`.
      * 
+     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
      */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
     /**
      * @return Is the cost management export active? Default is `true`.
+     * 
+     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     public Output<Optional<Boolean>> active() {
@@ -159,6 +164,12 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      */
     public Output<AccountCostManagementExportExportDataStorageLocation> exportDataStorageLocation() {
         return this.exportDataStorageLocation;
+    }
+    @Export(name="fileFormat", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> fileFormat;
+
+    public Output<Optional<String>> fileFormat() {
+        return Codegen.optional(this.fileFormat);
     }
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.

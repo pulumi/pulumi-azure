@@ -39,6 +39,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Workspace{}
 	case "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn":
 		r = &WorkspaceNetworkOutboundRuleFqdn{}
+	case "azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint":
+		r = &WorkspaceNetworkOutboundRulePrivateEndpoint{}
+	case "azure:machinelearning/workspaceNetworkOutboundRuleServiceTag:WorkspaceNetworkOutboundRuleServiceTag":
+		r = &WorkspaceNetworkOutboundRuleServiceTag{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +99,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"machinelearning/workspaceNetworkOutboundRuleFqdn",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"machinelearning/workspaceNetworkOutboundRulePrivateEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"machinelearning/workspaceNetworkOutboundRuleServiceTag",
 		&module{version},
 	)
 }

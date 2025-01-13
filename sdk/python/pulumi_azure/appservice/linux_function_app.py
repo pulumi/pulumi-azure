@@ -94,7 +94,9 @@ class LinuxFunctionAppArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -548,7 +550,9 @@ class LinuxFunctionAppArgs:
     @pulumi.getter(name="vnetImagePullEnabled")
     def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is container image pull over virtual network enabled? Defaults to `false`.
+        Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         """
         return pulumi.get(self, "vnet_image_pull_enabled")
 
@@ -679,7 +683,9 @@ class _LinuxFunctionAppState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1262,7 +1268,9 @@ class _LinuxFunctionAppState:
     @pulumi.getter(name="vnetImagePullEnabled")
     def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is container image pull over virtual network enabled? Defaults to `false`.
+        Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         """
         return pulumi.get(self, "vnet_image_pull_enabled")
 
@@ -1340,8 +1348,6 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Linux Function App.
-
         ## Example Usage
 
         ```python
@@ -1420,7 +1426,9 @@ class LinuxFunctionApp(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1435,8 +1443,6 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  args: LinuxFunctionAppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Linux Function App.
-
         ## Example Usage
 
         ```python
@@ -1691,7 +1697,9 @@ class LinuxFunctionApp(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -2076,7 +2084,9 @@ class LinuxFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="vnetImagePullEnabled")
     def vnet_image_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is container image pull over virtual network enabled? Defaults to `false`.
+        Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         """
         return pulumi.get(self, "vnet_image_pull_enabled")
 

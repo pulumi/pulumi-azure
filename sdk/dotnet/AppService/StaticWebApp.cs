@@ -110,6 +110,24 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        /// </summary>
+        [Output("repositoryBranch")]
+        public Output<string?> RepositoryBranch { get; private set; } = null!;
+
+        /// <summary>
+        /// Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        /// </summary>
+        [Output("repositoryToken")]
+        public Output<string?> RepositoryToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        /// </summary>
+        [Output("repositoryUrl")]
+        public Output<string?> RepositoryUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -160,6 +178,7 @@ namespace Pulumi.Azure.AppService
                 {
                     "apiKey",
                     "basicAuth",
+                    "repositoryToken",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -247,6 +266,34 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        /// </summary>
+        [Input("repositoryBranch")]
+        public Input<string>? RepositoryBranch { get; set; }
+
+        [Input("repositoryToken")]
+        private Input<string>? _repositoryToken;
+
+        /// <summary>
+        /// Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        /// </summary>
+        public Input<string>? RepositoryToken
+        {
+            get => _repositoryToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _repositoryToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        /// </summary>
+        [Input("repositoryUrl")]
+        public Input<string>? RepositoryUrl { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -371,6 +418,34 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+        /// </summary>
+        [Input("repositoryBranch")]
+        public Input<string>? RepositoryBranch { get; set; }
+
+        [Input("repositoryToken")]
+        private Input<string>? _repositoryToken;
+
+        /// <summary>
+        /// Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+        /// </summary>
+        public Input<string>? RepositoryToken
+        {
+            get => _repositoryToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _repositoryToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+        /// </summary>
+        [Input("repositoryUrl")]
+        public Input<string>? RepositoryUrl { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.

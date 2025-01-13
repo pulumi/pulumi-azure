@@ -3,7 +3,9 @@
 
 package com.pulumi.azure.healthcare;
 
+import com.pulumi.azure.healthcare.inputs.DicomServiceCorsArgs;
 import com.pulumi.azure.healthcare.inputs.DicomServiceIdentityArgs;
+import com.pulumi.azure.healthcare.inputs.DicomServiceStorageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,6 +20,51 @@ import javax.annotation.Nullable;
 public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DicomServiceArgs Empty = new DicomServiceArgs();
+
+    /**
+     * A `cors` block as defined below.
+     * 
+     */
+    @Import(name="cors")
+    private @Nullable Output<DicomServiceCorsArgs> cors;
+
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
+    public Optional<Output<DicomServiceCorsArgs>> cors() {
+        return Optional.ofNullable(this.cors);
+    }
+
+    /**
+     * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     * 
+     */
+    @Import(name="dataPartitionsEnabled")
+    private @Nullable Output<Boolean> dataPartitionsEnabled;
+
+    /**
+     * @return If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> dataPartitionsEnabled() {
+        return Optional.ofNullable(this.dataPartitionsEnabled);
+    }
+
+    /**
+     * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * 
+     */
+    @Import(name="encryptionKeyUrl")
+    private @Nullable Output<String> encryptionKeyUrl;
+
+    /**
+     * @return The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+     * 
+     */
+    public Optional<Output<String>> encryptionKeyUrl() {
+        return Optional.ofNullable(this.encryptionKeyUrl);
+    }
 
     /**
      * An `identity` block as defined below.
@@ -80,6 +127,21 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `storage` block as defined below.
+     * 
+     */
+    @Import(name="storage")
+    private @Nullable Output<DicomServiceStorageArgs> storage;
+
+    /**
+     * @return A `storage` block as defined below.
+     * 
+     */
+    public Optional<Output<DicomServiceStorageArgs>> storage() {
+        return Optional.ofNullable(this.storage);
+    }
+
+    /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      * 
      */
@@ -95,14 +157,14 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
     /**
-     * @return Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+     * @return Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
     public Output<String> workspaceId() {
@@ -112,10 +174,14 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
     private DicomServiceArgs() {}
 
     private DicomServiceArgs(DicomServiceArgs $) {
+        this.cors = $.cors;
+        this.dataPartitionsEnabled = $.dataPartitionsEnabled;
+        this.encryptionKeyUrl = $.encryptionKeyUrl;
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
+        this.storage = $.storage;
         this.tags = $.tags;
         this.workspaceId = $.workspaceId;
     }
@@ -136,6 +202,69 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DicomServiceArgs defaults) {
             $ = new DicomServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cors A `cors` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cors(@Nullable Output<DicomServiceCorsArgs> cors) {
+            $.cors = cors;
+            return this;
+        }
+
+        /**
+         * @param cors A `cors` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cors(DicomServiceCorsArgs cors) {
+            return cors(Output.of(cors));
+        }
+
+        /**
+         * @param dataPartitionsEnabled If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPartitionsEnabled(@Nullable Output<Boolean> dataPartitionsEnabled) {
+            $.dataPartitionsEnabled = dataPartitionsEnabled;
+            return this;
+        }
+
+        /**
+         * @param dataPartitionsEnabled If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPartitionsEnabled(Boolean dataPartitionsEnabled) {
+            return dataPartitionsEnabled(Output.of(dataPartitionsEnabled));
+        }
+
+        /**
+         * @param encryptionKeyUrl The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeyUrl(@Nullable Output<String> encryptionKeyUrl) {
+            $.encryptionKeyUrl = encryptionKeyUrl;
+            return this;
+        }
+
+        /**
+         * @param encryptionKeyUrl The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeyUrl(String encryptionKeyUrl) {
+            return encryptionKeyUrl(Output.of(encryptionKeyUrl));
         }
 
         /**
@@ -223,6 +352,27 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param storage A `storage` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storage(@Nullable Output<DicomServiceStorageArgs> storage) {
+            $.storage = storage;
+            return this;
+        }
+
+        /**
+         * @param storage A `storage` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storage(DicomServiceStorageArgs storage) {
+            return storage(Output.of(storage));
+        }
+
+        /**
          * @param tags A mapping of tags to assign to the Healthcare DICOM Service.
          * 
          * @return builder
@@ -244,7 +394,7 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceId Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+         * @param workspaceId Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
          * 
          * @return builder
          * 
@@ -255,7 +405,7 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceId Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+         * @param workspaceId Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
          * 
          * @return builder
          * 

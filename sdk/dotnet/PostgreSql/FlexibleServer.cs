@@ -102,8 +102,8 @@ namespace Pulumi.Azure.PostgreSql
     ///         AdministratorPassword = "H@Sh1CoR3!",
     ///         Zone = "1",
     ///         StorageMb = 32768,
-    ///         StorageTier = "P30",
-    ///         SkuName = "GP_Standard_D4s_v3",
+    ///         StorageTier = "P4",
+    ///         SkuName = "B_Standard_B1ms",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

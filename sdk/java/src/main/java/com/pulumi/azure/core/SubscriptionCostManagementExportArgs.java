@@ -65,6 +65,21 @@ public final class SubscriptionCostManagementExportArgs extends com.pulumi.resou
     }
 
     /**
+     * Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
+     */
+    @Import(name="fileFormat")
+    private @Nullable Output<String> fileFormat;
+
+    /**
+     * @return Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * 
+     */
+    public Optional<Output<String>> fileFormat() {
+        return Optional.ofNullable(this.fileFormat);
+    }
+
+    /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      * 
      */
@@ -145,6 +160,7 @@ public final class SubscriptionCostManagementExportArgs extends com.pulumi.resou
         this.active = $.active;
         this.exportDataOptions = $.exportDataOptions;
         this.exportDataStorageLocation = $.exportDataStorageLocation;
+        this.fileFormat = $.fileFormat;
         this.name = $.name;
         this.recurrencePeriodEndDate = $.recurrencePeriodEndDate;
         this.recurrencePeriodStartDate = $.recurrencePeriodStartDate;
@@ -231,6 +247,27 @@ public final class SubscriptionCostManagementExportArgs extends com.pulumi.resou
          */
         public Builder exportDataStorageLocation(SubscriptionCostManagementExportExportDataStorageLocationArgs exportDataStorageLocation) {
             return exportDataStorageLocation(Output.of(exportDataStorageLocation));
+        }
+
+        /**
+         * @param fileFormat Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileFormat(@Nullable Output<String> fileFormat) {
+            $.fileFormat = fileFormat;
+            return this;
+        }
+
+        /**
+         * @param fileFormat Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileFormat(String fileFormat) {
+            return fileFormat(Output.of(fileFormat));
         }
 
         /**

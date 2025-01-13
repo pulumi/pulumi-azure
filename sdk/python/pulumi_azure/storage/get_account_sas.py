@@ -182,7 +182,7 @@ def get_account_sas(connection_string: Optional[str] = None,
         })
     example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
-        signed_version="2017-07-29",
+        signed_version="2022-11-02",
         resource_types={
             "service": True,
             "container": False,
@@ -221,7 +221,7 @@ def get_account_sas(connection_string: Optional[str] = None,
     :param Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
     :param Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict'] resource_types: A `resource_types` block as defined below.
     :param Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict'] services: A `services` block as defined below.
-    :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+    :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
     __args__ = dict()
@@ -287,7 +287,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
         })
     example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
-        signed_version="2017-07-29",
+        signed_version="2022-11-02",
         resource_types={
             "service": True,
             "container": False,
@@ -326,7 +326,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
     :param Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
     :param Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict'] resource_types: A `resource_types` block as defined below.
     :param Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict'] services: A `services` block as defined below.
-    :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+    :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
     __args__ = dict()

@@ -44,6 +44,7 @@ class SparkPoolArgs:
         The set of arguments for constructing a SparkPool resource.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input['SparkPoolAutoPauseArgs'] auto_pause: An `auto_pause` block as defined below.
         :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
@@ -114,6 +115,9 @@ class SparkPoolArgs:
     @property
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> pulumi.Input[str]:
+        """
+        The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+        """
         return pulumi.get(self, "spark_version")
 
     @spark_version.setter
@@ -318,6 +322,7 @@ class _SparkPoolState:
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         """
         if auto_pause is not None:
@@ -530,6 +535,9 @@ class _SparkPoolState:
     @property
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+        """
         return pulumi.get(self, "spark_version")
 
     @spark_version.setter
@@ -639,6 +647,7 @@ class SparkPool(pulumi.CustomResource):
                 "content": "spark.shuffle.spill                true\\n",
                 "filename": "config.txt",
             },
+            spark_version="3.2",
             tags={
                 "ENV": "Production",
             })
@@ -662,6 +671,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         """
         ...
@@ -726,6 +736,7 @@ class SparkPool(pulumi.CustomResource):
                 "content": "spark.shuffle.spill                true\\n",
                 "filename": "config.txt",
             },
+            spark_version="3.2",
             tags={
                 "ENV": "Production",
             })
@@ -853,6 +864,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -987,6 +999,9 @@ class SparkPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sparkVersion")
     def spark_version(self) -> pulumi.Output[str]:
+        """
+        The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+        """
         return pulumi.get(self, "spark_version")
 
     @property

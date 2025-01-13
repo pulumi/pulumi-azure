@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +24,7 @@ import * as utilities from "../utilities";
 export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", {
+        "identity": args.identity,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -31,6 +34,10 @@ export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi
  * A collection of arguments for invoking getFrontdoorProfile.
  */
 export interface GetFrontdoorProfileArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: inputs.cdn.GetFrontdoorProfileIdentity;
     /**
      * Specifies the name of the Front Door Profile.
      */
@@ -49,6 +56,7 @@ export interface GetFrontdoorProfileResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly identity?: outputs.cdn.GetFrontdoorProfileIdentity;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
@@ -86,6 +94,7 @@ export interface GetFrontdoorProfileResult {
 export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", {
+        "identity": args.identity,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -95,6 +104,10 @@ export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, o
  * A collection of arguments for invoking getFrontdoorProfile.
  */
 export interface GetFrontdoorProfileOutputArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.cdn.GetFrontdoorProfileIdentityArgs>;
     /**
      * Specifies the name of the Front Door Profile.
      */

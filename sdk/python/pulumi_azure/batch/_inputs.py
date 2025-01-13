@@ -67,6 +67,8 @@ __all__ = [
     'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgsDict',
     'PoolNodePlacementArgs',
     'PoolNodePlacementArgsDict',
+    'PoolSecurityProfileArgs',
+    'PoolSecurityProfileArgsDict',
     'PoolStartTaskArgs',
     'PoolStartTaskArgsDict',
     'PoolStartTaskContainerArgs',
@@ -2191,6 +2193,110 @@ class PoolNodePlacementArgs:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy", value)
+
+
+if not MYPY:
+    class PoolSecurityProfileArgsDict(TypedDict):
+        host_encryption_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        """
+        secure_boot_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        """
+        security_type: NotRequired[pulumi.Input[str]]
+        """
+        The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+        """
+        vtpm_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+
+        > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        """
+elif False:
+    PoolSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PoolSecurityProfileArgs:
+    def __init__(__self__, *,
+                 host_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+                 security_type: Optional[pulumi.Input[str]] = None,
+                 vtpm_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] host_encryption_enabled: Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] secure_boot_enabled: Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] security_type: The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] vtpm_enabled: Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+               
+               > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        """
+        if host_encryption_enabled is not None:
+            pulumi.set(__self__, "host_encryption_enabled", host_encryption_enabled)
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+        if vtpm_enabled is not None:
+            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
+
+    @property
+    @pulumi.getter(name="hostEncryptionEnabled")
+    def host_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "host_encryption_enabled")
+
+    @host_encryption_enabled.setter
+    def host_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "host_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The security type of the Virtual Machine. Possible values are `confidentialVM` and `trustedLaunch`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "security_type")
+
+    @security_type.setter
+    def security_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_type", value)
+
+    @property
+    @pulumi.getter(name="vtpmEnabled")
+    def vtpm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+
+        > **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        """
+        return pulumi.get(self, "vtpm_enabled")
+
+    @vtpm_enabled.setter
+    def vtpm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vtpm_enabled", value)
 
 
 if not MYPY:

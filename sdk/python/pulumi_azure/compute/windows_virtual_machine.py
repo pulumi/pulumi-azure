@@ -78,7 +78,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
@@ -297,7 +297,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> pulumi.Input['WindowsVirtualMachineOsDiskArgs']:
         """
-        A `os_disk` block as defined below.
+        An `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
@@ -1013,7 +1013,7 @@ class _WindowsVirtualMachineState:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
@@ -1517,7 +1517,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']]:
         """
-        A `os_disk` block as defined below.
+        An `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
@@ -2064,7 +2064,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
@@ -2447,7 +2447,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
@@ -2791,7 +2791,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="osDisk")
     def os_disk(self) -> pulumi.Output['outputs.WindowsVirtualMachineOsDisk']:
         """
-        A `os_disk` block as defined below.
+        An `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 

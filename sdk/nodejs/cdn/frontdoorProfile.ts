@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -64,6 +66,10 @@ export class FrontdoorProfile extends pulumi.CustomResource {
     }
 
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.cdn.FrontdoorProfileIdentity | undefined>;
+    /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -101,6 +107,7 @@ export class FrontdoorProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorProfileState | undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["resourceGuid"] = state ? state.resourceGuid : undefined;
@@ -115,6 +122,7 @@ export class FrontdoorProfile extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["responseTimeoutSeconds"] = args ? args.responseTimeoutSeconds : undefined;
@@ -131,6 +139,10 @@ export class FrontdoorProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FrontdoorProfile resources.
  */
 export interface FrontdoorProfileState {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
@@ -161,6 +173,10 @@ export interface FrontdoorProfileState {
  * The set of arguments for constructing a FrontdoorProfile resource.
  */
 export interface FrontdoorProfileArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */

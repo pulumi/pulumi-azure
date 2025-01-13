@@ -63,6 +63,8 @@ import (
 type FrontdoorProfile struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block as defined below.
+	Identity FrontdoorProfileIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -113,6 +115,8 @@ func GetFrontdoorProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorProfile resources.
 type frontdoorProfileState struct {
+	// An `identity` block as defined below.
+	Identity *FrontdoorProfileIdentity `pulumi:"identity"`
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -128,6 +132,8 @@ type frontdoorProfileState struct {
 }
 
 type FrontdoorProfileState struct {
+	// An `identity` block as defined below.
+	Identity FrontdoorProfileIdentityPtrInput
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -147,6 +153,8 @@ func (FrontdoorProfileState) ElementType() reflect.Type {
 }
 
 type frontdoorProfileArgs struct {
+	// An `identity` block as defined below.
+	Identity *FrontdoorProfileIdentity `pulumi:"identity"`
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -161,6 +169,8 @@ type frontdoorProfileArgs struct {
 
 // The set of arguments for constructing a FrontdoorProfile resource.
 type FrontdoorProfileArgs struct {
+	// An `identity` block as defined below.
+	Identity FrontdoorProfileIdentityPtrInput
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -258,6 +268,11 @@ func (o FrontdoorProfileOutput) ToFrontdoorProfileOutput() FrontdoorProfileOutpu
 
 func (o FrontdoorProfileOutput) ToFrontdoorProfileOutputWithContext(ctx context.Context) FrontdoorProfileOutput {
 	return o
+}
+
+// An `identity` block as defined below.
+func (o FrontdoorProfileOutput) Identity() FrontdoorProfileIdentityPtrOutput {
+	return o.ApplyT(func(v *FrontdoorProfile) FrontdoorProfileIdentityPtrOutput { return v.Identity }).(FrontdoorProfileIdentityPtrOutput)
 }
 
 // Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.

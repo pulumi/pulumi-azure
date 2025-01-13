@@ -146,6 +146,8 @@ namespace Pulumi.Azure.AppService
         public readonly string Name;
         public readonly bool PreviewEnvironmentsEnabled;
         public readonly bool PublicNetworkAccessEnabled;
+        public readonly string RepositoryBranch;
+        public readonly string RepositoryUrl;
         public readonly string ResourceGroupName;
         public readonly string SkuSize;
         public readonly string SkuTier;
@@ -175,6 +177,10 @@ namespace Pulumi.Azure.AppService
 
             bool publicNetworkAccessEnabled,
 
+            string repositoryBranch,
+
+            string repositoryUrl,
+
             string resourceGroupName,
 
             string skuSize,
@@ -194,6 +200,8 @@ namespace Pulumi.Azure.AppService
             Name = name;
             PreviewEnvironmentsEnabled = previewEnvironmentsEnabled;
             PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            RepositoryBranch = repositoryBranch;
+            RepositoryUrl = repositoryUrl;
             ResourceGroupName = resourceGroupName;
             SkuSize = skuSize;
             SkuTier = skuTier;

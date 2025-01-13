@@ -39,6 +39,8 @@ __all__ = [
     'ManagedDatabaseLongTermRetentionPolicyArgsDict',
     'ManagedDatabasePointInTimeRestoreArgs',
     'ManagedDatabasePointInTimeRestoreArgsDict',
+    'ManagedInstanceAzureActiveDirectoryAdministratorArgs',
+    'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict',
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
     'ManagedInstanceFailoverGroupPartnerRegionArgsDict',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
@@ -1041,6 +1043,115 @@ class ManagedDatabasePointInTimeRestoreArgs:
 
 
 if not MYPY:
+    class ManagedInstanceAzureActiveDirectoryAdministratorArgsDict(TypedDict):
+        login_username: pulumi.Input[str]
+        """
+        The login username of the Azure AD Administrator of this SQL Managed Instance.
+        """
+        object_id: pulumi.Input[str]
+        """
+        The object id of the Azure AD Administrator of this SQL Managed Instance.
+        """
+        principal_type: pulumi.Input[str]
+        """
+        The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+        """
+        azuread_authentication_only_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+        """
+elif False:
+    ManagedInstanceAzureActiveDirectoryAdministratorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedInstanceAzureActiveDirectoryAdministratorArgs:
+    def __init__(__self__, *,
+                 login_username: pulumi.Input[str],
+                 object_id: pulumi.Input[str],
+                 principal_type: pulumi.Input[str],
+                 azuread_authentication_only_enabled: Optional[pulumi.Input[bool]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] login_username: The login username of the Azure AD Administrator of this SQL Managed Instance.
+        :param pulumi.Input[str] object_id: The object id of the Azure AD Administrator of this SQL Managed Instance.
+        :param pulumi.Input[str] principal_type: The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+        :param pulumi.Input[bool] azuread_authentication_only_enabled: Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+        :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+        """
+        pulumi.set(__self__, "login_username", login_username)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "principal_type", principal_type)
+        if azuread_authentication_only_enabled is not None:
+            pulumi.set(__self__, "azuread_authentication_only_enabled", azuread_authentication_only_enabled)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="loginUsername")
+    def login_username(self) -> pulumi.Input[str]:
+        """
+        The login username of the Azure AD Administrator of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "login_username")
+
+    @login_username.setter
+    def login_username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login_username", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        The object id of the Azure AD Administrator of this SQL Managed Instance.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Input[str]:
+        """
+        The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
+    @pulumi.getter(name="azureadAuthenticationOnlyEnabled")
+    def azuread_authentication_only_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+        """
+        return pulumi.get(self, "azuread_authentication_only_enabled")
+
+    @azuread_authentication_only_enabled.setter
+    def azuread_authentication_only_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azuread_authentication_only_enabled", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
     class ManagedInstanceFailoverGroupPartnerRegionArgsDict(TypedDict):
         location: NotRequired[pulumi.Input[str]]
         """
@@ -1147,11 +1258,11 @@ if not MYPY:
     class ManagedInstanceIdentityArgsDict(TypedDict):
         type: pulumi.Input[str]
         """
-        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 
         > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         """
@@ -1174,8 +1285,8 @@ class ManagedInstanceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
                
                > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
@@ -1193,7 +1304,7 @@ class ManagedInstanceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -1205,7 +1316,7 @@ class ManagedInstanceIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 
         > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         """

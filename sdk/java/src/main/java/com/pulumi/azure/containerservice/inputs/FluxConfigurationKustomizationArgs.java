@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationPostBuildArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -80,6 +81,21 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
     }
 
     /**
+     * A `post_build` block as defined below.
+     * 
+     */
+    @Import(name="postBuild")
+    private @Nullable Output<FluxConfigurationKustomizationPostBuildArgs> postBuild;
+
+    /**
+     * @return A `post_build` block as defined below.
+     * 
+     */
+    public Optional<Output<FluxConfigurationKustomizationPostBuildArgs>> postBuild() {
+        return Optional.ofNullable(this.postBuild);
+    }
+
+    /**
      * Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
      * 
      */
@@ -139,6 +155,21 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.timeoutInSeconds);
     }
 
+    /**
+     * Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+     * 
+     */
+    @Import(name="wait")
+    private @Nullable Output<Boolean> wait;
+
+    /**
+     * @return Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> wait_() {
+        return Optional.ofNullable(this.wait);
+    }
+
     private FluxConfigurationKustomizationArgs() {}
 
     private FluxConfigurationKustomizationArgs(FluxConfigurationKustomizationArgs $) {
@@ -146,10 +177,12 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
         this.garbageCollectionEnabled = $.garbageCollectionEnabled;
         this.name = $.name;
         this.path = $.path;
+        this.postBuild = $.postBuild;
         this.recreatingEnabled = $.recreatingEnabled;
         this.retryIntervalInSeconds = $.retryIntervalInSeconds;
         this.syncIntervalInSeconds = $.syncIntervalInSeconds;
         this.timeoutInSeconds = $.timeoutInSeconds;
+        this.wait = $.wait;
     }
 
     public static Builder builder() {
@@ -265,6 +298,27 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param postBuild A `post_build` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder postBuild(@Nullable Output<FluxConfigurationKustomizationPostBuildArgs> postBuild) {
+            $.postBuild = postBuild;
+            return this;
+        }
+
+        /**
+         * @param postBuild A `post_build` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder postBuild(FluxConfigurationKustomizationPostBuildArgs postBuild) {
+            return postBuild(Output.of(postBuild));
+        }
+
+        /**
          * @param recreatingEnabled Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
          * 
          * @return builder
@@ -346,6 +400,27 @@ public final class FluxConfigurationKustomizationArgs extends com.pulumi.resourc
          */
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
             return timeoutInSeconds(Output.of(timeoutInSeconds));
+        }
+
+        /**
+         * @param wait Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wait_(@Nullable Output<Boolean> wait) {
+            $.wait = wait;
+            return this;
+        }
+
+        /**
+         * @param wait Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wait_(Boolean wait) {
+            return wait_(Output.of(wait));
         }
 
         public FluxConfigurationKustomizationArgs build() {

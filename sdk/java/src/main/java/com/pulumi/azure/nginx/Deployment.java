@@ -180,6 +180,20 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.capacity);
     }
     /**
+     * The dataplane API endpoint of the NGINX Deployment.
+     * 
+     */
+    @Export(name="dataplaneApiEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> dataplaneApiEndpoint;
+
+    /**
+     * @return The dataplane API endpoint of the NGINX Deployment.
+     * 
+     */
+    public Output<String> dataplaneApiEndpoint() {
+        return this.dataplaneApiEndpoint;
+    }
+    /**
      * Should the metrics be exported to Azure Monitor?
      * 
      */
@@ -250,14 +264,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The IP address of the deployment.
+     * The IP address of the NGINX Deployment.
      * 
      */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
-     * @return The IP address of the deployment.
+     * @return The IP address of the NGINX Deployment.
      * 
      */
     public Output<String> ipAddress() {
@@ -278,16 +292,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * One or more `logging_storage_account` blocks as defined below.
+     * @deprecated
+     * The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      * 
      */
+    @Deprecated /* The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
     @Export(name="loggingStorageAccounts", refs={List.class,DeploymentLoggingStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentLoggingStorageAccount>> loggingStorageAccounts;
 
-    /**
-     * @return One or more `logging_storage_account` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<DeploymentLoggingStorageAccount>>> loggingStorageAccounts() {
         return Codegen.optional(this.loggingStorageAccounts);
     }
@@ -332,14 +344,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkInterfaces);
     }
     /**
-     * The version of deployed NGINX.
+     * The version of the NGINX Deployment.
      * 
      */
     @Export(name="nginxVersion", refs={String.class}, tree="[0]")
     private Output<String> nginxVersion;
 
     /**
-     * @return The version of deployed NGINX.
+     * @return The version of the NGINX Deployment.
      * 
      */
     public Output<String> nginxVersion() {

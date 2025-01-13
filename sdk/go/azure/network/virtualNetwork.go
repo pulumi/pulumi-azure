@@ -124,6 +124,8 @@ type VirtualNetwork struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+	PrivateEndpointVnetPolicies pulumi.StringPtrOutput `pulumi:"privateEndpointVnetPolicies"`
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
@@ -194,6 +196,8 @@ type virtualNetworkState struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+	PrivateEndpointVnetPolicies *string `pulumi:"privateEndpointVnetPolicies"`
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
@@ -229,6 +233,8 @@ type VirtualNetworkState struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+	PrivateEndpointVnetPolicies pulumi.StringPtrInput
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
@@ -266,6 +272,8 @@ type virtualNetworkArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+	PrivateEndpointVnetPolicies *string `pulumi:"privateEndpointVnetPolicies"`
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
@@ -300,6 +308,8 @@ type VirtualNetworkArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+	PrivateEndpointVnetPolicies pulumi.StringPtrInput
 	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
@@ -449,6 +459,11 @@ func (o VirtualNetworkOutput) Location() pulumi.StringOutput {
 // The name of the virtual network. Changing this forces a new resource to be created.
 func (o VirtualNetworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
+func (o VirtualNetworkOutput) PrivateEndpointVnetPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.PrivateEndpointVnetPolicies }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.

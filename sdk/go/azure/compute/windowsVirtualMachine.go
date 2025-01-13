@@ -194,7 +194,7 @@ type WindowsVirtualMachine struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	// A `osDisk` block as defined below.
+	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification WindowsVirtualMachineOsImageNotificationPtrOutput `pulumi:"osImageNotification"`
@@ -399,7 +399,7 @@ type windowsVirtualMachineState struct {
 	Name *string `pulumi:"name"`
 	// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// A `osDisk` block as defined below.
+	// An `osDisk` block as defined below.
 	OsDisk *WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *WindowsVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
@@ -546,7 +546,7 @@ type WindowsVirtualMachineState struct {
 	Name pulumi.StringPtrInput
 	// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayInput
-	// A `osDisk` block as defined below.
+	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskPtrInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification WindowsVirtualMachineOsImageNotificationPtrInput
@@ -697,7 +697,7 @@ type windowsVirtualMachineArgs struct {
 	Name *string `pulumi:"name"`
 	// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// A `osDisk` block as defined below.
+	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *WindowsVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
@@ -835,7 +835,7 @@ type WindowsVirtualMachineArgs struct {
 	Name pulumi.StringPtrInput
 	// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
 	NetworkInterfaceIds pulumi.StringArrayInput
-	// A `osDisk` block as defined below.
+	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification WindowsVirtualMachineOsImageNotificationPtrInput
@@ -1147,7 +1147,7 @@ func (o WindowsVirtualMachineOutput) NetworkInterfaceIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-// A `osDisk` block as defined below.
+// An `osDisk` block as defined below.
 func (o WindowsVirtualMachineOutput) OsDisk() WindowsVirtualMachineOsDiskOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineOsDiskOutput { return v.OsDisk }).(WindowsVirtualMachineOsDiskOutput)
 }

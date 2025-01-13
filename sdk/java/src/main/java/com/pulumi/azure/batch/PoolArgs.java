@@ -14,6 +14,7 @@ import com.pulumi.azure.batch.inputs.PoolIdentityArgs;
 import com.pulumi.azure.batch.inputs.PoolMountArgs;
 import com.pulumi.azure.batch.inputs.PoolNetworkConfigurationArgs;
 import com.pulumi.azure.batch.inputs.PoolNodePlacementArgs;
+import com.pulumi.azure.batch.inputs.PoolSecurityProfileArgs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskArgs;
 import com.pulumi.azure.batch.inputs.PoolStorageImageReferenceArgs;
 import com.pulumi.azure.batch.inputs.PoolTaskSchedulingPolicyArgs;
@@ -352,6 +353,21 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="securityProfile")
+    private @Nullable Output<PoolSecurityProfileArgs> securityProfile;
+
+    /**
+     * @return A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<PoolSecurityProfileArgs>> securityProfile() {
+        return Optional.ofNullable(this.securityProfile);
+    }
+
+    /**
      * A `start_task` block that describes the start task settings for the Batch pool as defined below.
      * 
      */
@@ -503,6 +519,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         this.nodePlacements = $.nodePlacements;
         this.osDiskPlacement = $.osDiskPlacement;
         this.resourceGroupName = $.resourceGroupName;
+        this.securityProfile = $.securityProfile;
         this.startTask = $.startTask;
         this.stopPendingResizeOperation = $.stopPendingResizeOperation;
         this.storageImageReference = $.storageImageReference;
@@ -1030,6 +1047,27 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param securityProfile A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityProfile(@Nullable Output<PoolSecurityProfileArgs> securityProfile) {
+            $.securityProfile = securityProfile;
+            return this;
+        }
+
+        /**
+         * @param securityProfile A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityProfile(PoolSecurityProfileArgs securityProfile) {
+            return securityProfile(Output.of(securityProfile));
         }
 
         /**

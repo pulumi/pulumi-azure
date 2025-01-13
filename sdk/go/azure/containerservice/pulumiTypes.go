@@ -2267,6 +2267,8 @@ type FluxConfigurationKustomization struct {
 	Name string `pulumi:"name"`
 	// Specifies the path in the source reference to reconcile on the cluster.
 	Path *string `pulumi:"path"`
+	// A `postBuild` block as defined below.
+	PostBuild *FluxConfigurationKustomizationPostBuild `pulumi:"postBuild"`
 	// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
 	RecreatingEnabled *bool `pulumi:"recreatingEnabled"`
 	// The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
@@ -2275,6 +2277,8 @@ type FluxConfigurationKustomization struct {
 	SyncIntervalInSeconds *int `pulumi:"syncIntervalInSeconds"`
 	// The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+	Wait *bool `pulumi:"wait"`
 }
 
 // FluxConfigurationKustomizationInput is an input type that accepts FluxConfigurationKustomizationArgs and FluxConfigurationKustomizationOutput values.
@@ -2297,6 +2301,8 @@ type FluxConfigurationKustomizationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the path in the source reference to reconcile on the cluster.
 	Path pulumi.StringPtrInput `pulumi:"path"`
+	// A `postBuild` block as defined below.
+	PostBuild FluxConfigurationKustomizationPostBuildPtrInput `pulumi:"postBuild"`
 	// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
 	RecreatingEnabled pulumi.BoolPtrInput `pulumi:"recreatingEnabled"`
 	// The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
@@ -2305,6 +2311,8 @@ type FluxConfigurationKustomizationArgs struct {
 	SyncIntervalInSeconds pulumi.IntPtrInput `pulumi:"syncIntervalInSeconds"`
 	// The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
 	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+	Wait pulumi.BoolPtrInput `pulumi:"wait"`
 }
 
 func (FluxConfigurationKustomizationArgs) ElementType() reflect.Type {
@@ -2378,6 +2386,11 @@ func (o FluxConfigurationKustomizationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FluxConfigurationKustomization) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// A `postBuild` block as defined below.
+func (o FluxConfigurationKustomizationOutput) PostBuild() FluxConfigurationKustomizationPostBuildPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *FluxConfigurationKustomizationPostBuild { return v.PostBuild }).(FluxConfigurationKustomizationPostBuildPtrOutput)
+}
+
 // Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
 func (o FluxConfigurationKustomizationOutput) RecreatingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FluxConfigurationKustomization) *bool { return v.RecreatingEnabled }).(pulumi.BoolPtrOutput)
@@ -2398,6 +2411,11 @@ func (o FluxConfigurationKustomizationOutput) TimeoutInSeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v FluxConfigurationKustomization) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+func (o FluxConfigurationKustomizationOutput) Wait() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomization) *bool { return v.Wait }).(pulumi.BoolPtrOutput)
+}
+
 type FluxConfigurationKustomizationArrayOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationKustomizationArrayOutput) ElementType() reflect.Type {
@@ -2416,6 +2434,279 @@ func (o FluxConfigurationKustomizationArrayOutput) Index(i pulumi.IntInput) Flux
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FluxConfigurationKustomization {
 		return vs[0].([]FluxConfigurationKustomization)[vs[1].(int)]
 	}).(FluxConfigurationKustomizationOutput)
+}
+
+type FluxConfigurationKustomizationPostBuild struct {
+	// Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+	Substitute map[string]string `pulumi:"substitute"`
+	// A `substituteFrom` block as defined below.
+	SubstituteFroms []FluxConfigurationKustomizationPostBuildSubstituteFrom `pulumi:"substituteFroms"`
+}
+
+// FluxConfigurationKustomizationPostBuildInput is an input type that accepts FluxConfigurationKustomizationPostBuildArgs and FluxConfigurationKustomizationPostBuildOutput values.
+// You can construct a concrete instance of `FluxConfigurationKustomizationPostBuildInput` via:
+//
+//	FluxConfigurationKustomizationPostBuildArgs{...}
+type FluxConfigurationKustomizationPostBuildInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationKustomizationPostBuildOutput() FluxConfigurationKustomizationPostBuildOutput
+	ToFluxConfigurationKustomizationPostBuildOutputWithContext(context.Context) FluxConfigurationKustomizationPostBuildOutput
+}
+
+type FluxConfigurationKustomizationPostBuildArgs struct {
+	// Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+	Substitute pulumi.StringMapInput `pulumi:"substitute"`
+	// A `substituteFrom` block as defined below.
+	SubstituteFroms FluxConfigurationKustomizationPostBuildSubstituteFromArrayInput `pulumi:"substituteFroms"`
+}
+
+func (FluxConfigurationKustomizationPostBuildArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationKustomizationPostBuild)(nil)).Elem()
+}
+
+func (i FluxConfigurationKustomizationPostBuildArgs) ToFluxConfigurationKustomizationPostBuildOutput() FluxConfigurationKustomizationPostBuildOutput {
+	return i.ToFluxConfigurationKustomizationPostBuildOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationKustomizationPostBuildArgs) ToFluxConfigurationKustomizationPostBuildOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationPostBuildOutput)
+}
+
+func (i FluxConfigurationKustomizationPostBuildArgs) ToFluxConfigurationKustomizationPostBuildPtrOutput() FluxConfigurationKustomizationPostBuildPtrOutput {
+	return i.ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationKustomizationPostBuildArgs) ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationPostBuildOutput).ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(ctx)
+}
+
+// FluxConfigurationKustomizationPostBuildPtrInput is an input type that accepts FluxConfigurationKustomizationPostBuildArgs, FluxConfigurationKustomizationPostBuildPtr and FluxConfigurationKustomizationPostBuildPtrOutput values.
+// You can construct a concrete instance of `FluxConfigurationKustomizationPostBuildPtrInput` via:
+//
+//	        FluxConfigurationKustomizationPostBuildArgs{...}
+//
+//	or:
+//
+//	        nil
+type FluxConfigurationKustomizationPostBuildPtrInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationKustomizationPostBuildPtrOutput() FluxConfigurationKustomizationPostBuildPtrOutput
+	ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(context.Context) FluxConfigurationKustomizationPostBuildPtrOutput
+}
+
+type fluxConfigurationKustomizationPostBuildPtrType FluxConfigurationKustomizationPostBuildArgs
+
+func FluxConfigurationKustomizationPostBuildPtr(v *FluxConfigurationKustomizationPostBuildArgs) FluxConfigurationKustomizationPostBuildPtrInput {
+	return (*fluxConfigurationKustomizationPostBuildPtrType)(v)
+}
+
+func (*fluxConfigurationKustomizationPostBuildPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationKustomizationPostBuild)(nil)).Elem()
+}
+
+func (i *fluxConfigurationKustomizationPostBuildPtrType) ToFluxConfigurationKustomizationPostBuildPtrOutput() FluxConfigurationKustomizationPostBuildPtrOutput {
+	return i.ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(context.Background())
+}
+
+func (i *fluxConfigurationKustomizationPostBuildPtrType) ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationPostBuildPtrOutput)
+}
+
+type FluxConfigurationKustomizationPostBuildOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationKustomizationPostBuildOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationKustomizationPostBuild)(nil)).Elem()
+}
+
+func (o FluxConfigurationKustomizationPostBuildOutput) ToFluxConfigurationKustomizationPostBuildOutput() FluxConfigurationKustomizationPostBuildOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildOutput) ToFluxConfigurationKustomizationPostBuildOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildOutput) ToFluxConfigurationKustomizationPostBuildPtrOutput() FluxConfigurationKustomizationPostBuildPtrOutput {
+	return o.ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(context.Background())
+}
+
+func (o FluxConfigurationKustomizationPostBuildOutput) ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluxConfigurationKustomizationPostBuild) *FluxConfigurationKustomizationPostBuild {
+		return &v
+	}).(FluxConfigurationKustomizationPostBuildPtrOutput)
+}
+
+// Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+func (o FluxConfigurationKustomizationPostBuildOutput) Substitute() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomizationPostBuild) map[string]string { return v.Substitute }).(pulumi.StringMapOutput)
+}
+
+// A `substituteFrom` block as defined below.
+func (o FluxConfigurationKustomizationPostBuildOutput) SubstituteFroms() FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomizationPostBuild) []FluxConfigurationKustomizationPostBuildSubstituteFrom {
+		return v.SubstituteFroms
+	}).(FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput)
+}
+
+type FluxConfigurationKustomizationPostBuildPtrOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationKustomizationPostBuildPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FluxConfigurationKustomizationPostBuild)(nil)).Elem()
+}
+
+func (o FluxConfigurationKustomizationPostBuildPtrOutput) ToFluxConfigurationKustomizationPostBuildPtrOutput() FluxConfigurationKustomizationPostBuildPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildPtrOutput) ToFluxConfigurationKustomizationPostBuildPtrOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildPtrOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildPtrOutput) Elem() FluxConfigurationKustomizationPostBuildOutput {
+	return o.ApplyT(func(v *FluxConfigurationKustomizationPostBuild) FluxConfigurationKustomizationPostBuild {
+		if v != nil {
+			return *v
+		}
+		var ret FluxConfigurationKustomizationPostBuild
+		return ret
+	}).(FluxConfigurationKustomizationPostBuildOutput)
+}
+
+// Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
+func (o FluxConfigurationKustomizationPostBuildPtrOutput) Substitute() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FluxConfigurationKustomizationPostBuild) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Substitute
+	}).(pulumi.StringMapOutput)
+}
+
+// A `substituteFrom` block as defined below.
+func (o FluxConfigurationKustomizationPostBuildPtrOutput) SubstituteFroms() FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput {
+	return o.ApplyT(func(v *FluxConfigurationKustomizationPostBuild) []FluxConfigurationKustomizationPostBuildSubstituteFrom {
+		if v == nil {
+			return nil
+		}
+		return v.SubstituteFroms
+	}).(FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput)
+}
+
+type FluxConfigurationKustomizationPostBuildSubstituteFrom struct {
+	// Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+	Kind string `pulumi:"kind"`
+	// Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+	Name string `pulumi:"name"`
+	// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+	Optional *bool `pulumi:"optional"`
+}
+
+// FluxConfigurationKustomizationPostBuildSubstituteFromInput is an input type that accepts FluxConfigurationKustomizationPostBuildSubstituteFromArgs and FluxConfigurationKustomizationPostBuildSubstituteFromOutput values.
+// You can construct a concrete instance of `FluxConfigurationKustomizationPostBuildSubstituteFromInput` via:
+//
+//	FluxConfigurationKustomizationPostBuildSubstituteFromArgs{...}
+type FluxConfigurationKustomizationPostBuildSubstituteFromInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationKustomizationPostBuildSubstituteFromOutput() FluxConfigurationKustomizationPostBuildSubstituteFromOutput
+	ToFluxConfigurationKustomizationPostBuildSubstituteFromOutputWithContext(context.Context) FluxConfigurationKustomizationPostBuildSubstituteFromOutput
+}
+
+type FluxConfigurationKustomizationPostBuildSubstituteFromArgs struct {
+	// Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+	Optional pulumi.BoolPtrInput `pulumi:"optional"`
+}
+
+func (FluxConfigurationKustomizationPostBuildSubstituteFromArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationKustomizationPostBuildSubstituteFrom)(nil)).Elem()
+}
+
+func (i FluxConfigurationKustomizationPostBuildSubstituteFromArgs) ToFluxConfigurationKustomizationPostBuildSubstituteFromOutput() FluxConfigurationKustomizationPostBuildSubstituteFromOutput {
+	return i.ToFluxConfigurationKustomizationPostBuildSubstituteFromOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationKustomizationPostBuildSubstituteFromArgs) ToFluxConfigurationKustomizationPostBuildSubstituteFromOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildSubstituteFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationPostBuildSubstituteFromOutput)
+}
+
+// FluxConfigurationKustomizationPostBuildSubstituteFromArrayInput is an input type that accepts FluxConfigurationKustomizationPostBuildSubstituteFromArray and FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput values.
+// You can construct a concrete instance of `FluxConfigurationKustomizationPostBuildSubstituteFromArrayInput` via:
+//
+//	FluxConfigurationKustomizationPostBuildSubstituteFromArray{ FluxConfigurationKustomizationPostBuildSubstituteFromArgs{...} }
+type FluxConfigurationKustomizationPostBuildSubstituteFromArrayInput interface {
+	pulumi.Input
+
+	ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput() FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput
+	ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutputWithContext(context.Context) FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput
+}
+
+type FluxConfigurationKustomizationPostBuildSubstituteFromArray []FluxConfigurationKustomizationPostBuildSubstituteFromInput
+
+func (FluxConfigurationKustomizationPostBuildSubstituteFromArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FluxConfigurationKustomizationPostBuildSubstituteFrom)(nil)).Elem()
+}
+
+func (i FluxConfigurationKustomizationPostBuildSubstituteFromArray) ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput() FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput {
+	return i.ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutputWithContext(context.Background())
+}
+
+func (i FluxConfigurationKustomizationPostBuildSubstituteFromArray) ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput)
+}
+
+type FluxConfigurationKustomizationPostBuildSubstituteFromOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationKustomizationPostBuildSubstituteFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FluxConfigurationKustomizationPostBuildSubstituteFrom)(nil)).Elem()
+}
+
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromOutput) ToFluxConfigurationKustomizationPostBuildSubstituteFromOutput() FluxConfigurationKustomizationPostBuildSubstituteFromOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromOutput) ToFluxConfigurationKustomizationPostBuildSubstituteFromOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildSubstituteFromOutput {
+	return o
+}
+
+// Specifies the source kind to hold the variables to be used in substitution. Possible values are `ConfigMap` and `Secret`.
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomizationPostBuildSubstituteFrom) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the ConfigMap/Secret that holds the variables to be used in substitution.
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomizationPostBuildSubstituteFrom) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether to proceed without ConfigMap/Secret if it is not present. Defaults to `false`.
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FluxConfigurationKustomizationPostBuildSubstituteFrom) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+type FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput struct{ *pulumi.OutputState }
+
+func (FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FluxConfigurationKustomizationPostBuildSubstituteFrom)(nil)).Elem()
+}
+
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput) ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput() FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput) ToFluxConfigurationKustomizationPostBuildSubstituteFromArrayOutputWithContext(ctx context.Context) FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput {
+	return o
+}
+
+func (o FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput) Index(i pulumi.IntInput) FluxConfigurationKustomizationPostBuildSubstituteFromOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FluxConfigurationKustomizationPostBuildSubstituteFrom {
+		return vs[0].([]FluxConfigurationKustomizationPostBuildSubstituteFrom)[vs[1].(int)]
+	}).(FluxConfigurationKustomizationPostBuildSubstituteFromOutput)
 }
 
 type GroupContainer struct {
@@ -24765,6 +25056,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationGitRepositoryPtrInput)(nil)).Elem(), FluxConfigurationGitRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationInput)(nil)).Elem(), FluxConfigurationKustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationArrayInput)(nil)).Elem(), FluxConfigurationKustomizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationPostBuildInput)(nil)).Elem(), FluxConfigurationKustomizationPostBuildArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationPostBuildPtrInput)(nil)).Elem(), FluxConfigurationKustomizationPostBuildArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationPostBuildSubstituteFromInput)(nil)).Elem(), FluxConfigurationKustomizationPostBuildSubstituteFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationKustomizationPostBuildSubstituteFromArrayInput)(nil)).Elem(), FluxConfigurationKustomizationPostBuildSubstituteFromArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerInput)(nil)).Elem(), GroupContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerArrayInput)(nil)).Elem(), GroupContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupContainerLivenessProbeInput)(nil)).Elem(), GroupContainerLivenessProbeArgs{})
@@ -25039,6 +25334,10 @@ func init() {
 	pulumi.RegisterOutputType(FluxConfigurationGitRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationKustomizationOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationKustomizationArrayOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationKustomizationPostBuildOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationKustomizationPostBuildPtrOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationKustomizationPostBuildSubstituteFromOutput{})
+	pulumi.RegisterOutputType(FluxConfigurationKustomizationPostBuildSubstituteFromArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerOutput{})
 	pulumi.RegisterOutputType(GroupContainerArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerLivenessProbeOutput{})

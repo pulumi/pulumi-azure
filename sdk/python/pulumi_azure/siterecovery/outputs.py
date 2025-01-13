@@ -390,6 +390,8 @@ class ReplicatedVMNetworkInterface(dict):
             suggest = "failover_test_static_ip"
         elif key == "failoverTestSubnetName":
             suggest = "failover_test_subnet_name"
+        elif key == "recoveryLoadBalancerBackendAddressPoolIds":
+            suggest = "recovery_load_balancer_backend_address_pool_ids"
         elif key == "recoveryPublicIpAddressId":
             suggest = "recovery_public_ip_address_id"
         elif key == "sourceNetworkInterfaceId":
@@ -414,6 +416,7 @@ class ReplicatedVMNetworkInterface(dict):
                  failover_test_public_ip_address_id: Optional[str] = None,
                  failover_test_static_ip: Optional[str] = None,
                  failover_test_subnet_name: Optional[str] = None,
+                 recovery_load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
                  recovery_public_ip_address_id: Optional[str] = None,
                  source_network_interface_id: Optional[str] = None,
                  target_static_ip: Optional[str] = None,
@@ -421,11 +424,12 @@ class ReplicatedVMNetworkInterface(dict):
         """
         :param str failover_test_public_ip_address_id: Id of the public IP object to use when a test failover is done.
         :param str failover_test_static_ip: Static IP to assign when a test failover is done.
-        :param str failover_test_subnet_name: Name of the subnet to to use when a test failover is done.
+        :param str failover_test_subnet_name: Name of the subnet to use when a test failover is done.
+        :param Sequence[str] recovery_load_balancer_backend_address_pool_ids: A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
         :param str recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
         :param str source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
         :param str target_static_ip: Static IP to assign when a failover is done.
-        :param str target_subnet_name: Name of the subnet to to use when a failover is done.
+        :param str target_subnet_name: Name of the subnet to use when a failover is done.
         """
         if failover_test_public_ip_address_id is not None:
             pulumi.set(__self__, "failover_test_public_ip_address_id", failover_test_public_ip_address_id)
@@ -433,6 +437,8 @@ class ReplicatedVMNetworkInterface(dict):
             pulumi.set(__self__, "failover_test_static_ip", failover_test_static_ip)
         if failover_test_subnet_name is not None:
             pulumi.set(__self__, "failover_test_subnet_name", failover_test_subnet_name)
+        if recovery_load_balancer_backend_address_pool_ids is not None:
+            pulumi.set(__self__, "recovery_load_balancer_backend_address_pool_ids", recovery_load_balancer_backend_address_pool_ids)
         if recovery_public_ip_address_id is not None:
             pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
         if source_network_interface_id is not None:
@@ -462,9 +468,17 @@ class ReplicatedVMNetworkInterface(dict):
     @pulumi.getter(name="failoverTestSubnetName")
     def failover_test_subnet_name(self) -> Optional[str]:
         """
-        Name of the subnet to to use when a test failover is done.
+        Name of the subnet to use when a test failover is done.
         """
         return pulumi.get(self, "failover_test_subnet_name")
+
+    @property
+    @pulumi.getter(name="recoveryLoadBalancerBackendAddressPoolIds")
+    def recovery_load_balancer_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+        """
+        return pulumi.get(self, "recovery_load_balancer_backend_address_pool_ids")
 
     @property
     @pulumi.getter(name="recoveryPublicIpAddressId")
@@ -494,7 +508,7 @@ class ReplicatedVMNetworkInterface(dict):
     @pulumi.getter(name="targetSubnetName")
     def target_subnet_name(self) -> Optional[str]:
         """
-        Name of the subnet to to use when a failover is done.
+        Name of the subnet to use when a failover is done.
         """
         return pulumi.get(self, "target_subnet_name")
 

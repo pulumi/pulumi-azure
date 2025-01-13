@@ -16,8 +16,10 @@ from .. import _utilities
 
 __all__ = [
     'DicomServiceAuthentication',
+    'DicomServiceCors',
     'DicomServiceIdentity',
     'DicomServicePrivateEndpoint',
+    'DicomServiceStorage',
     'FhirServiceAuthentication',
     'FhirServiceCors',
     'FhirServiceIdentity',
@@ -28,8 +30,10 @@ __all__ = [
     'ServiceIdentity',
     'WorkspacePrivateEndpointConnection',
     'GetDicomServiceAuthenticationResult',
+    'GetDicomServiceCorResult',
     'GetDicomServiceIdentityResult',
     'GetDicomServicePrivateEndpointResult',
+    'GetDicomServiceStorageResult',
     'GetFhirServiceAuthenticationResult',
     'GetFhirServiceCorResult',
     'GetFhirServiceIdentityResult',
@@ -63,6 +67,98 @@ class DicomServiceAuthentication(dict):
     @pulumi.getter
     def authority(self) -> Optional[str]:
         return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class DicomServiceCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCredentials":
+            suggest = "allow_credentials"
+        elif key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DicomServiceCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DicomServiceCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DicomServiceCors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_credentials: Optional[bool] = None,
+                 allowed_headers: Optional[Sequence[str]] = None,
+                 allowed_methods: Optional[Sequence[str]] = None,
+                 allowed_origins: Optional[Sequence[str]] = None,
+                 max_age_in_seconds: Optional[int] = None):
+        """
+        :param bool allow_credentials: Whether to allow credentials in CORS. Defaults to `false`.
+        :param Sequence[str] allowed_headers: A list of allowed headers for CORS.
+        :param Sequence[str] allowed_methods: A list of allowed methods for CORS.
+        :param Sequence[str] allowed_origins: A list of allowed origins for CORS.
+        :param int max_age_in_seconds: The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[bool]:
+        """
+        Whether to allow credentials in CORS. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[Sequence[str]]:
+        """
+        A list of allowed headers for CORS.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[Sequence[str]]:
+        """
+        A list of allowed methods for CORS.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[Sequence[str]]:
+        """
+        A list of allowed origins for CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[int]:
+        """
+        The maximum age in seconds for the CORS configuration (must be between 0 and 99998 inclusive).
+        """
+        return pulumi.get(self, "max_age_in_seconds")
 
 
 @pulumi.output_type
@@ -161,6 +257,58 @@ class DicomServicePrivateEndpoint(dict):
         Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DicomServiceStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemName":
+            suggest = "file_system_name"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DicomServiceStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DicomServiceStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DicomServiceStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_name: str,
+                 storage_account_id: str):
+        """
+        :param str file_system_name: The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+        :param str storage_account_id: The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+               
+               > **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+        """
+        pulumi.set(__self__, "file_system_name", file_system_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="fileSystemName")
+    def file_system_name(self) -> str:
+        """
+        The filesystem name of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+        return pulumi.get(self, "file_system_name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of connected storage account. Changing this forces a new Healthcare DICOM Service to be created.
+
+        > **Note:** The `is_hns_enabled` needs to be set to `true` for the storage account to be used with the Healthcare DICOM Service.
+        """
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -773,6 +921,68 @@ class GetDicomServiceAuthenticationResult(dict):
 
 
 @pulumi.output_type
+class GetDicomServiceCorResult(dict):
+    def __init__(__self__, *,
+                 allow_credentials: bool,
+                 allowed_headers: Sequence[str],
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 max_age_in_seconds: int):
+        """
+        :param bool allow_credentials: Whether to allow credentials in CORS.
+        :param Sequence[str] allowed_headers: A list of allowed headers for CORS.
+        :param Sequence[str] allowed_methods: A list of allowed methods for CORS.
+        :param Sequence[str] allowed_origins: A list of allowed origins for CORS.
+        :param int max_age_in_seconds: The maximum age in seconds for the CORS configuration.
+        """
+        pulumi.set(__self__, "allow_credentials", allow_credentials)
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> bool:
+        """
+        Whether to allow credentials in CORS.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[str]:
+        """
+        A list of allowed headers for CORS.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        """
+        A list of allowed methods for CORS.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        A list of allowed origins for CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> int:
+        """
+        The maximum age in seconds for the CORS configuration.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
 class GetDicomServiceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
@@ -832,6 +1042,35 @@ class GetDicomServicePrivateEndpointResult(dict):
         The name of the Healthcare DICOM Service
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDicomServiceStorageResult(dict):
+    def __init__(__self__, *,
+                 file_system_name: str,
+                 storage_account_id: str):
+        """
+        :param str file_system_name: The filesystem name of connected storage account.
+        :param str storage_account_id: The resource ID of connected storage account.
+        """
+        pulumi.set(__self__, "file_system_name", file_system_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="fileSystemName")
+    def file_system_name(self) -> str:
+        """
+        The filesystem name of connected storage account.
+        """
+        return pulumi.get(self, "file_system_name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of connected storage account.
+        """
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type

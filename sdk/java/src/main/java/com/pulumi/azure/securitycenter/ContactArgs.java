@@ -63,14 +63,14 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Security Center Contact. Defaults to `default1`.
+     * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Security Center Contact. Defaults to `default1`.
+     * @return The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -184,7 +184,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Security Center Contact. Defaults to `default1`.
+         * @param name The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Security Center Contact. Defaults to `default1`.
+         * @param name The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
          * 
          * @return builder
          * 

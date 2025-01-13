@@ -208,11 +208,12 @@ type ServerTransparentDataEncryption struct {
 	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
+	// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 	//
 	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
 	// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
-	KeyVaultKeyId   pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -254,11 +255,12 @@ type serverTransparentDataEncryptionState struct {
 	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 	//
 	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
 	// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
-	KeyVaultKeyId   *string `pulumi:"keyVaultKeyId"`
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
@@ -268,11 +270,12 @@ type ServerTransparentDataEncryptionState struct {
 	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	KeyVaultKeyId pulumi.StringPtrInput
+	// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 	//
 	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
 	// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
-	KeyVaultKeyId   pulumi.StringPtrInput
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
@@ -286,11 +289,12 @@ type serverTransparentDataEncryptionArgs struct {
 	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 	//
 	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
 	// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
-	KeyVaultKeyId   *string `pulumi:"keyVaultKeyId"`
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
@@ -301,11 +305,12 @@ type ServerTransparentDataEncryptionArgs struct {
 	// When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
 	AutoRotationEnabled pulumi.BoolPtrInput
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+	KeyVaultKeyId pulumi.StringPtrInput
+	// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 	//
 	// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
 	// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
-	KeyVaultKeyId   pulumi.StringPtrInput
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
@@ -404,14 +409,15 @@ func (o ServerTransparentDataEncryptionOutput) AutoRotationEnabled() pulumi.Bool
 }
 
 // To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
-//
-// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
-//
-// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 func (o ServerTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
+// To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
+//
+// > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+//
+// > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 func (o ServerTransparentDataEncryptionOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }

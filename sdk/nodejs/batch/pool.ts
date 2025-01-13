@@ -221,6 +221,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.batch.PoolSecurityProfile | undefined>;
+    /**
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     public readonly startTask!: pulumi.Output<outputs.batch.PoolStartTask | undefined>;
@@ -291,6 +295,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["nodePlacements"] = state ? state.nodePlacements : undefined;
             resourceInputs["osDiskPlacement"] = state ? state.osDiskPlacement : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["securityProfile"] = state ? state.securityProfile : undefined;
             resourceInputs["startTask"] = state ? state.startTask : undefined;
             resourceInputs["stopPendingResizeOperation"] = state ? state.stopPendingResizeOperation : undefined;
             resourceInputs["storageImageReference"] = state ? state.storageImageReference : undefined;
@@ -337,6 +342,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["nodePlacements"] = args ? args.nodePlacements : undefined;
             resourceInputs["osDiskPlacement"] = args ? args.osDiskPlacement : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["startTask"] = args ? args.startTask : undefined;
             resourceInputs["stopPendingResizeOperation"] = args ? args.stopPendingResizeOperation : undefined;
             resourceInputs["storageImageReference"] = args ? args.storageImageReference : undefined;
@@ -439,6 +445,10 @@ export interface PoolState {
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     */
+    securityProfile?: pulumi.Input<inputs.batch.PoolSecurityProfile>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
@@ -565,6 +575,10 @@ export interface PoolArgs {
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+     */
+    securityProfile?: pulumi.Input<inputs.batch.PoolSecurityProfile>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */

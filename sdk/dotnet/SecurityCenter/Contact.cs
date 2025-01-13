@@ -38,7 +38,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// ## Import
     /// 
-    /// The contact can be imported using the `resource id`, e.g.
+    /// Security Center Contacts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Security Center Contact. Defaults to `default1`.
+        /// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Security Center Contact. Defaults to `default1`.
+        /// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// The name of the Security Center Contact. Defaults to `default1`.
+        /// The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

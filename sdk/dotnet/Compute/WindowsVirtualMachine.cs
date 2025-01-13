@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `os_disk` block as defined below.
+        /// An `os_disk` block as defined below.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.WindowsVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
@@ -756,7 +756,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `os_disk` block as defined below.
+        /// An `os_disk` block as defined below.
         /// </summary>
         [Input("osDisk", required: true)]
         public Input<Inputs.WindowsVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
@@ -1162,7 +1162,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `os_disk` block as defined below.
+        /// An `os_disk` block as defined below.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.WindowsVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }

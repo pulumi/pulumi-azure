@@ -2119,6 +2119,221 @@ func (o ManagedDatabasePointInTimeRestorePtrOutput) SourceDatabaseId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedInstanceAzureActiveDirectoryAdministrator struct {
+	// Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
+	AzureadAuthenticationOnlyEnabled *bool `pulumi:"azureadAuthenticationOnlyEnabled"`
+	// The login username of the Azure AD Administrator of this SQL Managed Instance.
+	LoginUsername string `pulumi:"loginUsername"`
+	// The object id of the Azure AD Administrator of this SQL Managed Instance.
+	ObjectId string `pulumi:"objectId"`
+	// The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+	PrincipalType string `pulumi:"principalType"`
+	// The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ManagedInstanceAzureActiveDirectoryAdministratorInput is an input type that accepts ManagedInstanceAzureActiveDirectoryAdministratorArgs and ManagedInstanceAzureActiveDirectoryAdministratorOutput values.
+// You can construct a concrete instance of `ManagedInstanceAzureActiveDirectoryAdministratorInput` via:
+//
+//	ManagedInstanceAzureActiveDirectoryAdministratorArgs{...}
+type ManagedInstanceAzureActiveDirectoryAdministratorInput interface {
+	pulumi.Input
+
+	ToManagedInstanceAzureActiveDirectoryAdministratorOutput() ManagedInstanceAzureActiveDirectoryAdministratorOutput
+	ToManagedInstanceAzureActiveDirectoryAdministratorOutputWithContext(context.Context) ManagedInstanceAzureActiveDirectoryAdministratorOutput
+}
+
+type ManagedInstanceAzureActiveDirectoryAdministratorArgs struct {
+	// Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
+	AzureadAuthenticationOnlyEnabled pulumi.BoolPtrInput `pulumi:"azureadAuthenticationOnlyEnabled"`
+	// The login username of the Azure AD Administrator of this SQL Managed Instance.
+	LoginUsername pulumi.StringInput `pulumi:"loginUsername"`
+	// The object id of the Azure AD Administrator of this SQL Managed Instance.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	// The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ManagedInstanceAzureActiveDirectoryAdministratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAzureActiveDirectoryAdministrator)(nil)).Elem()
+}
+
+func (i ManagedInstanceAzureActiveDirectoryAdministratorArgs) ToManagedInstanceAzureActiveDirectoryAdministratorOutput() ManagedInstanceAzureActiveDirectoryAdministratorOutput {
+	return i.ToManagedInstanceAzureActiveDirectoryAdministratorOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceAzureActiveDirectoryAdministratorArgs) ToManagedInstanceAzureActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ManagedInstanceAzureActiveDirectoryAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureActiveDirectoryAdministratorOutput)
+}
+
+func (i ManagedInstanceAzureActiveDirectoryAdministratorArgs) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutput() ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return i.ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceAzureActiveDirectoryAdministratorArgs) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureActiveDirectoryAdministratorOutput).ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(ctx)
+}
+
+// ManagedInstanceAzureActiveDirectoryAdministratorPtrInput is an input type that accepts ManagedInstanceAzureActiveDirectoryAdministratorArgs, ManagedInstanceAzureActiveDirectoryAdministratorPtr and ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput values.
+// You can construct a concrete instance of `ManagedInstanceAzureActiveDirectoryAdministratorPtrInput` via:
+//
+//	        ManagedInstanceAzureActiveDirectoryAdministratorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedInstanceAzureActiveDirectoryAdministratorPtrInput interface {
+	pulumi.Input
+
+	ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutput() ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput
+	ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(context.Context) ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput
+}
+
+type managedInstanceAzureActiveDirectoryAdministratorPtrType ManagedInstanceAzureActiveDirectoryAdministratorArgs
+
+func ManagedInstanceAzureActiveDirectoryAdministratorPtr(v *ManagedInstanceAzureActiveDirectoryAdministratorArgs) ManagedInstanceAzureActiveDirectoryAdministratorPtrInput {
+	return (*managedInstanceAzureActiveDirectoryAdministratorPtrType)(v)
+}
+
+func (*managedInstanceAzureActiveDirectoryAdministratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceAzureActiveDirectoryAdministrator)(nil)).Elem()
+}
+
+func (i *managedInstanceAzureActiveDirectoryAdministratorPtrType) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutput() ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return i.ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstanceAzureActiveDirectoryAdministratorPtrType) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput)
+}
+
+type ManagedInstanceAzureActiveDirectoryAdministratorOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceAzureActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceAzureActiveDirectoryAdministrator)(nil)).Elem()
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) ToManagedInstanceAzureActiveDirectoryAdministratorOutput() ManagedInstanceAzureActiveDirectoryAdministratorOutput {
+	return o
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) ToManagedInstanceAzureActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ManagedInstanceAzureActiveDirectoryAdministratorOutput {
+	return o
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutput() ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return o.ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceAzureActiveDirectoryAdministrator) *ManagedInstanceAzureActiveDirectoryAdministrator {
+		return &v
+	}).(ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput)
+}
+
+// Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) AzureadAuthenticationOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceAzureActiveDirectoryAdministrator) *bool {
+		return v.AzureadAuthenticationOnlyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The login username of the Azure AD Administrator of this SQL Managed Instance.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) LoginUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceAzureActiveDirectoryAdministrator) string { return v.LoginUsername }).(pulumi.StringOutput)
+}
+
+// The object id of the Azure AD Administrator of this SQL Managed Instance.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceAzureActiveDirectoryAdministrator) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceAzureActiveDirectoryAdministrator) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstanceAzureActiveDirectoryAdministrator) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstanceAzureActiveDirectoryAdministrator)(nil)).Elem()
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutput() ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) ToManagedInstanceAzureActiveDirectoryAdministratorPtrOutputWithContext(ctx context.Context) ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return o
+}
+
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) Elem() ManagedInstanceAzureActiveDirectoryAdministratorOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureActiveDirectoryAdministrator) ManagedInstanceAzureActiveDirectoryAdministrator {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedInstanceAzureActiveDirectoryAdministrator
+		return ret
+	}).(ManagedInstanceAzureActiveDirectoryAdministratorOutput)
+}
+
+// Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) AzureadAuthenticationOnlyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureActiveDirectoryAdministrator) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AzureadAuthenticationOnlyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The login username of the Azure AD Administrator of this SQL Managed Instance.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) LoginUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureActiveDirectoryAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoginUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object id of the Azure AD Administrator of this SQL Managed Instance.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureActiveDirectoryAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The principal type of the Azure AD Administrator of this SQL Managed Instance. Possible values are `Application`, `Group`, `User`.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureActiveDirectoryAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the Azure AD Administrator of this SQL Managed Instance. Should be specified if the Azure AD Administrator is homed in a different tenant to the SQL Managed Instance.
+func (o ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureActiveDirectoryAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedInstanceFailoverGroupPartnerRegion struct {
 	// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -2382,7 +2597,7 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mo
 }
 
 type ManagedInstanceIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 	//
 	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -2390,7 +2605,7 @@ type ManagedInstanceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -2406,7 +2621,7 @@ type ManagedInstanceIdentityInput interface {
 }
 
 type ManagedInstanceIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 	//
 	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -2414,7 +2629,7 @@ type ManagedInstanceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2495,7 +2710,7 @@ func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithCon
 	}).(ManagedInstanceIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 //
 // > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 func (o ManagedInstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -2512,7 +2727,7 @@ func (o ManagedInstanceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
 func (o ManagedInstanceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedInstanceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2541,7 +2756,7 @@ func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
 	}).(ManagedInstanceIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` includes `UserAssigned`.
 //
 // > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
 func (o ManagedInstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -2573,7 +2788,7 @@ func (o ManagedInstanceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
 func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceIdentity) *string {
 		if v == nil {
@@ -7271,6 +7486,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyPtrInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePointInTimeRestoreInput)(nil)).Elem(), ManagedDatabasePointInTimeRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePointInTimeRestorePtrInput)(nil)).Elem(), ManagedDatabasePointInTimeRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceAzureActiveDirectoryAdministratorInput)(nil)).Elem(), ManagedInstanceAzureActiveDirectoryAdministratorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceAzureActiveDirectoryAdministratorPtrInput)(nil)).Elem(), ManagedInstanceAzureActiveDirectoryAdministratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionArrayInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
@@ -7353,6 +7570,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDatabasePointInTimeRestoreOutput{})
 	pulumi.RegisterOutputType(ManagedDatabasePointInTimeRestorePtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceAzureActiveDirectoryAdministratorOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput{})

@@ -4,6 +4,55 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an Active Directory administrator on a MySQL Flexible Server
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "exampleUAI",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ *     name: "example-mysqlfs",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     administratorLogin: "_admin_Terraform_892123456789312",
+ *     administratorPassword: "QAZwsx123",
+ *     skuName: "B_Standard_B1s",
+ *     zone: "2",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * });
+ * const exampleFlexibleServerActiveDirectoryAdministratory = new azure.mysql.FlexibleServerActiveDirectoryAdministratory("example", {
+ *     serverId: exampleFlexibleServer.id,
+ *     identityId: exampleUserAssignedIdentity.id,
+ *     login: "sqladmin",
+ *     objectId: current.then(current => current.clientId),
+ *     tenantId: current.then(current => current.tenantId),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * A MySQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforMySQL/flexibleServers/server1/administrators/ActiveDirectory
+ * ```
+ */
 export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomResource {
     /**
      * Get an existing FlexibleServerActiveDirectoryAdministratory resource's state with the given name, ID, and optional extra
@@ -32,10 +81,25 @@ export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomRe
         return obj['__pulumiType'] === FlexibleServerActiveDirectoryAdministratory.__pulumiType;
     }
 
+    /**
+     * The resource ID of the identity used for AAD Authentication.
+     */
     public readonly identityId!: pulumi.Output<string>;
+    /**
+     * The login name of the principal to set as the server administrator
+     */
     public readonly login!: pulumi.Output<string>;
+    /**
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+     */
     public readonly objectId!: pulumi.Output<string>;
+    /**
+     * The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+     */
     public readonly serverId!: pulumi.Output<string>;
+    /**
+     * The Azure Tenant ID.
+     */
     public readonly tenantId!: pulumi.Output<string>;
 
     /**
@@ -90,10 +154,25 @@ export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomRe
  * Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
  */
 export interface FlexibleServerActiveDirectoryAdministratoryState {
+    /**
+     * The resource ID of the identity used for AAD Authentication.
+     */
     identityId?: pulumi.Input<string>;
+    /**
+     * The login name of the principal to set as the server administrator
+     */
     login?: pulumi.Input<string>;
+    /**
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+     */
     objectId?: pulumi.Input<string>;
+    /**
+     * The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+     */
     serverId?: pulumi.Input<string>;
+    /**
+     * The Azure Tenant ID.
+     */
     tenantId?: pulumi.Input<string>;
 }
 
@@ -101,9 +180,24 @@ export interface FlexibleServerActiveDirectoryAdministratoryState {
  * The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
  */
 export interface FlexibleServerActiveDirectoryAdministratoryArgs {
+    /**
+     * The resource ID of the identity used for AAD Authentication.
+     */
     identityId: pulumi.Input<string>;
+    /**
+     * The login name of the principal to set as the server administrator
+     */
     login: pulumi.Input<string>;
+    /**
+     * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
+     */
     objectId: pulumi.Input<string>;
+    /**
+     * The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
+     */
     serverId: pulumi.Input<string>;
+    /**
+     * The Azure Tenant ID.
+     */
     tenantId: pulumi.Input<string>;
 }

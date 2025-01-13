@@ -63,8 +63,8 @@ import * as utilities from "../utilities";
  *     administratorPassword: "H@Sh1CoR3!",
  *     zone: "1",
  *     storageMb: 32768,
- *     storageTier: "P30",
- *     skuName: "GP_Standard_D4s_v3",
+ *     storageTier: "P4",
+ *     skuName: "B_Standard_B1ms",
  * }, {
  *     dependsOn: [exampleZoneVirtualNetworkLink],
  * });

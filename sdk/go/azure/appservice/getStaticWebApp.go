@@ -71,6 +71,8 @@ type LookupStaticWebAppResult struct {
 	Name                       string                    `pulumi:"name"`
 	PreviewEnvironmentsEnabled bool                      `pulumi:"previewEnvironmentsEnabled"`
 	PublicNetworkAccessEnabled bool                      `pulumi:"publicNetworkAccessEnabled"`
+	RepositoryBranch           string                    `pulumi:"repositoryBranch"`
+	RepositoryUrl              string                    `pulumi:"repositoryUrl"`
 	ResourceGroupName          string                    `pulumi:"resourceGroupName"`
 	SkuSize                    string                    `pulumi:"skuSize"`
 	SkuTier                    string                    `pulumi:"skuTier"`
@@ -156,6 +158,14 @@ func (o LookupStaticWebAppResultOutput) PreviewEnvironmentsEnabled() pulumi.Bool
 
 func (o LookupStaticWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStaticWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupStaticWebAppResultOutput) RepositoryBranch() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.RepositoryBranch }).(pulumi.StringOutput)
+}
+
+func (o LookupStaticWebAppResultOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticWebAppResult) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
 func (o LookupStaticWebAppResultOutput) ResourceGroupName() pulumi.StringOutput {

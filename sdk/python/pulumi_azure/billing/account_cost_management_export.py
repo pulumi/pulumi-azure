@@ -28,6 +28,7 @@ class AccountCostManagementExportArgs:
                  recurrence_period_start_date: pulumi.Input[str],
                  recurrence_type: pulumi.Input[str],
                  active: Optional[pulumi.Input[bool]] = None,
+                 file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountCostManagementExport resource.
@@ -38,6 +39,8 @@ class AccountCostManagementExportArgs:
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
+               
+               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "billing_account_id", billing_account_id)
@@ -48,6 +51,8 @@ class AccountCostManagementExportArgs:
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         if active is not None:
             pulumi.set(__self__, "active", active)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -128,12 +133,23 @@ class AccountCostManagementExportArgs:
     def active(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the cost management export active? Default is `true`.
+
+        * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         """
         return pulumi.get(self, "active")
 
     @active.setter
     def active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_format", value)
 
     @property
     @pulumi.getter
@@ -155,6 +171,7 @@ class _AccountCostManagementExportState:
                  billing_account_id: Optional[pulumi.Input[str]] = None,
                  export_data_options: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']] = None,
                  export_data_storage_location: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']] = None,
+                 file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
                  recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -162,6 +179,8 @@ class _AccountCostManagementExportState:
         """
         Input properties used for looking up and filtering AccountCostManagementExport resources.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
+               
+               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
@@ -178,6 +197,8 @@ class _AccountCostManagementExportState:
             pulumi.set(__self__, "export_data_options", export_data_options)
         if export_data_storage_location is not None:
             pulumi.set(__self__, "export_data_storage_location", export_data_storage_location)
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if recurrence_period_end_date is not None:
@@ -192,6 +213,8 @@ class _AccountCostManagementExportState:
     def active(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the cost management export active? Default is `true`.
+
+        * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         """
         return pulumi.get(self, "active")
 
@@ -234,6 +257,15 @@ class _AccountCostManagementExportState:
     @export_data_storage_location.setter
     def export_data_storage_location(self, value: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']]):
         pulumi.set(self, "export_data_storage_location", value)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_format", value)
 
     @property
     @pulumi.getter
@@ -293,6 +325,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
                  billing_account_id: Optional[pulumi.Input[str]] = None,
                  export_data_options: Optional[pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']]] = None,
                  export_data_storage_location: Optional[pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+                 file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
                  recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -325,6 +358,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
+            file_format="Csv",
             export_data_storage_location={
                 "container_id": example_container.resource_manager_id,
                 "root_folder_path": "/root/updated",
@@ -346,6 +380,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
+               
+               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
@@ -387,6 +423,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
+            file_format="Csv",
             export_data_storage_location={
                 "container_id": example_container.resource_manager_id,
                 "root_folder_path": "/root/updated",
@@ -424,6 +461,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
                  billing_account_id: Optional[pulumi.Input[str]] = None,
                  export_data_options: Optional[pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']]] = None,
                  export_data_storage_location: Optional[pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+                 file_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
                  recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -447,6 +485,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
             if export_data_storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'export_data_storage_location'")
             __props__.__dict__["export_data_storage_location"] = export_data_storage_location
+            __props__.__dict__["file_format"] = file_format
             __props__.__dict__["name"] = name
             if recurrence_period_end_date is None and not opts.urn:
                 raise TypeError("Missing required property 'recurrence_period_end_date'")
@@ -471,6 +510,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
             billing_account_id: Optional[pulumi.Input[str]] = None,
             export_data_options: Optional[pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']]] = None,
             export_data_storage_location: Optional[pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+            file_format: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -483,6 +523,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
+               
+               * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
@@ -499,6 +541,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         __props__.__dict__["billing_account_id"] = billing_account_id
         __props__.__dict__["export_data_options"] = export_data_options
         __props__.__dict__["export_data_storage_location"] = export_data_storage_location
+        __props__.__dict__["file_format"] = file_format
         __props__.__dict__["name"] = name
         __props__.__dict__["recurrence_period_end_date"] = recurrence_period_end_date
         __props__.__dict__["recurrence_period_start_date"] = recurrence_period_start_date
@@ -510,6 +553,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
     def active(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the cost management export active? Default is `true`.
+
+        * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
         """
         return pulumi.get(self, "active")
 
@@ -536,6 +581,11 @@ class AccountCostManagementExport(pulumi.CustomResource):
         A `export_data_storage_location` block as defined below.
         """
         return pulumi.get(self, "export_data_storage_location")
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "file_format")
 
     @property
     @pulumi.getter

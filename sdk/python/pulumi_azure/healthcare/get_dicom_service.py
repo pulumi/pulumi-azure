@@ -27,10 +27,19 @@ class GetDicomServiceResult:
     """
     A collection of values returned by getDicomService.
     """
-    def __init__(__self__, authentications=None, id=None, identities=None, location=None, name=None, private_endpoints=None, service_url=None, tags=None, workspace_id=None):
+    def __init__(__self__, authentications=None, cors=None, data_partitions_enabled=None, encryption_key_url=None, id=None, identities=None, location=None, name=None, private_endpoints=None, service_url=None, storages=None, tags=None, workspace_id=None):
         if authentications and not isinstance(authentications, list):
             raise TypeError("Expected argument 'authentications' to be a list")
         pulumi.set(__self__, "authentications", authentications)
+        if cors and not isinstance(cors, list):
+            raise TypeError("Expected argument 'cors' to be a list")
+        pulumi.set(__self__, "cors", cors)
+        if data_partitions_enabled and not isinstance(data_partitions_enabled, bool):
+            raise TypeError("Expected argument 'data_partitions_enabled' to be a bool")
+        pulumi.set(__self__, "data_partitions_enabled", data_partitions_enabled)
+        if encryption_key_url and not isinstance(encryption_key_url, str):
+            raise TypeError("Expected argument 'encryption_key_url' to be a str")
+        pulumi.set(__self__, "encryption_key_url", encryption_key_url)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +58,9 @@ class GetDicomServiceResult:
         if service_url and not isinstance(service_url, str):
             raise TypeError("Expected argument 'service_url' to be a str")
         pulumi.set(__self__, "service_url", service_url)
+        if storages and not isinstance(storages, list):
+            raise TypeError("Expected argument 'storages' to be a list")
+        pulumi.set(__self__, "storages", storages)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -63,6 +75,30 @@ class GetDicomServiceResult:
         The `authentication` block as defined below.
         """
         return pulumi.get(self, "authentications")
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Sequence['outputs.GetDicomServiceCorResult']:
+        """
+        The `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter(name="dataPartitionsEnabled")
+    def data_partitions_enabled(self) -> bool:
+        """
+        If data partitions are enabled or not.
+        """
+        return pulumi.get(self, "data_partitions_enabled")
+
+    @property
+    @pulumi.getter(name="encryptionKeyUrl")
+    def encryption_key_url(self) -> str:
+        """
+        The URL of the key to use for encryption as part of the customer-managed key encryption settings.
+        """
+        return pulumi.get(self, "encryption_key_url")
 
     @property
     @pulumi.getter
@@ -105,6 +141,14 @@ class GetDicomServiceResult:
 
     @property
     @pulumi.getter
+    def storages(self) -> Sequence['outputs.GetDicomServiceStorageResult']:
+        """
+        The `storage` block as defined below.
+        """
+        return pulumi.get(self, "storages")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
         A map of tags assigned to the Healthcare DICOM Service.
@@ -124,12 +168,16 @@ class AwaitableGetDicomServiceResult(GetDicomServiceResult):
             yield self
         return GetDicomServiceResult(
             authentications=self.authentications,
+            cors=self.cors,
+            data_partitions_enabled=self.data_partitions_enabled,
+            encryption_key_url=self.encryption_key_url,
             id=self.id,
             identities=self.identities,
             location=self.location,
             name=self.name,
             private_endpoints=self.private_endpoints,
             service_url=self.service_url,
+            storages=self.storages,
             tags=self.tags,
             workspace_id=self.workspace_id)
 
@@ -153,7 +201,7 @@ def get_dicom_service(name: Optional[str] = None,
 
 
     :param str name: The name of the Healthcare DICOM Service
-    :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+    :param str workspace_id: The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -163,12 +211,16 @@ def get_dicom_service(name: Optional[str] = None,
 
     return AwaitableGetDicomServiceResult(
         authentications=pulumi.get(__ret__, 'authentications'),
+        cors=pulumi.get(__ret__, 'cors'),
+        data_partitions_enabled=pulumi.get(__ret__, 'data_partitions_enabled'),
+        encryption_key_url=pulumi.get(__ret__, 'encryption_key_url'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoints=pulumi.get(__ret__, 'private_endpoints'),
         service_url=pulumi.get(__ret__, 'service_url'),
+        storages=pulumi.get(__ret__, 'storages'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
@@ -190,7 +242,7 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of the Healthcare DICOM Service
-    :param str workspace_id: The id of the Healthcare Workspace in which the Healthcare DICOM Service exists.
+    :param str workspace_id: The ID of the Healthcare Workspace in which the Healthcare DICOM Service exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -199,11 +251,15 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:healthcare/getDicomService:getDicomService', __args__, opts=opts, typ=GetDicomServiceResult)
     return __ret__.apply(lambda __response__: GetDicomServiceResult(
         authentications=pulumi.get(__response__, 'authentications'),
+        cors=pulumi.get(__response__, 'cors'),
+        data_partitions_enabled=pulumi.get(__response__, 'data_partitions_enabled'),
+        encryption_key_url=pulumi.get(__response__, 'encryption_key_url'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         private_endpoints=pulumi.get(__response__, 'private_endpoints'),
         service_url=pulumi.get(__response__, 'service_url'),
+        storages=pulumi.get(__response__, 'storages'),
         tags=pulumi.get(__response__, 'tags'),
         workspace_id=pulumi.get(__response__, 'workspace_id')))

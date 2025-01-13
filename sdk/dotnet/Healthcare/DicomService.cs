@@ -65,6 +65,24 @@ namespace Pulumi.Azure.Healthcare
         public Output<ImmutableArray<Outputs.DicomServiceAuthentication>> Authentications { get; private set; } = null!;
 
         /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
+        [Output("cors")]
+        public Output<Outputs.DicomServiceCors> Cors { get; private set; } = null!;
+
+        /// <summary>
+        /// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        /// </summary>
+        [Output("dataPartitionsEnabled")]
+        public Output<bool?> DataPartitionsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        /// </summary>
+        [Output("encryptionKeyUrl")]
+        public Output<string?> EncryptionKeyUrl { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -98,13 +116,19 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> ServiceUrl { get; private set; } = null!;
 
         /// <summary>
+        /// A `storage` block as defined below.
+        /// </summary>
+        [Output("storage")]
+        public Output<Outputs.DicomServiceStorage> Storage { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the Healthcare DICOM Service.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        /// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -156,6 +180,24 @@ namespace Pulumi.Azure.Healthcare
     public sealed class DicomServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
+        [Input("cors")]
+        public Input<Inputs.DicomServiceCorsArgs>? Cors { get; set; }
+
+        /// <summary>
+        /// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        /// </summary>
+        [Input("dataPartitionsEnabled")]
+        public Input<bool>? DataPartitionsEnabled { get; set; }
+
+        /// <summary>
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        /// </summary>
+        [Input("encryptionKeyUrl")]
+        public Input<string>? EncryptionKeyUrl { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -179,6 +221,12 @@ namespace Pulumi.Azure.Healthcare
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
+        /// <summary>
+        /// A `storage` block as defined below.
+        /// </summary>
+        [Input("storage")]
+        public Input<Inputs.DicomServiceStorageArgs>? Storage { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -192,7 +240,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        /// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -216,6 +264,24 @@ namespace Pulumi.Azure.Healthcare
             get => _authentications ?? (_authentications = new InputList<Inputs.DicomServiceAuthenticationGetArgs>());
             set => _authentications = value;
         }
+
+        /// <summary>
+        /// A `cors` block as defined below.
+        /// </summary>
+        [Input("cors")]
+        public Input<Inputs.DicomServiceCorsGetArgs>? Cors { get; set; }
+
+        /// <summary>
+        /// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        /// </summary>
+        [Input("dataPartitionsEnabled")]
+        public Input<bool>? DataPartitionsEnabled { get; set; }
+
+        /// <summary>
+        /// The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
+        /// </summary>
+        [Input("encryptionKeyUrl")]
+        public Input<string>? EncryptionKeyUrl { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -255,6 +321,12 @@ namespace Pulumi.Azure.Healthcare
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }
 
+        /// <summary>
+        /// A `storage` block as defined below.
+        /// </summary>
+        [Input("storage")]
+        public Input<Inputs.DicomServiceStorageGetArgs>? Storage { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -268,7 +340,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
+        /// Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

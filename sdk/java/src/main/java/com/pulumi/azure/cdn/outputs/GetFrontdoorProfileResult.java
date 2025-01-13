@@ -3,12 +3,15 @@
 
 package com.pulumi.azure.cdn.outputs;
 
+import com.pulumi.azure.cdn.outputs.GetFrontdoorProfileIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrontdoorProfileResult {
@@ -17,6 +20,7 @@ public final class GetFrontdoorProfileResult {
      * 
      */
     private String id;
+    private @Nullable GetFrontdoorProfileIdentity identity;
     private String name;
     private String resourceGroupName;
     /**
@@ -47,6 +51,9 @@ public final class GetFrontdoorProfileResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<GetFrontdoorProfileIdentity> identity() {
+        return Optional.ofNullable(this.identity);
     }
     public String name() {
         return this.name;
@@ -93,6 +100,7 @@ public final class GetFrontdoorProfileResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable GetFrontdoorProfileIdentity identity;
         private String name;
         private String resourceGroupName;
         private String resourceGuid;
@@ -103,6 +111,7 @@ public final class GetFrontdoorProfileResult {
         public Builder(GetFrontdoorProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.identity = defaults.identity;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.resourceGuid = defaults.resourceGuid;
@@ -117,6 +126,12 @@ public final class GetFrontdoorProfileResult {
               throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder identity(@Nullable GetFrontdoorProfileIdentity identity) {
+
+            this.identity = identity;
             return this;
         }
         @CustomType.Setter
@@ -170,6 +185,7 @@ public final class GetFrontdoorProfileResult {
         public GetFrontdoorProfileResult build() {
             final var _resultValue = new GetFrontdoorProfileResult();
             _resultValue.id = id;
+            _resultValue.identity = identity;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.resourceGuid = resourceGuid;

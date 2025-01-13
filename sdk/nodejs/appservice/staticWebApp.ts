@@ -103,6 +103,18 @@ export class StaticWebApp extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+     */
+    public readonly repositoryBranch!: pulumi.Output<string | undefined>;
+    /**
+     * Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+     */
+    public readonly repositoryToken!: pulumi.Output<string | undefined>;
+    /**
+     * Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+     */
+    public readonly repositoryUrl!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -142,6 +154,9 @@ export class StaticWebApp extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["previewEnvironmentsEnabled"] = state ? state.previewEnvironmentsEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
+            resourceInputs["repositoryBranch"] = state ? state.repositoryBranch : undefined;
+            resourceInputs["repositoryToken"] = state ? state.repositoryToken : undefined;
+            resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuSize"] = state ? state.skuSize : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
@@ -159,6 +174,9 @@ export class StaticWebApp extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["previewEnvironmentsEnabled"] = args ? args.previewEnvironmentsEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
+            resourceInputs["repositoryBranch"] = args ? args.repositoryBranch : undefined;
+            resourceInputs["repositoryToken"] = args?.repositoryToken ? pulumi.secret(args.repositoryToken) : undefined;
+            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuSize"] = args ? args.skuSize : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
@@ -167,7 +185,7 @@ export class StaticWebApp extends pulumi.CustomResource {
             resourceInputs["defaultHostName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey", "basicAuth"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "basicAuth", "repositoryToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(StaticWebApp.__pulumiType, name, resourceInputs, opts);
     }
@@ -217,6 +235,18 @@ export interface StaticWebAppState {
      * Should public network access be enabled for the Static Web App. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+     */
+    repositoryBranch?: pulumi.Input<string>;
+    /**
+     * Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+     */
+    repositoryToken?: pulumi.Input<string>;
+    /**
+     * Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+     */
+    repositoryUrl?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
@@ -271,6 +301,18 @@ export interface StaticWebAppArgs {
      * Should public network access be enabled for the Static Web App. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
+     */
+    repositoryBranch?: pulumi.Input<string>;
+    /**
+     * Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
+     */
+    repositoryToken?: pulumi.Input<string>;
+    /**
+     * Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
+     */
+    repositoryUrl?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */

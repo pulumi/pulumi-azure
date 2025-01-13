@@ -29,7 +29,7 @@ class ContactArgs:
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
-        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         pulumi.set(__self__, "alert_notifications", alert_notifications)
@@ -80,7 +80,7 @@ class ContactArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Security Center Contact. Defaults to `default1`.
+        The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         """
         return pulumi.get(self, "name")
 
@@ -114,7 +114,7 @@ class _ContactState:
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
-        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         if alert_notifications is not None:
@@ -168,7 +168,7 @@ class _ContactState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Security Center Contact. Defaults to `default1`.
+        The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         """
         return pulumi.get(self, "name")
 
@@ -221,7 +221,7 @@ class Contact(pulumi.CustomResource):
 
         ## Import
 
-        The contact can be imported using the `resource id`, e.g.
+        Security Center Contacts can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
@@ -232,7 +232,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
-        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         ...
@@ -262,7 +262,7 @@ class Contact(pulumi.CustomResource):
 
         ## Import
 
-        The contact can be imported using the `resource id`, e.g.
+        Security Center Contacts can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
@@ -333,7 +333,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
-        :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
+        :param pulumi.Input[str] name: The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -375,7 +375,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Security Center Contact. Defaults to `default1`.
+        The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
         """
         return pulumi.get(self, "name")
 

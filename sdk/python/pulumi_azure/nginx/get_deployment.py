@@ -27,7 +27,7 @@ class GetDeploymentResult:
     """
     A collection of values returned by getDeployment.
     """
-    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, dataplane_api_endpoint=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
         if auto_scale_profiles and not isinstance(auto_scale_profiles, list):
             raise TypeError("Expected argument 'auto_scale_profiles' to be a list")
         pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
@@ -37,6 +37,9 @@ class GetDeploymentResult:
         if capacity and not isinstance(capacity, int):
             raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
+        if dataplane_api_endpoint and not isinstance(dataplane_api_endpoint, str):
+            raise TypeError("Expected argument 'dataplane_api_endpoint' to be a str")
+        pulumi.set(__self__, "dataplane_api_endpoint", dataplane_api_endpoint)
         if diagnose_support_enabled and not isinstance(diagnose_support_enabled, bool):
             raise TypeError("Expected argument 'diagnose_support_enabled' to be a bool")
         pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
@@ -111,6 +114,14 @@ class GetDeploymentResult:
         return pulumi.get(self, "capacity")
 
     @property
+    @pulumi.getter(name="dataplaneApiEndpoint")
+    def dataplane_api_endpoint(self) -> str:
+        """
+        The dataplane API endpoint of the NGINX Deployment.
+        """
+        return pulumi.get(self, "dataplane_api_endpoint")
+
+    @property
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> bool:
         """
@@ -176,10 +187,8 @@ class GetDeploymentResult:
 
     @property
     @pulumi.getter(name="loggingStorageAccounts")
+    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
     def logging_storage_accounts(self) -> Sequence['outputs.GetDeploymentLoggingStorageAccountResult']:
-        """
-        A `logging_storage_account` block as defined below.
-        """
         return pulumi.get(self, "logging_storage_accounts")
 
     @property
@@ -243,6 +252,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             auto_scale_profiles=self.auto_scale_profiles,
             automatic_upgrade_channel=self.automatic_upgrade_channel,
             capacity=self.capacity,
+            dataplane_api_endpoint=self.dataplane_api_endpoint,
             diagnose_support_enabled=self.diagnose_support_enabled,
             email=self.email,
             frontend_privates=self.frontend_privates,
@@ -292,6 +302,7 @@ def get_deployment(name: Optional[str] = None,
         auto_scale_profiles=pulumi.get(__ret__, 'auto_scale_profiles'),
         automatic_upgrade_channel=pulumi.get(__ret__, 'automatic_upgrade_channel'),
         capacity=pulumi.get(__ret__, 'capacity'),
+        dataplane_api_endpoint=pulumi.get(__ret__, 'dataplane_api_endpoint'),
         diagnose_support_enabled=pulumi.get(__ret__, 'diagnose_support_enabled'),
         email=pulumi.get(__ret__, 'email'),
         frontend_privates=pulumi.get(__ret__, 'frontend_privates'),
@@ -338,6 +349,7 @@ def get_deployment_output(name: Optional[pulumi.Input[str]] = None,
         auto_scale_profiles=pulumi.get(__response__, 'auto_scale_profiles'),
         automatic_upgrade_channel=pulumi.get(__response__, 'automatic_upgrade_channel'),
         capacity=pulumi.get(__response__, 'capacity'),
+        dataplane_api_endpoint=pulumi.get(__response__, 'dataplane_api_endpoint'),
         diagnose_support_enabled=pulumi.get(__response__, 'diagnose_support_enabled'),
         email=pulumi.get(__response__, 'email'),
         frontend_privates=pulumi.get(__response__, 'frontend_privates'),

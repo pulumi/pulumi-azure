@@ -16,6 +16,261 @@ import (
 //
 // > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
+// > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("database-rg"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("mi-security-group"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allow_management_inbound", &network.NetworkSecurityRuleArgs{
+//				Name:            pulumi.String("allow_management_inbound"),
+//				Priority:        pulumi.Int(106),
+//				Direction:       pulumi.String("Inbound"),
+//				Access:          pulumi.String("Allow"),
+//				Protocol:        pulumi.String("Tcp"),
+//				SourcePortRange: pulumi.String("*"),
+//				DestinationPortRanges: pulumi.StringArray{
+//					pulumi.String("9000"),
+//					pulumi.String("9003"),
+//					pulumi.String("1438"),
+//					pulumi.String("1440"),
+//					pulumi.String("1452"),
+//				},
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allow_misubnet_inbound", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("allow_misubnet_inbound"),
+//				Priority:                 pulumi.Int(200),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("10.0.0.0/24"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allow_health_probe_inbound", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("allow_health_probe_inbound"),
+//				Priority:                 pulumi.Int(300),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("AzureLoadBalancer"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allow_tds_inbound", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("allow_tds_inbound"),
+//				Priority:                 pulumi.Int(1000),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("Tcp"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("1433"),
+//				SourceAddressPrefix:      pulumi.String("VirtualNetwork"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "deny_all_inbound", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("deny_all_inbound"),
+//				Priority:                 pulumi.Int(4096),
+//				Direction:                pulumi.String("Inbound"),
+//				Access:                   pulumi.String("Deny"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allow_management_outbound", &network.NetworkSecurityRuleArgs{
+//				Name:            pulumi.String("allow_management_outbound"),
+//				Priority:        pulumi.Int(102),
+//				Direction:       pulumi.String("Outbound"),
+//				Access:          pulumi.String("Allow"),
+//				Protocol:        pulumi.String("Tcp"),
+//				SourcePortRange: pulumi.String("*"),
+//				DestinationPortRanges: pulumi.StringArray{
+//					pulumi.String("80"),
+//					pulumi.String("443"),
+//					pulumi.String("12000"),
+//				},
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "allow_misubnet_outbound", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("allow_misubnet_outbound"),
+//				Priority:                 pulumi.Int(200),
+//				Direction:                pulumi.String("Outbound"),
+//				Access:                   pulumi.String("Allow"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("10.0.0.0/24"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityRule(ctx, "deny_all_outbound", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("deny_all_outbound"),
+//				Priority:                 pulumi.Int(4096),
+//				Direction:                pulumi.String("Outbound"),
+//				Access:                   pulumi.String("Deny"),
+//				Protocol:                 pulumi.String("*"),
+//				SourcePortRange:          pulumi.String("*"),
+//				DestinationPortRange:     pulumi.String("*"),
+//				SourceAddressPrefix:      pulumi.String("*"),
+//				DestinationAddressPrefix: pulumi.String("*"),
+//				ResourceGroupName:        example.Name,
+//				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("vnet-mi"),
+//				ResourceGroupName: example.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location: example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("subnet-mi"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("managedinstancedelegation"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.Sql/managedInstances"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               exampleSubnet.ID(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
+//				Name:                       pulumi.String("routetable-mi"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
+//				BgpRoutePropagationEnabled: pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnet,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
+//				SubnetId:     exampleSubnet.ID(),
+//				RouteTableId: exampleRouteTable.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
+//				Name:                       pulumi.String("managedsqlinstance"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				SubnetId:                   exampleSubnet.ID(),
+//				Vcores:                     pulumi.Int(4),
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnetNetworkSecurityGroupAssociation,
+//				exampleSubnetRouteTableAssociation,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
@@ -27,9 +282,11 @@ type ManagedInstance struct {
 	pulumi.CustomResourceState
 
 	// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
+	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
+	// An `azureActiveDirectoryAdministrator` block as defined below.
+	AzureActiveDirectoryAdministrator ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput `pulumi:"azureActiveDirectoryAdministrator"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The Dns Zone where the SQL Managed Instance is located.
@@ -47,6 +304,8 @@ type ManagedInstance struct {
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationName"`
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -64,7 +323,7 @@ type ManagedInstance struct {
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntOutput `pulumi:"storageSizeInGb"`
-	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -83,12 +342,6 @@ func NewManagedInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AdministratorLogin == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorLogin'")
-	}
-	if args.AdministratorLoginPassword == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorLoginPassword'")
-	}
 	if args.LicenseType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseType'")
 	}
@@ -114,7 +367,7 @@ func NewManagedInstance(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	if args.AdministratorLoginPassword != nil {
-		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringInput)
+		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"administratorLoginPassword",
@@ -147,6 +400,8 @@ type managedInstanceState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// An `azureActiveDirectoryAdministrator` block as defined below.
+	AzureActiveDirectoryAdministrator *ManagedInstanceAzureActiveDirectoryAdministrator `pulumi:"azureActiveDirectoryAdministrator"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
 	// The Dns Zone where the SQL Managed Instance is located.
@@ -164,6 +419,8 @@ type managedInstanceState struct {
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -181,7 +438,7 @@ type managedInstanceState struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
-	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -198,6 +455,8 @@ type ManagedInstanceState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// An `azureActiveDirectoryAdministrator` block as defined below.
+	AzureActiveDirectoryAdministrator ManagedInstanceAzureActiveDirectoryAdministratorPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
 	// The Dns Zone where the SQL Managed Instance is located.
@@ -215,6 +474,8 @@ type ManagedInstanceState struct {
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -232,7 +493,7 @@ type ManagedInstanceState struct {
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntPtrInput
-	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -250,9 +511,11 @@ func (ManagedInstanceState) ElementType() reflect.Type {
 
 type managedInstanceArgs struct {
 	// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-	AdministratorLogin string `pulumi:"administratorLogin"`
+	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// An `azureActiveDirectoryAdministrator` block as defined below.
+	AzureActiveDirectoryAdministrator *ManagedInstanceAzureActiveDirectoryAdministrator `pulumi:"azureActiveDirectoryAdministrator"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
@@ -266,6 +529,8 @@ type managedInstanceArgs struct {
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -283,7 +548,7 @@ type managedInstanceArgs struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb int `pulumi:"storageSizeInGb"`
-	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -298,9 +563,11 @@ type managedInstanceArgs struct {
 // The set of arguments for constructing a ManagedInstance resource.
 type ManagedInstanceArgs struct {
 	// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-	AdministratorLogin pulumi.StringInput
+	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword pulumi.StringInput
+	AdministratorLoginPassword pulumi.StringPtrInput
+	// An `azureActiveDirectoryAdministrator` block as defined below.
+	AzureActiveDirectoryAdministrator ManagedInstanceAzureActiveDirectoryAdministratorPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
@@ -314,6 +581,8 @@ type ManagedInstanceArgs struct {
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	//
+	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -331,7 +600,7 @@ type ManagedInstanceArgs struct {
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntInput
-	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+	// The subnet resource id that the SQL Managed Instance will be associated with.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -431,13 +700,20 @@ func (o ManagedInstanceOutput) ToManagedInstanceOutputWithContext(ctx context.Co
 }
 
 // The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-func (o ManagedInstanceOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
+func (o ManagedInstanceOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
 }
 
 // The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-func (o ManagedInstanceOutput) AdministratorLoginPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
+func (o ManagedInstanceOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
+}
+
+// An `azureActiveDirectoryAdministrator` block as defined below.
+func (o ManagedInstanceOutput) AzureActiveDirectoryAdministrator() ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput {
+		return v.AzureActiveDirectoryAdministrator
+	}).(ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput)
 }
 
 // Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -481,6 +757,8 @@ func (o ManagedInstanceOutput) MaintenanceConfigurationName() pulumi.StringPtrOu
 }
 
 // The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+//
+// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o ManagedInstanceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -525,7 +803,7 @@ func (o ManagedInstanceOutput) StorageSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.IntOutput { return v.StorageSizeInGb }).(pulumi.IntOutput)
 }
 
-// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
+// The subnet resource id that the SQL Managed Instance will be associated with.
 func (o ManagedInstanceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

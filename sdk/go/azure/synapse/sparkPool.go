@@ -91,6 +91,7 @@ import (
 //					Content:  pulumi.String("spark.shuffle.spill                true\n"),
 //					Filename: pulumi.String("config.txt"),
 //				},
+//				SparkVersion: pulumi.String("3.2"),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Production"),
 //				},
@@ -138,7 +139,8 @@ type SparkPool struct {
 	SparkConfig                 SparkPoolSparkConfigPtrOutput `pulumi:"sparkConfig"`
 	SparkEventsFolder           pulumi.StringPtrOutput        `pulumi:"sparkEventsFolder"`
 	SparkLogFolder              pulumi.StringPtrOutput        `pulumi:"sparkLogFolder"`
-	SparkVersion                pulumi.StringOutput           `pulumi:"sparkVersion"`
+	// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+	SparkVersion pulumi.StringOutput `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringOutput    `pulumi:"synapseWorkspaceId"`
 	Tags               pulumi.StringMapOutput `pulumi:"tags"`
@@ -210,7 +212,8 @@ type sparkPoolState struct {
 	SparkConfig                 *SparkPoolSparkConfig `pulumi:"sparkConfig"`
 	SparkEventsFolder           *string               `pulumi:"sparkEventsFolder"`
 	SparkLogFolder              *string               `pulumi:"sparkLogFolder"`
-	SparkVersion                *string               `pulumi:"sparkVersion"`
+	// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+	SparkVersion *string `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId *string           `pulumi:"synapseWorkspaceId"`
 	Tags               map[string]string `pulumi:"tags"`
@@ -241,7 +244,8 @@ type SparkPoolState struct {
 	SparkConfig                 SparkPoolSparkConfigPtrInput
 	SparkEventsFolder           pulumi.StringPtrInput
 	SparkLogFolder              pulumi.StringPtrInput
-	SparkVersion                pulumi.StringPtrInput
+	// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+	SparkVersion pulumi.StringPtrInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
 	Tags               pulumi.StringMapInput
@@ -276,7 +280,8 @@ type sparkPoolArgs struct {
 	SparkConfig                 *SparkPoolSparkConfig `pulumi:"sparkConfig"`
 	SparkEventsFolder           *string               `pulumi:"sparkEventsFolder"`
 	SparkLogFolder              *string               `pulumi:"sparkLogFolder"`
-	SparkVersion                string                `pulumi:"sparkVersion"`
+	// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+	SparkVersion string `pulumi:"sparkVersion"`
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId string            `pulumi:"synapseWorkspaceId"`
 	Tags               map[string]string `pulumi:"tags"`
@@ -308,7 +313,8 @@ type SparkPoolArgs struct {
 	SparkConfig                 SparkPoolSparkConfigPtrInput
 	SparkEventsFolder           pulumi.StringPtrInput
 	SparkLogFolder              pulumi.StringPtrInput
-	SparkVersion                pulumi.StringInput
+	// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
+	SparkVersion pulumi.StringInput
 	// The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
 	SynapseWorkspaceId pulumi.StringInput
 	Tags               pulumi.StringMapInput
@@ -473,6 +479,7 @@ func (o SparkPoolOutput) SparkLogFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringPtrOutput { return v.SparkLogFolder }).(pulumi.StringPtrOutput)
 }
 
+// The Apache Spark version. Possible values are `3.2`, `3.3`, and `3.4`.
 func (o SparkPoolOutput) SparkVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *SparkPool) pulumi.StringOutput { return v.SparkVersion }).(pulumi.StringOutput)
 }

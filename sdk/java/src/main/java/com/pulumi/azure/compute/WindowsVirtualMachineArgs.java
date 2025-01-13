@@ -463,14 +463,14 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `os_disk` block as defined below.
+     * An `os_disk` block as defined below.
      * 
      */
     @Import(name="osDisk", required=true)
     private Output<WindowsVirtualMachineOsDiskArgs> osDisk;
 
     /**
-     * @return A `os_disk` block as defined below.
+     * @return An `os_disk` block as defined below.
      * 
      */
     public Output<WindowsVirtualMachineOsDiskArgs> osDisk() {
@@ -1572,7 +1572,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param osDisk A `os_disk` block as defined below.
+         * @param osDisk An `os_disk` block as defined below.
          * 
          * @return builder
          * 
@@ -1583,7 +1583,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param osDisk A `os_disk` block as defined below.
+         * @param osDisk An `os_disk` block as defined below.
          * 
          * @return builder
          * 

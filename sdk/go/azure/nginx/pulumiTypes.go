@@ -784,9 +784,8 @@ func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DeploymentLoggingStorageAccount struct {
-	// Specify the container name in the Storage Account for logging.
 	ContainerName *string `pulumi:"containerName"`
-	// The name of the StorageAccount for NGINX Logging.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name *string `pulumi:"name"`
 }
 
@@ -802,9 +801,8 @@ type DeploymentLoggingStorageAccountInput interface {
 }
 
 type DeploymentLoggingStorageAccountArgs struct {
-	// Specify the container name in the Storage Account for logging.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// The name of the StorageAccount for NGINX Logging.
+	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -859,12 +857,11 @@ func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccount
 	return o
 }
 
-// Specify the container name in the Storage Account for logging.
 func (o DeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the StorageAccount for NGINX Logging.
+// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentLoggingStorageAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1650,7 +1647,6 @@ func (o GetDeploymentIdentityArrayOutput) Index(i pulumi.IntInput) GetDeployment
 }
 
 type GetDeploymentLoggingStorageAccount struct {
-	// The container name of Storage Account for logging.
 	ContainerName string `pulumi:"containerName"`
 	// The name of this NGINX Deployment.
 	Name string `pulumi:"name"`
@@ -1668,7 +1664,6 @@ type GetDeploymentLoggingStorageAccountInput interface {
 }
 
 type GetDeploymentLoggingStorageAccountArgs struct {
-	// The container name of Storage Account for logging.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// The name of this NGINX Deployment.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1725,7 +1720,6 @@ func (o GetDeploymentLoggingStorageAccountOutput) ToGetDeploymentLoggingStorageA
 	return o
 }
 
-// The container name of Storage Account for logging.
 func (o GetDeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.ContainerName }).(pulumi.StringOutput)
 }

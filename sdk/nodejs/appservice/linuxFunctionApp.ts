@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Linux Function App.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -245,7 +243,9 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
     public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -548,7 +548,9 @@ export interface LinuxFunctionAppState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
     vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**
@@ -698,7 +700,9 @@ export interface LinuxFunctionAppArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
      */
     vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**

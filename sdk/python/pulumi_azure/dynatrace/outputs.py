@@ -13,11 +13,16 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'MonitorIdentity',
     'MonitorPlan',
     'MonitorUser',
+    'TagRulesLogRule',
+    'TagRulesLogRuleFilteringTag',
+    'TagRulesMetricRule',
+    'TagRulesMetricRuleFilteringTag',
 ]
 
 @pulumi.output_type
@@ -229,5 +234,197 @@ class MonitorUser(dict):
         phone number of the user by Dynatrace for contacting them if needed.
         """
         return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class TagRulesLogRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filteringTags":
+            suggest = "filtering_tags"
+        elif key == "sendActivityLogsEnabled":
+            suggest = "send_activity_logs_enabled"
+        elif key == "sendAzureActiveDirectoryLogsEnabled":
+            suggest = "send_azure_active_directory_logs_enabled"
+        elif key == "sendSubscriptionLogsEnabled":
+            suggest = "send_subscription_logs_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagRulesLogRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagRulesLogRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagRulesLogRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filtering_tags: Sequence['outputs.TagRulesLogRuleFilteringTag'],
+                 send_activity_logs_enabled: Optional[bool] = None,
+                 send_azure_active_directory_logs_enabled: Optional[bool] = None,
+                 send_subscription_logs_enabled: Optional[bool] = None):
+        """
+        :param Sequence['TagRulesLogRuleFilteringTagArgs'] filtering_tags: Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+        :param bool send_activity_logs_enabled: Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+        :param bool send_azure_active_directory_logs_enabled: Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+        :param bool send_subscription_logs_enabled: Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "filtering_tags", filtering_tags)
+        if send_activity_logs_enabled is not None:
+            pulumi.set(__self__, "send_activity_logs_enabled", send_activity_logs_enabled)
+        if send_azure_active_directory_logs_enabled is not None:
+            pulumi.set(__self__, "send_azure_active_directory_logs_enabled", send_azure_active_directory_logs_enabled)
+        if send_subscription_logs_enabled is not None:
+            pulumi.set(__self__, "send_subscription_logs_enabled", send_subscription_logs_enabled)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Sequence['outputs.TagRulesLogRuleFilteringTag']:
+        """
+        Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+    @property
+    @pulumi.getter(name="sendActivityLogsEnabled")
+    def send_activity_logs_enabled(self) -> Optional[bool]:
+        """
+        Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "send_activity_logs_enabled")
+
+    @property
+    @pulumi.getter(name="sendAzureActiveDirectoryLogsEnabled")
+    def send_azure_active_directory_logs_enabled(self) -> Optional[bool]:
+        """
+        Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "send_azure_active_directory_logs_enabled")
+
+    @property
+    @pulumi.getter(name="sendSubscriptionLogsEnabled")
+    def send_subscription_logs_enabled(self) -> Optional[bool]:
+        """
+        Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "send_subscription_logs_enabled")
+
+
+@pulumi.output_type
+class TagRulesLogRuleFilteringTag(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 value: str):
+        """
+        :param str action: Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        :param str name: Name of the filtering tag. Changing this forces a new resource to be created.
+        :param str value: Value of the filtering tag. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filtering tag. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the filtering tag. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TagRulesMetricRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filteringTags":
+            suggest = "filtering_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagRulesMetricRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagRulesMetricRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagRulesMetricRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filtering_tags: Sequence['outputs.TagRulesMetricRuleFilteringTag']):
+        """
+        :param Sequence['TagRulesMetricRuleFilteringTagArgs'] filtering_tags: Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+        """
+        pulumi.set(__self__, "filtering_tags", filtering_tags)
+
+    @property
+    @pulumi.getter(name="filteringTags")
+    def filtering_tags(self) -> Sequence['outputs.TagRulesMetricRuleFilteringTag']:
+        """
+        Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+        """
+        return pulumi.get(self, "filtering_tags")
+
+
+@pulumi.output_type
+class TagRulesMetricRuleFilteringTag(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 value: str):
+        """
+        :param str action: Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        :param str name: Name of the filtering tag. Changing this forces a new resource to be created.
+        :param str value: Value of the filtering tag. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filtering tag. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the filtering tag. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "value")
 
 
