@@ -1,3 +1,0 @@
-name: aci-volume-mount
-runtime: nodejs
-description: Create a container group https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/aci-linux-multi
