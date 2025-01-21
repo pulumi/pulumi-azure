@@ -67,6 +67,11 @@ public final class AppTemplate {
      */
     private @Nullable List<AppTemplateTcpScaleRule> tcpScaleRules;
     /**
+     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+     * 
+     */
+    private @Nullable Integer terminationGracePeriodSeconds;
+    /**
      * @return A `volume` block as detailed below.
      * 
      */
@@ -137,6 +142,13 @@ public final class AppTemplate {
         return this.tcpScaleRules == null ? List.of() : this.tcpScaleRules;
     }
     /**
+     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+     * 
+     */
+    public Optional<Integer> terminationGracePeriodSeconds() {
+        return Optional.ofNullable(this.terminationGracePeriodSeconds);
+    }
+    /**
      * @return A `volume` block as detailed below.
      * 
      */
@@ -162,6 +174,7 @@ public final class AppTemplate {
         private @Nullable Integer minReplicas;
         private @Nullable String revisionSuffix;
         private @Nullable List<AppTemplateTcpScaleRule> tcpScaleRules;
+        private @Nullable Integer terminationGracePeriodSeconds;
         private @Nullable List<AppTemplateVolume> volumes;
         public Builder() {}
         public Builder(AppTemplate defaults) {
@@ -175,6 +188,7 @@ public final class AppTemplate {
     	      this.minReplicas = defaults.minReplicas;
     	      this.revisionSuffix = defaults.revisionSuffix;
     	      this.tcpScaleRules = defaults.tcpScaleRules;
+    	      this.terminationGracePeriodSeconds = defaults.terminationGracePeriodSeconds;
     	      this.volumes = defaults.volumes;
         }
 
@@ -253,6 +267,12 @@ public final class AppTemplate {
             return tcpScaleRules(List.of(tcpScaleRules));
         }
         @CustomType.Setter
+        public Builder terminationGracePeriodSeconds(@Nullable Integer terminationGracePeriodSeconds) {
+
+            this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumes(@Nullable List<AppTemplateVolume> volumes) {
 
             this.volumes = volumes;
@@ -272,6 +292,7 @@ public final class AppTemplate {
             _resultValue.minReplicas = minReplicas;
             _resultValue.revisionSuffix = revisionSuffix;
             _resultValue.tcpScaleRules = tcpScaleRules;
+            _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
             _resultValue.volumes = volumes;
             return _resultValue;
         }

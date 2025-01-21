@@ -129,6 +129,20 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * 
+     */
+    @Export(name="immutability", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> immutability;
+
+    /**
+     * @return The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * 
+     */
+    public Output<Optional<String>> immutability() {
+        return Codegen.optional(this.immutability);
+    }
+    /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      * 
      */
@@ -203,7 +217,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionDurationInDays);
     }
     /**
-     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
      * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
@@ -212,7 +226,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> softDelete;
 
     /**
-     * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
      * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
      * 

@@ -76,7 +76,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      * 
@@ -85,7 +85,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     private @Nullable Output<Boolean> fipsEnabled;
 
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      * 
@@ -110,7 +110,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      * 
@@ -119,7 +119,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     private @Nullable Output<Boolean> hostEncryptionEnabled;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      * 
@@ -144,14 +144,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+     * A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="kubeletConfig")
     private @Nullable Output<KubernetesClusterNodePoolKubeletConfigArgs> kubeletConfig;
 
     /**
-     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolKubeletConfigArgs>> kubeletConfig() {
@@ -193,14 +193,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+     * A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="linuxOsConfig")
     private @Nullable Output<KubernetesClusterNodePoolLinuxOsConfigArgs> linuxOsConfig;
 
     /**
-     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolLinuxOsConfigArgs>> linuxOsConfig() {
@@ -215,14 +215,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="maxPods")
     private @Nullable Output<Integer> maxPods;
 
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * @return The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<Integer>> maxPods() {
@@ -308,14 +308,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="nodePublicIpEnabled")
     private @Nullable Output<Boolean> nodePublicIpEnabled;
 
     /**
-     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * @return Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<Boolean>> nodePublicIpEnabled() {
@@ -372,14 +372,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="osDiskSizeGb")
     private @Nullable Output<Integer> osDiskSizeGb;
 
     /**
-     * @return The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * @return The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<Integer>> osDiskSizeGb() {
@@ -387,14 +387,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="osDiskType")
     private @Nullable Output<String> osDiskType;
 
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<String>> osDiskType() {
@@ -432,14 +432,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="podSubnetId")
     private @Nullable Output<String> podSubnetId;
 
     /**
-     * @return The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<String>> podSubnetId() {
@@ -496,14 +496,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="snapshotId")
     private @Nullable Output<String> snapshotId;
 
     /**
-     * @return The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * @return The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<String>> snapshotId() {
@@ -549,14 +549,29 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     * 
+     */
+    @Import(name="temporaryNameForRotation")
+    private @Nullable Output<String> temporaryNameForRotation;
+
+    /**
+     * @return Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     * 
+     */
+    public Optional<Output<String>> temporaryNameForRotation() {
+        return Optional.ofNullable(this.temporaryNameForRotation);
+    }
+
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="ultraSsdEnabled")
     private @Nullable Output<Boolean> ultraSsdEnabled;
 
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * @return Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<Boolean>> ultraSsdEnabled() {
@@ -579,14 +594,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="vmSize", required=true)
     private Output<String> vmSize;
 
     /**
-     * @return The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * @return The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<String> vmSize() {
@@ -594,7 +609,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** A route table must be configured on this Subnet.
      * 
@@ -603,7 +618,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> vnetSubnetId;
 
     /**
-     * @return The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** A route table must be configured on this Subnet.
      * 
@@ -647,14 +662,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -698,6 +713,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         this.snapshotId = $.snapshotId;
         this.spotMaxPrice = $.spotMaxPrice;
         this.tags = $.tags;
+        this.temporaryNameForRotation = $.temporaryNameForRotation;
         this.ultraSsdEnabled = $.ultraSsdEnabled;
         this.upgradeSettings = $.upgradeSettings;
         this.vmSize = $.vmSize;
@@ -793,7 +809,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
          * 
@@ -806,7 +822,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
          * 
@@ -839,7 +855,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
          * 
@@ -852,7 +868,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+         * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
          * 
@@ -885,7 +901,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -896,7 +912,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+         * @param kubeletConfig A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -952,7 +968,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -963,7 +979,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+         * @param linuxOsConfig A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -982,7 +998,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maxPods The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+         * @param maxPods The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -993,7 +1009,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maxPods The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+         * @param maxPods The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1109,7 +1125,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodePublicIpEnabled Should each node have a Public IP Address? Changing this forces a new resource to be created.
+         * @param nodePublicIpEnabled Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1120,7 +1136,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodePublicIpEnabled Should each node have a Public IP Address? Changing this forces a new resource to be created.
+         * @param nodePublicIpEnabled Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1207,7 +1223,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param osDiskSizeGb The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+         * @param osDiskSizeGb The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1218,7 +1234,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param osDiskSizeGb The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+         * @param osDiskSizeGb The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1228,7 +1244,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1239,7 +1255,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1291,7 +1307,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param podSubnetId The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+         * @param podSubnetId The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1302,7 +1318,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param podSubnetId The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+         * @param podSubnetId The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1379,7 +1395,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+         * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1390,7 +1406,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+         * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1450,7 +1466,28 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+         * @param temporaryNameForRotation Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder temporaryNameForRotation(@Nullable Output<String> temporaryNameForRotation) {
+            $.temporaryNameForRotation = temporaryNameForRotation;
+            return this;
+        }
+
+        /**
+         * @param temporaryNameForRotation Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder temporaryNameForRotation(String temporaryNameForRotation) {
+            return temporaryNameForRotation(Output.of(temporaryNameForRotation));
+        }
+
+        /**
+         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1461,7 +1498,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+         * @param ultraSsdEnabled Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1492,7 +1529,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vmSize The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+         * @param vmSize The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1503,7 +1540,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vmSize The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+         * @param vmSize The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1513,7 +1550,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vnetSubnetId The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+         * @param vnetSubnetId The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * &gt; **NOTE:** A route table must be configured on this Subnet.
          * 
@@ -1526,7 +1563,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vnetSubnetId The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+         * @param vnetSubnetId The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * &gt; **NOTE:** A route table must be configured on this Subnet.
          * 
@@ -1584,7 +1621,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+         * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1595,7 +1632,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+         * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 
@@ -1605,7 +1642,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+         * @param zones Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
          * @return builder
          * 

@@ -125,6 +125,11 @@ export type RegistryCacheRule = import("./registryCacheRule").RegistryCacheRule;
 export const RegistryCacheRule: typeof import("./registryCacheRule").RegistryCacheRule = null as any;
 utilities.lazyLoad(exports, ["RegistryCacheRule"], () => require("./registryCacheRule"));
 
+export { RegistryCredentialSetArgs, RegistryCredentialSetState } from "./registryCredentialSet";
+export type RegistryCredentialSet = import("./registryCredentialSet").RegistryCredentialSet;
+export const RegistryCredentialSet: typeof import("./registryCredentialSet").RegistryCredentialSet = null as any;
+utilities.lazyLoad(exports, ["RegistryCredentialSet"], () => require("./registryCredentialSet"));
+
 export { RegistryScopeMapArgs, RegistryScopeMapState } from "./registryScopeMap";
 export type RegistryScopeMap = import("./registryScopeMap").RegistryScopeMap;
 export const RegistryScopeMap: typeof import("./registryScopeMap").RegistryScopeMap = null as any;
@@ -193,6 +198,8 @@ const _module = {
                 return new RegistryAgentPool(name, <any>undefined, { urn })
             case "azure:containerservice/registryCacheRule:RegistryCacheRule":
                 return new RegistryCacheRule(name, <any>undefined, { urn })
+            case "azure:containerservice/registryCredentialSet:RegistryCredentialSet":
+                return new RegistryCredentialSet(name, <any>undefined, { urn })
             case "azure:containerservice/registryScopeMap:RegistryScopeMap":
                 return new RegistryScopeMap(name, <any>undefined, { urn })
             case "azure:containerservice/registryTask:RegistryTask":
@@ -226,6 +233,7 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesFleet
 pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryAgentPool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryCacheRule", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/registryCredentialSet", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryScopeMap", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryTask", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryTaskScheduleRunNow", _module)

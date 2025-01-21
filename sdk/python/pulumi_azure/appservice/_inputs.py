@@ -12019,7 +12019,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
+        The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
         """
         powershell_core_version: NotRequired[pulumi.Input[str]]
         """
@@ -12057,7 +12057,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
                
                > **NOTE:** The value `21` is currently in Preview for `java_version`.
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -12122,7 +12122,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
+        The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
         """
         return pulumi.get(self, "node_version")
 
@@ -22078,7 +22078,7 @@ if not MYPY:
         """
         The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
 
-        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 
         > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         """
@@ -22136,7 +22136,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
                
-               > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+               > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
                > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
@@ -22281,7 +22281,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         """
         The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
 
-        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
 
         > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         """
@@ -27586,7 +27586,7 @@ if not MYPY:
         """
         The Version of Java to use. Possible values include `8`, `11`, and `17`.
 
-        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
@@ -27642,7 +27642,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
                
-               > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+               > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
@@ -27785,7 +27785,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         """
         The Version of Java to use. Possible values include `8`, `11`, and `17`.
 
-        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         """
         return pulumi.get(self, "java_version")
 
@@ -36450,7 +36450,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
         """
         powershell_core_version: NotRequired[pulumi.Input[str]]
         """
@@ -36481,7 +36481,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21` (In-Preview).
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
                
                > **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
@@ -36529,7 +36529,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
         """
         return pulumi.get(self, "node_version")
 

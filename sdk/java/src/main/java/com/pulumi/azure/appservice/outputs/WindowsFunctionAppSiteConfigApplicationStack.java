@@ -23,7 +23,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+     * @return The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
      * 
      */
     private @Nullable String nodeVersion;
@@ -61,7 +61,7 @@ public final class WindowsFunctionAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+     * @return The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
      * 
      */
     public Optional<String> nodeVersion() {

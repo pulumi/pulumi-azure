@@ -81,6 +81,10 @@ export class AnomalyAlert extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    public readonly notificationEmail!: pulumi.Output<string>;
+    /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class AnomalyAlert extends pulumi.CustomResource {
             resourceInputs["emailSubject"] = state ? state.emailSubject : undefined;
             resourceInputs["message"] = state ? state.message : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationEmail"] = state ? state.notificationEmail : undefined;
             resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
         } else {
             const args = argsOrState as AnomalyAlertArgs | undefined;
@@ -120,6 +125,7 @@ export class AnomalyAlert extends pulumi.CustomResource {
             resourceInputs["emailSubject"] = args ? args.emailSubject : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -152,6 +158,10 @@ export interface AnomalyAlertState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    notificationEmail?: pulumi.Input<string>;
+    /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      */
     subscriptionId?: pulumi.Input<string>;
@@ -181,6 +191,10 @@ export interface AnomalyAlertArgs {
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    notificationEmail?: pulumi.Input<string>;
     /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      */

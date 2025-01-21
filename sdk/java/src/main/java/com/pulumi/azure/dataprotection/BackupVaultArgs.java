@@ -74,6 +74,21 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * 
+     */
+    @Import(name="immutability")
+    private @Nullable Output<String> immutability;
+
+    /**
+     * @return The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     * 
+     */
+    public Optional<Output<String>> immutability() {
+        return Optional.ofNullable(this.immutability);
+    }
+
+    /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      * 
      */
@@ -153,7 +168,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
      * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
@@ -162,7 +177,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> softDelete;
 
     /**
-     * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
      * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
@@ -192,6 +207,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         this.crossRegionRestoreEnabled = $.crossRegionRestoreEnabled;
         this.datastoreType = $.datastoreType;
         this.identity = $.identity;
+        this.immutability = $.immutability;
         this.location = $.location;
         this.name = $.name;
         this.redundancy = $.redundancy;
@@ -288,6 +304,27 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(BackupVaultIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param immutability The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutability(@Nullable Output<String> immutability) {
+            $.immutability = immutability;
+            return this;
+        }
+
+        /**
+         * @param immutability The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutability(String immutability) {
+            return immutability(Output.of(immutability));
         }
 
         /**
@@ -400,7 +437,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+         * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
          * 
          * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
          * 
@@ -413,7 +450,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+         * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
          * 
          * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
          * 

@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
         /// 
-        /// &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+        /// &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         /// 
         /// &gt; **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
         /// </summary>

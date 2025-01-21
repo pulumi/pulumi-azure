@@ -68,6 +68,8 @@ type AnomalyAlert struct {
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+	NotificationEmail pulumi.StringOutput `pulumi:"notificationEmail"`
 	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
@@ -121,6 +123,8 @@ type anomalyAlertState struct {
 	Message *string `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name *string `pulumi:"name"`
+	// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+	NotificationEmail *string `pulumi:"notificationEmail"`
 	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
@@ -136,6 +140,8 @@ type AnomalyAlertState struct {
 	Message pulumi.StringPtrInput
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringPtrInput
+	// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+	NotificationEmail pulumi.StringPtrInput
 	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
 	SubscriptionId pulumi.StringPtrInput
 }
@@ -155,6 +161,8 @@ type anomalyAlertArgs struct {
 	Message *string `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name *string `pulumi:"name"`
+	// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+	NotificationEmail *string `pulumi:"notificationEmail"`
 	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
@@ -171,6 +179,8 @@ type AnomalyAlertArgs struct {
 	Message pulumi.StringPtrInput
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringPtrInput
+	// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+	NotificationEmail pulumi.StringPtrInput
 	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
 	SubscriptionId pulumi.StringPtrInput
 }
@@ -285,6 +295,11 @@ func (o AnomalyAlertOutput) Message() pulumi.StringPtrOutput {
 // The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 func (o AnomalyAlertOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+func (o AnomalyAlertOutput) NotificationEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringOutput { return v.NotificationEmail }).(pulumi.StringOutput)
 }
 
 // The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.

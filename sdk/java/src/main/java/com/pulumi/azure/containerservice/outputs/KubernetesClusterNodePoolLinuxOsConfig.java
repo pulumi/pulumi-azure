@@ -14,50 +14,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNodePoolLinuxOsConfig {
     /**
-     * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+     * @return Specifies the size of swap file on each node in MB.
      * 
      */
     private @Nullable Integer swapFileSizeMb;
     /**
-     * @return A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sysctl_config` block as defined below.
      * 
      */
     private @Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
     /**
-     * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
     private @Nullable String transparentHugePageDefrag;
     /**
-     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
      * 
      */
     private @Nullable String transparentHugePageEnabled;
 
     private KubernetesClusterNodePoolLinuxOsConfig() {}
     /**
-     * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+     * @return Specifies the size of swap file on each node in MB.
      * 
      */
     public Optional<Integer> swapFileSizeMb() {
         return Optional.ofNullable(this.swapFileSizeMb);
     }
     /**
-     * @return A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sysctl_config` block as defined below.
      * 
      */
     public Optional<KubernetesClusterNodePoolLinuxOsConfigSysctlConfig> sysctlConfig() {
         return Optional.ofNullable(this.sysctlConfig);
     }
     /**
-     * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
     public Optional<String> transparentHugePageDefrag() {
         return Optional.ofNullable(this.transparentHugePageDefrag);
     }
     /**
-     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
      * 
      */
     public Optional<String> transparentHugePageEnabled() {

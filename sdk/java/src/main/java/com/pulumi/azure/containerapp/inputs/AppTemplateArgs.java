@@ -161,6 +161,21 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+     * 
+     */
+    @Import(name="terminationGracePeriodSeconds")
+    private @Nullable Output<Integer> terminationGracePeriodSeconds;
+
+    /**
+     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+     * 
+     */
+    public Optional<Output<Integer>> terminationGracePeriodSeconds() {
+        return Optional.ofNullable(this.terminationGracePeriodSeconds);
+    }
+
+    /**
      * A `volume` block as detailed below.
      * 
      */
@@ -187,6 +202,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         this.minReplicas = $.minReplicas;
         this.revisionSuffix = $.revisionSuffix;
         this.tcpScaleRules = $.tcpScaleRules;
+        this.terminationGracePeriodSeconds = $.terminationGracePeriodSeconds;
         this.volumes = $.volumes;
     }
 
@@ -455,6 +471,27 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tcpScaleRules(AppTemplateTcpScaleRuleArgs... tcpScaleRules) {
             return tcpScaleRules(List.of(tcpScaleRules));
+        }
+
+        /**
+         * @param terminationGracePeriodSeconds The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder terminationGracePeriodSeconds(@Nullable Output<Integer> terminationGracePeriodSeconds) {
+            $.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            return this;
+        }
+
+        /**
+         * @param terminationGracePeriodSeconds The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder terminationGracePeriodSeconds(Integer terminationGracePeriodSeconds) {
+            return terminationGracePeriodSeconds(Output.of(terminationGracePeriodSeconds));
         }
 
         /**

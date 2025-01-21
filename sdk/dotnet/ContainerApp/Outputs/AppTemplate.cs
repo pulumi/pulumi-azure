@@ -50,6 +50,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateTcpScaleRule> TcpScaleRules;
         /// <summary>
+        /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        /// </summary>
+        public readonly int? TerminationGracePeriodSeconds;
+        /// <summary>
         /// A `volume` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateVolume> Volumes;
@@ -74,6 +78,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             ImmutableArray<Outputs.AppTemplateTcpScaleRule> tcpScaleRules,
 
+            int? terminationGracePeriodSeconds,
+
             ImmutableArray<Outputs.AppTemplateVolume> volumes)
         {
             AzureQueueScaleRules = azureQueueScaleRules;
@@ -85,6 +91,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             MinReplicas = minReplicas;
             RevisionSuffix = revisionSuffix;
             TcpScaleRules = tcpScaleRules;
+            TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
             Volumes = volumes;
         }
     }
