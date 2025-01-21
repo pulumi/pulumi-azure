@@ -1,3 +1,0 @@
-name: azure-queue
-runtime: nodejs
-description: Work with Azure Storage Queue
