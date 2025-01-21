@@ -4400,6 +4400,18 @@
                 "current": "azure:containerservice/registryCacheRule:RegistryCacheRule",
                 "majorVersion": 6
             },
+            "azurerm_container_registry_credential_set": {
+                "current": "azure:containerservice/registryCredentialSet:RegistryCredentialSet",
+                "majorVersion": 6,
+                "fields": {
+                    "authentication_credentials": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_container_registry_scope_map": {
                 "current": "azure:containerservice/registryScopeMap:RegistryScopeMap",
                 "majorVersion": 6,
@@ -14719,12 +14731,20 @@
                 "current": "azure:mssql/firewallRule:FirewallRule",
                 "majorVersion": 6
             },
+            "azurerm_mssql_job": {
+                "current": "azure:mssql/job:Job",
+                "majorVersion": 6
+            },
             "azurerm_mssql_job_agent": {
                 "current": "azure:mssql/jobAgent:JobAgent",
                 "majorVersion": 6
             },
             "azurerm_mssql_job_credential": {
                 "current": "azure:mssql/jobCredential:JobCredential",
+                "majorVersion": 6
+            },
+            "azurerm_mssql_job_schedule": {
+                "current": "azure:mssql/jobSchedule:JobSchedule",
                 "majorVersion": 6
             },
             "azurerm_mssql_managed_database": {
