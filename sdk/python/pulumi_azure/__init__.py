@@ -2816,6 +2816,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/registryCredentialSet",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/registryCredentialSet:RegistryCredentialSet": "RegistryCredentialSet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/registryScopeMap",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -6048,6 +6056,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mssql/job",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mssql/jobAgent",
   "fqn": "pulumi_azure.mssql",
   "classes": {
@@ -6060,6 +6076,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/jobCredential:JobCredential": "JobCredential"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/jobSchedule",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/jobSchedule:JobSchedule": "JobSchedule"
   }
  },
  {

@@ -60,6 +60,11 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
+export { JobArgs, JobState } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+
 export { JobAgentArgs, JobAgentState } from "./jobAgent";
 export type JobAgent = import("./jobAgent").JobAgent;
 export const JobAgent: typeof import("./jobAgent").JobAgent = null as any;
@@ -69,6 +74,11 @@ export { JobCredentialArgs, JobCredentialState } from "./jobCredential";
 export type JobCredential = import("./jobCredential").JobCredential;
 export const JobCredential: typeof import("./jobCredential").JobCredential = null as any;
 utilities.lazyLoad(exports, ["JobCredential"], () => require("./jobCredential"));
+
+export { JobScheduleArgs, JobScheduleState } from "./jobSchedule";
+export type JobSchedule = import("./jobSchedule").JobSchedule;
+export const JobSchedule: typeof import("./jobSchedule").JobSchedule = null as any;
+utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
 
 export { ManagedDatabaseArgs, ManagedDatabaseState } from "./managedDatabase";
 export type ManagedDatabase = import("./managedDatabase").ManagedDatabase;
@@ -182,10 +192,14 @@ const _module = {
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "azure:mssql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:mssql/job:Job":
+                return new Job(name, <any>undefined, { urn })
             case "azure:mssql/jobAgent:JobAgent":
                 return new JobAgent(name, <any>undefined, { urn })
             case "azure:mssql/jobCredential:JobCredential":
                 return new JobCredential(name, <any>undefined, { urn })
+            case "azure:mssql/jobSchedule:JobSchedule":
+                return new JobSchedule(name, <any>undefined, { urn })
             case "azure:mssql/managedDatabase:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
             case "azure:mssql/managedInstance:ManagedInstance":
@@ -235,8 +249,10 @@ pulumi.runtime.registerResourceModule("azure", "mssql/databaseVulnerabilityAsses
 pulumi.runtime.registerResourceModule("azure", "mssql/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/job", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobAgent", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobCredential", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/jobSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)

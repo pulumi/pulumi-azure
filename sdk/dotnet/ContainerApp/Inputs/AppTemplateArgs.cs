@@ -102,6 +102,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
             set => _tcpScaleRules = value;
         }
 
+        /// <summary>
+        /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        /// </summary>
+        [Input("terminationGracePeriodSeconds")]
+        public Input<int>? TerminationGracePeriodSeconds { get; set; }
+
         [Input("volumes")]
         private InputList<Inputs.AppTemplateVolumeArgs>? _volumes;
 

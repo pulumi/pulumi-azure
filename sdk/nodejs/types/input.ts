@@ -5453,7 +5453,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
+         * The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -7581,7 +7581,7 @@ export namespace appservice {
         /**
          * The Version of Java to use. Possible values include `8`, `11`, `17`, and `21`.
          *
-         * > **NOTE:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * > **NOTE:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          *
          * > **NOTE:** `javaServer`, `javaServerVersion`, and `javaVersion` must all be specified if building a java app
          */
@@ -8736,7 +8736,7 @@ export namespace appservice {
         /**
          * The Version of Java to use. Possible values include `8`, `11`, and `17`.
          *
-         * > **NOTE:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * > **NOTE:** The valid version combinations for `javaVersion`, `javaServer` and `javaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          */
         javaVersion?: pulumi.Input<string>;
         /**
@@ -10577,7 +10577,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -22190,6 +22190,10 @@ export namespace containerapp {
          */
         tcpScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateTcpScaleRule>[]>;
         /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds?: pulumi.Input<number>;
+        /**
          * A `volume` block as detailed below.
          */
         volumes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateVolume>[]>;
@@ -25042,181 +25046,181 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolKubeletConfig {
         /**
-         * Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+         * Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
          */
         allowedUnsafeSysctls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+         * Specifies the maximum number of container log files that can be present for a container. must be at least 2.
          */
         containerLogMaxLine?: pulumi.Input<number>;
         /**
-         * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+         * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          */
         containerLogMaxSizeMb?: pulumi.Input<number>;
         /**
-         * Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+         * Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
          */
         cpuCfsQuotaEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+         * Specifies the CPU CFS quota period value.
          */
         cpuCfsQuotaPeriod?: pulumi.Input<string>;
         /**
-         * Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+         * Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
          */
         cpuManagerPolicy?: pulumi.Input<string>;
         /**
-         * Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
          */
         imageGcHighThreshold?: pulumi.Input<number>;
         /**
-         * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
          */
         imageGcLowThreshold?: pulumi.Input<number>;
         /**
-         * Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+         * Specifies the maximum number of processes per pod.
          */
         podMaxPid?: pulumi.Input<number>;
         /**
-         * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+         * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
          */
         topologyManagerPolicy?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterNodePoolLinuxOsConfig {
         /**
-         * Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+         * Specifies the size of swap file on each node in MB.
          */
         swapFileSizeMb?: pulumi.Input<number>;
         /**
-         * A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+         * A `sysctlConfig` block as defined below.
          */
         sysctlConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfigSysctlConfig>;
         /**
-         * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+         * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          */
         transparentHugePageDefrag?: pulumi.Input<string>;
         /**
-         * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+         * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
          */
         transparentHugePageEnabled?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
         /**
-         * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
          */
         fsAioMaxNr?: pulumi.Input<number>;
         /**
-         * The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
          */
         fsFileMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
          */
         fsInotifyMaxUserWatches?: pulumi.Input<number>;
         /**
-         * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
          */
         fsNrOpen?: pulumi.Input<number>;
         /**
-         * The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+         * The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
          */
         kernelThreadsMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
          */
         netCoreNetdevMaxBacklog?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
          */
         netCoreOptmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
          */
         netCoreRmemDefault?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
          */
         netCoreRmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
          */
         netCoreSomaxconn?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
          */
         netCoreWmemDefault?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
          */
         netCoreWmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
          */
         netIpv4IpLocalPortRangeMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
          */
         netIpv4IpLocalPortRangeMin?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
          */
         netIpv4NeighDefaultGcThresh1?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
          */
         netIpv4NeighDefaultGcThresh2?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
          */
         netIpv4NeighDefaultGcThresh3?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
          */
         netIpv4TcpFinTimeout?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
          */
         netIpv4TcpKeepaliveIntvl?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
          */
         netIpv4TcpKeepaliveProbes?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
          */
         netIpv4TcpKeepaliveTime?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
          */
         netIpv4TcpMaxSynBacklog?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
          */
         netIpv4TcpMaxTwBuckets?: pulumi.Input<number>;
         /**
-         * Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+         * Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
          */
         netIpv4TcpTwReuse?: pulumi.Input<boolean>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
          */
         netNetfilterNfConntrackBuckets?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
          */
         netNetfilterNfConntrackMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+         * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
          */
         vmMaxMapCount?: pulumi.Input<number>;
         /**
-         * The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * The sysctl setting vm.swappiness. Must be between `0` and `100`.
          */
         vmSwappiness?: pulumi.Input<number>;
         /**
-         * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
          */
         vmVfsCachePressure?: pulumi.Input<number>;
     }
@@ -25261,7 +25265,7 @@ export namespace containerservice {
          */
         maxSurge: pulumi.Input<string>;
         /**
-         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
          */
         nodeSoakDurationInMinutes?: pulumi.Input<number>;
     }
@@ -25462,6 +25466,34 @@ export namespace containerservice {
         dnsPrefix: pulumi.Input<string>;
         fqdn?: pulumi.Input<string>;
         kubernetesVersion?: pulumi.Input<string>;
+    }
+
+    export interface RegistryCredentialSetAuthenticationCredentials {
+        /**
+         * The URI of the secret containing the password in a Key Vault.
+         *
+         * > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+         */
+        passwordSecretId: pulumi.Input<string>;
+        /**
+         * The URI of the secret containing the username in a Key Vault.
+         */
+        usernameSecretId: pulumi.Input<string>;
+    }
+
+    export interface RegistryCredentialSetIdentity {
+        /**
+         * The principal ID of the Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The tenant ID of the Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of Managed Service Identity that is configured on for the Container Registry Credential Set. Currently the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface RegistryEncryption {

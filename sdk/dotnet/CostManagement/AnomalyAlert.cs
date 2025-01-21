@@ -81,6 +81,12 @@ namespace Pulumi.Azure.CostManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Output("notificationEmail")]
+        public Output<string> NotificationEmail { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         /// </summary>
         [Output("subscriptionId")]
@@ -169,6 +175,12 @@ namespace Pulumi.Azure.CostManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Input("notificationEmail")]
+        public Input<string>? NotificationEmail { get; set; }
+
+        /// <summary>
         /// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         /// </summary>
         [Input("subscriptionId")]
@@ -217,6 +229,12 @@ namespace Pulumi.Azure.CostManagement
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Input("notificationEmail")]
+        public Input<string>? NotificationEmail { get; set; }
 
         /// <summary>
         /// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.

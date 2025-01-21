@@ -13,350 +13,350 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
     /**
-     * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
      * 
      */
     private @Nullable Integer fsAioMaxNr;
     /**
-     * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
      * 
      */
     private @Nullable Integer fsFileMax;
     /**
-     * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
      * 
      */
     private @Nullable Integer fsInotifyMaxUserWatches;
     /**
-     * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
      * 
      */
     private @Nullable Integer fsNrOpen;
     /**
-     * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+     * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
      * 
      */
     private @Nullable Integer kernelThreadsMax;
     /**
-     * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
      * 
      */
     private @Nullable Integer netCoreNetdevMaxBacklog;
     /**
-     * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
      * 
      */
     private @Nullable Integer netCoreOptmemMax;
     /**
-     * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
      * 
      */
     private @Nullable Integer netCoreRmemDefault;
     /**
-     * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
      * 
      */
     private @Nullable Integer netCoreRmemMax;
     /**
-     * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
      * 
      */
     private @Nullable Integer netCoreSomaxconn;
     /**
-     * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
      * 
      */
     private @Nullable Integer netCoreWmemDefault;
     /**
-     * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
      * 
      */
     private @Nullable Integer netCoreWmemMax;
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
      * 
      */
     private @Nullable Integer netIpv4IpLocalPortRangeMax;
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
      * 
      */
     private @Nullable Integer netIpv4IpLocalPortRangeMin;
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
      * 
      */
     private @Nullable Integer netIpv4NeighDefaultGcThresh1;
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
      * 
      */
     private @Nullable Integer netIpv4NeighDefaultGcThresh2;
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
      * 
      */
     private @Nullable Integer netIpv4NeighDefaultGcThresh3;
     /**
-     * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
      * 
      */
     private @Nullable Integer netIpv4TcpFinTimeout;
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
      * 
      */
     private @Nullable Integer netIpv4TcpKeepaliveIntvl;
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
      * 
      */
     private @Nullable Integer netIpv4TcpKeepaliveProbes;
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
      * 
      */
     private @Nullable Integer netIpv4TcpKeepaliveTime;
     /**
-     * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
      * 
      */
     private @Nullable Integer netIpv4TcpMaxSynBacklog;
     /**
-     * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
      * 
      */
     private @Nullable Integer netIpv4TcpMaxTwBuckets;
     /**
-     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     private @Nullable Boolean netIpv4TcpTwReuse;
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
      * 
      */
     private @Nullable Integer netNetfilterNfConntrackBuckets;
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
      * 
      */
     private @Nullable Integer netNetfilterNfConntrackMax;
     /**
-     * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
      * 
      */
     private @Nullable Integer vmMaxMapCount;
     /**
-     * @return The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.swappiness. Must be between `0` and `100`.
      * 
      */
     private @Nullable Integer vmSwappiness;
     /**
-     * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
      * 
      */
     private @Nullable Integer vmVfsCachePressure;
 
     private KubernetesClusterNodePoolLinuxOsConfigSysctlConfig() {}
     /**
-     * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
      * 
      */
     public Optional<Integer> fsAioMaxNr() {
         return Optional.ofNullable(this.fsAioMaxNr);
     }
     /**
-     * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
      * 
      */
     public Optional<Integer> fsFileMax() {
         return Optional.ofNullable(this.fsFileMax);
     }
     /**
-     * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
      * 
      */
     public Optional<Integer> fsInotifyMaxUserWatches() {
         return Optional.ofNullable(this.fsInotifyMaxUserWatches);
     }
     /**
-     * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
      * 
      */
     public Optional<Integer> fsNrOpen() {
         return Optional.ofNullable(this.fsNrOpen);
     }
     /**
-     * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+     * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
      * 
      */
     public Optional<Integer> kernelThreadsMax() {
         return Optional.ofNullable(this.kernelThreadsMax);
     }
     /**
-     * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
      * 
      */
     public Optional<Integer> netCoreNetdevMaxBacklog() {
         return Optional.ofNullable(this.netCoreNetdevMaxBacklog);
     }
     /**
-     * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
      * 
      */
     public Optional<Integer> netCoreOptmemMax() {
         return Optional.ofNullable(this.netCoreOptmemMax);
     }
     /**
-     * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Integer> netCoreRmemDefault() {
         return Optional.ofNullable(this.netCoreRmemDefault);
     }
     /**
-     * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Integer> netCoreRmemMax() {
         return Optional.ofNullable(this.netCoreRmemMax);
     }
     /**
-     * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
      * 
      */
     public Optional<Integer> netCoreSomaxconn() {
         return Optional.ofNullable(this.netCoreSomaxconn);
     }
     /**
-     * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Integer> netCoreWmemDefault() {
         return Optional.ofNullable(this.netCoreWmemDefault);
     }
     /**
-     * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Integer> netCoreWmemMax() {
         return Optional.ofNullable(this.netCoreWmemMax);
     }
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
      * 
      */
     public Optional<Integer> netIpv4IpLocalPortRangeMax() {
         return Optional.ofNullable(this.netIpv4IpLocalPortRangeMax);
     }
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
      * 
      */
     public Optional<Integer> netIpv4IpLocalPortRangeMin() {
         return Optional.ofNullable(this.netIpv4IpLocalPortRangeMin);
     }
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
      * 
      */
     public Optional<Integer> netIpv4NeighDefaultGcThresh1() {
         return Optional.ofNullable(this.netIpv4NeighDefaultGcThresh1);
     }
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
      * 
      */
     public Optional<Integer> netIpv4NeighDefaultGcThresh2() {
         return Optional.ofNullable(this.netIpv4NeighDefaultGcThresh2);
     }
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
      * 
      */
     public Optional<Integer> netIpv4NeighDefaultGcThresh3() {
         return Optional.ofNullable(this.netIpv4NeighDefaultGcThresh3);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
      * 
      */
     public Optional<Integer> netIpv4TcpFinTimeout() {
         return Optional.ofNullable(this.netIpv4TcpFinTimeout);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
      * 
      */
     public Optional<Integer> netIpv4TcpKeepaliveIntvl() {
         return Optional.ofNullable(this.netIpv4TcpKeepaliveIntvl);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
      * 
      */
     public Optional<Integer> netIpv4TcpKeepaliveProbes() {
         return Optional.ofNullable(this.netIpv4TcpKeepaliveProbes);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
      * 
      */
     public Optional<Integer> netIpv4TcpKeepaliveTime() {
         return Optional.ofNullable(this.netIpv4TcpKeepaliveTime);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
      * 
      */
     public Optional<Integer> netIpv4TcpMaxSynBacklog() {
         return Optional.ofNullable(this.netIpv4TcpMaxSynBacklog);
     }
     /**
-     * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
      * 
      */
     public Optional<Integer> netIpv4TcpMaxTwBuckets() {
         return Optional.ofNullable(this.netIpv4TcpMaxTwBuckets);
     }
     /**
-     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     public Optional<Boolean> netIpv4TcpTwReuse() {
         return Optional.ofNullable(this.netIpv4TcpTwReuse);
     }
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
      * 
      */
     public Optional<Integer> netNetfilterNfConntrackBuckets() {
         return Optional.ofNullable(this.netNetfilterNfConntrackBuckets);
     }
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
      * 
      */
     public Optional<Integer> netNetfilterNfConntrackMax() {
         return Optional.ofNullable(this.netNetfilterNfConntrackMax);
     }
     /**
-     * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
      * 
      */
     public Optional<Integer> vmMaxMapCount() {
         return Optional.ofNullable(this.vmMaxMapCount);
     }
     /**
-     * @return The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.swappiness. Must be between `0` and `100`.
      * 
      */
     public Optional<Integer> vmSwappiness() {
         return Optional.ofNullable(this.vmSwappiness);
     }
     /**
-     * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
      * 
      */
     public Optional<Integer> vmVfsCachePressure() {

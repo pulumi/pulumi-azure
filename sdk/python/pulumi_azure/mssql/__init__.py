@@ -16,8 +16,10 @@ from .get_elastic_pool import *
 from .get_managed_database import *
 from .get_managed_instance import *
 from .get_server import *
+from .job import *
 from .job_agent import *
 from .job_credential import *
+from .job_schedule import *
 from .managed_database import *
 from .managed_instance import *
 from .managed_instance_active_directory_administrator import *

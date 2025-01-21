@@ -33,10 +33,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FailoverGroup{}
 	case "azure:mssql/firewallRule:FirewallRule":
 		r = &FirewallRule{}
+	case "azure:mssql/job:Job":
+		r = &Job{}
 	case "azure:mssql/jobAgent:JobAgent":
 		r = &JobAgent{}
 	case "azure:mssql/jobCredential:JobCredential":
 		r = &JobCredential{}
+	case "azure:mssql/jobSchedule:JobSchedule":
+		r = &JobSchedule{}
 	case "azure:mssql/managedDatabase:ManagedDatabase":
 		r = &ManagedDatabase{}
 	case "azure:mssql/managedInstance:ManagedInstance":
@@ -120,12 +124,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"mssql/job",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"mssql/jobAgent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/jobCredential",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/jobSchedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

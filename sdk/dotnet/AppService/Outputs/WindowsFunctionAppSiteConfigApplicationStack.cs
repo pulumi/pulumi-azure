@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        /// The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20` and `~22`.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>

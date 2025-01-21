@@ -17,14 +17,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     public static final KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs Empty = new KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs();
 
     /**
-     * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+     * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
      * 
      */
     @Import(name="fsAioMaxNr")
     private @Nullable Output<Integer> fsAioMaxNr;
 
     /**
-     * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
      * 
      */
     public Optional<Output<Integer>> fsAioMaxNr() {
@@ -32,14 +32,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+     * The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
      * 
      */
     @Import(name="fsFileMax")
     private @Nullable Output<Integer> fsFileMax;
 
     /**
-     * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
      * 
      */
     public Optional<Output<Integer>> fsFileMax() {
@@ -47,14 +47,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+     * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
      * 
      */
     @Import(name="fsInotifyMaxUserWatches")
     private @Nullable Output<Integer> fsInotifyMaxUserWatches;
 
     /**
-     * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
      * 
      */
     public Optional<Output<Integer>> fsInotifyMaxUserWatches() {
@@ -62,14 +62,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+     * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
      * 
      */
     @Import(name="fsNrOpen")
     private @Nullable Output<Integer> fsNrOpen;
 
     /**
-     * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+     * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
      * 
      */
     public Optional<Output<Integer>> fsNrOpen() {
@@ -77,14 +77,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+     * The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
      * 
      */
     @Import(name="kernelThreadsMax")
     private @Nullable Output<Integer> kernelThreadsMax;
 
     /**
-     * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+     * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
      * 
      */
     public Optional<Output<Integer>> kernelThreadsMax() {
@@ -92,14 +92,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
      * 
      */
     @Import(name="netCoreNetdevMaxBacklog")
     private @Nullable Output<Integer> netCoreNetdevMaxBacklog;
 
     /**
-     * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
      * 
      */
     public Optional<Output<Integer>> netCoreNetdevMaxBacklog() {
@@ -107,14 +107,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
      * 
      */
     @Import(name="netCoreOptmemMax")
     private @Nullable Output<Integer> netCoreOptmemMax;
 
     /**
-     * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
      * 
      */
     public Optional<Output<Integer>> netCoreOptmemMax() {
@@ -122,14 +122,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
      * 
      */
     @Import(name="netCoreRmemDefault")
     private @Nullable Output<Integer> netCoreRmemDefault;
 
     /**
-     * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Output<Integer>> netCoreRmemDefault() {
@@ -137,14 +137,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
      * 
      */
     @Import(name="netCoreRmemMax")
     private @Nullable Output<Integer> netCoreRmemMax;
 
     /**
-     * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Output<Integer>> netCoreRmemMax() {
@@ -152,14 +152,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
      * 
      */
     @Import(name="netCoreSomaxconn")
     private @Nullable Output<Integer> netCoreSomaxconn;
 
     /**
-     * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
      * 
      */
     public Optional<Output<Integer>> netCoreSomaxconn() {
@@ -167,14 +167,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
      * 
      */
     @Import(name="netCoreWmemDefault")
     private @Nullable Output<Integer> netCoreWmemDefault;
 
     /**
-     * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Output<Integer>> netCoreWmemDefault() {
@@ -182,14 +182,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
      * 
      */
     @Import(name="netCoreWmemMax")
     private @Nullable Output<Integer> netCoreWmemMax;
 
     /**
-     * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
      * 
      */
     public Optional<Output<Integer>> netCoreWmemMax() {
@@ -197,14 +197,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
      * 
      */
     @Import(name="netIpv4IpLocalPortRangeMax")
     private @Nullable Output<Integer> netIpv4IpLocalPortRangeMax;
 
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
      * 
      */
     public Optional<Output<Integer>> netIpv4IpLocalPortRangeMax() {
@@ -212,14 +212,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
      * 
      */
     @Import(name="netIpv4IpLocalPortRangeMin")
     private @Nullable Output<Integer> netIpv4IpLocalPortRangeMin;
 
     /**
-     * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
      * 
      */
     public Optional<Output<Integer>> netIpv4IpLocalPortRangeMin() {
@@ -227,14 +227,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
      * 
      */
     @Import(name="netIpv4NeighDefaultGcThresh1")
     private @Nullable Output<Integer> netIpv4NeighDefaultGcThresh1;
 
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
      * 
      */
     public Optional<Output<Integer>> netIpv4NeighDefaultGcThresh1() {
@@ -242,14 +242,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
      * 
      */
     @Import(name="netIpv4NeighDefaultGcThresh2")
     private @Nullable Output<Integer> netIpv4NeighDefaultGcThresh2;
 
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
      * 
      */
     public Optional<Output<Integer>> netIpv4NeighDefaultGcThresh2() {
@@ -257,14 +257,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
      * 
      */
     @Import(name="netIpv4NeighDefaultGcThresh3")
     private @Nullable Output<Integer> netIpv4NeighDefaultGcThresh3;
 
     /**
-     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
      * 
      */
     public Optional<Output<Integer>> netIpv4NeighDefaultGcThresh3() {
@@ -272,14 +272,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
      * 
      */
     @Import(name="netIpv4TcpFinTimeout")
     private @Nullable Output<Integer> netIpv4TcpFinTimeout;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpFinTimeout() {
@@ -287,14 +287,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
      * 
      */
     @Import(name="netIpv4TcpKeepaliveIntvl")
     private @Nullable Output<Integer> netIpv4TcpKeepaliveIntvl;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpKeepaliveIntvl() {
@@ -302,14 +302,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
      * 
      */
     @Import(name="netIpv4TcpKeepaliveProbes")
     private @Nullable Output<Integer> netIpv4TcpKeepaliveProbes;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpKeepaliveProbes() {
@@ -317,14 +317,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
      * 
      */
     @Import(name="netIpv4TcpKeepaliveTime")
     private @Nullable Output<Integer> netIpv4TcpKeepaliveTime;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpKeepaliveTime() {
@@ -332,14 +332,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
      * 
      */
     @Import(name="netIpv4TcpMaxSynBacklog")
     private @Nullable Output<Integer> netIpv4TcpMaxSynBacklog;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpMaxSynBacklog() {
@@ -347,14 +347,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+     * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
      * 
      */
     @Import(name="netIpv4TcpMaxTwBuckets")
     private @Nullable Output<Integer> netIpv4TcpMaxTwBuckets;
 
     /**
-     * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
      * 
      */
     public Optional<Output<Integer>> netIpv4TcpMaxTwBuckets() {
@@ -362,14 +362,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+     * Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     @Import(name="netIpv4TcpTwReuse")
     private @Nullable Output<Boolean> netIpv4TcpTwReuse;
 
     /**
-     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+     * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
      * 
      */
     public Optional<Output<Boolean>> netIpv4TcpTwReuse() {
@@ -377,14 +377,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+     * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
      * 
      */
     @Import(name="netNetfilterNfConntrackBuckets")
     private @Nullable Output<Integer> netNetfilterNfConntrackBuckets;
 
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
      * 
      */
     public Optional<Output<Integer>> netNetfilterNfConntrackBuckets() {
@@ -392,14 +392,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+     * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
      * 
      */
     @Import(name="netNetfilterNfConntrackMax")
     private @Nullable Output<Integer> netNetfilterNfConntrackMax;
 
     /**
-     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+     * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
      * 
      */
     public Optional<Output<Integer>> netNetfilterNfConntrackMax() {
@@ -407,14 +407,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+     * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
      * 
      */
     @Import(name="vmMaxMapCount")
     private @Nullable Output<Integer> vmMaxMapCount;
 
     /**
-     * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
      * 
      */
     public Optional<Output<Integer>> vmMaxMapCount() {
@@ -422,14 +422,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * The sysctl setting vm.swappiness. Must be between `0` and `100`.
      * 
      */
     @Import(name="vmSwappiness")
     private @Nullable Output<Integer> vmSwappiness;
 
     /**
-     * @return The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.swappiness. Must be between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> vmSwappiness() {
@@ -437,14 +437,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
     }
 
     /**
-     * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
      * 
      */
     @Import(name="vmVfsCachePressure")
     private @Nullable Output<Integer> vmVfsCachePressure;
 
     /**
-     * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> vmVfsCachePressure() {
@@ -504,7 +504,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsAioMaxNr The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+         * @param fsAioMaxNr The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsAioMaxNr The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+         * @param fsAioMaxNr The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsFileMax The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+         * @param fsFileMax The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsFileMax The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+         * @param fsFileMax The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsInotifyMaxUserWatches The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+         * @param fsInotifyMaxUserWatches The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsInotifyMaxUserWatches The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+         * @param fsInotifyMaxUserWatches The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsNrOpen The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+         * @param fsNrOpen The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param fsNrOpen The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+         * @param fsNrOpen The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param kernelThreadsMax The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+         * @param kernelThreadsMax The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param kernelThreadsMax The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+         * @param kernelThreadsMax The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreNetdevMaxBacklog The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+         * @param netCoreNetdevMaxBacklog The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreNetdevMaxBacklog The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+         * @param netCoreNetdevMaxBacklog The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreOptmemMax The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+         * @param netCoreOptmemMax The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreOptmemMax The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+         * @param netCoreOptmemMax The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreRmemDefault The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreRmemDefault The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreRmemDefault The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreRmemDefault The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreRmemMax The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreRmemMax The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreRmemMax The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreRmemMax The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreSomaxconn The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+         * @param netCoreSomaxconn The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreSomaxconn The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+         * @param netCoreSomaxconn The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
          * 
          * @return builder
          * 
@@ -714,7 +714,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreWmemDefault The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreWmemDefault The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -725,7 +725,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreWmemDefault The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreWmemDefault The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreWmemMax The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreWmemMax The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netCoreWmemMax The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * @param netCoreWmemMax The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+         * @param netIpv4IpLocalPortRangeMax The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4IpLocalPortRangeMin The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * @param netIpv4IpLocalPortRangeMin The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4IpLocalPortRangeMin The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * @param netIpv4IpLocalPortRangeMin The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4NeighDefaultGcThresh1 The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+         * @param netIpv4NeighDefaultGcThresh1 The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4NeighDefaultGcThresh1 The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+         * @param netIpv4NeighDefaultGcThresh1 The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4NeighDefaultGcThresh2 The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+         * @param netIpv4NeighDefaultGcThresh2 The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4NeighDefaultGcThresh2 The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+         * @param netIpv4NeighDefaultGcThresh2 The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4NeighDefaultGcThresh3 The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+         * @param netIpv4NeighDefaultGcThresh3 The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4NeighDefaultGcThresh3 The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+         * @param netIpv4NeighDefaultGcThresh3 The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpFinTimeout The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpFinTimeout The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpFinTimeout The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpFinTimeout The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveIntvl The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
          * 
          * @return builder
          * 
@@ -903,7 +903,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveProbes The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveProbes The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
          * 
          * @return builder
          * 
@@ -914,7 +914,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveProbes The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveProbes The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
          * 
          * @return builder
          * 
@@ -924,7 +924,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveTime The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveTime The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
          * 
          * @return builder
          * 
@@ -935,7 +935,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpKeepaliveTime The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpKeepaliveTime The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
          * 
          * @return builder
          * 
@@ -945,7 +945,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpMaxSynBacklog The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpMaxSynBacklog The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpMaxSynBacklog The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpMaxSynBacklog The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
          * 
          * @return builder
          * 
@@ -966,7 +966,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpMaxTwBuckets The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpMaxTwBuckets The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
          * 
          * @return builder
          * 
@@ -977,7 +977,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpMaxTwBuckets The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+         * @param netIpv4TcpMaxTwBuckets The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpTwReuse Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+         * @param netIpv4TcpTwReuse Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netIpv4TcpTwReuse Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+         * @param netIpv4TcpTwReuse Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
          * 
          * @return builder
          * 
@@ -1019,7 +1019,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackBuckets The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
          * 
          * @return builder
          * 
@@ -1040,7 +1040,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+         * @param netNetfilterNfConntrackMax The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
          * 
          * @return builder
          * 
@@ -1050,7 +1050,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param vmMaxMapCount The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+         * @param vmMaxMapCount The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
          * 
          * @return builder
          * 
@@ -1061,7 +1061,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param vmMaxMapCount The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+         * @param vmMaxMapCount The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
          * 
          * @return builder
          * 
@@ -1071,7 +1071,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param vmSwappiness The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param vmSwappiness The sysctl setting vm.swappiness. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -1082,7 +1082,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param vmSwappiness The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param vmSwappiness The sysctl setting vm.swappiness. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -1092,7 +1092,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param vmVfsCachePressure The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param vmVfsCachePressure The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -1103,7 +1103,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs extend
         }
 
         /**
-         * @param vmVfsCachePressure The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param vmVfsCachePressure The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
          * 
          * @return builder
          * 

@@ -24,7 +24,7 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
      */
     private String maxSurge;
     /**
-     * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+     * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
      * 
      */
     private @Nullable Integer nodeSoakDurationInMinutes;
@@ -45,7 +45,7 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
         return this.maxSurge;
     }
     /**
-     * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+     * @return The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
      * 
      */
     public Optional<Integer> nodeSoakDurationInMinutes() {

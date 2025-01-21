@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> MaxSurge { get; set; } = null!;
 
         /// <summary>
-        /// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        /// The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node.
         /// </summary>
         [Input("nodeSoakDurationInMinutes")]
         public Input<int>? NodeSoakDurationInMinutes { get; set; }

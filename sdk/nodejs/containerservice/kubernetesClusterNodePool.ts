@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
  *
+ * > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporaryNameForRotation` must be specified when changing any of the following properties: `fipsEnabled`, `hostEncryptionEnabled`, `kubeletConfig`, `linuxOsConfig`, `maxPods`, `nodePublicIpEnabled`, `osDiskSizeGb`, `osDiskType`, `podSubnetId`, `snapshotId`, `ultraSsdEnabled`, `vmSize`, `vnetSubnetId`, `zones`.
+ *
  * ## Example Usage
  *
  * This example provisions a basic Kubernetes Node Pool.
@@ -100,7 +102,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
@@ -110,7 +112,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly gpuInstance!: pulumi.Output<string | undefined>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      */
@@ -120,7 +122,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly hostGroupId!: pulumi.Output<string | undefined>;
     /**
-     * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
     /**
@@ -134,12 +136,12 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly kubernetesClusterId!: pulumi.Output<string>;
     /**
-     * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
     public readonly linuxOsConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig | undefined>;
     public readonly maxCount!: pulumi.Output<number | undefined>;
     /**
-     * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * The maximum number of pods that can run on each agent. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly maxPods!: pulumi.Output<number>;
     public readonly minCount!: pulumi.Output<number | undefined>;
@@ -163,7 +165,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly nodeNetworkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
     /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -181,11 +183,11 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly orchestratorVersion!: pulumi.Output<string>;
     /**
-     * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * The Agent Operating System disk size in GB. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly osDiskSizeGb!: pulumi.Output<number>;
     /**
-     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly osDiskType!: pulumi.Output<string | undefined>;
     /**
@@ -197,7 +199,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly podSubnetId!: pulumi.Output<string | undefined>;
     /**
@@ -215,7 +217,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly scaleDownMode!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     /**
@@ -231,7 +233,11 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     */
+    public readonly temporaryNameForRotation!: pulumi.Output<string | undefined>;
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly ultraSsdEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -239,11 +245,11 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
     /**
-     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly vmSize!: pulumi.Output<string>;
     /**
-     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** A route table must be configured on this Subnet.
      */
@@ -259,7 +265,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly workloadRuntime!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -310,6 +316,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["temporaryNameForRotation"] = state ? state.temporaryNameForRotation : undefined;
             resourceInputs["ultraSsdEnabled"] = state ? state.ultraSsdEnabled : undefined;
             resourceInputs["upgradeSettings"] = state ? state.upgradeSettings : undefined;
             resourceInputs["vmSize"] = state ? state.vmSize : undefined;
@@ -359,6 +366,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["temporaryNameForRotation"] = args ? args.temporaryNameForRotation : undefined;
             resourceInputs["ultraSsdEnabled"] = args ? args.ultraSsdEnabled : undefined;
             resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
@@ -391,7 +399,7 @@ export interface KubernetesClusterNodePoolState {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
-     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
@@ -401,7 +409,7 @@ export interface KubernetesClusterNodePoolState {
      */
     gpuInstance?: pulumi.Input<string>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      */
@@ -411,7 +419,7 @@ export interface KubernetesClusterNodePoolState {
      */
     hostGroupId?: pulumi.Input<string>;
     /**
-     * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
@@ -425,12 +433,12 @@ export interface KubernetesClusterNodePoolState {
      */
     kubernetesClusterId?: pulumi.Input<string>;
     /**
-     * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
     linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig>;
     maxCount?: pulumi.Input<number>;
     /**
-     * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * The maximum number of pods that can run on each agent. Changing this property requires specifying `temporaryNameForRotation`.
      */
     maxPods?: pulumi.Input<number>;
     minCount?: pulumi.Input<number>;
@@ -454,7 +462,7 @@ export interface KubernetesClusterNodePoolState {
      */
     nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile>;
     /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
      */
     nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -472,11 +480,11 @@ export interface KubernetesClusterNodePoolState {
      */
     orchestratorVersion?: pulumi.Input<string>;
     /**
-     * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * The Agent Operating System disk size in GB. Changing this property requires specifying `temporaryNameForRotation`.
      */
     osDiskSizeGb?: pulumi.Input<number>;
     /**
-     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
      */
     osDiskType?: pulumi.Input<string>;
     /**
@@ -488,7 +496,7 @@ export interface KubernetesClusterNodePoolState {
      */
     osType?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      */
     podSubnetId?: pulumi.Input<string>;
     /**
@@ -506,7 +514,7 @@ export interface KubernetesClusterNodePoolState {
      */
     scaleDownMode?: pulumi.Input<string>;
     /**
-     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     snapshotId?: pulumi.Input<string>;
     /**
@@ -522,7 +530,11 @@ export interface KubernetesClusterNodePoolState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     */
+    temporaryNameForRotation?: pulumi.Input<string>;
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
      */
     ultraSsdEnabled?: pulumi.Input<boolean>;
     /**
@@ -530,11 +542,11 @@ export interface KubernetesClusterNodePoolState {
      */
     upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
     /**
-     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     vmSize?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** A route table must be configured on this Subnet.
      */
@@ -550,7 +562,7 @@ export interface KubernetesClusterNodePoolState {
      */
     workloadRuntime?: pulumi.Input<string>;
     /**
-     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporaryNameForRotation`.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -574,7 +586,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
-     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
@@ -584,7 +596,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     gpuInstance?: pulumi.Input<string>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      */
@@ -594,7 +606,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     hostGroupId?: pulumi.Input<string>;
     /**
-     * A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
@@ -608,12 +620,12 @@ export interface KubernetesClusterNodePoolArgs {
      */
     kubernetesClusterId: pulumi.Input<string>;
     /**
-     * A `linuxOsConfig` block as defined below. Changing this forces a new resource to be created.
+     * A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
     linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig>;
     maxCount?: pulumi.Input<number>;
     /**
-     * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * The maximum number of pods that can run on each agent. Changing this property requires specifying `temporaryNameForRotation`.
      */
     maxPods?: pulumi.Input<number>;
     minCount?: pulumi.Input<number>;
@@ -637,7 +649,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     nodeNetworkProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile>;
     /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
      */
     nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -655,11 +667,11 @@ export interface KubernetesClusterNodePoolArgs {
      */
     orchestratorVersion?: pulumi.Input<string>;
     /**
-     * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * The Agent Operating System disk size in GB. Changing this property requires specifying `temporaryNameForRotation`.
      */
     osDiskSizeGb?: pulumi.Input<number>;
     /**
-     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
      */
     osDiskType?: pulumi.Input<string>;
     /**
@@ -671,7 +683,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     osType?: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      */
     podSubnetId?: pulumi.Input<string>;
     /**
@@ -689,7 +701,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     scaleDownMode?: pulumi.Input<string>;
     /**
-     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     snapshotId?: pulumi.Input<string>;
     /**
@@ -705,7 +717,11 @@ export interface KubernetesClusterNodePoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     */
+    temporaryNameForRotation?: pulumi.Input<string>;
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
      */
     ultraSsdEnabled?: pulumi.Input<boolean>;
     /**
@@ -713,11 +729,11 @@ export interface KubernetesClusterNodePoolArgs {
      */
     upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
     /**
-     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
     vmSize: pulumi.Input<string>;
     /**
-     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** A route table must be configured on this Subnet.
      */
@@ -733,7 +749,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     workloadRuntime?: pulumi.Input<string>;
     /**
-     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporaryNameForRotation`.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

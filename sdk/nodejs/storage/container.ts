@@ -36,10 +36,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Storage Containers can be imported using the `resource id`, e.g.
+ * Storage Containers can be imported using the `resource manager id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
+ * $ pulumi import azure:storage/container:Container container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/blobServices/default/containers/mycontainer
  * ```
  */
 export class Container extends pulumi.CustomResource {
