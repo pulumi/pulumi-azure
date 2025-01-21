@@ -26,6 +26,7 @@ class BackupVaultArgs:
                  resource_group_name: pulumi.Input[str],
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_duration_in_days: Optional[pulumi.Input[float]] = None,
@@ -42,12 +43,13 @@ class BackupVaultArgs:
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
                
                > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
-        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
                
                > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
@@ -59,6 +61,8 @@ class BackupVaultArgs:
             pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immutability is not None:
+            pulumi.set(__self__, "immutability", immutability)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -136,6 +140,18 @@ class BackupVaultArgs:
 
     @property
     @pulumi.getter
+    def immutability(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        """
+        return pulumi.get(self, "immutability")
+
+    @immutability.setter
+    def immutability(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutability", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
@@ -176,7 +192,7 @@ class BackupVaultArgs:
     @pulumi.getter(name="softDelete")
     def soft_delete(self) -> Optional[pulumi.Input[str]]:
         """
-        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 
         > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         """
@@ -205,6 +221,7 @@ class _BackupVaultState:
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  datastore_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['BackupVaultIdentityArgs']] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redundancy: Optional[pulumi.Input[str]] = None,
@@ -221,6 +238,7 @@ class _BackupVaultState:
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
@@ -228,7 +246,7 @@ class _BackupVaultState:
         :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
                
                > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
-        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
                
                > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
@@ -239,6 +257,8 @@ class _BackupVaultState:
             pulumi.set(__self__, "datastore_type", datastore_type)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immutability is not None:
+            pulumi.set(__self__, "immutability", immutability)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -293,6 +313,18 @@ class _BackupVaultState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['BackupVaultIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def immutability(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        """
+        return pulumi.get(self, "immutability")
+
+    @immutability.setter
+    def immutability(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutability", value)
 
     @property
     @pulumi.getter
@@ -360,7 +392,7 @@ class _BackupVaultState:
     @pulumi.getter(name="softDelete")
     def soft_delete(self) -> Optional[pulumi.Input[str]]:
         """
-        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 
         > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         """
@@ -391,6 +423,7 @@ class BackupVault(pulumi.CustomResource):
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  datastore_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redundancy: Optional[pulumi.Input[str]] = None,
@@ -436,6 +469,7 @@ class BackupVault(pulumi.CustomResource):
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
@@ -443,7 +477,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
                
                > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
-        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
                
                > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
@@ -500,6 +534,7 @@ class BackupVault(pulumi.CustomResource):
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  datastore_type: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+                 immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redundancy: Optional[pulumi.Input[str]] = None,
@@ -521,6 +556,7 @@ class BackupVault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'datastore_type'")
             __props__.__dict__["datastore_type"] = datastore_type
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["immutability"] = immutability
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if redundancy is None and not opts.urn:
@@ -545,6 +581,7 @@ class BackupVault(pulumi.CustomResource):
             cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
             datastore_type: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']]] = None,
+            immutability: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             redundancy: Optional[pulumi.Input[str]] = None,
@@ -566,6 +603,7 @@ class BackupVault(pulumi.CustomResource):
                
                > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
@@ -573,7 +611,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[float] retention_duration_in_days: The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
                
                > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
-        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        :param pulumi.Input[str] soft_delete: The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
                
                > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Backup Vault.
@@ -585,6 +623,7 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
         __props__.__dict__["datastore_type"] = datastore_type
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["immutability"] = immutability
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["redundancy"] = redundancy
@@ -621,6 +660,14 @@ class BackupVault(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def immutability(self) -> pulumi.Output[Optional[str]]:
+        """
+        The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        """
+        return pulumi.get(self, "immutability")
 
     @property
     @pulumi.getter
@@ -668,7 +715,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="softDelete")
     def soft_delete(self) -> pulumi.Output[Optional[str]]:
         """
-        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 
         > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         """

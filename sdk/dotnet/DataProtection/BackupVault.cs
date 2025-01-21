@@ -74,6 +74,12 @@ namespace Pulumi.Azure.DataProtection
         public Output<Outputs.BackupVaultIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        /// </summary>
+        [Output("immutability")]
+        public Output<string?> Immutability { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         /// </summary>
         [Output("location")]
@@ -106,7 +112,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<double?> RetentionDurationInDays { get; private set; } = null!;
 
         /// <summary>
-        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
         /// 
         /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         /// </summary>
@@ -188,6 +194,12 @@ namespace Pulumi.Azure.DataProtection
         public Input<Inputs.BackupVaultIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        /// </summary>
+        [Input("immutability")]
+        public Input<string>? Immutability { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         /// </summary>
         [Input("location")]
@@ -220,7 +232,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<double>? RetentionDurationInDays { get; set; }
 
         /// <summary>
-        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
         /// 
         /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         /// </summary>
@@ -270,6 +282,12 @@ namespace Pulumi.Azure.DataProtection
         public Input<Inputs.BackupVaultIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+        /// </summary>
+        [Input("immutability")]
+        public Input<string>? Immutability { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         /// </summary>
         [Input("location")]
@@ -302,7 +320,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<double>? RetentionDurationInDays { get; set; }
 
         /// <summary>
-        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+        /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
         /// 
         /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         /// </summary>

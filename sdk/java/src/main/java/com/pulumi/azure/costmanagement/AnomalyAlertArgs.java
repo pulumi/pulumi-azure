@@ -93,6 +93,21 @@ public final class AnomalyAlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     * 
+     */
+    @Import(name="notificationEmail")
+    private @Nullable Output<String> notificationEmail;
+
+    /**
+     * @return The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     * 
+     */
+    public Optional<Output<String>> notificationEmail() {
+        return Optional.ofNullable(this.notificationEmail);
+    }
+
+    /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      * 
      */
@@ -115,6 +130,7 @@ public final class AnomalyAlertArgs extends com.pulumi.resources.ResourceArgs {
         this.emailSubject = $.emailSubject;
         this.message = $.message;
         this.name = $.name;
+        this.notificationEmail = $.notificationEmail;
         this.subscriptionId = $.subscriptionId;
     }
 
@@ -249,6 +265,27 @@ public final class AnomalyAlertArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param notificationEmail The email address of the point of contact that should get the unsubscribe requests and notification emails.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationEmail(@Nullable Output<String> notificationEmail) {
+            $.notificationEmail = notificationEmail;
+            return this;
+        }
+
+        /**
+         * @param notificationEmail The email address of the point of contact that should get the unsubscribe requests and notification emails.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationEmail(String notificationEmail) {
+            return notificationEmail(Output.of(notificationEmail));
         }
 
         /**

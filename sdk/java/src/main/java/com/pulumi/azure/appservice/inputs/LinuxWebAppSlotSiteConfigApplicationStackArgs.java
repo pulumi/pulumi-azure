@@ -146,7 +146,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     /**
      * The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
-     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
      */
     @Import(name="javaVersion")
@@ -155,7 +155,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
-     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -445,7 +445,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         /**
          * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
-         * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         /**
          * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
-         * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
          * 
          * @return builder
          * 

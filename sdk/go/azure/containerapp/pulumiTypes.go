@@ -1357,6 +1357,8 @@ type AppTemplate struct {
 	RevisionSuffix *string `pulumi:"revisionSuffix"`
 	// One or more `tcpScaleRule` blocks as defined below.
 	TcpScaleRules []AppTemplateTcpScaleRule `pulumi:"tcpScaleRules"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
 	// A `volume` block as detailed below.
 	Volumes []AppTemplateVolume `pulumi:"volumes"`
 }
@@ -1391,6 +1393,8 @@ type AppTemplateArgs struct {
 	RevisionSuffix pulumi.StringPtrInput `pulumi:"revisionSuffix"`
 	// One or more `tcpScaleRule` blocks as defined below.
 	TcpScaleRules AppTemplateTcpScaleRuleArrayInput `pulumi:"tcpScaleRules"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
 	// A `volume` block as detailed below.
 	Volumes AppTemplateVolumeArrayInput `pulumi:"volumes"`
 }
@@ -1517,6 +1521,11 @@ func (o AppTemplateOutput) TcpScaleRules() AppTemplateTcpScaleRuleArrayOutput {
 	return o.ApplyT(func(v AppTemplate) []AppTemplateTcpScaleRule { return v.TcpScaleRules }).(AppTemplateTcpScaleRuleArrayOutput)
 }
 
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o AppTemplateOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppTemplate) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
 // A `volume` block as detailed below.
 func (o AppTemplateOutput) Volumes() AppTemplateVolumeArrayOutput {
 	return o.ApplyT(func(v AppTemplate) []AppTemplateVolume { return v.Volumes }).(AppTemplateVolumeArrayOutput)
@@ -1634,6 +1643,16 @@ func (o AppTemplatePtrOutput) TcpScaleRules() AppTemplateTcpScaleRuleArrayOutput
 		}
 		return v.TcpScaleRules
 	}).(AppTemplateTcpScaleRuleArrayOutput)
+}
+
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o AppTemplatePtrOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppTemplate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationGracePeriodSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // A `volume` block as detailed below.
@@ -9080,6 +9099,8 @@ type GetAppTemplate struct {
 	// The suffix string to which this `trafficWeight` applies.
 	RevisionSuffix string                       `pulumi:"revisionSuffix"`
 	TcpScaleRules  []GetAppTemplateTcpScaleRule `pulumi:"tcpScaleRules"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
 	// A `volume` block as detailed below.
 	Volumes []GetAppTemplateVolume `pulumi:"volumes"`
 }
@@ -9110,6 +9131,8 @@ type GetAppTemplateArgs struct {
 	// The suffix string to which this `trafficWeight` applies.
 	RevisionSuffix pulumi.StringInput                   `pulumi:"revisionSuffix"`
 	TcpScaleRules  GetAppTemplateTcpScaleRuleArrayInput `pulumi:"tcpScaleRules"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
 	// A `volume` block as detailed below.
 	Volumes GetAppTemplateVolumeArrayInput `pulumi:"volumes"`
 }
@@ -9204,6 +9227,11 @@ func (o GetAppTemplateOutput) RevisionSuffix() pulumi.StringOutput {
 
 func (o GetAppTemplateOutput) TcpScaleRules() GetAppTemplateTcpScaleRuleArrayOutput {
 	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateTcpScaleRule { return v.TcpScaleRules }).(GetAppTemplateTcpScaleRuleArrayOutput)
+}
+
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o GetAppTemplateOutput) TerminationGracePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplate) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
 }
 
 // A `volume` block as detailed below.

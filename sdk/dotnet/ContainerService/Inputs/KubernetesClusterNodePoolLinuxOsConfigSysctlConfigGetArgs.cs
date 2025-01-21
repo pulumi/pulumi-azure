@@ -13,175 +13,175 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+        /// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
         /// </summary>
         [Input("fsAioMaxNr")]
         public Input<int>? FsAioMaxNr { get; set; }
 
         /// <summary>
-        /// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+        /// The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
         /// </summary>
         [Input("fsFileMax")]
         public Input<int>? FsFileMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+        /// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
         /// </summary>
         [Input("fsInotifyMaxUserWatches")]
         public Input<int>? FsInotifyMaxUserWatches { get; set; }
 
         /// <summary>
-        /// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+        /// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
         /// </summary>
         [Input("fsNrOpen")]
         public Input<int>? FsNrOpen { get; set; }
 
         /// <summary>
-        /// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+        /// The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
         /// </summary>
         [Input("kernelThreadsMax")]
         public Input<int>? KernelThreadsMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
         /// </summary>
         [Input("netCoreNetdevMaxBacklog")]
         public Input<int>? NetCoreNetdevMaxBacklog { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
         /// </summary>
         [Input("netCoreOptmemMax")]
         public Input<int>? NetCoreOptmemMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
         /// </summary>
         [Input("netCoreRmemDefault")]
         public Input<int>? NetCoreRmemDefault { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
         /// </summary>
         [Input("netCoreRmemMax")]
         public Input<int>? NetCoreRmemMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
         /// </summary>
         [Input("netCoreSomaxconn")]
         public Input<int>? NetCoreSomaxconn { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
         /// </summary>
         [Input("netCoreWmemDefault")]
         public Input<int>? NetCoreWmemDefault { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
         /// </summary>
         [Input("netCoreWmemMax")]
         public Input<int>? NetCoreWmemMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
         /// </summary>
         [Input("netIpv4IpLocalPortRangeMax")]
         public Input<int>? NetIpv4IpLocalPortRangeMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
         /// </summary>
         [Input("netIpv4IpLocalPortRangeMin")]
         public Input<int>? NetIpv4IpLocalPortRangeMin { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
         /// </summary>
         [Input("netIpv4NeighDefaultGcThresh1")]
         public Input<int>? NetIpv4NeighDefaultGcThresh1 { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
         /// </summary>
         [Input("netIpv4NeighDefaultGcThresh2")]
         public Input<int>? NetIpv4NeighDefaultGcThresh2 { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
         /// </summary>
         [Input("netIpv4NeighDefaultGcThresh3")]
         public Input<int>? NetIpv4NeighDefaultGcThresh3 { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
         /// </summary>
         [Input("netIpv4TcpFinTimeout")]
         public Input<int>? NetIpv4TcpFinTimeout { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
         /// </summary>
         [Input("netIpv4TcpKeepaliveIntvl")]
         public Input<int>? NetIpv4TcpKeepaliveIntvl { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
         /// </summary>
         [Input("netIpv4TcpKeepaliveProbes")]
         public Input<int>? NetIpv4TcpKeepaliveProbes { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
         /// </summary>
         [Input("netIpv4TcpKeepaliveTime")]
         public Input<int>? NetIpv4TcpKeepaliveTime { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
         /// </summary>
         [Input("netIpv4TcpMaxSynBacklog")]
         public Input<int>? NetIpv4TcpMaxSynBacklog { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
         /// </summary>
         [Input("netIpv4TcpMaxTwBuckets")]
         public Input<int>? NetIpv4TcpMaxTwBuckets { get; set; }
 
         /// <summary>
-        /// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+        /// Is sysctl setting net.ipv4.tcp_tw_reuse enabled?
         /// </summary>
         [Input("netIpv4TcpTwReuse")]
         public Input<bool>? NetIpv4TcpTwReuse { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
         /// </summary>
         [Input("netNetfilterNfConntrackBuckets")]
         public Input<int>? NetNetfilterNfConntrackBuckets { get; set; }
 
         /// <summary>
-        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+        /// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
         /// </summary>
         [Input("netNetfilterNfConntrackMax")]
         public Input<int>? NetNetfilterNfConntrackMax { get; set; }
 
         /// <summary>
-        /// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+        /// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
         /// </summary>
         [Input("vmMaxMapCount")]
         public Input<int>? VmMaxMapCount { get; set; }
 
         /// <summary>
-        /// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        /// The sysctl setting vm.swappiness. Must be between `0` and `100`.
         /// </summary>
         [Input("vmSwappiness")]
         public Input<int>? VmSwappiness { get; set; }
 
         /// <summary>
-        /// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        /// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
         /// </summary>
         [Input("vmVfsCachePressure")]
         public Input<int>? VmVfsCachePressure { get; set; }

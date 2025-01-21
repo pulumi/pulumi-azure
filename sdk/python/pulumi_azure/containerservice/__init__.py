@@ -29,6 +29,7 @@ from .kubernetes_fleet_manager import *
 from .registry import *
 from .registry_agent_pool import *
 from .registry_cache_rule import *
+from .registry_credential_set import *
 from .registry_scope_map import *
 from .registry_task import *
 from .registry_task_schedule_run_now import *

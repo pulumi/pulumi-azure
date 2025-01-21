@@ -19,14 +19,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     public static final KubernetesClusterNodePoolKubeletConfigArgs Empty = new KubernetesClusterNodePoolKubeletConfigArgs();
 
     /**
-     * Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+     * Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
      * 
      */
     @Import(name="allowedUnsafeSysctls")
     private @Nullable Output<List<String>> allowedUnsafeSysctls;
 
     /**
-     * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+     * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
      * 
      */
     public Optional<Output<List<String>>> allowedUnsafeSysctls() {
@@ -34,14 +34,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+     * Specifies the maximum number of container log files that can be present for a container. must be at least 2.
      * 
      */
     @Import(name="containerLogMaxLine")
     private @Nullable Output<Integer> containerLogMaxLine;
 
     /**
-     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2.
      * 
      */
     public Optional<Output<Integer>> containerLogMaxLine() {
@@ -49,14 +49,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+     * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
      * 
      */
     @Import(name="containerLogMaxSizeMb")
     private @Nullable Output<Integer> containerLogMaxSizeMb;
 
     /**
-     * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+     * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
      * 
      */
     public Optional<Output<Integer>> containerLogMaxSizeMb() {
@@ -64,14 +64,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+     * Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     @Import(name="cpuCfsQuotaEnabled")
     private @Nullable Output<Boolean> cpuCfsQuotaEnabled;
 
     /**
-     * @return Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+     * @return Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> cpuCfsQuotaEnabled() {
@@ -79,14 +79,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+     * Specifies the CPU CFS quota period value.
      * 
      */
     @Import(name="cpuCfsQuotaPeriod")
     private @Nullable Output<String> cpuCfsQuotaPeriod;
 
     /**
-     * @return Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+     * @return Specifies the CPU CFS quota period value.
      * 
      */
     public Optional<Output<String>> cpuCfsQuotaPeriod() {
@@ -94,14 +94,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+     * Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
      * 
      */
     @Import(name="cpuManagerPolicy")
     private @Nullable Output<String> cpuManagerPolicy;
 
     /**
-     * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+     * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
      * 
      */
     public Optional<Output<String>> cpuManagerPolicy() {
@@ -109,14 +109,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
      * 
      */
     @Import(name="imageGcHighThreshold")
     private @Nullable Output<Integer> imageGcHighThreshold;
 
     /**
-     * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> imageGcHighThreshold() {
@@ -124,14 +124,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
      * 
      */
     @Import(name="imageGcLowThreshold")
     private @Nullable Output<Integer> imageGcLowThreshold;
 
     /**
-     * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> imageGcLowThreshold() {
@@ -139,14 +139,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+     * Specifies the maximum number of processes per pod.
      * 
      */
     @Import(name="podMaxPid")
     private @Nullable Output<Integer> podMaxPid;
 
     /**
-     * @return Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+     * @return Specifies the maximum number of processes per pod.
      * 
      */
     public Optional<Output<Integer>> podMaxPid() {
@@ -154,14 +154,14 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
     }
 
     /**
-     * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+     * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
      * 
      */
     @Import(name="topologyManagerPolicy")
     private @Nullable Output<String> topologyManagerPolicy;
 
     /**
-     * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+     * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
      * 
      */
     public Optional<Output<String>> topologyManagerPolicy() {
@@ -202,7 +202,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param allowedUnsafeSysctls Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+         * @param allowedUnsafeSysctls Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param allowedUnsafeSysctls Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+         * @param allowedUnsafeSysctls Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param allowedUnsafeSysctls Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+         * @param allowedUnsafeSysctls Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param containerLogMaxLine Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+         * @param containerLogMaxLine Specifies the maximum number of container log files that can be present for a container. must be at least 2.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param containerLogMaxLine Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+         * @param containerLogMaxLine Specifies the maximum number of container log files that can be present for a container. must be at least 2.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param containerLogMaxSizeMb Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+         * @param containerLogMaxSizeMb Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param containerLogMaxSizeMb Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+         * @param containerLogMaxSizeMb Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+         * @param cpuCfsQuotaEnabled Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param cpuCfsQuotaPeriod Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+         * @param cpuCfsQuotaPeriod Specifies the CPU CFS quota period value.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param cpuCfsQuotaPeriod Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+         * @param cpuCfsQuotaPeriod Specifies the CPU CFS quota period value.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param cpuManagerPolicy Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+         * @param cpuManagerPolicy Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param cpuManagerPolicy Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+         * @param cpuManagerPolicy Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param imageGcHighThreshold Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param imageGcHighThreshold Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param imageGcHighThreshold Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param imageGcHighThreshold Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param imageGcLowThreshold Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param imageGcLowThreshold Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param imageGcLowThreshold Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * @param imageGcLowThreshold Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param podMaxPid Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+         * @param podMaxPid Specifies the maximum number of processes per pod.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param podMaxPid Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+         * @param podMaxPid Specifies the maximum number of processes per pod.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param topologyManagerPolicy Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+         * @param topologyManagerPolicy Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class KubernetesClusterNodePoolKubeletConfigArgs extends com.pulumi
         }
 
         /**
-         * @param topologyManagerPolicy Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+         * @param topologyManagerPolicy Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
          * 
          * @return builder
          * 

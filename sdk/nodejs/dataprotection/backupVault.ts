@@ -81,6 +81,10 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.dataprotection.BackupVaultIdentity | undefined>;
     /**
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     */
+    public readonly immutability!: pulumi.Output<string | undefined>;
+    /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -103,7 +107,7 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public readonly retentionDurationInDays!: pulumi.Output<number | undefined>;
     /**
-     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      *
      * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      */
@@ -129,6 +133,7 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["crossRegionRestoreEnabled"] = state ? state.crossRegionRestoreEnabled : undefined;
             resourceInputs["datastoreType"] = state ? state.datastoreType : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["immutability"] = state ? state.immutability : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["redundancy"] = state ? state.redundancy : undefined;
@@ -150,6 +155,7 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["crossRegionRestoreEnabled"] = args ? args.crossRegionRestoreEnabled : undefined;
             resourceInputs["datastoreType"] = args ? args.datastoreType : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["immutability"] = args ? args.immutability : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redundancy"] = args ? args.redundancy : undefined;
@@ -184,6 +190,10 @@ export interface BackupVaultState {
      */
     identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
     /**
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     */
+    immutability?: pulumi.Input<string>;
+    /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
     location?: pulumi.Input<string>;
@@ -206,7 +216,7 @@ export interface BackupVaultState {
      */
     retentionDurationInDays?: pulumi.Input<number>;
     /**
-     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      *
      * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      */
@@ -238,6 +248,10 @@ export interface BackupVaultArgs {
      */
     identity?: pulumi.Input<inputs.dataprotection.BackupVaultIdentity>;
     /**
+     * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+     */
+    immutability?: pulumi.Input<string>;
+    /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
     location?: pulumi.Input<string>;
@@ -260,7 +274,7 @@ export interface BackupVaultArgs {
      */
     retentionDurationInDays?: pulumi.Input<number>;
     /**
-     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+     * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      *
      * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      */
