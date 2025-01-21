@@ -50,6 +50,11 @@ public final class GetAppTemplate {
     private String revisionSuffix;
     private List<GetAppTemplateTcpScaleRule> tcpScaleRules;
     /**
+     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+     * 
+     */
+    private Integer terminationGracePeriodSeconds;
+    /**
      * @return A `volume` block as detailed below.
      * 
      */
@@ -104,6 +109,13 @@ public final class GetAppTemplate {
         return this.tcpScaleRules;
     }
     /**
+     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+     * 
+     */
+    public Integer terminationGracePeriodSeconds() {
+        return this.terminationGracePeriodSeconds;
+    }
+    /**
      * @return A `volume` block as detailed below.
      * 
      */
@@ -129,6 +141,7 @@ public final class GetAppTemplate {
         private Integer minReplicas;
         private String revisionSuffix;
         private List<GetAppTemplateTcpScaleRule> tcpScaleRules;
+        private Integer terminationGracePeriodSeconds;
         private List<GetAppTemplateVolume> volumes;
         public Builder() {}
         public Builder(GetAppTemplate defaults) {
@@ -142,6 +155,7 @@ public final class GetAppTemplate {
     	      this.minReplicas = defaults.minReplicas;
     	      this.revisionSuffix = defaults.revisionSuffix;
     	      this.tcpScaleRules = defaults.tcpScaleRules;
+    	      this.terminationGracePeriodSeconds = defaults.terminationGracePeriodSeconds;
     	      this.volumes = defaults.volumes;
         }
 
@@ -234,6 +248,14 @@ public final class GetAppTemplate {
             return tcpScaleRules(List.of(tcpScaleRules));
         }
         @CustomType.Setter
+        public Builder terminationGracePeriodSeconds(Integer terminationGracePeriodSeconds) {
+            if (terminationGracePeriodSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "terminationGracePeriodSeconds");
+            }
+            this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumes(List<GetAppTemplateVolume> volumes) {
             if (volumes == null) {
               throw new MissingRequiredPropertyException("GetAppTemplate", "volumes");
@@ -255,6 +277,7 @@ public final class GetAppTemplate {
             _resultValue.minReplicas = minReplicas;
             _resultValue.revisionSuffix = revisionSuffix;
             _resultValue.tcpScaleRules = tcpScaleRules;
+            _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
             _resultValue.volumes = volumes;
             return _resultValue;
         }

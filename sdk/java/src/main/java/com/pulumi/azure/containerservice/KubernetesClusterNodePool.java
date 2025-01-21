@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
  * 
+ * &gt; **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
+ * 
  * ## Example Usage
  * 
  * This example provisions a basic Kubernetes Node Pool.
@@ -155,7 +157,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.evictionPolicy);
     }
     /**
-     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      * 
@@ -164,7 +166,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     private Output</* @Nullable */ Boolean> fipsEnabled;
 
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      * 
@@ -187,7 +189,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.gpuInstance);
     }
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      * 
@@ -196,7 +198,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     private Output</* @Nullable */ Boolean> hostEncryptionEnabled;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      * 
@@ -219,14 +221,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.hostGroupId);
     }
     /**
-     * A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+     * A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="kubeletConfig", refs={KubernetesClusterNodePoolKubeletConfig.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterNodePoolKubeletConfig> kubeletConfig;
 
     /**
-     * @return A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolKubeletConfig>> kubeletConfig() {
@@ -265,14 +267,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return this.kubernetesClusterId;
     }
     /**
-     * A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+     * A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="linuxOsConfig", refs={KubernetesClusterNodePoolLinuxOsConfig.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterNodePoolLinuxOsConfig> linuxOsConfig;
 
     /**
-     * @return A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<KubernetesClusterNodePoolLinuxOsConfig>> linuxOsConfig() {
@@ -285,14 +287,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.maxCount);
     }
     /**
-     * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="maxPods", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxPods;
 
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+     * @return The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Integer> maxPods() {
@@ -371,14 +373,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.nodeNetworkProfile);
     }
     /**
-     * Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="nodePublicIpEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> nodePublicIpEnabled;
 
     /**
-     * @return Should each node have a Public IP Address? Changing this forces a new resource to be created.
+     * @return Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<Boolean>> nodePublicIpEnabled() {
@@ -431,28 +433,28 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return this.orchestratorVersion;
     }
     /**
-     * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="osDiskSizeGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> osDiskSizeGb;
 
     /**
-     * @return The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+     * @return The Agent Operating System disk size in GB. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Integer> osDiskSizeGb() {
         return this.osDiskSizeGb;
     }
     /**
-     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="osDiskType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osDiskType;
 
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<String>> osDiskType() {
@@ -487,14 +489,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.osType);
     }
     /**
-     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="podSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> podSubnetId;
 
     /**
-     * @return The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<String>> podSubnetId() {
@@ -547,14 +549,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.scaleDownMode);
     }
     /**
-     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="snapshotId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotId;
 
     /**
-     * @return The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * @return The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<String>> snapshotId() {
@@ -597,14 +599,28 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.tags);
     }
     /**
-     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     * 
+     */
+    @Export(name="temporaryNameForRotation", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> temporaryNameForRotation;
+
+    /**
+     * @return Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
+     * 
+     */
+    public Output<Optional<String>> temporaryNameForRotation() {
+        return Codegen.optional(this.temporaryNameForRotation);
+    }
+    /**
+     * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="ultraSsdEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ultraSsdEnabled;
 
     /**
-     * @return Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
+     * @return Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<Boolean>> ultraSsdEnabled() {
@@ -625,21 +641,21 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.upgradeSettings);
     }
     /**
-     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="vmSize", refs={String.class}, tree="[0]")
     private Output<String> vmSize;
 
     /**
-     * @return The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+     * @return The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<String> vmSize() {
         return this.vmSize;
     }
     /**
-     * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** A route table must be configured on this Subnet.
      * 
@@ -648,7 +664,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     private Output</* @Nullable */ String> vnetSubnetId;
 
     /**
-     * @return The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      * &gt; **NOTE:** A route table must be configured on this Subnet.
      * 
@@ -689,14 +705,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.workloadRuntime);
     }
     /**
-     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
+     * @return Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<Optional<List<String>>> zones() {

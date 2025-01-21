@@ -14,43 +14,43 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterNodePoolKubeletConfig
     {
         /// <summary>
-        /// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+        /// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
         /// </summary>
         public readonly ImmutableArray<string> AllowedUnsafeSysctls;
         /// <summary>
-        /// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+        /// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
         /// </summary>
         public readonly int? ContainerLogMaxLine;
         /// <summary>
-        /// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+        /// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
         /// </summary>
         public readonly int? ContainerLogMaxSizeMb;
         /// <summary>
-        /// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+        /// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? CpuCfsQuotaEnabled;
         /// <summary>
-        /// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+        /// Specifies the CPU CFS quota period value.
         /// </summary>
         public readonly string? CpuCfsQuotaPeriod;
         /// <summary>
-        /// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+        /// Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
         /// </summary>
         public readonly string? CpuManagerPolicy;
         /// <summary>
-        /// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        /// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
         /// </summary>
         public readonly int? ImageGcHighThreshold;
         /// <summary>
-        /// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        /// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
         /// </summary>
         public readonly int? ImageGcLowThreshold;
         /// <summary>
-        /// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        /// Specifies the maximum number of processes per pod.
         /// </summary>
         public readonly int? PodMaxPid;
         /// <summary>
-        /// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        /// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
         /// </summary>
         public readonly string? TopologyManagerPolicy;
 

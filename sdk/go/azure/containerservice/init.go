@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RegistryAgentPool{}
 	case "azure:containerservice/registryCacheRule:RegistryCacheRule":
 		r = &RegistryCacheRule{}
+	case "azure:containerservice/registryCredentialSet:RegistryCredentialSet":
+		r = &RegistryCredentialSet{}
 	case "azure:containerservice/registryScopeMap:RegistryScopeMap":
 		r = &RegistryScopeMap{}
 	case "azure:containerservice/registryTask:RegistryTask":
@@ -144,6 +146,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/registryCacheRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/registryCredentialSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

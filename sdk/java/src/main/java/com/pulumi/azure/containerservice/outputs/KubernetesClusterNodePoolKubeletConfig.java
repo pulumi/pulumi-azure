@@ -15,122 +15,122 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterNodePoolKubeletConfig {
     /**
-     * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+     * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
      * 
      */
     private @Nullable List<String> allowedUnsafeSysctls;
     /**
-     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2.
      * 
      */
     private @Nullable Integer containerLogMaxLine;
     /**
-     * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+     * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
      * 
      */
     private @Nullable Integer containerLogMaxSizeMb;
     /**
-     * @return Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+     * @return Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean cpuCfsQuotaEnabled;
     /**
-     * @return Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+     * @return Specifies the CPU CFS quota period value.
      * 
      */
     private @Nullable String cpuCfsQuotaPeriod;
     /**
-     * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+     * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
      * 
      */
     private @Nullable String cpuManagerPolicy;
     /**
-     * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
      * 
      */
     private @Nullable Integer imageGcHighThreshold;
     /**
-     * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
      * 
      */
     private @Nullable Integer imageGcLowThreshold;
     /**
-     * @return Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+     * @return Specifies the maximum number of processes per pod.
      * 
      */
     private @Nullable Integer podMaxPid;
     /**
-     * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+     * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
      * 
      */
     private @Nullable String topologyManagerPolicy;
 
     private KubernetesClusterNodePoolKubeletConfig() {}
     /**
-     * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+     * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
      * 
      */
     public List<String> allowedUnsafeSysctls() {
         return this.allowedUnsafeSysctls == null ? List.of() : this.allowedUnsafeSysctls;
     }
     /**
-     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2.
      * 
      */
     public Optional<Integer> containerLogMaxLine() {
         return Optional.ofNullable(this.containerLogMaxLine);
     }
     /**
-     * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+     * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
      * 
      */
     public Optional<Integer> containerLogMaxSizeMb() {
         return Optional.ofNullable(this.containerLogMaxSizeMb);
     }
     /**
-     * @return Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+     * @return Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> cpuCfsQuotaEnabled() {
         return Optional.ofNullable(this.cpuCfsQuotaEnabled);
     }
     /**
-     * @return Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+     * @return Specifies the CPU CFS quota period value.
      * 
      */
     public Optional<String> cpuCfsQuotaPeriod() {
         return Optional.ofNullable(this.cpuCfsQuotaPeriod);
     }
     /**
-     * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+     * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`,
      * 
      */
     public Optional<String> cpuManagerPolicy() {
         return Optional.ofNullable(this.cpuManagerPolicy);
     }
     /**
-     * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
      * 
      */
     public Optional<Integer> imageGcHighThreshold() {
         return Optional.ofNullable(this.imageGcHighThreshold);
     }
     /**
-     * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+     * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
      * 
      */
     public Optional<Integer> imageGcLowThreshold() {
         return Optional.ofNullable(this.imageGcLowThreshold);
     }
     /**
-     * @return Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+     * @return Specifies the maximum number of processes per pod.
      * 
      */
     public Optional<Integer> podMaxPid() {
         return Optional.ofNullable(this.podMaxPid);
     }
     /**
-     * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+     * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
      * 
      */
     public Optional<String> topologyManagerPolicy() {

@@ -72,6 +72,8 @@ type BackupVault struct {
 	DatastoreType pulumi.StringOutput `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrOutput `pulumi:"identity"`
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	Immutability pulumi.StringPtrOutput `pulumi:"immutability"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -84,7 +86,7 @@ type BackupVault struct {
 	//
 	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
 	RetentionDurationInDays pulumi.Float64PtrOutput `pulumi:"retentionDurationInDays"`
-	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 	//
 	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
 	SoftDelete pulumi.StringPtrOutput `pulumi:"softDelete"`
@@ -141,6 +143,8 @@ type backupVaultState struct {
 	DatastoreType *string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	Immutability *string `pulumi:"immutability"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -153,7 +157,7 @@ type backupVaultState struct {
 	//
 	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
 	RetentionDurationInDays *float64 `pulumi:"retentionDurationInDays"`
-	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 	//
 	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
 	SoftDelete *string `pulumi:"softDelete"`
@@ -172,6 +176,8 @@ type BackupVaultState struct {
 	DatastoreType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	Immutability pulumi.StringPtrInput
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -184,7 +190,7 @@ type BackupVaultState struct {
 	//
 	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
 	RetentionDurationInDays pulumi.Float64PtrInput
-	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 	//
 	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
 	SoftDelete pulumi.StringPtrInput
@@ -207,6 +213,8 @@ type backupVaultArgs struct {
 	DatastoreType string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	Immutability *string `pulumi:"immutability"`
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -219,7 +227,7 @@ type backupVaultArgs struct {
 	//
 	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
 	RetentionDurationInDays *float64 `pulumi:"retentionDurationInDays"`
-	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 	//
 	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
 	SoftDelete *string `pulumi:"softDelete"`
@@ -239,6 +247,8 @@ type BackupVaultArgs struct {
 	DatastoreType pulumi.StringInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
+	// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+	Immutability pulumi.StringPtrInput
 	// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -251,7 +261,7 @@ type BackupVaultArgs struct {
 	//
 	// > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
 	RetentionDurationInDays pulumi.Float64PtrInput
-	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+	// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 	//
 	// > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
 	SoftDelete pulumi.StringPtrInput
@@ -365,6 +375,11 @@ func (o BackupVaultOutput) Identity() BackupVaultIdentityPtrOutput {
 	return o.ApplyT(func(v *BackupVault) BackupVaultIdentityPtrOutput { return v.Identity }).(BackupVaultIdentityPtrOutput)
 }
 
+// The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
+func (o BackupVaultOutput) Immutability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringPtrOutput { return v.Immutability }).(pulumi.StringPtrOutput)
+}
+
 // The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 func (o BackupVaultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -392,7 +407,7 @@ func (o BackupVaultOutput) RetentionDurationInDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.Float64PtrOutput { return v.RetentionDurationInDays }).(pulumi.Float64PtrOutput)
 }
 
-// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
+// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
 //
 // > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
 func (o BackupVaultOutput) SoftDelete() pulumi.StringPtrOutput {

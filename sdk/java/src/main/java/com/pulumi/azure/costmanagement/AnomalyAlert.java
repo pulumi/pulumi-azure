@@ -141,6 +141,20 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     * 
+     */
+    @Export(name="notificationEmail", refs={String.class}, tree="[0]")
+    private Output<String> notificationEmail;
+
+    /**
+     * @return The email address of the point of contact that should get the unsubscribe requests and notification emails.
+     * 
+     */
+    public Output<String> notificationEmail() {
+        return this.notificationEmail;
+    }
+    /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      * 
      */

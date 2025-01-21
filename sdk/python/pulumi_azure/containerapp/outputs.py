@@ -783,6 +783,8 @@ class AppTemplate(dict):
             suggest = "revision_suffix"
         elif key == "tcpScaleRules":
             suggest = "tcp_scale_rules"
+        elif key == "terminationGracePeriodSeconds":
+            suggest = "termination_grace_period_seconds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppTemplate. Access the value via the '{suggest}' property getter instead.")
@@ -805,6 +807,7 @@ class AppTemplate(dict):
                  min_replicas: Optional[int] = None,
                  revision_suffix: Optional[str] = None,
                  tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
+                 termination_grace_period_seconds: Optional[int] = None,
                  volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None):
         """
         :param Sequence['AppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
@@ -816,6 +819,7 @@ class AppTemplate(dict):
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
         :param Sequence['AppTemplateTcpScaleRuleArgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
+        :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param Sequence['AppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "containers", containers)
@@ -835,6 +839,8 @@ class AppTemplate(dict):
             pulumi.set(__self__, "revision_suffix", revision_suffix)
         if tcp_scale_rules is not None:
             pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -909,6 +915,14 @@ class AppTemplate(dict):
         One or more `tcp_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "tcp_scale_rules")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[int]:
+        """
+        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
 
     @property
     @pulumi.getter
@@ -4866,6 +4880,7 @@ class GetAppTemplateResult(dict):
                  min_replicas: int,
                  revision_suffix: str,
                  tcp_scale_rules: Sequence['outputs.GetAppTemplateTcpScaleRuleResult'],
+                 termination_grace_period_seconds: int,
                  volumes: Sequence['outputs.GetAppTemplateVolumeResult'],
                  custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None):
         """
@@ -4874,6 +4889,7 @@ class GetAppTemplateResult(dict):
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
+        :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
@@ -4884,6 +4900,7 @@ class GetAppTemplateResult(dict):
         pulumi.set(__self__, "min_replicas", min_replicas)
         pulumi.set(__self__, "revision_suffix", revision_suffix)
         pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
+        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         pulumi.set(__self__, "volumes", volumes)
         if custom_scale_rules is not None:
             pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
@@ -4942,6 +4959,14 @@ class GetAppTemplateResult(dict):
     @pulumi.getter(name="tcpScaleRules")
     def tcp_scale_rules(self) -> Sequence['outputs.GetAppTemplateTcpScaleRuleResult']:
         return pulumi.get(self, "tcp_scale_rules")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> int:
+        """
+        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
 
     @property
     @pulumi.getter
