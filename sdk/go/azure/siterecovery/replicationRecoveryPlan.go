@@ -183,7 +183,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
+//			container_mapping, err := siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
 //				Name:                                  pulumi.String("container-mapping"),
 //				ResourceGroupName:                     secondary.Name,
 //				RecoveryVaultName:                     vault.Name,
@@ -206,7 +206,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewNetworkMapping(ctx, "network-mapping", &siterecovery.NetworkMappingArgs{
+//			network_mapping, err := siterecovery.NewNetworkMapping(ctx, "network-mapping", &siterecovery.NetworkMappingArgs{
 //				Name:                     pulumi.String("network-mapping"),
 //				ResourceGroupName:        secondary.Name,
 //				RecoveryVaultName:        vault.Name,
@@ -249,7 +249,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewReplicatedVM(ctx, "vm-replication", &siterecovery.ReplicatedVMArgs{
+//			vm_replication, err := siterecovery.NewReplicatedVM(ctx, "vm-replication", &siterecovery.ReplicatedVMArgs{
 //				Name:                                  pulumi.String("vm-replication"),
 //				ResourceGroupName:                     secondary.Name,
 //				RecoveryVaultName:                     vault.Name,
