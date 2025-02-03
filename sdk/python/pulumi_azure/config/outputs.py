@@ -480,11 +480,14 @@ class FeaturesPostgresqlFlexibleServer(dict):
 class FeaturesRecoveryService(dict):
     def __init__(__self__, *,
                  purge_protected_items_from_vault_on_destroy: Optional[bool] = None,
-                 vm_backup_stop_protection_and_retain_data_on_destroy: Optional[bool] = None):
+                 vm_backup_stop_protection_and_retain_data_on_destroy: Optional[bool] = None,
+                 vm_backup_suspend_protection_and_retain_data_on_destroy: Optional[bool] = None):
         if purge_protected_items_from_vault_on_destroy is not None:
             pulumi.set(__self__, "purge_protected_items_from_vault_on_destroy", purge_protected_items_from_vault_on_destroy)
         if vm_backup_stop_protection_and_retain_data_on_destroy is not None:
             pulumi.set(__self__, "vm_backup_stop_protection_and_retain_data_on_destroy", vm_backup_stop_protection_and_retain_data_on_destroy)
+        if vm_backup_suspend_protection_and_retain_data_on_destroy is not None:
+            pulumi.set(__self__, "vm_backup_suspend_protection_and_retain_data_on_destroy", vm_backup_suspend_protection_and_retain_data_on_destroy)
 
     @property
     @pulumi.getter(name="purgeProtectedItemsFromVaultOnDestroy")
@@ -495,6 +498,11 @@ class FeaturesRecoveryService(dict):
     @pulumi.getter(name="vmBackupStopProtectionAndRetainDataOnDestroy")
     def vm_backup_stop_protection_and_retain_data_on_destroy(self) -> Optional[bool]:
         return pulumi.get(self, "vm_backup_stop_protection_and_retain_data_on_destroy")
+
+    @property
+    @pulumi.getter(name="vmBackupSuspendProtectionAndRetainDataOnDestroy")
+    def vm_backup_suspend_protection_and_retain_data_on_destroy(self) -> Optional[bool]:
+        return pulumi.get(self, "vm_backup_suspend_protection_and_retain_data_on_destroy")
 
 
 @pulumi.output_type

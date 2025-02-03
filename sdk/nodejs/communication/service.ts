@@ -65,6 +65,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly dataLocation!: pulumi.Output<string | undefined>;
     /**
+     * The hostname of the Communication Service
+     */
+    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class Service extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
+            resourceInputs["hostname"] = state ? state.hostname : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
@@ -123,6 +128,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["secondaryConnectionString"] = undefined /*out*/;
@@ -143,6 +149,10 @@ export interface ServiceState {
      * The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
      */
     dataLocation?: pulumi.Input<string>;
+    /**
+     * The hostname of the Communication Service
+     */
+    hostname?: pulumi.Input<string>;
     /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      */

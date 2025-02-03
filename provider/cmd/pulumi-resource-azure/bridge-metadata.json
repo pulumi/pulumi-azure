@@ -3702,6 +3702,15 @@
                 "current": "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist",
                 "majorVersion": 6
             },
+            "azurerm_cognitive_account_rai_policy": {
+                "current": "azure:cognitive/accountRaiPolicy:AccountRaiPolicy",
+                "majorVersion": 6,
+                "fields": {
+                    "content_filter": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_cognitive_deployment": {
                 "current": "azure:cognitive/deployment:Deployment",
                 "majorVersion": 6,
@@ -14747,6 +14756,15 @@
                 "current": "azure:mssql/jobSchedule:JobSchedule",
                 "majorVersion": 6
             },
+            "azurerm_mssql_job_target_group": {
+                "current": "azure:mssql/jobTargetGroup:JobTargetGroup",
+                "majorVersion": 6,
+                "fields": {
+                    "job_target": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_mssql_managed_database": {
                 "current": "azure:mssql/managedDatabase:ManagedDatabase",
                 "majorVersion": 6,
@@ -23737,6 +23755,10 @@
             },
             "azurerm_api_management_product": {
                 "current": "azure:apimanagement/getProduct:getProduct",
+                "majorVersion": 6
+            },
+            "azurerm_api_management_subscription": {
+                "current": "azure:apimanagement/getSubscription:getSubscription",
                 "majorVersion": 6
             },
             "azurerm_api_management_user": {

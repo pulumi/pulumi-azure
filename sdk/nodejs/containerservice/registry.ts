@@ -75,47 +75,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Attaching A Container Registry To A Kubernetes Cluster)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
- * });
- * const exampleRegistry = new azure.containerservice.Registry("example", {
- *     name: "containerRegistry1",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Premium",
- * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-aks1",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefix: "exampleaks1",
- *     defaultNodePool: {
- *         name: "default",
- *         nodeCount: 1,
- *         vmSize: "Standard_D2_v2",
- *     },
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     principalId: exampleKubernetesCluster.kubeletIdentity.apply(kubeletIdentity => kubeletIdentity.objectId),
- *     roleDefinitionName: "AcrPull",
- *     scope: exampleRegistry.id,
- *     skipServicePrincipalAadCheck: true,
- * });
- * ```
- *
  * ## Import
  *
  * Container Registries can be imported using the `resource id`, e.g.

@@ -80,6 +80,11 @@ export type JobSchedule = import("./jobSchedule").JobSchedule;
 export const JobSchedule: typeof import("./jobSchedule").JobSchedule = null as any;
 utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
 
+export { JobTargetGroupArgs, JobTargetGroupState } from "./jobTargetGroup";
+export type JobTargetGroup = import("./jobTargetGroup").JobTargetGroup;
+export const JobTargetGroup: typeof import("./jobTargetGroup").JobTargetGroup = null as any;
+utilities.lazyLoad(exports, ["JobTargetGroup"], () => require("./jobTargetGroup"));
+
 export { ManagedDatabaseArgs, ManagedDatabaseState } from "./managedDatabase";
 export type ManagedDatabase = import("./managedDatabase").ManagedDatabase;
 export const ManagedDatabase: typeof import("./managedDatabase").ManagedDatabase = null as any;
@@ -200,6 +205,8 @@ const _module = {
                 return new JobCredential(name, <any>undefined, { urn })
             case "azure:mssql/jobSchedule:JobSchedule":
                 return new JobSchedule(name, <any>undefined, { urn })
+            case "azure:mssql/jobTargetGroup:JobTargetGroup":
+                return new JobTargetGroup(name, <any>undefined, { urn })
             case "azure:mssql/managedDatabase:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
             case "azure:mssql/managedInstance:ManagedInstance":
@@ -253,6 +260,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/job", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobAgent", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobCredential", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobSchedule", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/jobTargetGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstanceActiveDirectoryAdministrator", _module)

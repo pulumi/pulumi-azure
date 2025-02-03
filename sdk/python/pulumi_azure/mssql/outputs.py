@@ -26,6 +26,7 @@ __all__ = [
     'ElasticPoolSku',
     'FailoverGroupPartnerServer',
     'FailoverGroupReadWriteEndpointFailoverPolicy',
+    'JobTargetGroupJobTarget',
     'ManagedDatabaseLongTermRetentionPolicy',
     'ManagedDatabasePointInTimeRestore',
     'ManagedInstanceAzureActiveDirectoryAdministrator',
@@ -680,6 +681,121 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
         The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
         """
         return pulumi.get(self, "grace_minutes")
+
+
+@pulumi.output_type
+class JobTargetGroupJobTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverName":
+            suggest = "server_name"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "elasticPoolName":
+            suggest = "elastic_pool_name"
+        elif key == "jobCredentialId":
+            suggest = "job_credential_id"
+        elif key == "membershipType":
+            suggest = "membership_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTargetGroupJobTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTargetGroupJobTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTargetGroupJobTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_name: str,
+                 database_name: Optional[str] = None,
+                 elastic_pool_name: Optional[str] = None,
+                 job_credential_id: Optional[str] = None,
+                 membership_type: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str server_name: The name of the MS SQL Server.
+        :param str database_name: The name of the MS SQL Database.
+               
+               > **Note:** This cannot be set in combination with `elastic_pool_name`.
+        :param str elastic_pool_name: The name of the MS SQL Elastic Pool.
+               
+               > **Note:** This cannot be set in combination with `database_name`.
+        :param str job_credential_id: The ID of the job credential to use during execution of jobs.
+               
+               > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        :param str membership_type: The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+        :param str type: The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        """
+        pulumi.set(__self__, "server_name", server_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if elastic_pool_name is not None:
+            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+        if job_credential_id is not None:
+            pulumi.set(__self__, "job_credential_id", job_credential_id)
+        if membership_type is not None:
+            pulumi.set(__self__, "membership_type", membership_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        """
+        The name of the MS SQL Server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the MS SQL Database.
+
+        > **Note:** This cannot be set in combination with `elastic_pool_name`.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="elasticPoolName")
+    def elastic_pool_name(self) -> Optional[str]:
+        """
+        The name of the MS SQL Elastic Pool.
+
+        > **Note:** This cannot be set in combination with `database_name`.
+        """
+        return pulumi.get(self, "elastic_pool_name")
+
+    @property
+    @pulumi.getter(name="jobCredentialId")
+    def job_credential_id(self) -> Optional[str]:
+        """
+        The ID of the job credential to use during execution of jobs.
+
+        > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        """
+        return pulumi.get(self, "job_credential_id")
+
+    @property
+    @pulumi.getter(name="membershipType")
+    def membership_type(self) -> Optional[str]:
+        """
+        The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+        """
+        return pulumi.get(self, "membership_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

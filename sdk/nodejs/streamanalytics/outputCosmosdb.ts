@@ -44,6 +44,10 @@ export class OutputCosmosdb extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the CosmosDB container.
      */
     public readonly containerName!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class OutputCosmosdb extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputCosmosdbState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["containerName"] = state ? state.containerName : undefined;
             resourceInputs["cosmosdbAccountKey"] = state ? state.cosmosdbAccountKey : undefined;
             resourceInputs["cosmosdbSqlDatabaseId"] = state ? state.cosmosdbSqlDatabaseId : undefined;
@@ -106,6 +111,7 @@ export class OutputCosmosdb extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["containerName"] = args ? args.containerName : undefined;
             resourceInputs["cosmosdbAccountKey"] = args?.cosmosdbAccountKey ? pulumi.secret(args.cosmosdbAccountKey) : undefined;
             resourceInputs["cosmosdbSqlDatabaseId"] = args ? args.cosmosdbSqlDatabaseId : undefined;
@@ -125,6 +131,10 @@ export class OutputCosmosdb extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputCosmosdb resources.
  */
 export interface OutputCosmosdbState {
+    /**
+     * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the CosmosDB container.
      */
@@ -159,6 +169,10 @@ export interface OutputCosmosdbState {
  * The set of arguments for constructing a OutputCosmosdb resource.
  */
 export interface OutputCosmosdbArgs {
+    /**
+     * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the CosmosDB container.
      */

@@ -196,7 +196,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly elasticPoolId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      *
      * > **NOTE:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      *
@@ -461,7 +461,7 @@ export interface DatabaseState {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      *
      * > **NOTE:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      *
@@ -631,7 +631,7 @@ export interface DatabaseArgs {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      *
      * > **NOTE:** `enclaveType` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
      *

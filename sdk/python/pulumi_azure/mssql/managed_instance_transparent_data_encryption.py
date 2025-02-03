@@ -21,12 +21,14 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  managed_instance_id: pulumi.Input[str],
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[str]] = None):
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceTransparentDataEncryption resource.
         :param pulumi.Input[str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        :param pulumi.Input[str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
                > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
@@ -37,6 +39,8 @@ class ManagedInstanceTransparentDataEncryptionArgs:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
 
     @property
     @pulumi.getter(name="managedInstanceId")
@@ -67,10 +71,6 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
-
-        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
-
-        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -78,17 +78,35 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
+
 
 @pulumi.input_type
 class _ManagedInstanceTransparentDataEncryptionState:
     def __init__(__self__, *,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  managed_instance_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceTransparentDataEncryption resources.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        :param pulumi.Input[str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
                > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
@@ -99,6 +117,8 @@ class _ManagedInstanceTransparentDataEncryptionState:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if managed_instance_id is not None:
             pulumi.set(__self__, "managed_instance_id", managed_instance_id)
 
@@ -119,16 +139,28 @@ class _ManagedInstanceTransparentDataEncryptionState:
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
-
-        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
-
-        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 
     @key_vault_key_id.setter
     def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
 
     @property
     @pulumi.getter(name="managedInstanceId")
@@ -150,6 +182,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  managed_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -315,6 +348,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        :param pulumi.Input[str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
                > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
@@ -503,6 +537,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  managed_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -515,6 +550,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
             __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             if managed_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_id'")
             __props__.__dict__["managed_instance_id"] = managed_instance_id
@@ -530,6 +566,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+            managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
             managed_instance_id: Optional[pulumi.Input[str]] = None) -> 'ManagedInstanceTransparentDataEncryption':
         """
         Get an existing ManagedInstanceTransparentDataEncryption resource's state with the given name, id, and optional extra
@@ -540,6 +577,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        :param pulumi.Input[str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
                > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
@@ -552,6 +590,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
         __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["managed_instance_id"] = managed_instance_id
         return ManagedInstanceTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
@@ -568,12 +607,20 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
     def key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 
         > **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 
         > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
-        return pulumi.get(self, "key_vault_key_id")
+        return pulumi.get(self, "managed_hsm_key_id")
 
     @property
     @pulumi.getter(name="managedInstanceId")

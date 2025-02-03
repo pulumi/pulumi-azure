@@ -88,7 +88,9 @@ class WindowsFunctionAppSlotArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
@@ -507,7 +509,9 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="vnetImagePullEnabled")
     def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is container image pull over virtual network enabled? Defaults to `false`.
+        Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         """
         return pulumi.get(self, "vnet_image_pull_enabled")
 
@@ -616,7 +620,9 @@ class _WindowsFunctionAppSlotState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         if app_settings is not None:
@@ -1163,7 +1169,9 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="vnetImagePullEnabled")
     def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is container image pull over virtual network enabled? Defaults to `false`.
+        Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         """
         return pulumi.get(self, "vnet_image_pull_enabled")
 
@@ -1303,7 +1311,9 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         ...
@@ -1559,7 +1569,9 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] vnet_image_pull_enabled: Is container image pull over virtual network enabled? Defaults to `false`.
+        :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1919,7 +1931,9 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="vnetImagePullEnabled")
     def vnet_image_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is container image pull over virtual network enabled? Defaults to `false`.
+        Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         """
         return pulumi.get(self, "vnet_image_pull_enabled")
 

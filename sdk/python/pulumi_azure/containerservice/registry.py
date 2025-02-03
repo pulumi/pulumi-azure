@@ -807,43 +807,6 @@ class Registry(pulumi.CustomResource):
             })
         ```
 
-        ### Attaching A Container Registry To A Kubernetes Cluster)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="containerRegistry1",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Premium")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks1",
-            default_node_pool={
-                "name": "default",
-                "node_count": 1,
-                "vm_size": "Standard_D2_v2",
-            },
-            identity={
-                "type": "SystemAssigned",
-            },
-            tags={
-                "Environment": "Production",
-            })
-        example_assignment = azure.authorization.Assignment("example",
-            principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
-            role_definition_name="AcrPull",
-            scope=example_registry.id,
-            skip_service_principal_aad_check=True)
-        ```
-
         ## Import
 
         Container Registries can be imported using the `resource id`, e.g.
@@ -948,43 +911,6 @@ class Registry(pulumi.CustomResource):
                 "key_vault_key_id": example.id,
                 "identity_client_id": example_user_assigned_identity.client_id,
             })
-        ```
-
-        ### Attaching A Container Registry To A Kubernetes Cluster)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_registry = azure.containerservice.Registry("example",
-            name="containerRegistry1",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Premium")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks1",
-            default_node_pool={
-                "name": "default",
-                "node_count": 1,
-                "vm_size": "Standard_D2_v2",
-            },
-            identity={
-                "type": "SystemAssigned",
-            },
-            tags={
-                "Environment": "Production",
-            })
-        example_assignment = azure.authorization.Assignment("example",
-            principal_id=example_kubernetes_cluster.kubelet_identity.object_id,
-            role_definition_name="AcrPull",
-            scope=example_registry.id,
-            skip_service_principal_aad_check=True)
         ```
 
         ## Import

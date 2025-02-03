@@ -31,7 +31,7 @@ class PortalDashboardArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
                
-               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+               > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "dashboard_properties", dashboard_properties)
@@ -85,7 +85,7 @@ class PortalDashboardArgs:
         """
         Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 
-        > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+        > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -120,7 +120,7 @@ class _PortalDashboardState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
                
-               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+               > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -165,7 +165,7 @@ class _PortalDashboardState:
         """
         Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 
-        > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+        > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         """
         return pulumi.get(self, "name")
 
@@ -226,7 +226,7 @@ class PortalDashboard(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
                
-               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+               > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -313,7 +313,7 @@ class PortalDashboard(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
                
-               > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+               > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -350,7 +350,7 @@ class PortalDashboard(pulumi.CustomResource):
         """
         Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 
-        > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+        > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         """
         return pulumi.get(self, "name")
 

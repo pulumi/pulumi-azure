@@ -67,6 +67,7 @@ import javax.annotation.Nullable;
  *             .name("my-environment")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .logsDestination("log-analytics")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
@@ -214,6 +215,8 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
+     * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+     * 
      */
     @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
@@ -221,9 +224,25 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
+     * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+     * 
      */
     public Output<Optional<String>> logAnalyticsWorkspaceId() {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
+    }
+    /**
+     * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     * 
+     */
+    @Export(name="logsDestination", refs={String.class}, tree="[0]")
+    private Output<String> logsDestination;
+
+    /**
+     * @return Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     * 
+     */
+    public Output<String> logsDestination() {
+        return this.logsDestination;
     }
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.

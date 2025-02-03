@@ -50,7 +50,7 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+     * &gt; **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      * 
      */
     @Import(name="name")
@@ -59,7 +59,7 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+     * &gt; **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      * 
      */
     public Optional<Output<String>> name() {
@@ -169,7 +169,7 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param name Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+         * &gt; **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param name Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+         * &gt; **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
          * 
          * @return builder
          * 

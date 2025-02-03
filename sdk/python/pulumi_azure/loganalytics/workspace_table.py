@@ -30,7 +30,7 @@ class WorkspaceTableArgs:
         :param pulumi.Input[str] name: Specifies the name of a table in a Log Analytics Workspace.
         :param pulumi.Input[str] plan: Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
                
-               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
         :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
                
@@ -78,7 +78,7 @@ class WorkspaceTableArgs:
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
-        > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+        > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         """
         return pulumi.get(self, "plan")
 
@@ -128,7 +128,7 @@ class _WorkspaceTableState:
         :param pulumi.Input[str] name: Specifies the name of a table in a Log Analytics Workspace.
         :param pulumi.Input[str] plan: Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
                
-               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
         :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
                
@@ -166,7 +166,7 @@ class _WorkspaceTableState:
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
-        > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+        > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         """
         return pulumi.get(self, "plan")
 
@@ -258,7 +258,7 @@ class WorkspaceTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of a table in a Log Analytics Workspace.
         :param pulumi.Input[str] plan: Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
                
-               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
         :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
                
@@ -361,7 +361,7 @@ class WorkspaceTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of a table in a Log Analytics Workspace.
         :param pulumi.Input[str] plan: Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
                
-               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+               > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
         :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
                
@@ -395,7 +395,7 @@ class WorkspaceTable(pulumi.CustomResource):
         """
         Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 
-        > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+        > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         """
         return pulumi.get(self, "plan")
 

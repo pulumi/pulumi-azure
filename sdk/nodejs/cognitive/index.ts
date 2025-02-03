@@ -20,6 +20,11 @@ export type AccountRaiBlocklist = import("./accountRaiBlocklist").AccountRaiBloc
 export const AccountRaiBlocklist: typeof import("./accountRaiBlocklist").AccountRaiBlocklist = null as any;
 utilities.lazyLoad(exports, ["AccountRaiBlocklist"], () => require("./accountRaiBlocklist"));
 
+export { AccountRaiPolicyArgs, AccountRaiPolicyState } from "./accountRaiPolicy";
+export type AccountRaiPolicy = import("./accountRaiPolicy").AccountRaiPolicy;
+export const AccountRaiPolicy: typeof import("./accountRaiPolicy").AccountRaiPolicy = null as any;
+utilities.lazyLoad(exports, ["AccountRaiPolicy"], () => require("./accountRaiPolicy"));
+
 export { AIServicesArgs, AIServicesState } from "./aiservices";
 export type AIServices = import("./aiservices").AIServices;
 export const AIServices: typeof import("./aiservices").AIServices = null as any;
@@ -48,6 +53,8 @@ const _module = {
                 return new AccountCustomerManagedKey(name, <any>undefined, { urn })
             case "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist":
                 return new AccountRaiBlocklist(name, <any>undefined, { urn })
+            case "azure:cognitive/accountRaiPolicy:AccountRaiPolicy":
+                return new AccountRaiPolicy(name, <any>undefined, { urn })
             case "azure:cognitive/deployment:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
             default:
@@ -59,4 +66,5 @@ pulumi.runtime.registerResourceModule("azure", "cognitive/aIServices", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/account", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountRaiBlocklist", _module)
+pulumi.runtime.registerResourceModule("azure", "cognitive/accountRaiPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/deployment", _module)

@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     name: "my-environment",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     logsDestination: "log-analytics",
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
@@ -109,9 +110,15 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+     *
+     * > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
+    /**
+     * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     */
+    public readonly logsDestination!: pulumi.Output<string>;
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
      *
@@ -175,6 +182,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["internalLoadBalancerEnabled"] = state ? state.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logsDestination"] = state ? state.logsDestination : undefined;
             resourceInputs["mutualTlsEnabled"] = state ? state.mutualTlsEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["platformReservedCidr"] = state ? state.platformReservedCidr : undefined;
@@ -195,6 +203,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
+            resourceInputs["logsDestination"] = args ? args.logsDestination : undefined;
             resourceInputs["mutualTlsEnabled"] = args ? args.mutualTlsEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -258,9 +267,15 @@ export interface EnvironmentState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+     *
+     * > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    /**
+     * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     */
+    logsDestination?: pulumi.Input<string>;
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
      *
@@ -334,9 +349,15 @@ export interface EnvironmentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+     * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+     *
+     * > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    /**
+     * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     */
+    logsDestination?: pulumi.Input<string>;
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
      *
