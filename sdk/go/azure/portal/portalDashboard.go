@@ -30,7 +30,7 @@ type PortalDashboard struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	//
-	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+	// > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -86,7 +86,7 @@ type portalDashboardState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	//
-	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+	// > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -101,7 +101,7 @@ type PortalDashboardState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	//
-	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+	// > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -120,7 +120,7 @@ type portalDashboardArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	//
-	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+	// > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -136,7 +136,7 @@ type PortalDashboardArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 	//
-	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+	// > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -243,7 +243,7 @@ func (o PortalDashboardOutput) Location() pulumi.StringOutput {
 
 // Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
 //
-// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+// > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 func (o PortalDashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortalDashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

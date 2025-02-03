@@ -51,7 +51,7 @@ import (
 //				Name:      pulumi.String("exampledb"),
 //				ServerId:  exampleFlexibleServer.ID(),
 //				Collation: pulumi.String("en_US.utf8"),
-//				Charset:   pulumi.String("utf8"),
+//				Charset:   pulumi.String("UTF8"),
 //			})
 //			if err != nil {
 //				return err

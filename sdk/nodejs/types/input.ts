@@ -121,6 +121,7 @@ export interface ProviderFeaturesPostgresqlFlexibleServer {
 export interface ProviderFeaturesRecoveryService {
     purgeProtectedItemsFromVaultOnDestroy?: pulumi.Input<boolean>;
     vmBackupStopProtectionAndRetainDataOnDestroy?: pulumi.Input<boolean>;
+    vmBackupSuspendProtectionAndRetainDataOnDestroy?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesRecoveryServicesVaults {
@@ -18161,6 +18162,12 @@ export namespace cognitive {
 
     export interface AccountNetworkAcls {
         /**
+         * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+         *
+         * > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+         */
+        bypass?: pulumi.Input<string>;
+        /**
          * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          */
         defaultAction: pulumi.Input<string>;
@@ -18183,6 +18190,29 @@ export namespace cognitive {
          * The ID of the subnet which should be able to access this Cognitive Account.
          */
         subnetId: pulumi.Input<string>;
+    }
+
+    export interface AccountRaiPolicyContentFilter {
+        /**
+         * Whether the filter should block content. Possible values are `true` or `false`.
+         */
+        blockEnabled: pulumi.Input<boolean>;
+        /**
+         * Whether the filter is enabled. Possible values are `true` or `false`.
+         */
+        filterEnabled: pulumi.Input<boolean>;
+        /**
+         * The name of the content filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+         */
+        severityThreshold: pulumi.Input<string>;
+        /**
+         * Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+         */
+        source: pulumi.Input<string>;
     }
 
     export interface AccountStorage {
@@ -41068,6 +41098,39 @@ export namespace mssql {
         mode: pulumi.Input<string>;
     }
 
+    export interface JobTargetGroupJobTarget {
+        /**
+         * The name of the MS SQL Database.
+         *
+         * > **Note:** This cannot be set in combination with `elasticPoolName`.
+         */
+        databaseName?: pulumi.Input<string>;
+        /**
+         * The name of the MS SQL Elastic Pool.
+         *
+         * > **Note:** This cannot be set in combination with `databaseName`.
+         */
+        elasticPoolName?: pulumi.Input<string>;
+        /**
+         * The ID of the job credential to use during execution of jobs.
+         *
+         * > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+         */
+        jobCredentialId?: pulumi.Input<string>;
+        /**
+         * The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+         */
+        membershipType?: pulumi.Input<string>;
+        /**
+         * The name of the MS SQL Server.
+         */
+        serverName: pulumi.Input<string>;
+        /**
+         * The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface ManagedDatabaseLongTermRetentionPolicy {
         immutableBackupsEnabled?: pulumi.Input<boolean>;
         /**
@@ -42384,7 +42447,7 @@ export namespace network {
         /**
          * One or more `ipConfiguration` blocks as defined below.
          *
-         * > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+         * > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
          *
          * ```bash
          * az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
         /// 
-        /// &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+        /// &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         /// </summary>
         [Output("plan")]
         public Output<string?> Plan { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
         /// 
-        /// &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+        /// &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         /// </summary>
         [Input("plan")]
         public Input<string>? Plan { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
         /// 
-        /// &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+        /// &gt; **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
         /// </summary>
         [Input("plan")]
         public Input<string>? Plan { get; set; }

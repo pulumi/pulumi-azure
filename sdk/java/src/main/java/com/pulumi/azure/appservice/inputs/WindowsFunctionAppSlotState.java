@@ -602,14 +602,18 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      * 
      */
     @Import(name="vnetImagePullEnabled")
     private @Nullable Output<Boolean> vnetImagePullEnabled;
 
     /**
-     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * @return Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      * 
      */
     public Optional<Output<Boolean>> vnetImagePullEnabled() {
@@ -1543,7 +1547,9 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * @param vnetImagePullEnabled Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
          * 
          * @return builder
          * 
@@ -1554,7 +1560,9 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * @param vnetImagePullEnabled Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
          * 
          * @return builder
          * 

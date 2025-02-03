@@ -29,11 +29,19 @@ public final class ProviderFeaturesRecoveryServiceArgs extends com.pulumi.resour
         return Optional.ofNullable(this.vmBackupStopProtectionAndRetainDataOnDestroy);
     }
 
+    @Import(name="vmBackupSuspendProtectionAndRetainDataOnDestroy")
+    private @Nullable Output<Boolean> vmBackupSuspendProtectionAndRetainDataOnDestroy;
+
+    public Optional<Output<Boolean>> vmBackupSuspendProtectionAndRetainDataOnDestroy() {
+        return Optional.ofNullable(this.vmBackupSuspendProtectionAndRetainDataOnDestroy);
+    }
+
     private ProviderFeaturesRecoveryServiceArgs() {}
 
     private ProviderFeaturesRecoveryServiceArgs(ProviderFeaturesRecoveryServiceArgs $) {
         this.purgeProtectedItemsFromVaultOnDestroy = $.purgeProtectedItemsFromVaultOnDestroy;
         this.vmBackupStopProtectionAndRetainDataOnDestroy = $.vmBackupStopProtectionAndRetainDataOnDestroy;
+        this.vmBackupSuspendProtectionAndRetainDataOnDestroy = $.vmBackupSuspendProtectionAndRetainDataOnDestroy;
     }
 
     public static Builder builder() {
@@ -70,6 +78,15 @@ public final class ProviderFeaturesRecoveryServiceArgs extends com.pulumi.resour
 
         public Builder vmBackupStopProtectionAndRetainDataOnDestroy(Boolean vmBackupStopProtectionAndRetainDataOnDestroy) {
             return vmBackupStopProtectionAndRetainDataOnDestroy(Output.of(vmBackupStopProtectionAndRetainDataOnDestroy));
+        }
+
+        public Builder vmBackupSuspendProtectionAndRetainDataOnDestroy(@Nullable Output<Boolean> vmBackupSuspendProtectionAndRetainDataOnDestroy) {
+            $.vmBackupSuspendProtectionAndRetainDataOnDestroy = vmBackupSuspendProtectionAndRetainDataOnDestroy;
+            return this;
+        }
+
+        public Builder vmBackupSuspendProtectionAndRetainDataOnDestroy(Boolean vmBackupSuspendProtectionAndRetainDataOnDestroy) {
+            return vmBackupSuspendProtectionAndRetainDataOnDestroy(Output.of(vmBackupSuspendProtectionAndRetainDataOnDestroy));
         }
 
         public ProviderFeaturesRecoveryServiceArgs build() {

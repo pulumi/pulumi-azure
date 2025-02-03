@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .name("exampledb")
  *             .serverId(exampleFlexibleServer.id())
  *             .collation("en_US.utf8")
- *             .charset("utf8")
+ *             .charset("UTF8")
  *             .build());
  * 
  *     }}{@code

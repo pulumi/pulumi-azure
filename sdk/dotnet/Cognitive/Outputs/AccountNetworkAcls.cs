@@ -14,6 +14,12 @@ namespace Pulumi.Azure.Cognitive.Outputs
     public sealed class AccountNetworkAcls
     {
         /// <summary>
+        /// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+        /// 
+        /// &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        /// </summary>
+        public readonly string? Bypass;
+        /// <summary>
         /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         public readonly string DefaultAction;
@@ -28,12 +34,15 @@ namespace Pulumi.Azure.Cognitive.Outputs
 
         [OutputConstructor]
         private AccountNetworkAcls(
+            string? bypass,
+
             string defaultAction,
 
             ImmutableArray<string> ipRules,
 
             ImmutableArray<Outputs.AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules)
         {
+            Bypass = bypass;
             DefaultAction = defaultAction;
             IpRules = ipRules;
             VirtualNetworkRules = virtualNetworkRules;

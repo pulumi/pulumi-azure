@@ -32,6 +32,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The hostname of the Communication Service
+     * 
+     */
+    @Import(name="hostname")
+    private @Nullable Output<String> hostname;
+
+    /**
+     * @return The hostname of the Communication Service
+     * 
+     */
+    public Optional<Output<String>> hostname() {
+        return Optional.ofNullable(this.hostname);
+    }
+
+    /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      * 
      */
@@ -140,6 +155,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     private ServiceState(ServiceState $) {
         this.dataLocation = $.dataLocation;
+        this.hostname = $.hostname;
         this.name = $.name;
         this.primaryConnectionString = $.primaryConnectionString;
         this.primaryKey = $.primaryKey;
@@ -186,6 +202,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dataLocation(String dataLocation) {
             return dataLocation(Output.of(dataLocation));
+        }
+
+        /**
+         * @param hostname The hostname of the Communication Service
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostname(@Nullable Output<String> hostname) {
+            $.hostname = hostname;
+            return this;
+        }
+
+        /**
+         * @param hostname The hostname of the Communication Service
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostname(String hostname) {
+            return hostname(Output.of(hostname));
         }
 
         /**

@@ -35,6 +35,8 @@ __all__ = [
     'FailoverGroupPartnerServerArgsDict',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
+    'JobTargetGroupJobTargetArgs',
+    'JobTargetGroupJobTargetArgsDict',
     'ManagedDatabaseLongTermRetentionPolicyArgs',
     'ManagedDatabaseLongTermRetentionPolicyArgsDict',
     'ManagedDatabasePointInTimeRestoreArgs',
@@ -885,6 +887,155 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @grace_minutes.setter
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
+
+
+if not MYPY:
+    class JobTargetGroupJobTargetArgsDict(TypedDict):
+        server_name: pulumi.Input[str]
+        """
+        The name of the MS SQL Server.
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the MS SQL Database.
+
+        > **Note:** This cannot be set in combination with `elastic_pool_name`.
+        """
+        elastic_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the MS SQL Elastic Pool.
+
+        > **Note:** This cannot be set in combination with `database_name`.
+        """
+        job_credential_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the job credential to use during execution of jobs.
+
+        > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        """
+        membership_type: NotRequired[pulumi.Input[str]]
+        """
+        The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        """
+elif False:
+    JobTargetGroupJobTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobTargetGroupJobTargetArgs:
+    def __init__(__self__, *,
+                 server_name: pulumi.Input[str],
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 elastic_pool_name: Optional[pulumi.Input[str]] = None,
+                 job_credential_id: Optional[pulumi.Input[str]] = None,
+                 membership_type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] server_name: The name of the MS SQL Server.
+        :param pulumi.Input[str] database_name: The name of the MS SQL Database.
+               
+               > **Note:** This cannot be set in combination with `elastic_pool_name`.
+        :param pulumi.Input[str] elastic_pool_name: The name of the MS SQL Elastic Pool.
+               
+               > **Note:** This cannot be set in combination with `database_name`.
+        :param pulumi.Input[str] job_credential_id: The ID of the job credential to use during execution of jobs.
+               
+               > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        :param pulumi.Input[str] membership_type: The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+        :param pulumi.Input[str] type: The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        """
+        pulumi.set(__self__, "server_name", server_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if elastic_pool_name is not None:
+            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+        if job_credential_id is not None:
+            pulumi.set(__self__, "job_credential_id", job_credential_id)
+        if membership_type is not None:
+            pulumi.set(__self__, "membership_type", membership_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the MS SQL Server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the MS SQL Database.
+
+        > **Note:** This cannot be set in combination with `elastic_pool_name`.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="elasticPoolName")
+    def elastic_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the MS SQL Elastic Pool.
+
+        > **Note:** This cannot be set in combination with `database_name`.
+        """
+        return pulumi.get(self, "elastic_pool_name")
+
+    @elastic_pool_name.setter
+    def elastic_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elastic_pool_name", value)
+
+    @property
+    @pulumi.getter(name="jobCredentialId")
+    def job_credential_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the job credential to use during execution of jobs.
+
+        > **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        """
+        return pulumi.get(self, "job_credential_id")
+
+    @job_credential_id.setter
+    def job_credential_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_credential_id", value)
+
+    @property
+    @pulumi.getter(name="membershipType")
+    def membership_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+        """
+        return pulumi.get(self, "membership_type")
+
+    @membership_type.setter
+    def membership_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "membership_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

@@ -33,6 +33,7 @@ from .get_gateway_host_name_configuration import *
 from .get_group import *
 from .get_product import *
 from .get_service import *
+from .get_subscription import *
 from .get_user import *
 from .global_schema import *
 from .group import *

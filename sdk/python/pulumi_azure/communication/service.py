@@ -91,6 +91,7 @@ class ServiceArgs:
 class _ServiceState:
     def __init__(__self__, *,
                  data_location: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
@@ -101,6 +102,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[str] hostname: The hostname of the Communication Service
         :param pulumi.Input[str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Communication Service.
         :param pulumi.Input[str] primary_key: The primary key of the Communication Service.
@@ -111,6 +113,8 @@ class _ServiceState:
         """
         if data_location is not None:
             pulumi.set(__self__, "data_location", data_location)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_connection_string is not None:
@@ -137,6 +141,18 @@ class _ServiceState:
     @data_location.setter
     def data_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_location", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname of the Communication Service
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
 
     @property
     @pulumi.getter
@@ -332,6 +348,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["hostname"] = None
             __props__.__dict__["primary_connection_string"] = None
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["secondary_connection_string"] = None
@@ -349,6 +366,7 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             data_location: Optional[pulumi.Input[str]] = None,
+            hostname: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
@@ -364,6 +382,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[str] hostname: The hostname of the Communication Service
         :param pulumi.Input[str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Communication Service.
         :param pulumi.Input[str] primary_key: The primary key of the Communication Service.
@@ -377,6 +396,7 @@ class Service(pulumi.CustomResource):
         __props__ = _ServiceState.__new__(_ServiceState)
 
         __props__.__dict__["data_location"] = data_location
+        __props__.__dict__["hostname"] = hostname
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_connection_string"] = primary_connection_string
         __props__.__dict__["primary_key"] = primary_key
@@ -393,6 +413,14 @@ class Service(pulumi.CustomResource):
         The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "data_location")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> pulumi.Output[str]:
+        """
+        The hostname of the Communication Service
+        """
+        return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter

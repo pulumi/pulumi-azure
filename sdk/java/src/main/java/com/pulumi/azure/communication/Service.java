@@ -89,6 +89,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataLocation);
     }
     /**
+     * The hostname of the Communication Service
+     * 
+     */
+    @Export(name="hostname", refs={String.class}, tree="[0]")
+    private Output<String> hostname;
+
+    /**
+     * @return The hostname of the Communication Service
+     * 
+     */
+    public Output<String> hostname() {
+        return this.hostname;
+    }
+    /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      * 
      */

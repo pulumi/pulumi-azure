@@ -70,7 +70,7 @@ type WorkspaceTable struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 	//
-	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan pulumi.StringPtrOutput `pulumi:"plan"`
 	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
@@ -121,7 +121,7 @@ type workspaceTableState struct {
 	Name *string `pulumi:"name"`
 	// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 	//
-	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan *string `pulumi:"plan"`
 	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -140,7 +140,7 @@ type WorkspaceTableState struct {
 	Name pulumi.StringPtrInput
 	// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 	//
-	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan pulumi.StringPtrInput
 	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays pulumi.IntPtrInput
@@ -163,7 +163,7 @@ type workspaceTableArgs struct {
 	Name *string `pulumi:"name"`
 	// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 	//
-	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan *string `pulumi:"plan"`
 	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -183,7 +183,7 @@ type WorkspaceTableArgs struct {
 	Name pulumi.StringPtrInput
 	// Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 	//
-	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 	Plan pulumi.StringPtrInput
 	// The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
 	RetentionInDays pulumi.IntPtrInput
@@ -291,7 +291,7 @@ func (o WorkspaceTableOutput) Name() pulumi.StringOutput {
 
 // Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
 //
-// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
+// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
 func (o WorkspaceTableOutput) Plan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTable) pulumi.StringPtrOutput { return v.Plan }).(pulumi.StringPtrOutput)
 }

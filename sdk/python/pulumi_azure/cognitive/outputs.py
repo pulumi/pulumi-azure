@@ -25,6 +25,7 @@ __all__ = [
     'AccountIdentity',
     'AccountNetworkAcls',
     'AccountNetworkAclsVirtualNetworkRule',
+    'AccountRaiPolicyContentFilter',
     'AccountStorage',
     'DeploymentModel',
     'DeploymentSku',
@@ -488,14 +489,20 @@ class AccountNetworkAcls(dict):
 
     def __init__(__self__, *,
                  default_action: str,
+                 bypass: Optional[str] = None,
                  ip_rules: Optional[Sequence[str]] = None,
                  virtual_network_rules: Optional[Sequence['outputs.AccountNetworkAclsVirtualNetworkRule']] = None):
         """
         :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        :param str bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+               
+               > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param Sequence['AccountNetworkAclsVirtualNetworkRuleArgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
@@ -508,6 +515,16 @@ class AccountNetworkAcls(dict):
         The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         """
         return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[str]:
+        """
+        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+
+        > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        """
+        return pulumi.get(self, "bypass")
 
     @property
     @pulumi.getter(name="ipRules")
@@ -573,6 +590,89 @@ class AccountNetworkAclsVirtualNetworkRule(dict):
         Whether ignore missing vnet service endpoint or not. Default to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+
+@pulumi.output_type
+class AccountRaiPolicyContentFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockEnabled":
+            suggest = "block_enabled"
+        elif key == "filterEnabled":
+            suggest = "filter_enabled"
+        elif key == "severityThreshold":
+            suggest = "severity_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountRaiPolicyContentFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountRaiPolicyContentFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountRaiPolicyContentFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_enabled: bool,
+                 filter_enabled: bool,
+                 name: str,
+                 severity_threshold: str,
+                 source: str):
+        """
+        :param bool block_enabled: Whether the filter should block content. Possible values are `true` or `false`.
+        :param bool filter_enabled: Whether the filter is enabled. Possible values are `true` or `false`.
+        :param str name: The name of the content filter.
+        :param str severity_threshold: The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+        :param str source: Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+        """
+        pulumi.set(__self__, "block_enabled", block_enabled)
+        pulumi.set(__self__, "filter_enabled", filter_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "severity_threshold", severity_threshold)
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="blockEnabled")
+    def block_enabled(self) -> bool:
+        """
+        Whether the filter should block content. Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "block_enabled")
+
+    @property
+    @pulumi.getter(name="filterEnabled")
+    def filter_enabled(self) -> bool:
+        """
+        Whether the filter is enabled. Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "filter_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the content filter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="severityThreshold")
+    def severity_threshold(self) -> str:
+        """
+        The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+        """
+        return pulumi.get(self, "severity_threshold")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+        """
+        return pulumi.get(self, "source")
 
 
 @pulumi.output_type

@@ -110,6 +110,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
+     * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+     * 
      */
     @Import(name="logAnalyticsWorkspaceId")
     private @Nullable Output<String> logAnalyticsWorkspaceId;
@@ -117,9 +119,26 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
      * 
+     * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+     * 
      */
     public Optional<Output<String>> logAnalyticsWorkspaceId() {
         return Optional.ofNullable(this.logAnalyticsWorkspaceId);
+    }
+
+    /**
+     * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     * 
+     */
+    @Import(name="logsDestination")
+    private @Nullable Output<String> logsDestination;
+
+    /**
+     * @return Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+     * 
+     */
+    public Optional<Output<String>> logsDestination() {
+        return Optional.ofNullable(this.logsDestination);
     }
 
     /**
@@ -229,6 +248,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.internalLoadBalancerEnabled = $.internalLoadBalancerEnabled;
         this.location = $.location;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
+        this.logsDestination = $.logsDestination;
         this.mutualTlsEnabled = $.mutualTlsEnabled;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -375,6 +395,8 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param logAnalyticsWorkspaceId The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
          * 
+         * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+         * 
          * @return builder
          * 
          */
@@ -386,11 +408,34 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param logAnalyticsWorkspaceId The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
          * 
+         * &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+         * 
          * @return builder
          * 
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
+        }
+
+        /**
+         * @param logsDestination Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logsDestination(@Nullable Output<String> logsDestination) {
+            $.logsDestination = logsDestination;
+            return this;
+        }
+
+        /**
+         * @param logsDestination Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logsDestination(String logsDestination) {
+            return logsDestination(Output.of(logsDestination));
         }
 
         /**

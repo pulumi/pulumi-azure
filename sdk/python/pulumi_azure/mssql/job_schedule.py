@@ -31,7 +31,7 @@ class JobScheduleArgs:
         :param pulumi.Input[str] type: The type of schedule. Possible values are `Once` and `Recurring`.
         :param pulumi.Input[bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
                
-               > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+               > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         :param pulumi.Input[str] end_time: The end time of the schedule. Must be in RFC3339 format.
         :param pulumi.Input[str] interval: The interval between job executions. Must be in ISO8601 duration format.
         :param pulumi.Input[str] start_time: The start time of the schedule. Must be in RFC3339 format.
@@ -77,7 +77,7 @@ class JobScheduleArgs:
         """
         Should the Elastic Job Schedule be enabled? Defaults to `false`.
 
-        > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         """
         return pulumi.get(self, "enabled")
 
@@ -135,7 +135,7 @@ class _JobScheduleState:
         Input properties used for looking up and filtering JobSchedule resources.
         :param pulumi.Input[bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
                
-               > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+               > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         :param pulumi.Input[str] end_time: The end time of the schedule. Must be in RFC3339 format.
         :param pulumi.Input[str] interval: The interval between job executions. Must be in ISO8601 duration format.
         :param pulumi.Input[str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
@@ -161,7 +161,7 @@ class _JobScheduleState:
         """
         Should the Elastic Job Schedule be enabled? Defaults to `false`.
 
-        > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         """
         return pulumi.get(self, "enabled")
 
@@ -299,7 +299,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
                
-               > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+               > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         :param pulumi.Input[str] end_time: The end time of the schedule. Must be in RFC3339 format.
         :param pulumi.Input[str] interval: The interval between job executions. Must be in ISO8601 duration format.
         :param pulumi.Input[str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
@@ -430,7 +430,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Should the Elastic Job Schedule be enabled? Defaults to `false`.
                
-               > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+               > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         :param pulumi.Input[str] end_time: The end time of the schedule. Must be in RFC3339 format.
         :param pulumi.Input[str] interval: The interval between job executions. Must be in ISO8601 duration format.
         :param pulumi.Input[str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
@@ -455,7 +455,7 @@ class JobSchedule(pulumi.CustomResource):
         """
         Should the Elastic Job Schedule be enabled? Defaults to `false`.
 
-        > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         """
         return pulumi.get(self, "enabled")
 

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountCustomerManagedKey{}
 	case "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist":
 		r = &AccountRaiBlocklist{}
+	case "azure:cognitive/accountRaiPolicy:AccountRaiPolicy":
+		r = &AccountRaiPolicy{}
 	case "azure:cognitive/deployment:Deployment":
 		r = &Deployment{}
 	default:
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cognitive/accountRaiBlocklist",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountRaiPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

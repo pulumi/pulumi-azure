@@ -998,7 +998,7 @@ index ed1f00c577..a4568c1ce0 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index d847c69797..dc19703131 100644
+index 50052e74c1..f5cdd73f95 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1197,14 +1197,14 @@ index 9e93c39f0e..39fb29509c 100644
  ---
  
 diff --git a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
-index 3bfeb2ad0b..360443e61d 100644
+index 09ac7f73e5..360443e61d 100644
 --- a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
 +++ b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
 @@ -52,7 +52,7 @@ A `rbac_authorization` block supports the following:
  
  * `resource_id` - (Required) The resource identifier of the integration runtime to be shared.
  
---> **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example [Shared Self-hosted](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/data-factory/shared-self-hosted).
+--> **Please Note:** RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example [Shared Self-hosted](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/data-factory/shared-self-hosted).
 +-> **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
  
  For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
@@ -1557,7 +1557,7 @@ index b43ebe8ea2..0cfd72ddf2 100644
  
    storage_account {
 diff --git a/website/docs/r/healthcare_service.html.markdown b/website/docs/r/healthcare_service.html.markdown
-index 18197f4acd..f7991b35d9 100644
+index 3a0428c910..28b0658cdc 100644
 --- a/website/docs/r/healthcare_service.html.markdown
 +++ b/website/docs/r/healthcare_service.html.markdown
 @@ -84,9 +84,9 @@ An `identity` block supports the following:
@@ -1629,25 +1629,22 @@ index d9c71a1023..c1c041691e 100644
    eventhub_endpoint_name = "events"
    resource_group_name    = azurerm_resource_group.example.name
 diff --git a/website/docs/r/key_vault.html.markdown b/website/docs/r/key_vault.html.markdown
-index 2b480185e6..42864de069 100644
+index 90d88f96b6..1577e7f7c4 100644
 --- a/website/docs/r/key_vault.html.markdown
 +++ b/website/docs/r/key_vault.html.markdown
-@@ -12,12 +12,9 @@ Manages a Key Vault.
+@@ -12,9 +12,9 @@ Manages a Key Vault.
  
  ## Disclaimers
  
--~> **Note:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+-~> **Note:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However, it's not possible to use both methods to manage Access Policies within a KeyVault, since there will be conflicts.
 +~> **Note:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  
--<!-- TODO: Remove Note in 4.0 -->
--~> **Note:** It's possible to define Key Vault Certificate Contacts both within [the `azurerm_key_vault` resource](key_vault.html) via the `contact` block and by using [the `azurerm_key_vault_certificate_contacts` resource](key_vault_certificate_contacts.html). However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
--
 -~> **Note:** Terraform will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` block within the Provider block.
 +~> **Note:** It's possible to define Key Vault Certificate Contacts both within the `azurerm_key_vault` resource via the `contact` block and by using the `azurerm_key_vault_certificate_contacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
  
  ## Example Usage
  
-@@ -84,7 +81,7 @@ The following arguments are supported:
+@@ -81,7 +81,7 @@ The following arguments are supported:
  
  ---
  
@@ -1656,7 +1653,7 @@ index 2b480185e6..42864de069 100644
  
  -> **NOTE** Since `access_policy` can be configured both inline and via the separate `azurerm_key_vault_access_policy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
-@@ -100,7 +97,7 @@ The following arguments are supported:
+@@ -97,7 +97,7 @@ The following arguments are supported:
  
  * `purge_protection_enabled` - (Optional) Is Purge Protection enabled for this Key Vault? 
  
@@ -1723,7 +1720,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index dd3898b6c5..f8cb8ab6f7 100644
+index b60323b21c..e09ae2fa2d 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1779,7 +1776,7 @@ index dd3898b6c5..f8cb8ab6f7 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1045,19 +1037,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1047,19 +1039,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2303,7 +2300,7 @@ index c82917be5a..131701e1d9 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index f613043486..21d73ac845 100644
+index 6f2e193082..11d863c9d8 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2724,7 +2721,7 @@ index a77a466231..a4c7275acf 100644
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{virtualDesktopWorkspaceID}|{virtualDesktopApplicationGroupID}`.
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
-index 20ddbcdb28..79bf235222 100644
+index a00b120455..0150d8f418 100644
 --- a/website/docs/r/virtual_machine.html.markdown
 +++ b/website/docs/r/virtual_machine.html.markdown
 @@ -12,13 +12,13 @@ Manages a Virtual Machine.

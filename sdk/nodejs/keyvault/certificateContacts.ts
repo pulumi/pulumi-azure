@@ -9,11 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages Key Vault Certificate Contacts.
  *
- * ## Disclaimers
- *
- * <!-- TODO: Remove Note in 4.0 -->
- * > **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -95,7 +90,6 @@ export class CertificateContacts extends pulumi.CustomResource {
 
     /**
      * One or more `contact` blocks as defined below.
-     * -->
      */
     public readonly contacts!: pulumi.Output<outputs.keyvault.CertificateContactsContact[] | undefined>;
     /**
@@ -137,7 +131,6 @@ export class CertificateContacts extends pulumi.CustomResource {
 export interface CertificateContactsState {
     /**
      * One or more `contact` blocks as defined below.
-     * -->
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[]>;
     /**
@@ -152,7 +145,6 @@ export interface CertificateContactsState {
 export interface CertificateContactsArgs {
     /**
      * One or more `contact` blocks as defined below.
-     * -->
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[]>;
     /**

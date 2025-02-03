@@ -35,6 +35,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:streamanalytics/outputCosmosdb:OutputCosmosdb")
 public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
     /**
+     * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Export(name="authenticationMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Output<Optional<String>> authenticationMode() {
+        return Codegen.optional(this.authenticationMode);
+    }
+    /**
      * The name of the CosmosDB container.
      * 
      */

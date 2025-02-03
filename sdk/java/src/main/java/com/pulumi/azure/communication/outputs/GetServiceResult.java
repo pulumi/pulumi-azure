@@ -17,6 +17,11 @@ public final class GetServiceResult {
      */
     private String dataLocation;
     /**
+     * @return The hostname of the Communication Service
+     * 
+     */
+    private String hostname;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -56,6 +61,13 @@ public final class GetServiceResult {
      */
     public String dataLocation() {
         return this.dataLocation;
+    }
+    /**
+     * @return The hostname of the Communication Service
+     * 
+     */
+    public String hostname() {
+        return this.hostname;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -116,6 +128,7 @@ public final class GetServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private String dataLocation;
+        private String hostname;
         private String id;
         private String name;
         private String primaryConnectionString;
@@ -128,6 +141,7 @@ public final class GetServiceResult {
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataLocation = defaults.dataLocation;
+    	      this.hostname = defaults.hostname;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.primaryConnectionString = defaults.primaryConnectionString;
@@ -144,6 +158,14 @@ public final class GetServiceResult {
               throw new MissingRequiredPropertyException("GetServiceResult", "dataLocation");
             }
             this.dataLocation = dataLocation;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostname(String hostname) {
+            if (hostname == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "hostname");
+            }
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
@@ -213,6 +235,7 @@ public final class GetServiceResult {
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.dataLocation = dataLocation;
+            _resultValue.hostname = hostname;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.primaryConnectionString = primaryConnectionString;

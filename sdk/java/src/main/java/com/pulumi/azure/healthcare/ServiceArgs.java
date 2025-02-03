@@ -78,7 +78,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+     * &gt; **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      * 
      */
     @Import(name="cosmosdbKeyVaultKeyVersionlessId")
@@ -87,7 +87,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+     * &gt; **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      * 
      */
     public Optional<Output<String>> cosmosdbKeyVaultKeyVersionlessId() {
@@ -142,7 +142,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+     * &gt; **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      * 
      */
     @Import(name="location")
@@ -151,7 +151,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+     * &gt; **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      * 
      */
     public Optional<Output<String>> location() {
@@ -333,7 +333,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cosmosdbKeyVaultKeyVersionlessId A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+         * &gt; **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cosmosdbKeyVaultKeyVersionlessId A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+         * &gt; **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param location Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+         * &gt; **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param location Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+         * &gt; **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
          * 
          * @return builder
          * 

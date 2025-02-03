@@ -241,7 +241,9 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      */
     public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -518,7 +520,9 @@ export interface WindowsFunctionAppSlotState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      */
     vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**
@@ -651,7 +655,9 @@ export interface WindowsFunctionAppSlotArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
      */
     vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**

@@ -19,6 +19,25 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
     public static final AccountNetworkAclsArgs Empty = new AccountNetworkAclsArgs();
 
     /**
+     * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+     * 
+     * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+     * 
+     */
+    @Import(name="bypass")
+    private @Nullable Output<String> bypass;
+
+    /**
+     * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+     * 
+     * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+     * 
+     */
+    public Optional<Output<String>> bypass() {
+        return Optional.ofNullable(this.bypass);
+    }
+
+    /**
      * The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
      * 
      */
@@ -66,6 +85,7 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
     private AccountNetworkAclsArgs() {}
 
     private AccountNetworkAclsArgs(AccountNetworkAclsArgs $) {
+        this.bypass = $.bypass;
         this.defaultAction = $.defaultAction;
         this.ipRules = $.ipRules;
         this.virtualNetworkRules = $.virtualNetworkRules;
@@ -87,6 +107,31 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
 
         public Builder(AccountNetworkAclsArgs defaults) {
             $ = new AccountNetworkAclsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bypass Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+         * 
+         * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypass(@Nullable Output<String> bypass) {
+            $.bypass = bypass;
+            return this;
+        }
+
+        /**
+         * @param bypass Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+         * 
+         * &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypass(String bypass) {
+            return bypass(Output.of(bypass));
         }
 
         /**

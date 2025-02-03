@@ -17,6 +17,21 @@ public final class OutputCosmosdbArgs extends com.pulumi.resources.ResourceArgs 
     public static final OutputCosmosdbArgs Empty = new OutputCosmosdbArgs();
 
     /**
+     * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
+    /**
      * The name of the CosmosDB container.
      * 
      */
@@ -124,6 +139,7 @@ public final class OutputCosmosdbArgs extends com.pulumi.resources.ResourceArgs 
     private OutputCosmosdbArgs() {}
 
     private OutputCosmosdbArgs(OutputCosmosdbArgs $) {
+        this.authenticationMode = $.authenticationMode;
         this.containerName = $.containerName;
         this.cosmosdbAccountKey = $.cosmosdbAccountKey;
         this.cosmosdbSqlDatabaseId = $.cosmosdbSqlDatabaseId;
@@ -149,6 +165,27 @@ public final class OutputCosmosdbArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(OutputCosmosdbArgs defaults) {
             $ = new OutputCosmosdbArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

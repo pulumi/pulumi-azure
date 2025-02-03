@@ -174,7 +174,9 @@ type WindowsFunctionAppSlot struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrOutput `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -306,7 +308,9 @@ type windowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
 	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -394,7 +398,9 @@ type WindowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
@@ -468,7 +474,9 @@ type windowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
 	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -539,7 +547,9 @@ type WindowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
@@ -833,7 +843,9 @@ func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrO
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Is container image pull over virtual network enabled? Defaults to `false`.
+// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+//
+// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
 func (o WindowsFunctionAppSlotOutput) VnetImagePullEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.VnetImagePullEnabled }).(pulumi.BoolPtrOutput)
 }

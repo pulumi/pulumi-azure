@@ -310,7 +310,9 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         /// </summary>
         [Output("vnetImagePullEnabled")]
         public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
@@ -585,7 +587,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }
@@ -902,7 +906,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }

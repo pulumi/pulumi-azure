@@ -43,7 +43,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         Name = "exampledb",
     ///         ServerId = exampleFlexibleServer.Id,
     ///         Collation = "en_US.utf8",
-    ///         Charset = "utf8",
+    ///         Charset = "UTF8",
     ///     });
     /// 
     /// });

@@ -158,7 +158,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+     * &gt; **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      * 
      */
     @Export(name="cosmosdbKeyVaultKeyVersionlessId", refs={String.class}, tree="[0]")
@@ -167,7 +167,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+     * &gt; **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      * 
      */
     public Output<Optional<String>> cosmosdbKeyVaultKeyVersionlessId() {
@@ -218,7 +218,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+     * &gt; **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
@@ -227,7 +227,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+     * &gt; **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      * 
      */
     public Output<String> location() {

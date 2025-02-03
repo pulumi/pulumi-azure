@@ -18,6 +18,8 @@ import com.pulumi.azure.apimanagement.inputs.GetProductArgs;
 import com.pulumi.azure.apimanagement.inputs.GetProductPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
 import com.pulumi.azure.apimanagement.inputs.GetServicePlainArgs;
+import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
+import com.pulumi.azure.apimanagement.inputs.GetSubscriptionPlainArgs;
 import com.pulumi.azure.apimanagement.inputs.GetUserArgs;
 import com.pulumi.azure.apimanagement.inputs.GetUserPlainArgs;
 import com.pulumi.azure.apimanagement.outputs.GetApiResult;
@@ -27,6 +29,7 @@ import com.pulumi.azure.apimanagement.outputs.GetGatewayResult;
 import com.pulumi.azure.apimanagement.outputs.GetGroupResult;
 import com.pulumi.azure.apimanagement.outputs.GetProductResult;
 import com.pulumi.azure.apimanagement.outputs.GetServiceResult;
+import com.pulumi.azure.apimanagement.outputs.GetSubscriptionResult;
 import com.pulumi.azure.apimanagement.outputs.GetUserResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1690,6 +1693,226 @@ public final class ApimanagementFunctions {
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:apimanagement/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .apiManagementId("example-apim")
+     *             .subscriptionId("example-subscription-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
+        return getSubscription(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Management Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .apiManagementId("example-apim")
+     *             .subscriptionId("example-subscription-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
+        return getSubscriptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing API Management Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .apiManagementId("example-apim")
+     *             .subscriptionId("example-subscription-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:apimanagement/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .apiManagementId("example-apim")
+     *             .subscriptionId("example-subscription-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:apimanagement/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing API Management Subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.apimanagement.ApimanagementFunctions;
+     * import com.pulumi.azure.apimanagement.inputs.GetSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApimanagementFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .apiManagementId("example-apim")
+     *             .subscriptionId("example-subscription-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:apimanagement/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing API Management User.

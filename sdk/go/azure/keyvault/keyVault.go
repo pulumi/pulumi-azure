@@ -94,12 +94,6 @@ type KeyVault struct {
 	//
 	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
-	// One or more `contact` block as defined below.
-	//
-	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
-	//
-	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
-	//
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -129,8 +123,6 @@ type KeyVault struct {
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	//
 	// > **Note:** This field can only be configured one time and cannot be updated.
-	//
-	// <!-- TODO: Remove `contact` and Notes in 4.0 -->
 	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -183,12 +175,6 @@ type keyVaultState struct {
 	//
 	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
-	// One or more `contact` block as defined below.
-	//
-	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
-	//
-	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
-	//
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -218,8 +204,6 @@ type keyVaultState struct {
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	//
 	// > **Note:** This field can only be configured one time and cannot be updated.
-	//
-	// <!-- TODO: Remove `contact` and Notes in 4.0 -->
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -234,12 +218,6 @@ type KeyVaultState struct {
 	//
 	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
-	// One or more `contact` block as defined below.
-	//
-	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
-	//
-	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
-	//
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -269,8 +247,6 @@ type KeyVaultState struct {
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	//
 	// > **Note:** This field can only be configured one time and cannot be updated.
-	//
-	// <!-- TODO: Remove `contact` and Notes in 4.0 -->
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -289,12 +265,6 @@ type keyVaultArgs struct {
 	//
 	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
-	// One or more `contact` block as defined below.
-	//
-	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
-	//
-	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
-	//
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -324,8 +294,6 @@ type keyVaultArgs struct {
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	//
 	// > **Note:** This field can only be configured one time and cannot be updated.
-	//
-	// <!-- TODO: Remove `contact` and Notes in 4.0 -->
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -339,12 +307,6 @@ type KeyVaultArgs struct {
 	//
 	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
-	// One or more `contact` block as defined below.
-	//
-	// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
-	//
-	// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
-	//
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -374,8 +336,6 @@ type KeyVaultArgs struct {
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 	//
 	// > **Note:** This field can only be configured one time and cannot be updated.
-	//
-	// <!-- TODO: Remove `contact` and Notes in 4.0 -->
 	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -477,12 +437,6 @@ func (o KeyVaultOutput) AccessPolicies() KeyVaultAccessPolicyArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultAccessPolicyArrayOutput { return v.AccessPolicies }).(KeyVaultAccessPolicyArrayOutput)
 }
 
-// One or more `contact` block as defined below.
-//
-// > **Note:** This field can only be set once user has `managecontacts` certificate permission.
-//
-// > **Note:** This field can only be set when `publicNetworkAccessEnabled` is set to `true`. To manage the `contact` with `publicNetworkAccessEnabled` set to `false`, please use the `keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `keyvault.KeyVault`, this means you'll need to import the `keyvault.CertificateContacts` manually.
-//
 // Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 func (o KeyVaultOutput) Contacts() KeyVaultContactArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultContactArrayOutput { return v.Contacts }).(KeyVaultContactArrayOutput)
@@ -548,8 +502,6 @@ func (o KeyVaultOutput) SkuName() pulumi.StringOutput {
 // The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
 //
 // > **Note:** This field can only be configured one time and cannot be updated.
-//
-// <!-- TODO: Remove `contact` and Notes in 4.0 -->
 func (o KeyVaultOutput) SoftDeleteRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.IntPtrOutput { return v.SoftDeleteRetentionDays }).(pulumi.IntPtrOutput)
 }

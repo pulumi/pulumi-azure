@@ -109,7 +109,7 @@ type JobSchedule struct {
 
 	// Should the Elastic Job Schedule be enabled? Defaults to `false`.
 	//
-	// > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+	// > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The end time of the schedule. Must be in RFC3339 format.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
@@ -161,7 +161,7 @@ func GetJobSchedule(ctx *pulumi.Context,
 type jobScheduleState struct {
 	// Should the Elastic Job Schedule be enabled? Defaults to `false`.
 	//
-	// > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+	// > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
 	Enabled *bool `pulumi:"enabled"`
 	// The end time of the schedule. Must be in RFC3339 format.
 	EndTime *string `pulumi:"endTime"`
@@ -178,7 +178,7 @@ type jobScheduleState struct {
 type JobScheduleState struct {
 	// Should the Elastic Job Schedule be enabled? Defaults to `false`.
 	//
-	// > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+	// > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
 	Enabled pulumi.BoolPtrInput
 	// The end time of the schedule. Must be in RFC3339 format.
 	EndTime pulumi.StringPtrInput
@@ -199,7 +199,7 @@ func (JobScheduleState) ElementType() reflect.Type {
 type jobScheduleArgs struct {
 	// Should the Elastic Job Schedule be enabled? Defaults to `false`.
 	//
-	// > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+	// > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
 	Enabled *bool `pulumi:"enabled"`
 	// The end time of the schedule. Must be in RFC3339 format.
 	EndTime *string `pulumi:"endTime"`
@@ -217,7 +217,7 @@ type jobScheduleArgs struct {
 type JobScheduleArgs struct {
 	// Should the Elastic Job Schedule be enabled? Defaults to `false`.
 	//
-	// > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+	// > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
 	Enabled pulumi.BoolPtrInput
 	// The end time of the schedule. Must be in RFC3339 format.
 	EndTime pulumi.StringPtrInput
@@ -320,7 +320,7 @@ func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) J
 
 // Should the Elastic Job Schedule be enabled? Defaults to `false`.
 //
-// > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+// > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
 func (o JobScheduleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

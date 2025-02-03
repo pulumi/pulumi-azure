@@ -84,7 +84,7 @@ import (
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
-	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 	//
 	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
 	//
@@ -162,7 +162,7 @@ func GetElasticPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type elasticPoolState struct {
-	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 	//
 	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
 	//
@@ -199,7 +199,7 @@ type elasticPoolState struct {
 }
 
 type ElasticPoolState struct {
-	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 	//
 	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
 	//
@@ -240,7 +240,7 @@ func (ElasticPoolState) ElementType() reflect.Type {
 }
 
 type elasticPoolArgs struct {
-	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 	//
 	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
 	//
@@ -278,7 +278,7 @@ type elasticPoolArgs struct {
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
-	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+	// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 	//
 	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
 	//
@@ -401,7 +401,7 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource.-> Possible values are `Default` or `VBS`.
+// Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
 //
 // > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
 //

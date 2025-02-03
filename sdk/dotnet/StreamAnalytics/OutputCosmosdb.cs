@@ -24,6 +24,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class OutputCosmosdb : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the CosmosDB container.
         /// </summary>
         [Output("containerName")]
@@ -116,6 +122,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class OutputCosmosdbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The name of the CosmosDB container.
         /// </summary>
         [Input("containerName", required: true)]
@@ -175,6 +187,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputCosmosdbState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The name of the CosmosDB container.
         /// </summary>

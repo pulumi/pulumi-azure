@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Inputs
         [Input("vmBackupStopProtectionAndRetainDataOnDestroy")]
         public Input<bool>? VmBackupStopProtectionAndRetainDataOnDestroy { get; set; }
 
+        [Input("vmBackupSuspendProtectionAndRetainDataOnDestroy")]
+        public Input<bool>? VmBackupSuspendProtectionAndRetainDataOnDestroy { get; set; }
+
         public ProviderFeaturesRecoveryServiceArgs()
         {
         }

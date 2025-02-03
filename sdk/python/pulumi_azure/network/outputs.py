@@ -1486,7 +1486,7 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
         """
         :param Sequence['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
-               > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+               > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
                
                ```bash
                az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
@@ -1505,7 +1505,7 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
         """
         One or more `ip_configuration` blocks as defined below.
 
-        > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+        > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 
         ```bash
         az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network

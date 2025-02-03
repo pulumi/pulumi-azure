@@ -153,6 +153,10 @@ namespace Pulumi.Azure.Communication
         /// </summary>
         public readonly string DataLocation;
         /// <summary>
+        /// The hostname of the Communication Service
+        /// </summary>
+        public readonly string Hostname;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -183,6 +187,8 @@ namespace Pulumi.Azure.Communication
         private GetServiceResult(
             string dataLocation,
 
+            string hostname,
+
             string id,
 
             string name,
@@ -200,6 +206,7 @@ namespace Pulumi.Azure.Communication
             ImmutableDictionary<string, string> tags)
         {
             DataLocation = dataLocation;
+            Hostname = hostname;
             Id = id;
             Name = name;
             PrimaryConnectionString = primaryConnectionString;

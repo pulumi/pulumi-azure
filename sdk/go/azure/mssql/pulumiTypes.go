@@ -1754,6 +1754,166 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobTargetGroupJobTarget struct {
+	// The name of the MS SQL Database.
+	//
+	// > **Note:** This cannot be set in combination with `elasticPoolName`.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The name of the MS SQL Elastic Pool.
+	//
+	// > **Note:** This cannot be set in combination with `databaseName`.
+	ElasticPoolName *string `pulumi:"elasticPoolName"`
+	// The ID of the job credential to use during execution of jobs.
+	//
+	// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+	JobCredentialId *string `pulumi:"jobCredentialId"`
+	// The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+	MembershipType *string `pulumi:"membershipType"`
+	// The name of the MS SQL Server.
+	ServerName string `pulumi:"serverName"`
+	// The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
+	Type *string `pulumi:"type"`
+}
+
+// JobTargetGroupJobTargetInput is an input type that accepts JobTargetGroupJobTargetArgs and JobTargetGroupJobTargetOutput values.
+// You can construct a concrete instance of `JobTargetGroupJobTargetInput` via:
+//
+//	JobTargetGroupJobTargetArgs{...}
+type JobTargetGroupJobTargetInput interface {
+	pulumi.Input
+
+	ToJobTargetGroupJobTargetOutput() JobTargetGroupJobTargetOutput
+	ToJobTargetGroupJobTargetOutputWithContext(context.Context) JobTargetGroupJobTargetOutput
+}
+
+type JobTargetGroupJobTargetArgs struct {
+	// The name of the MS SQL Database.
+	//
+	// > **Note:** This cannot be set in combination with `elasticPoolName`.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The name of the MS SQL Elastic Pool.
+	//
+	// > **Note:** This cannot be set in combination with `databaseName`.
+	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
+	// The ID of the job credential to use during execution of jobs.
+	//
+	// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+	JobCredentialId pulumi.StringPtrInput `pulumi:"jobCredentialId"`
+	// The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
+	// The name of the MS SQL Server.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobTargetGroupJobTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetGroupJobTarget)(nil)).Elem()
+}
+
+func (i JobTargetGroupJobTargetArgs) ToJobTargetGroupJobTargetOutput() JobTargetGroupJobTargetOutput {
+	return i.ToJobTargetGroupJobTargetOutputWithContext(context.Background())
+}
+
+func (i JobTargetGroupJobTargetArgs) ToJobTargetGroupJobTargetOutputWithContext(ctx context.Context) JobTargetGroupJobTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetGroupJobTargetOutput)
+}
+
+// JobTargetGroupJobTargetArrayInput is an input type that accepts JobTargetGroupJobTargetArray and JobTargetGroupJobTargetArrayOutput values.
+// You can construct a concrete instance of `JobTargetGroupJobTargetArrayInput` via:
+//
+//	JobTargetGroupJobTargetArray{ JobTargetGroupJobTargetArgs{...} }
+type JobTargetGroupJobTargetArrayInput interface {
+	pulumi.Input
+
+	ToJobTargetGroupJobTargetArrayOutput() JobTargetGroupJobTargetArrayOutput
+	ToJobTargetGroupJobTargetArrayOutputWithContext(context.Context) JobTargetGroupJobTargetArrayOutput
+}
+
+type JobTargetGroupJobTargetArray []JobTargetGroupJobTargetInput
+
+func (JobTargetGroupJobTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTargetGroupJobTarget)(nil)).Elem()
+}
+
+func (i JobTargetGroupJobTargetArray) ToJobTargetGroupJobTargetArrayOutput() JobTargetGroupJobTargetArrayOutput {
+	return i.ToJobTargetGroupJobTargetArrayOutputWithContext(context.Background())
+}
+
+func (i JobTargetGroupJobTargetArray) ToJobTargetGroupJobTargetArrayOutputWithContext(ctx context.Context) JobTargetGroupJobTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetGroupJobTargetArrayOutput)
+}
+
+type JobTargetGroupJobTargetOutput struct{ *pulumi.OutputState }
+
+func (JobTargetGroupJobTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetGroupJobTarget)(nil)).Elem()
+}
+
+func (o JobTargetGroupJobTargetOutput) ToJobTargetGroupJobTargetOutput() JobTargetGroupJobTargetOutput {
+	return o
+}
+
+func (o JobTargetGroupJobTargetOutput) ToJobTargetGroupJobTargetOutputWithContext(ctx context.Context) JobTargetGroupJobTargetOutput {
+	return o
+}
+
+// The name of the MS SQL Database.
+//
+// > **Note:** This cannot be set in combination with `elasticPoolName`.
+func (o JobTargetGroupJobTargetOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetGroupJobTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the MS SQL Elastic Pool.
+//
+// > **Note:** This cannot be set in combination with `databaseName`.
+func (o JobTargetGroupJobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetGroupJobTarget) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the job credential to use during execution of jobs.
+//
+// > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+func (o JobTargetGroupJobTargetOutput) JobCredentialId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetGroupJobTarget) *string { return v.JobCredentialId }).(pulumi.StringPtrOutput)
+}
+
+// The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+func (o JobTargetGroupJobTargetOutput) MembershipType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetGroupJobTarget) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the MS SQL Server.
+func (o JobTargetGroupJobTargetOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTargetGroupJobTarget) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
+func (o JobTargetGroupJobTargetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetGroupJobTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type JobTargetGroupJobTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTargetGroupJobTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTargetGroupJobTarget)(nil)).Elem()
+}
+
+func (o JobTargetGroupJobTargetArrayOutput) ToJobTargetGroupJobTargetArrayOutput() JobTargetGroupJobTargetArrayOutput {
+	return o
+}
+
+func (o JobTargetGroupJobTargetArrayOutput) ToJobTargetGroupJobTargetArrayOutputWithContext(ctx context.Context) JobTargetGroupJobTargetArrayOutput {
+	return o
+}
+
+func (o JobTargetGroupJobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetGroupJobTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTargetGroupJobTarget {
+		return vs[0].([]JobTargetGroupJobTarget)[vs[1].(int)]
+	}).(JobTargetGroupJobTargetOutput)
+}
+
 type ManagedDatabaseLongTermRetentionPolicy struct {
 	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -7482,6 +7642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetGroupJobTargetInput)(nil)).Elem(), JobTargetGroupJobTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetGroupJobTargetArrayInput)(nil)).Elem(), JobTargetGroupJobTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyPtrInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePointInTimeRestoreInput)(nil)).Elem(), ManagedDatabasePointInTimeRestoreArgs{})
@@ -7566,6 +7728,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(JobTargetGroupJobTargetOutput{})
+	pulumi.RegisterOutputType(JobTargetGroupJobTargetArrayOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDatabasePointInTimeRestoreOutput{})

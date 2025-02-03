@@ -28,6 +28,7 @@ class EnvironmentArgs:
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 logs_destination: Optional[pulumi.Input[str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -47,7 +48,10 @@ class EnvironmentArgs:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+               
+               > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        :param pulumi.Input[str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -71,6 +75,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "location", location)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if logs_destination is not None:
+            pulumi.set(__self__, "logs_destination", logs_destination)
         if mutual_tls_enabled is not None:
             pulumi.set(__self__, "mutual_tls_enabled", mutual_tls_enabled)
         if name is not None:
@@ -164,13 +170,27 @@ class EnvironmentArgs:
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+
+        > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
     def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="logsDestination")
+    def logs_destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+        """
+        return pulumi.get(self, "logs_destination")
+
+    @logs_destination.setter
+    def logs_destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logs_destination", value)
 
     @property
     @pulumi.getter(name="mutualTlsEnabled")
@@ -249,6 +269,7 @@ class _EnvironmentState:
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 logs_destination: Optional[pulumi.Input[str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
@@ -274,7 +295,10 @@ class _EnvironmentState:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+               
+               > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        :param pulumi.Input[str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -307,6 +331,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "location", location)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if logs_destination is not None:
+            pulumi.set(__self__, "logs_destination", logs_destination)
         if mutual_tls_enabled is not None:
             pulumi.set(__self__, "mutual_tls_enabled", mutual_tls_enabled)
         if name is not None:
@@ -432,13 +458,27 @@ class _EnvironmentState:
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+
+        > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
     @log_analytics_workspace_id.setter
     def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="logsDestination")
+    def logs_destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+        """
+        return pulumi.get(self, "logs_destination")
+
+    @logs_destination.setter
+    def logs_destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logs_destination", value)
 
     @property
     @pulumi.getter(name="mutualTlsEnabled")
@@ -564,6 +604,7 @@ class Environment(pulumi.CustomResource):
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 logs_destination: Optional[pulumi.Input[str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -593,6 +634,7 @@ class Environment(pulumi.CustomResource):
             name="my-environment",
             location=example.location,
             resource_group_name=example.name,
+            logs_destination="log-analytics",
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
 
@@ -617,7 +659,10 @@ class Environment(pulumi.CustomResource):
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+               
+               > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        :param pulumi.Input[str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -657,6 +702,7 @@ class Environment(pulumi.CustomResource):
             name="my-environment",
             location=example.location,
             resource_group_name=example.name,
+            logs_destination="log-analytics",
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
 
@@ -689,6 +735,7 @@ class Environment(pulumi.CustomResource):
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 logs_destination: Optional[pulumi.Input[str]] = None,
                  mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -710,6 +757,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["logs_destination"] = logs_destination
             __props__.__dict__["mutual_tls_enabled"] = mutual_tls_enabled
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -745,6 +793,7 @@ class Environment(pulumi.CustomResource):
             internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+            logs_destination: Optional[pulumi.Input[str]] = None,
             mutual_tls_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
@@ -775,7 +824,10 @@ class Environment(pulumi.CustomResource):
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+               
+               > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        :param pulumi.Input[str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
         :param pulumi.Input[bool] mutual_tls_enabled: Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
                
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -803,6 +855,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["logs_destination"] = logs_destination
         __props__.__dict__["mutual_tls_enabled"] = mutual_tls_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["platform_reserved_cidr"] = platform_reserved_cidr
@@ -888,9 +941,19 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+
+        > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="logsDestination")
+    def logs_destination(self) -> pulumi.Output[str]:
+        """
+        Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+        """
+        return pulumi.get(self, "logs_destination")
 
     @property
     @pulumi.getter(name="mutualTlsEnabled")

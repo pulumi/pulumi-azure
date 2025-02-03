@@ -24330,6 +24330,12 @@ export namespace cognitive {
 
     export interface AccountNetworkAcls {
         /**
+         * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+         *
+         * > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+         */
+        bypass?: string;
+        /**
          * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          */
         defaultAction: string;
@@ -24352,6 +24358,29 @@ export namespace cognitive {
          * The ID of the subnet which should be able to access this Cognitive Account.
          */
         subnetId: string;
+    }
+
+    export interface AccountRaiPolicyContentFilter {
+        /**
+         * Whether the filter should block content. Possible values are `true` or `false`.
+         */
+        blockEnabled: boolean;
+        /**
+         * Whether the filter is enabled. Possible values are `true` or `false`.
+         */
+        filterEnabled: boolean;
+        /**
+         * The name of the content filter.
+         */
+        name: string;
+        /**
+         * The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+         */
+        severityThreshold: string;
+        /**
+         * Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+         */
+        source: string;
     }
 
     export interface AccountStorage {
@@ -28686,6 +28715,7 @@ export namespace config {
     export interface FeaturesRecoveryService {
         purgeProtectedItemsFromVaultOnDestroy?: boolean;
         vmBackupStopProtectionAndRetainDataOnDestroy?: boolean;
+        vmBackupSuspendProtectionAndRetainDataOnDestroy?: boolean;
     }
 
     export interface FeaturesRecoveryServicesVaults {
@@ -51915,6 +51945,39 @@ export namespace mssql {
         type: string;
     }
 
+    export interface JobTargetGroupJobTarget {
+        /**
+         * The name of the MS SQL Database.
+         *
+         * > **Note:** This cannot be set in combination with `elasticPoolName`.
+         */
+        databaseName?: string;
+        /**
+         * The name of the MS SQL Elastic Pool.
+         *
+         * > **Note:** This cannot be set in combination with `databaseName`.
+         */
+        elasticPoolName?: string;
+        /**
+         * The ID of the job credential to use during execution of jobs.
+         *
+         * > **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
+         */
+        jobCredentialId?: string;
+        /**
+         * The membership type for this job target. Possible values are `Include` and `Exclude`. Defaults to `Include`.
+         */
+        membershipType?: string;
+        /**
+         * The name of the MS SQL Server.
+         */
+        serverName: string;
+        /**
+         * The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
+         */
+        type: string;
+    }
+
     export interface ManagedDatabaseLongTermRetentionPolicy {
         immutableBackupsEnabled?: boolean;
         /**
@@ -53498,7 +53561,7 @@ export namespace network {
         /**
          * One or more `ipConfiguration` blocks as defined below.
          *
-         * > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+         * > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
          *
          * ```bash
          * az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network

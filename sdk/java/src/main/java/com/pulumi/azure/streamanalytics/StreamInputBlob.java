@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -109,6 +110,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:streamanalytics/streamInputBlob:StreamInputBlob")
 public class StreamInputBlob extends com.pulumi.resources.CustomResource {
+    /**
+     * The authentication mode for the Stream Analytics Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Export(name="authenticationMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Analytics Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Output<Optional<String>> authenticationMode() {
+        return Codegen.optional(this.authenticationMode);
+    }
     /**
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      * 

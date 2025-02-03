@@ -19,11 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages Key Vault Certificate Contacts.
  * 
- * ## Disclaimers
- * 
- * &lt;!-- TODO: Remove Note in 4.0 --&gt;
- * &gt; **Note:** It&#39;s possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it&#39;s not possible to use both methods to manage Certificate Contacts within a KeyVault, since there&#39;ll be conflicts.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -116,7 +111,6 @@ import javax.annotation.Nullable;
 public class CertificateContacts extends com.pulumi.resources.CustomResource {
     /**
      * One or more `contact` blocks as defined below.
-     * --&gt;
      * 
      */
     @Export(name="contacts", refs={List.class,CertificateContactsContact.class}, tree="[0,1]")
@@ -124,7 +118,6 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
 
     /**
      * @return One or more `contact` blocks as defined below.
-     * --&gt;
      * 
      */
     public Output<Optional<List<CertificateContactsContact>>> contacts() {

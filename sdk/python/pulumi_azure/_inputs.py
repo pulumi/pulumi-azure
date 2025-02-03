@@ -799,6 +799,7 @@ if not MYPY:
     class ProviderFeaturesRecoveryServiceArgsDict(TypedDict):
         purge_protected_items_from_vault_on_destroy: NotRequired[pulumi.Input[bool]]
         vm_backup_stop_protection_and_retain_data_on_destroy: NotRequired[pulumi.Input[bool]]
+        vm_backup_suspend_protection_and_retain_data_on_destroy: NotRequired[pulumi.Input[bool]]
 elif False:
     ProviderFeaturesRecoveryServiceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -806,11 +807,14 @@ elif False:
 class ProviderFeaturesRecoveryServiceArgs:
     def __init__(__self__, *,
                  purge_protected_items_from_vault_on_destroy: Optional[pulumi.Input[bool]] = None,
-                 vm_backup_stop_protection_and_retain_data_on_destroy: Optional[pulumi.Input[bool]] = None):
+                 vm_backup_stop_protection_and_retain_data_on_destroy: Optional[pulumi.Input[bool]] = None,
+                 vm_backup_suspend_protection_and_retain_data_on_destroy: Optional[pulumi.Input[bool]] = None):
         if purge_protected_items_from_vault_on_destroy is not None:
             pulumi.set(__self__, "purge_protected_items_from_vault_on_destroy", purge_protected_items_from_vault_on_destroy)
         if vm_backup_stop_protection_and_retain_data_on_destroy is not None:
             pulumi.set(__self__, "vm_backup_stop_protection_and_retain_data_on_destroy", vm_backup_stop_protection_and_retain_data_on_destroy)
+        if vm_backup_suspend_protection_and_retain_data_on_destroy is not None:
+            pulumi.set(__self__, "vm_backup_suspend_protection_and_retain_data_on_destroy", vm_backup_suspend_protection_and_retain_data_on_destroy)
 
     @property
     @pulumi.getter(name="purgeProtectedItemsFromVaultOnDestroy")
@@ -829,6 +833,15 @@ class ProviderFeaturesRecoveryServiceArgs:
     @vm_backup_stop_protection_and_retain_data_on_destroy.setter
     def vm_backup_stop_protection_and_retain_data_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vm_backup_stop_protection_and_retain_data_on_destroy", value)
+
+    @property
+    @pulumi.getter(name="vmBackupSuspendProtectionAndRetainDataOnDestroy")
+    def vm_backup_suspend_protection_and_retain_data_on_destroy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vm_backup_suspend_protection_and_retain_data_on_destroy")
+
+    @vm_backup_suspend_protection_and_retain_data_on_destroy.setter
+    def vm_backup_suspend_protection_and_retain_data_on_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vm_backup_suspend_protection_and_retain_data_on_destroy", value)
 
 
 if not MYPY:

@@ -26,10 +26,13 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, data_location=None, id=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, tags=None):
+    def __init__(__self__, data_location=None, hostname=None, id=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, tags=None):
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        pulumi.set(__self__, "hostname", hostname)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,6 +65,14 @@ class GetServiceResult:
         The location where the Communication service stores its data at rest.
         """
         return pulumi.get(self, "data_location")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> str:
+        """
+        The hostname of the Communication Service
+        """
+        return pulumi.get(self, "hostname")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             data_location=self.data_location,
+            hostname=self.hostname,
             id=self.id,
             name=self.name,
             primary_connection_string=self.primary_connection_string,
@@ -170,6 +182,7 @@ def get_service(name: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         data_location=pulumi.get(__ret__, 'data_location'),
+        hostname=pulumi.get(__ret__, 'hostname'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
@@ -208,6 +221,7 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:communication/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         data_location=pulumi.get(__response__, 'data_location'),
+        hostname=pulumi.get(__response__, 'hostname'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),

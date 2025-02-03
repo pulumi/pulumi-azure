@@ -8,6 +8,7 @@ import typing
 from .account import *
 from .account_customer_managed_key import *
 from .account_rai_blocklist import *
+from .account_rai_policy import *
 from .ai_services import *
 from .deployment import *
 from .get_account import *
