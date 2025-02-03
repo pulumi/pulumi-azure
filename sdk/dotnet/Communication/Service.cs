@@ -56,6 +56,12 @@ namespace Pulumi.Azure.Communication
         public Output<string?> DataLocation { get; private set; } = null!;
 
         /// <summary>
+        /// The hostname of the Communication Service
+        /// </summary>
+        [Output("hostname")]
+        public Output<string> Hostname { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Output("name")]
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.Communication
         /// </summary>
         [Input("dataLocation")]
         public Input<string>? DataLocation { get; set; }
+
+        /// <summary>
+        /// The hostname of the Communication Service
+        /// </summary>
+        [Input("hostname")]
+        public Input<string>? Hostname { get; set; }
 
         /// <summary>
         /// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.

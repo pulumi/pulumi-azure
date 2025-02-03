@@ -460,6 +460,7 @@ namespace Pulumi.Azure
              {
                 public bool? PurgeProtectedItemsFromVaultOnDestroy { get; set; }
                 public bool? VmBackupStopProtectionAndRetainDataOnDestroy { get; set; }
+                public bool? VmBackupSuspendProtectionAndRetainDataOnDestroy { get; set; }
             }
 
              public class FeaturesRecoveryServicesVaults

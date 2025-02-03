@@ -95,7 +95,7 @@ export class JobSchedule extends pulumi.CustomResource {
     /**
      * Should the Elastic Job Schedule be enabled? Defaults to `false`.
      *
-     * > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+     * > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -165,7 +165,7 @@ export interface JobScheduleState {
     /**
      * Should the Elastic Job Schedule be enabled? Defaults to `false`.
      *
-     * > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+     * > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -197,7 +197,7 @@ export interface JobScheduleArgs {
     /**
      * Should the Elastic Job Schedule be enabled? Defaults to `false`.
      *
-     * > **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
+     * > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      */
     enabled?: pulumi.Input<boolean>;
     /**

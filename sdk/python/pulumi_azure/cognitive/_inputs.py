@@ -33,6 +33,8 @@ __all__ = [
     'AccountNetworkAclsArgsDict',
     'AccountNetworkAclsVirtualNetworkRuleArgs',
     'AccountNetworkAclsVirtualNetworkRuleArgsDict',
+    'AccountRaiPolicyContentFilterArgs',
+    'AccountRaiPolicyContentFilterArgsDict',
     'AccountStorageArgs',
     'AccountStorageArgsDict',
     'DeploymentModelArgs',
@@ -539,6 +541,12 @@ if not MYPY:
         """
         The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         """
+        bypass: NotRequired[pulumi.Input[str]]
+        """
+        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+
+        > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
@@ -554,14 +562,20 @@ elif False:
 class AccountNetworkAclsArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
+                 bypass: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+               
+               > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
@@ -578,6 +592,20 @@ class AccountNetworkAclsArgs:
     @default_action.setter
     def default_action(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+
+        > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        """
+        return pulumi.get(self, "bypass")
+
+    @bypass.setter
+    def bypass(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bypass", value)
 
     @property
     @pulumi.getter(name="ipRules")
@@ -653,6 +681,113 @@ class AccountNetworkAclsVirtualNetworkRuleArgs:
     @ignore_missing_vnet_service_endpoint.setter
     def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
+
+
+if not MYPY:
+    class AccountRaiPolicyContentFilterArgsDict(TypedDict):
+        block_enabled: pulumi.Input[bool]
+        """
+        Whether the filter should block content. Possible values are `true` or `false`.
+        """
+        filter_enabled: pulumi.Input[bool]
+        """
+        Whether the filter is enabled. Possible values are `true` or `false`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the content filter.
+        """
+        severity_threshold: pulumi.Input[str]
+        """
+        The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+        """
+        source: pulumi.Input[str]
+        """
+        Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+        """
+elif False:
+    AccountRaiPolicyContentFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountRaiPolicyContentFilterArgs:
+    def __init__(__self__, *,
+                 block_enabled: pulumi.Input[bool],
+                 filter_enabled: pulumi.Input[bool],
+                 name: pulumi.Input[str],
+                 severity_threshold: pulumi.Input[str],
+                 source: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] block_enabled: Whether the filter should block content. Possible values are `true` or `false`.
+        :param pulumi.Input[bool] filter_enabled: Whether the filter is enabled. Possible values are `true` or `false`.
+        :param pulumi.Input[str] name: The name of the content filter.
+        :param pulumi.Input[str] severity_threshold: The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+        :param pulumi.Input[str] source: Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+        """
+        pulumi.set(__self__, "block_enabled", block_enabled)
+        pulumi.set(__self__, "filter_enabled", filter_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "severity_threshold", severity_threshold)
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="blockEnabled")
+    def block_enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether the filter should block content. Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "block_enabled")
+
+    @block_enabled.setter
+    def block_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "block_enabled", value)
+
+    @property
+    @pulumi.getter(name="filterEnabled")
+    def filter_enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether the filter is enabled. Possible values are `true` or `false`.
+        """
+        return pulumi.get(self, "filter_enabled")
+
+    @filter_enabled.setter
+    def filter_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "filter_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the content filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="severityThreshold")
+    def severity_threshold(self) -> pulumi.Input[str]:
+        """
+        The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+        """
+        return pulumi.get(self, "severity_threshold")
+
+    @severity_threshold.setter
+    def severity_threshold(self, value: pulumi.Input[str]):
+        pulumi.set(self, "severity_threshold", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
 
 
 if not MYPY:

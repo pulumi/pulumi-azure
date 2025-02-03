@@ -24,6 +24,8 @@ import (
 type OutputCosmosdb struct {
 	pulumi.CustomResourceState
 
+	// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The name of the CosmosDB container.
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
 	// The account key for the CosmosDB database.
@@ -89,6 +91,8 @@ func GetOutputCosmosdb(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutputCosmosdb resources.
 type outputCosmosdbState struct {
+	// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the CosmosDB container.
 	ContainerName *string `pulumi:"containerName"`
 	// The account key for the CosmosDB database.
@@ -106,6 +110,8 @@ type outputCosmosdbState struct {
 }
 
 type OutputCosmosdbState struct {
+	// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of the CosmosDB container.
 	ContainerName pulumi.StringPtrInput
 	// The account key for the CosmosDB database.
@@ -127,6 +133,8 @@ func (OutputCosmosdbState) ElementType() reflect.Type {
 }
 
 type outputCosmosdbArgs struct {
+	// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the CosmosDB container.
 	ContainerName string `pulumi:"containerName"`
 	// The account key for the CosmosDB database.
@@ -145,6 +153,8 @@ type outputCosmosdbArgs struct {
 
 // The set of arguments for constructing a OutputCosmosdb resource.
 type OutputCosmosdbArgs struct {
+	// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of the CosmosDB container.
 	ContainerName pulumi.StringInput
 	// The account key for the CosmosDB database.
@@ -246,6 +256,11 @@ func (o OutputCosmosdbOutput) ToOutputCosmosdbOutput() OutputCosmosdbOutput {
 
 func (o OutputCosmosdbOutput) ToOutputCosmosdbOutputWithContext(ctx context.Context) OutputCosmosdbOutput {
 	return o
+}
+
+// The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+func (o OutputCosmosdbOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputCosmosdb) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the CosmosDB container.

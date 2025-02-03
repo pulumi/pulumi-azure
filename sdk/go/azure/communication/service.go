@@ -62,6 +62,8 @@ type Service struct {
 
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
 	DataLocation pulumi.StringPtrOutput `pulumi:"dataLocation"`
+	// The hostname of the Communication Service
+	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary connection string of the Communication Service.
@@ -120,6 +122,8 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
 	DataLocation *string `pulumi:"dataLocation"`
+	// The hostname of the Communication Service
+	Hostname *string `pulumi:"hostname"`
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name *string `pulumi:"name"`
 	// The primary connection string of the Communication Service.
@@ -139,6 +143,8 @@ type serviceState struct {
 type ServiceState struct {
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
 	DataLocation pulumi.StringPtrInput
+	// The hostname of the Communication Service
+	Hostname pulumi.StringPtrInput
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name pulumi.StringPtrInput
 	// The primary connection string of the Communication Service.
@@ -272,6 +278,11 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 // The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
 func (o ServiceOutput) DataLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.DataLocation }).(pulumi.StringPtrOutput)
+}
+
+// The hostname of the Communication Service
+func (o ServiceOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Hostname }).(pulumi.StringOutput)
 }
 
 // The name of the Communication Service resource. Changing this forces a new Communication Service to be created.

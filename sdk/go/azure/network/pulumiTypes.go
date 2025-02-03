@@ -2210,7 +2210,7 @@ type ApplicationGatewayPrivateLinkConfiguration struct {
 	Id *string `pulumi:"id"`
 	// One or more `ipConfiguration` blocks as defined below.
 	//
-	// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+	// > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 	IpConfigurations []ApplicationGatewayPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfigurations"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -2232,7 +2232,7 @@ type ApplicationGatewayPrivateLinkConfigurationArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// One or more `ipConfiguration` blocks as defined below.
 	//
-	// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+	// > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 	IpConfigurations ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2296,7 +2296,7 @@ func (o ApplicationGatewayPrivateLinkConfigurationOutput) Id() pulumi.StringPtrO
 
 // One or more `ipConfiguration` blocks as defined below.
 //
-// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+// > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 func (o ApplicationGatewayPrivateLinkConfigurationOutput) IpConfigurations() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfiguration) []ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfigurations

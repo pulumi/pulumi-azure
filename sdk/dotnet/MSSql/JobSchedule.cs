@@ -94,7 +94,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Should the Elastic Job Schedule be enabled? Defaults to `false`.
         /// 
-        /// &gt; **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        /// &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Should the Elastic Job Schedule be enabled? Defaults to `false`.
         /// 
-        /// &gt; **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        /// &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Should the Elastic Job Schedule be enabled? Defaults to `false`.
         /// 
-        /// &gt; **Note**: When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        /// &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -2272,6 +2272,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cognitive/accountRaiPolicy",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountRaiPolicy:AccountRaiPolicy": "AccountRaiPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cognitive/deployment",
   "fqn": "pulumi_azure.cognitive",
   "classes": {
@@ -6084,6 +6092,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/jobSchedule:JobSchedule": "JobSchedule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/jobTargetGroup",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/jobTargetGroup:JobTargetGroup": "JobTargetGroup"
   }
  },
  {

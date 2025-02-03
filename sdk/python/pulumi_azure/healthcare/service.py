@@ -42,13 +42,13 @@ class ServiceArgs:
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
                
-               > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+               > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
                
-               > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+               > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -142,7 +142,7 @@ class ServiceArgs:
         """
         A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 
-        > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+        > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         """
         return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
 
@@ -192,7 +192,7 @@ class ServiceArgs:
         """
         Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 
-        > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+        > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         """
         return pulumi.get(self, "location")
 
@@ -260,13 +260,13 @@ class _ServiceState:
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
                
-               > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+               > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
                
-               > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+               > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
@@ -350,7 +350,7 @@ class _ServiceState:
         """
         A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 
-        > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+        > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         """
         return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
 
@@ -400,7 +400,7 @@ class _ServiceState:
         """
         Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 
-        > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+        > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         """
         return pulumi.get(self, "location")
 
@@ -539,13 +539,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
                
-               > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+               > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
                
-               > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+               > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
@@ -700,13 +700,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceCorsConfigurationArgs', 'ServiceCorsConfigurationArgsDict']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
                
-               > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+               > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
                
-               > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+               > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
@@ -766,7 +766,7 @@ class Service(pulumi.CustomResource):
         """
         A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 
-        > **Please Note** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+        > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
         """
         return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
 
@@ -800,7 +800,7 @@ class Service(pulumi.CustomResource):
         """
         Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 
-        > **Please Note**: Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+        > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
         """
         return pulumi.get(self, "location")
 

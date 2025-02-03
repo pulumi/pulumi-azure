@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 public final class FeaturesRecoveryService {
     private @Nullable Boolean purgeProtectedItemsFromVaultOnDestroy;
     private @Nullable Boolean vmBackupStopProtectionAndRetainDataOnDestroy;
+    private @Nullable Boolean vmBackupSuspendProtectionAndRetainDataOnDestroy;
 
     private FeaturesRecoveryService() {}
     public Optional<Boolean> purgeProtectedItemsFromVaultOnDestroy() {
@@ -20,6 +21,9 @@ public final class FeaturesRecoveryService {
     }
     public Optional<Boolean> vmBackupStopProtectionAndRetainDataOnDestroy() {
         return Optional.ofNullable(this.vmBackupStopProtectionAndRetainDataOnDestroy);
+    }
+    public Optional<Boolean> vmBackupSuspendProtectionAndRetainDataOnDestroy() {
+        return Optional.ofNullable(this.vmBackupSuspendProtectionAndRetainDataOnDestroy);
     }
 
     public static Builder builder() {
@@ -33,11 +37,13 @@ public final class FeaturesRecoveryService {
     public static final class Builder {
         private @Nullable Boolean purgeProtectedItemsFromVaultOnDestroy;
         private @Nullable Boolean vmBackupStopProtectionAndRetainDataOnDestroy;
+        private @Nullable Boolean vmBackupSuspendProtectionAndRetainDataOnDestroy;
         public Builder() {}
         public Builder(FeaturesRecoveryService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.purgeProtectedItemsFromVaultOnDestroy = defaults.purgeProtectedItemsFromVaultOnDestroy;
     	      this.vmBackupStopProtectionAndRetainDataOnDestroy = defaults.vmBackupStopProtectionAndRetainDataOnDestroy;
+    	      this.vmBackupSuspendProtectionAndRetainDataOnDestroy = defaults.vmBackupSuspendProtectionAndRetainDataOnDestroy;
         }
 
         @CustomType.Setter
@@ -52,10 +58,17 @@ public final class FeaturesRecoveryService {
             this.vmBackupStopProtectionAndRetainDataOnDestroy = vmBackupStopProtectionAndRetainDataOnDestroy;
             return this;
         }
+        @CustomType.Setter
+        public Builder vmBackupSuspendProtectionAndRetainDataOnDestroy(@Nullable Boolean vmBackupSuspendProtectionAndRetainDataOnDestroy) {
+
+            this.vmBackupSuspendProtectionAndRetainDataOnDestroy = vmBackupSuspendProtectionAndRetainDataOnDestroy;
+            return this;
+        }
         public FeaturesRecoveryService build() {
             final var _resultValue = new FeaturesRecoveryService();
             _resultValue.purgeProtectedItemsFromVaultOnDestroy = purgeProtectedItemsFromVaultOnDestroy;
             _resultValue.vmBackupStopProtectionAndRetainDataOnDestroy = vmBackupStopProtectionAndRetainDataOnDestroy;
+            _resultValue.vmBackupSuspendProtectionAndRetainDataOnDestroy = vmBackupSuspendProtectionAndRetainDataOnDestroy;
             return _resultValue;
         }
     }

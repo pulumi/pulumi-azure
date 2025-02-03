@@ -42,6 +42,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         Name = "my-environment",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         LogsDestination = "log-analytics",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
@@ -114,10 +115,18 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        /// 
+        /// &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+        /// </summary>
+        [Output("logsDestination")]
+        public Output<string> LogsDestination { get; private set; } = null!;
 
         /// <summary>
         /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
@@ -274,10 +283,18 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        /// 
+        /// &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
+
+        /// <summary>
+        /// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+        /// </summary>
+        [Input("logsDestination")]
+        public Input<string>? LogsDestination { get; set; }
 
         /// <summary>
         /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
@@ -404,10 +421,18 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+        /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        /// 
+        /// &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
+
+        /// <summary>
+        /// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+        /// </summary>
+        [Input("logsDestination")]
+        public Input<string>? LogsDestination { get; set; }
 
         /// <summary>
         /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.

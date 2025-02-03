@@ -51,6 +51,7 @@ import (
 //				Name:                    pulumi.String("my-environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
+//				LogsDestination:         pulumi.String("log-analytics"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
@@ -95,7 +96,11 @@ type Environment struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+	//
+	// > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
+	// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+	LogsDestination pulumi.StringOutput `pulumi:"logsDestination"`
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
 	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -183,7 +188,11 @@ type environmentState struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+	//
+	// > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+	// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+	LogsDestination *string `pulumi:"logsDestination"`
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
 	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -232,7 +241,11 @@ type EnvironmentState struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+	//
+	// > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
+	// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+	LogsDestination pulumi.StringPtrInput
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
 	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -279,7 +292,11 @@ type environmentArgs struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+	//
+	// > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+	// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+	LogsDestination *string `pulumi:"logsDestination"`
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
 	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -317,7 +334,11 @@ type EnvironmentArgs struct {
 	// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+	//
+	// > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
+	// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+	LogsDestination pulumi.StringPtrInput
 	// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
 	//
 	// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -470,8 +491,15 @@ func (o EnvironmentOutput) Location() pulumi.StringOutput {
 }
 
 // The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
+//
+// > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
 func (o EnvironmentOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+// Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
+func (o EnvironmentOutput) LogsDestination() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.LogsDestination }).(pulumi.StringOutput)
 }
 
 // Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.

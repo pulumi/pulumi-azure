@@ -1136,6 +1136,10 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type AccountNetworkAcls struct {
+	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+	//
+	// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+	Bypass *string `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
@@ -1156,6 +1160,10 @@ type AccountNetworkAclsInput interface {
 }
 
 type AccountNetworkAclsArgs struct {
+	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+	//
+	// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
@@ -1241,6 +1249,13 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx c
 	}).(AccountNetworkAclsPtrOutput)
 }
 
+// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+//
+// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+func (o AccountNetworkAclsOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkAcls) *string { return v.Bypass }).(pulumi.StringPtrOutput)
+}
+
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 func (o AccountNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
@@ -1278,6 +1293,18 @@ func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
 		var ret AccountNetworkAcls
 		return ret
 	}).(AccountNetworkAclsOutput)
+}
+
+// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
+//
+// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+func (o AccountNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bypass
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
@@ -1414,6 +1441,139 @@ func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkAclsVirtualNetworkRule {
 		return vs[0].([]AccountNetworkAclsVirtualNetworkRule)[vs[1].(int)]
 	}).(AccountNetworkAclsVirtualNetworkRuleOutput)
+}
+
+type AccountRaiPolicyContentFilter struct {
+	// Whether the filter should block content. Possible values are `true` or `false`.
+	BlockEnabled bool `pulumi:"blockEnabled"`
+	// Whether the filter is enabled. Possible values are `true` or `false`.
+	FilterEnabled bool `pulumi:"filterEnabled"`
+	// The name of the content filter.
+	Name string `pulumi:"name"`
+	// The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+	SeverityThreshold string `pulumi:"severityThreshold"`
+	// Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+	Source string `pulumi:"source"`
+}
+
+// AccountRaiPolicyContentFilterInput is an input type that accepts AccountRaiPolicyContentFilterArgs and AccountRaiPolicyContentFilterOutput values.
+// You can construct a concrete instance of `AccountRaiPolicyContentFilterInput` via:
+//
+//	AccountRaiPolicyContentFilterArgs{...}
+type AccountRaiPolicyContentFilterInput interface {
+	pulumi.Input
+
+	ToAccountRaiPolicyContentFilterOutput() AccountRaiPolicyContentFilterOutput
+	ToAccountRaiPolicyContentFilterOutputWithContext(context.Context) AccountRaiPolicyContentFilterOutput
+}
+
+type AccountRaiPolicyContentFilterArgs struct {
+	// Whether the filter should block content. Possible values are `true` or `false`.
+	BlockEnabled pulumi.BoolInput `pulumi:"blockEnabled"`
+	// Whether the filter is enabled. Possible values are `true` or `false`.
+	FilterEnabled pulumi.BoolInput `pulumi:"filterEnabled"`
+	// The name of the content filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+	SeverityThreshold pulumi.StringInput `pulumi:"severityThreshold"`
+	// Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (AccountRaiPolicyContentFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRaiPolicyContentFilter)(nil)).Elem()
+}
+
+func (i AccountRaiPolicyContentFilterArgs) ToAccountRaiPolicyContentFilterOutput() AccountRaiPolicyContentFilterOutput {
+	return i.ToAccountRaiPolicyContentFilterOutputWithContext(context.Background())
+}
+
+func (i AccountRaiPolicyContentFilterArgs) ToAccountRaiPolicyContentFilterOutputWithContext(ctx context.Context) AccountRaiPolicyContentFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRaiPolicyContentFilterOutput)
+}
+
+// AccountRaiPolicyContentFilterArrayInput is an input type that accepts AccountRaiPolicyContentFilterArray and AccountRaiPolicyContentFilterArrayOutput values.
+// You can construct a concrete instance of `AccountRaiPolicyContentFilterArrayInput` via:
+//
+//	AccountRaiPolicyContentFilterArray{ AccountRaiPolicyContentFilterArgs{...} }
+type AccountRaiPolicyContentFilterArrayInput interface {
+	pulumi.Input
+
+	ToAccountRaiPolicyContentFilterArrayOutput() AccountRaiPolicyContentFilterArrayOutput
+	ToAccountRaiPolicyContentFilterArrayOutputWithContext(context.Context) AccountRaiPolicyContentFilterArrayOutput
+}
+
+type AccountRaiPolicyContentFilterArray []AccountRaiPolicyContentFilterInput
+
+func (AccountRaiPolicyContentFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountRaiPolicyContentFilter)(nil)).Elem()
+}
+
+func (i AccountRaiPolicyContentFilterArray) ToAccountRaiPolicyContentFilterArrayOutput() AccountRaiPolicyContentFilterArrayOutput {
+	return i.ToAccountRaiPolicyContentFilterArrayOutputWithContext(context.Background())
+}
+
+func (i AccountRaiPolicyContentFilterArray) ToAccountRaiPolicyContentFilterArrayOutputWithContext(ctx context.Context) AccountRaiPolicyContentFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRaiPolicyContentFilterArrayOutput)
+}
+
+type AccountRaiPolicyContentFilterOutput struct{ *pulumi.OutputState }
+
+func (AccountRaiPolicyContentFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRaiPolicyContentFilter)(nil)).Elem()
+}
+
+func (o AccountRaiPolicyContentFilterOutput) ToAccountRaiPolicyContentFilterOutput() AccountRaiPolicyContentFilterOutput {
+	return o
+}
+
+func (o AccountRaiPolicyContentFilterOutput) ToAccountRaiPolicyContentFilterOutputWithContext(ctx context.Context) AccountRaiPolicyContentFilterOutput {
+	return o
+}
+
+// Whether the filter should block content. Possible values are `true` or `false`.
+func (o AccountRaiPolicyContentFilterOutput) BlockEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AccountRaiPolicyContentFilter) bool { return v.BlockEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether the filter is enabled. Possible values are `true` or `false`.
+func (o AccountRaiPolicyContentFilterOutput) FilterEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AccountRaiPolicyContentFilter) bool { return v.FilterEnabled }).(pulumi.BoolOutput)
+}
+
+// The name of the content filter.
+func (o AccountRaiPolicyContentFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRaiPolicyContentFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+func (o AccountRaiPolicyContentFilterOutput) SeverityThreshold() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRaiPolicyContentFilter) string { return v.SeverityThreshold }).(pulumi.StringOutput)
+}
+
+// Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+func (o AccountRaiPolicyContentFilterOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRaiPolicyContentFilter) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type AccountRaiPolicyContentFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountRaiPolicyContentFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountRaiPolicyContentFilter)(nil)).Elem()
+}
+
+func (o AccountRaiPolicyContentFilterArrayOutput) ToAccountRaiPolicyContentFilterArrayOutput() AccountRaiPolicyContentFilterArrayOutput {
+	return o
+}
+
+func (o AccountRaiPolicyContentFilterArrayOutput) ToAccountRaiPolicyContentFilterArrayOutputWithContext(ctx context.Context) AccountRaiPolicyContentFilterArrayOutput {
+	return o
+}
+
+func (o AccountRaiPolicyContentFilterArrayOutput) Index(i pulumi.IntInput) AccountRaiPolicyContentFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountRaiPolicyContentFilter {
+		return vs[0].([]AccountRaiPolicyContentFilter)[vs[1].(int)]
+	}).(AccountRaiPolicyContentFilterOutput)
 }
 
 type AccountStorage struct {
@@ -2055,6 +2215,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsPtrInput)(nil)).Elem(), AccountNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRaiPolicyContentFilterInput)(nil)).Elem(), AccountRaiPolicyContentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRaiPolicyContentFilterArrayInput)(nil)).Elem(), AccountRaiPolicyContentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageInput)(nil)).Elem(), AccountStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageArrayInput)(nil)).Elem(), AccountStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelInput)(nil)).Elem(), DeploymentModelArgs{})
@@ -2081,6 +2243,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkAclsVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountNetworkAclsVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(AccountRaiPolicyContentFilterOutput{})
+	pulumi.RegisterOutputType(AccountRaiPolicyContentFilterArrayOutput{})
 	pulumi.RegisterOutputType(AccountStorageOutput{})
 	pulumi.RegisterOutputType(AccountStorageArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentModelOutput{})

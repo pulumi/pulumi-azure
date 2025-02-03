@@ -1742,8 +1742,9 @@ func (o FeaturesPostgresqlFlexibleServerPtrOutput) RestartServerOnConfigurationV
 }
 
 type FeaturesRecoveryService struct {
-	PurgeProtectedItemsFromVaultOnDestroy        *bool `pulumi:"purgeProtectedItemsFromVaultOnDestroy"`
-	VmBackupStopProtectionAndRetainDataOnDestroy *bool `pulumi:"vmBackupStopProtectionAndRetainDataOnDestroy"`
+	PurgeProtectedItemsFromVaultOnDestroy           *bool `pulumi:"purgeProtectedItemsFromVaultOnDestroy"`
+	VmBackupStopProtectionAndRetainDataOnDestroy    *bool `pulumi:"vmBackupStopProtectionAndRetainDataOnDestroy"`
+	VmBackupSuspendProtectionAndRetainDataOnDestroy *bool `pulumi:"vmBackupSuspendProtectionAndRetainDataOnDestroy"`
 }
 
 // FeaturesRecoveryServiceInput is an input type that accepts FeaturesRecoveryServiceArgs and FeaturesRecoveryServiceOutput values.
@@ -1758,8 +1759,9 @@ type FeaturesRecoveryServiceInput interface {
 }
 
 type FeaturesRecoveryServiceArgs struct {
-	PurgeProtectedItemsFromVaultOnDestroy        pulumi.BoolPtrInput `pulumi:"purgeProtectedItemsFromVaultOnDestroy"`
-	VmBackupStopProtectionAndRetainDataOnDestroy pulumi.BoolPtrInput `pulumi:"vmBackupStopProtectionAndRetainDataOnDestroy"`
+	PurgeProtectedItemsFromVaultOnDestroy           pulumi.BoolPtrInput `pulumi:"purgeProtectedItemsFromVaultOnDestroy"`
+	VmBackupStopProtectionAndRetainDataOnDestroy    pulumi.BoolPtrInput `pulumi:"vmBackupStopProtectionAndRetainDataOnDestroy"`
+	VmBackupSuspendProtectionAndRetainDataOnDestroy pulumi.BoolPtrInput `pulumi:"vmBackupSuspendProtectionAndRetainDataOnDestroy"`
 }
 
 func (FeaturesRecoveryServiceArgs) ElementType() reflect.Type {
@@ -1847,6 +1849,10 @@ func (o FeaturesRecoveryServiceOutput) VmBackupStopProtectionAndRetainDataOnDest
 	return o.ApplyT(func(v FeaturesRecoveryService) *bool { return v.VmBackupStopProtectionAndRetainDataOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+func (o FeaturesRecoveryServiceOutput) VmBackupSuspendProtectionAndRetainDataOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesRecoveryService) *bool { return v.VmBackupSuspendProtectionAndRetainDataOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesRecoveryServicePtrOutput struct{ *pulumi.OutputState }
 
 func (FeaturesRecoveryServicePtrOutput) ElementType() reflect.Type {
@@ -1886,6 +1892,15 @@ func (o FeaturesRecoveryServicePtrOutput) VmBackupStopProtectionAndRetainDataOnD
 			return nil
 		}
 		return v.VmBackupStopProtectionAndRetainDataOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesRecoveryServicePtrOutput) VmBackupSuspendProtectionAndRetainDataOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesRecoveryService) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VmBackupSuspendProtectionAndRetainDataOnDestroy
 	}).(pulumi.BoolPtrOutput)
 }
 

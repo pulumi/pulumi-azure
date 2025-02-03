@@ -313,7 +313,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -322,7 +322,7 @@ public class Firewall extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Output<Optional<List<String>>> zones() {

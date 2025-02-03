@@ -64,6 +64,8 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// The location where the Communication service stores its data at rest.
 	DataLocation string `pulumi:"dataLocation"`
+	// The hostname of the Communication Service
+	Hostname string `pulumi:"hostname"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -121,6 +123,11 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 // The location where the Communication service stores its data at rest.
 func (o LookupServiceResultOutput) DataLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.DataLocation }).(pulumi.StringOutput)
+}
+
+// The hostname of the Communication Service
+func (o LookupServiceResultOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Hostname }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

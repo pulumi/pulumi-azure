@@ -192,7 +192,7 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             name="exampledb",
             server_id=example_flexible_server.id,
             collation="en_US.utf8",
-            charset="utf8")
+            charset="UTF8")
         ```
 
         ## Import
@@ -239,7 +239,7 @@ class FlexibleServerDatabase(pulumi.CustomResource):
             name="exampledb",
             server_id=example_flexible_server.id,
             collation="en_US.utf8",
-            charset="utf8")
+            charset="UTF8")
         ```
 
         ## Import
