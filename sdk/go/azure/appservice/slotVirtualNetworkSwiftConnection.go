@@ -91,7 +91,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewSlot(ctx, "example-staging", &appservice.SlotArgs{
+//			example_staging, err := appservice.NewSlot(ctx, "example-staging", &appservice.SlotArgs{
 //				Name:              pulumi.String("staging"),
 //				AppServiceName:    exampleAppService.Name,
 //				Location:          example.Location,
