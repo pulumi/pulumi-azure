@@ -65,7 +65,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
+//			protection_container, err := backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
 //				ResourceGroupName: example.Name,
 //				RecoveryVaultName: vault.Name,
 //				StorageAccountId:  sa.ID(),
