@@ -304,7 +304,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "example-sp", &keyvault.AccessPolicyArgs{
+//			example_sp, err := keyvault.NewAccessPolicy(ctx, "example-sp", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
@@ -326,7 +326,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "example-cosmosdb", &keyvault.AccessPolicyArgs{
+//			example_cosmosdb, err := keyvault.NewAccessPolicy(ctx, "example-cosmosdb", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(test.ObjectId),
@@ -363,7 +363,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example-role1", &authorization.AssignmentArgs{
+//			example_role1, err := authorization.NewAssignment(ctx, "example-role1", &authorization.AssignmentArgs{
 //				Scope:              exampleKeyVault.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -371,7 +371,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example-role2", &authorization.AssignmentArgs{
+//			example_role2, err := authorization.NewAssignment(ctx, "example-role2", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -379,7 +379,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example-role3", &authorization.AssignmentArgs{
+//			example_role3, err := authorization.NewAssignment(ctx, "example-role3", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -387,7 +387,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "example-role4", &authorization.AssignmentArgs{
+//			example_role4, err := authorization.NewAssignment(ctx, "example-role4", &authorization.AssignmentArgs{
 //				Scope:              exampleInsights.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
