@@ -95,6 +95,10 @@ if not MYPY:
         """
         Specifies the path of this config file.
         """
+        content_hash: NotRequired[pulumi.Input[str]]
+        """
+        The hash of the contents of this configuration file prefixed by the algorithm used.
+        """
 elif False:
     ConfigurationProtectedFileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -102,13 +106,17 @@ elif False:
 class ConfigurationProtectedFileArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
-                 virtual_path: pulumi.Input[str]):
+                 virtual_path: pulumi.Input[str],
+                 content_hash: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param pulumi.Input[str] virtual_path: Specifies the path of this config file.
+        :param pulumi.Input[str] content_hash: The hash of the contents of this configuration file prefixed by the algorithm used.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
+        if content_hash is not None:
+            pulumi.set(__self__, "content_hash", content_hash)
 
     @property
     @pulumi.getter
@@ -133,6 +141,18 @@ class ConfigurationProtectedFileArgs:
     @virtual_path.setter
     def virtual_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_path", value)
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hash of the contents of this configuration file prefixed by the algorithm used.
+        """
+        return pulumi.get(self, "content_hash")
+
+    @content_hash.setter
+    def content_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_hash", value)
 
 
 if not MYPY:

@@ -40,6 +40,12 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
     public Output<String> location() {
         return this.location;
     }
+    @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> marketplaceOfferId;
+
+    public Output<Optional<String>> marketplaceOfferId() {
+        return Codegen.optional(this.marketplaceOfferId);
+    }
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
@@ -63,6 +69,12 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
 
     public Output<List<NextGenerationFirewallVirtualHubPanoramaPanorama>> panoramas() {
         return this.panoramas;
+    }
+    @Export(name="planId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> planId;
+
+    public Output<Optional<String>> planId() {
+        return Codegen.optional(this.planId);
     }
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;

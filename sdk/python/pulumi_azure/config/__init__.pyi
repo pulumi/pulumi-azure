@@ -15,6 +15,11 @@ else:
 from .. import _utilities
 from . import outputs
 
+adoPipelineServiceConnectionId: Optional[str]
+"""
+The Azure DevOps Pipeline Service Connection ID.
+"""
+
 auxiliaryTenantIds: Optional[str]
 
 clientCertificate: Optional[str]

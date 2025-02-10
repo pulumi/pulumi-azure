@@ -203,6 +203,12 @@ namespace Pulumi.Azure.PaloAlto
         public Output<Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("marketplaceOfferId")]
+        public Output<string?> MarketplaceOfferId { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         /// </summary>
         [Output("name")]
@@ -213,6 +219,12 @@ namespace Pulumi.Azure.PaloAlto
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// </summary>
+        [Output("planId")]
+        public Output<string?> PlanId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
@@ -297,6 +309,12 @@ namespace Pulumi.Azure.PaloAlto
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         /// </summary>
         [Input("name")]
@@ -307,6 +325,12 @@ namespace Pulumi.Azure.PaloAlto
         /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs> NetworkProfile { get; set; } = null!;
+
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// </summary>
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
@@ -359,6 +383,12 @@ namespace Pulumi.Azure.PaloAlto
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsGetArgs>? DnsSettings { get; set; }
 
         /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         /// </summary>
         [Input("name")]
@@ -369,6 +399,12 @@ namespace Pulumi.Azure.PaloAlto
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileGetArgs>? NetworkProfile { get; set; }
+
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// </summary>
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.

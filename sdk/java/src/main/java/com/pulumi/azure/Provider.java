@@ -24,6 +24,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:azure")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
+     * The Azure DevOps Pipeline Service Connection ID.
+     * 
+     */
+    @Export(name="adoPipelineServiceConnectionId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> adoPipelineServiceConnectionId;
+
+    /**
+     * @return The Azure DevOps Pipeline Service Connection ID.
+     * 
+     */
+    public Output<Optional<String>> adoPipelineServiceConnectionId() {
+        return Codegen.optional(this.adoPipelineServiceConnectionId);
+    }
+    /**
      * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
      * 
      */

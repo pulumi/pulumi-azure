@@ -83,14 +83,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * @return The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -288,7 +288,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+         * @param location The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+         * @param location The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

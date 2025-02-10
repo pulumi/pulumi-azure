@@ -29,6 +29,12 @@ namespace Pulumi.Azure.Nginx.Inputs
         }
 
         /// <summary>
+        /// The hash of the contents of this configuration file prefixed by the algorithm used.
+        /// </summary>
+        [Input("contentHash")]
+        public Input<string>? ContentHash { get; set; }
+
+        /// <summary>
         /// Specifies the path of this config file.
         /// </summary>
         [Input("virtualPath", required: true)]

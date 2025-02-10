@@ -212,7 +212,7 @@ export interface GetAutonomousDatabaseResult {
     /**
      * The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
      */
-    readonly supportedRegionsToCloneTos: number[];
+    readonly supportedRegionsToCloneTos: string[];
     /**
      * A mapping of tags assigned to the Autonomous Database.
      */

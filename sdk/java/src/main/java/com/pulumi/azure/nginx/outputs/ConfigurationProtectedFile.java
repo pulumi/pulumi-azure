@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationProtectedFile {
@@ -15,6 +17,11 @@ public final class ConfigurationProtectedFile {
      * 
      */
     private String content;
+    /**
+     * @return The hash of the contents of this configuration file prefixed by the algorithm used.
+     * 
+     */
+    private @Nullable String contentHash;
     /**
      * @return Specifies the path of this config file.
      * 
@@ -28,6 +35,13 @@ public final class ConfigurationProtectedFile {
      */
     public String content() {
         return this.content;
+    }
+    /**
+     * @return The hash of the contents of this configuration file prefixed by the algorithm used.
+     * 
+     */
+    public Optional<String> contentHash() {
+        return Optional.ofNullable(this.contentHash);
     }
     /**
      * @return Specifies the path of this config file.
@@ -47,11 +61,13 @@ public final class ConfigurationProtectedFile {
     @CustomType.Builder
     public static final class Builder {
         private String content;
+        private @Nullable String contentHash;
         private String virtualPath;
         public Builder() {}
         public Builder(ConfigurationProtectedFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
+    	      this.contentHash = defaults.contentHash;
     	      this.virtualPath = defaults.virtualPath;
         }
 
@@ -61,6 +77,12 @@ public final class ConfigurationProtectedFile {
               throw new MissingRequiredPropertyException("ConfigurationProtectedFile", "content");
             }
             this.content = content;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder contentHash(@Nullable String contentHash) {
+
+            this.contentHash = contentHash;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +96,7 @@ public final class ConfigurationProtectedFile {
         public ConfigurationProtectedFile build() {
             final var _resultValue = new ConfigurationProtectedFile();
             _resultValue.content = content;
+            _resultValue.contentHash = contentHash;
             _resultValue.virtualPath = virtualPath;
             return _resultValue;
         }

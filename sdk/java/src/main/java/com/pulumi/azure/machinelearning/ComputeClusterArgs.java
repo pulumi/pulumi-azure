@@ -112,14 +112,14 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     @Import(name="nodePublicIpEnabled")
     private @Nullable Output<Boolean> nodePublicIpEnabled;
 
     /**
-     * @return Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     public Optional<Output<Boolean>> nodePublicIpEnabled() {
@@ -395,7 +395,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nodePublicIpEnabled Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param nodePublicIpEnabled Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param nodePublicIpEnabled Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param nodePublicIpEnabled Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
          * 
          * @return builder
          * 

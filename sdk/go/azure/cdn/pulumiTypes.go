@@ -5455,7 +5455,7 @@ func (o FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulu
 }
 
 type FrontdoorFirewallPolicyManagedRule struct {
-	// The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+	// The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
 	Action string `pulumi:"action"`
 	// One or more `exclusion` blocks as defined below.
 	Exclusions []FrontdoorFirewallPolicyManagedRuleExclusion `pulumi:"exclusions"`
@@ -5463,7 +5463,7 @@ type FrontdoorFirewallPolicyManagedRule struct {
 	Overrides []FrontdoorFirewallPolicyManagedRuleOverride `pulumi:"overrides"`
 	// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 	Type string `pulumi:"type"`
-	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+	// The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
 	Version string `pulumi:"version"`
 }
 
@@ -5479,7 +5479,7 @@ type FrontdoorFirewallPolicyManagedRuleInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleArgs struct {
-	// The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+	// The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// One or more `exclusion` blocks as defined below.
 	Exclusions FrontdoorFirewallPolicyManagedRuleExclusionArrayInput `pulumi:"exclusions"`
@@ -5487,7 +5487,7 @@ type FrontdoorFirewallPolicyManagedRuleArgs struct {
 	Overrides FrontdoorFirewallPolicyManagedRuleOverrideArrayInput `pulumi:"overrides"`
 	// The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+	// The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -5542,7 +5542,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOutput) ToFrontdoorFirewallPolicyManag
 	return o
 }
 
-// The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+// The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
 func (o FrontdoorFirewallPolicyManagedRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -5566,7 +5566,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+// The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
 func (o FrontdoorFirewallPolicyManagedRuleOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -5594,13 +5594,13 @@ func (o FrontdoorFirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) 
 type FrontdoorFirewallPolicyManagedRuleExclusion struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	//
-	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+	// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	//
-	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+	// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector string `pulumi:"selector"`
 }
 
@@ -5618,13 +5618,13 @@ type FrontdoorFirewallPolicyManagedRuleExclusionInput interface {
 type FrontdoorFirewallPolicyManagedRuleExclusionArgs struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	//
-	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+	// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	//
-	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+	// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -5681,7 +5681,7 @@ func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) ToFrontdoorFirewallPo
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 //
-// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -5693,7 +5693,7 @@ func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) Operator() pulumi.Str
 
 // Selector for the value in the `matchVariable` attribute this exclusion applies to.
 //
-// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) Selector() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
@@ -5840,13 +5840,13 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.In
 type FrontdoorFirewallPolicyManagedRuleOverrideExclusion struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	//
-	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+	// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	//
-	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+	// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector string `pulumi:"selector"`
 }
 
@@ -5864,13 +5864,13 @@ type FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput interface {
 type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	//
-	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+	// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	//
-	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+	// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -5927,7 +5927,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) ToFrontdoorFi
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 //
-// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -5939,7 +5939,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) Operator() pu
 
 // Selector for the value in the `matchVariable` attribute this exclusion applies to.
 //
-// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) Selector() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }
@@ -5965,9 +5965,11 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i 
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRule struct {
-	// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+	// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
 	//
-	// ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+	// > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
+	//
+	// !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	Action string `pulumi:"action"`
 	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled *bool `pulumi:"enabled"`
@@ -5989,9 +5991,11 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleInput interface {
 }
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs struct {
-	// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+	// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
 	//
-	// ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+	// > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
+	//
+	// !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -6052,9 +6056,11 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) ToFrontdoorFirewal
 	return o
 }
 
-// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
 //
-// ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+// > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
+//
+// !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -6099,13 +6105,13 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulum
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	//
-	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+	// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	//
-	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+	// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector string `pulumi:"selector"`
 }
 
@@ -6123,13 +6129,13 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 	//
-	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+	// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
 	//
-	// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+	// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 	Selector pulumi.StringInput `pulumi:"selector"`
 }
 
@@ -6186,7 +6192,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFrontdo
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
 //
-// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+// > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -6198,7 +6204,7 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) Operator(
 
 // Selector for the value in the `matchVariable` attribute this exclusion applies to.
 //
-// > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+// > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) Selector() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
 }

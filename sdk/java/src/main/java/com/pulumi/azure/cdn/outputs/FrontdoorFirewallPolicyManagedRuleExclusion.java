@@ -13,7 +13,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusion {
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
-     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+     * &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
      * 
      */
     private String matchVariable;
@@ -25,7 +25,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusion {
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
-     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+     * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
      */
     private String selector;
@@ -34,7 +34,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusion {
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
-     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+     * &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
      * 
      */
     public String matchVariable() {
@@ -50,7 +50,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusion {
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
-     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+     * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
      */
     public String selector() {

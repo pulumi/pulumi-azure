@@ -2465,6 +2465,10 @@ if not MYPY:
         """
         The path in the container at which to mount this volume.
         """
+        sub_path: NotRequired[pulumi.Input[str]]
+        """
+        The sub path of the volume to be mounted in the container.
+        """
 elif False:
     AppTemplateContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2472,13 +2476,17 @@ elif False:
 class AppTemplateContainerVolumeMountArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 sub_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the Volume to be mounted in the container.
         :param pulumi.Input[str] path: The path in the container at which to mount this volume.
+        :param pulumi.Input[str] sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -2503,6 +2511,18 @@ class AppTemplateContainerVolumeMountArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
+
+    @sub_path.setter
+    def sub_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_path", value)
 
 
 if not MYPY:
@@ -3060,6 +3080,10 @@ if not MYPY:
         """
         The path in the container at which to mount this volume.
         """
+        sub_path: NotRequired[pulumi.Input[str]]
+        """
+        The sub path of the volume to be mounted in the container.
+        """
 elif False:
     AppTemplateInitContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3067,13 +3091,17 @@ elif False:
 class AppTemplateInitContainerVolumeMountArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 sub_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the Volume to be mounted in the container.
         :param pulumi.Input[str] path: The path in the container at which to mount this volume.
+        :param pulumi.Input[str] sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -3098,6 +3126,18 @@ class AppTemplateInitContainerVolumeMountArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
+
+    @sub_path.setter
+    def sub_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_path", value)
 
 
 if not MYPY:
@@ -5457,6 +5497,10 @@ if not MYPY:
         """
         The path within the container at which the volume should be mounted. Must not contain `:`.
         """
+        sub_path: NotRequired[pulumi.Input[str]]
+        """
+        The sub path of the volume to be mounted in the container.
+        """
 elif False:
     JobTemplateContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5464,13 +5508,17 @@ elif False:
 class JobTemplateContainerVolumeMountArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 sub_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
         :param pulumi.Input[str] path: The path within the container at which the volume should be mounted. Must not contain `:`.
+        :param pulumi.Input[str] sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -5495,6 +5543,18 @@ class JobTemplateContainerVolumeMountArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
+
+    @sub_path.setter
+    def sub_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_path", value)
 
 
 if not MYPY:
@@ -5786,6 +5846,10 @@ if not MYPY:
         """
         The path within the container at which the volume should be mounted. Must not contain `:`.
         """
+        sub_path: NotRequired[pulumi.Input[str]]
+        """
+        The sub path of the volume to be mounted in the container.
+        """
 elif False:
     JobTemplateInitContainerVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5793,13 +5857,17 @@ elif False:
 class JobTemplateInitContainerVolumeMountArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 path: pulumi.Input[str]):
+                 path: pulumi.Input[str],
+                 sub_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
         :param pulumi.Input[str] path: The path within the container at which the volume should be mounted. Must not contain `:`.
+        :param pulumi.Input[str] sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -5824,6 +5892,18 @@ class JobTemplateInitContainerVolumeMountArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
+
+    @sub_path.setter
+    def sub_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_path", value)
 
 
 if not MYPY:

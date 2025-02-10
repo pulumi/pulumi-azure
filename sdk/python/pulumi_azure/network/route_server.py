@@ -24,6 +24,7 @@ class RouteServerArgs:
                  sku: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -34,8 +35,9 @@ class RouteServerArgs:
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
-        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s)
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
+        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -46,6 +48,8 @@ class RouteServerArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if branch_to_branch_traffic_enabled is not None:
             pulumi.set(__self__, "branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
+        if hub_routing_preference is not None:
+            pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -95,7 +99,7 @@ class RouteServerArgs:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
-        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -107,13 +111,25 @@ class RouteServerArgs:
     @pulumi.getter(name="branchToBranchTrafficEnabled")
     def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable route exchange between Azure Route Server and the gateway(s)
+        Whether to enable route exchange between Azure Route Server and the gateway(s).
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @branch_to_branch_traffic_enabled.setter
     def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "branch_to_branch_traffic_enabled", value)
+
+    @property
+    @pulumi.getter(name="hubRoutingPreference")
+    def hub_routing_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+        """
+        return pulumi.get(self, "hub_routing_preference")
+
+    @hub_routing_preference.setter
+    def hub_routing_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_routing_preference", value)
 
     @property
     @pulumi.getter
@@ -156,6 +172,7 @@ class RouteServerArgs:
 class _RouteServerState:
     def __init__(__self__, *,
                  branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
@@ -168,7 +185,8 @@ class _RouteServerState:
                  virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RouteServer resources.
-        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s)
+        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
@@ -176,11 +194,13 @@ class _RouteServerState:
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if branch_to_branch_traffic_enabled is not None:
             pulumi.set(__self__, "branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
+        if hub_routing_preference is not None:
+            pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -206,13 +226,25 @@ class _RouteServerState:
     @pulumi.getter(name="branchToBranchTrafficEnabled")
     def branch_to_branch_traffic_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable route exchange between Azure Route Server and the gateway(s)
+        Whether to enable route exchange between Azure Route Server and the gateway(s).
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
 
     @branch_to_branch_traffic_enabled.setter
     def branch_to_branch_traffic_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "branch_to_branch_traffic_enabled", value)
+
+    @property
+    @pulumi.getter(name="hubRoutingPreference")
+    def hub_routing_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+        """
+        return pulumi.get(self, "hub_routing_preference")
+
+    @hub_routing_preference.setter
+    def hub_routing_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_routing_preference", value)
 
     @property
     @pulumi.getter
@@ -289,7 +321,7 @@ class _RouteServerState:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
-        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -334,6 +366,7 @@ class RouteServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
@@ -380,7 +413,8 @@ class RouteServer(pulumi.CustomResource):
             sku="Standard",
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id,
-            branch_to_branch_traffic_enabled=True)
+            branch_to_branch_traffic_enabled=True,
+            hub_routing_preference="ASPath")
         ```
 
         ## Import
@@ -393,7 +427,8 @@ class RouteServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s)
+        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
@@ -401,7 +436,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -448,7 +483,8 @@ class RouteServer(pulumi.CustomResource):
             sku="Standard",
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id,
-            branch_to_branch_traffic_enabled=True)
+            branch_to_branch_traffic_enabled=True,
+            hub_routing_preference="ASPath")
         ```
 
         ## Import
@@ -475,6 +511,7 @@ class RouteServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
@@ -492,6 +529,7 @@ class RouteServer(pulumi.CustomResource):
             __props__ = RouteServerArgs.__new__(RouteServerArgs)
 
             __props__.__dict__["branch_to_branch_traffic_enabled"] = branch_to_branch_traffic_enabled
+            __props__.__dict__["hub_routing_preference"] = hub_routing_preference
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if public_ip_address_id is None and not opts.urn:
@@ -521,6 +559,7 @@ class RouteServer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+            hub_routing_preference: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_ip_address_id: Optional[pulumi.Input[str]] = None,
@@ -538,7 +577,8 @@ class RouteServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s)
+        :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s).
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
@@ -546,7 +586,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
                
-               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -554,6 +594,7 @@ class RouteServer(pulumi.CustomResource):
         __props__ = _RouteServerState.__new__(_RouteServerState)
 
         __props__.__dict__["branch_to_branch_traffic_enabled"] = branch_to_branch_traffic_enabled
+        __props__.__dict__["hub_routing_preference"] = hub_routing_preference
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["public_ip_address_id"] = public_ip_address_id
@@ -570,9 +611,17 @@ class RouteServer(pulumi.CustomResource):
     @pulumi.getter(name="branchToBranchTrafficEnabled")
     def branch_to_branch_traffic_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to enable route exchange between Azure Route Server and the gateway(s)
+        Whether to enable route exchange between Azure Route Server and the gateway(s).
         """
         return pulumi.get(self, "branch_to_branch_traffic_enabled")
+
+    @property
+    @pulumi.getter(name="hubRoutingPreference")
+    def hub_routing_preference(self) -> pulumi.Output[Optional[str]]:
+        """
+        The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+        """
+        return pulumi.get(self, "hub_routing_preference")
 
     @property
     @pulumi.getter
@@ -625,7 +674,7 @@ class RouteServer(pulumi.CustomResource):
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 
-        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         """
         return pulumi.get(self, "subnet_id")
 

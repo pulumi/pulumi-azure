@@ -14,6 +14,8 @@ import (
 
 // Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 //
+// > **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS.
+//
 // ## Example Usage
 //
 // This example provisions a basic Managed Kubernetes Cluster.

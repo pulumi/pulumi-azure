@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -27,6 +28,11 @@ public final class GetFrontdoorFirewallPolicyResult {
      * 
      */
     private String id;
+    /**
+     * @return The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+     * 
+     */
+    private Integer jsChallengeCookieExpirationInMinutes;
     /**
      * @return The Front Door Firewall Policy mode.
      * 
@@ -68,6 +74,13 @@ public final class GetFrontdoorFirewallPolicyResult {
         return this.id;
     }
     /**
+     * @return The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+     * 
+     */
+    public Integer jsChallengeCookieExpirationInMinutes() {
+        return this.jsChallengeCookieExpirationInMinutes;
+    }
+    /**
      * @return The Front Door Firewall Policy mode.
      * 
      */
@@ -107,6 +120,7 @@ public final class GetFrontdoorFirewallPolicyResult {
         private Boolean enabled;
         private List<String> frontendEndpointIds;
         private String id;
+        private Integer jsChallengeCookieExpirationInMinutes;
         private String mode;
         private String name;
         private String redirectUrl;
@@ -118,6 +132,7 @@ public final class GetFrontdoorFirewallPolicyResult {
     	      this.enabled = defaults.enabled;
     	      this.frontendEndpointIds = defaults.frontendEndpointIds;
     	      this.id = defaults.id;
+    	      this.jsChallengeCookieExpirationInMinutes = defaults.jsChallengeCookieExpirationInMinutes;
     	      this.mode = defaults.mode;
     	      this.name = defaults.name;
     	      this.redirectUrl = defaults.redirectUrl;
@@ -150,6 +165,14 @@ public final class GetFrontdoorFirewallPolicyResult {
               throw new MissingRequiredPropertyException("GetFrontdoorFirewallPolicyResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jsChallengeCookieExpirationInMinutes(Integer jsChallengeCookieExpirationInMinutes) {
+            if (jsChallengeCookieExpirationInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorFirewallPolicyResult", "jsChallengeCookieExpirationInMinutes");
+            }
+            this.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             return this;
         }
         @CustomType.Setter
@@ -197,6 +220,7 @@ public final class GetFrontdoorFirewallPolicyResult {
             _resultValue.enabled = enabled;
             _resultValue.frontendEndpointIds = frontendEndpointIds;
             _resultValue.id = id;
+            _resultValue.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             _resultValue.mode = mode;
             _resultValue.name = name;
             _resultValue.redirectUrl = redirectUrl;

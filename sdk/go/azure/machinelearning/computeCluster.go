@@ -161,7 +161,7 @@ type ComputeCluster struct {
 	MachineLearningWorkspaceId pulumi.StringOutput `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled pulumi.BoolPtrOutput `pulumi:"nodePublicIpEnabled"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsOutput `pulumi:"scaleSettings"`
@@ -170,7 +170,7 @@ type ComputeCluster struct {
 	// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SshPublicAccessEnabled pulumi.BoolPtrOutput `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
-	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
+	SubnetResourceId pulumi.StringOutput `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
@@ -233,7 +233,7 @@ type computeClusterState struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name *string `pulumi:"name"`
-	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings *ComputeClusterScaleSettings `pulumi:"scaleSettings"`
@@ -264,7 +264,7 @@ type ComputeClusterState struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name pulumi.StringPtrInput
-	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled pulumi.BoolPtrInput
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsPtrInput
@@ -299,7 +299,7 @@ type computeClusterArgs struct {
 	MachineLearningWorkspaceId string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name *string `pulumi:"name"`
-	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettings `pulumi:"scaleSettings"`
@@ -331,7 +331,7 @@ type ComputeClusterArgs struct {
 	MachineLearningWorkspaceId pulumi.StringInput
 	// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Name pulumi.StringPtrInput
-	// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled pulumi.BoolPtrInput
 	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	ScaleSettings ComputeClusterScaleSettingsInput
@@ -466,7 +466,7 @@ func (o ComputeClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 func (o ComputeClusterOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.BoolPtrOutput { return v.NodePublicIpEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -487,8 +487,8 @@ func (o ComputeClusterOutput) SshPublicAccessEnabled() pulumi.BoolPtrOutput {
 }
 
 // The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
-func (o ComputeClusterOutput) SubnetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComputeCluster) pulumi.StringPtrOutput { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
+func (o ComputeClusterOutput) SubnetResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputeCluster) pulumi.StringOutput { return v.SubnetResourceId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.

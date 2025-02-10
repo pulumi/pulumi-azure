@@ -36,8 +36,10 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
 
     public readonly destinationNats!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNat[] | undefined>;
     public readonly dnsSettings!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings | undefined>;
+    public readonly marketplaceOfferId!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly networkProfile!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile>;
+    public readonly planId!: pulumi.Output<string | undefined>;
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly rulestackId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -57,8 +59,10 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
             const state = argsOrState as NextGenerationFirewallVirtualHubLocalRulestackState | undefined;
             resourceInputs["destinationNats"] = state ? state.destinationNats : undefined;
             resourceInputs["dnsSettings"] = state ? state.dnsSettings : undefined;
+            resourceInputs["marketplaceOfferId"] = state ? state.marketplaceOfferId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
+            resourceInputs["planId"] = state ? state.planId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -75,8 +79,10 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
             }
             resourceInputs["destinationNats"] = args ? args.destinationNats : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            resourceInputs["marketplaceOfferId"] = args ? args.marketplaceOfferId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["planId"] = args ? args.planId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -92,8 +98,10 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
 export interface NextGenerationFirewallVirtualHubLocalRulestackState {
     destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNat>[]>;
     dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings>;
+    marketplaceOfferId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile>;
+    planId?: pulumi.Input<string>;
     resourceGroupName?: pulumi.Input<string>;
     rulestackId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -105,8 +113,10 @@ export interface NextGenerationFirewallVirtualHubLocalRulestackState {
 export interface NextGenerationFirewallVirtualHubLocalRulestackArgs {
     destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNat>[]>;
     dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings>;
+    marketplaceOfferId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     networkProfile: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile>;
+    planId?: pulumi.Input<string>;
     resourceGroupName: pulumi.Input<string>;
     rulestackId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

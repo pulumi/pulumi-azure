@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  *     publicIpAddressId: examplePublicIp.id,
  *     subnetId: exampleSubnet.id,
  *     branchToBranchTrafficEnabled: true,
+ *     hubRoutingPreference: "ASPath",
  * });
  * ```
  *
@@ -87,9 +88,13 @@ export class RouteServer extends pulumi.CustomResource {
     }
 
     /**
-     * Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * Whether to enable route exchange between Azure Route Server and the gateway(s).
      */
     public readonly branchToBranchTrafficEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     */
+    public readonly hubRoutingPreference!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      */
@@ -114,7 +119,7 @@ export class RouteServer extends pulumi.CustomResource {
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+     * > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -138,6 +143,7 @@ export class RouteServer extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RouteServerState | undefined;
             resourceInputs["branchToBranchTrafficEnabled"] = state ? state.branchToBranchTrafficEnabled : undefined;
+            resourceInputs["hubRoutingPreference"] = state ? state.hubRoutingPreference : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
@@ -163,6 +169,7 @@ export class RouteServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["branchToBranchTrafficEnabled"] = args ? args.branchToBranchTrafficEnabled : undefined;
+            resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
@@ -184,9 +191,13 @@ export class RouteServer extends pulumi.CustomResource {
  */
 export interface RouteServerState {
     /**
-     * Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * Whether to enable route exchange between Azure Route Server and the gateway(s).
      */
     branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
+    /**
+     * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     */
+    hubRoutingPreference?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      */
@@ -211,7 +222,7 @@ export interface RouteServerState {
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+     * > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -227,9 +238,13 @@ export interface RouteServerState {
  */
 export interface RouteServerArgs {
     /**
-     * Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * Whether to enable route exchange between Azure Route Server and the gateway(s).
      */
     branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
+    /**
+     * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     */
+    hubRoutingPreference?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      */
@@ -253,7 +268,7 @@ export interface RouteServerArgs {
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+     * > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
      */
     subnetId: pulumi.Input<string>;
     /**

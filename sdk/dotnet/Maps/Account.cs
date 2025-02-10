@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Maps
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Maps
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Maps
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

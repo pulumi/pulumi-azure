@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AppTemplateContainerVolumeMount {
@@ -20,6 +22,11 @@ public final class AppTemplateContainerVolumeMount {
      * 
      */
     private String path;
+    /**
+     * @return The sub path of the volume to be mounted in the container.
+     * 
+     */
+    private @Nullable String subPath;
 
     private AppTemplateContainerVolumeMount() {}
     /**
@@ -36,6 +43,13 @@ public final class AppTemplateContainerVolumeMount {
     public String path() {
         return this.path;
     }
+    /**
+     * @return The sub path of the volume to be mounted in the container.
+     * 
+     */
+    public Optional<String> subPath() {
+        return Optional.ofNullable(this.subPath);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,11 +62,13 @@ public final class AppTemplateContainerVolumeMount {
     public static final class Builder {
         private String name;
         private String path;
+        private @Nullable String subPath;
         public Builder() {}
         public Builder(AppTemplateContainerVolumeMount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.path = defaults.path;
+    	      this.subPath = defaults.subPath;
         }
 
         @CustomType.Setter
@@ -71,10 +87,17 @@ public final class AppTemplateContainerVolumeMount {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
+        public Builder subPath(@Nullable String subPath) {
+
+            this.subPath = subPath;
+            return this;
+        }
         public AppTemplateContainerVolumeMount build() {
             final var _resultValue = new AppTemplateContainerVolumeMount();
             _resultValue.name = name;
             _resultValue.path = path;
+            _resultValue.subPath = subPath;
             return _resultValue;
         }
     }

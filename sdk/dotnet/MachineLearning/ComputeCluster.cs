@@ -169,7 +169,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("nodePublicIpEnabled")]
         public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.MachineLearning
         /// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("subnetResourceId")]
-        public Output<string?> SubnetResourceId { get; private set; } = null!;
+        public Output<string> SubnetResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }

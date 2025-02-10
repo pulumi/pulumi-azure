@@ -65,6 +65,8 @@ type LookupFrontdoorFirewallPolicyResult struct {
 	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+	JsChallengeCookieExpirationInMinutes int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// The Front Door Firewall Policy mode.
 	Mode string `pulumi:"mode"`
 	Name string `pulumi:"name"`
@@ -124,6 +126,11 @@ func (o LookupFrontdoorFirewallPolicyResultOutput) FrontendEndpointIds() pulumi.
 // The provider-assigned unique ID for this managed resource.
 func (o LookupFrontdoorFirewallPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorFirewallPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+func (o LookupFrontdoorFirewallPolicyResultOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupFrontdoorFirewallPolicyResult) int { return v.JsChallengeCookieExpirationInMinutes }).(pulumi.IntOutput)
 }
 
 // The Front Door Firewall Policy mode.

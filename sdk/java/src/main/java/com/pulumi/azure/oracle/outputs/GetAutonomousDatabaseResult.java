@@ -222,7 +222,7 @@ public final class GetAutonomousDatabaseResult {
      * @return The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
      * 
      */
-    private List<Integer> supportedRegionsToCloneTos;
+    private List<String> supportedRegionsToCloneTos;
     /**
      * @return A mapping of tags assigned to the Autonomous Database.
      * 
@@ -593,7 +593,7 @@ public final class GetAutonomousDatabaseResult {
      * @return The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
      * 
      */
-    public List<Integer> supportedRegionsToCloneTos() {
+    public List<String> supportedRegionsToCloneTos() {
         return this.supportedRegionsToCloneTos;
     }
     /**
@@ -754,7 +754,7 @@ public final class GetAutonomousDatabaseResult {
         private String serviceConsoleUrl;
         private String sqlWebDeveloperUrl;
         private String subnetId;
-        private List<Integer> supportedRegionsToCloneTos;
+        private List<String> supportedRegionsToCloneTos;
         private Map<String,String> tags;
         private String timeCreated;
         private String timeDataGuardRoleChanged;
@@ -1191,14 +1191,14 @@ public final class GetAutonomousDatabaseResult {
             return this;
         }
         @CustomType.Setter
-        public Builder supportedRegionsToCloneTos(List<Integer> supportedRegionsToCloneTos) {
+        public Builder supportedRegionsToCloneTos(List<String> supportedRegionsToCloneTos) {
             if (supportedRegionsToCloneTos == null) {
               throw new MissingRequiredPropertyException("GetAutonomousDatabaseResult", "supportedRegionsToCloneTos");
             }
             this.supportedRegionsToCloneTos = supportedRegionsToCloneTos;
             return this;
         }
-        public Builder supportedRegionsToCloneTos(Integer... supportedRegionsToCloneTos) {
+        public Builder supportedRegionsToCloneTos(String... supportedRegionsToCloneTos) {
             return supportedRegionsToCloneTos(List.of(supportedRegionsToCloneTos));
         }
         @CustomType.Setter

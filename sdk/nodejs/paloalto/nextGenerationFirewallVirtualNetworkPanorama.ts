@@ -139,6 +139,10 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+     */
+    public readonly marketplaceOfferId!: pulumi.Output<string | undefined>;
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -154,6 +158,10 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
      * A `panorama` block as defined below.
      */
     public /*out*/ readonly panoramas!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaPanorama[]>;
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     */
+    public readonly planId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
@@ -179,10 +187,12 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
             resourceInputs["destinationNats"] = state ? state.destinationNats : undefined;
             resourceInputs["dnsSettings"] = state ? state.dnsSettings : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["marketplaceOfferId"] = state ? state.marketplaceOfferId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["panoramaBase64Config"] = state ? state.panoramaBase64Config : undefined;
             resourceInputs["panoramas"] = state ? state.panoramas : undefined;
+            resourceInputs["planId"] = state ? state.planId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -199,9 +209,11 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
             resourceInputs["destinationNats"] = args ? args.destinationNats : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["marketplaceOfferId"] = args ? args.marketplaceOfferId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["panoramaBase64Config"] = args ? args.panoramaBase64Config : undefined;
+            resourceInputs["planId"] = args ? args.planId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["panoramas"] = undefined /*out*/;
@@ -228,6 +240,10 @@ export interface NextGenerationFirewallVirtualNetworkPanoramaState {
      */
     location?: pulumi.Input<string>;
     /**
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+     */
+    marketplaceOfferId?: pulumi.Input<string>;
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
     name?: pulumi.Input<string>;
@@ -243,6 +259,10 @@ export interface NextGenerationFirewallVirtualNetworkPanoramaState {
      * A `panorama` block as defined below.
      */
     panoramas?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaPanorama>[]>;
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     */
+    planId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
@@ -270,6 +290,10 @@ export interface NextGenerationFirewallVirtualNetworkPanoramaArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+     */
+    marketplaceOfferId?: pulumi.Input<string>;
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
     name?: pulumi.Input<string>;
@@ -281,6 +305,10 @@ export interface NextGenerationFirewallVirtualNetworkPanoramaArgs {
      * The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
      */
     panoramaBase64Config: pulumi.Input<string>;
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     */
+    planId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */

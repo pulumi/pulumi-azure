@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
         /// 
-        /// &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+        /// &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
         /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// Selector for the value in the `match_variable` attribute this exclusion applies to.
         /// 
-        /// &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+        /// &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
         /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;

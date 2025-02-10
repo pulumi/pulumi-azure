@@ -26,7 +26,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
                  rulestack_id: pulumi.Input[str],
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
                  dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualNetworkLocalRulestack resource.
@@ -35,7 +37,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
         """
         pulumi.set(__self__, "network_profile", network_profile)
@@ -45,8 +49,12 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
             pulumi.set(__self__, "destination_nats", destination_nats)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
+        if marketplace_offer_id is not None:
+            pulumi.set(__self__, "marketplace_offer_id", marketplace_offer_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -111,6 +119,18 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
         pulumi.set(self, "dns_settings", value)
 
     @property
+    @pulumi.getter(name="marketplaceOfferId")
+    def marketplace_offer_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "marketplace_offer_id")
+
+    @marketplace_offer_id.setter
+    def marketplace_offer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_offer_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -121,6 +141,18 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
 
     @property
     @pulumi.getter
@@ -140,8 +172,10 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
     def __init__(__self__, *,
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
                  dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -149,8 +183,10 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
         Input properties used for looking up and filtering NextGenerationFirewallVirtualNetworkLocalRulestack resources.
         :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -159,10 +195,14 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
             pulumi.set(__self__, "destination_nats", destination_nats)
         if dns_settings is not None:
             pulumi.set(__self__, "dns_settings", dns_settings)
+        if marketplace_offer_id is not None:
+            pulumi.set(__self__, "marketplace_offer_id", marketplace_offer_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rulestack_id is not None:
@@ -195,6 +235,18 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
         pulumi.set(self, "dns_settings", value)
 
     @property
+    @pulumi.getter(name="marketplaceOfferId")
+    def marketplace_offer_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "marketplace_offer_id")
+
+    @marketplace_offer_id.setter
+    def marketplace_offer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_offer_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -217,6 +269,18 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
     @network_profile.setter
     def network_profile(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -262,8 +326,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
                  dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -370,8 +436,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -497,8 +565,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
                  dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -513,10 +583,12 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
 
             __props__.__dict__["destination_nats"] = destination_nats
             __props__.__dict__["dns_settings"] = dns_settings
+            __props__.__dict__["marketplace_offer_id"] = marketplace_offer_id
             __props__.__dict__["name"] = name
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile
+            __props__.__dict__["plan_id"] = plan_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -536,8 +608,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]]] = None,
             dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']]] = None,
+            marketplace_offer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']]] = None,
+            plan_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rulestack_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NextGenerationFirewallVirtualNetworkLocalRulestack':
@@ -550,8 +624,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
         :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -562,8 +638,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
 
         __props__.__dict__["destination_nats"] = destination_nats
         __props__.__dict__["dns_settings"] = dns_settings
+        __props__.__dict__["marketplace_offer_id"] = marketplace_offer_id
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
+        __props__.__dict__["plan_id"] = plan_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rulestack_id"] = rulestack_id
         __props__.__dict__["tags"] = tags
@@ -586,6 +664,14 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         return pulumi.get(self, "dns_settings")
 
     @property
+    @pulumi.getter(name="marketplaceOfferId")
+    def marketplace_offer_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "marketplace_offer_id")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -600,6 +686,14 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        """
+        return pulumi.get(self, "plan_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -18,10 +18,12 @@ type NextGenerationFirewallVirtualHubPanorama struct {
 	DestinationNats      NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput `pulumi:"destinationNats"`
 	DnsSettings          NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrOutput      `pulumi:"dnsSettings"`
 	Location             pulumi.StringOutput                                               `pulumi:"location"`
+	MarketplaceOfferId   pulumi.StringPtrOutput                                            `pulumi:"marketplaceOfferId"`
 	Name                 pulumi.StringOutput                                               `pulumi:"name"`
 	NetworkProfile       NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput      `pulumi:"networkProfile"`
 	PanoramaBase64Config pulumi.StringOutput                                               `pulumi:"panoramaBase64Config"`
 	Panoramas            NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput       `pulumi:"panoramas"`
+	PlanId               pulumi.StringPtrOutput                                            `pulumi:"planId"`
 	ResourceGroupName    pulumi.StringOutput                                               `pulumi:"resourceGroupName"`
 	Tags                 pulumi.StringMapOutput                                            `pulumi:"tags"`
 }
@@ -68,10 +70,12 @@ type nextGenerationFirewallVirtualHubPanoramaState struct {
 	DestinationNats      []NextGenerationFirewallVirtualHubPanoramaDestinationNat `pulumi:"destinationNats"`
 	DnsSettings          *NextGenerationFirewallVirtualHubPanoramaDnsSettings     `pulumi:"dnsSettings"`
 	Location             *string                                                  `pulumi:"location"`
+	MarketplaceOfferId   *string                                                  `pulumi:"marketplaceOfferId"`
 	Name                 *string                                                  `pulumi:"name"`
 	NetworkProfile       *NextGenerationFirewallVirtualHubPanoramaNetworkProfile  `pulumi:"networkProfile"`
 	PanoramaBase64Config *string                                                  `pulumi:"panoramaBase64Config"`
 	Panoramas            []NextGenerationFirewallVirtualHubPanoramaPanorama       `pulumi:"panoramas"`
+	PlanId               *string                                                  `pulumi:"planId"`
 	ResourceGroupName    *string                                                  `pulumi:"resourceGroupName"`
 	Tags                 map[string]string                                        `pulumi:"tags"`
 }
@@ -80,10 +84,12 @@ type NextGenerationFirewallVirtualHubPanoramaState struct {
 	DestinationNats      NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayInput
 	DnsSettings          NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrInput
 	Location             pulumi.StringPtrInput
+	MarketplaceOfferId   pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput
 	NetworkProfile       NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrInput
 	PanoramaBase64Config pulumi.StringPtrInput
 	Panoramas            NextGenerationFirewallVirtualHubPanoramaPanoramaArrayInput
+	PlanId               pulumi.StringPtrInput
 	ResourceGroupName    pulumi.StringPtrInput
 	Tags                 pulumi.StringMapInput
 }
@@ -96,9 +102,11 @@ type nextGenerationFirewallVirtualHubPanoramaArgs struct {
 	DestinationNats      []NextGenerationFirewallVirtualHubPanoramaDestinationNat `pulumi:"destinationNats"`
 	DnsSettings          *NextGenerationFirewallVirtualHubPanoramaDnsSettings     `pulumi:"dnsSettings"`
 	Location             *string                                                  `pulumi:"location"`
+	MarketplaceOfferId   *string                                                  `pulumi:"marketplaceOfferId"`
 	Name                 *string                                                  `pulumi:"name"`
 	NetworkProfile       NextGenerationFirewallVirtualHubPanoramaNetworkProfile   `pulumi:"networkProfile"`
 	PanoramaBase64Config string                                                   `pulumi:"panoramaBase64Config"`
+	PlanId               *string                                                  `pulumi:"planId"`
 	ResourceGroupName    string                                                   `pulumi:"resourceGroupName"`
 	Tags                 map[string]string                                        `pulumi:"tags"`
 }
@@ -108,9 +116,11 @@ type NextGenerationFirewallVirtualHubPanoramaArgs struct {
 	DestinationNats      NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayInput
 	DnsSettings          NextGenerationFirewallVirtualHubPanoramaDnsSettingsPtrInput
 	Location             pulumi.StringPtrInput
+	MarketplaceOfferId   pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput
 	NetworkProfile       NextGenerationFirewallVirtualHubPanoramaNetworkProfileInput
 	PanoramaBase64Config pulumi.StringInput
+	PlanId               pulumi.StringPtrInput
 	ResourceGroupName    pulumi.StringInput
 	Tags                 pulumi.StringMapInput
 }
@@ -218,6 +228,10 @@ func (o NextGenerationFirewallVirtualHubPanoramaOutput) Location() pulumi.String
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanorama) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubPanoramaOutput) MarketplaceOfferId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanorama) pulumi.StringPtrOutput { return v.MarketplaceOfferId }).(pulumi.StringPtrOutput)
+}
+
 func (o NextGenerationFirewallVirtualHubPanoramaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanorama) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -236,6 +250,10 @@ func (o NextGenerationFirewallVirtualHubPanoramaOutput) Panoramas() NextGenerati
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanorama) NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput {
 		return v.Panoramas
 	}).(NextGenerationFirewallVirtualHubPanoramaPanoramaArrayOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanorama) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaOutput) ResourceGroupName() pulumi.StringOutput {

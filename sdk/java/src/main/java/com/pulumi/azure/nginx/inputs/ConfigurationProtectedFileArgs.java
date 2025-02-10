@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ConfigurationProtectedFileArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +32,21 @@ public final class ConfigurationProtectedFileArgs extends com.pulumi.resources.R
     }
 
     /**
+     * The hash of the contents of this configuration file prefixed by the algorithm used.
+     * 
+     */
+    @Import(name="contentHash")
+    private @Nullable Output<String> contentHash;
+
+    /**
+     * @return The hash of the contents of this configuration file prefixed by the algorithm used.
+     * 
+     */
+    public Optional<Output<String>> contentHash() {
+        return Optional.ofNullable(this.contentHash);
+    }
+
+    /**
      * Specifies the path of this config file.
      * 
      */
@@ -48,6 +65,7 @@ public final class ConfigurationProtectedFileArgs extends com.pulumi.resources.R
 
     private ConfigurationProtectedFileArgs(ConfigurationProtectedFileArgs $) {
         this.content = $.content;
+        this.contentHash = $.contentHash;
         this.virtualPath = $.virtualPath;
     }
 
@@ -88,6 +106,27 @@ public final class ConfigurationProtectedFileArgs extends com.pulumi.resources.R
          */
         public Builder content(String content) {
             return content(Output.of(content));
+        }
+
+        /**
+         * @param contentHash The hash of the contents of this configuration file prefixed by the algorithm used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentHash(@Nullable Output<String> contentHash) {
+            $.contentHash = contentHash;
+            return this;
+        }
+
+        /**
+         * @param contentHash The hash of the contents of this configuration file prefixed by the algorithm used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contentHash(String contentHash) {
+            return contentHash(Output.of(contentHash));
         }
 
         /**

@@ -72,6 +72,7 @@ namespace Pulumi.Azure.Network
     ///         PublicIpAddressId = examplePublicIp.Id,
     ///         SubnetId = exampleSubnet.Id,
     ///         BranchToBranchTrafficEnabled = true,
+    ///         HubRoutingPreference = "ASPath",
     ///     });
     /// 
     /// });
@@ -89,10 +90,16 @@ namespace Pulumi.Azure.Network
     public partial class RouteServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable route exchange between Azure Route Server and the gateway(s)
+        /// Whether to enable route exchange between Azure Route Server and the gateway(s).
         /// </summary>
         [Output("branchToBranchTrafficEnabled")]
         public Output<bool?> BranchToBranchTrafficEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+        /// </summary>
+        [Output("hubRoutingPreference")]
+        public Output<string?> HubRoutingPreference { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -130,7 +137,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+        /// &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -194,10 +201,16 @@ namespace Pulumi.Azure.Network
     public sealed class RouteServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable route exchange between Azure Route Server and the gateway(s)
+        /// Whether to enable route exchange between Azure Route Server and the gateway(s).
         /// </summary>
         [Input("branchToBranchTrafficEnabled")]
         public Input<bool>? BranchToBranchTrafficEnabled { get; set; }
+
+        /// <summary>
+        /// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+        /// </summary>
+        [Input("hubRoutingPreference")]
+        public Input<string>? HubRoutingPreference { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -232,7 +245,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+        /// &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -258,10 +271,16 @@ namespace Pulumi.Azure.Network
     public sealed class RouteServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable route exchange between Azure Route Server and the gateway(s)
+        /// Whether to enable route exchange between Azure Route Server and the gateway(s).
         /// </summary>
         [Input("branchToBranchTrafficEnabled")]
         public Input<bool>? BranchToBranchTrafficEnabled { get; set; }
+
+        /// <summary>
+        /// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+        /// </summary>
+        [Input("hubRoutingPreference")]
+        public Input<string>? HubRoutingPreference { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -299,7 +318,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+        /// &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

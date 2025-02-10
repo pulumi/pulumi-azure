@@ -20,6 +20,11 @@ public final class GetConfigurationProtectedFile {
     @Deprecated /* the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider. */
     private String content;
     /**
+     * @return The hash of the contents of this configuration file prefixed by the algorithm used.
+     * 
+     */
+    private String contentHash;
+    /**
      * @return The path of this configuration file.
      * 
      */
@@ -36,6 +41,13 @@ public final class GetConfigurationProtectedFile {
     @Deprecated /* the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider. */
     public String content() {
         return this.content;
+    }
+    /**
+     * @return The hash of the contents of this configuration file prefixed by the algorithm used.
+     * 
+     */
+    public String contentHash() {
+        return this.contentHash;
     }
     /**
      * @return The path of this configuration file.
@@ -55,11 +67,13 @@ public final class GetConfigurationProtectedFile {
     @CustomType.Builder
     public static final class Builder {
         private String content;
+        private String contentHash;
         private String virtualPath;
         public Builder() {}
         public Builder(GetConfigurationProtectedFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
+    	      this.contentHash = defaults.contentHash;
     	      this.virtualPath = defaults.virtualPath;
         }
 
@@ -69,6 +83,14 @@ public final class GetConfigurationProtectedFile {
               throw new MissingRequiredPropertyException("GetConfigurationProtectedFile", "content");
             }
             this.content = content;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder contentHash(String contentHash) {
+            if (contentHash == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationProtectedFile", "contentHash");
+            }
+            this.contentHash = contentHash;
             return this;
         }
         @CustomType.Setter
@@ -82,6 +104,7 @@ public final class GetConfigurationProtectedFile {
         public GetConfigurationProtectedFile build() {
             final var _resultValue = new GetConfigurationProtectedFile();
             _resultValue.content = content;
+            _resultValue.contentHash = contentHash;
             _resultValue.virtualPath = virtualPath;
             return _resultValue;
         }

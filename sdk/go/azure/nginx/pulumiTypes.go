@@ -122,6 +122,8 @@ func (o ConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) Configurati
 type ConfigurationProtectedFile struct {
 	// Specifies the base-64 encoded contents of this config file (Sensitive).
 	Content string `pulumi:"content"`
+	// The hash of the contents of this configuration file prefixed by the algorithm used.
+	ContentHash *string `pulumi:"contentHash"`
 	// Specifies the path of this config file.
 	VirtualPath string `pulumi:"virtualPath"`
 }
@@ -140,6 +142,8 @@ type ConfigurationProtectedFileInput interface {
 type ConfigurationProtectedFileArgs struct {
 	// Specifies the base-64 encoded contents of this config file (Sensitive).
 	Content pulumi.StringInput `pulumi:"content"`
+	// The hash of the contents of this configuration file prefixed by the algorithm used.
+	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// Specifies the path of this config file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
@@ -198,6 +202,11 @@ func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutputWith
 // Specifies the base-64 encoded contents of this config file (Sensitive).
 func (o ConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The hash of the contents of this configuration file prefixed by the algorithm used.
+func (o ConfigurationProtectedFileOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProtectedFile) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the path of this config file.
@@ -1094,6 +1103,8 @@ type GetConfigurationProtectedFile struct {
 	//
 	// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
 	Content string `pulumi:"content"`
+	// The hash of the contents of this configuration file prefixed by the algorithm used.
+	ContentHash string `pulumi:"contentHash"`
 	// The path of this configuration file.
 	VirtualPath string `pulumi:"virtualPath"`
 }
@@ -1114,6 +1125,8 @@ type GetConfigurationProtectedFileArgs struct {
 	//
 	// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
 	Content pulumi.StringInput `pulumi:"content"`
+	// The hash of the contents of this configuration file prefixed by the algorithm used.
+	ContentHash pulumi.StringInput `pulumi:"contentHash"`
 	// The path of this configuration file.
 	VirtualPath pulumi.StringInput `pulumi:"virtualPath"`
 }
@@ -1174,6 +1187,11 @@ func (o GetConfigurationProtectedFileOutput) ToGetConfigurationProtectedFileOutp
 // Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
 func (o GetConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The hash of the contents of this configuration file prefixed by the algorithm used.
+func (o GetConfigurationProtectedFileOutput) ContentHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.ContentHash }).(pulumi.StringOutput)
 }
 
 // The path of this configuration file.

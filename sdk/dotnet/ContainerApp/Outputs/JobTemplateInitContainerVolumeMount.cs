@@ -21,15 +21,22 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// The path within the container at which the volume should be mounted. Must not contain `:`.
         /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// The sub path of the volume to be mounted in the container.
+        /// </summary>
+        public readonly string? SubPath;
 
         [OutputConstructor]
         private JobTemplateInitContainerVolumeMount(
             string name,
 
-            string path)
+            string path,
+
+            string? subPath)
         {
             Name = name;
             Path = path;
+            SubPath = subPath;
         }
     }
 }

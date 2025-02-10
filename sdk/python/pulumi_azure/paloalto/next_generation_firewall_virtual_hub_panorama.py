@@ -27,7 +27,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
                  dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualHubPanorama resource.
@@ -41,8 +43,12 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if marketplace_offer_id is not None:
+            pulumi.set(__self__, "marketplace_offer_id", marketplace_offer_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -101,6 +107,15 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="marketplaceOfferId")
+    def marketplace_offer_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "marketplace_offer_id")
+
+    @marketplace_offer_id.setter
+    def marketplace_offer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_offer_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -108,6 +123,15 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
 
     @property
     @pulumi.getter
@@ -125,10 +149,12 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
                  dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']] = None,
                  panorama_base64_config: Optional[pulumi.Input[str]] = None,
                  panoramas: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs']]]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -140,6 +166,8 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
             pulumi.set(__self__, "dns_settings", dns_settings)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if marketplace_offer_id is not None:
+            pulumi.set(__self__, "marketplace_offer_id", marketplace_offer_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -148,6 +176,8 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
             pulumi.set(__self__, "panorama_base64_config", panorama_base64_config)
         if panoramas is not None:
             pulumi.set(__self__, "panoramas", panoramas)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -179,6 +209,15 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="marketplaceOfferId")
+    def marketplace_offer_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "marketplace_offer_id")
+
+    @marketplace_offer_id.setter
+    def marketplace_offer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marketplace_offer_id", value)
 
     @property
     @pulumi.getter
@@ -217,6 +256,15 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
         pulumi.set(self, "panoramas", value)
 
     @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "resource_group_name")
@@ -243,9 +291,11 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict']]]]] = None,
                  dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict']]] = None,
                  panorama_base64_config: Optional[pulumi.Input[str]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -280,9 +330,11 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
                  destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict']]]]] = None,
                  dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 marketplace_offer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict']]] = None,
                  panorama_base64_config: Optional[pulumi.Input[str]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -297,6 +349,7 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
             __props__.__dict__["destination_nats"] = destination_nats
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["location"] = location
+            __props__.__dict__["marketplace_offer_id"] = marketplace_offer_id
             __props__.__dict__["name"] = name
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
@@ -304,6 +357,7 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
             if panorama_base64_config is None and not opts.urn:
                 raise TypeError("Missing required property 'panorama_base64_config'")
             __props__.__dict__["panorama_base64_config"] = panorama_base64_config
+            __props__.__dict__["plan_id"] = plan_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -322,10 +376,12 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
             destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict']]]]] = None,
             dns_settings: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            marketplace_offer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict']]] = None,
             panorama_base64_config: Optional[pulumi.Input[str]] = None,
             panoramas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs', 'NextGenerationFirewallVirtualHubPanoramaPanoramaArgsDict']]]]] = None,
+            plan_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NextGenerationFirewallVirtualHubPanorama':
         """
@@ -343,10 +399,12 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         __props__.__dict__["destination_nats"] = destination_nats
         __props__.__dict__["dns_settings"] = dns_settings
         __props__.__dict__["location"] = location
+        __props__.__dict__["marketplace_offer_id"] = marketplace_offer_id
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["panorama_base64_config"] = panorama_base64_config
         __props__.__dict__["panoramas"] = panoramas
+        __props__.__dict__["plan_id"] = plan_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return NextGenerationFirewallVirtualHubPanorama(resource_name, opts=opts, __props__=__props__)
@@ -367,6 +425,11 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="marketplaceOfferId")
+    def marketplace_offer_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "marketplace_offer_id")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
@@ -385,6 +448,11 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     @pulumi.getter
     def panoramas(self) -> pulumi.Output[Sequence['outputs.NextGenerationFirewallVirtualHubPanoramaPanorama']]:
         return pulumi.get(self, "panoramas")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "plan_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")

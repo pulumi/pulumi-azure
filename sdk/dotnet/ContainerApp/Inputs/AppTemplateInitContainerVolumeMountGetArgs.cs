@@ -24,6 +24,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// The sub path of the volume to be mounted in the container.
+        /// </summary>
+        [Input("subPath")]
+        public Input<string>? SubPath { get; set; }
+
         public AppTemplateInitContainerVolumeMountGetArgs()
         {
         }

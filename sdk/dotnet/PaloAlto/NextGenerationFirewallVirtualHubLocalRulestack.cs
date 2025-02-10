@@ -18,11 +18,17 @@ namespace Pulumi.Azure.PaloAlto
         [Output("dnsSettings")]
         public Output<Outputs.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings?> DnsSettings { get; private set; } = null!;
 
+        [Output("marketplaceOfferId")]
+        public Output<string?> MarketplaceOfferId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("networkProfile")]
         public Output<Outputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile> NetworkProfile { get; private set; } = null!;
+
+        [Output("planId")]
+        public Output<string?> PlanId { get; private set; } = null!;
 
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -90,11 +96,17 @@ namespace Pulumi.Azure.PaloAlto
         [Input("dnsSettings")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs>? DnsSettings { get; set; }
 
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("networkProfile", required: true)]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs> NetworkProfile { get; set; } = null!;
+
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -129,11 +141,17 @@ namespace Pulumi.Azure.PaloAlto
         [Input("dnsSettings")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsGetArgs>? DnsSettings { get; set; }
 
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("networkProfile")]
         public Input<Inputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileGetArgs>? NetworkProfile { get; set; }
+
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -58,6 +58,10 @@ export interface GetFrontdoorFirewallPolicyResult {
      */
     readonly id: string;
     /**
+     * The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+     */
+    readonly jsChallengeCookieExpirationInMinutes: number;
+    /**
      * The Front Door Firewall Policy mode.
      */
     readonly mode: string;

@@ -137,14 +137,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.localAuthenticationEnabled);
     }
     /**
-     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * @return The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {

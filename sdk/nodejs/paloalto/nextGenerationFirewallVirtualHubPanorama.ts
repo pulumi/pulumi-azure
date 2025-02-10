@@ -37,10 +37,12 @@ export class NextGenerationFirewallVirtualHubPanorama extends pulumi.CustomResou
     public readonly destinationNats!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat[] | undefined>;
     public readonly dnsSettings!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings | undefined>;
     public readonly location!: pulumi.Output<string>;
+    public readonly marketplaceOfferId!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly networkProfile!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubPanoramaNetworkProfile>;
     public readonly panoramaBase64Config!: pulumi.Output<string>;
     public /*out*/ readonly panoramas!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubPanoramaPanorama[]>;
+    public readonly planId!: pulumi.Output<string | undefined>;
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -60,10 +62,12 @@ export class NextGenerationFirewallVirtualHubPanorama extends pulumi.CustomResou
             resourceInputs["destinationNats"] = state ? state.destinationNats : undefined;
             resourceInputs["dnsSettings"] = state ? state.dnsSettings : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["marketplaceOfferId"] = state ? state.marketplaceOfferId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["panoramaBase64Config"] = state ? state.panoramaBase64Config : undefined;
             resourceInputs["panoramas"] = state ? state.panoramas : undefined;
+            resourceInputs["planId"] = state ? state.planId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -80,9 +84,11 @@ export class NextGenerationFirewallVirtualHubPanorama extends pulumi.CustomResou
             resourceInputs["destinationNats"] = args ? args.destinationNats : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["marketplaceOfferId"] = args ? args.marketplaceOfferId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["panoramaBase64Config"] = args ? args.panoramaBase64Config : undefined;
+            resourceInputs["planId"] = args ? args.planId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["panoramas"] = undefined /*out*/;
@@ -99,10 +105,12 @@ export interface NextGenerationFirewallVirtualHubPanoramaState {
     destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat>[]>;
     dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings>;
     location?: pulumi.Input<string>;
+    marketplaceOfferId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaNetworkProfile>;
     panoramaBase64Config?: pulumi.Input<string>;
     panoramas?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaPanorama>[]>;
+    planId?: pulumi.Input<string>;
     resourceGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -114,9 +122,11 @@ export interface NextGenerationFirewallVirtualHubPanoramaArgs {
     destinationNats?: pulumi.Input<pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDestinationNat>[]>;
     dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaDnsSettings>;
     location?: pulumi.Input<string>;
+    marketplaceOfferId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     networkProfile: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualHubPanoramaNetworkProfile>;
     panoramaBase64Config: pulumi.Input<string>;
+    planId?: pulumi.Input<string>;
     resourceGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

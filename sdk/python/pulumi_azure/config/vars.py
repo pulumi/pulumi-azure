@@ -22,6 +22,13 @@ __config__ = pulumi.Config('azure')
 
 class _ExportableConfig(types.ModuleType):
     @property
+    def ado_pipeline_service_connection_id(self) -> Optional[str]:
+        """
+        The Azure DevOps Pipeline Service Connection ID.
+        """
+        return __config__.get('adoPipelineServiceConnectionId')
+
+    @property
     def auxiliary_tenant_ids(self) -> Optional[str]:
         return __config__.get('auxiliaryTenantIds')
 
