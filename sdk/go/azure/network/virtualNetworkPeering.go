@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-1", &network.VirtualNetworkArgs{
+//			example_1, err := network.NewVirtualNetwork(ctx, "example-1", &network.VirtualNetworkArgs{
 //				Name:              pulumi.String("peternetwork1"),
 //				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
@@ -48,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-2", &network.VirtualNetworkArgs{
+//			example_2, err := network.NewVirtualNetwork(ctx, "example-2", &network.VirtualNetworkArgs{
 //				Name:              pulumi.String("peternetwork2"),
 //				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
@@ -106,7 +106,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-1", &network.VirtualNetworkArgs{
+//			example_1, err := network.NewVirtualNetwork(ctx, "example-1", &network.VirtualNetworkArgs{
 //				Name:              pulumi.String("peternetwork1"),
 //				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
@@ -117,7 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetwork(ctx, "example-2", &network.VirtualNetworkArgs{
+//			example_2, err := network.NewVirtualNetwork(ctx, "example-2", &network.VirtualNetworkArgs{
 //				Name:              pulumi.String("peternetwork2"),
 //				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
