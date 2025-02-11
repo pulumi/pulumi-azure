@@ -14,6 +14,13 @@ import java.util.Optional;
 public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("azure");
+/**
+ * The Azure DevOps Pipeline Service Connection ID.
+ * 
+ */
+    public Optional<String> adoPipelineServiceConnectionId() {
+        return Codegen.stringProp("adoPipelineServiceConnectionId").config(config).get();
+    }
     public Optional<List<String>> auxiliaryTenantIds() {
         return Codegen.objectProp("auxiliaryTenantIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }

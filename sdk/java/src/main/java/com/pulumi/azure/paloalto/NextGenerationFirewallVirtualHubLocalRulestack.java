@@ -33,6 +33,12 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
     public Output<Optional<NextGenerationFirewallVirtualHubLocalRulestackDnsSettings>> dnsSettings() {
         return Codegen.optional(this.dnsSettings);
     }
+    @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> marketplaceOfferId;
+
+    public Output<Optional<String>> marketplaceOfferId() {
+        return Codegen.optional(this.marketplaceOfferId);
+    }
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
@@ -44,6 +50,12 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
 
     public Output<NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile> networkProfile() {
         return this.networkProfile;
+    }
+    @Export(name="planId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> planId;
+
+    public Output<Optional<String>> planId() {
+        return Codegen.optional(this.planId);
     }
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;

@@ -19,6 +19,12 @@ namespace Pulumi.Azure
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
+        /// The Azure DevOps Pipeline Service Connection ID.
+        /// </summary>
+        [Output("adoPipelineServiceConnectionId")]
+        public Output<string?> AdoPipelineServiceConnectionId { get; private set; } = null!;
+
+        /// <summary>
         /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
         /// </summary>
         [Output("clientCertificate")]
@@ -176,6 +182,12 @@ namespace Pulumi.Azure
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Azure DevOps Pipeline Service Connection ID.
+        /// </summary>
+        [Input("adoPipelineServiceConnectionId")]
+        public Input<string>? AdoPipelineServiceConnectionId { get; set; }
+
         [Input("auxiliaryTenantIds", json: true)]
         private InputList<string>? _auxiliaryTenantIds;
         public InputList<string> AuxiliaryTenantIds

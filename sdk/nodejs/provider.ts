@@ -28,6 +28,10 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
+     * The Azure DevOps Pipeline Service Connection ID.
+     */
+    public readonly adoPipelineServiceConnectionId!: pulumi.Output<string | undefined>;
+    /**
      * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
      */
     public readonly clientCertificate!: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            resourceInputs["adoPipelineServiceConnectionId"] = args ? args.adoPipelineServiceConnectionId : undefined;
             resourceInputs["auxiliaryTenantIds"] = pulumi.output(args?.auxiliaryTenantIds ? pulumi.secret(args.auxiliaryTenantIds) : undefined).apply(JSON.stringify);
             resourceInputs["clientCertificate"] = args?.clientCertificate ? pulumi.secret(args.clientCertificate) : undefined;
             resourceInputs["clientCertificatePassword"] = args?.clientCertificatePassword ? pulumi.secret(args.clientCertificatePassword) : undefined;
@@ -159,6 +164,10 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    /**
+     * The Azure DevOps Pipeline Service Connection ID.
+     */
+    adoPipelineServiceConnectionId?: pulumi.Input<string>;
     auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate

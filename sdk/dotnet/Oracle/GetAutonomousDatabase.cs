@@ -310,7 +310,7 @@ namespace Pulumi.Azure.Oracle
         /// <summary>
         /// The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
         /// </summary>
-        public readonly ImmutableArray<int> SupportedRegionsToCloneTos;
+        public readonly ImmutableArray<string> SupportedRegionsToCloneTos;
         /// <summary>
         /// A mapping of tags assigned to the Autonomous Database.
         /// </summary>
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.Oracle
 
             string subnetId,
 
-            ImmutableArray<int> supportedRegionsToCloneTos,
+            ImmutableArray<string> supportedRegionsToCloneTos,
 
             ImmutableDictionary<string, string> tags,
 

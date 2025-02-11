@@ -9,6 +9,17 @@ import * as utilities from "../utilities";
 declare var exports: any;
 const __config = new pulumi.Config("azure");
 
+/**
+ * The Azure DevOps Pipeline Service Connection ID.
+ */
+export declare const adoPipelineServiceConnectionId: string | undefined;
+Object.defineProperty(exports, "adoPipelineServiceConnectionId", {
+    get() {
+        return __config.get("adoPipelineServiceConnectionId");
+    },
+    enumerable: true,
+});
+
 export declare const auxiliaryTenantIds: string[] | undefined;
 Object.defineProperty(exports, "auxiliaryTenantIds", {
     get() {

@@ -3091,6 +3091,8 @@ type AppTemplateContainerVolumeMount struct {
 	Name string `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath *string `pulumi:"subPath"`
 }
 
 // AppTemplateContainerVolumeMountInput is an input type that accepts AppTemplateContainerVolumeMountArgs and AppTemplateContainerVolumeMountOutput values.
@@ -3109,6 +3111,8 @@ type AppTemplateContainerVolumeMountArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath pulumi.StringPtrInput `pulumi:"subPath"`
 }
 
 func (AppTemplateContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -3170,6 +3174,11 @@ func (o AppTemplateContainerVolumeMountOutput) Name() pulumi.StringOutput {
 // The path in the container at which to mount this volume.
 func (o AppTemplateContainerVolumeMountOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The sub path of the volume to be mounted in the container.
+func (o AppTemplateContainerVolumeMountOutput) SubPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateContainerVolumeMount) *string { return v.SubPath }).(pulumi.StringPtrOutput)
 }
 
 type AppTemplateContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
@@ -3958,6 +3967,8 @@ type AppTemplateInitContainerVolumeMount struct {
 	Name string `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath *string `pulumi:"subPath"`
 }
 
 // AppTemplateInitContainerVolumeMountInput is an input type that accepts AppTemplateInitContainerVolumeMountArgs and AppTemplateInitContainerVolumeMountOutput values.
@@ -3976,6 +3987,8 @@ type AppTemplateInitContainerVolumeMountArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath pulumi.StringPtrInput `pulumi:"subPath"`
 }
 
 func (AppTemplateInitContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -4037,6 +4050,11 @@ func (o AppTemplateInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
 // The path in the container at which to mount this volume.
 func (o AppTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateInitContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The sub path of the volume to be mounted in the container.
+func (o AppTemplateInitContainerVolumeMountOutput) SubPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateInitContainerVolumeMount) *string { return v.SubPath }).(pulumi.StringPtrOutput)
 }
 
 type AppTemplateInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
@@ -7447,6 +7465,8 @@ type JobTemplateContainerVolumeMount struct {
 	Name string `pulumi:"name"`
 	// The path within the container at which the volume should be mounted. Must not contain `:`.
 	Path string `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath *string `pulumi:"subPath"`
 }
 
 // JobTemplateContainerVolumeMountInput is an input type that accepts JobTemplateContainerVolumeMountArgs and JobTemplateContainerVolumeMountOutput values.
@@ -7465,6 +7485,8 @@ type JobTemplateContainerVolumeMountArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path within the container at which the volume should be mounted. Must not contain `:`.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath pulumi.StringPtrInput `pulumi:"subPath"`
 }
 
 func (JobTemplateContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -7526,6 +7548,11 @@ func (o JobTemplateContainerVolumeMountOutput) Name() pulumi.StringOutput {
 // The path within the container at which the volume should be mounted. Must not contain `:`.
 func (o JobTemplateContainerVolumeMountOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The sub path of the volume to be mounted in the container.
+func (o JobTemplateContainerVolumeMountOutput) SubPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateContainerVolumeMount) *string { return v.SubPath }).(pulumi.StringPtrOutput)
 }
 
 type JobTemplateContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
@@ -7855,6 +7882,8 @@ type JobTemplateInitContainerVolumeMount struct {
 	Name string `pulumi:"name"`
 	// The path within the container at which the volume should be mounted. Must not contain `:`.
 	Path string `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath *string `pulumi:"subPath"`
 }
 
 // JobTemplateInitContainerVolumeMountInput is an input type that accepts JobTemplateInitContainerVolumeMountArgs and JobTemplateInitContainerVolumeMountOutput values.
@@ -7873,6 +7902,8 @@ type JobTemplateInitContainerVolumeMountArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path within the container at which the volume should be mounted. Must not contain `:`.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	SubPath pulumi.StringPtrInput `pulumi:"subPath"`
 }
 
 func (JobTemplateInitContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -7934,6 +7965,11 @@ func (o JobTemplateInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
 // The path within the container at which the volume should be mounted. Must not contain `:`.
 func (o JobTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateInitContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The sub path of the volume to be mounted in the container.
+func (o JobTemplateInitContainerVolumeMountOutput) SubPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateInitContainerVolumeMount) *string { return v.SubPath }).(pulumi.StringPtrOutput)
 }
 
 type JobTemplateInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
@@ -10653,6 +10689,9 @@ type GetAppTemplateContainerVolumeMount struct {
 	Name string `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	// ---
+	SubPath string `pulumi:"subPath"`
 }
 
 // GetAppTemplateContainerVolumeMountInput is an input type that accepts GetAppTemplateContainerVolumeMountArgs and GetAppTemplateContainerVolumeMountOutput values.
@@ -10671,6 +10710,9 @@ type GetAppTemplateContainerVolumeMountArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	// ---
+	SubPath pulumi.StringInput `pulumi:"subPath"`
 }
 
 func (GetAppTemplateContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -10732,6 +10774,12 @@ func (o GetAppTemplateContainerVolumeMountOutput) Name() pulumi.StringOutput {
 // The path in the container at which to mount this volume.
 func (o GetAppTemplateContainerVolumeMountOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The sub path of the volume to be mounted in the container.
+// ---
+func (o GetAppTemplateContainerVolumeMountOutput) SubPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerVolumeMount) string { return v.SubPath }).(pulumi.StringOutput)
 }
 
 type GetAppTemplateContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
@@ -11477,6 +11525,9 @@ type GetAppTemplateInitContainerVolumeMount struct {
 	Name string `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	// ---
+	SubPath string `pulumi:"subPath"`
 }
 
 // GetAppTemplateInitContainerVolumeMountInput is an input type that accepts GetAppTemplateInitContainerVolumeMountArgs and GetAppTemplateInitContainerVolumeMountOutput values.
@@ -11495,6 +11546,9 @@ type GetAppTemplateInitContainerVolumeMountArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
+	// The sub path of the volume to be mounted in the container.
+	// ---
+	SubPath pulumi.StringInput `pulumi:"subPath"`
 }
 
 func (GetAppTemplateInitContainerVolumeMountArgs) ElementType() reflect.Type {
@@ -11556,6 +11610,12 @@ func (o GetAppTemplateInitContainerVolumeMountOutput) Name() pulumi.StringOutput
 // The path in the container at which to mount this volume.
 func (o GetAppTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateInitContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The sub path of the volume to be mounted in the container.
+// ---
+func (o GetAppTemplateInitContainerVolumeMountOutput) SubPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainerVolumeMount) string { return v.SubPath }).(pulumi.StringOutput)
 }
 
 type GetAppTemplateInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }

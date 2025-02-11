@@ -243,14 +243,14 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     @Export(name="nodePublicIpEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> nodePublicIpEnabled;
 
     /**
-     * @return Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
     public Output<Optional<Boolean>> nodePublicIpEnabled() {
@@ -303,14 +303,14 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subnetResourceId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> subnetResourceId;
+    private Output<String> subnetResourceId;
 
     /**
      * @return The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    public Output<Optional<String>> subnetResourceId() {
-        return Codegen.optional(this.subnetResourceId);
+    public Output<String> subnetResourceId() {
+        return this.subnetResourceId;
     }
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.

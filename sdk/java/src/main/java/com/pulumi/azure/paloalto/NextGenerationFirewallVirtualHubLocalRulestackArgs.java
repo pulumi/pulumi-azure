@@ -35,6 +35,13 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackArgs extends co
         return Optional.ofNullable(this.dnsSettings);
     }
 
+    @Import(name="marketplaceOfferId")
+    private @Nullable Output<String> marketplaceOfferId;
+
+    public Optional<Output<String>> marketplaceOfferId() {
+        return Optional.ofNullable(this.marketplaceOfferId);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -47,6 +54,13 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackArgs extends co
 
     public Output<NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs> networkProfile() {
         return this.networkProfile;
+    }
+
+    @Import(name="planId")
+    private @Nullable Output<String> planId;
+
+    public Optional<Output<String>> planId() {
+        return Optional.ofNullable(this.planId);
     }
 
     @Import(name="resourceGroupName", required=true)
@@ -75,8 +89,10 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackArgs extends co
     private NextGenerationFirewallVirtualHubLocalRulestackArgs(NextGenerationFirewallVirtualHubLocalRulestackArgs $) {
         this.destinationNats = $.destinationNats;
         this.dnsSettings = $.dnsSettings;
+        this.marketplaceOfferId = $.marketplaceOfferId;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
+        this.planId = $.planId;
         this.resourceGroupName = $.resourceGroupName;
         this.rulestackId = $.rulestackId;
         this.tags = $.tags;
@@ -122,6 +138,15 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackArgs extends co
             return dnsSettings(Output.of(dnsSettings));
         }
 
+        public Builder marketplaceOfferId(@Nullable Output<String> marketplaceOfferId) {
+            $.marketplaceOfferId = marketplaceOfferId;
+            return this;
+        }
+
+        public Builder marketplaceOfferId(String marketplaceOfferId) {
+            return marketplaceOfferId(Output.of(marketplaceOfferId));
+        }
+
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -138,6 +163,15 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackArgs extends co
 
         public Builder networkProfile(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs networkProfile) {
             return networkProfile(Output.of(networkProfile));
+        }
+
+        public Builder planId(@Nullable Output<String> planId) {
+            $.planId = planId;
+            return this;
+        }
+
+        public Builder planId(String planId) {
+            return planId(Output.of(planId));
         }
 
         public Builder resourceGroupName(Output<String> resourceGroupName) {

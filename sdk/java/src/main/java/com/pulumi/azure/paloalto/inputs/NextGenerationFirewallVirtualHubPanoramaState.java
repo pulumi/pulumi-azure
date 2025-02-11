@@ -42,6 +42,13 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         return Optional.ofNullable(this.location);
     }
 
+    @Import(name="marketplaceOfferId")
+    private @Nullable Output<String> marketplaceOfferId;
+
+    public Optional<Output<String>> marketplaceOfferId() {
+        return Optional.ofNullable(this.marketplaceOfferId);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -70,6 +77,13 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         return Optional.ofNullable(this.panoramas);
     }
 
+    @Import(name="planId")
+    private @Nullable Output<String> planId;
+
+    public Optional<Output<String>> planId() {
+        return Optional.ofNullable(this.planId);
+    }
+
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
@@ -90,10 +104,12 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
         this.destinationNats = $.destinationNats;
         this.dnsSettings = $.dnsSettings;
         this.location = $.location;
+        this.marketplaceOfferId = $.marketplaceOfferId;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
         this.panoramaBase64Config = $.panoramaBase64Config;
         this.panoramas = $.panoramas;
+        this.planId = $.planId;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -147,6 +163,15 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
             return location(Output.of(location));
         }
 
+        public Builder marketplaceOfferId(@Nullable Output<String> marketplaceOfferId) {
+            $.marketplaceOfferId = marketplaceOfferId;
+            return this;
+        }
+
+        public Builder marketplaceOfferId(String marketplaceOfferId) {
+            return marketplaceOfferId(Output.of(marketplaceOfferId));
+        }
+
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -185,6 +210,15 @@ public final class NextGenerationFirewallVirtualHubPanoramaState extends com.pul
 
         public Builder panoramas(NextGenerationFirewallVirtualHubPanoramaPanoramaArgs... panoramas) {
             return panoramas(List.of(panoramas));
+        }
+
+        public Builder planId(@Nullable Output<String> planId) {
+            $.planId = planId;
+            return this;
+        }
+
+        public Builder planId(String planId) {
+            return planId(Output.of(planId));
         }
 
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {

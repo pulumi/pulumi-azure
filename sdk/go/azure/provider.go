@@ -18,6 +18,8 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
+	// The Azure DevOps Pipeline Service Connection ID.
+	AdoPipelineServiceConnectionId pulumi.StringPtrOutput `pulumi:"adoPipelineServiceConnectionId"`
 	// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
 	ClientCertificate pulumi.StringPtrOutput `pulumi:"clientCertificate"`
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -159,7 +161,9 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	AuxiliaryTenantIds []string `pulumi:"auxiliaryTenantIds"`
+	// The Azure DevOps Pipeline Service Connection ID.
+	AdoPipelineServiceConnectionId *string  `pulumi:"adoPipelineServiceConnectionId"`
+	AuxiliaryTenantIds             []string `pulumi:"auxiliaryTenantIds"`
 	// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
 	ClientCertificate *string `pulumi:"clientCertificate"`
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -229,7 +233,9 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	AuxiliaryTenantIds pulumi.StringArrayInput
+	// The Azure DevOps Pipeline Service Connection ID.
+	AdoPipelineServiceConnectionId pulumi.StringPtrInput
+	AuxiliaryTenantIds             pulumi.StringArrayInput
 	// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
 	ClientCertificate pulumi.StringPtrInput
 	// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -332,6 +338,11 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+// The Azure DevOps Pipeline Service Connection ID.
+func (o ProviderOutput) AdoPipelineServiceConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AdoPipelineServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
 // Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate

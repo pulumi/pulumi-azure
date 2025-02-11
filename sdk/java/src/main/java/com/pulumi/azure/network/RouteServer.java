@@ -90,6 +90,7 @@ import javax.annotation.Nullable;
  *             .publicIpAddressId(examplePublicIp.id())
  *             .subnetId(exampleSubnet.id())
  *             .branchToBranchTrafficEnabled(true)
+ *             .hubRoutingPreference("ASPath")
  *             .build());
  * 
  *     }
@@ -110,18 +111,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/routeServer:RouteServer")
 public class RouteServer extends com.pulumi.resources.CustomResource {
     /**
-     * Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * Whether to enable route exchange between Azure Route Server and the gateway(s).
      * 
      */
     @Export(name="branchToBranchTrafficEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> branchToBranchTrafficEnabled;
 
     /**
-     * @return Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * @return Whether to enable route exchange between Azure Route Server and the gateway(s).
      * 
      */
     public Output<Optional<Boolean>> branchToBranchTrafficEnabled() {
         return Codegen.optional(this.branchToBranchTrafficEnabled);
+    }
+    /**
+     * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    @Export(name="hubRoutingPreference", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> hubRoutingPreference;
+
+    /**
+     * @return The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    public Output<Optional<String>> hubRoutingPreference() {
+        return Codegen.optional(this.hubRoutingPreference);
     }
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -202,7 +217,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
+     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
@@ -211,7 +226,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
+     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
      * 
      */
     public Output<String> subnetId() {

@@ -40,7 +40,7 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]] data_stores: One or more `data_store` blocks as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
-        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         """
@@ -139,7 +139,7 @@ class AccountArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -193,7 +193,7 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountDataStoreArgs']]] data_stores: One or more `data_store` blocks as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
-        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
@@ -281,7 +281,7 @@ class _AccountState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -427,7 +427,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]] data_stores: One or more `data_store` blocks as defined below.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
-        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
@@ -555,7 +555,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]] data_stores: One or more `data_store` blocks as defined below.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
-        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        :param pulumi.Input[str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
@@ -620,7 +620,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+        The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

@@ -21,6 +21,9 @@ namespace Pulumi.Azure.PaloAlto
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        [Output("marketplaceOfferId")]
+        public Output<string?> MarketplaceOfferId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -32,6 +35,9 @@ namespace Pulumi.Azure.PaloAlto
 
         [Output("panoramas")]
         public Output<ImmutableArray<Outputs.NextGenerationFirewallVirtualHubPanoramaPanorama>> Panoramas { get; private set; } = null!;
+
+        [Output("planId")]
+        public Output<string?> PlanId { get; private set; } = null!;
 
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -99,6 +105,9 @@ namespace Pulumi.Azure.PaloAlto
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -107,6 +116,9 @@ namespace Pulumi.Azure.PaloAlto
 
         [Input("panoramaBase64Config", required: true)]
         public Input<string> PanoramaBase64Config { get; set; } = null!;
+
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -141,6 +153,9 @@ namespace Pulumi.Azure.PaloAlto
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -157,6 +172,9 @@ namespace Pulumi.Azure.PaloAlto
             get => _panoramas ?? (_panoramas = new InputList<Inputs.NextGenerationFirewallVirtualHubPanoramaPanoramaGetArgs>());
             set => _panoramas = value;
         }
+
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

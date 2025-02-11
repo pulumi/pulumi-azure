@@ -204,6 +204,20 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
         return this.location;
     }
     /**
+     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> marketplaceOfferId;
+
+    /**
+     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> marketplaceOfferId() {
+        return Codegen.optional(this.marketplaceOfferId);
+    }
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      * 
      */
@@ -258,6 +272,20 @@ public class NextGenerationFirewallVirtualNetworkPanorama extends com.pulumi.res
      */
     public Output<List<NextGenerationFirewallVirtualNetworkPanoramaPanorama>> panoramas() {
         return this.panoramas;
+    }
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * 
+     */
+    @Export(name="planId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> planId;
+
+    /**
+     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * 
+     */
+    public Output<Optional<String>> planId() {
+        return Codegen.optional(this.planId);
     }
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.

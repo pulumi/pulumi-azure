@@ -20,6 +20,12 @@ public final class GetAppTemplateInitContainerVolumeMount {
      * 
      */
     private String path;
+    /**
+     * @return The sub path of the volume to be mounted in the container.
+     * ---
+     * 
+     */
+    private String subPath;
 
     private GetAppTemplateInitContainerVolumeMount() {}
     /**
@@ -36,6 +42,14 @@ public final class GetAppTemplateInitContainerVolumeMount {
     public String path() {
         return this.path;
     }
+    /**
+     * @return The sub path of the volume to be mounted in the container.
+     * ---
+     * 
+     */
+    public String subPath() {
+        return this.subPath;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,11 +62,13 @@ public final class GetAppTemplateInitContainerVolumeMount {
     public static final class Builder {
         private String name;
         private String path;
+        private String subPath;
         public Builder() {}
         public Builder(GetAppTemplateInitContainerVolumeMount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.path = defaults.path;
+    	      this.subPath = defaults.subPath;
         }
 
         @CustomType.Setter
@@ -71,10 +87,19 @@ public final class GetAppTemplateInitContainerVolumeMount {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
+        public Builder subPath(String subPath) {
+            if (subPath == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainerVolumeMount", "subPath");
+            }
+            this.subPath = subPath;
+            return this;
+        }
         public GetAppTemplateInitContainerVolumeMount build() {
             final var _resultValue = new GetAppTemplateInitContainerVolumeMount();
             _resultValue.name = name;
             _resultValue.path = path;
+            _resultValue.subPath = subPath;
             return _resultValue;
         }
     }

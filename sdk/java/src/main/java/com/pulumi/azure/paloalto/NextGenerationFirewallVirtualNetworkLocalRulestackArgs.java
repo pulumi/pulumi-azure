@@ -52,6 +52,21 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackArgs extend
     }
 
     /**
+     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="marketplaceOfferId")
+    private @Nullable Output<String> marketplaceOfferId;
+
+    /**
+     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> marketplaceOfferId() {
+        return Optional.ofNullable(this.marketplaceOfferId);
+    }
+
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      * 
      */
@@ -79,6 +94,21 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackArgs extend
      */
     public Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs> networkProfile() {
         return this.networkProfile;
+    }
+
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * 
+     */
+    @Import(name="planId")
+    private @Nullable Output<String> planId;
+
+    /**
+     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * 
+     */
+    public Optional<Output<String>> planId() {
+        return Optional.ofNullable(this.planId);
     }
 
     /**
@@ -131,8 +161,10 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackArgs extend
     private NextGenerationFirewallVirtualNetworkLocalRulestackArgs(NextGenerationFirewallVirtualNetworkLocalRulestackArgs $) {
         this.destinationNats = $.destinationNats;
         this.dnsSettings = $.dnsSettings;
+        this.marketplaceOfferId = $.marketplaceOfferId;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
+        this.planId = $.planId;
         this.resourceGroupName = $.resourceGroupName;
         this.rulestackId = $.rulestackId;
         this.tags = $.tags;
@@ -209,6 +241,27 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackArgs extend
         }
 
         /**
+         * @param marketplaceOfferId The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder marketplaceOfferId(@Nullable Output<String> marketplaceOfferId) {
+            $.marketplaceOfferId = marketplaceOfferId;
+            return this;
+        }
+
+        /**
+         * @param marketplaceOfferId The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder marketplaceOfferId(String marketplaceOfferId) {
+            return marketplaceOfferId(Output.of(marketplaceOfferId));
+        }
+
+        /**
          * @param name The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
          * 
          * @return builder
@@ -248,6 +301,27 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackArgs extend
          */
         public Builder networkProfile(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs networkProfile) {
             return networkProfile(Output.of(networkProfile));
+        }
+
+        /**
+         * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder planId(@Nullable Output<String> planId) {
+            $.planId = planId;
+            return this;
+        }
+
+        /**
+         * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder planId(String planId) {
+            return planId(Output.of(planId));
         }
 
         /**

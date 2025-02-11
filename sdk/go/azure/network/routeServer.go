@@ -79,6 +79,7 @@ import (
 //				PublicIpAddressId:            examplePublicIp.ID(),
 //				SubnetId:                     exampleSubnet.ID(),
 //				BranchToBranchTrafficEnabled: pulumi.Bool(true),
+//				HubRoutingPreference:         pulumi.String("ASPath"),
 //			})
 //			if err != nil {
 //				return err
@@ -99,8 +100,10 @@ import (
 type RouteServer struct {
 	pulumi.CustomResourceState
 
-	// Whether to enable route exchange between Azure Route Server and the gateway(s)
+	// Whether to enable route exchange between Azure Route Server and the gateway(s).
 	BranchToBranchTrafficEnabled pulumi.BoolPtrOutput `pulumi:"branchToBranchTrafficEnabled"`
+	// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference pulumi.StringPtrOutput `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Route Server. Changing this forces a new resource to be created.
@@ -114,7 +117,7 @@ type RouteServer struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
@@ -164,8 +167,10 @@ func GetRouteServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteServer resources.
 type routeServerState struct {
-	// Whether to enable route exchange between Azure Route Server and the gateway(s)
+	// Whether to enable route exchange between Azure Route Server and the gateway(s).
 	BranchToBranchTrafficEnabled *bool `pulumi:"branchToBranchTrafficEnabled"`
+	// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference *string `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Route Server. Changing this forces a new resource to be created.
@@ -179,7 +184,7 @@ type routeServerState struct {
 	Sku *string `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags             map[string]string `pulumi:"tags"`
@@ -188,8 +193,10 @@ type routeServerState struct {
 }
 
 type RouteServerState struct {
-	// Whether to enable route exchange between Azure Route Server and the gateway(s)
+	// Whether to enable route exchange between Azure Route Server and the gateway(s).
 	BranchToBranchTrafficEnabled pulumi.BoolPtrInput
+	// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Route Server. Changing this forces a new resource to be created.
@@ -203,7 +210,7 @@ type RouteServerState struct {
 	Sku pulumi.StringPtrInput
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags             pulumi.StringMapInput
@@ -216,8 +223,10 @@ func (RouteServerState) ElementType() reflect.Type {
 }
 
 type routeServerArgs struct {
-	// Whether to enable route exchange between Azure Route Server and the gateway(s)
+	// Whether to enable route exchange between Azure Route Server and the gateway(s).
 	BranchToBranchTrafficEnabled *bool `pulumi:"branchToBranchTrafficEnabled"`
+	// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference *string `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Route Server. Changing this forces a new resource to be created.
@@ -230,7 +239,7 @@ type routeServerArgs struct {
 	Sku string `pulumi:"sku"`
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -238,8 +247,10 @@ type routeServerArgs struct {
 
 // The set of arguments for constructing a RouteServer resource.
 type RouteServerArgs struct {
-	// Whether to enable route exchange between Azure Route Server and the gateway(s)
+	// Whether to enable route exchange between Azure Route Server and the gateway(s).
 	BranchToBranchTrafficEnabled pulumi.BoolPtrInput
+	// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Route Server. Changing this forces a new resource to be created.
@@ -252,7 +263,7 @@ type RouteServerArgs struct {
 	Sku pulumi.StringInput
 	// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+	// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -345,9 +356,14 @@ func (o RouteServerOutput) ToRouteServerOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// Whether to enable route exchange between Azure Route Server and the gateway(s)
+// Whether to enable route exchange between Azure Route Server and the gateway(s).
 func (o RouteServerOutput) BranchToBranchTrafficEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.BoolPtrOutput { return v.BranchToBranchTrafficEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+func (o RouteServerOutput) HubRoutingPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteServer) pulumi.StringPtrOutput { return v.HubRoutingPreference }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
@@ -381,7 +397,7 @@ func (o RouteServerOutput) Sku() pulumi.StringOutput {
 
 // The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
+// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
 func (o RouteServerOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

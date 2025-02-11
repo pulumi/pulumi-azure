@@ -17114,7 +17114,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRule {
         /**
-         * The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+         * The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
          */
         action: pulumi.Input<string>;
         /**
@@ -17130,7 +17130,7 @@ export namespace cdn {
          */
         type: pulumi.Input<string>;
         /**
-         * The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+         * The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
          */
         version: pulumi.Input<string>;
     }
@@ -17139,7 +17139,7 @@ export namespace cdn {
         /**
          * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          *
-         * > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+         * > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
          */
         matchVariable: pulumi.Input<string>;
         /**
@@ -17149,7 +17149,7 @@ export namespace cdn {
         /**
          * Selector for the value in the `matchVariable` attribute this exclusion applies to.
          *
-         * > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+         * > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          */
         selector: pulumi.Input<string>;
     }
@@ -17173,7 +17173,7 @@ export namespace cdn {
         /**
          * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          *
-         * > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+         * > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
          */
         matchVariable: pulumi.Input<string>;
         /**
@@ -17183,16 +17183,18 @@ export namespace cdn {
         /**
          * Selector for the value in the `matchVariable` attribute this exclusion applies to.
          *
-         * > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+         * > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          */
         selector: pulumi.Input<string>;
     }
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
         /**
-         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
          *
-         * ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+         * > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
+         *
+         * !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: pulumi.Input<string>;
         /**
@@ -17213,7 +17215,7 @@ export namespace cdn {
         /**
          * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          *
-         * > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+         * > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
          */
         matchVariable: pulumi.Input<string>;
         /**
@@ -17223,7 +17225,7 @@ export namespace cdn {
         /**
          * Selector for the value in the `matchVariable` attribute this exclusion applies to.
          *
-         * > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+         * > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          */
         selector: pulumi.Input<string>;
     }
@@ -22504,6 +22506,10 @@ export namespace containerapp {
          * The path in the container at which to mount this volume.
          */
         path: pulumi.Input<string>;
+        /**
+         * The sub path of the volume to be mounted in the container.
+         */
+        subPath?: pulumi.Input<string>;
     }
 
     export interface AppTemplateCustomScaleRule {
@@ -22633,6 +22639,10 @@ export namespace containerapp {
          * The path in the container at which to mount this volume.
          */
         path: pulumi.Input<string>;
+        /**
+         * The sub path of the volume to be mounted in the container.
+         */
+        subPath?: pulumi.Input<string>;
     }
 
     export interface AppTemplateTcpScaleRule {
@@ -23138,6 +23148,10 @@ export namespace containerapp {
          * The path within the container at which the volume should be mounted. Must not contain `:`.
          */
         path: pulumi.Input<string>;
+        /**
+         * The sub path of the volume to be mounted in the container.
+         */
+        subPath?: pulumi.Input<string>;
     }
 
     export interface JobTemplateInitContainer {
@@ -23209,6 +23223,10 @@ export namespace containerapp {
          * The path within the container at which the volume should be mounted. Must not contain `:`.
          */
         path: pulumi.Input<string>;
+        /**
+         * The sub path of the volume to be mounted in the container.
+         */
+        subPath?: pulumi.Input<string>;
     }
 
     export interface JobTemplateVolume {
@@ -45684,6 +45702,10 @@ export namespace nginx {
          * Specifies the base-64 encoded contents of this config file (Sensitive).
          */
         content: pulumi.Input<string>;
+        /**
+         * The hash of the contents of this configuration file prefixed by the algorithm used.
+         */
+        contentHash?: pulumi.Input<string>;
         /**
          * Specifies the path of this config file.
          */

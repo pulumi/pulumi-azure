@@ -147,7 +147,7 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -165,7 +165,7 @@ export class ComputeCluster extends pulumi.CustomResource {
     /**
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly subnetResourceId!: pulumi.Output<string | undefined>;
+    public readonly subnetResourceId!: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
@@ -269,7 +269,7 @@ export interface ComputeClusterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -331,7 +331,7 @@ export interface ComputeClusterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether the compute cluster will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
     nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**

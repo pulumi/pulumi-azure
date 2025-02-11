@@ -1831,15 +1831,36 @@ class AppTemplateContainerStartupProbeHeader(dict):
 
 @pulumi.output_type
 class AppTemplateContainerVolumeMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subPath":
+            suggest = "sub_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateContainerVolumeMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateContainerVolumeMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateContainerVolumeMount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 path: str):
+                 path: str,
+                 sub_path: Optional[str] = None):
         """
         :param str name: The name of the Volume to be mounted in the container.
         :param str path: The path in the container at which to mount this volume.
+        :param str sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -1856,6 +1877,14 @@ class AppTemplateContainerVolumeMount(dict):
         The path in the container at which to mount this volume.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[str]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type
@@ -2291,15 +2320,36 @@ class AppTemplateInitContainerEnv(dict):
 
 @pulumi.output_type
 class AppTemplateInitContainerVolumeMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subPath":
+            suggest = "sub_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateInitContainerVolumeMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateInitContainerVolumeMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateInitContainerVolumeMount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 path: str):
+                 path: str,
+                 sub_path: Optional[str] = None):
         """
         :param str name: The name of the Volume to be mounted in the container.
         :param str path: The path in the container at which to mount this volume.
+        :param str sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -2316,6 +2366,14 @@ class AppTemplateInitContainerVolumeMount(dict):
         The path in the container at which to mount this volume.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[str]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type
@@ -4116,15 +4174,36 @@ class JobTemplateContainerStartupProbeHeader(dict):
 
 @pulumi.output_type
 class JobTemplateContainerVolumeMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subPath":
+            suggest = "sub_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateContainerVolumeMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateContainerVolumeMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateContainerVolumeMount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 path: str):
+                 path: str,
+                 sub_path: Optional[str] = None):
         """
         :param str name: The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
         :param str path: The path within the container at which the volume should be mounted. Must not contain `:`.
+        :param str sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -4141,6 +4220,14 @@ class JobTemplateContainerVolumeMount(dict):
         The path within the container at which the volume should be mounted. Must not contain `:`.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[str]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type
@@ -4348,15 +4435,36 @@ class JobTemplateInitContainerEnv(dict):
 
 @pulumi.output_type
 class JobTemplateInitContainerVolumeMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subPath":
+            suggest = "sub_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateInitContainerVolumeMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateInitContainerVolumeMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateInitContainerVolumeMount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
-                 path: str):
+                 path: str,
+                 sub_path: Optional[str] = None):
         """
         :param str name: The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
         :param str path: The path within the container at which the volume should be mounted. Must not contain `:`.
+        :param str sub_path: The sub path of the volume to be mounted in the container.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -4373,6 +4481,14 @@ class JobTemplateInitContainerVolumeMount(dict):
         The path within the container at which the volume should be mounted. Must not contain `:`.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[str]:
+        """
+        The sub path of the volume to be mounted in the container.
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type
@@ -5667,13 +5783,17 @@ class GetAppTemplateContainerStartupProbeHeaderResult(dict):
 class GetAppTemplateContainerVolumeMountResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 path: str):
+                 path: str,
+                 sub_path: str):
         """
         :param str name: The name of the Container App.
         :param str path: The path in the container at which to mount this volume.
+        :param str sub_path: The sub path of the volume to be mounted in the container.
+               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -5690,6 +5810,15 @@ class GetAppTemplateContainerVolumeMountResult(dict):
         The path in the container at which to mount this volume.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> str:
+        """
+        The sub path of the volume to be mounted in the container.
+        ---
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type
@@ -5963,13 +6092,17 @@ class GetAppTemplateInitContainerEnvResult(dict):
 class GetAppTemplateInitContainerVolumeMountResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 path: str):
+                 path: str,
+                 sub_path: str):
         """
         :param str name: The name of the Container App.
         :param str path: The path in the container at which to mount this volume.
+        :param str sub_path: The sub path of the volume to be mounted in the container.
+               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter
@@ -5986,6 +6119,15 @@ class GetAppTemplateInitContainerVolumeMountResult(dict):
         The path in the container at which to mount this volume.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> str:
+        """
+        The sub path of the volume to be mounted in the container.
+        ---
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type

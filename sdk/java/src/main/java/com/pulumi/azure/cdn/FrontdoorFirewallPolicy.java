@@ -249,6 +249,24 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return this.frontendEndpointIds;
     }
     /**
+     * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+     * 
+     * !&gt; **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * 
+     */
+    @Export(name="jsChallengeCookieExpirationInMinutes", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> jsChallengeCookieExpirationInMinutes;
+
+    /**
+     * @return Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+     * 
+     * !&gt; **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * 
+     */
+    public Output<Optional<Integer>> jsChallengeCookieExpirationInMinutes() {
+        return Codegen.optional(this.jsChallengeCookieExpirationInMinutes);
+    }
+    /**
      * One or more `managed_rule` blocks as defined below.
      * 
      */
@@ -307,7 +325,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * Should policy managed rules inspect the request body content? Defaults to `true`.
      * 
-     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * &gt; **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      * 
      */
     @Export(name="requestBodyCheckEnabled", refs={Boolean.class}, tree="[0]")
@@ -316,7 +334,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * @return Should policy managed rules inspect the request body content? Defaults to `true`.
      * 
-     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * &gt; **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      * 
      */
     public Output<Optional<Boolean>> requestBodyCheckEnabled() {
@@ -339,7 +357,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+     * &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -348,7 +366,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+     * &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
      * 
      */
     public Output<String> skuName() {

@@ -86,6 +86,8 @@ class ConfigurationProtectedFile(dict):
         suggest = None
         if key == "virtualPath":
             suggest = "virtual_path"
+        elif key == "contentHash":
+            suggest = "content_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationProtectedFile. Access the value via the '{suggest}' property getter instead.")
@@ -100,13 +102,17 @@ class ConfigurationProtectedFile(dict):
 
     def __init__(__self__, *,
                  content: str,
-                 virtual_path: str):
+                 virtual_path: str,
+                 content_hash: Optional[str] = None):
         """
         :param str content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param str virtual_path: Specifies the path of this config file.
+        :param str content_hash: The hash of the contents of this configuration file prefixed by the algorithm used.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "virtual_path", virtual_path)
+        if content_hash is not None:
+            pulumi.set(__self__, "content_hash", content_hash)
 
     @property
     @pulumi.getter
@@ -123,6 +129,14 @@ class ConfigurationProtectedFile(dict):
         Specifies the path of this config file.
         """
         return pulumi.get(self, "virtual_path")
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> Optional[str]:
+        """
+        The hash of the contents of this configuration file prefixed by the algorithm used.
+        """
+        return pulumi.get(self, "content_hash")
 
 
 @pulumi.output_type
@@ -460,12 +474,15 @@ class GetConfigurationConfigFileResult(dict):
 class GetConfigurationProtectedFileResult(dict):
     def __init__(__self__, *,
                  content: str,
+                 content_hash: str,
                  virtual_path: str):
         """
         :param str content: The base-64 encoded contents of this configuration file.
+        :param str content_hash: The hash of the contents of this configuration file prefixed by the algorithm used.
         :param str virtual_path: The path of this configuration file.
         """
         pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_hash", content_hash)
         pulumi.set(__self__, "virtual_path", virtual_path)
 
     @property
@@ -476,6 +493,14 @@ class GetConfigurationProtectedFileResult(dict):
         The base-64 encoded contents of this configuration file.
         """
         return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> str:
+        """
+        The hash of the contents of this configuration file prefixed by the algorithm used.
+        """
+        return pulumi.get(self, "content_hash")
 
     @property
     @pulumi.getter(name="virtualPath")

@@ -177,6 +177,12 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("marketplaceOfferId")]
+        public Output<string?> MarketplaceOfferId { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         /// </summary>
         [Output("name")]
@@ -199,6 +205,12 @@ namespace Pulumi.Azure.PaloAlto
         /// </summary>
         [Output("panoramas")]
         public Output<ImmutableArray<Outputs.NextGenerationFirewallVirtualNetworkPanoramaPanorama>> Panoramas { get; private set; } = null!;
+
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// </summary>
+        [Output("planId")]
+        public Output<string?> PlanId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
@@ -283,6 +295,12 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         /// </summary>
         [Input("name")]
@@ -299,6 +317,12 @@ namespace Pulumi.Azure.PaloAlto
         /// </summary>
         [Input("panoramaBase64Config", required: true)]
         public Input<string> PanoramaBase64Config { get; set; } = null!;
+
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// </summary>
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
@@ -351,6 +375,12 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("marketplaceOfferId")]
+        public Input<string>? MarketplaceOfferId { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         /// </summary>
         [Input("name")]
@@ -379,6 +409,12 @@ namespace Pulumi.Azure.PaloAlto
             get => _panoramas ?? (_panoramas = new InputList<Inputs.NextGenerationFirewallVirtualNetworkPanoramaPanoramaGetArgs>());
             set => _panoramas = value;
         }
+
+        /// <summary>
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// </summary>
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.

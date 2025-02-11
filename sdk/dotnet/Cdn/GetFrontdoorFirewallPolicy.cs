@@ -145,6 +145,10 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+        /// </summary>
+        public readonly int JsChallengeCookieExpirationInMinutes;
+        /// <summary>
         /// The Front Door Firewall Policy mode.
         /// </summary>
         public readonly string Mode;
@@ -167,6 +171,8 @@ namespace Pulumi.Azure.Cdn
 
             string id,
 
+            int jsChallengeCookieExpirationInMinutes,
+
             string mode,
 
             string name,
@@ -180,6 +186,7 @@ namespace Pulumi.Azure.Cdn
             Enabled = enabled;
             FrontendEndpointIds = frontendEndpointIds;
             Id = id;
+            JsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             Mode = mode;
             Name = name;
             RedirectUrl = redirectUrl;

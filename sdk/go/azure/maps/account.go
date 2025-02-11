@@ -72,7 +72,7 @@ type Account struct {
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
-	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -141,7 +141,7 @@ type accountState struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
-	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -170,7 +170,7 @@ type AccountState struct {
 	Identity AccountIdentityPtrInput
 	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
-	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -203,7 +203,7 @@ type accountArgs struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
-	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -227,7 +227,7 @@ type AccountArgs struct {
 	Identity AccountIdentityPtrInput
 	// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
-	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+	// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -348,7 +348,7 @@ func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
 func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

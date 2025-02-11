@@ -1848,10 +1848,10 @@ github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-azure-helpers v0.71.0 h1:ra3aIRzg01g6MLKQ+yABcb6WJtrqRUDDgyuPLmyZ9lY=
 github.com/hashicorp/go-azure-helpers v0.71.0/go.mod h1:BmbF4JDYXK5sEmFeU5hcn8Br21uElcqLfdQxjatwQKw=
-github.com/hashicorp/go-azure-sdk/resource-manager v0.20250115.1141151 h1:bPvF5BpQiyd6lAcS+YEcYZOPPsszEV2ElwtrlxjF6aM=
-github.com/hashicorp/go-azure-sdk/resource-manager v0.20250115.1141151/go.mod h1:h5yWlutmMw0h3tvfQ8hFoI37CT51ybYfqDfIFFiI1tg=
-github.com/hashicorp/go-azure-sdk/sdk v0.20250115.1141151 h1:1Z1Y7QIHf1J9rzJTrRtgOhQYldhF1bOqny4uYn8aj/A=
-github.com/hashicorp/go-azure-sdk/sdk v0.20250115.1141151/go.mod h1:oI5R0fTbBx3K/sJBK5R/OlEy8ozdQjvctxVU9v3EDkc=
+github.com/hashicorp/go-azure-sdk/resource-manager v0.20250131.1134653 h1:KuDCZKWoOByX5MUyFRNWLl4Gy6wpZCwJ7Ez1mbUwouo=
+github.com/hashicorp/go-azure-sdk/resource-manager v0.20250131.1134653/go.mod h1:AawbnS/Kkp/IURMJVzmvD+Co2zK91lKFqYYDbenCpGU=
+github.com/hashicorp/go-azure-sdk/sdk v0.20250131.1134653 h1:Bd+glHUD1mdal1zn0NgoS4wDFhUB8Qfw61j0nZEnC5A=
+github.com/hashicorp/go-azure-sdk/sdk v0.20250131.1134653/go.mod h1:oI5R0fTbBx3K/sJBK5R/OlEy8ozdQjvctxVU9v3EDkc=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -2217,8 +2217,8 @@ github.com/pulumi/pulumi-yaml v1.12.0 h1:ThJP+EBqeJyCnS6w6/PwcEFOT5o112qv0lObhef
 github.com/pulumi/pulumi-yaml v1.12.0/go.mod h1:EhZd1XDfuLa15O51qVVE16U6r8ldK9mLIBclqWCX27Y=
 github.com/pulumi/pulumi/pkg/v3 v3.147.0 h1:aFzP2kXBL/nPPDao625xIkjAhqT5GKe3XfPXbG07oFA=
 github.com/pulumi/pulumi/pkg/v3 v3.147.0/go.mod h1:WqLJy8lfzbGTEqz5Rukd+GrqBYNBf8Y3dJ+Wde+G6g4=
-github.com/pulumi/pulumi/sdk/v3 v3.147.0 h1:8ZDZnEsCZa6shw1dwIDUssbYMooYyebhpmx5feuZCqM=
-github.com/pulumi/pulumi/sdk/v3 v3.147.0/go.mod h1:+WC9aIDo8fMgd2g0jCHuZU2S/VYNLRAZ3QXt6YVgwaA=
+github.com/pulumi/pulumi/sdk/v3 v3.149.0 h1:czWb1pUiRxpEnfONvv5Tc3M+hMglfqEfv9C6BftsE7g=
+github.com/pulumi/pulumi/sdk/v3 v3.149.0/go.mod h1:+WC9aIDo8fMgd2g0jCHuZU2S/VYNLRAZ3QXt6YVgwaA=
 github.com/pulumi/schema-tools v0.1.2 h1:Fd9xvUjgck4NA+7/jSk7InqCUT4Kj940+EcnbQKpfZo=
 github.com/pulumi/schema-tools v0.1.2/go.mod h1:62lgj52Tzq11eqWTIaKd+EVyYAu5dEcDJxMhTjvMO/k=
 github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abqkI3OhJ0G04LLI=

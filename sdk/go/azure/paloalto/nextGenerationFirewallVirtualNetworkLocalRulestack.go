@@ -195,10 +195,14 @@ type NextGenerationFirewallVirtualNetworkLocalRulestack struct {
 	DestinationNats NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayOutput `pulumi:"destinationNats"`
 	// A `dnsSettings` block as defined below.
 	DnsSettings NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput `pulumi:"dnsSettings"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrOutput `pulumi:"marketplaceOfferId"`
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput `pulumi:"networkProfile"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId pulumi.StringPtrOutput `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
@@ -250,10 +254,14 @@ type nextGenerationFirewallVirtualNetworkLocalRulestackState struct {
 	DestinationNats []NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat `pulumi:"destinationNats"`
 	// A `dnsSettings` block as defined below.
 	DnsSettings *NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings `pulumi:"dnsSettings"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId *string `pulumi:"marketplaceOfferId"`
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile *NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile `pulumi:"networkProfile"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
@@ -267,10 +275,14 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackState struct {
 	DestinationNats NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayInput
 	// A `dnsSettings` block as defined below.
 	DnsSettings NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrInput
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrInput
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrInput
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
@@ -288,10 +300,14 @@ type nextGenerationFirewallVirtualNetworkLocalRulestackArgs struct {
 	DestinationNats []NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat `pulumi:"destinationNats"`
 	// A `dnsSettings` block as defined below.
 	DnsSettings *NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings `pulumi:"dnsSettings"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId *string `pulumi:"marketplaceOfferId"`
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile `pulumi:"networkProfile"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
@@ -306,10 +322,14 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackArgs struct {
 	DestinationNats NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrayInput
 	// A `dnsSettings` block as defined below.
 	DnsSettings NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrInput
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrInput
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileInput
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
@@ -419,6 +439,13 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) DnsSettings() 
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsPtrOutput)
 }
 
+// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) MarketplaceOfferId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestack) pulumi.StringPtrOutput {
+		return v.MarketplaceOfferId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -429,6 +456,11 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) NetworkProfile
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestack) NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput {
 		return v.NetworkProfile
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput)
+}
+
+// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestack) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.

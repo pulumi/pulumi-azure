@@ -214,6 +214,20 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
         return Codegen.optional(this.dnsSettings);
     }
     /**
+     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> marketplaceOfferId;
+
+    /**
+     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> marketplaceOfferId() {
+        return Codegen.optional(this.marketplaceOfferId);
+    }
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      * 
      */
@@ -240,6 +254,20 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      */
     public Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> networkProfile() {
         return this.networkProfile;
+    }
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * 
+     */
+    @Export(name="planId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> planId;
+
+    /**
+     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * 
+     */
+    public Output<Optional<String>> planId() {
+        return Codegen.optional(this.planId);
     }
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.

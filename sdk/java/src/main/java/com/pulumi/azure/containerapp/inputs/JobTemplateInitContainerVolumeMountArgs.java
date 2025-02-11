@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class JobTemplateInitContainerVolumeMountArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,11 +46,27 @@ public final class JobTemplateInitContainerVolumeMountArgs extends com.pulumi.re
         return this.path;
     }
 
+    /**
+     * The sub path of the volume to be mounted in the container.
+     * 
+     */
+    @Import(name="subPath")
+    private @Nullable Output<String> subPath;
+
+    /**
+     * @return The sub path of the volume to be mounted in the container.
+     * 
+     */
+    public Optional<Output<String>> subPath() {
+        return Optional.ofNullable(this.subPath);
+    }
+
     private JobTemplateInitContainerVolumeMountArgs() {}
 
     private JobTemplateInitContainerVolumeMountArgs(JobTemplateInitContainerVolumeMountArgs $) {
         this.name = $.name;
         this.path = $.path;
+        this.subPath = $.subPath;
     }
 
     public static Builder builder() {
@@ -109,6 +127,27 @@ public final class JobTemplateInitContainerVolumeMountArgs extends com.pulumi.re
          */
         public Builder path(String path) {
             return path(Output.of(path));
+        }
+
+        /**
+         * @param subPath The sub path of the volume to be mounted in the container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subPath(@Nullable Output<String> subPath) {
+            $.subPath = subPath;
+            return this;
+        }
+
+        /**
+         * @param subPath The sub path of the volume to be mounted in the container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subPath(String subPath) {
+            return subPath(Output.of(subPath));
         }
 
         public JobTemplateInitContainerVolumeMountArgs build() {

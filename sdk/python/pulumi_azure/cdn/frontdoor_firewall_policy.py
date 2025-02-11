@@ -28,6 +28,7 @@ class FrontdoorFirewallPolicyArgs:
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
@@ -39,17 +40,20 @@ class FrontdoorFirewallPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+               > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+               
+               !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
                
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+               > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         pulumi.set(__self__, "mode", mode)
@@ -63,6 +67,8 @@ class FrontdoorFirewallPolicyArgs:
             pulumi.set(__self__, "custom_rules", custom_rules)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if js_challenge_cookie_expiration_in_minutes is not None:
+            pulumi.set(__self__, "js_challenge_cookie_expiration_in_minutes", js_challenge_cookie_expiration_in_minutes)
         if managed_rules is not None:
             pulumi.set(__self__, "managed_rules", managed_rules)
         if name is not None:
@@ -104,7 +110,7 @@ class FrontdoorFirewallPolicyArgs:
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+        > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         """
         return pulumi.get(self, "sku_name")
 
@@ -161,6 +167,20 @@ class FrontdoorFirewallPolicyArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
+    def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+
+        !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        """
+        return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
+
+    @js_challenge_cookie_expiration_in_minutes.setter
+    def js_challenge_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
+
+    @property
     @pulumi.getter(name="managedRules")
     def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
         """
@@ -202,7 +222,7 @@ class FrontdoorFirewallPolicyArgs:
         """
         Should policy managed rules inspect the request body content? Defaults to `true`.
 
-        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "request_body_check_enabled")
 
@@ -231,6 +251,7 @@ class _FrontdoorFirewallPolicyState:
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -246,17 +267,20 @@ class _FrontdoorFirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
+        :param pulumi.Input[int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+               
+               !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
                
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+               > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+               > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         if custom_block_response_body is not None:
@@ -269,6 +293,8 @@ class _FrontdoorFirewallPolicyState:
             pulumi.set(__self__, "enabled", enabled)
         if frontend_endpoint_ids is not None:
             pulumi.set(__self__, "frontend_endpoint_ids", frontend_endpoint_ids)
+        if js_challenge_cookie_expiration_in_minutes is not None:
+            pulumi.set(__self__, "js_challenge_cookie_expiration_in_minutes", js_challenge_cookie_expiration_in_minutes)
         if managed_rules is not None:
             pulumi.set(__self__, "managed_rules", managed_rules)
         if mode is not None:
@@ -347,6 +373,20 @@ class _FrontdoorFirewallPolicyState:
         pulumi.set(self, "frontend_endpoint_ids", value)
 
     @property
+    @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
+    def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+
+        !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        """
+        return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
+
+    @js_challenge_cookie_expiration_in_minutes.setter
+    def js_challenge_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
+
+    @property
     @pulumi.getter(name="managedRules")
     def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
         """
@@ -400,7 +440,7 @@ class _FrontdoorFirewallPolicyState:
         """
         Should policy managed rules inspect the request body content? Defaults to `true`.
 
-        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "request_body_check_enabled")
 
@@ -426,7 +466,7 @@ class _FrontdoorFirewallPolicyState:
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+        > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         """
         return pulumi.get(self, "sku_name")
 
@@ -456,6 +496,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -597,17 +638,20 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+               
+               !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
                
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+               > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+               > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         ...
@@ -761,6 +805,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -782,6 +827,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["custom_block_response_status_code"] = custom_block_response_status_code
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["js_challenge_cookie_expiration_in_minutes"] = js_challenge_cookie_expiration_in_minutes
             __props__.__dict__["managed_rules"] = managed_rules
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
@@ -812,6 +858,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
             managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -832,17 +879,20 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
+        :param pulumi.Input[int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+               
+               !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
                
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+               > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+               > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -854,6 +904,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["custom_rules"] = custom_rules
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["frontend_endpoint_ids"] = frontend_endpoint_ids
+        __props__.__dict__["js_challenge_cookie_expiration_in_minutes"] = js_challenge_cookie_expiration_in_minutes
         __props__.__dict__["managed_rules"] = managed_rules
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
@@ -905,6 +956,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         return pulumi.get(self, "frontend_endpoint_ids")
 
     @property
+    @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
+    def js_challenge_cookie_expiration_in_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
+
+        !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        """
+        return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
+
+    @property
     @pulumi.getter(name="managedRules")
     def managed_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRule']]]:
         """
@@ -942,7 +1003,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         """
         Should policy managed rules inspect the request body content? Defaults to `true`.
 
-        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "request_body_check_enabled")
 
@@ -960,7 +1021,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+        > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         """
         return pulumi.get(self, "sku_name")
 

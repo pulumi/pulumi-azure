@@ -15,13 +15,15 @@ import (
 type NextGenerationFirewallVirtualHubLocalRulestack struct {
 	pulumi.CustomResourceState
 
-	DestinationNats   NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput `pulumi:"destinationNats"`
-	DnsSettings       NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput      `pulumi:"dnsSettings"`
-	Name              pulumi.StringOutput                                                     `pulumi:"name"`
-	NetworkProfile    NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput      `pulumi:"networkProfile"`
-	ResourceGroupName pulumi.StringOutput                                                     `pulumi:"resourceGroupName"`
-	RulestackId       pulumi.StringOutput                                                     `pulumi:"rulestackId"`
-	Tags              pulumi.StringMapOutput                                                  `pulumi:"tags"`
+	DestinationNats    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayOutput `pulumi:"destinationNats"`
+	DnsSettings        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput      `pulumi:"dnsSettings"`
+	MarketplaceOfferId pulumi.StringPtrOutput                                                  `pulumi:"marketplaceOfferId"`
+	Name               pulumi.StringOutput                                                     `pulumi:"name"`
+	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput      `pulumi:"networkProfile"`
+	PlanId             pulumi.StringPtrOutput                                                  `pulumi:"planId"`
+	ResourceGroupName  pulumi.StringOutput                                                     `pulumi:"resourceGroupName"`
+	RulestackId        pulumi.StringOutput                                                     `pulumi:"rulestackId"`
+	Tags               pulumi.StringMapOutput                                                  `pulumi:"tags"`
 }
 
 // NewNextGenerationFirewallVirtualHubLocalRulestack registers a new resource with the given unique name, arguments, and options.
@@ -63,23 +65,27 @@ func GetNextGenerationFirewallVirtualHubLocalRulestack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NextGenerationFirewallVirtualHubLocalRulestack resources.
 type nextGenerationFirewallVirtualHubLocalRulestackState struct {
-	DestinationNats   []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
-	DnsSettings       *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings     `pulumi:"dnsSettings"`
-	Name              *string                                                        `pulumi:"name"`
-	NetworkProfile    *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile  `pulumi:"networkProfile"`
-	ResourceGroupName *string                                                        `pulumi:"resourceGroupName"`
-	RulestackId       *string                                                        `pulumi:"rulestackId"`
-	Tags              map[string]string                                              `pulumi:"tags"`
+	DestinationNats    []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
+	DnsSettings        *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings     `pulumi:"dnsSettings"`
+	MarketplaceOfferId *string                                                        `pulumi:"marketplaceOfferId"`
+	Name               *string                                                        `pulumi:"name"`
+	NetworkProfile     *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile  `pulumi:"networkProfile"`
+	PlanId             *string                                                        `pulumi:"planId"`
+	ResourceGroupName  *string                                                        `pulumi:"resourceGroupName"`
+	RulestackId        *string                                                        `pulumi:"rulestackId"`
+	Tags               map[string]string                                              `pulumi:"tags"`
 }
 
 type NextGenerationFirewallVirtualHubLocalRulestackState struct {
-	DestinationNats   NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
-	DnsSettings       NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
-	Name              pulumi.StringPtrInput
-	NetworkProfile    NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrInput
-	ResourceGroupName pulumi.StringPtrInput
-	RulestackId       pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	DestinationNats    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
+	DnsSettings        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
+	MarketplaceOfferId pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrInput
+	PlanId             pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringPtrInput
+	RulestackId        pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackState) ElementType() reflect.Type {
@@ -87,24 +93,28 @@ func (NextGenerationFirewallVirtualHubLocalRulestackState) ElementType() reflect
 }
 
 type nextGenerationFirewallVirtualHubLocalRulestackArgs struct {
-	DestinationNats   []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
-	DnsSettings       *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings     `pulumi:"dnsSettings"`
-	Name              *string                                                        `pulumi:"name"`
-	NetworkProfile    NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile   `pulumi:"networkProfile"`
-	ResourceGroupName string                                                         `pulumi:"resourceGroupName"`
-	RulestackId       string                                                         `pulumi:"rulestackId"`
-	Tags              map[string]string                                              `pulumi:"tags"`
+	DestinationNats    []NextGenerationFirewallVirtualHubLocalRulestackDestinationNat `pulumi:"destinationNats"`
+	DnsSettings        *NextGenerationFirewallVirtualHubLocalRulestackDnsSettings     `pulumi:"dnsSettings"`
+	MarketplaceOfferId *string                                                        `pulumi:"marketplaceOfferId"`
+	Name               *string                                                        `pulumi:"name"`
+	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile   `pulumi:"networkProfile"`
+	PlanId             *string                                                        `pulumi:"planId"`
+	ResourceGroupName  string                                                         `pulumi:"resourceGroupName"`
+	RulestackId        string                                                         `pulumi:"rulestackId"`
+	Tags               map[string]string                                              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NextGenerationFirewallVirtualHubLocalRulestack resource.
 type NextGenerationFirewallVirtualHubLocalRulestackArgs struct {
-	DestinationNats   NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
-	DnsSettings       NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
-	Name              pulumi.StringPtrInput
-	NetworkProfile    NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput
-	ResourceGroupName pulumi.StringInput
-	RulestackId       pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	DestinationNats    NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrayInput
+	DnsSettings        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrInput
+	MarketplaceOfferId pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	NetworkProfile     NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileInput
+	PlanId             pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	RulestackId        pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (NextGenerationFirewallVirtualHubLocalRulestackArgs) ElementType() reflect.Type {
@@ -206,6 +216,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) DnsSettings() Next
 	}).(NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsPtrOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) MarketplaceOfferId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringPtrOutput {
+		return v.MarketplaceOfferId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -214,6 +230,10 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) NetworkProfile() N
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput {
 		return v.NetworkProfile
 	}).(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestack) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
 func (o NextGenerationFirewallVirtualHubLocalRulestackOutput) ResourceGroupName() pulumi.StringOutput {

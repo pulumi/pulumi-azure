@@ -26,7 +26,7 @@ class GetFrontdoorFirewallPolicyResult:
     """
     A collection of values returned by getFrontdoorFirewallPolicy.
     """
-    def __init__(__self__, enabled=None, frontend_endpoint_ids=None, id=None, mode=None, name=None, redirect_url=None, resource_group_name=None, sku_name=None):
+    def __init__(__self__, enabled=None, frontend_endpoint_ids=None, id=None, js_challenge_cookie_expiration_in_minutes=None, mode=None, name=None, redirect_url=None, resource_group_name=None, sku_name=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -36,6 +36,9 @@ class GetFrontdoorFirewallPolicyResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if js_challenge_cookie_expiration_in_minutes and not isinstance(js_challenge_cookie_expiration_in_minutes, int):
+            raise TypeError("Expected argument 'js_challenge_cookie_expiration_in_minutes' to be a int")
+        pulumi.set(__self__, "js_challenge_cookie_expiration_in_minutes", js_challenge_cookie_expiration_in_minutes)
         if mode and not isinstance(mode, str):
             raise TypeError("Expected argument 'mode' to be a str")
         pulumi.set(__self__, "mode", mode)
@@ -75,6 +78,14 @@ class GetFrontdoorFirewallPolicyResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
+    def js_challenge_cookie_expiration_in_minutes(self) -> int:
+        """
+        The Front Door Firewall Policy JavaScript challenge cookie lifetime in minutes.
+        """
+        return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
 
     @property
     @pulumi.getter
@@ -120,6 +131,7 @@ class AwaitableGetFrontdoorFirewallPolicyResult(GetFrontdoorFirewallPolicyResult
             enabled=self.enabled,
             frontend_endpoint_ids=self.frontend_endpoint_ids,
             id=self.id,
+            js_challenge_cookie_expiration_in_minutes=self.js_challenge_cookie_expiration_in_minutes,
             mode=self.mode,
             name=self.name,
             redirect_url=self.redirect_url,
@@ -157,6 +169,7 @@ def get_frontdoor_firewall_policy(name: Optional[str] = None,
         enabled=pulumi.get(__ret__, 'enabled'),
         frontend_endpoint_ids=pulumi.get(__ret__, 'frontend_endpoint_ids'),
         id=pulumi.get(__ret__, 'id'),
+        js_challenge_cookie_expiration_in_minutes=pulumi.get(__ret__, 'js_challenge_cookie_expiration_in_minutes'),
         mode=pulumi.get(__ret__, 'mode'),
         name=pulumi.get(__ret__, 'name'),
         redirect_url=pulumi.get(__ret__, 'redirect_url'),
@@ -191,6 +204,7 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[str]] = Non
         enabled=pulumi.get(__response__, 'enabled'),
         frontend_endpoint_ids=pulumi.get(__response__, 'frontend_endpoint_ids'),
         id=pulumi.get(__response__, 'id'),
+        js_challenge_cookie_expiration_in_minutes=pulumi.get(__response__, 'js_challenge_cookie_expiration_in_minutes'),
         mode=pulumi.get(__response__, 'mode'),
         name=pulumi.get(__response__, 'name'),
         redirect_url=pulumi.get(__response__, 'redirect_url'),

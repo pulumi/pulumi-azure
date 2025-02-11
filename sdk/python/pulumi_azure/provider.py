@@ -20,6 +20,7 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 ado_pipeline_service_connection_id: Optional[pulumi.Input[str]] = None,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_certificate: Optional[pulumi.Input[str]] = None,
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,7 @@ class ProviderArgs:
                  use_oidc: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] ado_pipeline_service_connection_id: The Azure DevOps Pipeline Service Connection ID.
         :param pulumi.Input[str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
                Certificate
@@ -87,6 +89,8 @@ class ProviderArgs:
         :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[bool] use_oidc: Allow OpenID Connect to be used for authentication
         """
+        if ado_pipeline_service_connection_id is not None:
+            pulumi.set(__self__, "ado_pipeline_service_connection_id", ado_pipeline_service_connection_id)
         if auxiliary_tenant_ids is not None:
             pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
         if client_certificate is not None:
@@ -158,6 +162,18 @@ class ProviderArgs:
             pulumi.set(__self__, "use_msi", use_msi)
         if use_oidc is not None:
             pulumi.set(__self__, "use_oidc", use_oidc)
+
+    @property
+    @pulumi.getter(name="adoPipelineServiceConnectionId")
+    def ado_pipeline_service_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure DevOps Pipeline Service Connection ID.
+        """
+        return pulumi.get(self, "ado_pipeline_service_connection_id")
+
+    @ado_pipeline_service_connection_id.setter
+    def ado_pipeline_service_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ado_pipeline_service_connection_id", value)
 
     @property
     @pulumi.getter(name="auxiliaryTenantIds")
@@ -514,6 +530,7 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ado_pipeline_service_connection_id: Optional[pulumi.Input[str]] = None,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_certificate: Optional[pulumi.Input[str]] = None,
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
@@ -552,6 +569,7 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ado_pipeline_service_connection_id: The Azure DevOps Pipeline Service Connection ID.
         :param pulumi.Input[str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
         :param pulumi.Input[str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
                Certificate
@@ -615,6 +633,7 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ado_pipeline_service_connection_id: Optional[pulumi.Input[str]] = None,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_certificate: Optional[pulumi.Input[str]] = None,
                  client_certificate_password: Optional[pulumi.Input[str]] = None,
@@ -653,6 +672,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            __props__.__dict__["ado_pipeline_service_connection_id"] = ado_pipeline_service_connection_id
             __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.secret(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             __props__.__dict__["client_certificate"] = None if client_certificate is None else pulumi.Output.secret(client_certificate)
             __props__.__dict__["client_certificate_password"] = None if client_certificate_password is None else pulumi.Output.secret(client_certificate_password)
@@ -699,6 +719,14 @@ class Provider(pulumi.ProviderResource):
             resource_name,
             __props__,
             opts)
+
+    @property
+    @pulumi.getter(name="adoPipelineServiceConnectionId")
+    def ado_pipeline_service_connection_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Azure DevOps Pipeline Service Connection ID.
+        """
+        return pulumi.get(self, "ado_pipeline_service_connection_id")
 
     @property
     @pulumi.getter(name="clientCertificate")

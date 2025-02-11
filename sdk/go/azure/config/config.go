@@ -11,6 +11,10 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The Azure DevOps Pipeline Service Connection ID.
+func GetAdoPipelineServiceConnectionId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:adoPipelineServiceConnectionId")
+}
 func GetAuxiliaryTenantIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:auxiliaryTenantIds")
 }

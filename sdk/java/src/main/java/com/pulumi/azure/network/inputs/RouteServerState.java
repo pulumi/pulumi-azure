@@ -20,18 +20,33 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
     public static final RouteServerState Empty = new RouteServerState();
 
     /**
-     * Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * Whether to enable route exchange between Azure Route Server and the gateway(s).
      * 
      */
     @Import(name="branchToBranchTrafficEnabled")
     private @Nullable Output<Boolean> branchToBranchTrafficEnabled;
 
     /**
-     * @return Whether to enable route exchange between Azure Route Server and the gateway(s)
+     * @return Whether to enable route exchange between Azure Route Server and the gateway(s).
      * 
      */
     public Optional<Output<Boolean>> branchToBranchTrafficEnabled() {
         return Optional.ofNullable(this.branchToBranchTrafficEnabled);
+    }
+
+    /**
+     * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    @Import(name="hubRoutingPreference")
+    private @Nullable Output<String> hubRoutingPreference;
+
+    /**
+     * @return The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    public Optional<Output<String>> hubRoutingPreference() {
+        return Optional.ofNullable(this.hubRoutingPreference);
     }
 
     /**
@@ -119,7 +134,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
+     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
      * 
      */
     @Import(name="subnetId")
@@ -128,7 +143,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
+     * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -168,6 +183,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
 
     private RouteServerState(RouteServerState $) {
         this.branchToBranchTrafficEnabled = $.branchToBranchTrafficEnabled;
+        this.hubRoutingPreference = $.hubRoutingPreference;
         this.location = $.location;
         this.name = $.name;
         this.publicIpAddressId = $.publicIpAddressId;
@@ -199,7 +215,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchToBranchTrafficEnabled Whether to enable route exchange between Azure Route Server and the gateway(s)
+         * @param branchToBranchTrafficEnabled Whether to enable route exchange between Azure Route Server and the gateway(s).
          * 
          * @return builder
          * 
@@ -210,13 +226,34 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param branchToBranchTrafficEnabled Whether to enable route exchange between Azure Route Server and the gateway(s)
+         * @param branchToBranchTrafficEnabled Whether to enable route exchange between Azure Route Server and the gateway(s).
          * 
          * @return builder
          * 
          */
         public Builder branchToBranchTrafficEnabled(Boolean branchToBranchTrafficEnabled) {
             return branchToBranchTrafficEnabled(Output.of(branchToBranchTrafficEnabled));
+        }
+
+        /**
+         * @param hubRoutingPreference The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hubRoutingPreference(@Nullable Output<String> hubRoutingPreference) {
+            $.hubRoutingPreference = hubRoutingPreference;
+            return this;
+        }
+
+        /**
+         * @param hubRoutingPreference The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hubRoutingPreference(String hubRoutingPreference) {
+            return hubRoutingPreference(Output.of(hubRoutingPreference));
         }
 
         /**
@@ -336,7 +373,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetId The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
+         * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
          * 
          * @return builder
          * 
@@ -349,7 +386,7 @@ public final class RouteServerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetId The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server
+         * &gt; **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you&#39;ll receive an error message when deploying the Route Server.
          * 
          * @return builder
          * 

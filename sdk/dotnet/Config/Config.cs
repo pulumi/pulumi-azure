@@ -32,6 +32,16 @@ namespace Pulumi.Azure
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("azure");
 
+        private static readonly __Value<string?> _adoPipelineServiceConnectionId = new __Value<string?>(() => __config.Get("adoPipelineServiceConnectionId"));
+        /// <summary>
+        /// The Azure DevOps Pipeline Service Connection ID.
+        /// </summary>
+        public static string? AdoPipelineServiceConnectionId
+        {
+            get => _adoPipelineServiceConnectionId.Get();
+            set => _adoPipelineServiceConnectionId.Set(value);
+        }
+
         private static readonly __Value<ImmutableArray<string>> _auxiliaryTenantIds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("auxiliaryTenantIds"));
         public static ImmutableArray<string> AuxiliaryTenantIds
         {

@@ -542,7 +542,7 @@ class GetAutonomousDatabaseResult:
 
     @property
     @pulumi.getter(name="supportedRegionsToCloneTos")
-    def supported_regions_to_clone_tos(self) -> Sequence[int]:
+    def supported_regions_to_clone_tos(self) -> Sequence[str]:
         """
         The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
         """

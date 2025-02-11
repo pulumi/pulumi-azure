@@ -144,7 +144,7 @@ type LookupAutonomousDatabaseResult struct {
 	// The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with.
 	SubnetId string `pulumi:"subnetId"`
 	// The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
-	SupportedRegionsToCloneTos []int `pulumi:"supportedRegionsToCloneTos"`
+	SupportedRegionsToCloneTos []string `pulumi:"supportedRegionsToCloneTos"`
 	// A mapping of tags assigned to the Autonomous Database.
 	Tags map[string]string `pulumi:"tags"`
 	// The date and time the Autonomous Database was created.
@@ -426,8 +426,8 @@ func (o LookupAutonomousDatabaseResultOutput) SubnetId() pulumi.StringOutput {
 }
 
 // The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
-func (o LookupAutonomousDatabaseResultOutput) SupportedRegionsToCloneTos() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v LookupAutonomousDatabaseResult) []int { return v.SupportedRegionsToCloneTos }).(pulumi.IntArrayOutput)
+func (o LookupAutonomousDatabaseResultOutput) SupportedRegionsToCloneTos() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAutonomousDatabaseResult) []string { return v.SupportedRegionsToCloneTos }).(pulumi.StringArrayOutput)
 }
 
 // A mapping of tags assigned to the Autonomous Database.

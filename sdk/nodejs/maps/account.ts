@@ -83,7 +83,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export interface AccountState {
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface AccountArgs {
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

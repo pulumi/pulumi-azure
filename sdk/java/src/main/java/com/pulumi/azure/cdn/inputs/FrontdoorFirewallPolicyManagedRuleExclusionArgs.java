@@ -17,7 +17,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
     /**
      * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
-     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+     * &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
      * 
      */
     @Import(name="matchVariable", required=true)
@@ -26,7 +26,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
-     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+     * &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
      * 
      */
     public Output<String> matchVariable() {
@@ -51,7 +51,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
     /**
      * Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
-     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+     * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
      */
     @Import(name="selector", required=true)
@@ -60,7 +60,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
-     * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+     * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
      * 
      */
     public Output<String> selector() {
@@ -96,7 +96,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         /**
          * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          * 
-         * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+         * &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         /**
          * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          * 
-         * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+         * &gt; **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         /**
          * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
          * 
-         * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+         * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         /**
          * @param selector Selector for the value in the `match_variable` attribute this exclusion applies to.
          * 
-         * &gt; **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+         * &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
          * 
          * @return builder
          * 

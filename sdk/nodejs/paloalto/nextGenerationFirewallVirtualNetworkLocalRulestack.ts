@@ -152,6 +152,10 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
      */
     public readonly dnsSettings!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings | undefined>;
     /**
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+     */
+    public readonly marketplaceOfferId!: pulumi.Output<string | undefined>;
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -159,6 +163,10 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
      * A `networkProfile` block as defined below.
      */
     public readonly networkProfile!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     */
+    public readonly planId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      */
@@ -187,8 +195,10 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
             const state = argsOrState as NextGenerationFirewallVirtualNetworkLocalRulestackState | undefined;
             resourceInputs["destinationNats"] = state ? state.destinationNats : undefined;
             resourceInputs["dnsSettings"] = state ? state.dnsSettings : undefined;
+            resourceInputs["marketplaceOfferId"] = state ? state.marketplaceOfferId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
+            resourceInputs["planId"] = state ? state.planId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -205,8 +215,10 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
             }
             resourceInputs["destinationNats"] = args ? args.destinationNats : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            resourceInputs["marketplaceOfferId"] = args ? args.marketplaceOfferId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["planId"] = args ? args.planId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -229,6 +241,10 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackState {
      */
     dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings>;
     /**
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+     */
+    marketplaceOfferId?: pulumi.Input<string>;
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      */
     name?: pulumi.Input<string>;
@@ -236,6 +252,10 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackState {
      * A `networkProfile` block as defined below.
      */
     networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     */
+    planId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      */
@@ -263,6 +283,10 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackArgs {
      */
     dnsSettings?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings>;
     /**
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+     */
+    marketplaceOfferId?: pulumi.Input<string>;
+    /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      */
     name?: pulumi.Input<string>;
@@ -270,6 +294,10 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackArgs {
      * A `networkProfile` block as defined below.
      */
     networkProfile: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     */
+    planId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
      */

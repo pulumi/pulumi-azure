@@ -168,6 +168,8 @@ type NextGenerationFirewallVirtualNetworkPanorama struct {
 	DnsSettings NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrOutput `pulumi:"dnsSettings"`
 	// The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrOutput `pulumi:"marketplaceOfferId"`
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -176,6 +178,8 @@ type NextGenerationFirewallVirtualNetworkPanorama struct {
 	PanoramaBase64Config pulumi.StringOutput `pulumi:"panoramaBase64Config"`
 	// A `panorama` block as defined below.
 	Panoramas NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput `pulumi:"panoramas"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId pulumi.StringPtrOutput `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
@@ -227,6 +231,8 @@ type nextGenerationFirewallVirtualNetworkPanoramaState struct {
 	DnsSettings *NextGenerationFirewallVirtualNetworkPanoramaDnsSettings `pulumi:"dnsSettings"`
 	// The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Location *string `pulumi:"location"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId *string `pulumi:"marketplaceOfferId"`
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -235,6 +241,8 @@ type nextGenerationFirewallVirtualNetworkPanoramaState struct {
 	PanoramaBase64Config *string `pulumi:"panoramaBase64Config"`
 	// A `panorama` block as defined below.
 	Panoramas []NextGenerationFirewallVirtualNetworkPanoramaPanorama `pulumi:"panoramas"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
@@ -248,6 +256,8 @@ type NextGenerationFirewallVirtualNetworkPanoramaState struct {
 	DnsSettings NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrInput
 	// The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Location pulumi.StringPtrInput
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrInput
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
@@ -256,6 +266,8 @@ type NextGenerationFirewallVirtualNetworkPanoramaState struct {
 	PanoramaBase64Config pulumi.StringPtrInput
 	// A `panorama` block as defined below.
 	Panoramas NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayInput
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
@@ -273,12 +285,16 @@ type nextGenerationFirewallVirtualNetworkPanoramaArgs struct {
 	DnsSettings *NextGenerationFirewallVirtualNetworkPanoramaDnsSettings `pulumi:"dnsSettings"`
 	// The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Location *string `pulumi:"location"`
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId *string `pulumi:"marketplaceOfferId"`
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile `pulumi:"networkProfile"`
 	// The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
 	PanoramaBase64Config string `pulumi:"panoramaBase64Config"`
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
@@ -293,12 +309,16 @@ type NextGenerationFirewallVirtualNetworkPanoramaArgs struct {
 	DnsSettings NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsPtrInput
 	// The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Location pulumi.StringPtrInput
+	// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+	MarketplaceOfferId pulumi.StringPtrInput
 	// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileInput
 	// The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
 	PanoramaBase64Config pulumi.StringInput
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
@@ -411,6 +431,13 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) Location() pulumi.St
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanorama) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
+func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) MarketplaceOfferId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanorama) pulumi.StringPtrOutput {
+		return v.MarketplaceOfferId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
 func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanorama) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -435,6 +462,11 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) Panoramas() NextGene
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanorama) NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput {
 		return v.Panoramas
 	}).(NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrayOutput)
+}
+
+// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+func (o NextGenerationFirewallVirtualNetworkPanoramaOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanorama) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
