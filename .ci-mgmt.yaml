@@ -50,4 +50,5 @@ releaseVerification:
   # python: examples/eventhub-py
   dotnet: examples/appservice-cs
   go: examples/network-go
+allowMissingDocs: false
 integrationTestProvider: true
