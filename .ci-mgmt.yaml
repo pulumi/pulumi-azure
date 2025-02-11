@@ -51,3 +51,4 @@ releaseVerification:
   dotnet: examples/appservice-cs
   go: examples/network-go
 integrationTestProvider: true
+autoMergeProviderUpgrades: false
