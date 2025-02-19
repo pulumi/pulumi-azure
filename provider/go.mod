@@ -6,7 +6,7 @@ toolchain go1.22.7
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk/sdk v0.20250131.1134653
+	github.com/hashicorp/go-azure-sdk/sdk v0.20250213.1092825
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.1.3
@@ -121,7 +121,7 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.71.0 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20250131.1134653 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20250213.1092825 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect

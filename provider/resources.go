@@ -57,8 +57,10 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
-	aadb2c                = "AadB2C"           // Advisor
-	advisor               = "Advisor"          // Advisor
+	aadb2c    = "AadB2C"    // Advisor
+	advisor   = "Advisor"   // Advisor
+	aiFoundry = "AIFoundry" // AI Foundry
+
 	azureAnalysisServices = "AnalysisServices" // Analysis Services
 	azureAPIManagement    = "ApiManagement"    // API Management
 	azureAppConfiguration = "AppConfiguration" // App Configuration
@@ -198,6 +200,7 @@ const (
 var moduleMap = map[string]string{
 	"aadb2c":               aadb2c,
 	"advisor":              advisor,
+	"ai_foundry":           aiFoundry,
 	"analysis_services":    azureAnalysisServices,
 	"api_management":       azureAPIManagement,
 	"app":                  azureAppConfiguration,
@@ -618,6 +621,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_active_directory_domain_service_trust": {Tok: azureResource(azureDomainServices, "ServiceTrust")},
 
 			"azurerm_advisor_suppression": {Tok: azureResource(advisor, "Suppression"), Docs: &tfbridge.DocInfo{Source: "advisor_suppresion.html.markdown"}},
+
+			"azurerm_ai_foundry": {Tok: azureResource(aiFoundry, "Hub")},
 
 			// API Mannagement
 			"azurerm_api_management": {

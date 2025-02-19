@@ -533,7 +533,7 @@ index 95dac2d863..22f89d3199 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 14336e59d1..af730081cd 100644
+index b372d00d98..7007acc30b 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -604,7 +604,7 @@ index 53e3926433..cfbf80a9a4 100644
  ```hcl
  data "azuread_service_principal" "MicrosoftWebApp" {
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 5a60509251..410fbbc966 100644
+index 92f5dd4131..f2005c1659 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
@@ -1720,7 +1720,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 15f8fef894..5633d9527a 100644
+index 10d2b33d77..e8e3c83199 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -2568,7 +2568,7 @@ index 6d9c021a59..194133d93b 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic.html.markdown b/website/docs/r/servicebus_topic.html.markdown
-index f9a0dd284a..16a7d87b23 100644
+index 97d503f150..bdad78506d 100644
 --- a/website/docs/r/servicebus_topic.html.markdown
 +++ b/website/docs/r/servicebus_topic.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -2622,7 +2622,7 @@ index 90c61ffe39..0bcae5bfb2 100644
  
  resource "azurerm_signalr_service" "example" {
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index d5b970d394..34cf87d1ae 100644
+index cdeed57f08..80837b7d8f 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
 @@ -65,8 +65,6 @@ The following arguments are supported:
