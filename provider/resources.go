@@ -930,6 +930,16 @@ func Provider() tfbridge.ProviderInfo {
 					}
 					return pm, nil
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Use default autonaming options, but set max length to 63 as allowed by Azure.
+					// https://github.com/pulumi/pulumi-azure/issues/3030
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "-",
+						Maxlen:    63,
+						Randlen:   7,
+						Transform: strings.ToLower,
+					}),
+				},
 			},
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
