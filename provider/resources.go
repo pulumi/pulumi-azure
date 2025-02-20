@@ -3259,7 +3259,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_oracle_autonomous_database": {Docs: &tfbridge.DocInfo{Source: "oracle_autonomous_database_regular.html.markdown"}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			TypeScriptVersion: "4.7.4",
+			TypeScriptVersion: "^4",
 			DevDependencies: map[string]string{
 				"@types/node":       "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/node-fetch": "^2.5.8",
@@ -3267,7 +3267,7 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@azure/eventgrid":              "^4.6.0",
 				"@azure/functions":              "=1.2.2",
-				"@azure/identity":               "^4.0.0",
+				"@azure/identity":               "~4.6.0",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"azure-functions-ts-essentials": "^1.3.2",
 				"moment":                        "2.29.4",
