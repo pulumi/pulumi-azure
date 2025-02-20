@@ -77,7 +77,7 @@ export class ServicePlan extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      */
     public readonly maximumElasticWorkerCount!: pulumi.Output<number>;
     /**
@@ -92,6 +92,10 @@ export class ServicePlan extends pulumi.CustomResource {
      * Should Per Site Scaling be enabled. Defaults to `false`.
      */
     public readonly perSiteScalingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     */
+    public readonly premiumPlanAutoScaleEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      */
@@ -143,6 +147,7 @@ export class ServicePlan extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["osType"] = state ? state.osType : undefined;
             resourceInputs["perSiteScalingEnabled"] = state ? state.perSiteScalingEnabled : undefined;
+            resourceInputs["premiumPlanAutoScaleEnabled"] = state ? state.premiumPlanAutoScaleEnabled : undefined;
             resourceInputs["reserved"] = state ? state.reserved : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -166,6 +171,7 @@ export class ServicePlan extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["perSiteScalingEnabled"] = args ? args.perSiteScalingEnabled : undefined;
+            resourceInputs["premiumPlanAutoScaleEnabled"] = args ? args.premiumPlanAutoScaleEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -198,7 +204,7 @@ export interface ServicePlanState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      */
     maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
@@ -213,6 +219,10 @@ export interface ServicePlanState {
      * Should Per Site Scaling be enabled. Defaults to `false`.
      */
     perSiteScalingEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     */
+    premiumPlanAutoScaleEnabled?: pulumi.Input<boolean>;
     /**
      * Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      */
@@ -260,7 +270,7 @@ export interface ServicePlanArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      */
     maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
@@ -275,6 +285,10 @@ export interface ServicePlanArgs {
      * Should Per Site Scaling be enabled. Defaults to `false`.
      */
     perSiteScalingEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     */
+    premiumPlanAutoScaleEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */

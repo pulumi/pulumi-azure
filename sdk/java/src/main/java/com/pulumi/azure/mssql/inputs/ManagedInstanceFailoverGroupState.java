@@ -139,6 +139,21 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         return Optional.ofNullable(this.role);
     }
 
+    /**
+     * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     * 
+     */
+    @Import(name="secondaryType")
+    private @Nullable Output<String> secondaryType;
+
+    /**
+     * @return The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     * 
+     */
+    public Optional<Output<String>> secondaryType() {
+        return Optional.ofNullable(this.secondaryType);
+    }
+
     private ManagedInstanceFailoverGroupState() {}
 
     private ManagedInstanceFailoverGroupState(ManagedInstanceFailoverGroupState $) {
@@ -150,6 +165,7 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         this.readWriteEndpointFailoverPolicy = $.readWriteEndpointFailoverPolicy;
         this.readonlyEndpointFailoverPolicyEnabled = $.readonlyEndpointFailoverPolicyEnabled;
         this.role = $.role;
+        this.secondaryType = $.secondaryType;
     }
 
     public static Builder builder() {
@@ -346,6 +362,27 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
          */
         public Builder role(String role) {
             return role(Output.of(role));
+        }
+
+        /**
+         * @param secondaryType The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryType(@Nullable Output<String> secondaryType) {
+            $.secondaryType = secondaryType;
+            return this;
+        }
+
+        /**
+         * @param secondaryType The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryType(String secondaryType) {
+            return secondaryType(Output.of(secondaryType));
         }
 
         public ManagedInstanceFailoverGroupState build() {

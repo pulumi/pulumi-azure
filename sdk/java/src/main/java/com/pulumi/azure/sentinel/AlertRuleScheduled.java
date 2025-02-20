@@ -320,7 +320,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
-     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
      * 
      */
     @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleScheduledSentinelEntityMapping.class}, tree="[0,1]")
@@ -329,7 +329,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
      * 
-     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
      * 
      */
     public Output<Optional<List<AlertRuleScheduledSentinelEntityMapping>>> sentinelEntityMappings() {

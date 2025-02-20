@@ -38,6 +38,21 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+     * 
+     */
+    @Import(name="clientCertificateMode")
+    private @Nullable Output<String> clientCertificateMode;
+
+    /**
+     * @return The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+     * 
+     */
+    public Optional<Output<String>> clientCertificateMode() {
+        return Optional.ofNullable(this.clientCertificateMode);
+    }
+
+    /**
      * One or more `custom_domain` block as detailed below.
      * 
      */
@@ -169,6 +184,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
 
     private AppIngressArgs(AppIngressArgs $) {
         this.allowInsecureConnections = $.allowInsecureConnections;
+        this.clientCertificateMode = $.clientCertificateMode;
         this.customDomains = $.customDomains;
         this.exposedPort = $.exposedPort;
         this.externalEnabled = $.externalEnabled;
@@ -216,6 +232,27 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allowInsecureConnections(Boolean allowInsecureConnections) {
             return allowInsecureConnections(Output.of(allowInsecureConnections));
+        }
+
+        /**
+         * @param clientCertificateMode The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateMode(@Nullable Output<String> clientCertificateMode) {
+            $.clientCertificateMode = clientCertificateMode;
+            return this;
+        }
+
+        /**
+         * @param clientCertificateMode The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientCertificateMode(String clientCertificateMode) {
+            return clientCertificateMode(Output.of(clientCertificateMode));
         }
 
         /**

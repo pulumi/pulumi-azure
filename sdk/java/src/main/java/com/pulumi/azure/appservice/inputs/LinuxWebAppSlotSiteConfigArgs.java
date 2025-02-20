@@ -364,14 +364,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+     * The Remote Debugging Version. Currently only `VS2022` is supported.
      * 
      */
     @Import(name="remoteDebuggingVersion")
     private @Nullable Output<String> remoteDebuggingVersion;
 
     /**
-     * @return The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+     * @return The Remote Debugging Version. Currently only `VS2022` is supported.
      * 
      */
     public Optional<Output<String>> remoteDebuggingVersion() {
@@ -1055,7 +1055,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+         * @param remoteDebuggingVersion The Remote Debugging Version. Currently only `VS2022` is supported.
          * 
          * @return builder
          * 
@@ -1066,7 +1066,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param remoteDebuggingVersion The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+         * @param remoteDebuggingVersion The Remote Debugging Version. Currently only `VS2022` is supported.
          * 
          * @return builder
          * 

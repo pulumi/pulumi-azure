@@ -49,7 +49,7 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
     }
 
     /**
-     * The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+     * The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
      * 
      * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
      * 
@@ -58,7 +58,7 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
     private @Nullable Output<String> secretRotationInterval;
 
     /**
-     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
      * 
      * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
      * 
@@ -146,7 +146,7 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
         }
 
         /**
-         * @param secretRotationInterval The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+         * @param secretRotationInterval The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
          * 
          * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
          * 
@@ -159,7 +159,7 @@ public final class KubernetesClusterKeyVaultSecretsProviderArgs extends com.pulu
         }
 
         /**
-         * @param secretRotationInterval The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+         * @param secretRotationInterval The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
          * 
          * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
          * 

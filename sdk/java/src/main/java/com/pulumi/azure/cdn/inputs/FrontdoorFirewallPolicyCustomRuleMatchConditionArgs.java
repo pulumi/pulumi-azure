@@ -64,14 +64,14 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
     }
 
     /**
-     * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+     * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+     * @return Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
      * 
      */
     public Output<String> operator() {
@@ -79,14 +79,14 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
     }
 
     /**
-     * Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+     * Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+     * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
      * 
      */
     public Optional<Output<String>> selector() {
@@ -94,14 +94,14 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
     }
 
     /**
-     * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+     * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
      * 
      */
     @Import(name="transforms")
     private @Nullable Output<List<String>> transforms;
 
     /**
-     * @return Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+     * @return Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
      * 
      */
     public Optional<Output<List<String>>> transforms() {
@@ -211,7 +211,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param operator Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         * @param operator Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param operator Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         * @param operator Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param transforms Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         * @param transforms Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param transforms Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         * @param transforms Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param transforms Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         * @param transforms Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
          * 
          * @return builder
          * 

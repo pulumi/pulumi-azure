@@ -17,91 +17,191 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "example-resources",
- *     location: "West Europe",
+ * const name = "mymssqlmitest";
+ * const primaryName = `${name}-primary`;
+ * const primaryLocation = "West Europe";
+ * const failoverName = `${name}-failover`;
+ * const failoverLocation = "North Europe";
+ * //# Primary SQL Managed Instance
+ * const primary = new azure.core.ResourceGroup("primary", {
+ *     name: primaryName,
+ *     location: primaryLocation,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
+ * const exampleZone = new azure.privatedns.Zone("example", {
+ *     name: `${name}.private`,
+ *     resourceGroupName: primary.name,
+ * });
+ * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
+ *     name: primaryName,
+ *     location: primary.location,
+ *     resourceGroupName: primary.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
+ * const primaryZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("primary", {
+ *     name: "primary-link",
+ *     resourceGroupName: primary.name,
+ *     privateDnsZoneName: exampleZone.name,
+ *     virtualNetworkId: primaryVirtualNetwork.id,
  * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
+ * const primarySubnet = new azure.network.Subnet("primary", {
+ *     name: primaryName,
+ *     resourceGroupName: primary.name,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             actions: [
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+ *             ],
+ *             name: "Microsoft.Sql/managedInstances",
+ *         },
+ *     }],
  * });
- * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
- *     subnetId: exampleSubnet.id,
- *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
- * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- * });
- * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
- *     subnetId: exampleSubnet.id,
- *     routeTableId: exampleRouteTable.id,
- * });
- * const primary = new azure.mssql.ManagedInstance("primary", {
- *     name: "example-primary",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     administratorLogin: "mradministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     licenseType: "BasePrice",
- *     subnetId: exampleSubnet.id,
- *     skuName: "GP_Gen5",
- *     vcores: 4,
- *     storageSizeInGb: 32,
- *     tags: {
- *         environment: "prod",
- *     },
- * }, {
- *     dependsOn: [
- *         exampleSubnetNetworkSecurityGroupAssociation,
- *         exampleSubnetRouteTableAssociation,
- *     ],
- * });
- * const secondary = new azure.mssql.ManagedInstance("secondary", {
- *     name: "example-secondary",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     administratorLogin: "mradministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     licenseType: "BasePrice",
- *     subnetId: exampleSubnet.id,
- *     skuName: "GP_Gen5",
- *     vcores: 4,
- *     storageSizeInGb: 32,
- *     tags: {
- *         environment: "prod",
- *     },
- * }, {
- *     dependsOn: [
- *         exampleSubnetNetworkSecurityGroupAssociation,
- *         exampleSubnetRouteTableAssociation,
- *     ],
- * });
- * const exampleManagedInstanceFailoverGroup = new azure.mssql.ManagedInstanceFailoverGroup("example", {
- *     name: "example-failover-group",
+ * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primary", {
+ *     name: primaryName,
  *     location: primary.location,
- *     managedInstanceId: primary.id,
- *     partnerManagedInstanceId: secondary.id,
+ *     resourceGroupName: primary.name,
+ * });
+ * const primarySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("primary", {
+ *     subnetId: primarySubnet.id,
+ *     networkSecurityGroupId: primaryNetworkSecurityGroup.id,
+ * });
+ * const primaryRouteTable = new azure.network.RouteTable("primary", {
+ *     name: primaryName,
+ *     location: primary.location,
+ *     resourceGroupName: primary.name,
+ * });
+ * const primarySubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("primary", {
+ *     subnetId: primarySubnet.id,
+ *     routeTableId: primaryRouteTable.id,
+ * });
+ * const primaryManagedInstance = new azure.mssql.ManagedInstance("primary", {
+ *     name: primaryName,
+ *     resourceGroupName: primary.name,
+ *     location: primary.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: primarySubnet.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ * }, {
+ *     dependsOn: [
+ *         primarySubnetNetworkSecurityGroupAssociation,
+ *         primarySubnetRouteTableAssociation,
+ *     ],
+ * });
+ * //# Secondary (Fail-over) SQL Managed Instance
+ * const failover = new azure.core.ResourceGroup("failover", {
+ *     name: failoverName,
+ *     location: failoverLocation,
+ * });
+ * const failoverVirtualNetwork = new azure.network.VirtualNetwork("failover", {
+ *     name: failoverName,
+ *     location: failover.location,
+ *     resourceGroupName: failover.name,
+ *     addressSpaces: ["10.1.0.0/16"],
+ * });
+ * const failoverZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("failover", {
+ *     name: "failover-link",
+ *     resourceGroupName: exampleZone.resourceGroupName,
+ *     privateDnsZoneName: exampleZone.name,
+ *     virtualNetworkId: failoverVirtualNetwork.id,
+ * });
+ * const failoverSubnet = new azure.network.Subnet("failover", {
+ *     name: "ManagedInstance",
+ *     resourceGroupName: failover.name,
+ *     virtualNetworkName: failoverVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.1.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             actions: [
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+ *             ],
+ *             name: "Microsoft.Sql/managedInstances",
+ *         },
+ *     }],
+ * });
+ * const failoverNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("failover", {
+ *     name: failoverName,
+ *     location: failover.location,
+ *     resourceGroupName: failover.name,
+ * });
+ * const failoverSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("failover", {
+ *     subnetId: failoverSubnet.id,
+ *     networkSecurityGroupId: failoverNetworkSecurityGroup.id,
+ * });
+ * const failoverRouteTable = new azure.network.RouteTable("failover", {
+ *     name: failoverName,
+ *     location: failover.location,
+ *     resourceGroupName: failover.name,
+ * });
+ * const failoverSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("failover", {
+ *     subnetId: failoverSubnet.id,
+ *     routeTableId: failoverRouteTable.id,
+ * });
+ * const failoverManagedInstance = new azure.mssql.ManagedInstance("failover", {
+ *     name: failoverName,
+ *     resourceGroupName: failover.name,
+ *     location: failover.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: failoverSubnet.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ *     dnsZonePartnerId: primaryManagedInstance.id,
+ * }, {
+ *     dependsOn: [
+ *         failoverSubnetNetworkSecurityGroupAssociation,
+ *         failoverSubnetRouteTableAssociation,
+ *     ],
+ * });
+ * const example = new azure.mssql.ManagedInstanceFailoverGroup("example", {
+ *     name: "example-failover-group",
+ *     location: primaryManagedInstance.location,
+ *     managedInstanceId: primaryManagedInstance.id,
+ *     partnerManagedInstanceId: failoverManagedInstance.id,
+ *     secondaryType: "Geo",
  *     readWriteEndpointFailoverPolicy: {
  *         mode: "Automatic",
  *         graceMinutes: 60,
  *     },
+ * }, {
+ *     dependsOn: [
+ *         primaryZoneVirtualNetworkLink,
+ *         failoverZoneVirtualNetworkLink,
+ *     ],
+ * });
+ * const primaryToFailover = new azure.network.VirtualNetworkPeering("primary_to_failover", {
+ *     name: "primary-to-failover",
+ *     remoteVirtualNetworkId: failoverVirtualNetwork.id,
+ *     resourceGroupName: primary.name,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ * });
+ * const _default = new azure.network.Subnet("default", {
+ *     name: "default",
+ *     resourceGroupName: failover.name,
+ *     virtualNetworkName: failoverVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.0.0/24"],
+ * });
+ * const failoverToPrimary = new azure.network.VirtualNetworkPeering("failover_to_primary", {
+ *     name: "failover-to-primary",
+ *     remoteVirtualNetworkId: primaryVirtualNetwork.id,
+ *     resourceGroupName: failover.name,
+ *     virtualNetworkName: failoverVirtualNetwork.name,
  * });
  * ```
+ *
+ * > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
  *
  * ## Import
  *
@@ -171,6 +271,10 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
      * The partner replication role of the Managed Instance Failover Group.
      */
     public /*out*/ readonly role!: pulumi.Output<string>;
+    /**
+     * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     */
+    public readonly secondaryType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedInstanceFailoverGroup resource with the given unique name, arguments, and options.
@@ -193,6 +297,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
             resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["secondaryType"] = state ? state.secondaryType : undefined;
         } else {
             const args = argsOrState as ManagedInstanceFailoverGroupArgs | undefined;
             if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
@@ -210,6 +315,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["partnerManagedInstanceId"] = args ? args.partnerManagedInstanceId : undefined;
             resourceInputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
             resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
+            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
             resourceInputs["partnerRegions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
         }
@@ -256,6 +362,10 @@ export interface ManagedInstanceFailoverGroupState {
      * The partner replication role of the Managed Instance Failover Group.
      */
     role?: pulumi.Input<string>;
+    /**
+     * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     */
+    secondaryType?: pulumi.Input<string>;
 }
 
 /**
@@ -286,4 +396,8 @@ export interface ManagedInstanceFailoverGroupArgs {
      * Failover policy for the read-only endpoint. Defaults to `true`.
      */
     readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
+    /**
+     * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     */
+    secondaryType?: pulumi.Input<string>;
 }

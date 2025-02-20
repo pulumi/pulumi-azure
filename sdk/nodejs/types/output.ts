@@ -47,6 +47,75 @@ export namespace advisor {
 
 }
 
+export namespace aifoundry {
+    export interface HubEncryption {
+        /**
+         * The Key Vault URI to access the encryption key.
+         */
+        keyId: string;
+        /**
+         * The Key Vault ID where the customer owned encryption key exists.
+         */
+        keyVaultId: string;
+        /**
+         * The user assigned identity ID that has access to the encryption key.
+         *
+         * > **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+         */
+        userAssignedIdentityId?: string;
+    }
+
+    export interface HubIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface HubManagedNetwork {
+        /**
+         * The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
+         */
+        isolationMode: string;
+    }
+
+    export interface ProjectIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+}
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -2211,7 +2280,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreEncryption {
         /**
-         * Specifies the client id of the identity which will be used to access key vault.
+         * Specifies the client ID of the identity which will be used to access key vault.
          */
         identityClientId?: string;
         /**
@@ -2236,14 +2305,14 @@ export namespace appconfiguration {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
 
     export interface ConfigurationStorePrimaryReadKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString: string;
         /**
@@ -2258,7 +2327,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStorePrimaryWriteKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString: string;
         /**
@@ -2292,7 +2361,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreSecondaryReadKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString: string;
         /**
@@ -2307,7 +2376,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreSecondaryWriteKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString: string;
         /**
@@ -2373,7 +2442,7 @@ export namespace appconfiguration {
 
     export interface GetConfigurationStorePrimaryReadKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
@@ -2388,7 +2457,7 @@ export namespace appconfiguration {
 
     export interface GetConfigurationStorePrimaryWriteKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
@@ -2422,7 +2491,7 @@ export namespace appconfiguration {
 
     export interface GetConfigurationStoreSecondaryReadKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
@@ -2437,7 +2506,7 @@ export namespace appconfiguration {
 
     export interface GetConfigurationStoreSecondaryWriteKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
          */
         connectionString: string;
         /**
@@ -3912,7 +3981,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -10514,7 +10583,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -11520,7 +11589,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -12640,7 +12709,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -13795,7 +13864,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -14575,7 +14644,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -15640,7 +15709,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -16603,7 +16672,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -17696,7 +17765,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -18943,7 +19012,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion: string;
         /**
@@ -23161,7 +23230,9 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyCustomRule {
         /**
-         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+         *
+         * !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: string;
         /**
@@ -23208,22 +23279,22 @@ export namespace cdn {
          */
         negationCondition?: boolean;
         /**
-         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
          */
         operator: string;
         /**
-         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
          */
         selector?: string;
         /**
-         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
          */
         transforms?: string[];
     }
 
     export interface FrontdoorFirewallPolicyManagedRule {
         /**
-         * The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+         * The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, or `Redirect`.
          */
         action: string;
         /**
@@ -23235,11 +23306,11 @@ export namespace cdn {
          */
         overrides?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleOverride[];
         /**
-         * The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
+         * The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection`, or `Microsoft_BotManagerRuleSet`.
          */
         type: string;
         /**
-         * The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+         * The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0`, or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
          */
         version: string;
     }
@@ -23252,7 +23323,7 @@ export namespace cdn {
          */
         matchVariable: string;
         /**
-         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
          */
         operator: string;
         /**
@@ -23286,7 +23357,7 @@ export namespace cdn {
          */
         matchVariable: string;
         /**
-         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
          */
         operator: string;
         /**
@@ -23299,11 +23370,11 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
         /**
-         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
+         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect`, or `JSChallenge`.
          *
          * > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
          *
-         * !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: string;
         /**
@@ -23328,7 +23399,7 @@ export namespace cdn {
          */
         matchVariable: string;
         /**
-         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
          */
         operator: string;
         /**
@@ -27268,6 +27339,19 @@ export namespace compute {
         tier: string;
     }
 
+    export interface ScaleSetStandbyPoolElasticityProfile {
+        /**
+         * Specifies the maximum number of virtual machines in the standby pool.
+         */
+        maxReadyCapacity: number;
+        /**
+         * Specifies the desired minimum number of virtual machines in the standby pool.
+         *
+         * > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+         */
+        minReadyCapacity: number;
+    }
+
     export interface ScaleSetStorageProfileDataDisk {
         /**
          * Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
@@ -29288,6 +29372,10 @@ export namespace containerapp {
          * Should this ingress allow insecure connections?
          */
         allowInsecureConnections?: boolean;
+        /**
+         * The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+         */
+        clientCertificateMode?: string;
         /**
          * One or more `customDomain` block as detailed below.
          */
@@ -32996,7 +33084,7 @@ export namespace containerservice {
          */
         secretRotationEnabled?: boolean;
         /**
-         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
+         * The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
          *
          * > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
          */
@@ -51973,6 +52061,25 @@ export namespace mssql {
         type: string;
     }
 
+    export interface JobStepOutputTarget {
+        /**
+         * The ID of the Elastic Job Credential to use when connecting to the output destination.
+         */
+        jobCredentialId: string;
+        /**
+         * The ID of the output database.
+         */
+        mssqlDatabaseId: string;
+        /**
+         * The name of the output schema. Defaults to `dbo`.
+         */
+        schemaName?: string;
+        /**
+         * The name of the output table.
+         */
+        tableName: string;
+    }
+
     export interface JobTargetGroupJobTarget {
         /**
          * The name of the MS SQL Database.
@@ -52822,6 +52929,148 @@ export namespace netapp {
         replicationFrequency: string;
     }
 
+    export interface GetVolumeGroupOracleVolume {
+        /**
+         * The ID of the Capacity Pool.
+         */
+        capacityPoolId: string;
+        dataProtectionReplications: outputs.netapp.GetVolumeGroupOracleVolumeDataProtectionReplication[];
+        /**
+         * A `dataProtectionSnapshotPolicy` block as defined below.
+         */
+        dataProtectionSnapshotPolicies: outputs.netapp.GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy[];
+        /**
+         * The encryption key source.
+         */
+        encryptionKeySource: string;
+        /**
+         * A `exportPolicyRule` block as defined below.
+         */
+        exportPolicyRules: outputs.netapp.GetVolumeGroupOracleVolumeExportPolicyRule[];
+        /**
+         * Volume ID.
+         */
+        id: string;
+        /**
+         * The Private Endpoint ID for Key Vault when using customer managed keys.
+         */
+        keyVaultPrivateEndpointId: string;
+        /**
+         * A `mountIpAddresses` block as defined below.
+         */
+        mountIpAddresses: string[];
+        /**
+         * The name of this Application Volume Group for Oracle application.
+         */
+        name: string;
+        /**
+         * Network feature in use at the time of volume creation.
+         */
+        networkFeatures: string;
+        /**
+         * A `protocols` block as defined below.
+         */
+        protocols: string[];
+        /**
+         * The ID of the proximity placement group.
+         */
+        proximityPlacementGroupId: string;
+        /**
+         * Volume security style.
+         */
+        securityStyle: string;
+        /**
+         * The target performance of the file system.
+         */
+        serviceLevel: string;
+        /**
+         * Is the .snapshot (NFS clients) path of a volume visible?
+         */
+        snapshotDirectoryVisible: boolean;
+        /**
+         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         */
+        storageQuotaInGb: number;
+        /**
+         * The ID of the Subnet the NetApp Volume resides in.
+         */
+        subnetId: string;
+        /**
+         * A mapping of tags assigned to the Application Volume Group.
+         */
+        tags: {[key: string]: string};
+        /**
+         * Throughput of this volume in Mibps.
+         */
+        throughputInMibps: number;
+        /**
+         * A unique file path for the volume.
+         */
+        volumePath: string;
+        /**
+         * Volume spec name.
+         */
+        volumeSpecName: string;
+        zone: string;
+    }
+
+    export interface GetVolumeGroupOracleVolumeDataProtectionReplication {
+        /**
+         * The endpoint type.
+         */
+        endpointType: string;
+        /**
+         * Location of the primary volume.
+         */
+        remoteVolumeLocation: string;
+        /**
+         * Resource ID of the primary volume.
+         */
+        remoteVolumeResourceId: string;
+        /**
+         * Replication frequency.
+         */
+        replicationFrequency: string;
+    }
+
+    export interface GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: string;
+    }
+
+    export interface GetVolumeGroupOracleVolumeExportPolicyRule {
+        /**
+         * A list of allowed clients IPv4 addresses.
+         */
+        allowedClients: string;
+        /**
+         * Is the NFSv3 protocol enabled?
+         */
+        nfsv3Enabled: boolean;
+        /**
+         * Is the NFSv4.1 enabled?
+         */
+        nfsv41Enabled: boolean;
+        /**
+         * Is root access permitted to this volume?
+         */
+        rootAccessEnabled: boolean;
+        /**
+         * The index number of the rule.
+         */
+        ruleIndex: number;
+        /**
+         * Is the file system on unix read only?.
+         */
+        unixReadOnly: boolean;
+        /**
+         * Is the file system on unix read and write?.
+         */
+        unixReadWrite: boolean;
+    }
+
     export interface GetVolumeGroupSapHanaVolume {
         /**
          * The ID of the Capacity Pool.
@@ -53120,6 +53369,130 @@ export namespace netapp {
         unixReadWrite?: boolean;
     }
 
+    export interface VolumeGroupOracleVolume {
+        /**
+         * The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        capacityPoolId: string;
+        /**
+         * A `dataProtectionSnapshotPolicy` block as defined below.
+         */
+        dataProtectionSnapshotPolicy: outputs.netapp.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy;
+        /**
+         * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
+         */
+        encryptionKeySource: string;
+        /**
+         * One or more `exportPolicyRule` blocks as defined below.
+         */
+        exportPolicyRules: outputs.netapp.VolumeGroupOracleVolumeExportPolicyRule[];
+        /**
+         * The ID of the Application Volume Group.
+         */
+        id: string;
+        /**
+         * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
+         */
+        keyVaultPrivateEndpointId: string;
+        mountIpAddresses: string[];
+        /**
+         * The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        name: string;
+        /**
+         * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         */
+        networkFeatures: string;
+        /**
+         * The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`.
+         */
+        protocols: string;
+        /**
+         * The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+         *
+         * > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+         */
+        proximityPlacementGroupId?: string;
+        /**
+         * Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        securityStyle: string;
+        /**
+         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        serviceLevel: string;
+        /**
+         * Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        snapshotDirectoryVisible: boolean;
+        /**
+         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         */
+        storageQuotaInGb: number;
+        /**
+         * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        subnetId: string;
+        /**
+         * A mapping of tags which should be assigned to the Application Volume Group.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Throughput of this volume in Mibps.
+         */
+        throughputInMibps: number;
+        /**
+         * A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumePath: string;
+        /**
+         * Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumeSpecName: string;
+        /**
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+         */
+        zone?: string;
+    }
+
+    export interface VolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: string;
+    }
+
+    export interface VolumeGroupOracleVolumeExportPolicyRule {
+        /**
+         * A comma-sperated list of allowed client IPv4 addresses.
+         */
+        allowedClients: string;
+        /**
+         * Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+         */
+        nfsv3Enabled: boolean;
+        /**
+         * Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+         */
+        nfsv41Enabled: boolean;
+        /**
+         * Is root access permitted to this volume? Defaults to `true`.
+         */
+        rootAccessEnabled?: boolean;
+        /**
+         * The index number of the rule, must start at 1 and maximum 5.
+         */
+        ruleIndex: number;
+        /**
+         * Is the file system on unix read only? Defaults to `false.
+         */
+        unixReadOnly?: boolean;
+        /**
+         * Is the file system on unix read and write? Defaults to `true`.
+         */
+        unixReadWrite?: boolean;
+    }
+
     export interface VolumeGroupSapHanaVolume {
         /**
          * The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -53132,7 +53505,7 @@ export namespace netapp {
         /**
          * A `dataProtectionSnapshotPolicy` block as defined below.
          */
-        dataProtectionSnapshotPolicy?: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy;
+        dataProtectionSnapshotPolicy: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy;
         /**
          * One or more `exportPolicyRule` blocks as defined below.
          */

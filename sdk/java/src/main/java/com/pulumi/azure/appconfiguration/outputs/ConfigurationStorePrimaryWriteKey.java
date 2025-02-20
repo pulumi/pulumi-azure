@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationStorePrimaryWriteKey {
     /**
-     * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+     * @return The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
      * 
      */
     private @Nullable String connectionString;
@@ -29,7 +29,7 @@ public final class ConfigurationStorePrimaryWriteKey {
 
     private ConfigurationStorePrimaryWriteKey() {}
     /**
-     * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+     * @return The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
      * 
      */
     public Optional<String> connectionString() {

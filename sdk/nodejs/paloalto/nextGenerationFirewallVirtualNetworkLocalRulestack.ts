@@ -164,7 +164,9 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
      */
     public readonly networkProfile!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     *
+     * > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
     public readonly planId!: pulumi.Output<string | undefined>;
     /**
@@ -253,7 +255,9 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackState {
      */
     networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     *
+     * > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
     planId?: pulumi.Input<string>;
     /**
@@ -295,7 +299,9 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackArgs {
      */
     networkProfile: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     *
+     * > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
     planId?: pulumi.Input<string>;
     /**

@@ -49,6 +49,14 @@ export interface GetConfigurationStoreArgs {
  */
 export interface GetConfigurationStoreResult {
     /**
+     * The data plane proxy authentication mode.
+     */
+    readonly dataPlaneProxyAuthenticationMode: string;
+    /**
+     * Whether data plane proxy private link delegation is enabled.
+     */
+    readonly dataPlaneProxyPrivateLinkDelegationEnabled: boolean;
+    /**
      * An `encryption` block as defined below.
      */
     readonly encryptions: outputs.appconfiguration.GetConfigurationStoreEncryption[];
@@ -60,9 +68,12 @@ export interface GetConfigurationStoreResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * An `identity` block as defined below.
+     */
     readonly identities: outputs.appconfiguration.GetConfigurationStoreIdentity[];
     /**
-     * Whether local authentication methods is enabled.
+     * Whether local authentication methods are enabled.
      */
     readonly localAuthEnabled: boolean;
     /**

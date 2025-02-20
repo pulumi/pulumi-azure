@@ -25,7 +25,7 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
      */
     private @Nullable Boolean secretRotationEnabled;
     /**
-     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
      * 
      * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
      * 
@@ -48,7 +48,7 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
         return Optional.ofNullable(this.secretRotationEnabled);
     }
     /**
-     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
      * 
      * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
      * 

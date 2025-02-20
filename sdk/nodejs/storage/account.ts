@@ -111,7 +111,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
@@ -843,7 +843,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      */
     accessTier?: pulumi.Input<string>;
     /**
@@ -1324,7 +1324,7 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      */
     accessTier?: pulumi.Input<string>;
     /**

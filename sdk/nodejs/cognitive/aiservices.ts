@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an AI Services account.
+ * Manages an AI Services Account.
  *
  * ## Example Usage
  *

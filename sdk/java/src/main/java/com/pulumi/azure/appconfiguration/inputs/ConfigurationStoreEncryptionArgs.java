@@ -16,14 +16,14 @@ public final class ConfigurationStoreEncryptionArgs extends com.pulumi.resources
     public static final ConfigurationStoreEncryptionArgs Empty = new ConfigurationStoreEncryptionArgs();
 
     /**
-     * Specifies the client id of the identity which will be used to access key vault.
+     * Specifies the client ID of the identity which will be used to access key vault.
      * 
      */
     @Import(name="identityClientId")
     private @Nullable Output<String> identityClientId;
 
     /**
-     * @return Specifies the client id of the identity which will be used to access key vault.
+     * @return Specifies the client ID of the identity which will be used to access key vault.
      * 
      */
     public Optional<Output<String>> identityClientId() {
@@ -71,7 +71,7 @@ public final class ConfigurationStoreEncryptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param identityClientId Specifies the client id of the identity which will be used to access key vault.
+         * @param identityClientId Specifies the client ID of the identity which will be used to access key vault.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConfigurationStoreEncryptionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param identityClientId Specifies the client id of the identity which will be used to access key vault.
+         * @param identityClientId Specifies the client ID of the identity which will be used to access key vault.
          * 
          * @return builder
          * 

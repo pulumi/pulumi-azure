@@ -212,6 +212,20 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.peeringLocation);
     }
     /**
+     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * 
+     */
+    @Export(name="rateLimitingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> rateLimitingEnabled;
+
+    /**
+     * @return Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> rateLimitingEnabled() {
+        return Codegen.optional(this.rateLimitingEnabled);
+    }
+    /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */

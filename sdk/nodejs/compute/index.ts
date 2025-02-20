@@ -240,6 +240,11 @@ export type ScaleSetPacketCapture = import("./scaleSetPacketCapture").ScaleSetPa
 export const ScaleSetPacketCapture: typeof import("./scaleSetPacketCapture").ScaleSetPacketCapture = null as any;
 utilities.lazyLoad(exports, ["ScaleSetPacketCapture"], () => require("./scaleSetPacketCapture"));
 
+export { ScaleSetStandbyPoolArgs, ScaleSetStandbyPoolState } from "./scaleSetStandbyPool";
+export type ScaleSetStandbyPool = import("./scaleSetStandbyPool").ScaleSetStandbyPool;
+export const ScaleSetStandbyPool: typeof import("./scaleSetStandbyPool").ScaleSetStandbyPool = null as any;
+utilities.lazyLoad(exports, ["ScaleSetStandbyPool"], () => require("./scaleSetStandbyPool"));
+
 export { SharedImageArgs, SharedImageState } from "./sharedImage";
 export type SharedImage = import("./sharedImage").SharedImage;
 export const SharedImage: typeof import("./sharedImage").SharedImage = null as any;
@@ -344,6 +349,8 @@ const _module = {
                 return new ScaleSet(name, <any>undefined, { urn })
             case "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture":
                 return new ScaleSetPacketCapture(name, <any>undefined, { urn })
+            case "azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool":
+                return new ScaleSetStandbyPool(name, <any>undefined, { urn })
             case "azure:compute/sharedImage:SharedImage":
                 return new SharedImage(name, <any>undefined, { urn })
             case "azure:compute/sharedImageGallery:SharedImageGallery":
@@ -394,6 +401,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/restorePointCollection",
 pulumi.runtime.registerResourceModule("azure", "compute/runCommand", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSetPacketCapture", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/scaleSetStandbyPool", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImage", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImageGallery", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImageVersion", _module)

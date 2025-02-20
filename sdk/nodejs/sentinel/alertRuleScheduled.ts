@@ -140,7 +140,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
-     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
      */
     public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleScheduledSentinelEntityMapping[] | undefined>;
     /**
@@ -322,7 +322,7 @@ export interface AlertRuleScheduledState {
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
-     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
     /**
@@ -426,7 +426,7 @@ export interface AlertRuleScheduledArgs {
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
-     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleScheduledSentinelEntityMapping>[]>;
     /**

@@ -230,6 +230,38 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appconfiguration/configurationStore:ConfigurationStore")
 public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
+     * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     * 
+     */
+    @Export(name="dataPlaneProxyAuthenticationMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dataPlaneProxyAuthenticationMode;
+
+    /**
+     * @return The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     * 
+     */
+    public Output<Optional<String>> dataPlaneProxyAuthenticationMode() {
+        return Codegen.optional(this.dataPlaneProxyAuthenticationMode);
+    }
+    /**
+     * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * 
+     */
+    @Export(name="dataPlaneProxyPrivateLinkDelegationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> dataPlaneProxyPrivateLinkDelegationEnabled;
+
+    /**
+     * @return Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * 
+     */
+    public Output<Optional<Boolean>> dataPlaneProxyPrivateLinkDelegationEnabled() {
+        return Codegen.optional(this.dataPlaneProxyPrivateLinkDelegationEnabled);
+    }
+    /**
      * An `encryption` block as defined below.
      * 
      */

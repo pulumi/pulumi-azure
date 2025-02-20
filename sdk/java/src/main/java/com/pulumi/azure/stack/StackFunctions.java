@@ -6,7 +6,10 @@ package com.pulumi.azure.stack;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.stack.inputs.GetHciClusterArgs;
 import com.pulumi.azure.stack.inputs.GetHciClusterPlainArgs;
+import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
+import com.pulumi.azure.stack.inputs.GetHciStoragePathPlainArgs;
 import com.pulumi.azure.stack.outputs.GetHciClusterResult;
+import com.pulumi.azure.stack.outputs.GetHciStoragePathResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -244,5 +247,225 @@ public final class StackFunctions {
      */
     public static CompletableFuture<GetHciClusterResult> getHciClusterPlain(GetHciClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:stack/getHciCluster:getHciCluster", TypeShape.of(GetHciClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Stack HCI Storage Path.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.stack.StackFunctions;
+     * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StackFunctions.getHciStoragePath(GetHciStoragePathArgs.builder()
+     *             .name("example-hci-storage-path-name")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetHciStoragePathResult> getHciStoragePath(GetHciStoragePathArgs args) {
+        return getHciStoragePath(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Stack HCI Storage Path.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.stack.StackFunctions;
+     * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StackFunctions.getHciStoragePath(GetHciStoragePathArgs.builder()
+     *             .name("example-hci-storage-path-name")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetHciStoragePathResult> getHciStoragePathPlain(GetHciStoragePathPlainArgs args) {
+        return getHciStoragePathPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Stack HCI Storage Path.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.stack.StackFunctions;
+     * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StackFunctions.getHciStoragePath(GetHciStoragePathArgs.builder()
+     *             .name("example-hci-storage-path-name")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetHciStoragePathResult> getHciStoragePath(GetHciStoragePathArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:stack/getHciStoragePath:getHciStoragePath", TypeShape.of(GetHciStoragePathResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Stack HCI Storage Path.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.stack.StackFunctions;
+     * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StackFunctions.getHciStoragePath(GetHciStoragePathArgs.builder()
+     *             .name("example-hci-storage-path-name")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetHciStoragePathResult> getHciStoragePath(GetHciStoragePathArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:stack/getHciStoragePath:getHciStoragePath", TypeShape.of(GetHciStoragePathResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Stack HCI Storage Path.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.stack.StackFunctions;
+     * import com.pulumi.azure.stack.inputs.GetHciStoragePathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = StackFunctions.getHciStoragePath(GetHciStoragePathArgs.builder()
+     *             .name("example-hci-storage-path-name")
+     *             .resourceGroupName("example-rg")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetHciStoragePathResult> getHciStoragePathPlain(GetHciStoragePathPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:stack/getHciStoragePath:getHciStoragePath", TypeShape.of(GetHciStoragePathResult.class), args, Utilities.withVersion(options));
     }
 }

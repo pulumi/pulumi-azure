@@ -108,6 +108,21 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         return Optional.ofNullable(this.readonlyEndpointFailoverPolicyEnabled);
     }
 
+    /**
+     * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     * 
+     */
+    @Import(name="secondaryType")
+    private @Nullable Output<String> secondaryType;
+
+    /**
+     * @return The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     * 
+     */
+    public Optional<Output<String>> secondaryType() {
+        return Optional.ofNullable(this.secondaryType);
+    }
+
     private ManagedInstanceFailoverGroupArgs() {}
 
     private ManagedInstanceFailoverGroupArgs(ManagedInstanceFailoverGroupArgs $) {
@@ -117,6 +132,7 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         this.partnerManagedInstanceId = $.partnerManagedInstanceId;
         this.readWriteEndpointFailoverPolicy = $.readWriteEndpointFailoverPolicy;
         this.readonlyEndpointFailoverPolicyEnabled = $.readonlyEndpointFailoverPolicyEnabled;
+        this.secondaryType = $.secondaryType;
     }
 
     public static Builder builder() {
@@ -261,6 +277,27 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
          */
         public Builder readonlyEndpointFailoverPolicyEnabled(Boolean readonlyEndpointFailoverPolicyEnabled) {
             return readonlyEndpointFailoverPolicyEnabled(Output.of(readonlyEndpointFailoverPolicyEnabled));
+        }
+
+        /**
+         * @param secondaryType The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryType(@Nullable Output<String> secondaryType) {
+            $.secondaryType = secondaryType;
+            return this;
+        }
+
+        /**
+         * @param secondaryType The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryType(String secondaryType) {
+            return secondaryType(Output.of(secondaryType));
         }
 
         public ManagedInstanceFailoverGroupArgs build() {

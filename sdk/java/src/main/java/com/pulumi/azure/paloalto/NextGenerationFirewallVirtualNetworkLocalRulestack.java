@@ -256,14 +256,18 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
         return this.networkProfile;
     }
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     * 
+     * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Export(name="planId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> planId;
 
     /**
-     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     * 
+     * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Output<Optional<String>> planId() {
