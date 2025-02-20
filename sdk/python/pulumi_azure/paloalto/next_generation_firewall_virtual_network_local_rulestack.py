@@ -39,7 +39,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
-        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
         """
         pulumi.set(__self__, "network_profile", network_profile)
@@ -146,7 +148,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
     @pulumi.getter(name="planId")
     def plan_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+
+        > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         """
         return pulumi.get(self, "plan_id")
 
@@ -186,7 +190,9 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
         :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
-        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -274,7 +280,9 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
     @pulumi.getter(name="planId")
     def plan_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+
+        > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         """
         return pulumi.get(self, "plan_id")
 
@@ -439,7 +447,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
-        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -627,7 +637,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         :param pulumi.Input[str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
-        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        :param pulumi.Input[str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -691,7 +703,9 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     @pulumi.getter(name="planId")
     def plan_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+
+        > **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         """
         return pulumi.get(self, "plan_id")
 

@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Storage
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
         /// </summary>
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
@@ -873,7 +873,7 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -1146,7 +1146,7 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }

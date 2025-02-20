@@ -173,7 +173,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
-        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         /// </summary>
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive
 {
     /// <summary>
-    /// Manages an AI Services account.
+    /// Manages an AI Services Account.
     /// 
     /// ## Example Usage
     /// 

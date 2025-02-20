@@ -48,7 +48,7 @@ class BlobArgs:
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -210,7 +210,7 @@ class BlobArgs:
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         """
         return pulumi.get(self, "parallelism")
 
@@ -299,7 +299,7 @@ class _BlobState:
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -434,7 +434,7 @@ class _BlobState:
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         """
         return pulumi.get(self, "parallelism")
 
@@ -611,7 +611,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -769,7 +769,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -865,7 +865,7 @@ class Blob(pulumi.CustomResource):
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         """
         return pulumi.get(self, "parallelism")
 

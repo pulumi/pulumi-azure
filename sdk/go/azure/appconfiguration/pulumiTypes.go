@@ -343,7 +343,7 @@ func (o ConfigurationFeatureTimewindowFilterArrayOutput) Index(i pulumi.IntInput
 }
 
 type ConfigurationStoreEncryption struct {
-	// Specifies the client id of the identity which will be used to access key vault.
+	// Specifies the client ID of the identity which will be used to access key vault.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Specifies the URI of the key vault key used to encrypt data.
 	KeyVaultKeyIdentifier *string `pulumi:"keyVaultKeyIdentifier"`
@@ -361,7 +361,7 @@ type ConfigurationStoreEncryptionInput interface {
 }
 
 type ConfigurationStoreEncryptionArgs struct {
-	// Specifies the client id of the identity which will be used to access key vault.
+	// Specifies the client ID of the identity which will be used to access key vault.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// Specifies the URI of the key vault key used to encrypt data.
 	KeyVaultKeyIdentifier pulumi.StringPtrInput `pulumi:"keyVaultKeyIdentifier"`
@@ -444,7 +444,7 @@ func (o ConfigurationStoreEncryptionOutput) ToConfigurationStoreEncryptionPtrOut
 	}).(ConfigurationStoreEncryptionPtrOutput)
 }
 
-// Specifies the client id of the identity which will be used to access key vault.
+// Specifies the client ID of the identity which will be used to access key vault.
 func (o ConfigurationStoreEncryptionOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreEncryption) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -478,7 +478,7 @@ func (o ConfigurationStoreEncryptionPtrOutput) Elem() ConfigurationStoreEncrypti
 	}).(ConfigurationStoreEncryptionOutput)
 }
 
-// Specifies the client id of the identity which will be used to access key vault.
+// Specifies the client ID of the identity which will be used to access key vault.
 func (o ConfigurationStoreEncryptionPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStoreEncryption) *string {
 		if v == nil {
@@ -507,7 +507,7 @@ type ConfigurationStoreIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -531,7 +531,7 @@ type ConfigurationStoreIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -629,7 +629,7 @@ func (o ConfigurationStoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -690,7 +690,7 @@ func (o ConfigurationStoreIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
 func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
 		if v == nil {
@@ -701,7 +701,7 @@ func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ConfigurationStorePrimaryReadKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id *string `pulumi:"id"`
@@ -721,7 +721,7 @@ type ConfigurationStorePrimaryReadKeyInput interface {
 }
 
 type ConfigurationStorePrimaryReadKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -780,7 +780,7 @@ func (o ConfigurationStorePrimaryReadKeyOutput) ToConfigurationStorePrimaryReadK
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 func (o ConfigurationStorePrimaryReadKeyOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStorePrimaryReadKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -816,7 +816,7 @@ func (o ConfigurationStorePrimaryReadKeyArrayOutput) Index(i pulumi.IntInput) Co
 }
 
 type ConfigurationStorePrimaryWriteKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id *string `pulumi:"id"`
@@ -836,7 +836,7 @@ type ConfigurationStorePrimaryWriteKeyInput interface {
 }
 
 type ConfigurationStorePrimaryWriteKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -895,7 +895,7 @@ func (o ConfigurationStorePrimaryWriteKeyOutput) ToConfigurationStorePrimaryWrit
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 func (o ConfigurationStorePrimaryWriteKeyOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStorePrimaryWriteKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -1055,7 +1055,7 @@ func (o ConfigurationStoreReplicaArrayOutput) Index(i pulumi.IntInput) Configura
 }
 
 type ConfigurationStoreSecondaryReadKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id *string `pulumi:"id"`
@@ -1075,7 +1075,7 @@ type ConfigurationStoreSecondaryReadKeyInput interface {
 }
 
 type ConfigurationStoreSecondaryReadKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1134,7 +1134,7 @@ func (o ConfigurationStoreSecondaryReadKeyOutput) ToConfigurationStoreSecondaryR
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 func (o ConfigurationStoreSecondaryReadKeyOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreSecondaryReadKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -1170,7 +1170,7 @@ func (o ConfigurationStoreSecondaryReadKeyArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type ConfigurationStoreSecondaryWriteKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id *string `pulumi:"id"`
@@ -1190,7 +1190,7 @@ type ConfigurationStoreSecondaryWriteKeyInput interface {
 }
 
 type ConfigurationStoreSecondaryWriteKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1249,7 +1249,7 @@ func (o ConfigurationStoreSecondaryWriteKeyOutput) ToConfigurationStoreSecondary
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
 func (o ConfigurationStoreSecondaryWriteKeyOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreSecondaryWriteKey) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -1666,7 +1666,7 @@ func (o GetConfigurationStoreIdentityArrayOutput) Index(i pulumi.IntInput) GetCo
 }
 
 type GetConfigurationStorePrimaryReadKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id string `pulumi:"id"`
@@ -1686,7 +1686,7 @@ type GetConfigurationStorePrimaryReadKeyInput interface {
 }
 
 type GetConfigurationStorePrimaryReadKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1745,7 +1745,7 @@ func (o GetConfigurationStorePrimaryReadKeyOutput) ToGetConfigurationStorePrimar
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 func (o GetConfigurationStorePrimaryReadKeyOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationStorePrimaryReadKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
@@ -1781,7 +1781,7 @@ func (o GetConfigurationStorePrimaryReadKeyArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetConfigurationStorePrimaryWriteKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id string `pulumi:"id"`
@@ -1801,7 +1801,7 @@ type GetConfigurationStorePrimaryWriteKeyInput interface {
 }
 
 type GetConfigurationStorePrimaryWriteKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1860,7 +1860,7 @@ func (o GetConfigurationStorePrimaryWriteKeyOutput) ToGetConfigurationStorePrima
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 func (o GetConfigurationStorePrimaryWriteKeyOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationStorePrimaryWriteKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
@@ -2020,7 +2020,7 @@ func (o GetConfigurationStoreReplicaArrayOutput) Index(i pulumi.IntInput) GetCon
 }
 
 type GetConfigurationStoreSecondaryReadKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id string `pulumi:"id"`
@@ -2040,7 +2040,7 @@ type GetConfigurationStoreSecondaryReadKeyInput interface {
 }
 
 type GetConfigurationStoreSecondaryReadKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2099,7 +2099,7 @@ func (o GetConfigurationStoreSecondaryReadKeyOutput) ToGetConfigurationStoreSeco
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 func (o GetConfigurationStoreSecondaryReadKeyOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationStoreSecondaryReadKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
@@ -2135,7 +2135,7 @@ func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetConfigurationStoreSecondaryWriteKey struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id string `pulumi:"id"`
@@ -2155,7 +2155,7 @@ type GetConfigurationStoreSecondaryWriteKeyInput interface {
 }
 
 type GetConfigurationStoreSecondaryWriteKeyArgs struct {
-	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+	// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The ID of the Access Key.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -2214,7 +2214,7 @@ func (o GetConfigurationStoreSecondaryWriteKeyOutput) ToGetConfigurationStoreSec
 	return o
 }
 
-// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
 func (o GetConfigurationStoreSecondaryWriteKeyOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationStoreSecondaryWriteKey) string { return v.ConnectionString }).(pulumi.StringOutput)
 }

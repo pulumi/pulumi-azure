@@ -116,6 +116,12 @@ namespace Pulumi.Azure.Network
         public Output<string?> PeeringLocation { get; private set; } = null!;
 
         /// <summary>
+        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        /// </summary>
+        [Output("rateLimitingEnabled")]
+        public Output<bool?> RateLimitingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -267,6 +273,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
+        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        /// </summary>
+        [Input("rateLimitingEnabled")]
+        public Input<bool>? RateLimitingEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -367,6 +379,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("peeringLocation")]
         public Input<string>? PeeringLocation { get; set; }
+
+        /// <summary>
+        /// Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        /// </summary>
+        [Input("rateLimitingEnabled")]
+        public Input<bool>? RateLimitingEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.

@@ -200,6 +200,20 @@ namespace Pulumi.Azure.AppConfiguration
     public partial class ConfigurationStore : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        /// </summary>
+        [Output("dataPlaneProxyAuthenticationMode")]
+        public Output<string?> DataPlaneProxyAuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        /// </summary>
+        [Output("dataPlaneProxyPrivateLinkDelegationEnabled")]
+        public Output<bool?> DataPlaneProxyPrivateLinkDelegationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An `encryption` block as defined below.
         /// </summary>
         [Output("encryption")]
@@ -356,6 +370,20 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        /// </summary>
+        [Input("dataPlaneProxyAuthenticationMode")]
+        public Input<string>? DataPlaneProxyAuthenticationMode { get; set; }
+
+        /// <summary>
+        /// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        /// </summary>
+        [Input("dataPlaneProxyPrivateLinkDelegationEnabled")]
+        public Input<bool>? DataPlaneProxyPrivateLinkDelegationEnabled { get; set; }
+
+        /// <summary>
         /// An `encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
@@ -455,6 +483,20 @@ namespace Pulumi.Azure.AppConfiguration
 
     public sealed class ConfigurationStoreState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        /// </summary>
+        [Input("dataPlaneProxyAuthenticationMode")]
+        public Input<string>? DataPlaneProxyAuthenticationMode { get; set; }
+
+        /// <summary>
+        /// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        /// </summary>
+        [Input("dataPlaneProxyPrivateLinkDelegationEnabled")]
+        public Input<bool>? DataPlaneProxyPrivateLinkDelegationEnabled { get; set; }
+
         /// <summary>
         /// An `encryption` block as defined below.
         /// </summary>

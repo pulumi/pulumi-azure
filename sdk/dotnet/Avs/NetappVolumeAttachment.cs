@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Avs
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         AddressSpaces = new[]
     ///         {
-    ///             "10.6.0.0/16",
+    ///             "10.88.0.0/16",
     ///         },
     ///     });
     /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Avs
     ///         VirtualNetworkName = testVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
-    ///             "10.6.2.0/24",
+    ///             "10.88.2.0/24",
     ///         },
     ///         Delegations = new[]
     ///         {
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Avs
     ///         VirtualNetworkName = testVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
-    ///             "10.6.1.0/24",
+    ///             "10.88.1.0/24",
     ///         },
     ///     });
     /// 

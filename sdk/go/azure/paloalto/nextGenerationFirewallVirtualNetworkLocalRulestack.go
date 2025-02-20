@@ -201,7 +201,9 @@ type NextGenerationFirewallVirtualNetworkLocalRulestack struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput `pulumi:"networkProfile"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 	PlanId pulumi.StringPtrOutput `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -260,7 +262,9 @@ type nextGenerationFirewallVirtualNetworkLocalRulestackState struct {
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile *NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile `pulumi:"networkProfile"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -281,7 +285,9 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackState struct {
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrInput
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -306,7 +312,9 @@ type nextGenerationFirewallVirtualNetworkLocalRulestackArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile `pulumi:"networkProfile"`
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 	PlanId *string `pulumi:"planId"`
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -328,7 +336,9 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
 	NetworkProfile NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileInput
-	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+	// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+	//
+	// > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 	PlanId pulumi.StringPtrInput
 	// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
 	ResourceGroupName pulumi.StringInput
@@ -458,7 +468,9 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) NetworkProfile
 	}).(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput)
 }
 
-// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+//
+// > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestack) pulumi.StringPtrOutput { return v.PlanId }).(pulumi.StringPtrOutput)
 }

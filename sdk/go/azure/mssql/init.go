@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobCredential{}
 	case "azure:mssql/jobSchedule:JobSchedule":
 		r = &JobSchedule{}
+	case "azure:mssql/jobStep:JobStep":
+		r = &JobStep{}
 	case "azure:mssql/jobTargetGroup:JobTargetGroup":
 		r = &JobTargetGroup{}
 	case "azure:mssql/managedDatabase:ManagedDatabase":
@@ -142,6 +144,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/jobSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/jobStep",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -245,6 +245,8 @@ class AppIngress(dict):
             suggest = "traffic_weights"
         elif key == "allowInsecureConnections":
             suggest = "allow_insecure_connections"
+        elif key == "clientCertificateMode":
+            suggest = "client_certificate_mode"
         elif key == "customDomains":
             suggest = "custom_domains"
         elif key == "exposedPort":
@@ -269,6 +271,7 @@ class AppIngress(dict):
                  target_port: int,
                  traffic_weights: Sequence['outputs.AppIngressTrafficWeight'],
                  allow_insecure_connections: Optional[bool] = None,
+                 client_certificate_mode: Optional[str] = None,
                  custom_domains: Optional[Sequence['outputs.AppIngressCustomDomain']] = None,
                  exposed_port: Optional[int] = None,
                  external_enabled: Optional[bool] = None,
@@ -279,6 +282,7 @@ class AppIngress(dict):
         :param int target_port: The target port on the container for the Ingress traffic.
         :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: One or more `traffic_weight` blocks as detailed below.
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
+        :param str client_certificate_mode: The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
         :param Sequence['AppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param int exposed_port: The exposed port on the container for the Ingress traffic.
                
@@ -294,6 +298,8 @@ class AppIngress(dict):
         pulumi.set(__self__, "traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
+        if client_certificate_mode is not None:
+            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
         if exposed_port is not None:
@@ -330,6 +336,14 @@ class AppIngress(dict):
         Should this ingress allow insecure connections?
         """
         return pulumi.get(self, "allow_insecure_connections")
+
+    @property
+    @pulumi.getter(name="clientCertificateMode")
+    def client_certificate_mode(self) -> Optional[str]:
+        """
+        The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        """
+        return pulumi.get(self, "client_certificate_mode")
 
     @property
     @pulumi.getter(name="customDomains")

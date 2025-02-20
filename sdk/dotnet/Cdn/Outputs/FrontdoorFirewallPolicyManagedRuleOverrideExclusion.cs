@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>
-        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        /// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

@@ -293,6 +293,10 @@ if not MYPY:
         """
         Should this ingress allow insecure connections?
         """
+        client_certificate_mode: NotRequired[pulumi.Input[str]]
+        """
+        The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        """
         custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgsDict']]]]
         """
         One or more `custom_domain` block as detailed below.
@@ -330,6 +334,7 @@ class AppIngressArgs:
                  target_port: pulumi.Input[int],
                  traffic_weights: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]],
                  allow_insecure_connections: Optional[pulumi.Input[bool]] = None,
+                 client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgs']]]] = None,
                  exposed_port: Optional[pulumi.Input[int]] = None,
                  external_enabled: Optional[pulumi.Input[bool]] = None,
@@ -340,6 +345,7 @@ class AppIngressArgs:
         :param pulumi.Input[int] target_port: The target port on the container for the Ingress traffic.
         :param pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]] traffic_weights: One or more `traffic_weight` blocks as detailed below.
         :param pulumi.Input[bool] allow_insecure_connections: Should this ingress allow insecure connections?
+        :param pulumi.Input[str] client_certificate_mode: The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
         :param pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgs']]] custom_domains: One or more `custom_domain` block as detailed below.
         :param pulumi.Input[int] exposed_port: The exposed port on the container for the Ingress traffic.
                
@@ -355,6 +361,8 @@ class AppIngressArgs:
         pulumi.set(__self__, "traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
+        if client_certificate_mode is not None:
+            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
         if exposed_port is not None:
@@ -403,6 +411,18 @@ class AppIngressArgs:
     @allow_insecure_connections.setter
     def allow_insecure_connections(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_insecure_connections", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateMode")
+    def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        """
+        return pulumi.get(self, "client_certificate_mode")
+
+    @client_certificate_mode.setter
+    def client_certificate_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_mode", value)
 
     @property
     @pulumi.getter(name="customDomains")

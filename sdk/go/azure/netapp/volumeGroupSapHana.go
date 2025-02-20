@@ -54,7 +54,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.6.0.0/16"),
+//					pulumi.String("10.88.0.0/16"),
 //				},
 //			})
 //			if err != nil {
@@ -65,7 +65,7 @@ import (
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.6.2.0/24"),
+//					pulumi.String("10.88.2.0/24"),
 //				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
@@ -88,7 +88,7 @@ import (
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.6.1.0/24"),
+//					pulumi.String("10.88.1.0/24"),
 //				},
 //			})
 //			if err != nil {

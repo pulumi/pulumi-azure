@@ -557,7 +557,7 @@ class AIServices(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an AI Services account.
+        Manages an AI Services Account.
 
         ## Example Usage
 
@@ -612,7 +612,7 @@ class AIServices(pulumi.CustomResource):
                  args: AIServicesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AI Services account.
+        Manages an AI Services Account.
 
         ## Example Usage
 

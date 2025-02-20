@@ -145,6 +145,14 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class GetConfigurationStoreResult
     {
         /// <summary>
+        /// The data plane proxy authentication mode.
+        /// </summary>
+        public readonly string DataPlaneProxyAuthenticationMode;
+        /// <summary>
+        /// Whether data plane proxy private link delegation is enabled.
+        /// </summary>
+        public readonly bool DataPlaneProxyPrivateLinkDelegationEnabled;
+        /// <summary>
         /// An `encryption` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> Encryptions;
@@ -156,9 +164,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreIdentityResult> Identities;
         /// <summary>
-        /// Whether local authentication methods is enabled.
+        /// Whether local authentication methods are enabled.
         /// </summary>
         public readonly bool LocalAuthEnabled;
         /// <summary>
@@ -214,6 +225,10 @@ namespace Pulumi.Azure.AppConfiguration
 
         [OutputConstructor]
         private GetConfigurationStoreResult(
+            string dataPlaneProxyAuthenticationMode,
+
+            bool dataPlaneProxyPrivateLinkDelegationEnabled,
+
             ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> encryptions,
 
             string endpoint,
@@ -252,6 +267,8 @@ namespace Pulumi.Azure.AppConfiguration
 
             ImmutableDictionary<string, string> tags)
         {
+            DataPlaneProxyAuthenticationMode = dataPlaneProxyAuthenticationMode;
+            DataPlaneProxyPrivateLinkDelegationEnabled = dataPlaneProxyPrivateLinkDelegationEnabled;
             Encryptions = encryptions;
             Endpoint = endpoint;
             Id = id;

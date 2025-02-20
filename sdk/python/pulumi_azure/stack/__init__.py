@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_hci_cluster import *
+from .get_hci_storage_path import *
 from .hci_cluster import *
 from .hci_deployment_setting import *
 from .hci_extension import *

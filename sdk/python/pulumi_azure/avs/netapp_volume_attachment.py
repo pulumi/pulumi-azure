@@ -167,12 +167,12 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             name="example-VirtualNetwork",
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"],
-            address_spaces=["10.6.0.0/16"])
+            address_spaces=["10.88.0.0/16"])
         netapp_subnet = azure.network.Subnet("netappSubnet",
             name="example-Subnet",
             resource_group_name=test_azurerm_resource_group["name"],
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.2.0/24"],
+            address_prefixes=["10.88.2.0/24"],
             delegations=[{
                 "name": "testdelegation",
                 "service_delegation": {
@@ -187,7 +187,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             name="GatewaySubnet",
             resource_group_name=test_azurerm_resource_group["name"],
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.1.0/24"])
+            address_prefixes=["10.88.1.0/24"])
         test_virtual_network_gateway = azure.network.VirtualNetworkGateway("test",
             name="example-vnet-gateway",
             location=test_azurerm_resource_group["location"],
@@ -308,12 +308,12 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             name="example-VirtualNetwork",
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"],
-            address_spaces=["10.6.0.0/16"])
+            address_spaces=["10.88.0.0/16"])
         netapp_subnet = azure.network.Subnet("netappSubnet",
             name="example-Subnet",
             resource_group_name=test_azurerm_resource_group["name"],
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.2.0/24"],
+            address_prefixes=["10.88.2.0/24"],
             delegations=[{
                 "name": "testdelegation",
                 "service_delegation": {
@@ -328,7 +328,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             name="GatewaySubnet",
             resource_group_name=test_azurerm_resource_group["name"],
             virtual_network_name=test_virtual_network.name,
-            address_prefixes=["10.6.1.0/24"])
+            address_prefixes=["10.88.1.0/24"])
         test_virtual_network_gateway = azure.network.VirtualNetworkGateway("test",
             name="example-vnet-gateway",
             location=test_azurerm_resource_group["location"],

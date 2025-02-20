@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly bool? AllowInsecureConnections;
         /// <summary>
+        /// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        /// </summary>
+        public readonly string? ClientCertificateMode;
+        /// <summary>
         /// One or more `custom_domain` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressCustomDomain> CustomDomains;
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         private AppIngress(
             bool? allowInsecureConnections,
 
+            string? clientCertificateMode,
+
             ImmutableArray<Outputs.AppIngressCustomDomain> customDomains,
 
             int? exposedPort,
@@ -75,6 +81,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             string? transport)
         {
             AllowInsecureConnections = allowInsecureConnections;
+            ClientCertificateMode = clientCertificateMode;
             CustomDomains = customDomains;
             ExposedPort = exposedPort;
             ExternalEnabled = externalEnabled;

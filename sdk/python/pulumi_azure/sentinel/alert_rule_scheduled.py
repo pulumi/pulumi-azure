@@ -66,7 +66,7 @@ class AlertRuleScheduledArgs:
                > **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
                
                > **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
@@ -319,7 +319,7 @@ class AlertRuleScheduledArgs:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
-        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 
@@ -449,7 +449,7 @@ class _AlertRuleScheduledState:
                > **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
                
@@ -695,7 +695,7 @@ class _AlertRuleScheduledState:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
-        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 
@@ -878,7 +878,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
                > **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
                
@@ -1070,7 +1070,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
                > **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleScheduledSentinelEntityMappingArgs', 'AlertRuleScheduledSentinelEntityMappingArgsDict']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
-               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
                
@@ -1238,7 +1238,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
 
-        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 

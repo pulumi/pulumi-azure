@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         /// </summary>
         [Output("sentinelEntityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleScheduledSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs> SentinelEntityMappings
         {
@@ -562,7 +562,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
         /// 
-        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs> SentinelEntityMappings
         {

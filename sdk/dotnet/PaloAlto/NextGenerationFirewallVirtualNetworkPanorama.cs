@@ -207,7 +207,9 @@ namespace Pulumi.Azure.PaloAlto
         public Output<ImmutableArray<Outputs.NextGenerationFirewallVirtualNetworkPanoramaPanorama>> Panoramas { get; private set; } = null!;
 
         /// <summary>
-        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+        /// 
+        /// &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Output("planId")]
         public Output<string?> PlanId { get; private set; } = null!;
@@ -319,7 +321,9 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string> PanoramaBase64Config { get; set; } = null!;
 
         /// <summary>
-        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+        /// 
+        /// &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
@@ -411,7 +415,9 @@ namespace Pulumi.Azure.PaloAlto
         }
 
         /// <summary>
-        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+        /// 
+        /// &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        /// The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         /// </summary>
         public Input<string>? ConnectionString
         {

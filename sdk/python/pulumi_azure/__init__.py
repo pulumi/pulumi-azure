@@ -14,6 +14,8 @@ if typing.TYPE_CHECKING:
     aadb2c = __aadb2c
     import pulumi_azure.advisor as __advisor
     advisor = __advisor
+    import pulumi_azure.aifoundry as __aifoundry
+    aifoundry = __aifoundry
     import pulumi_azure.analysisservices as __analysisservices
     analysisservices = __analysisservices
     import pulumi_azure.apimanagement as __apimanagement
@@ -279,6 +281,7 @@ if typing.TYPE_CHECKING:
 else:
     aadb2c = _utilities.lazy_import('pulumi_azure.aadb2c')
     advisor = _utilities.lazy_import('pulumi_azure.advisor')
+    aifoundry = _utilities.lazy_import('pulumi_azure.aifoundry')
     analysisservices = _utilities.lazy_import('pulumi_azure.analysisservices')
     apimanagement = _utilities.lazy_import('pulumi_azure.apimanagement')
     appconfiguration = _utilities.lazy_import('pulumi_azure.appconfiguration')
@@ -428,6 +431,22 @@ _utilities.register(
   "fqn": "pulumi_azure.advisor",
   "classes": {
    "azure:advisor/suppression:Suppression": "Suppression"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "aifoundry/hub",
+  "fqn": "pulumi_azure.aifoundry",
+  "classes": {
+   "azure:aifoundry/hub:Hub": "Hub"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "aifoundry/project",
+  "fqn": "pulumi_azure.aifoundry",
+  "classes": {
+   "azure:aifoundry/project:Project": "Project"
   }
  },
  {
@@ -2532,6 +2551,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture": "ScaleSetPacketCapture"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/scaleSetStandbyPool",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool": "ScaleSetStandbyPool"
   }
  },
  {
@@ -6096,6 +6123,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "mssql/jobStep",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/jobStep:JobStep": "JobStep"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "mssql/jobTargetGroup",
   "fqn": "pulumi_azure.mssql",
   "classes": {
@@ -6356,6 +6391,14 @@ _utilities.register(
   "fqn": "pulumi_azure.netapp",
   "classes": {
    "azure:netapp/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "netapp/volumeGroupOracle",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/volumeGroupOracle:VolumeGroupOracle": "VolumeGroupOracle"
   }
  },
  {

@@ -60,14 +60,19 @@ type LookupConfigurationStoreArgs struct {
 
 // A collection of values returned by getConfigurationStore.
 type LookupConfigurationStoreResult struct {
+	// The data plane proxy authentication mode.
+	DataPlaneProxyAuthenticationMode string `pulumi:"dataPlaneProxyAuthenticationMode"`
+	// Whether data plane proxy private link delegation is enabled.
+	DataPlaneProxyPrivateLinkDelegationEnabled bool `pulumi:"dataPlaneProxyPrivateLinkDelegationEnabled"`
 	// An `encryption` block as defined below.
 	Encryptions []GetConfigurationStoreEncryption `pulumi:"encryptions"`
 	// The URL of the App Configuration Replica.
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                          `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
 	Identities []GetConfigurationStoreIdentity `pulumi:"identities"`
-	// Whether local authentication methods is enabled.
+	// Whether local authentication methods are enabled.
 	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
 	// The supported Azure location where the App Configuration Replica exists.
 	Location string `pulumi:"location"`
@@ -133,6 +138,16 @@ func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOu
 	return o
 }
 
+// The data plane proxy authentication mode.
+func (o LookupConfigurationStoreResultOutput) DataPlaneProxyAuthenticationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.DataPlaneProxyAuthenticationMode }).(pulumi.StringOutput)
+}
+
+// Whether data plane proxy private link delegation is enabled.
+func (o LookupConfigurationStoreResultOutput) DataPlaneProxyPrivateLinkDelegationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.DataPlaneProxyPrivateLinkDelegationEnabled }).(pulumi.BoolOutput)
+}
+
 // An `encryption` block as defined below.
 func (o LookupConfigurationStoreResultOutput) Encryptions() GetConfigurationStoreEncryptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreEncryption { return v.Encryptions }).(GetConfigurationStoreEncryptionArrayOutput)
@@ -148,11 +163,12 @@ func (o LookupConfigurationStoreResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// An `identity` block as defined below.
 func (o LookupConfigurationStoreResultOutput) Identities() GetConfigurationStoreIdentityArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreIdentity { return v.Identities }).(GetConfigurationStoreIdentityArrayOutput)
 }
 
-// Whether local authentication methods is enabled.
+// Whether local authentication methods are enabled.
 func (o LookupConfigurationStoreResultOutput) LocalAuthEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) bool { return v.LocalAuthEnabled }).(pulumi.BoolOutput)
 }

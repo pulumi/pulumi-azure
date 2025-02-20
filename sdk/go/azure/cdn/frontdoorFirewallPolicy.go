@@ -192,8 +192,10 @@ type FrontdoorFirewallPolicy struct {
 	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
 	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 	//
-	// !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-	JsChallengeCookieExpirationInMinutes pulumi.IntPtrOutput `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	JsChallengeCookieExpirationInMinutes pulumi.IntOutput `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -210,7 +212,7 @@ type FrontdoorFirewallPolicy struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -267,7 +269,9 @@ type frontdoorFirewallPolicyState struct {
 	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
 	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 	//
-	// !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
@@ -285,7 +289,7 @@ type frontdoorFirewallPolicyState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -304,7 +308,9 @@ type FrontdoorFirewallPolicyState struct {
 	FrontendEndpointIds pulumi.StringArrayInput
 	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 	//
-	// !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
@@ -322,7 +328,7 @@ type FrontdoorFirewallPolicyState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -343,7 +349,9 @@ type frontdoorFirewallPolicyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 	//
-	// !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
@@ -361,7 +369,7 @@ type frontdoorFirewallPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -379,7 +387,9 @@ type FrontdoorFirewallPolicyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 	//
-	// !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+	//
+	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
@@ -397,7 +407,7 @@ type FrontdoorFirewallPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+	// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -517,9 +527,11 @@ func (o FrontdoorFirewallPolicyOutput) FrontendEndpointIds() pulumi.StringArrayO
 
 // Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
 //
-// !> **Note:** Azure Web Application Firewall JavaScript challenge is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-func (o FrontdoorFirewallPolicyOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.IntPtrOutput { return v.JsChallengeCookieExpirationInMinutes }).(pulumi.IntPtrOutput)
+// > **Note:** The `jsChallengeCookieExpirationInMinutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
+//
+// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+func (o FrontdoorFirewallPolicyOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.IntOutput { return v.JsChallengeCookieExpirationInMinutes }).(pulumi.IntOutput)
 }
 
 // One or more `managedRule` blocks as defined below.
@@ -556,7 +568,7 @@ func (o FrontdoorFirewallPolicyOutput) ResourceGroupName() pulumi.StringOutput {
 
 // The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 //
-// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+// > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
 func (o FrontdoorFirewallPolicyOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

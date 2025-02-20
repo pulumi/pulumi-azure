@@ -10,8 +10,7 @@
         "experimentalDecorators": true,
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "esModuleInterop": true // due to "has no default export" errors from @azure/msal-node
+        "strict": true
     },
     "files": [
         "aadb2c/directory.ts",

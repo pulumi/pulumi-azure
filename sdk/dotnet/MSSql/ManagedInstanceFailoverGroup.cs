@@ -24,125 +24,277 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     var name = "mymssqlmitest";
+    /// 
+    ///     var primaryName = $"{name}-primary";
+    /// 
+    ///     var primaryLocation = "West Europe";
+    /// 
+    ///     var failoverName = $"{name}-failover";
+    /// 
+    ///     var failoverLocation = "North Europe";
+    /// 
+    ///     //# Primary SQL Managed Instance
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
-    ///         Name = "example-resources",
-    ///         Location = "West Europe",
+    ///         Name = primaryName,
+    ///         Location = primaryLocation,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
+    ///         Name = $"{name}.private",
+    ///         ResourceGroupName = primary.Name,
+    ///     });
+    /// 
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primary", new()
+    ///     {
+    ///         Name = primaryName,
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     var primaryZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("primary", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         Name = "primary-link",
+    ///         ResourceGroupName = primary.Name,
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = primaryVirtualNetwork.Id,
+    ///     });
+    /// 
+    ///     var primarySubnet = new Azure.Network.Subnet("primary", new()
+    ///     {
+    ///         Name = primaryName,
+    ///         ResourceGroupName = primary.Name,
+    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
-    ///             "10.0.2.0/24",
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+    ///                     },
+    ///                     Name = "Microsoft.Sql/managedInstances",
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     var primaryNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("primary", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
+    ///         Name = primaryName,
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
     ///     });
     /// 
-    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()
+    ///     var primarySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("primary", new()
     ///     {
-    ///         SubnetId = exampleSubnet.Id,
-    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///         SubnetId = primarySubnet.Id,
+    ///         NetworkSecurityGroupId = primaryNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
+    ///     var primaryRouteTable = new Azure.Network.RouteTable("primary", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
+    ///         Name = primaryName,
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
     ///     });
     /// 
-    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
+    ///     var primarySubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("primary", new()
     ///     {
-    ///         SubnetId = exampleSubnet.Id,
-    ///         RouteTableId = exampleRouteTable.Id,
+    ///         SubnetId = primarySubnet.Id,
+    ///         RouteTableId = primaryRouteTable.Id,
     ///     });
     /// 
-    ///     var primary = new Azure.MSSql.ManagedInstance("primary", new()
+    ///     var primaryManagedInstance = new Azure.MSSql.ManagedInstance("primary", new()
     ///     {
-    ///         Name = "example-primary",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
+    ///         Name = primaryName,
+    ///         ResourceGroupName = primary.Name,
+    ///         Location = primary.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
-    ///         SubnetId = exampleSubnet.Id,
+    ///         SubnetId = primarySubnet.Id,
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "prod" },
-    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleSubnetNetworkSecurityGroupAssociation,
-    ///             exampleSubnetRouteTableAssociation,
+    ///             primarySubnetNetworkSecurityGroupAssociation,
+    ///             primarySubnetRouteTableAssociation,
     ///         },
     ///     });
     /// 
-    ///     var secondary = new Azure.MSSql.ManagedInstance("secondary", new()
+    ///     //# Secondary (Fail-over) SQL Managed Instance
+    ///     var failover = new Azure.Core.ResourceGroup("failover", new()
     ///     {
-    ///         Name = "example-secondary",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
+    ///         Name = failoverName,
+    ///         Location = failoverLocation,
+    ///     });
+    /// 
+    ///     var failoverVirtualNetwork = new Azure.Network.VirtualNetwork("failover", new()
+    ///     {
+    ///         Name = failoverName,
+    ///         Location = failover.Location,
+    ///         ResourceGroupName = failover.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.1.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var failoverZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("failover", new()
+    ///     {
+    ///         Name = "failover-link",
+    ///         ResourceGroupName = exampleZone.ResourceGroupName,
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = failoverVirtualNetwork.Id,
+    ///     });
+    /// 
+    ///     var failoverSubnet = new Azure.Network.Subnet("failover", new()
+    ///     {
+    ///         Name = "ManagedInstance",
+    ///         ResourceGroupName = failover.Name,
+    ///         VirtualNetworkName = failoverVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+    ///                     },
+    ///                     Name = "Microsoft.Sql/managedInstances",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var failoverNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("failover", new()
+    ///     {
+    ///         Name = failoverName,
+    ///         Location = failover.Location,
+    ///         ResourceGroupName = failover.Name,
+    ///     });
+    /// 
+    ///     var failoverSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("failover", new()
+    ///     {
+    ///         SubnetId = failoverSubnet.Id,
+    ///         NetworkSecurityGroupId = failoverNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var failoverRouteTable = new Azure.Network.RouteTable("failover", new()
+    ///     {
+    ///         Name = failoverName,
+    ///         Location = failover.Location,
+    ///         ResourceGroupName = failover.Name,
+    ///     });
+    /// 
+    ///     var failoverSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("failover", new()
+    ///     {
+    ///         SubnetId = failoverSubnet.Id,
+    ///         RouteTableId = failoverRouteTable.Id,
+    ///     });
+    /// 
+    ///     var failoverManagedInstance = new Azure.MSSql.ManagedInstance("failover", new()
+    ///     {
+    ///         Name = failoverName,
+    ///         ResourceGroupName = failover.Name,
+    ///         Location = failover.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
-    ///         SubnetId = exampleSubnet.Id,
+    ///         SubnetId = failoverSubnet.Id,
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "prod" },
-    ///         },
+    ///         DnsZonePartnerId = primaryManagedInstance.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleSubnetNetworkSecurityGroupAssociation,
-    ///             exampleSubnetRouteTableAssociation,
+    ///             failoverSubnetNetworkSecurityGroupAssociation,
+    ///             failoverSubnetRouteTableAssociation,
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceFailoverGroup = new Azure.MSSql.ManagedInstanceFailoverGroup("example", new()
+    ///     var example = new Azure.MSSql.ManagedInstanceFailoverGroup("example", new()
     ///     {
     ///         Name = "example-failover-group",
-    ///         Location = primary.Location,
-    ///         ManagedInstanceId = primary.Id,
-    ///         PartnerManagedInstanceId = secondary.Id,
+    ///         Location = primaryManagedInstance.Location,
+    ///         ManagedInstanceId = primaryManagedInstance.Id,
+    ///         PartnerManagedInstanceId = failoverManagedInstance.Id,
+    ///         SecondaryType = "Geo",
     ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
     ///         {
     ///             Mode = "Automatic",
     ///             GraceMinutes = 60,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             primaryZoneVirtualNetworkLink,
+    ///             failoverZoneVirtualNetworkLink,
+    ///         },
+    ///     });
+    /// 
+    ///     var primaryToFailover = new Azure.Network.VirtualNetworkPeering("primary_to_failover", new()
+    ///     {
+    ///         Name = "primary-to-failover",
+    ///         RemoteVirtualNetworkId = failoverVirtualNetwork.Id,
+    ///         ResourceGroupName = primary.Name,
+    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
+    ///     });
+    /// 
+    ///     var @default = new Azure.Network.Subnet("default", new()
+    ///     {
+    ///         Name = "default",
+    ///         ResourceGroupName = failover.Name,
+    ///         VirtualNetworkName = failoverVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var failoverToPrimary = new Azure.Network.VirtualNetworkPeering("failover_to_primary", new()
+    ///     {
+    ///         Name = "failover-to-primary",
+    ///         RemoteVirtualNetworkId = primaryVirtualNetwork.Id,
+    ///         ResourceGroupName = failover.Name,
+    ///         VirtualNetworkName = failoverVirtualNetwork.Name,
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// &gt; **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
     /// 
     /// ## Import
     /// 
@@ -202,6 +354,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+        /// </summary>
+        [Output("secondaryType")]
+        public Output<string?> SecondaryType { get; private set; } = null!;
 
 
         /// <summary>
@@ -289,6 +447,12 @@ namespace Pulumi.Azure.MSSql
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }
 
+        /// <summary>
+        /// The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+        /// </summary>
+        [Input("secondaryType")]
+        public Input<string>? SecondaryType { get; set; }
+
         public ManagedInstanceFailoverGroupArgs()
         {
         }
@@ -350,6 +514,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
+
+        /// <summary>
+        /// The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+        /// </summary>
+        [Input("secondaryType")]
+        public Input<string>? SecondaryType { get; set; }
 
         public ManagedInstanceFailoverGroupState()
         {

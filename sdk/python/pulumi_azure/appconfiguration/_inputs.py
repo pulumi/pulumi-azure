@@ -216,7 +216,7 @@ if not MYPY:
     class ConfigurationStoreEncryptionArgsDict(TypedDict):
         identity_client_id: NotRequired[pulumi.Input[str]]
         """
-        Specifies the client id of the identity which will be used to access key vault.
+        Specifies the client ID of the identity which will be used to access key vault.
         """
         key_vault_key_identifier: NotRequired[pulumi.Input[str]]
         """
@@ -231,7 +231,7 @@ class ConfigurationStoreEncryptionArgs:
                  identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_identifier: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] identity_client_id: Specifies the client id of the identity which will be used to access key vault.
+        :param pulumi.Input[str] identity_client_id: Specifies the client ID of the identity which will be used to access key vault.
         :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the key vault key used to encrypt data.
         """
         if identity_client_id is not None:
@@ -243,7 +243,7 @@ class ConfigurationStoreEncryptionArgs:
     @pulumi.getter(name="identityClientId")
     def identity_client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the client id of the identity which will be used to access key vault.
+        Specifies the client ID of the identity which will be used to access key vault.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -268,7 +268,7 @@ if not MYPY:
     class ConfigurationStoreIdentityArgsDict(TypedDict):
         type: pulumi.Input[str]
         """
-        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -295,7 +295,7 @@ class ConfigurationStoreIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
                
                > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
@@ -314,7 +314,7 @@ class ConfigurationStoreIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -365,7 +365,7 @@ if not MYPY:
     class ConfigurationStorePrimaryReadKeyArgsDict(TypedDict):
         connection_string: NotRequired[pulumi.Input[str]]
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         id: NotRequired[pulumi.Input[str]]
         """
@@ -385,7 +385,7 @@ class ConfigurationStorePrimaryReadKeyArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
@@ -400,7 +400,7 @@ class ConfigurationStorePrimaryReadKeyArgs:
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -437,7 +437,7 @@ if not MYPY:
     class ConfigurationStorePrimaryWriteKeyArgsDict(TypedDict):
         connection_string: NotRequired[pulumi.Input[str]]
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         id: NotRequired[pulumi.Input[str]]
         """
@@ -457,7 +457,7 @@ class ConfigurationStorePrimaryWriteKeyArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
@@ -472,7 +472,7 @@ class ConfigurationStorePrimaryWriteKeyArgs:
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -599,7 +599,7 @@ if not MYPY:
     class ConfigurationStoreSecondaryReadKeyArgsDict(TypedDict):
         connection_string: NotRequired[pulumi.Input[str]]
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         id: NotRequired[pulumi.Input[str]]
         """
@@ -619,7 +619,7 @@ class ConfigurationStoreSecondaryReadKeyArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
@@ -634,7 +634,7 @@ class ConfigurationStoreSecondaryReadKeyArgs:
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -671,7 +671,7 @@ if not MYPY:
     class ConfigurationStoreSecondaryWriteKeyArgsDict(TypedDict):
         connection_string: NotRequired[pulumi.Input[str]]
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         id: NotRequired[pulumi.Input[str]]
         """
@@ -691,7 +691,7 @@ class ConfigurationStoreSecondaryWriteKeyArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param pulumi.Input[str] connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param pulumi.Input[str] id: The ID of the Access Key.
         :param pulumi.Input[str] secret: The Secret of the Access Key.
         """
@@ -706,7 +706,7 @@ class ConfigurationStoreSecondaryWriteKeyArgs:
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 

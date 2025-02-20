@@ -27,6 +27,7 @@ class ServicePlanArgs:
                  maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+                 premium_plan_auto_scale_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_count: Optional[pulumi.Input[int]] = None,
                  zone_balancing_enabled: Optional[pulumi.Input[bool]] = None):
@@ -43,9 +44,10 @@ class ServicePlanArgs:
                
                > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
-        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] premium_plan_auto_scale_enabled: Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
@@ -65,6 +67,8 @@ class ServicePlanArgs:
             pulumi.set(__self__, "name", name)
         if per_site_scaling_enabled is not None:
             pulumi.set(__self__, "per_site_scaling_enabled", per_site_scaling_enabled)
+        if premium_plan_auto_scale_enabled is not None:
+            pulumi.set(__self__, "premium_plan_auto_scale_enabled", premium_plan_auto_scale_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if worker_count is not None:
@@ -142,7 +146,7 @@ class ServicePlanArgs:
     @pulumi.getter(name="maximumElasticWorkerCount")
     def maximum_elastic_worker_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         """
         return pulumi.get(self, "maximum_elastic_worker_count")
 
@@ -173,6 +177,18 @@ class ServicePlanArgs:
     @per_site_scaling_enabled.setter
     def per_site_scaling_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "per_site_scaling_enabled", value)
+
+    @property
+    @pulumi.getter(name="premiumPlanAutoScaleEnabled")
+    def premium_plan_auto_scale_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        """
+        return pulumi.get(self, "premium_plan_auto_scale_enabled")
+
+    @premium_plan_auto_scale_enabled.setter
+    def premium_plan_auto_scale_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "premium_plan_auto_scale_enabled", value)
 
     @property
     @pulumi.getter
@@ -223,6 +239,7 @@ class _ServicePlanState:
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+                 premium_plan_auto_scale_enabled: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -236,10 +253,11 @@ class _ServicePlanState:
                > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] kind: A string representing the Kind of Service Plan.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
-        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] premium_plan_auto_scale_enabled: Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
         :param pulumi.Input[bool] reserved: Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `FC1`, `WS1`, `WS2`, `WS3`, and `Y1`.
@@ -267,6 +285,8 @@ class _ServicePlanState:
             pulumi.set(__self__, "os_type", os_type)
         if per_site_scaling_enabled is not None:
             pulumi.set(__self__, "per_site_scaling_enabled", per_site_scaling_enabled)
+        if premium_plan_auto_scale_enabled is not None:
+            pulumi.set(__self__, "premium_plan_auto_scale_enabled", premium_plan_auto_scale_enabled)
         if reserved is not None:
             pulumi.set(__self__, "reserved", reserved)
         if resource_group_name is not None:
@@ -322,7 +342,7 @@ class _ServicePlanState:
     @pulumi.getter(name="maximumElasticWorkerCount")
     def maximum_elastic_worker_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         """
         return pulumi.get(self, "maximum_elastic_worker_count")
 
@@ -365,6 +385,18 @@ class _ServicePlanState:
     @per_site_scaling_enabled.setter
     def per_site_scaling_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "per_site_scaling_enabled", value)
+
+    @property
+    @pulumi.getter(name="premiumPlanAutoScaleEnabled")
+    def premium_plan_auto_scale_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        """
+        return pulumi.get(self, "premium_plan_auto_scale_enabled")
+
+    @premium_plan_auto_scale_enabled.setter
+    def premium_plan_auto_scale_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "premium_plan_auto_scale_enabled", value)
 
     @property
     @pulumi.getter
@@ -456,6 +488,7 @@ class ServicePlan(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+                 premium_plan_auto_scale_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -496,10 +529,11 @@ class ServicePlan(pulumi.CustomResource):
                
                > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
-        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] premium_plan_auto_scale_enabled: Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `FC1`, `WS1`, `WS2`, `WS3`, and `Y1`.
                
@@ -567,6 +601,7 @@ class ServicePlan(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+                 premium_plan_auto_scale_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -589,6 +624,7 @@ class ServicePlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["per_site_scaling_enabled"] = per_site_scaling_enabled
+            __props__.__dict__["premium_plan_auto_scale_enabled"] = premium_plan_auto_scale_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -617,6 +653,7 @@ class ServicePlan(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+            premium_plan_auto_scale_enabled: Optional[pulumi.Input[bool]] = None,
             reserved: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -635,10 +672,11 @@ class ServicePlan(pulumi.CustomResource):
                > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azurerm_app_service_environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] kind: A string representing the Kind of Service Plan.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
-        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
+        :param pulumi.Input[bool] premium_plan_auto_scale_enabled: Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
         :param pulumi.Input[bool] reserved: Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `FC1`, `WS1`, `WS2`, `WS3`, and `Y1`.
@@ -663,6 +701,7 @@ class ServicePlan(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["os_type"] = os_type
         __props__.__dict__["per_site_scaling_enabled"] = per_site_scaling_enabled
+        __props__.__dict__["premium_plan_auto_scale_enabled"] = premium_plan_auto_scale_enabled
         __props__.__dict__["reserved"] = reserved
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
@@ -701,7 +740,7 @@ class ServicePlan(pulumi.CustomResource):
     @pulumi.getter(name="maximumElasticWorkerCount")
     def maximum_elastic_worker_count(self) -> pulumi.Output[int]:
         """
-        The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         """
         return pulumi.get(self, "maximum_elastic_worker_count")
 
@@ -728,6 +767,14 @@ class ServicePlan(pulumi.CustomResource):
         Should Per Site Scaling be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "per_site_scaling_enabled")
+
+    @property
+    @pulumi.getter(name="premiumPlanAutoScaleEnabled")
+    def premium_plan_auto_scale_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        """
+        return pulumi.get(self, "premium_plan_auto_scale_enabled")
 
     @property
     @pulumi.getter

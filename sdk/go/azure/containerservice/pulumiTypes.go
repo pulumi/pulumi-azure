@@ -10996,7 +10996,7 @@ type KubernetesClusterKeyVaultSecretsProvider struct {
 	SecretIdentities []KubernetesClusterKeyVaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
 	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled *bool `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
+	// The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
 	//
 	// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 	SecretRotationInterval *string `pulumi:"secretRotationInterval"`
@@ -11018,7 +11018,7 @@ type KubernetesClusterKeyVaultSecretsProviderArgs struct {
 	SecretIdentities KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
 	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled pulumi.BoolPtrInput `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
+	// The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
 	//
 	// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 	SecretRotationInterval pulumi.StringPtrInput `pulumi:"secretRotationInterval"`
@@ -11113,7 +11113,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationEnabled() 
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProvider) *bool { return v.SecretRotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
+// The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
 //
 // > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringPtrOutput {
@@ -11164,7 +11164,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
+// The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
 //
 // > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationInterval() pulumi.StringPtrOutput {

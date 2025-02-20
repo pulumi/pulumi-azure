@@ -2483,7 +2483,9 @@ class FrontdoorFirewallPolicyCustomRule(dict):
                  rate_limit_duration_in_minutes: Optional[int] = None,
                  rate_limit_threshold: Optional[int] = None):
         """
-        :param str action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        :param str action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+               
+               !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
@@ -2510,7 +2512,9 @@ class FrontdoorFirewallPolicyCustomRule(dict):
     @pulumi.getter
     def action(self) -> str:
         """
-        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+
+        !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         """
         return pulumi.get(self, "action")
 
@@ -2604,10 +2608,10 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
         """
         :param Sequence[str] match_values: Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
         :param str match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
-        :param str operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        :param str operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
         :param bool negation_condition: Should the result of the condition be negated.
-        :param str selector: Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
-        :param Sequence[str] transforms: Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+        :param str selector: Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+        :param Sequence[str] transforms: Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "match_variable", match_variable)
@@ -2639,7 +2643,7 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
         """
         return pulumi.get(self, "operator")
 
@@ -2655,7 +2659,7 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
     @pulumi.getter
     def selector(self) -> Optional[str]:
         """
-        Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
         """
         return pulumi.get(self, "selector")
 
@@ -2663,7 +2667,7 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
     @pulumi.getter
     def transforms(self) -> Optional[Sequence[str]]:
         """
-        Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+        Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
         """
         return pulumi.get(self, "transforms")
 
@@ -2677,9 +2681,9 @@ class FrontdoorFirewallPolicyManagedRule(dict):
                  exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleExclusion']] = None,
                  overrides: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverride']] = None):
         """
-        :param str action: The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
-        :param str type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
-        :param str version: The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+        :param str action: The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, or `Redirect`.
+        :param str type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection`, or `Microsoft_BotManagerRuleSet`.
+        :param str version: The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0`, or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         :param Sequence['FrontdoorFirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
         :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
         """
@@ -2695,7 +2699,7 @@ class FrontdoorFirewallPolicyManagedRule(dict):
     @pulumi.getter
     def action(self) -> str:
         """
-        The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+        The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, or `Redirect`.
         """
         return pulumi.get(self, "action")
 
@@ -2703,7 +2707,7 @@ class FrontdoorFirewallPolicyManagedRule(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
+        The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection`, or `Microsoft_BotManagerRuleSet`.
         """
         return pulumi.get(self, "type")
 
@@ -2711,7 +2715,7 @@ class FrontdoorFirewallPolicyManagedRule(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+        The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0`, or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
         """
         return pulumi.get(self, "version")
 
@@ -2759,7 +2763,7 @@ class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
         :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
                
                > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
-        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
                
                > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
@@ -2782,7 +2786,7 @@ class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         """
         return pulumi.get(self, "operator")
 
@@ -2883,7 +2887,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
         :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
                
                > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
-        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
                
                > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
@@ -2906,7 +2910,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         """
         return pulumi.get(self, "operator")
 
@@ -2946,11 +2950,11 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
                  enabled: Optional[bool] = None,
                  exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion']] = None):
         """
-        :param str action: The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
+        :param str action: The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect`, or `JSChallenge`.
                
                > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
                
-               !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+               !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param str rule_id: Identifier for the managed rule.
         :param bool enabled: Is the managed rule override enabled or disabled. Defaults to `false`
         :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
@@ -2966,11 +2970,11 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
     @pulumi.getter
     def action(self) -> str:
         """
-        The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
+        The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect`, or `JSChallenge`.
 
         > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
 
-        !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         """
         return pulumi.get(self, "action")
 
@@ -3026,7 +3030,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
         :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
                
                > **Note:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
-        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
                
                > **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
@@ -3049,7 +3053,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
         """
         return pulumi.get(self, "operator")
 

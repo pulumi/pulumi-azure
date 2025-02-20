@@ -286,12 +286,12 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-vnet",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            address_spaces=["10.6.0.0/16"])
+            address_spaces=["10.88.0.0/16"])
         example_subnet = azure.network.Subnet("example",
             name=f"{prefix}-delegated-subnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.6.2.0/24"],
+            address_prefixes=["10.88.2.0/24"],
             delegations=[{
                 "name": "testdelegation",
                 "service_delegation": {
@@ -306,7 +306,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-hosts-subnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.6.1.0/24"])
+            address_prefixes=["10.88.1.0/24"])
         example_placement_group = azure.proximity.PlacementGroup("example",
             name=f"{prefix}-ppg",
             location=example_resource_group.location,
@@ -496,12 +496,12 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-vnet",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            address_spaces=["10.6.0.0/16"])
+            address_spaces=["10.88.0.0/16"])
         example_subnet = azure.network.Subnet("example",
             name=f"{prefix}-delegated-subnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.6.2.0/24"],
+            address_prefixes=["10.88.2.0/24"],
             delegations=[{
                 "name": "testdelegation",
                 "service_delegation": {
@@ -516,7 +516,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-hosts-subnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.6.1.0/24"])
+            address_prefixes=["10.88.1.0/24"])
         example_placement_group = azure.proximity.PlacementGroup("example",
             name=f"{prefix}-ppg",
             location=example_resource_group.location,
