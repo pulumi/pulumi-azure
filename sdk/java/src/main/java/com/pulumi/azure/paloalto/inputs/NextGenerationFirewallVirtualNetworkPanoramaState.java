@@ -142,14 +142,18 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaState extends com
     }
 
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     * 
+     * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Import(name="planId")
     private @Nullable Output<String> planId;
 
     /**
-     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     * 
+     * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Optional<Output<String>> planId() {
@@ -409,7 +413,9 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaState extends com
         }
 
         /**
-         * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+         * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+         * 
+         * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 
@@ -420,7 +426,9 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaState extends com
         }
 
         /**
-         * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
+         * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+         * 
+         * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 

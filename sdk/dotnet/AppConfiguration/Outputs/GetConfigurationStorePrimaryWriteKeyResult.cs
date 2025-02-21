@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
     public sealed class GetConfigurationStorePrimaryWriteKeyResult
     {
         /// <summary>
-        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        /// The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>

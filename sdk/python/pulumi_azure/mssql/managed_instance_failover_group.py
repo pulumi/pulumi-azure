@@ -26,7 +26,8 @@ class ManagedInstanceFailoverGroupArgs:
                  read_write_endpoint_failover_policy: pulumi.Input['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None):
+                 readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceFailoverGroup resource.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
@@ -35,6 +36,7 @@ class ManagedInstanceFailoverGroupArgs:
         :param pulumi.Input[str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
+        :param pulumi.Input[str] secondary_type: The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
         """
         pulumi.set(__self__, "managed_instance_id", managed_instance_id)
         pulumi.set(__self__, "partner_managed_instance_id", partner_managed_instance_id)
@@ -45,6 +47,8 @@ class ManagedInstanceFailoverGroupArgs:
             pulumi.set(__self__, "name", name)
         if readonly_endpoint_failover_policy_enabled is not None:
             pulumi.set(__self__, "readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
+        if secondary_type is not None:
+            pulumi.set(__self__, "secondary_type", secondary_type)
 
     @property
     @pulumi.getter(name="managedInstanceId")
@@ -118,6 +122,18 @@ class ManagedInstanceFailoverGroupArgs:
     def readonly_endpoint_failover_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "readonly_endpoint_failover_policy_enabled", value)
 
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @secondary_type.setter
+    def secondary_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_type", value)
+
 
 @pulumi.input_type
 class _ManagedInstanceFailoverGroupState:
@@ -129,7 +145,8 @@ class _ManagedInstanceFailoverGroupState:
                  partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedInstanceFailoverGroupPartnerRegionArgs']]]] = None,
                  read_write_endpoint_failover_policy: Optional[pulumi.Input['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
                  readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 role: Optional[pulumi.Input[str]] = None):
+                 role: Optional[pulumi.Input[str]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceFailoverGroup resources.
         :param pulumi.Input[str] location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -140,6 +157,7 @@ class _ManagedInstanceFailoverGroupState:
         :param pulumi.Input['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[str] role: The partner replication role of the Managed Instance Failover Group.
+        :param pulumi.Input[str] secondary_type: The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -157,6 +175,8 @@ class _ManagedInstanceFailoverGroupState:
             pulumi.set(__self__, "readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if secondary_type is not None:
+            pulumi.set(__self__, "secondary_type", secondary_type)
 
     @property
     @pulumi.getter
@@ -254,6 +274,18 @@ class _ManagedInstanceFailoverGroupState:
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
 
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+        """
+        return pulumi.get(self, "secondary_type")
+
+    @secondary_type.setter
+    def secondary_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_type", value)
+
 
 class ManagedInstanceFailoverGroup(pulumi.CustomResource):
     @overload
@@ -266,6 +298,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
                  read_write_endpoint_failover_policy: Optional[pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
                  readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an Azure SQL Managed Instance Failover Group.
@@ -278,79 +311,165 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
-            subnet_id=example_subnet.id,
-            route_table_id=example_route_table.id)
-        primary = azure.mssql.ManagedInstance("primary",
-            name="example-primary",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            tags={
-                "environment": "prod",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        secondary = azure.mssql.ManagedInstance("secondary",
-            name="example-secondary",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            tags={
-                "environment": "prod",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
-            name="example-failover-group",
+        name = "mymssqlmitest"
+        primary_name = f"{name}-primary"
+        primary_location = "West Europe"
+        failover_name = f"{name}-failover"
+        failover_location = "North Europe"
+        ## Primary SQL Managed Instance
+        primary = azure.core.ResourceGroup("primary",
+            name=primary_name,
+            location=primary_location)
+        example_zone = azure.privatedns.Zone("example",
+            name=f"{name}.private",
+            resource_group_name=primary.name)
+        primary_virtual_network = azure.network.VirtualNetwork("primary",
+            name=primary_name,
             location=primary.location,
-            managed_instance_id=primary.id,
-            partner_managed_instance_id=secondary.id,
+            resource_group_name=primary.name,
+            address_spaces=["10.0.0.0/16"])
+        primary_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("primary",
+            name="primary-link",
+            resource_group_name=primary.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=primary_virtual_network.id)
+        primary_subnet = azure.network.Subnet("primary",
+            name=primary_name,
+            resource_group_name=primary.name,
+            virtual_network_name=primary_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[{
+                "name": "delegation",
+                "service_delegation": {
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                    "name": "Microsoft.Sql/managedInstances",
+                },
+            }])
+        primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
+            name=primary_name,
+            location=primary.location,
+            resource_group_name=primary.name)
+        primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primary",
+            subnet_id=primary_subnet.id,
+            network_security_group_id=primary_network_security_group.id)
+        primary_route_table = azure.network.RouteTable("primary",
+            name=primary_name,
+            location=primary.location,
+            resource_group_name=primary.name)
+        primary_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("primary",
+            subnet_id=primary_subnet.id,
+            route_table_id=primary_route_table.id)
+        primary_managed_instance = azure.mssql.ManagedInstance("primary",
+            name=primary_name,
+            resource_group_name=primary.name,
+            location=primary.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=primary_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            opts = pulumi.ResourceOptions(depends_on=[
+                    primary_subnet_network_security_group_association,
+                    primary_subnet_route_table_association,
+                ]))
+        ## Secondary (Fail-over) SQL Managed Instance
+        failover = azure.core.ResourceGroup("failover",
+            name=failover_name,
+            location=failover_location)
+        failover_virtual_network = azure.network.VirtualNetwork("failover",
+            name=failover_name,
+            location=failover.location,
+            resource_group_name=failover.name,
+            address_spaces=["10.1.0.0/16"])
+        failover_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("failover",
+            name="failover-link",
+            resource_group_name=example_zone.resource_group_name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=failover_virtual_network.id)
+        failover_subnet = azure.network.Subnet("failover",
+            name="ManagedInstance",
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"],
+            delegations=[{
+                "name": "delegation",
+                "service_delegation": {
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                    "name": "Microsoft.Sql/managedInstances",
+                },
+            }])
+        failover_network_security_group = azure.network.NetworkSecurityGroup("failover",
+            name=failover_name,
+            location=failover.location,
+            resource_group_name=failover.name)
+        failover_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("failover",
+            subnet_id=failover_subnet.id,
+            network_security_group_id=failover_network_security_group.id)
+        failover_route_table = azure.network.RouteTable("failover",
+            name=failover_name,
+            location=failover.location,
+            resource_group_name=failover.name)
+        failover_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("failover",
+            subnet_id=failover_subnet.id,
+            route_table_id=failover_route_table.id)
+        failover_managed_instance = azure.mssql.ManagedInstance("failover",
+            name=failover_name,
+            resource_group_name=failover.name,
+            location=failover.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=failover_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            dns_zone_partner_id=primary_managed_instance.id,
+            opts = pulumi.ResourceOptions(depends_on=[
+                    failover_subnet_network_security_group_association,
+                    failover_subnet_route_table_association,
+                ]))
+        example = azure.mssql.ManagedInstanceFailoverGroup("example",
+            name="example-failover-group",
+            location=primary_managed_instance.location,
+            managed_instance_id=primary_managed_instance.id,
+            partner_managed_instance_id=failover_managed_instance.id,
+            secondary_type="Geo",
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
                 "grace_minutes": 60,
-            })
+            },
+            opts = pulumi.ResourceOptions(depends_on=[
+                    primary_zone_virtual_network_link,
+                    failover_zone_virtual_network_link,
+                ]))
+        primary_to_failover = azure.network.VirtualNetworkPeering("primary_to_failover",
+            name="primary-to-failover",
+            remote_virtual_network_id=failover_virtual_network.id,
+            resource_group_name=primary.name,
+            virtual_network_name=primary_virtual_network.name)
+        default = azure.network.Subnet("default",
+            name="default",
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"])
+        failover_to_primary = azure.network.VirtualNetworkPeering("failover_to_primary",
+            name="failover-to-primary",
+            remote_virtual_network_id=primary_virtual_network.id,
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name)
         ```
+
+        > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 
         ## Import
 
@@ -368,6 +487,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] partner_managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
+        :param pulumi.Input[str] secondary_type: The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
         """
         ...
     @overload
@@ -386,79 +506,165 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example",
-            name="example-resources",
-            location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("example",
-            name="example",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"])
-        example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
-            subnet_id=example_subnet.id,
-            network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name)
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
-            subnet_id=example_subnet.id,
-            route_table_id=example_route_table.id)
-        primary = azure.mssql.ManagedInstance("primary",
-            name="example-primary",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            tags={
-                "environment": "prod",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        secondary = azure.mssql.ManagedInstance("secondary",
-            name="example-secondary",
-            resource_group_name=example.name,
-            location=example.location,
-            administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            license_type="BasePrice",
-            subnet_id=example_subnet.id,
-            sku_name="GP_Gen5",
-            vcores=4,
-            storage_size_in_gb=32,
-            tags={
-                "environment": "prod",
-            },
-            opts = pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
-            name="example-failover-group",
+        name = "mymssqlmitest"
+        primary_name = f"{name}-primary"
+        primary_location = "West Europe"
+        failover_name = f"{name}-failover"
+        failover_location = "North Europe"
+        ## Primary SQL Managed Instance
+        primary = azure.core.ResourceGroup("primary",
+            name=primary_name,
+            location=primary_location)
+        example_zone = azure.privatedns.Zone("example",
+            name=f"{name}.private",
+            resource_group_name=primary.name)
+        primary_virtual_network = azure.network.VirtualNetwork("primary",
+            name=primary_name,
             location=primary.location,
-            managed_instance_id=primary.id,
-            partner_managed_instance_id=secondary.id,
+            resource_group_name=primary.name,
+            address_spaces=["10.0.0.0/16"])
+        primary_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("primary",
+            name="primary-link",
+            resource_group_name=primary.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=primary_virtual_network.id)
+        primary_subnet = azure.network.Subnet("primary",
+            name=primary_name,
+            resource_group_name=primary.name,
+            virtual_network_name=primary_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[{
+                "name": "delegation",
+                "service_delegation": {
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                    "name": "Microsoft.Sql/managedInstances",
+                },
+            }])
+        primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
+            name=primary_name,
+            location=primary.location,
+            resource_group_name=primary.name)
+        primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primary",
+            subnet_id=primary_subnet.id,
+            network_security_group_id=primary_network_security_group.id)
+        primary_route_table = azure.network.RouteTable("primary",
+            name=primary_name,
+            location=primary.location,
+            resource_group_name=primary.name)
+        primary_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("primary",
+            subnet_id=primary_subnet.id,
+            route_table_id=primary_route_table.id)
+        primary_managed_instance = azure.mssql.ManagedInstance("primary",
+            name=primary_name,
+            resource_group_name=primary.name,
+            location=primary.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=primary_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            opts = pulumi.ResourceOptions(depends_on=[
+                    primary_subnet_network_security_group_association,
+                    primary_subnet_route_table_association,
+                ]))
+        ## Secondary (Fail-over) SQL Managed Instance
+        failover = azure.core.ResourceGroup("failover",
+            name=failover_name,
+            location=failover_location)
+        failover_virtual_network = azure.network.VirtualNetwork("failover",
+            name=failover_name,
+            location=failover.location,
+            resource_group_name=failover.name,
+            address_spaces=["10.1.0.0/16"])
+        failover_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("failover",
+            name="failover-link",
+            resource_group_name=example_zone.resource_group_name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=failover_virtual_network.id)
+        failover_subnet = azure.network.Subnet("failover",
+            name="ManagedInstance",
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"],
+            delegations=[{
+                "name": "delegation",
+                "service_delegation": {
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                    "name": "Microsoft.Sql/managedInstances",
+                },
+            }])
+        failover_network_security_group = azure.network.NetworkSecurityGroup("failover",
+            name=failover_name,
+            location=failover.location,
+            resource_group_name=failover.name)
+        failover_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("failover",
+            subnet_id=failover_subnet.id,
+            network_security_group_id=failover_network_security_group.id)
+        failover_route_table = azure.network.RouteTable("failover",
+            name=failover_name,
+            location=failover.location,
+            resource_group_name=failover.name)
+        failover_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("failover",
+            subnet_id=failover_subnet.id,
+            route_table_id=failover_route_table.id)
+        failover_managed_instance = azure.mssql.ManagedInstance("failover",
+            name=failover_name,
+            resource_group_name=failover.name,
+            location=failover.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=failover_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            dns_zone_partner_id=primary_managed_instance.id,
+            opts = pulumi.ResourceOptions(depends_on=[
+                    failover_subnet_network_security_group_association,
+                    failover_subnet_route_table_association,
+                ]))
+        example = azure.mssql.ManagedInstanceFailoverGroup("example",
+            name="example-failover-group",
+            location=primary_managed_instance.location,
+            managed_instance_id=primary_managed_instance.id,
+            partner_managed_instance_id=failover_managed_instance.id,
+            secondary_type="Geo",
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
                 "grace_minutes": 60,
-            })
+            },
+            opts = pulumi.ResourceOptions(depends_on=[
+                    primary_zone_virtual_network_link,
+                    failover_zone_virtual_network_link,
+                ]))
+        primary_to_failover = azure.network.VirtualNetworkPeering("primary_to_failover",
+            name="primary-to-failover",
+            remote_virtual_network_id=failover_virtual_network.id,
+            resource_group_name=primary.name,
+            virtual_network_name=primary_virtual_network.name)
+        default = azure.network.Subnet("default",
+            name="default",
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"])
+        failover_to_primary = azure.network.VirtualNetworkPeering("failover_to_primary",
+            name="failover-to-primary",
+            remote_virtual_network_id=primary_virtual_network.id,
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name)
         ```
+
+        > **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 
         ## Import
 
@@ -489,6 +695,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
                  read_write_endpoint_failover_policy: Optional[pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
                  readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 secondary_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -510,6 +717,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'read_write_endpoint_failover_policy'")
             __props__.__dict__["read_write_endpoint_failover_policy"] = read_write_endpoint_failover_policy
             __props__.__dict__["readonly_endpoint_failover_policy_enabled"] = readonly_endpoint_failover_policy_enabled
+            __props__.__dict__["secondary_type"] = secondary_type
             __props__.__dict__["partner_regions"] = None
             __props__.__dict__["role"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")])
@@ -531,7 +739,8 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict']]]]] = None,
             read_write_endpoint_failover_policy: Optional[pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
             readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
-            role: Optional[pulumi.Input[str]] = None) -> 'ManagedInstanceFailoverGroup':
+            role: Optional[pulumi.Input[str]] = None,
+            secondary_type: Optional[pulumi.Input[str]] = None) -> 'ManagedInstanceFailoverGroup':
         """
         Get an existing ManagedInstanceFailoverGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -547,6 +756,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[str] role: The partner replication role of the Managed Instance Failover Group.
+        :param pulumi.Input[str] secondary_type: The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -560,6 +770,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         __props__.__dict__["read_write_endpoint_failover_policy"] = read_write_endpoint_failover_policy
         __props__.__dict__["readonly_endpoint_failover_policy_enabled"] = readonly_endpoint_failover_policy_enabled
         __props__.__dict__["role"] = role
+        __props__.__dict__["secondary_type"] = secondary_type
         return ManagedInstanceFailoverGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -625,4 +836,12 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         The partner replication role of the Managed Instance Failover Group.
         """
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="secondaryType")
+    def secondary_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+        """
+        return pulumi.get(self, "secondary_type")
 

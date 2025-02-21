@@ -24,6 +24,40 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     public static final ConfigurationStoreArgs Empty = new ConfigurationStoreArgs();
 
     /**
+     * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     * 
+     */
+    @Import(name="dataPlaneProxyAuthenticationMode")
+    private @Nullable Output<String> dataPlaneProxyAuthenticationMode;
+
+    /**
+     * @return The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     * 
+     */
+    public Optional<Output<String>> dataPlaneProxyAuthenticationMode() {
+        return Optional.ofNullable(this.dataPlaneProxyAuthenticationMode);
+    }
+
+    /**
+     * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * 
+     */
+    @Import(name="dataPlaneProxyPrivateLinkDelegationEnabled")
+    private @Nullable Output<Boolean> dataPlaneProxyPrivateLinkDelegationEnabled;
+
+    /**
+     * @return Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     * 
+     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * 
+     */
+    public Optional<Output<Boolean>> dataPlaneProxyPrivateLinkDelegationEnabled() {
+        return Optional.ofNullable(this.dataPlaneProxyPrivateLinkDelegationEnabled);
+    }
+
+    /**
      * An `encryption` block as defined below.
      * 
      */
@@ -222,6 +256,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     private ConfigurationStoreArgs() {}
 
     private ConfigurationStoreArgs(ConfigurationStoreArgs $) {
+        this.dataPlaneProxyAuthenticationMode = $.dataPlaneProxyAuthenticationMode;
+        this.dataPlaneProxyPrivateLinkDelegationEnabled = $.dataPlaneProxyPrivateLinkDelegationEnabled;
         this.encryption = $.encryption;
         this.identity = $.identity;
         this.localAuthEnabled = $.localAuthEnabled;
@@ -252,6 +288,52 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
 
         public Builder(ConfigurationStoreArgs defaults) {
             $ = new ConfigurationStoreArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataPlaneProxyAuthenticationMode The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPlaneProxyAuthenticationMode(@Nullable Output<String> dataPlaneProxyAuthenticationMode) {
+            $.dataPlaneProxyAuthenticationMode = dataPlaneProxyAuthenticationMode;
+            return this;
+        }
+
+        /**
+         * @param dataPlaneProxyAuthenticationMode The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPlaneProxyAuthenticationMode(String dataPlaneProxyAuthenticationMode) {
+            return dataPlaneProxyAuthenticationMode(Output.of(dataPlaneProxyAuthenticationMode));
+        }
+
+        /**
+         * @param dataPlaneProxyPrivateLinkDelegationEnabled Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPlaneProxyPrivateLinkDelegationEnabled(@Nullable Output<Boolean> dataPlaneProxyPrivateLinkDelegationEnabled) {
+            $.dataPlaneProxyPrivateLinkDelegationEnabled = dataPlaneProxyPrivateLinkDelegationEnabled;
+            return this;
+        }
+
+        /**
+         * @param dataPlaneProxyPrivateLinkDelegationEnabled Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+         * 
+         * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataPlaneProxyPrivateLinkDelegationEnabled(Boolean dataPlaneProxyPrivateLinkDelegationEnabled) {
+            return dataPlaneProxyPrivateLinkDelegationEnabled(Output.of(dataPlaneProxyPrivateLinkDelegationEnabled));
         }
 
         /**

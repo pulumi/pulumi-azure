@@ -112,7 +112,7 @@ type AlertRuleScheduled struct {
 	QueryPeriod pulumi.StringPtrOutput `pulumi:"queryPeriod"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
 	SentinelEntityMappings AlertRuleScheduledSentinelEntityMappingArrayOutput `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
@@ -208,7 +208,7 @@ type alertRuleScheduledState struct {
 	QueryPeriod *string `pulumi:"queryPeriod"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
 	SentinelEntityMappings []AlertRuleScheduledSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity *string `pulumi:"severity"`
@@ -263,7 +263,7 @@ type AlertRuleScheduledState struct {
 	QueryPeriod pulumi.StringPtrInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
 	SentinelEntityMappings AlertRuleScheduledSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringPtrInput
@@ -322,7 +322,7 @@ type alertRuleScheduledArgs struct {
 	QueryPeriod *string `pulumi:"queryPeriod"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
 	SentinelEntityMappings []AlertRuleScheduledSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity string `pulumi:"severity"`
@@ -378,7 +378,7 @@ type AlertRuleScheduledArgs struct {
 	QueryPeriod pulumi.StringPtrInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
 	SentinelEntityMappings AlertRuleScheduledSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringInput
@@ -566,7 +566,7 @@ func (o AlertRuleScheduledOutput) QueryPeriod() pulumi.StringPtrOutput {
 
 // A list of `sentinelEntityMapping` blocks as defined below.
 //
-// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
 func (o AlertRuleScheduledOutput) SentinelEntityMappings() AlertRuleScheduledSentinelEntityMappingArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledSentinelEntityMappingArrayOutput {
 		return v.SentinelEntityMappings

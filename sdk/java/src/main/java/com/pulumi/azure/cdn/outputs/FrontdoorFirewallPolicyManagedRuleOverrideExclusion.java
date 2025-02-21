@@ -18,7 +18,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
      */
     private String matchVariable;
     /**
-     * @return Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+     * @return Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
      * 
      */
     private String operator;
@@ -41,7 +41,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
         return this.matchVariable;
     }
     /**
-     * @return Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+     * @return Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
      * 
      */
     public String operator() {

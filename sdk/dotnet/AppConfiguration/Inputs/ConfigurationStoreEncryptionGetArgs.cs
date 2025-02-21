@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
     public sealed class ConfigurationStoreEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the client id of the identity which will be used to access key vault.
+        /// Specifies the client ID of the identity which will be used to access key vault.
         /// </summary>
         [Input("identityClientId")]
         public Input<string>? IdentityClientId { get; set; }

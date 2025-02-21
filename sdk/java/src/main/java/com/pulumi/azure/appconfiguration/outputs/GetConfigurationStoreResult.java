@@ -22,6 +22,16 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationStoreResult {
     /**
+     * @return The data plane proxy authentication mode.
+     * 
+     */
+    private String dataPlaneProxyAuthenticationMode;
+    /**
+     * @return Whether data plane proxy private link delegation is enabled.
+     * 
+     */
+    private Boolean dataPlaneProxyPrivateLinkDelegationEnabled;
+    /**
      * @return An `encryption` block as defined below.
      * 
      */
@@ -36,9 +46,13 @@ public final class GetConfigurationStoreResult {
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     private List<GetConfigurationStoreIdentity> identities;
     /**
-     * @return Whether local authentication methods is enabled.
+     * @return Whether local authentication methods are enabled.
      * 
      */
     private Boolean localAuthEnabled;
@@ -107,6 +121,20 @@ public final class GetConfigurationStoreResult {
 
     private GetConfigurationStoreResult() {}
     /**
+     * @return The data plane proxy authentication mode.
+     * 
+     */
+    public String dataPlaneProxyAuthenticationMode() {
+        return this.dataPlaneProxyAuthenticationMode;
+    }
+    /**
+     * @return Whether data plane proxy private link delegation is enabled.
+     * 
+     */
+    public Boolean dataPlaneProxyPrivateLinkDelegationEnabled() {
+        return this.dataPlaneProxyPrivateLinkDelegationEnabled;
+    }
+    /**
      * @return An `encryption` block as defined below.
      * 
      */
@@ -127,11 +155,15 @@ public final class GetConfigurationStoreResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public List<GetConfigurationStoreIdentity> identities() {
         return this.identities;
     }
     /**
-     * @return Whether local authentication methods is enabled.
+     * @return Whether local authentication methods are enabled.
      * 
      */
     public Boolean localAuthEnabled() {
@@ -237,6 +269,8 @@ public final class GetConfigurationStoreResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String dataPlaneProxyAuthenticationMode;
+        private Boolean dataPlaneProxyPrivateLinkDelegationEnabled;
         private List<GetConfigurationStoreEncryption> encryptions;
         private String endpoint;
         private String id;
@@ -259,6 +293,8 @@ public final class GetConfigurationStoreResult {
         public Builder() {}
         public Builder(GetConfigurationStoreResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataPlaneProxyAuthenticationMode = defaults.dataPlaneProxyAuthenticationMode;
+    	      this.dataPlaneProxyPrivateLinkDelegationEnabled = defaults.dataPlaneProxyPrivateLinkDelegationEnabled;
     	      this.encryptions = defaults.encryptions;
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
@@ -280,6 +316,22 @@ public final class GetConfigurationStoreResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder dataPlaneProxyAuthenticationMode(String dataPlaneProxyAuthenticationMode) {
+            if (dataPlaneProxyAuthenticationMode == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "dataPlaneProxyAuthenticationMode");
+            }
+            this.dataPlaneProxyAuthenticationMode = dataPlaneProxyAuthenticationMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataPlaneProxyPrivateLinkDelegationEnabled(Boolean dataPlaneProxyPrivateLinkDelegationEnabled) {
+            if (dataPlaneProxyPrivateLinkDelegationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "dataPlaneProxyPrivateLinkDelegationEnabled");
+            }
+            this.dataPlaneProxyPrivateLinkDelegationEnabled = dataPlaneProxyPrivateLinkDelegationEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder encryptions(List<GetConfigurationStoreEncryption> encryptions) {
             if (encryptions == null) {
@@ -455,6 +507,8 @@ public final class GetConfigurationStoreResult {
         }
         public GetConfigurationStoreResult build() {
             final var _resultValue = new GetConfigurationStoreResult();
+            _resultValue.dataPlaneProxyAuthenticationMode = dataPlaneProxyAuthenticationMode;
+            _resultValue.dataPlaneProxyPrivateLinkDelegationEnabled = dataPlaneProxyPrivateLinkDelegationEnabled;
             _resultValue.encryptions = encryptions;
             _resultValue.endpoint = endpoint;
             _resultValue.id = id;

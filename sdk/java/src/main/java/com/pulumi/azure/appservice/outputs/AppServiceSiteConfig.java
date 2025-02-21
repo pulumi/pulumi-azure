@@ -143,7 +143,7 @@ public final class AppServiceSiteConfig {
      */
     private @Nullable Boolean remoteDebuggingEnabled;
     /**
-     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
      * 
      */
     private @Nullable String remoteDebuggingVersion;
@@ -358,7 +358,7 @@ public final class AppServiceSiteConfig {
         return Optional.ofNullable(this.remoteDebuggingEnabled);
     }
     /**
-     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
      * 
      */
     public Optional<String> remoteDebuggingVersion() {

@@ -30,13 +30,13 @@ import * as utilities from "../utilities";
  *     name: "example-VirtualNetwork",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
- *     addressSpaces: ["10.6.0.0/16"],
+ *     addressSpaces: ["10.88.0.0/16"],
  * });
  * const netappSubnet = new azure.network.Subnet("netappSubnet", {
  *     name: "example-Subnet",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
- *     addressPrefixes: ["10.6.2.0/24"],
+ *     addressPrefixes: ["10.88.2.0/24"],
  *     delegations: [{
  *         name: "testdelegation",
  *         serviceDelegation: {
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     name: "GatewaySubnet",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
- *     addressPrefixes: ["10.6.1.0/24"],
+ *     addressPrefixes: ["10.88.1.0/24"],
  * });
  * const testVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("test", {
  *     name: "example-vnet-gateway",

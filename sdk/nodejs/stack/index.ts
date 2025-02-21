@@ -10,6 +10,11 @@ export const getHciCluster: typeof import("./getHciCluster").getHciCluster = nul
 export const getHciClusterOutput: typeof import("./getHciCluster").getHciClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getHciCluster","getHciClusterOutput"], () => require("./getHciCluster"));
 
+export { GetHciStoragePathArgs, GetHciStoragePathResult, GetHciStoragePathOutputArgs } from "./getHciStoragePath";
+export const getHciStoragePath: typeof import("./getHciStoragePath").getHciStoragePath = null as any;
+export const getHciStoragePathOutput: typeof import("./getHciStoragePath").getHciStoragePathOutput = null as any;
+utilities.lazyLoad(exports, ["getHciStoragePath","getHciStoragePathOutput"], () => require("./getHciStoragePath"));
+
 export { HciClusterArgs, HciClusterState } from "./hciCluster";
 export type HciCluster = import("./hciCluster").HciCluster;
 export const HciCluster: typeof import("./hciCluster").HciCluster = null as any;

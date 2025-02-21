@@ -31,6 +31,7 @@ class ExpressRouteCircuitArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
+                 rate_limiting_enabled: Optional[pulumi.Input[bool]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -51,6 +52,7 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] rate_limiting_enabled: Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -72,6 +74,8 @@ class ExpressRouteCircuitArgs:
             pulumi.set(__self__, "name", name)
         if peering_location is not None:
             pulumi.set(__self__, "peering_location", peering_location)
+        if rate_limiting_enabled is not None:
+            pulumi.set(__self__, "rate_limiting_enabled", rate_limiting_enabled)
         if service_provider_name is not None:
             pulumi.set(__self__, "service_provider_name", service_provider_name)
         if tags is not None:
@@ -204,6 +208,18 @@ class ExpressRouteCircuitArgs:
         pulumi.set(self, "peering_location", value)
 
     @property
+    @pulumi.getter(name="rateLimitingEnabled")
+    def rate_limiting_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        """
+        return pulumi.get(self, "rate_limiting_enabled")
+
+    @rate_limiting_enabled.setter
+    def rate_limiting_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rate_limiting_enabled", value)
+
+    @property
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -239,6 +255,7 @@ class _ExpressRouteCircuitState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
+                 rate_limiting_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_key: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
@@ -261,6 +278,7 @@ class _ExpressRouteCircuitState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] rate_limiting_enabled: Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
@@ -284,6 +302,8 @@ class _ExpressRouteCircuitState:
             pulumi.set(__self__, "name", name)
         if peering_location is not None:
             pulumi.set(__self__, "peering_location", peering_location)
+        if rate_limiting_enabled is not None:
+            pulumi.set(__self__, "rate_limiting_enabled", rate_limiting_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_key is not None:
@@ -400,6 +420,18 @@ class _ExpressRouteCircuitState:
         pulumi.set(self, "peering_location", value)
 
     @property
+    @pulumi.getter(name="rateLimitingEnabled")
+    def rate_limiting_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        """
+        return pulumi.get(self, "rate_limiting_enabled")
+
+    @rate_limiting_enabled.setter
+    def rate_limiting_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rate_limiting_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -485,6 +517,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
+                 rate_limiting_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
@@ -542,6 +575,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] rate_limiting_enabled: Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']] sku: A `sku` block for the ExpressRoute circuit as documented below.
@@ -612,6 +646,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
+                 rate_limiting_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
@@ -633,6 +668,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["peering_location"] = peering_location
+            __props__.__dict__["rate_limiting_enabled"] = rate_limiting_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -663,6 +699,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             peering_location: Optional[pulumi.Input[str]] = None,
+            rate_limiting_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_key: Optional[pulumi.Input[str]] = None,
             service_provider_name: Optional[pulumi.Input[str]] = None,
@@ -690,6 +727,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] rate_limiting_enabled: Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
@@ -709,6 +747,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["peering_location"] = peering_location
+        __props__.__dict__["rate_limiting_enabled"] = rate_limiting_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_key"] = service_key
         __props__.__dict__["service_provider_name"] = service_provider_name
@@ -786,6 +825,14 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "peering_location")
+
+    @property
+    @pulumi.getter(name="rateLimitingEnabled")
+    def rate_limiting_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+        """
+        return pulumi.get(self, "rate_limiting_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -26,6 +26,7 @@ __all__ = [
     'ElasticPoolSku',
     'FailoverGroupPartnerServer',
     'FailoverGroupReadWriteEndpointFailoverPolicy',
+    'JobStepOutputTarget',
     'JobTargetGroupJobTarget',
     'ManagedDatabaseLongTermRetentionPolicy',
     'ManagedDatabasePointInTimeRestore',
@@ -681,6 +682,81 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
         The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
         """
         return pulumi.get(self, "grace_minutes")
+
+
+@pulumi.output_type
+class JobStepOutputTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobCredentialId":
+            suggest = "job_credential_id"
+        elif key == "mssqlDatabaseId":
+            suggest = "mssql_database_id"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobStepOutputTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobStepOutputTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobStepOutputTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_credential_id: str,
+                 mssql_database_id: str,
+                 table_name: str,
+                 schema_name: Optional[str] = None):
+        """
+        :param str job_credential_id: The ID of the Elastic Job Credential to use when connecting to the output destination.
+        :param str mssql_database_id: The ID of the output database.
+        :param str table_name: The name of the output table.
+        :param str schema_name: The name of the output schema. Defaults to `dbo`.
+        """
+        pulumi.set(__self__, "job_credential_id", job_credential_id)
+        pulumi.set(__self__, "mssql_database_id", mssql_database_id)
+        pulumi.set(__self__, "table_name", table_name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="jobCredentialId")
+    def job_credential_id(self) -> str:
+        """
+        The ID of the Elastic Job Credential to use when connecting to the output destination.
+        """
+        return pulumi.get(self, "job_credential_id")
+
+    @property
+    @pulumi.getter(name="mssqlDatabaseId")
+    def mssql_database_id(self) -> str:
+        """
+        The ID of the output database.
+        """
+        return pulumi.get(self, "mssql_database_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the output table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        """
+        The name of the output schema. Defaults to `dbo`.
+        """
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type

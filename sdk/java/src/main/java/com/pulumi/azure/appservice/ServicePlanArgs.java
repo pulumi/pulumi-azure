@@ -54,14 +54,14 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     @Import(name="maximumElasticWorkerCount")
     private @Nullable Output<Integer> maximumElasticWorkerCount;
 
     /**
-     * @return The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * @return The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     public Optional<Output<Integer>> maximumElasticWorkerCount() {
@@ -111,6 +111,21 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> perSiteScalingEnabled() {
         return Optional.ofNullable(this.perSiteScalingEnabled);
+    }
+
+    /**
+     * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     * 
+     */
+    @Import(name="premiumPlanAutoScaleEnabled")
+    private @Nullable Output<Boolean> premiumPlanAutoScaleEnabled;
+
+    /**
+     * @return Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     * 
+     */
+    public Optional<Output<Boolean>> premiumPlanAutoScaleEnabled() {
+        return Optional.ofNullable(this.premiumPlanAutoScaleEnabled);
     }
 
     /**
@@ -209,6 +224,7 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.osType = $.osType;
         this.perSiteScalingEnabled = $.perSiteScalingEnabled;
+        this.premiumPlanAutoScaleEnabled = $.premiumPlanAutoScaleEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.tags = $.tags;
@@ -281,7 +297,7 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
          * 
          * @return builder
          * 
@@ -292,7 +308,7 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
          * 
          * @return builder
          * 
@@ -362,6 +378,27 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder perSiteScalingEnabled(Boolean perSiteScalingEnabled) {
             return perSiteScalingEnabled(Output.of(perSiteScalingEnabled));
+        }
+
+        /**
+         * @param premiumPlanAutoScaleEnabled Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder premiumPlanAutoScaleEnabled(@Nullable Output<Boolean> premiumPlanAutoScaleEnabled) {
+            $.premiumPlanAutoScaleEnabled = premiumPlanAutoScaleEnabled;
+            return this;
+        }
+
+        /**
+         * @param premiumPlanAutoScaleEnabled Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder premiumPlanAutoScaleEnabled(Boolean premiumPlanAutoScaleEnabled) {
+            return premiumPlanAutoScaleEnabled(Output.of(premiumPlanAutoScaleEnabled));
         }
 
         /**

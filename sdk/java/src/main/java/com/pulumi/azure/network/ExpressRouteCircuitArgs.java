@@ -154,6 +154,21 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * 
+     */
+    @Import(name="rateLimitingEnabled")
+    private @Nullable Output<Boolean> rateLimitingEnabled;
+
+    /**
+     * @return Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> rateLimitingEnabled() {
+        return Optional.ofNullable(this.rateLimitingEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
@@ -224,6 +239,7 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
         this.location = $.location;
         this.name = $.name;
         this.peeringLocation = $.peeringLocation;
+        this.rateLimitingEnabled = $.rateLimitingEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.serviceProviderName = $.serviceProviderName;
         this.sku = $.sku;
@@ -426,6 +442,27 @@ public final class ExpressRouteCircuitArgs extends com.pulumi.resources.Resource
          */
         public Builder peeringLocation(String peeringLocation) {
             return peeringLocation(Output.of(peeringLocation));
+        }
+
+        /**
+         * @param rateLimitingEnabled Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimitingEnabled(@Nullable Output<Boolean> rateLimitingEnabled) {
+            $.rateLimitingEnabled = rateLimitingEnabled;
+            return this;
+        }
+
+        /**
+         * @param rateLimitingEnabled Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimitingEnabled(Boolean rateLimitingEnabled) {
+            return rateLimitingEnabled(Output.of(rateLimitingEnabled));
         }
 
         /**

@@ -2493,7 +2493,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         """
         scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgsDict']]]]
         """
@@ -2597,7 +2597,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -2964,7 +2964,7 @@ class AppServiceSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -11269,7 +11269,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -11389,7 +11389,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
@@ -11812,7 +11812,7 @@ class LinuxFunctionAppSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -16049,7 +16049,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -16167,7 +16167,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
@@ -16600,7 +16600,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -21475,7 +21475,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
         """
@@ -21572,7 +21572,7 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -21922,7 +21922,7 @@ class LinuxWebAppSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -26967,7 +26967,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
         """
@@ -27066,7 +27066,7 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -27430,7 +27430,7 @@ class LinuxWebAppSlotSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -30663,7 +30663,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         """
         scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgsDict']]]]
         """
@@ -30769,7 +30769,7 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
+        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -31138,7 +31138,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -35734,7 +35734,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -35853,7 +35853,7 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
@@ -36237,7 +36237,7 @@ class WindowsFunctionAppSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -40313,7 +40313,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -40430,7 +40430,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
@@ -40824,7 +40824,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -45554,7 +45554,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
         """
@@ -45660,7 +45660,7 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -46029,7 +46029,7 @@ class WindowsWebAppSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -51468,7 +51468,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
         """
@@ -51575,7 +51575,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -51947,7 +51947,7 @@ class WindowsWebAppSlotSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+        The Remote Debugging Version. Currently only `VS2022` is supported.
         """
         return pulumi.get(self, "remote_debugging_version")
 

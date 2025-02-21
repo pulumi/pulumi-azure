@@ -20,6 +20,7 @@ from .job import *
 from .job_agent import *
 from .job_credential import *
 from .job_schedule import *
+from .job_step import *
 from .job_target_group import *
 from .managed_database import *
 from .managed_instance import *

@@ -80,6 +80,11 @@ export type JobSchedule = import("./jobSchedule").JobSchedule;
 export const JobSchedule: typeof import("./jobSchedule").JobSchedule = null as any;
 utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
 
+export { JobStepArgs, JobStepState } from "./jobStep";
+export type JobStep = import("./jobStep").JobStep;
+export const JobStep: typeof import("./jobStep").JobStep = null as any;
+utilities.lazyLoad(exports, ["JobStep"], () => require("./jobStep"));
+
 export { JobTargetGroupArgs, JobTargetGroupState } from "./jobTargetGroup";
 export type JobTargetGroup = import("./jobTargetGroup").JobTargetGroup;
 export const JobTargetGroup: typeof import("./jobTargetGroup").JobTargetGroup = null as any;
@@ -205,6 +210,8 @@ const _module = {
                 return new JobCredential(name, <any>undefined, { urn })
             case "azure:mssql/jobSchedule:JobSchedule":
                 return new JobSchedule(name, <any>undefined, { urn })
+            case "azure:mssql/jobStep:JobStep":
+                return new JobStep(name, <any>undefined, { urn })
             case "azure:mssql/jobTargetGroup:JobTargetGroup":
                 return new JobTargetGroup(name, <any>undefined, { urn })
             case "azure:mssql/managedDatabase:ManagedDatabase":
@@ -260,6 +267,7 @@ pulumi.runtime.registerResourceModule("azure", "mssql/job", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobAgent", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobCredential", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobSchedule", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/jobStep", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/jobTargetGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/managedInstance", _module)

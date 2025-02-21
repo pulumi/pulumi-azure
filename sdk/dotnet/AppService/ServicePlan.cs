@@ -72,7 +72,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         /// </summary>
         [Output("maximumElasticWorkerCount")]
         public Output<int> MaximumElasticWorkerCount { get; private set; } = null!;
@@ -94,6 +94,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("perSiteScalingEnabled")]
         public Output<bool?> PerSiteScalingEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        /// </summary>
+        [Output("premiumPlanAutoScaleEnabled")]
+        public Output<bool?> PremiumPlanAutoScaleEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
@@ -198,7 +204,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         /// </summary>
         [Input("maximumElasticWorkerCount")]
         public Input<int>? MaximumElasticWorkerCount { get; set; }
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("perSiteScalingEnabled")]
         public Input<bool>? PerSiteScalingEnabled { get; set; }
+
+        /// <summary>
+        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        /// </summary>
+        [Input("premiumPlanAutoScaleEnabled")]
+        public Input<bool>? PremiumPlanAutoScaleEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
@@ -292,7 +304,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
         /// </summary>
         [Input("maximumElasticWorkerCount")]
         public Input<int>? MaximumElasticWorkerCount { get; set; }
@@ -314,6 +326,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("perSiteScalingEnabled")]
         public Input<bool>? PerSiteScalingEnabled { get; set; }
+
+        /// <summary>
+        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        /// </summary>
+        [Input("premiumPlanAutoScaleEnabled")]
+        public Input<bool>? PremiumPlanAutoScaleEnabled { get; set; }
 
         /// <summary>
         /// Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.

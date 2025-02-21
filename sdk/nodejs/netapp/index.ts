@@ -65,6 +65,11 @@ export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
+export { GetVolumeGroupOracleArgs, GetVolumeGroupOracleResult, GetVolumeGroupOracleOutputArgs } from "./getVolumeGroupOracle";
+export const getVolumeGroupOracle: typeof import("./getVolumeGroupOracle").getVolumeGroupOracle = null as any;
+export const getVolumeGroupOracleOutput: typeof import("./getVolumeGroupOracle").getVolumeGroupOracleOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeGroupOracle","getVolumeGroupOracleOutput"], () => require("./getVolumeGroupOracle"));
+
 export { GetVolumeGroupSapHanaArgs, GetVolumeGroupSapHanaResult, GetVolumeGroupSapHanaOutputArgs } from "./getVolumeGroupSapHana";
 export const getVolumeGroupSapHana: typeof import("./getVolumeGroupSapHana").getVolumeGroupSapHana = null as any;
 export const getVolumeGroupSapHanaOutput: typeof import("./getVolumeGroupSapHana").getVolumeGroupSapHanaOutput = null as any;
@@ -94,6 +99,11 @@ export { VolumeArgs, VolumeState } from "./volume";
 export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;
 utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
+
+export { VolumeGroupOracleArgs, VolumeGroupOracleState } from "./volumeGroupOracle";
+export type VolumeGroupOracle = import("./volumeGroupOracle").VolumeGroupOracle;
+export const VolumeGroupOracle: typeof import("./volumeGroupOracle").VolumeGroupOracle = null as any;
+utilities.lazyLoad(exports, ["VolumeGroupOracle"], () => require("./volumeGroupOracle"));
 
 export { VolumeGroupSapHanaArgs, VolumeGroupSapHanaState } from "./volumeGroupSapHana";
 export type VolumeGroupSapHana = import("./volumeGroupSapHana").VolumeGroupSapHana;
@@ -126,6 +136,8 @@ const _module = {
                 return new SnapshotPolicy(name, <any>undefined, { urn })
             case "azure:netapp/volume:Volume":
                 return new Volume(name, <any>undefined, { urn })
+            case "azure:netapp/volumeGroupOracle:VolumeGroupOracle":
+                return new VolumeGroupOracle(name, <any>undefined, { urn })
             case "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana":
                 return new VolumeGroupSapHana(name, <any>undefined, { urn })
             case "azure:netapp/volumeQuotaRule:VolumeQuotaRule":
@@ -143,5 +155,6 @@ pulumi.runtime.registerResourceModule("azure", "netapp/pool", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volume", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/volumeGroupOracle", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volumeGroupSapHana", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volumeQuotaRule", _module)

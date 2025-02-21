@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
  *             .name(String.format("%s-vnet", prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .addressSpaces("10.6.0.0/16")
+ *             .addressSpaces("10.88.0.0/16")
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
  *             .name(String.format("%s-delegated-subnet", prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.6.2.0/24")
+ *             .addressPrefixes("10.88.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
  *                 .name("testdelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .name(String.format("%s-hosts-subnet", prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.6.1.0/24")
+ *             .addressPrefixes("10.88.1.0/24")
  *             .build());
  * 
  *         var examplePlacementGroup = new PlacementGroup("examplePlacementGroup", PlacementGroupArgs.builder()

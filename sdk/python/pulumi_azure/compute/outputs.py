@@ -123,6 +123,7 @@ __all__ = [
     'ScaleSetPlan',
     'ScaleSetRollingUpgradePolicy',
     'ScaleSetSku',
+    'ScaleSetStandbyPoolElasticityProfile',
     'ScaleSetStorageProfileDataDisk',
     'ScaleSetStorageProfileImageReference',
     'ScaleSetStorageProfileOsDisk',
@@ -7531,6 +7532,58 @@ class ScaleSetSku(dict):
         Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class ScaleSetStandbyPoolElasticityProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxReadyCapacity":
+            suggest = "max_ready_capacity"
+        elif key == "minReadyCapacity":
+            suggest = "min_ready_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetStandbyPoolElasticityProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetStandbyPoolElasticityProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetStandbyPoolElasticityProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_ready_capacity: int,
+                 min_ready_capacity: int):
+        """
+        :param int max_ready_capacity: Specifies the maximum number of virtual machines in the standby pool.
+        :param int min_ready_capacity: Specifies the desired minimum number of virtual machines in the standby pool.
+               
+               > **NOTE** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+        """
+        pulumi.set(__self__, "max_ready_capacity", max_ready_capacity)
+        pulumi.set(__self__, "min_ready_capacity", min_ready_capacity)
+
+    @property
+    @pulumi.getter(name="maxReadyCapacity")
+    def max_ready_capacity(self) -> int:
+        """
+        Specifies the maximum number of virtual machines in the standby pool.
+        """
+        return pulumi.get(self, "max_ready_capacity")
+
+    @property
+    @pulumi.getter(name="minReadyCapacity")
+    def min_ready_capacity(self) -> int:
+        """
+        Specifies the desired minimum number of virtual machines in the standby pool.
+
+        > **NOTE** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+        """
+        return pulumi.get(self, "min_ready_capacity")
 
 
 @pulumi.output_type

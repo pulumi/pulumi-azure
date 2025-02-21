@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationStoreSecondaryReadKey {
     /**
-     * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+     * @return The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
      * 
      */
     private String connectionString;
@@ -28,7 +28,7 @@ public final class GetConfigurationStoreSecondaryReadKey {
 
     private GetConfigurationStoreSecondaryReadKey() {}
     /**
-     * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+     * @return The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
      * 
      */
     public String connectionString() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
     public sealed class ConfigurationStoreEncryption
     {
         /// <summary>
-        /// Specifies the client id of the identity which will be used to access key vault.
+        /// Specifies the client ID of the identity which will be used to access key vault.
         /// </summary>
         public readonly string? IdentityClientId;
         /// <summary>

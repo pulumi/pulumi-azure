@@ -165,14 +165,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      * 
      */
     @Export(name="accessTier", refs={String.class}, tree="[0]")
     private Output<String> accessTier;
 
     /**
-     * @return Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * @return Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      * 
      */
     public Output<String> accessTier() {

@@ -22,6 +22,8 @@ __all__ = ['ConfigurationStoreArgs', 'ConfigurationStore']
 class ConfigurationStoreArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -36,6 +38,10 @@ class ConfigurationStoreArgs:
         """
         The set of arguments for constructing a ConfigurationStore resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        :param pulumi.Input[bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+               
+               > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
         :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
@@ -57,6 +63,10 @@ class ConfigurationStoreArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_plane_proxy_authentication_mode is not None:
+            pulumi.set(__self__, "data_plane_proxy_authentication_mode", data_plane_proxy_authentication_mode)
+        if data_plane_proxy_private_link_delegation_enabled is not None:
+            pulumi.set(__self__, "data_plane_proxy_private_link_delegation_enabled", data_plane_proxy_private_link_delegation_enabled)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
@@ -91,6 +101,32 @@ class ConfigurationStoreArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
+    def data_plane_proxy_authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        """
+        return pulumi.get(self, "data_plane_proxy_authentication_mode")
+
+    @data_plane_proxy_authentication_mode.setter
+    def data_plane_proxy_authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_plane_proxy_authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyPrivateLinkDelegationEnabled")
+    def data_plane_proxy_private_link_delegation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+
+        > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        """
+        return pulumi.get(self, "data_plane_proxy_private_link_delegation_enabled")
+
+    @data_plane_proxy_private_link_delegation_enabled.setter
+    def data_plane_proxy_private_link_delegation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_plane_proxy_private_link_delegation_enabled", value)
 
     @property
     @pulumi.getter
@@ -236,6 +272,8 @@ class ConfigurationStoreArgs:
 @pulumi.input_type
 class _ConfigurationStoreState:
     def __init__(__self__, *,
+                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
@@ -255,6 +293,10 @@ class _ConfigurationStoreState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationStore resources.
+        :param pulumi.Input[str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        :param pulumi.Input[bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+               
+               > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
         :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
@@ -281,6 +323,10 @@ class _ConfigurationStoreState:
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if data_plane_proxy_authentication_mode is not None:
+            pulumi.set(__self__, "data_plane_proxy_authentication_mode", data_plane_proxy_authentication_mode)
+        if data_plane_proxy_private_link_delegation_enabled is not None:
+            pulumi.set(__self__, "data_plane_proxy_private_link_delegation_enabled", data_plane_proxy_private_link_delegation_enabled)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if endpoint is not None:
@@ -315,6 +361,32 @@ class _ConfigurationStoreState:
             pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
+    def data_plane_proxy_authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        """
+        return pulumi.get(self, "data_plane_proxy_authentication_mode")
+
+    @data_plane_proxy_authentication_mode.setter
+    def data_plane_proxy_authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_plane_proxy_authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyPrivateLinkDelegationEnabled")
+    def data_plane_proxy_private_link_delegation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+
+        > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        """
+        return pulumi.get(self, "data_plane_proxy_private_link_delegation_enabled")
+
+    @data_plane_proxy_private_link_delegation_enabled.setter
+    def data_plane_proxy_private_link_delegation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_plane_proxy_private_link_delegation_enabled", value)
 
     @property
     @pulumi.getter
@@ -534,6 +606,8 @@ class ConfigurationStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -673,6 +747,10 @@ class ConfigurationStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        :param pulumi.Input[bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+               
+               > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
         :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
@@ -839,6 +917,8 @@ class ConfigurationStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_plane_proxy_authentication_mode: Optional[pulumi.Input[str]] = None,
+                 data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
@@ -860,6 +940,8 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
+            __props__.__dict__["data_plane_proxy_authentication_mode"] = data_plane_proxy_authentication_mode
+            __props__.__dict__["data_plane_proxy_private_link_delegation_enabled"] = data_plane_proxy_private_link_delegation_enabled
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
@@ -889,6 +971,8 @@ class ConfigurationStore(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            data_plane_proxy_authentication_mode: Optional[pulumi.Input[str]] = None,
+            data_plane_proxy_private_link_delegation_enabled: Optional[pulumi.Input[bool]] = None,
             encryption: Optional[pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
@@ -913,6 +997,10 @@ class ConfigurationStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_plane_proxy_authentication_mode: The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        :param pulumi.Input[bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+               
+               > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
         :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -943,6 +1031,8 @@ class ConfigurationStore(pulumi.CustomResource):
 
         __props__ = _ConfigurationStoreState.__new__(_ConfigurationStoreState)
 
+        __props__.__dict__["data_plane_proxy_authentication_mode"] = data_plane_proxy_authentication_mode
+        __props__.__dict__["data_plane_proxy_private_link_delegation_enabled"] = data_plane_proxy_private_link_delegation_enabled
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["identity"] = identity
@@ -961,6 +1051,24 @@ class ConfigurationStore(pulumi.CustomResource):
         __props__.__dict__["soft_delete_retention_days"] = soft_delete_retention_days
         __props__.__dict__["tags"] = tags
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
+    def data_plane_proxy_authentication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+        """
+        return pulumi.get(self, "data_plane_proxy_authentication_mode")
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyPrivateLinkDelegationEnabled")
+    def data_plane_proxy_private_link_delegation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+
+        > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        """
+        return pulumi.get(self, "data_plane_proxy_private_link_delegation_enabled")
 
     @property
     @pulumi.getter

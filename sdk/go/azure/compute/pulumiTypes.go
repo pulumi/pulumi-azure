@@ -17779,6 +17779,170 @@ func (o ScaleSetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScaleSetStandbyPoolElasticityProfile struct {
+	// Specifies the maximum number of virtual machines in the standby pool.
+	MaxReadyCapacity int `pulumi:"maxReadyCapacity"`
+	// Specifies the desired minimum number of virtual machines in the standby pool.
+	//
+	// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+	MinReadyCapacity int `pulumi:"minReadyCapacity"`
+}
+
+// ScaleSetStandbyPoolElasticityProfileInput is an input type that accepts ScaleSetStandbyPoolElasticityProfileArgs and ScaleSetStandbyPoolElasticityProfileOutput values.
+// You can construct a concrete instance of `ScaleSetStandbyPoolElasticityProfileInput` via:
+//
+//	ScaleSetStandbyPoolElasticityProfileArgs{...}
+type ScaleSetStandbyPoolElasticityProfileInput interface {
+	pulumi.Input
+
+	ToScaleSetStandbyPoolElasticityProfileOutput() ScaleSetStandbyPoolElasticityProfileOutput
+	ToScaleSetStandbyPoolElasticityProfileOutputWithContext(context.Context) ScaleSetStandbyPoolElasticityProfileOutput
+}
+
+type ScaleSetStandbyPoolElasticityProfileArgs struct {
+	// Specifies the maximum number of virtual machines in the standby pool.
+	MaxReadyCapacity pulumi.IntInput `pulumi:"maxReadyCapacity"`
+	// Specifies the desired minimum number of virtual machines in the standby pool.
+	//
+	// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+	MinReadyCapacity pulumi.IntInput `pulumi:"minReadyCapacity"`
+}
+
+func (ScaleSetStandbyPoolElasticityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScaleSetStandbyPoolElasticityProfile)(nil)).Elem()
+}
+
+func (i ScaleSetStandbyPoolElasticityProfileArgs) ToScaleSetStandbyPoolElasticityProfileOutput() ScaleSetStandbyPoolElasticityProfileOutput {
+	return i.ToScaleSetStandbyPoolElasticityProfileOutputWithContext(context.Background())
+}
+
+func (i ScaleSetStandbyPoolElasticityProfileArgs) ToScaleSetStandbyPoolElasticityProfileOutputWithContext(ctx context.Context) ScaleSetStandbyPoolElasticityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStandbyPoolElasticityProfileOutput)
+}
+
+func (i ScaleSetStandbyPoolElasticityProfileArgs) ToScaleSetStandbyPoolElasticityProfilePtrOutput() ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return i.ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ScaleSetStandbyPoolElasticityProfileArgs) ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(ctx context.Context) ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStandbyPoolElasticityProfileOutput).ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(ctx)
+}
+
+// ScaleSetStandbyPoolElasticityProfilePtrInput is an input type that accepts ScaleSetStandbyPoolElasticityProfileArgs, ScaleSetStandbyPoolElasticityProfilePtr and ScaleSetStandbyPoolElasticityProfilePtrOutput values.
+// You can construct a concrete instance of `ScaleSetStandbyPoolElasticityProfilePtrInput` via:
+//
+//	        ScaleSetStandbyPoolElasticityProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScaleSetStandbyPoolElasticityProfilePtrInput interface {
+	pulumi.Input
+
+	ToScaleSetStandbyPoolElasticityProfilePtrOutput() ScaleSetStandbyPoolElasticityProfilePtrOutput
+	ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(context.Context) ScaleSetStandbyPoolElasticityProfilePtrOutput
+}
+
+type scaleSetStandbyPoolElasticityProfilePtrType ScaleSetStandbyPoolElasticityProfileArgs
+
+func ScaleSetStandbyPoolElasticityProfilePtr(v *ScaleSetStandbyPoolElasticityProfileArgs) ScaleSetStandbyPoolElasticityProfilePtrInput {
+	return (*scaleSetStandbyPoolElasticityProfilePtrType)(v)
+}
+
+func (*scaleSetStandbyPoolElasticityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScaleSetStandbyPoolElasticityProfile)(nil)).Elem()
+}
+
+func (i *scaleSetStandbyPoolElasticityProfilePtrType) ToScaleSetStandbyPoolElasticityProfilePtrOutput() ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return i.ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *scaleSetStandbyPoolElasticityProfilePtrType) ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(ctx context.Context) ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetStandbyPoolElasticityProfilePtrOutput)
+}
+
+type ScaleSetStandbyPoolElasticityProfileOutput struct{ *pulumi.OutputState }
+
+func (ScaleSetStandbyPoolElasticityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScaleSetStandbyPoolElasticityProfile)(nil)).Elem()
+}
+
+func (o ScaleSetStandbyPoolElasticityProfileOutput) ToScaleSetStandbyPoolElasticityProfileOutput() ScaleSetStandbyPoolElasticityProfileOutput {
+	return o
+}
+
+func (o ScaleSetStandbyPoolElasticityProfileOutput) ToScaleSetStandbyPoolElasticityProfileOutputWithContext(ctx context.Context) ScaleSetStandbyPoolElasticityProfileOutput {
+	return o
+}
+
+func (o ScaleSetStandbyPoolElasticityProfileOutput) ToScaleSetStandbyPoolElasticityProfilePtrOutput() ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return o.ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ScaleSetStandbyPoolElasticityProfileOutput) ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(ctx context.Context) ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScaleSetStandbyPoolElasticityProfile) *ScaleSetStandbyPoolElasticityProfile {
+		return &v
+	}).(ScaleSetStandbyPoolElasticityProfilePtrOutput)
+}
+
+// Specifies the maximum number of virtual machines in the standby pool.
+func (o ScaleSetStandbyPoolElasticityProfileOutput) MaxReadyCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v ScaleSetStandbyPoolElasticityProfile) int { return v.MaxReadyCapacity }).(pulumi.IntOutput)
+}
+
+// Specifies the desired minimum number of virtual machines in the standby pool.
+//
+// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+func (o ScaleSetStandbyPoolElasticityProfileOutput) MinReadyCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v ScaleSetStandbyPoolElasticityProfile) int { return v.MinReadyCapacity }).(pulumi.IntOutput)
+}
+
+type ScaleSetStandbyPoolElasticityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ScaleSetStandbyPoolElasticityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScaleSetStandbyPoolElasticityProfile)(nil)).Elem()
+}
+
+func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) ToScaleSetStandbyPoolElasticityProfilePtrOutput() ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return o
+}
+
+func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) ToScaleSetStandbyPoolElasticityProfilePtrOutputWithContext(ctx context.Context) ScaleSetStandbyPoolElasticityProfilePtrOutput {
+	return o
+}
+
+func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) Elem() ScaleSetStandbyPoolElasticityProfileOutput {
+	return o.ApplyT(func(v *ScaleSetStandbyPoolElasticityProfile) ScaleSetStandbyPoolElasticityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ScaleSetStandbyPoolElasticityProfile
+		return ret
+	}).(ScaleSetStandbyPoolElasticityProfileOutput)
+}
+
+// Specifies the maximum number of virtual machines in the standby pool.
+func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) MaxReadyCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScaleSetStandbyPoolElasticityProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxReadyCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the desired minimum number of virtual machines in the standby pool.
+//
+// > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+func (o ScaleSetStandbyPoolElasticityProfilePtrOutput) MinReadyCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScaleSetStandbyPoolElasticityProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinReadyCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
 type ScaleSetStorageProfileDataDisk struct {
 	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
 	Caching *string `pulumi:"caching"`
@@ -33338,6 +33502,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetRollingUpgradePolicyPtrInput)(nil)).Elem(), ScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetSkuInput)(nil)).Elem(), ScaleSetSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetSkuPtrInput)(nil)).Elem(), ScaleSetSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStandbyPoolElasticityProfileInput)(nil)).Elem(), ScaleSetStandbyPoolElasticityProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStandbyPoolElasticityProfilePtrInput)(nil)).Elem(), ScaleSetStandbyPoolElasticityProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileDataDiskInput)(nil)).Elem(), ScaleSetStorageProfileDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileDataDiskArrayInput)(nil)).Elem(), ScaleSetStorageProfileDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetStorageProfileImageReferenceInput)(nil)).Elem(), ScaleSetStorageProfileImageReferenceArgs{})
@@ -33748,6 +33914,8 @@ func init() {
 	pulumi.RegisterOutputType(ScaleSetRollingUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetSkuOutput{})
 	pulumi.RegisterOutputType(ScaleSetSkuPtrOutput{})
+	pulumi.RegisterOutputType(ScaleSetStandbyPoolElasticityProfileOutput{})
+	pulumi.RegisterOutputType(ScaleSetStandbyPoolElasticityProfilePtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileDataDiskOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(ScaleSetStorageProfileImageReferenceOutput{})

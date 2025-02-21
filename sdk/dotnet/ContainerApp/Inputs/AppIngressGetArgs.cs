@@ -18,6 +18,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("allowInsecureConnections")]
         public Input<bool>? AllowInsecureConnections { get; set; }
 
+        /// <summary>
+        /// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        /// </summary>
+        [Input("clientCertificateMode")]
+        public Input<string>? ClientCertificateMode { get; set; }
+
         [Input("customDomains")]
         private InputList<Inputs.AppIngressCustomDomainGetArgs>? _customDomains;
 

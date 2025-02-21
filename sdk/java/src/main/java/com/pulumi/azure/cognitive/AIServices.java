@@ -22,7 +22,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an AI Services account.
+ * Manages an AI Services Account.
  * 
  * ## Example Usage
  * 

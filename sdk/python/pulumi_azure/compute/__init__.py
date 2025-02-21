@@ -52,6 +52,7 @@ from .restore_point_collection import *
 from .run_command import *
 from .scale_set import *
 from .scale_set_packet_capture import *
+from .scale_set_standby_pool import *
 from .shared_image import *
 from .shared_image_gallery import *
 from .shared_image_version import *

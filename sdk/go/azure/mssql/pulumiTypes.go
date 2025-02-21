@@ -1754,6 +1754,200 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobStepOutputTarget struct {
+	// The ID of the Elastic Job Credential to use when connecting to the output destination.
+	JobCredentialId string `pulumi:"jobCredentialId"`
+	// The ID of the output database.
+	MssqlDatabaseId string `pulumi:"mssqlDatabaseId"`
+	// The name of the output schema. Defaults to `dbo`.
+	SchemaName *string `pulumi:"schemaName"`
+	// The name of the output table.
+	TableName string `pulumi:"tableName"`
+}
+
+// JobStepOutputTargetInput is an input type that accepts JobStepOutputTargetArgs and JobStepOutputTargetOutput values.
+// You can construct a concrete instance of `JobStepOutputTargetInput` via:
+//
+//	JobStepOutputTargetArgs{...}
+type JobStepOutputTargetInput interface {
+	pulumi.Input
+
+	ToJobStepOutputTargetOutput() JobStepOutputTargetOutput
+	ToJobStepOutputTargetOutputWithContext(context.Context) JobStepOutputTargetOutput
+}
+
+type JobStepOutputTargetArgs struct {
+	// The ID of the Elastic Job Credential to use when connecting to the output destination.
+	JobCredentialId pulumi.StringInput `pulumi:"jobCredentialId"`
+	// The ID of the output database.
+	MssqlDatabaseId pulumi.StringInput `pulumi:"mssqlDatabaseId"`
+	// The name of the output schema. Defaults to `dbo`.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+	// The name of the output table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (JobStepOutputTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputTarget)(nil)).Elem()
+}
+
+func (i JobStepOutputTargetArgs) ToJobStepOutputTargetOutput() JobStepOutputTargetOutput {
+	return i.ToJobStepOutputTargetOutputWithContext(context.Background())
+}
+
+func (i JobStepOutputTargetArgs) ToJobStepOutputTargetOutputWithContext(ctx context.Context) JobStepOutputTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTargetOutput)
+}
+
+func (i JobStepOutputTargetArgs) ToJobStepOutputTargetPtrOutput() JobStepOutputTargetPtrOutput {
+	return i.ToJobStepOutputTargetPtrOutputWithContext(context.Background())
+}
+
+func (i JobStepOutputTargetArgs) ToJobStepOutputTargetPtrOutputWithContext(ctx context.Context) JobStepOutputTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTargetOutput).ToJobStepOutputTargetPtrOutputWithContext(ctx)
+}
+
+// JobStepOutputTargetPtrInput is an input type that accepts JobStepOutputTargetArgs, JobStepOutputTargetPtr and JobStepOutputTargetPtrOutput values.
+// You can construct a concrete instance of `JobStepOutputTargetPtrInput` via:
+//
+//	        JobStepOutputTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobStepOutputTargetPtrInput interface {
+	pulumi.Input
+
+	ToJobStepOutputTargetPtrOutput() JobStepOutputTargetPtrOutput
+	ToJobStepOutputTargetPtrOutputWithContext(context.Context) JobStepOutputTargetPtrOutput
+}
+
+type jobStepOutputTargetPtrType JobStepOutputTargetArgs
+
+func JobStepOutputTargetPtr(v *JobStepOutputTargetArgs) JobStepOutputTargetPtrInput {
+	return (*jobStepOutputTargetPtrType)(v)
+}
+
+func (*jobStepOutputTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobStepOutputTarget)(nil)).Elem()
+}
+
+func (i *jobStepOutputTargetPtrType) ToJobStepOutputTargetPtrOutput() JobStepOutputTargetPtrOutput {
+	return i.ToJobStepOutputTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *jobStepOutputTargetPtrType) ToJobStepOutputTargetPtrOutputWithContext(ctx context.Context) JobStepOutputTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTargetPtrOutput)
+}
+
+type JobStepOutputTargetOutput struct{ *pulumi.OutputState }
+
+func (JobStepOutputTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputTarget)(nil)).Elem()
+}
+
+func (o JobStepOutputTargetOutput) ToJobStepOutputTargetOutput() JobStepOutputTargetOutput {
+	return o
+}
+
+func (o JobStepOutputTargetOutput) ToJobStepOutputTargetOutputWithContext(ctx context.Context) JobStepOutputTargetOutput {
+	return o
+}
+
+func (o JobStepOutputTargetOutput) ToJobStepOutputTargetPtrOutput() JobStepOutputTargetPtrOutput {
+	return o.ToJobStepOutputTargetPtrOutputWithContext(context.Background())
+}
+
+func (o JobStepOutputTargetOutput) ToJobStepOutputTargetPtrOutputWithContext(ctx context.Context) JobStepOutputTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputTarget) *JobStepOutputTarget {
+		return &v
+	}).(JobStepOutputTargetPtrOutput)
+}
+
+// The ID of the Elastic Job Credential to use when connecting to the output destination.
+func (o JobStepOutputTargetOutput) JobCredentialId() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputTarget) string { return v.JobCredentialId }).(pulumi.StringOutput)
+}
+
+// The ID of the output database.
+func (o JobStepOutputTargetOutput) MssqlDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputTarget) string { return v.MssqlDatabaseId }).(pulumi.StringOutput)
+}
+
+// The name of the output schema. Defaults to `dbo`.
+func (o JobStepOutputTargetOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputTarget) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the output table.
+func (o JobStepOutputTargetOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputTarget) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type JobStepOutputTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (JobStepOutputTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobStepOutputTarget)(nil)).Elem()
+}
+
+func (o JobStepOutputTargetPtrOutput) ToJobStepOutputTargetPtrOutput() JobStepOutputTargetPtrOutput {
+	return o
+}
+
+func (o JobStepOutputTargetPtrOutput) ToJobStepOutputTargetPtrOutputWithContext(ctx context.Context) JobStepOutputTargetPtrOutput {
+	return o
+}
+
+func (o JobStepOutputTargetPtrOutput) Elem() JobStepOutputTargetOutput {
+	return o.ApplyT(func(v *JobStepOutputTarget) JobStepOutputTarget {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepOutputTarget
+		return ret
+	}).(JobStepOutputTargetOutput)
+}
+
+// The ID of the Elastic Job Credential to use when connecting to the output destination.
+func (o JobStepOutputTargetPtrOutput) JobCredentialId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JobCredentialId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the output database.
+func (o JobStepOutputTargetPtrOutput) MssqlDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MssqlDatabaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the output schema. Defaults to `dbo`.
+func (o JobStepOutputTargetPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the output table.
+func (o JobStepOutputTargetPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobStepOutputTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobTargetGroupJobTarget struct {
 	// The name of the MS SQL Database.
 	//
@@ -7642,6 +7836,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobStepOutputTargetInput)(nil)).Elem(), JobStepOutputTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobStepOutputTargetPtrInput)(nil)).Elem(), JobStepOutputTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetGroupJobTargetInput)(nil)).Elem(), JobTargetGroupJobTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetGroupJobTargetArrayInput)(nil)).Elem(), JobTargetGroupJobTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
@@ -7728,6 +7924,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(JobStepOutputTargetOutput{})
+	pulumi.RegisterOutputType(JobStepOutputTargetPtrOutput{})
 	pulumi.RegisterOutputType(JobTargetGroupJobTargetOutput{})
 	pulumi.RegisterOutputType(JobTargetGroupJobTargetArrayOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyOutput{})

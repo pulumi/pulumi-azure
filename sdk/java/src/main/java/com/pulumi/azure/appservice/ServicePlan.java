@@ -124,14 +124,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     @Export(name="maximumElasticWorkerCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumElasticWorkerCount;
 
     /**
-     * @return The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
+     * @return The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     public Output<Integer> maximumElasticWorkerCount() {
@@ -178,6 +178,20 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> perSiteScalingEnabled() {
         return Codegen.optional(this.perSiteScalingEnabled);
+    }
+    /**
+     * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     * 
+     */
+    @Export(name="premiumPlanAutoScaleEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> premiumPlanAutoScaleEnabled;
+
+    /**
+     * @return Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+     * 
+     */
+    public Output<Optional<Boolean>> premiumPlanAutoScaleEnabled() {
+        return Codegen.optional(this.premiumPlanAutoScaleEnabled);
     }
     /**
      * Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.

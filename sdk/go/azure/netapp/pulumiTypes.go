@@ -2052,6 +2052,576 @@ func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExport
 	}).(VolumeExportPolicyRuleOutput)
 }
 
+type VolumeGroupOracleVolume struct {
+	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+	CapacityPoolId string `pulumi:"capacityPoolId"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy *VolumeGroupOracleVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
+	// One or more `exportPolicyRule` blocks as defined below.
+	ExportPolicyRules []VolumeGroupOracleVolumeExportPolicyRule `pulumi:"exportPolicyRules"`
+	// The ID of the Application Volume Group.
+	Id *string `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
+	KeyVaultPrivateEndpointId *string  `pulumi:"keyVaultPrivateEndpointId"`
+	MountIpAddresses          []string `pulumi:"mountIpAddresses"`
+	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	Name string `pulumi:"name"`
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+	NetworkFeatures *string `pulumi:"networkFeatures"`
+	// The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`.
+	Protocols string `pulumi:"protocols"`
+	// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
+	//
+	// > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SecurityStyle string `pulumi:"securityStyle"`
+	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	ServiceLevel string `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags which should be assigned to the Application Volume Group.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps float64 `pulumi:"throughputInMibps"`
+	// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumePath string `pulumi:"volumePath"`
+	// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumeSpecName string `pulumi:"volumeSpecName"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+	Zone *string `pulumi:"zone"`
+}
+
+// VolumeGroupOracleVolumeInput is an input type that accepts VolumeGroupOracleVolumeArgs and VolumeGroupOracleVolumeOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeInput` via:
+//
+//	VolumeGroupOracleVolumeArgs{...}
+type VolumeGroupOracleVolumeInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeOutput() VolumeGroupOracleVolumeOutput
+	ToVolumeGroupOracleVolumeOutputWithContext(context.Context) VolumeGroupOracleVolumeOutput
+}
+
+type VolumeGroupOracleVolumeArgs struct {
+	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+	CapacityPoolId pulumi.StringInput `pulumi:"capacityPoolId"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
+	EncryptionKeySource pulumi.StringPtrInput `pulumi:"encryptionKeySource"`
+	// One or more `exportPolicyRule` blocks as defined below.
+	ExportPolicyRules VolumeGroupOracleVolumeExportPolicyRuleArrayInput `pulumi:"exportPolicyRules"`
+	// The ID of the Application Volume Group.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
+	KeyVaultPrivateEndpointId pulumi.StringPtrInput   `pulumi:"keyVaultPrivateEndpointId"`
+	MountIpAddresses          pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
+	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+	NetworkFeatures pulumi.StringPtrInput `pulumi:"networkFeatures"`
+	// The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`.
+	Protocols pulumi.StringInput `pulumi:"protocols"`
+	// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
+	//
+	// > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
+	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
+	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb pulumi.IntInput `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// A mapping of tags which should be assigned to the Application Volume Group.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64Input `pulumi:"throughputInMibps"`
+	// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumePath pulumi.StringInput `pulumi:"volumePath"`
+	// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
+}
+
+func (VolumeGroupOracleVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (i VolumeGroupOracleVolumeArgs) ToVolumeGroupOracleVolumeOutput() VolumeGroupOracleVolumeOutput {
+	return i.ToVolumeGroupOracleVolumeOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeArgs) ToVolumeGroupOracleVolumeOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeOutput)
+}
+
+// VolumeGroupOracleVolumeArrayInput is an input type that accepts VolumeGroupOracleVolumeArray and VolumeGroupOracleVolumeArrayOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeArrayInput` via:
+//
+//	VolumeGroupOracleVolumeArray{ VolumeGroupOracleVolumeArgs{...} }
+type VolumeGroupOracleVolumeArrayInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeArrayOutput() VolumeGroupOracleVolumeArrayOutput
+	ToVolumeGroupOracleVolumeArrayOutputWithContext(context.Context) VolumeGroupOracleVolumeArrayOutput
+}
+
+type VolumeGroupOracleVolumeArray []VolumeGroupOracleVolumeInput
+
+func (VolumeGroupOracleVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (i VolumeGroupOracleVolumeArray) ToVolumeGroupOracleVolumeArrayOutput() VolumeGroupOracleVolumeArrayOutput {
+	return i.ToVolumeGroupOracleVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeArray) ToVolumeGroupOracleVolumeArrayOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeArrayOutput)
+}
+
+type VolumeGroupOracleVolumeOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeOutput) ToVolumeGroupOracleVolumeOutput() VolumeGroupOracleVolumeOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeOutput) ToVolumeGroupOracleVolumeOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeOutput {
+	return o
+}
+
+// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) CapacityPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.CapacityPoolId }).(pulumi.StringOutput)
+}
+
+// A `dataProtectionSnapshotPolicy` block as defined below.
+func (o VolumeGroupOracleVolumeOutput) DataProtectionSnapshotPolicy() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *VolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+		return v.DataProtectionSnapshotPolicy
+	}).(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
+func (o VolumeGroupOracleVolumeOutput) EncryptionKeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.EncryptionKeySource }).(pulumi.StringPtrOutput)
+}
+
+// One or more `exportPolicyRule` blocks as defined below.
+func (o VolumeGroupOracleVolumeOutput) ExportPolicyRules() VolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) []VolumeGroupOracleVolumeExportPolicyRule { return v.ExportPolicyRules }).(VolumeGroupOracleVolumeExportPolicyRuleArrayOutput)
+}
+
+// The ID of the Application Volume Group.
+func (o VolumeGroupOracleVolumeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
+func (o VolumeGroupOracleVolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.KeyVaultPrivateEndpointId }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeGroupOracleVolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+func (o VolumeGroupOracleVolumeOutput) NetworkFeatures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
+}
+
+// The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`.
+func (o VolumeGroupOracleVolumeOutput) Protocols() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.Protocols }).(pulumi.StringOutput)
+}
+
+// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
+//
+// > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+func (o VolumeGroupOracleVolumeOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) SecurityStyle() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
+}
+
+// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
+}
+
+// The maximum Storage Quota allowed for a file system in Gigabytes.
+func (o VolumeGroupOracleVolumeOutput) StorageQuotaInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
+}
+
+// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// A mapping of tags which should be assigned to the Application Volume Group.
+func (o VolumeGroupOracleVolumeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput of this volume in Mibps.
+func (o VolumeGroupOracleVolumeOutput) ThroughputInMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) float64 { return v.ThroughputInMibps }).(pulumi.Float64Output)
+}
+
+// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) VolumePath() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+// Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupOracleVolumeOutput) VolumeSpecName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
+}
+
+// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+func (o VolumeGroupOracleVolumeOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.Zone }).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupOracleVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeArrayOutput) ToVolumeGroupOracleVolumeArrayOutput() VolumeGroupOracleVolumeArrayOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeArrayOutput) ToVolumeGroupOracleVolumeArrayOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeArrayOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGroupOracleVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupOracleVolume {
+		return vs[0].([]VolumeGroupOracleVolume)[vs[1].(int)]
+	}).(VolumeGroupOracleVolumeOutput)
+}
+
+type VolumeGroupOracleVolumeDataProtectionSnapshotPolicy struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
+}
+
+// VolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput is an input type that accepts VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs and VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput` via:
+//
+//	VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{...}
+type VolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput
+	ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput
+}
+
+type VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
+}
+
+func (VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return i.ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return i.ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput).ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput is an input type that accepts VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs, VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtr and VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput` via:
+//
+//	        VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput
+	ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput
+}
+
+type volumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrType VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs
+
+func VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtr(v *VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput {
+	return (*volumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrType)(v)
+}
+
+func (*volumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i *volumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrType) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return i.ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrType) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+type VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupOracleVolumeDataProtectionSnapshotPolicy) *VolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+		return &v
+	}).(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
+}
+
+type VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionSnapshotPolicy) VolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupOracleVolumeDataProtectionSnapshotPolicy
+		return ret
+	}).(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupOracleVolumeDataProtectionSnapshotPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupOracleVolumeExportPolicyRule struct {
+	// A comma-sperated list of allowed client IPv4 addresses.
+	AllowedClients string `pulumi:"allowedClients"`
+	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
+	// Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+	Nfsv41Enabled bool `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume? Defaults to `true`.
+	RootAccessEnabled *bool `pulumi:"rootAccessEnabled"`
+	// The index number of the rule, must start at 1 and maximum 5.
+	RuleIndex int `pulumi:"ruleIndex"`
+	// Is the file system on unix read only? Defaults to `false.
+	UnixReadOnly *bool `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write? Defaults to `true`.
+	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+}
+
+// VolumeGroupOracleVolumeExportPolicyRuleInput is an input type that accepts VolumeGroupOracleVolumeExportPolicyRuleArgs and VolumeGroupOracleVolumeExportPolicyRuleOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeExportPolicyRuleInput` via:
+//
+//	VolumeGroupOracleVolumeExportPolicyRuleArgs{...}
+type VolumeGroupOracleVolumeExportPolicyRuleInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeExportPolicyRuleOutput() VolumeGroupOracleVolumeExportPolicyRuleOutput
+	ToVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(context.Context) VolumeGroupOracleVolumeExportPolicyRuleOutput
+}
+
+type VolumeGroupOracleVolumeExportPolicyRuleArgs struct {
+	// A comma-sperated list of allowed client IPv4 addresses.
+	AllowedClients pulumi.StringInput `pulumi:"allowedClients"`
+	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
+	// Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+	Nfsv41Enabled pulumi.BoolInput `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume? Defaults to `true`.
+	RootAccessEnabled pulumi.BoolPtrInput `pulumi:"rootAccessEnabled"`
+	// The index number of the rule, must start at 1 and maximum 5.
+	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
+	// Is the file system on unix read only? Defaults to `false.
+	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write? Defaults to `true`.
+	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+}
+
+func (VolumeGroupOracleVolumeExportPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i VolumeGroupOracleVolumeExportPolicyRuleArgs) ToVolumeGroupOracleVolumeExportPolicyRuleOutput() VolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return i.ToVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeExportPolicyRuleArgs) ToVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeExportPolicyRuleOutput)
+}
+
+// VolumeGroupOracleVolumeExportPolicyRuleArrayInput is an input type that accepts VolumeGroupOracleVolumeExportPolicyRuleArray and VolumeGroupOracleVolumeExportPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `VolumeGroupOracleVolumeExportPolicyRuleArrayInput` via:
+//
+//	VolumeGroupOracleVolumeExportPolicyRuleArray{ VolumeGroupOracleVolumeExportPolicyRuleArgs{...} }
+type VolumeGroupOracleVolumeExportPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutput() VolumeGroupOracleVolumeExportPolicyRuleArrayOutput
+	ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(context.Context) VolumeGroupOracleVolumeExportPolicyRuleArrayOutput
+}
+
+type VolumeGroupOracleVolumeExportPolicyRuleArray []VolumeGroupOracleVolumeExportPolicyRuleInput
+
+func (VolumeGroupOracleVolumeExportPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i VolumeGroupOracleVolumeExportPolicyRuleArray) ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutput() VolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return i.ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupOracleVolumeExportPolicyRuleArray) ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupOracleVolumeExportPolicyRuleArrayOutput)
+}
+
+type VolumeGroupOracleVolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeExportPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) ToVolumeGroupOracleVolumeExportPolicyRuleOutput() VolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) ToVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return o
+}
+
+// A comma-sperated list of allowed client IPv4 addresses.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) string { return v.AllowedClients }).(pulumi.StringOutput)
+}
+
+// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
+}
+
+// Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) Nfsv41Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) bool { return v.Nfsv41Enabled }).(pulumi.BoolOutput)
+}
+
+// Is root access permitted to this volume? Defaults to `true`.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) RootAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) *bool { return v.RootAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The index number of the rule, must start at 1 and maximum 5.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
+}
+
+// Is the file system on unix read only? Defaults to `false.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Is the file system on unix read and write? Defaults to `true`.
+func (o VolumeGroupOracleVolumeExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupOracleVolumeExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
+}
+
+type VolumeGroupOracleVolumeExportPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupOracleVolumeExportPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o VolumeGroupOracleVolumeExportPolicyRuleArrayOutput) ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutput() VolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeExportPolicyRuleArrayOutput) ToVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) VolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o VolumeGroupOracleVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupOracleVolumeExportPolicyRule {
+		return vs[0].([]VolumeGroupOracleVolumeExportPolicyRule)[vs[1].(int)]
+	}).(VolumeGroupOracleVolumeExportPolicyRuleOutput)
+}
+
 type VolumeGroupSapHanaVolume struct {
 	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
 	CapacityPoolId string `pulumi:"capacityPoolId"`
@@ -3670,6 +4240,664 @@ func (o GetVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetVolumeDataProtectionReplicationOutput)
 }
 
+type GetVolumeGroupOracleVolume struct {
+	// The ID of the Capacity Pool.
+	CapacityPoolId             string                                                `pulumi:"capacityPoolId"`
+	DataProtectionReplications []GetVolumeGroupOracleVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicies []GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicies"`
+	// The encryption key source.
+	EncryptionKeySource string `pulumi:"encryptionKeySource"`
+	// A `exportPolicyRule` block as defined below.
+	ExportPolicyRules []GetVolumeGroupOracleVolumeExportPolicyRule `pulumi:"exportPolicyRules"`
+	// Volume ID.
+	Id string `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault when using customer managed keys.
+	KeyVaultPrivateEndpointId string `pulumi:"keyVaultPrivateEndpointId"`
+	// A `mountIpAddresses` block as defined below.
+	MountIpAddresses []string `pulumi:"mountIpAddresses"`
+	// The name of this Application Volume Group for Oracle application.
+	Name string `pulumi:"name"`
+	// Network feature in use at the time of volume creation.
+	NetworkFeatures string `pulumi:"networkFeatures"`
+	// A `protocols` block as defined below.
+	Protocols []string `pulumi:"protocols"`
+	// The ID of the proximity placement group.
+	ProximityPlacementGroupId string `pulumi:"proximityPlacementGroupId"`
+	// Volume security style.
+	SecurityStyle string `pulumi:"securityStyle"`
+	// The target performance of the file system.
+	ServiceLevel string `pulumi:"serviceLevel"`
+	// Is the .snapshot (NFS clients) path of a volume visible?
+	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in.
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags assigned to the Application Volume Group.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps float64 `pulumi:"throughputInMibps"`
+	// A unique file path for the volume.
+	VolumePath string `pulumi:"volumePath"`
+	// Volume spec name.
+	VolumeSpecName string `pulumi:"volumeSpecName"`
+	Zone           string `pulumi:"zone"`
+}
+
+// GetVolumeGroupOracleVolumeInput is an input type that accepts GetVolumeGroupOracleVolumeArgs and GetVolumeGroupOracleVolumeOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeInput` via:
+//
+//	GetVolumeGroupOracleVolumeArgs{...}
+type GetVolumeGroupOracleVolumeInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeOutput() GetVolumeGroupOracleVolumeOutput
+	ToGetVolumeGroupOracleVolumeOutputWithContext(context.Context) GetVolumeGroupOracleVolumeOutput
+}
+
+type GetVolumeGroupOracleVolumeArgs struct {
+	// The ID of the Capacity Pool.
+	CapacityPoolId             pulumi.StringInput                                            `pulumi:"capacityPoolId"`
+	DataProtectionReplications GetVolumeGroupOracleVolumeDataProtectionReplicationArrayInput `pulumi:"dataProtectionReplications"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicies GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayInput `pulumi:"dataProtectionSnapshotPolicies"`
+	// The encryption key source.
+	EncryptionKeySource pulumi.StringInput `pulumi:"encryptionKeySource"`
+	// A `exportPolicyRule` block as defined below.
+	ExportPolicyRules GetVolumeGroupOracleVolumeExportPolicyRuleArrayInput `pulumi:"exportPolicyRules"`
+	// Volume ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Private Endpoint ID for Key Vault when using customer managed keys.
+	KeyVaultPrivateEndpointId pulumi.StringInput `pulumi:"keyVaultPrivateEndpointId"`
+	// A `mountIpAddresses` block as defined below.
+	MountIpAddresses pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
+	// The name of this Application Volume Group for Oracle application.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Network feature in use at the time of volume creation.
+	NetworkFeatures pulumi.StringInput `pulumi:"networkFeatures"`
+	// A `protocols` block as defined below.
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	// The ID of the proximity placement group.
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
+	// Volume security style.
+	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
+	// The target performance of the file system.
+	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
+	// Is the .snapshot (NFS clients) path of a volume visible?
+	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb pulumi.IntInput `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// A mapping of tags assigned to the Application Volume Group.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64Input `pulumi:"throughputInMibps"`
+	// A unique file path for the volume.
+	VolumePath pulumi.StringInput `pulumi:"volumePath"`
+	// Volume spec name.
+	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
+	Zone           pulumi.StringInput `pulumi:"zone"`
+}
+
+func (GetVolumeGroupOracleVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeArgs) ToGetVolumeGroupOracleVolumeOutput() GetVolumeGroupOracleVolumeOutput {
+	return i.ToGetVolumeGroupOracleVolumeOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeArgs) ToGetVolumeGroupOracleVolumeOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeOutput)
+}
+
+// GetVolumeGroupOracleVolumeArrayInput is an input type that accepts GetVolumeGroupOracleVolumeArray and GetVolumeGroupOracleVolumeArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeArrayInput` via:
+//
+//	GetVolumeGroupOracleVolumeArray{ GetVolumeGroupOracleVolumeArgs{...} }
+type GetVolumeGroupOracleVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeArrayOutput() GetVolumeGroupOracleVolumeArrayOutput
+	ToGetVolumeGroupOracleVolumeArrayOutputWithContext(context.Context) GetVolumeGroupOracleVolumeArrayOutput
+}
+
+type GetVolumeGroupOracleVolumeArray []GetVolumeGroupOracleVolumeInput
+
+func (GetVolumeGroupOracleVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeArray) ToGetVolumeGroupOracleVolumeArrayOutput() GetVolumeGroupOracleVolumeArrayOutput {
+	return i.ToGetVolumeGroupOracleVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeArray) ToGetVolumeGroupOracleVolumeArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeArrayOutput)
+}
+
+type GetVolumeGroupOracleVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeOutput) ToGetVolumeGroupOracleVolumeOutput() GetVolumeGroupOracleVolumeOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeOutput) ToGetVolumeGroupOracleVolumeOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeOutput {
+	return o
+}
+
+// The ID of the Capacity Pool.
+func (o GetVolumeGroupOracleVolumeOutput) CapacityPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.CapacityPoolId }).(pulumi.StringOutput)
+}
+
+func (o GetVolumeGroupOracleVolumeOutput) DataProtectionReplications() GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) []GetVolumeGroupOracleVolumeDataProtectionReplication {
+		return v.DataProtectionReplications
+	}).(GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput)
+}
+
+// A `dataProtectionSnapshotPolicy` block as defined below.
+func (o GetVolumeGroupOracleVolumeOutput) DataProtectionSnapshotPolicies() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) []GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+		return v.DataProtectionSnapshotPolicies
+	}).(GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput)
+}
+
+// The encryption key source.
+func (o GetVolumeGroupOracleVolumeOutput) EncryptionKeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.EncryptionKeySource }).(pulumi.StringOutput)
+}
+
+// A `exportPolicyRule` block as defined below.
+func (o GetVolumeGroupOracleVolumeOutput) ExportPolicyRules() GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) []GetVolumeGroupOracleVolumeExportPolicyRule {
+		return v.ExportPolicyRules
+	}).(GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput)
+}
+
+// Volume ID.
+func (o GetVolumeGroupOracleVolumeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Private Endpoint ID for Key Vault when using customer managed keys.
+func (o GetVolumeGroupOracleVolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
+}
+
+// A `mountIpAddresses` block as defined below.
+func (o GetVolumeGroupOracleVolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The name of this Application Volume Group for Oracle application.
+func (o GetVolumeGroupOracleVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network feature in use at the time of volume creation.
+func (o GetVolumeGroupOracleVolumeOutput) NetworkFeatures() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.NetworkFeatures }).(pulumi.StringOutput)
+}
+
+// A `protocols` block as defined below.
+func (o GetVolumeGroupOracleVolumeOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the proximity placement group.
+func (o GetVolumeGroupOracleVolumeOutput) ProximityPlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.ProximityPlacementGroupId }).(pulumi.StringOutput)
+}
+
+// Volume security style.
+func (o GetVolumeGroupOracleVolumeOutput) SecurityStyle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
+}
+
+// The target performance of the file system.
+func (o GetVolumeGroupOracleVolumeOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Is the .snapshot (NFS clients) path of a volume visible?
+func (o GetVolumeGroupOracleVolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
+}
+
+// The maximum Storage Quota allowed for a file system in Gigabytes.
+func (o GetVolumeGroupOracleVolumeOutput) StorageQuotaInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
+}
+
+// The ID of the Subnet the NetApp Volume resides in.
+func (o GetVolumeGroupOracleVolumeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Application Volume Group.
+func (o GetVolumeGroupOracleVolumeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput of this volume in Mibps.
+func (o GetVolumeGroupOracleVolumeOutput) ThroughputInMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) float64 { return v.ThroughputInMibps }).(pulumi.Float64Output)
+}
+
+// A unique file path for the volume.
+func (o GetVolumeGroupOracleVolumeOutput) VolumePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+// Volume spec name.
+func (o GetVolumeGroupOracleVolumeOutput) VolumeSpecName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
+}
+
+func (o GetVolumeGroupOracleVolumeOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolume) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupOracleVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolume)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeArrayOutput) ToGetVolumeGroupOracleVolumeArrayOutput() GetVolumeGroupOracleVolumeArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeArrayOutput) ToGetVolumeGroupOracleVolumeArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupOracleVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupOracleVolume {
+		return vs[0].([]GetVolumeGroupOracleVolume)[vs[1].(int)]
+	}).(GetVolumeGroupOracleVolumeOutput)
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionReplication struct {
+	// The endpoint type.
+	EndpointType string `pulumi:"endpointType"`
+	// Location of the primary volume.
+	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
+}
+
+// GetVolumeGroupOracleVolumeDataProtectionReplicationInput is an input type that accepts GetVolumeGroupOracleVolumeDataProtectionReplicationArgs and GetVolumeGroupOracleVolumeDataProtectionReplicationOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeDataProtectionReplicationInput` via:
+//
+//	GetVolumeGroupOracleVolumeDataProtectionReplicationArgs{...}
+type GetVolumeGroupOracleVolumeDataProtectionReplicationInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutput() GetVolumeGroupOracleVolumeDataProtectionReplicationOutput
+	ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(context.Context) GetVolumeGroupOracleVolumeDataProtectionReplicationOutput
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionReplicationArgs struct {
+	// The endpoint type.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// Location of the primary volume.
+	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+}
+
+func (GetVolumeGroupOracleVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionReplicationArgs) ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutput() GetVolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return i.ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionReplicationArgs) ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeDataProtectionReplicationOutput)
+}
+
+// GetVolumeGroupOracleVolumeDataProtectionReplicationArrayInput is an input type that accepts GetVolumeGroupOracleVolumeDataProtectionReplicationArray and GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeDataProtectionReplicationArrayInput` via:
+//
+//	GetVolumeGroupOracleVolumeDataProtectionReplicationArray{ GetVolumeGroupOracleVolumeDataProtectionReplicationArgs{...} }
+type GetVolumeGroupOracleVolumeDataProtectionReplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput() GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput
+	ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutputWithContext(context.Context) GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionReplicationArray []GetVolumeGroupOracleVolumeDataProtectionReplicationInput
+
+func (GetVolumeGroupOracleVolumeDataProtectionReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionReplicationArray) ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput() GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput {
+	return i.ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionReplicationArray) ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput)
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutput() GetVolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) ToGetVolumeGroupOracleVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+// The endpoint type.
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeDataProtectionReplication) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// Location of the primary volume.
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
+}
+
+// Resource ID of the primary volume.
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// Replication frequency.
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput) ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput() GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput) ToGetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupOracleVolumeDataProtectionReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupOracleVolumeDataProtectionReplication {
+		return vs[0].([]GetVolumeGroupOracleVolumeDataProtectionReplication)[vs[1].(int)]
+	}).(GetVolumeGroupOracleVolumeDataProtectionReplicationOutput)
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
+}
+
+// GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput is an input type that accepts GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs and GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput` via:
+//
+//	GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{...}
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput
+	ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Context) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
+}
+
+func (GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return i.ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+// GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayInput is an input type that accepts GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray and GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayInput` via:
+//
+//	GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray{ GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{...} }
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput
+	ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(context.Context) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray []GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput
+
+func (GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return i.ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput)
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput() GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput) ToGetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+		return vs[0].([]GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy)[vs[1].(int)]
+	}).(GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+type GetVolumeGroupOracleVolumeExportPolicyRule struct {
+	// A list of allowed clients IPv4 addresses.
+	AllowedClients string `pulumi:"allowedClients"`
+	// Is the NFSv3 protocol enabled?
+	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
+	// Is the NFSv4.1 enabled?
+	Nfsv41Enabled bool `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume?
+	RootAccessEnabled bool `pulumi:"rootAccessEnabled"`
+	// The index number of the rule.
+	RuleIndex int `pulumi:"ruleIndex"`
+	// Is the file system on unix read only?.
+	UnixReadOnly bool `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write?.
+	UnixReadWrite bool `pulumi:"unixReadWrite"`
+}
+
+// GetVolumeGroupOracleVolumeExportPolicyRuleInput is an input type that accepts GetVolumeGroupOracleVolumeExportPolicyRuleArgs and GetVolumeGroupOracleVolumeExportPolicyRuleOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeExportPolicyRuleInput` via:
+//
+//	GetVolumeGroupOracleVolumeExportPolicyRuleArgs{...}
+type GetVolumeGroupOracleVolumeExportPolicyRuleInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeExportPolicyRuleOutput() GetVolumeGroupOracleVolumeExportPolicyRuleOutput
+	ToGetVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(context.Context) GetVolumeGroupOracleVolumeExportPolicyRuleOutput
+}
+
+type GetVolumeGroupOracleVolumeExportPolicyRuleArgs struct {
+	// A list of allowed clients IPv4 addresses.
+	AllowedClients pulumi.StringInput `pulumi:"allowedClients"`
+	// Is the NFSv3 protocol enabled?
+	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
+	// Is the NFSv4.1 enabled?
+	Nfsv41Enabled pulumi.BoolInput `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume?
+	RootAccessEnabled pulumi.BoolInput `pulumi:"rootAccessEnabled"`
+	// The index number of the rule.
+	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
+	// Is the file system on unix read only?.
+	UnixReadOnly pulumi.BoolInput `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write?.
+	UnixReadWrite pulumi.BoolInput `pulumi:"unixReadWrite"`
+}
+
+func (GetVolumeGroupOracleVolumeExportPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeExportPolicyRuleArgs) ToGetVolumeGroupOracleVolumeExportPolicyRuleOutput() GetVolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return i.ToGetVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeExportPolicyRuleArgs) ToGetVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeExportPolicyRuleOutput)
+}
+
+// GetVolumeGroupOracleVolumeExportPolicyRuleArrayInput is an input type that accepts GetVolumeGroupOracleVolumeExportPolicyRuleArray and GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupOracleVolumeExportPolicyRuleArrayInput` via:
+//
+//	GetVolumeGroupOracleVolumeExportPolicyRuleArray{ GetVolumeGroupOracleVolumeExportPolicyRuleArgs{...} }
+type GetVolumeGroupOracleVolumeExportPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput() GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput
+	ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(context.Context) GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput
+}
+
+type GetVolumeGroupOracleVolumeExportPolicyRuleArray []GetVolumeGroupOracleVolumeExportPolicyRuleInput
+
+func (GetVolumeGroupOracleVolumeExportPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i GetVolumeGroupOracleVolumeExportPolicyRuleArray) ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput() GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return i.ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupOracleVolumeExportPolicyRuleArray) ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput)
+}
+
+type GetVolumeGroupOracleVolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeExportPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) ToGetVolumeGroupOracleVolumeExportPolicyRuleOutput() GetVolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) ToGetVolumeGroupOracleVolumeExportPolicyRuleOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return o
+}
+
+// A list of allowed clients IPv4 addresses.
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) string { return v.AllowedClients }).(pulumi.StringOutput)
+}
+
+// Is the NFSv3 protocol enabled?
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
+}
+
+// Is the NFSv4.1 enabled?
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) Nfsv41Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) bool { return v.Nfsv41Enabled }).(pulumi.BoolOutput)
+}
+
+// Is root access permitted to this volume?
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) RootAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) bool { return v.RootAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// The index number of the rule.
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
+}
+
+// Is the file system on unix read only?.
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) bool { return v.UnixReadOnly }).(pulumi.BoolOutput)
+}
+
+// Is the file system on unix read and write?.
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupOracleVolumeExportPolicyRule) bool { return v.UnixReadWrite }).(pulumi.BoolOutput)
+}
+
+type GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupOracleVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput) ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput() GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput) ToGetVolumeGroupOracleVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupOracleVolumeExportPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupOracleVolumeExportPolicyRule {
+		return vs[0].([]GetVolumeGroupOracleVolumeExportPolicyRule)[vs[1].(int)]
+	}).(GetVolumeGroupOracleVolumeExportPolicyRuleOutput)
+}
+
 type GetVolumeGroupSapHanaVolume struct {
 	// The ID of the Capacity Pool.
 	CapacityPoolId string `pulumi:"capacityPoolId"`
@@ -4319,6 +5547,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleInput)(nil)).Elem(), VolumeExportPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeInput)(nil)).Elem(), VolumeGroupOracleVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeArrayInput)(nil)).Elem(), VolumeGroupOracleVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeExportPolicyRuleInput)(nil)).Elem(), VolumeGroupOracleVolumeExportPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupOracleVolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeGroupOracleVolumeExportPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeInput)(nil)).Elem(), VolumeGroupSapHanaVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeArrayInput)(nil)).Elem(), VolumeGroupSapHanaVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionReplicationArgs{})
@@ -4341,6 +5575,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionBackupPolicyArrayInput)(nil)).Elem(), GetVolumeDataProtectionBackupPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeInput)(nil)).Elem(), GetVolumeGroupOracleVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeArrayInput)(nil)).Elem(), GetVolumeGroupOracleVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeGroupOracleVolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeGroupOracleVolumeDataProtectionReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayInput)(nil)).Elem(), GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeExportPolicyRuleInput)(nil)).Elem(), GetVolumeGroupOracleVolumeExportPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupOracleVolumeExportPolicyRuleArrayInput)(nil)).Elem(), GetVolumeGroupOracleVolumeExportPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs{})
@@ -4369,6 +5611,12 @@ func init() {
 	pulumi.RegisterOutputType(VolumeDataProtectionSnapshotPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeDataProtectionSnapshotPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeExportPolicyRuleOutput{})
+	pulumi.RegisterOutputType(VolumeGroupOracleVolumeExportPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeArrayOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput{})
@@ -4391,6 +5639,14 @@ func init() {
 	pulumi.RegisterOutputType(GetVolumeDataProtectionBackupPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeDataProtectionReplicationOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeDataProtectionReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeExportPolicyRuleOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupOracleVolumeExportPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeOutput{})
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput{})

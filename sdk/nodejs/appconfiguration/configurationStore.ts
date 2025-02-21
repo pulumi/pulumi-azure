@@ -170,6 +170,16 @@ export class ConfigurationStore extends pulumi.CustomResource {
     }
 
     /**
+     * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     */
+    public readonly dataPlaneProxyAuthenticationMode!: pulumi.Output<string | undefined>;
+    /**
+     * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     *
+     * > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+     */
+    public readonly dataPlaneProxyPrivateLinkDelegationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `encryption` block as defined below.
      */
     public readonly encryption!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
@@ -259,6 +269,8 @@ export class ConfigurationStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationStoreState | undefined;
+            resourceInputs["dataPlaneProxyAuthenticationMode"] = state ? state.dataPlaneProxyAuthenticationMode : undefined;
+            resourceInputs["dataPlaneProxyPrivateLinkDelegationEnabled"] = state ? state.dataPlaneProxyPrivateLinkDelegationEnabled : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -281,6 +293,8 @@ export class ConfigurationStore extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["dataPlaneProxyAuthenticationMode"] = args ? args.dataPlaneProxyAuthenticationMode : undefined;
+            resourceInputs["dataPlaneProxyPrivateLinkDelegationEnabled"] = args ? args.dataPlaneProxyPrivateLinkDelegationEnabled : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
@@ -308,6 +322,16 @@ export class ConfigurationStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfigurationStore resources.
  */
 export interface ConfigurationStoreState {
+    /**
+     * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     */
+    dataPlaneProxyAuthenticationMode?: pulumi.Input<string>;
+    /**
+     * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     *
+     * > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+     */
+    dataPlaneProxyPrivateLinkDelegationEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as defined below.
      */
@@ -390,6 +414,16 @@ export interface ConfigurationStoreState {
  * The set of arguments for constructing a ConfigurationStore resource.
  */
 export interface ConfigurationStoreArgs {
+    /**
+     * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+     */
+    dataPlaneProxyAuthenticationMode?: pulumi.Input<string>;
+    /**
+     * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+     *
+     * > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+     */
+    dataPlaneProxyPrivateLinkDelegationEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as defined below.
      */

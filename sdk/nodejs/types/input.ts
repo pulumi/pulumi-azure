@@ -160,6 +160,74 @@ export interface ProviderFeaturesVirtualMachineScaleSet {
 export namespace advisor {
 }
 
+export namespace aifoundry {
+    export interface HubEncryption {
+        /**
+         * The Key Vault URI to access the encryption key.
+         */
+        keyId: pulumi.Input<string>;
+        /**
+         * The Key Vault ID where the customer owned encryption key exists.
+         */
+        keyVaultId: pulumi.Input<string>;
+        /**
+         * The user assigned identity ID that has access to the encryption key.
+         *
+         * > **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface HubIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Hub.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this AI Foundry Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface HubManagedNetwork {
+        /**
+         * The isolation mode of the AI Foundry Hub. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
+         */
+        isolationMode?: pulumi.Input<string>;
+    }
+
+    export interface ProjectIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Foundry Project.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this AI Foundry Project. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -2124,7 +2192,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreEncryption {
         /**
-         * Specifies the client id of the identity which will be used to access key vault.
+         * Specifies the client ID of the identity which will be used to access key vault.
          */
         identityClientId?: pulumi.Input<string>;
         /**
@@ -2149,14 +2217,14 @@ export namespace appconfiguration {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
 
     export interface ConfigurationStorePrimaryReadKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -2171,7 +2239,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStorePrimaryWriteKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -2205,7 +2273,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreSecondaryReadKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -2220,7 +2288,7 @@ export namespace appconfiguration {
 
     export interface ConfigurationStoreSecondaryWriteKey {
         /**
-         * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -3525,7 +3593,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -5378,7 +5446,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -6384,7 +6452,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -7504,7 +7572,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -8659,7 +8727,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -9439,7 +9507,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -10504,7 +10572,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -11467,7 +11535,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -12560,7 +12628,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -13807,7 +13875,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`
+         * The Remote Debugging Version. Currently only `VS2022` is supported.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -17052,7 +17120,9 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyCustomRule {
         /**
-         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+         *
+         * !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: pulumi.Input<string>;
         /**
@@ -17099,22 +17169,22 @@ export namespace cdn {
          */
         negationCondition?: pulumi.Input<boolean>;
         /**
-         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
          */
         operator: pulumi.Input<string>;
         /**
-         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
          */
         selector?: pulumi.Input<string>;
         /**
-         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode`, or `URLEncode`.
          */
         transforms?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FrontdoorFirewallPolicyManagedRule {
         /**
-         * The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+         * The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, or `Redirect`.
          */
         action: pulumi.Input<string>;
         /**
@@ -17126,11 +17196,11 @@ export namespace cdn {
          */
         overrides?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRuleOverride>[]>;
         /**
-         * The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
+         * The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection`, or `Microsoft_BotManagerRuleSet`.
          */
         type: pulumi.Input<string>;
         /**
-         * The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
+         * The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0`, or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
          */
         version: pulumi.Input<string>;
     }
@@ -17143,7 +17213,7 @@ export namespace cdn {
          */
         matchVariable: pulumi.Input<string>;
         /**
-         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -17177,7 +17247,7 @@ export namespace cdn {
          */
         matchVariable: pulumi.Input<string>;
         /**
-         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -17190,11 +17260,11 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
         /**
-         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect` or `JSChallenge`.
+         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for `DefaultRuleSet 1.1` and below are `Allow`, `Log`, `Block`, or `Redirect`. Possible values for `DefaultRuleSet 2.0` and above are `Log` or `AnomalyScoring`. Possible values for `Microsoft_BotManagerRuleSet` are `Allow`, `Log`, `Block`, `Redirect`, or `JSChallenge`.
          *
          * > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
          *
-         * !> **Note:** The `action` field value `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: pulumi.Input<string>;
         /**
@@ -17219,7 +17289,7 @@ export namespace cdn {
          */
         matchVariable: pulumi.Input<string>;
         /**
-         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, or `EqualsAny`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -20424,6 +20494,19 @@ export namespace compute {
         tier?: pulumi.Input<string>;
     }
 
+    export interface ScaleSetStandbyPoolElasticityProfile {
+        /**
+         * Specifies the maximum number of virtual machines in the standby pool.
+         */
+        maxReadyCapacity: pulumi.Input<number>;
+        /**
+         * Specifies the desired minimum number of virtual machines in the standby pool.
+         *
+         * > **NOTE** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
+         */
+        minReadyCapacity: pulumi.Input<number>;
+    }
+
     export interface ScaleSetStorageProfileDataDisk {
         /**
          * Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
@@ -22039,6 +22122,10 @@ export namespace containerapp {
          * Should this ingress allow insecure connections?
          */
         allowInsecureConnections?: pulumi.Input<boolean>;
+        /**
+         * The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+         */
+        clientCertificateMode?: pulumi.Input<string>;
         /**
          * One or more `customDomain` block as detailed below.
          */
@@ -24680,7 +24767,7 @@ export namespace containerservice {
          */
         secretRotationEnabled?: pulumi.Input<boolean>;
         /**
-         * The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
+         * The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
          *
          * > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
          */
@@ -41116,6 +41203,25 @@ export namespace mssql {
         mode: pulumi.Input<string>;
     }
 
+    export interface JobStepOutputTarget {
+        /**
+         * The ID of the Elastic Job Credential to use when connecting to the output destination.
+         */
+        jobCredentialId: pulumi.Input<string>;
+        /**
+         * The ID of the output database.
+         */
+        mssqlDatabaseId: pulumi.Input<string>;
+        /**
+         * The name of the output schema. Defaults to `dbo`.
+         */
+        schemaName?: pulumi.Input<string>;
+        /**
+         * The name of the output table.
+         */
+        tableName: pulumi.Input<string>;
+    }
+
     export interface JobTargetGroupJobTarget {
         /**
          * The name of the MS SQL Database.
@@ -41993,6 +42099,130 @@ export namespace netapp {
         unixReadOnly?: pulumi.Input<boolean>;
         /**
          * Is the file system on unix read and write?
+         */
+        unixReadWrite?: pulumi.Input<boolean>;
+    }
+
+    export interface VolumeGroupOracleVolume {
+        /**
+         * The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        capacityPoolId: pulumi.Input<string>;
+        /**
+         * A `dataProtectionSnapshotPolicy` block as defined below.
+         */
+        dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeGroupOracleVolumeDataProtectionSnapshotPolicy>;
+        /**
+         * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
+         */
+        encryptionKeySource?: pulumi.Input<string>;
+        /**
+         * One or more `exportPolicyRule` blocks as defined below.
+         */
+        exportPolicyRules: pulumi.Input<pulumi.Input<inputs.netapp.VolumeGroupOracleVolumeExportPolicyRule>[]>;
+        /**
+         * The ID of the Application Volume Group.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
+         */
+        keyVaultPrivateEndpointId?: pulumi.Input<string>;
+        mountIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
+         */
+        networkFeatures?: pulumi.Input<string>;
+        /**
+         * The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`.
+         */
+        protocols: pulumi.Input<string>;
+        /**
+         * The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+         *
+         * > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+         */
+        proximityPlacementGroupId?: pulumi.Input<string>;
+        /**
+         * Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        securityStyle: pulumi.Input<string>;
+        /**
+         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        serviceLevel: pulumi.Input<string>;
+        /**
+         * Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        snapshotDirectoryVisible: pulumi.Input<boolean>;
+        /**
+         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         */
+        storageQuotaInGb: pulumi.Input<number>;
+        /**
+         * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * A mapping of tags which should be assigned to the Application Volume Group.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Throughput of this volume in Mibps.
+         */
+        throughputInMibps: pulumi.Input<number>;
+        /**
+         * A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumePath: pulumi.Input<string>;
+        /**
+         * Volume specification name. Possible values are `ora-data1` through `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-backup` and `ora-binary`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumeSpecName: pulumi.Input<string>;
+        /**
+         * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
+         */
+        zone?: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupOracleVolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupOracleVolumeExportPolicyRule {
+        /**
+         * A comma-sperated list of allowed client IPv4 addresses.
+         */
+        allowedClients: pulumi.Input<string>;
+        /**
+         * Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+         */
+        nfsv3Enabled: pulumi.Input<boolean>;
+        /**
+         * Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+         */
+        nfsv41Enabled: pulumi.Input<boolean>;
+        /**
+         * Is root access permitted to this volume? Defaults to `true`.
+         */
+        rootAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * The index number of the rule, must start at 1 and maximum 5.
+         */
+        ruleIndex: pulumi.Input<number>;
+        /**
+         * Is the file system on unix read only? Defaults to `false.
+         */
+        unixReadOnly?: pulumi.Input<boolean>;
+        /**
+         * Is the file system on unix read and write? Defaults to `true`.
          */
         unixReadWrite?: pulumi.Input<boolean>;
     }

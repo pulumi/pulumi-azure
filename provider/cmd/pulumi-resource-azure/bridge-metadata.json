@@ -63,6 +63,44 @@
                 "current": "azure:advisor/suppression:Suppression",
                 "majorVersion": 6
             },
+            "azurerm_ai_foundry": {
+                "current": "azure:aifoundry/hub:Hub",
+                "majorVersion": 6,
+                "fields": {
+                    "encryption": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "managed_network": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_ai_foundry_project": {
+                "current": "azure:aifoundry/project:Project",
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_ai_services": {
                 "current": "azure:cognitive/aIServices:AIServices",
                 "majorVersion": 6,
@@ -14756,6 +14794,15 @@
                 "current": "azure:mssql/jobSchedule:JobSchedule",
                 "majorVersion": 6
             },
+            "azurerm_mssql_job_step": {
+                "current": "azure:mssql/jobStep:JobStep",
+                "majorVersion": 6,
+                "fields": {
+                    "output_target": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_mssql_job_target_group": {
                 "current": "azure:mssql/jobTargetGroup:JobTargetGroup",
                 "majorVersion": 6,
@@ -15213,6 +15260,31 @@
                     },
                     "protocols": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_netapp_volume_group_oracle": {
+                "current": "azure:netapp/volumeGroupOracle:VolumeGroupOracle",
+                "majorVersion": 6,
+                "fields": {
+                    "volume": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "data_protection_snapshot_policy": {
+                                    "maxItemsOne": true
+                                },
+                                "export_policy_rule": {
+                                    "maxItemsOne": false
+                                },
+                                "mount_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "protocols": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -21048,6 +21120,15 @@
                         }
                     },
                     "storage_location": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_virtual_machine_scale_set_standby_pool": {
+                "current": "azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool",
+                "majorVersion": 6,
+                "fields": {
+                    "elasticity_profile": {
                         "maxItemsOne": true
                     }
                 }
@@ -28223,6 +28304,34 @@
                     }
                 }
             },
+            "azurerm_netapp_volume_group_oracle": {
+                "current": "azure:netapp/getVolumeGroupOracle:getVolumeGroupOracle",
+                "majorVersion": 6,
+                "fields": {
+                    "volume": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "data_protection_replication": {
+                                    "maxItemsOne": false
+                                },
+                                "data_protection_snapshot_policy": {
+                                    "maxItemsOne": false
+                                },
+                                "export_policy_rule": {
+                                    "maxItemsOne": false
+                                },
+                                "mount_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "protocols": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_netapp_volume_group_sap_hana": {
                 "current": "azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana",
                 "majorVersion": 6,
@@ -29635,6 +29744,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_stack_hci_storage_path": {
+                "current": "azure:stack/getHciStoragePath:getHciStoragePath",
+                "majorVersion": 6
             },
             "azurerm_static_web_app": {
                 "current": "azure:appservice/getStaticWebApp:getStaticWebApp",

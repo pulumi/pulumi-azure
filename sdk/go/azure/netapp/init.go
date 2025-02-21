@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SnapshotPolicy{}
 	case "azure:netapp/volume:Volume":
 		r = &Volume{}
+	case "azure:netapp/volumeGroupOracle:VolumeGroupOracle":
+		r = &VolumeGroupOracle{}
 	case "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana":
 		r = &VolumeGroupSapHana{}
 	case "azure:netapp/volumeQuotaRule:VolumeQuotaRule":
@@ -92,6 +94,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"netapp/volume",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"netapp/volumeGroupOracle",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

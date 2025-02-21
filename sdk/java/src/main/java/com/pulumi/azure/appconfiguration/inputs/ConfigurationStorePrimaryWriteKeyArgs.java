@@ -16,14 +16,14 @@ public final class ConfigurationStorePrimaryWriteKeyArgs extends com.pulumi.reso
     public static final ConfigurationStorePrimaryWriteKeyArgs Empty = new ConfigurationStorePrimaryWriteKeyArgs();
 
     /**
-     * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+     * The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+     * @return The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -87,7 +87,7 @@ public final class ConfigurationStorePrimaryWriteKeyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param connectionString The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * @param connectionString The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ConfigurationStorePrimaryWriteKeyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param connectionString The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+         * @param connectionString The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
          * 
          * @return builder
          * 

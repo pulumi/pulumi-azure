@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     name: `${prefix}-vnet`,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     addressSpaces: ["10.6.0.0/16"],
+ *     addressSpaces: ["10.88.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
  *     name: `${prefix}-delegated-subnet`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.6.2.0/24"],
+ *     addressPrefixes: ["10.88.2.0/24"],
  *     delegations: [{
  *         name: "testdelegation",
  *         serviceDelegation: {
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     name: `${prefix}-hosts-subnet`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.6.1.0/24"],
+ *     addressPrefixes: ["10.88.1.0/24"],
  * });
  * const examplePlacementGroup = new azure.proximity.PlacementGroup("example", {
  *     name: `${prefix}-ppg`,

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationStoreEncryption {
     /**
-     * @return Specifies the client id of the identity which will be used to access key vault.
+     * @return Specifies the client ID of the identity which will be used to access key vault.
      * 
      */
     private @Nullable String identityClientId;
@@ -24,7 +24,7 @@ public final class ConfigurationStoreEncryption {
 
     private ConfigurationStoreEncryption() {}
     /**
-     * @return Specifies the client id of the identity which will be used to access key vault.
+     * @return Specifies the client ID of the identity which will be used to access key vault.
      * 
      */
     public Optional<String> identityClientId() {

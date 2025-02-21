@@ -36,10 +36,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.privatedns.Zone;
+ * import com.pulumi.azure.privatedns.ZoneArgs;
  * import com.pulumi.azure.network.VirtualNetwork;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLink;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.network.NetworkSecurityGroup;
  * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
  * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
@@ -53,6 +59,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ManagedInstanceFailoverGroup;
  * import com.pulumi.azure.mssql.ManagedInstanceFailoverGroupArgs;
  * import com.pulumi.azure.mssql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
+ * import com.pulumi.azure.network.VirtualNetworkPeering;
+ * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -67,92 +75,209 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
- *             .location("West Europe")
+ *         final var name = "mymssqlmitest";
+ * 
+ *         final var primaryName = String.format("%s-primary", name);
+ * 
+ *         final var primaryLocation = "West Europe";
+ * 
+ *         final var failoverName = String.format("%s-failover", name);
+ * 
+ *         final var failoverLocation = "North Europe";
+ * 
+ *         //# Primary SQL Managed Instance
+ *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()
+ *             .name(primaryName)
+ *             .location(primaryLocation)
  *             .build());
  * 
- *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+ *             .name(String.format("%s.private", name))
+ *             .resourceGroupName(primary.name())
+ *             .build());
+ * 
+ *         var primaryVirtualNetwork = new VirtualNetwork("primaryVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name(primaryName)
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
  *             .addressSpaces("10.0.0.0/16")
  *             .build());
  * 
- *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
+ *         var primaryZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("primaryZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
+ *             .name("primary-link")
+ *             .resourceGroupName(primary.name())
+ *             .privateDnsZoneName(exampleZone.name())
+ *             .virtualNetworkId(primaryVirtualNetwork.id())
  *             .build());
  * 
- *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
+ *         var primarySubnet = new Subnet("primarySubnet", SubnetArgs.builder()
+ *             .name(primaryName)
+ *             .resourceGroupName(primary.name())
+ *             .virtualNetworkName(primaryVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("delegation")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .actions(                    
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
+ *                     .name("Microsoft.Sql/managedInstances")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
- *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
- *             .subnetId(exampleSubnet.id())
- *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
- *             .build());
- * 
- *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .build());
- * 
- *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()
- *             .subnetId(exampleSubnet.id())
- *             .routeTableId(exampleRouteTable.id())
- *             .build());
- * 
- *         var primary = new ManagedInstance("primary", ManagedInstanceArgs.builder()
- *             .name("example-primary")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .administratorLogin("mradministrator")
- *             .administratorLoginPassword("thisIsDog11")
- *             .licenseType("BasePrice")
- *             .subnetId(exampleSubnet.id())
- *             .skuName("GP_Gen5")
- *             .vcores(4)
- *             .storageSizeInGb(32)
- *             .tags(Map.of("environment", "prod"))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleSubnetNetworkSecurityGroupAssociation,
- *                     exampleSubnetRouteTableAssociation)
- *                 .build());
- * 
- *         var secondary = new ManagedInstance("secondary", ManagedInstanceArgs.builder()
- *             .name("example-secondary")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .administratorLogin("mradministrator")
- *             .administratorLoginPassword("thisIsDog11")
- *             .licenseType("BasePrice")
- *             .subnetId(exampleSubnet.id())
- *             .skuName("GP_Gen5")
- *             .vcores(4)
- *             .storageSizeInGb(32)
- *             .tags(Map.of("environment", "prod"))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleSubnetNetworkSecurityGroupAssociation,
- *                     exampleSubnetRouteTableAssociation)
- *                 .build());
- * 
- *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", ManagedInstanceFailoverGroupArgs.builder()
- *             .name("example-failover-group")
+ *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup("primaryNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
+ *             .name(primaryName)
  *             .location(primary.location())
- *             .managedInstanceId(primary.id())
- *             .partnerManagedInstanceId(secondary.id())
+ *             .resourceGroupName(primary.name())
+ *             .build());
+ * 
+ *         var primarySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
+ *             .subnetId(primarySubnet.id())
+ *             .networkSecurityGroupId(primaryNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var primaryRouteTable = new RouteTable("primaryRouteTable", RouteTableArgs.builder()
+ *             .name(primaryName)
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
+ *             .build());
+ * 
+ *         var primarySubnetRouteTableAssociation = new SubnetRouteTableAssociation("primarySubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()
+ *             .subnetId(primarySubnet.id())
+ *             .routeTableId(primaryRouteTable.id())
+ *             .build());
+ * 
+ *         var primaryManagedInstance = new ManagedInstance("primaryManagedInstance", ManagedInstanceArgs.builder()
+ *             .name(primaryName)
+ *             .resourceGroupName(primary.name())
+ *             .location(primary.location())
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
+ *             .subnetId(primarySubnet.id())
+ *             .skuName("GP_Gen5")
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     primarySubnetNetworkSecurityGroupAssociation,
+ *                     primarySubnetRouteTableAssociation)
+ *                 .build());
+ * 
+ *         //# Secondary (Fail-over) SQL Managed Instance
+ *         var failover = new ResourceGroup("failover", ResourceGroupArgs.builder()
+ *             .name(failoverName)
+ *             .location(failoverLocation)
+ *             .build());
+ * 
+ *         var failoverVirtualNetwork = new VirtualNetwork("failoverVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name(failoverName)
+ *             .location(failover.location())
+ *             .resourceGroupName(failover.name())
+ *             .addressSpaces("10.1.0.0/16")
+ *             .build());
+ * 
+ *         var failoverZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("failoverZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
+ *             .name("failover-link")
+ *             .resourceGroupName(exampleZone.resourceGroupName())
+ *             .privateDnsZoneName(exampleZone.name())
+ *             .virtualNetworkId(failoverVirtualNetwork.id())
+ *             .build());
+ * 
+ *         var failoverSubnet = new Subnet("failoverSubnet", SubnetArgs.builder()
+ *             .name("ManagedInstance")
+ *             .resourceGroupName(failover.name())
+ *             .virtualNetworkName(failoverVirtualNetwork.name())
+ *             .addressPrefixes("10.1.1.0/24")
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name("delegation")
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .actions(                    
+ *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
+ *                     .name("Microsoft.Sql/managedInstances")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var failoverNetworkSecurityGroup = new NetworkSecurityGroup("failoverNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
+ *             .name(failoverName)
+ *             .location(failover.location())
+ *             .resourceGroupName(failover.name())
+ *             .build());
+ * 
+ *         var failoverSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("failoverSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
+ *             .subnetId(failoverSubnet.id())
+ *             .networkSecurityGroupId(failoverNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var failoverRouteTable = new RouteTable("failoverRouteTable", RouteTableArgs.builder()
+ *             .name(failoverName)
+ *             .location(failover.location())
+ *             .resourceGroupName(failover.name())
+ *             .build());
+ * 
+ *         var failoverSubnetRouteTableAssociation = new SubnetRouteTableAssociation("failoverSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()
+ *             .subnetId(failoverSubnet.id())
+ *             .routeTableId(failoverRouteTable.id())
+ *             .build());
+ * 
+ *         var failoverManagedInstance = new ManagedInstance("failoverManagedInstance", ManagedInstanceArgs.builder()
+ *             .name(failoverName)
+ *             .resourceGroupName(failover.name())
+ *             .location(failover.location())
+ *             .administratorLogin("mradministrator")
+ *             .administratorLoginPassword("thisIsDog11")
+ *             .licenseType("BasePrice")
+ *             .subnetId(failoverSubnet.id())
+ *             .skuName("GP_Gen5")
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .dnsZonePartnerId(primaryManagedInstance.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     failoverSubnetNetworkSecurityGroupAssociation,
+ *                     failoverSubnetRouteTableAssociation)
+ *                 .build());
+ * 
+ *         var example = new ManagedInstanceFailoverGroup("example", ManagedInstanceFailoverGroupArgs.builder()
+ *             .name("example-failover-group")
+ *             .location(primaryManagedInstance.location())
+ *             .managedInstanceId(primaryManagedInstance.id())
+ *             .partnerManagedInstanceId(failoverManagedInstance.id())
+ *             .secondaryType("Geo")
  *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
  *                 .mode("Automatic")
  *                 .graceMinutes(60)
  *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     primaryZoneVirtualNetworkLink,
+ *                     failoverZoneVirtualNetworkLink)
+ *                 .build());
+ * 
+ *         var primaryToFailover = new VirtualNetworkPeering("primaryToFailover", VirtualNetworkPeeringArgs.builder()
+ *             .name("primary-to-failover")
+ *             .remoteVirtualNetworkId(failoverVirtualNetwork.id())
+ *             .resourceGroupName(primary.name())
+ *             .virtualNetworkName(primaryVirtualNetwork.name())
+ *             .build());
+ * 
+ *         var default_ = new Subnet("default", SubnetArgs.builder()
+ *             .name("default")
+ *             .resourceGroupName(failover.name())
+ *             .virtualNetworkName(failoverVirtualNetwork.name())
+ *             .addressPrefixes("10.1.0.0/24")
+ *             .build());
+ * 
+ *         var failoverToPrimary = new VirtualNetworkPeering("failoverToPrimary", VirtualNetworkPeeringArgs.builder()
+ *             .name("failover-to-primary")
+ *             .remoteVirtualNetworkId(primaryVirtualNetwork.id())
+ *             .resourceGroupName(failover.name())
+ *             .virtualNetworkName(failoverVirtualNetwork.name())
  *             .build());
  * 
  *     }
@@ -160,6 +285,8 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &gt; **Note:** There are many prerequisites that must be in place before creating the failover group. To see them all, refer to [Configure a failover group for Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
  * 
  * ## Import
  * 
@@ -283,6 +410,20 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
      */
     public Output<String> role() {
         return this.role;
+    }
+    /**
+     * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     * 
+     */
+    @Export(name="secondaryType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> secondaryType;
+
+    /**
+     * @return The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
+     * 
+     */
+    public Output<Optional<String>> secondaryType() {
+        return Codegen.optional(this.secondaryType);
     }
 
     /**

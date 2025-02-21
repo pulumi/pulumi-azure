@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AI Services account.
+// Manages an AI Services Account.
 //
 // ## Example Usage
 //

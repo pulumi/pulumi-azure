@@ -75,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ScaleSet{}
 	case "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture":
 		r = &ScaleSetPacketCapture{}
+	case "azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool":
+		r = &ScaleSetStandbyPool{}
 	case "azure:compute/sharedImage:SharedImage":
 		r = &SharedImage{}
 	case "azure:compute/sharedImageGallery:SharedImageGallery":
@@ -239,6 +241,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/scaleSetPacketCapture",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/scaleSetStandbyPool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

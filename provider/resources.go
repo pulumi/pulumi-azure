@@ -57,8 +57,10 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
-	aadb2c                = "AadB2C"           // Advisor
-	advisor               = "Advisor"          // Advisor
+	aadb2c    = "AadB2C"    // Advisor
+	advisor   = "Advisor"   // Advisor
+	aiFoundry = "AIFoundry" // AI Foundry
+
 	azureAnalysisServices = "AnalysisServices" // Analysis Services
 	azureAPIManagement    = "ApiManagement"    // API Management
 	azureAppConfiguration = "AppConfiguration" // App Configuration
@@ -198,6 +200,7 @@ const (
 var moduleMap = map[string]string{
 	"aadb2c":               aadb2c,
 	"advisor":              advisor,
+	"ai_foundry":           aiFoundry,
 	"analysis_services":    azureAnalysisServices,
 	"api_management":       azureAPIManagement,
 	"app":                  azureAppConfiguration,
@@ -618,6 +621,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_active_directory_domain_service_trust": {Tok: azureResource(azureDomainServices, "ServiceTrust")},
 
 			"azurerm_advisor_suppression": {Tok: azureResource(advisor, "Suppression"), Docs: &tfbridge.DocInfo{Source: "advisor_suppresion.html.markdown"}},
+
+			"azurerm_ai_foundry": {Tok: azureResource(aiFoundry, "Hub")},
 
 			// API Mannagement
 			"azurerm_api_management": {
@@ -3254,7 +3259,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_oracle_autonomous_database": {Docs: &tfbridge.DocInfo{Source: "oracle_autonomous_database_regular.html.markdown"}},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			TypeScriptVersion: "4.7.4",
+			TypeScriptVersion: "^4",
 			DevDependencies: map[string]string{
 				"@types/node":       "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/node-fetch": "^2.5.8",
@@ -3262,7 +3267,7 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@azure/eventgrid":              "^4.6.0",
 				"@azure/functions":              "=1.2.2",
-				"@azure/identity":               "^4.0.0",
+				"@azure/identity":               "~4.6.0",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"azure-functions-ts-essentials": "^1.3.2",
 				"moment":                        "2.29.4",

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? SecretRotationEnabled;
         /// <summary>
-        /// The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+        /// The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
         /// 
         /// &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         /// </summary>

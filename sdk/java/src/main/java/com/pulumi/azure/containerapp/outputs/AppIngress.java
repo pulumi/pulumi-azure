@@ -24,6 +24,11 @@ public final class AppIngress {
      */
     private @Nullable Boolean allowInsecureConnections;
     /**
+     * @return The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+     * 
+     */
+    private @Nullable String clientCertificateMode;
+    /**
      * @return One or more `custom_domain` block as detailed below.
      * 
      */
@@ -75,6 +80,13 @@ public final class AppIngress {
      */
     public Optional<Boolean> allowInsecureConnections() {
         return Optional.ofNullable(this.allowInsecureConnections);
+    }
+    /**
+     * @return The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+     * 
+     */
+    public Optional<String> clientCertificateMode() {
+        return Optional.ofNullable(this.clientCertificateMode);
     }
     /**
      * @return One or more `custom_domain` block as detailed below.
@@ -147,6 +159,7 @@ public final class AppIngress {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowInsecureConnections;
+        private @Nullable String clientCertificateMode;
         private @Nullable List<AppIngressCustomDomain> customDomains;
         private @Nullable Integer exposedPort;
         private @Nullable Boolean externalEnabled;
@@ -159,6 +172,7 @@ public final class AppIngress {
         public Builder(AppIngress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
+    	      this.clientCertificateMode = defaults.clientCertificateMode;
     	      this.customDomains = defaults.customDomains;
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
@@ -173,6 +187,12 @@ public final class AppIngress {
         public Builder allowInsecureConnections(@Nullable Boolean allowInsecureConnections) {
 
             this.allowInsecureConnections = allowInsecureConnections;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientCertificateMode(@Nullable String clientCertificateMode) {
+
+            this.clientCertificateMode = clientCertificateMode;
             return this;
         }
         @CustomType.Setter
@@ -239,6 +259,7 @@ public final class AppIngress {
         public AppIngress build() {
             final var _resultValue = new AppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
+            _resultValue.clientCertificateMode = clientCertificateMode;
             _resultValue.customDomains = customDomains;
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;

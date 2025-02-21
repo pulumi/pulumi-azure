@@ -27,7 +27,13 @@ class GetConfigurationStoreResult:
     """
     A collection of values returned by getConfigurationStore.
     """
-    def __init__(__self__, encryptions=None, endpoint=None, id=None, identities=None, local_auth_enabled=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, public_network_access_enabled=None, purge_protection_enabled=None, replicas=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, soft_delete_retention_days=None, tags=None):
+    def __init__(__self__, data_plane_proxy_authentication_mode=None, data_plane_proxy_private_link_delegation_enabled=None, encryptions=None, endpoint=None, id=None, identities=None, local_auth_enabled=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, public_network_access_enabled=None, purge_protection_enabled=None, replicas=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, soft_delete_retention_days=None, tags=None):
+        if data_plane_proxy_authentication_mode and not isinstance(data_plane_proxy_authentication_mode, str):
+            raise TypeError("Expected argument 'data_plane_proxy_authentication_mode' to be a str")
+        pulumi.set(__self__, "data_plane_proxy_authentication_mode", data_plane_proxy_authentication_mode)
+        if data_plane_proxy_private_link_delegation_enabled and not isinstance(data_plane_proxy_private_link_delegation_enabled, bool):
+            raise TypeError("Expected argument 'data_plane_proxy_private_link_delegation_enabled' to be a bool")
+        pulumi.set(__self__, "data_plane_proxy_private_link_delegation_enabled", data_plane_proxy_private_link_delegation_enabled)
         if encryptions and not isinstance(encryptions, list):
             raise TypeError("Expected argument 'encryptions' to be a list")
         pulumi.set(__self__, "encryptions", encryptions)
@@ -87,6 +93,22 @@ class GetConfigurationStoreResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
+    @pulumi.getter(name="dataPlaneProxyAuthenticationMode")
+    def data_plane_proxy_authentication_mode(self) -> str:
+        """
+        The data plane proxy authentication mode.
+        """
+        return pulumi.get(self, "data_plane_proxy_authentication_mode")
+
+    @property
+    @pulumi.getter(name="dataPlaneProxyPrivateLinkDelegationEnabled")
+    def data_plane_proxy_private_link_delegation_enabled(self) -> bool:
+        """
+        Whether data plane proxy private link delegation is enabled.
+        """
+        return pulumi.get(self, "data_plane_proxy_private_link_delegation_enabled")
+
+    @property
     @pulumi.getter
     def encryptions(self) -> Sequence['outputs.GetConfigurationStoreEncryptionResult']:
         """
@@ -113,13 +135,16 @@ class GetConfigurationStoreResult:
     @property
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetConfigurationStoreIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="localAuthEnabled")
     def local_auth_enabled(self) -> bool:
         """
-        Whether local authentication methods is enabled.
+        Whether local authentication methods are enabled.
         """
         return pulumi.get(self, "local_auth_enabled")
 
@@ -236,6 +261,8 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
         if False:
             yield self
         return GetConfigurationStoreResult(
+            data_plane_proxy_authentication_mode=self.data_plane_proxy_authentication_mode,
+            data_plane_proxy_private_link_delegation_enabled=self.data_plane_proxy_private_link_delegation_enabled,
             encryptions=self.encryptions,
             endpoint=self.endpoint,
             id=self.id,
@@ -285,6 +312,8 @@ def get_configuration_store(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:appconfiguration/getConfigurationStore:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult).value
 
     return AwaitableGetConfigurationStoreResult(
+        data_plane_proxy_authentication_mode=pulumi.get(__ret__, 'data_plane_proxy_authentication_mode'),
+        data_plane_proxy_private_link_delegation_enabled=pulumi.get(__ret__, 'data_plane_proxy_private_link_delegation_enabled'),
         encryptions=pulumi.get(__ret__, 'encryptions'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
@@ -331,6 +360,8 @@ def get_configuration_store_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:appconfiguration/getConfigurationStore:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult)
     return __ret__.apply(lambda __response__: GetConfigurationStoreResult(
+        data_plane_proxy_authentication_mode=pulumi.get(__response__, 'data_plane_proxy_authentication_mode'),
+        data_plane_proxy_private_link_delegation_enabled=pulumi.get(__response__, 'data_plane_proxy_private_link_delegation_enabled'),
         encryptions=pulumi.get(__response__, 'encryptions'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),

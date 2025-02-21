@@ -197,7 +197,7 @@ class ConfigurationStoreEncryption(dict):
                  identity_client_id: Optional[str] = None,
                  key_vault_key_identifier: Optional[str] = None):
         """
-        :param str identity_client_id: Specifies the client id of the identity which will be used to access key vault.
+        :param str identity_client_id: Specifies the client ID of the identity which will be used to access key vault.
         :param str key_vault_key_identifier: Specifies the URI of the key vault key used to encrypt data.
         """
         if identity_client_id is not None:
@@ -209,7 +209,7 @@ class ConfigurationStoreEncryption(dict):
     @pulumi.getter(name="identityClientId")
     def identity_client_id(self) -> Optional[str]:
         """
-        Specifies the client id of the identity which will be used to access key vault.
+        Specifies the client ID of the identity which will be used to access key vault.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -251,7 +251,7 @@ class ConfigurationStoreIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
                
                > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
@@ -270,7 +270,7 @@ class ConfigurationStoreIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -325,7 +325,7 @@ class ConfigurationStorePrimaryReadKey(dict):
                  id: Optional[str] = None,
                  secret: Optional[str] = None):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -340,7 +340,7 @@ class ConfigurationStorePrimaryReadKey(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[str]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -385,7 +385,7 @@ class ConfigurationStorePrimaryWriteKey(dict):
                  id: Optional[str] = None,
                  secret: Optional[str] = None):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -400,7 +400,7 @@ class ConfigurationStorePrimaryWriteKey(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[str]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -498,7 +498,7 @@ class ConfigurationStoreSecondaryReadKey(dict):
                  id: Optional[str] = None,
                  secret: Optional[str] = None):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -513,7 +513,7 @@ class ConfigurationStoreSecondaryReadKey(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[str]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -558,7 +558,7 @@ class ConfigurationStoreSecondaryWriteKey(dict):
                  id: Optional[str] = None,
                  secret: Optional[str] = None):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -573,7 +573,7 @@ class ConfigurationStoreSecondaryWriteKey(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[str]:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID, and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -759,7 +759,7 @@ class GetConfigurationStorePrimaryReadKeyResult(dict):
                  id: str,
                  secret: str):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -771,7 +771,7 @@ class GetConfigurationStorePrimaryReadKeyResult(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -799,7 +799,7 @@ class GetConfigurationStorePrimaryWriteKeyResult(dict):
                  id: str,
                  secret: str):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -811,7 +811,7 @@ class GetConfigurationStorePrimaryWriteKeyResult(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -890,7 +890,7 @@ class GetConfigurationStoreSecondaryReadKeyResult(dict):
                  id: str,
                  secret: str):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -902,7 +902,7 @@ class GetConfigurationStoreSecondaryReadKeyResult(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         """
         return pulumi.get(self, "connection_string")
 
@@ -930,7 +930,7 @@ class GetConfigurationStoreSecondaryWriteKeyResult(dict):
                  id: str,
                  secret: str):
         """
-        :param str connection_string: The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        :param str connection_string: The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         :param str id: The ID of the Access Key.
         :param str secret: The Secret of the Access Key.
         """
@@ -942,7 +942,7 @@ class GetConfigurationStoreSecondaryWriteKeyResult(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        The Connection String for this Access Key - consisting of the Endpoint, ID and Secret.
         """
         return pulumi.get(self, "connection_string")
 

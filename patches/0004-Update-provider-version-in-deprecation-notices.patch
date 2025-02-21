@@ -6,7 +6,7 @@ Subject: [PATCH] Update provider version in deprecation notices
 We want to include the deprecation notices, but need them to match our version number which is not the same at the upstream version number.
 
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 29e8bbd40f..14336e59d1 100644
+index fc7d1801b1..b372d00d98 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -58,7 +58,7 @@ index 42c3fd2783..a0c2593b2e 100644
  ## Example Usage (Dedicated)
  
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 8074da920a..5a60509251 100644
+index 4361004068..92f5dd4131 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-

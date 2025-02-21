@@ -210,6 +210,12 @@ import (
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
+	// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+	DataPlaneProxyAuthenticationMode pulumi.StringPtrOutput `pulumi:"dataPlaneProxyAuthenticationMode"`
+	// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+	//
+	// > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+	DataPlaneProxyPrivateLinkDelegationEnabled pulumi.BoolPtrOutput `pulumi:"dataPlaneProxyPrivateLinkDelegationEnabled"`
 	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrOutput `pulumi:"encryption"`
 	// The URL of the App Configuration Replica.
@@ -287,6 +293,12 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+	DataPlaneProxyAuthenticationMode *string `pulumi:"dataPlaneProxyAuthenticationMode"`
+	// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+	//
+	// > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+	DataPlaneProxyPrivateLinkDelegationEnabled *bool `pulumi:"dataPlaneProxyPrivateLinkDelegationEnabled"`
 	// An `encryption` block as defined below.
 	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// The URL of the App Configuration Replica.
@@ -332,6 +344,12 @@ type configurationStoreState struct {
 }
 
 type ConfigurationStoreState struct {
+	// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+	DataPlaneProxyAuthenticationMode pulumi.StringPtrInput
+	// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+	//
+	// > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+	DataPlaneProxyPrivateLinkDelegationEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrInput
 	// The URL of the App Configuration Replica.
@@ -381,6 +399,12 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
+	// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+	DataPlaneProxyAuthenticationMode *string `pulumi:"dataPlaneProxyAuthenticationMode"`
+	// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+	//
+	// > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+	DataPlaneProxyPrivateLinkDelegationEnabled *bool `pulumi:"dataPlaneProxyPrivateLinkDelegationEnabled"`
 	// An `encryption` block as defined below.
 	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -417,6 +441,12 @@ type configurationStoreArgs struct {
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
+	// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+	DataPlaneProxyAuthenticationMode pulumi.StringPtrInput
+	// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+	//
+	// > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+	DataPlaneProxyPrivateLinkDelegationEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrInput
 	// An `identity` block as defined below.
@@ -536,6 +566,18 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStor
 
 func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
 	return o
+}
+
+// The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
+func (o ConfigurationStoreOutput) DataPlaneProxyAuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.DataPlaneProxyAuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+//
+// > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
+func (o ConfigurationStoreOutput) DataPlaneProxyPrivateLinkDelegationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.BoolPtrOutput { return v.DataPlaneProxyPrivateLinkDelegationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `encryption` block as defined below.

@@ -377,6 +377,8 @@ func (o AppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AppIngress struct {
 	// Should this ingress allow insecure connections?
 	AllowInsecureConnections *bool `pulumi:"allowInsecureConnections"`
+	// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains []AppIngressCustomDomain `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -413,6 +415,8 @@ type AppIngressInput interface {
 type AppIngressArgs struct {
 	// Should this ingress allow insecure connections?
 	AllowInsecureConnections pulumi.BoolPtrInput `pulumi:"allowInsecureConnections"`
+	// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+	ClientCertificateMode pulumi.StringPtrInput `pulumi:"clientCertificateMode"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains AppIngressCustomDomainArrayInput `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -517,6 +521,11 @@ func (o AppIngressOutput) AllowInsecureConnections() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppIngress) *bool { return v.AllowInsecureConnections }).(pulumi.BoolPtrOutput)
 }
 
+// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+func (o AppIngressOutput) ClientCertificateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppIngress) *string { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
+}
+
 // One or more `customDomain` block as detailed below.
 func (o AppIngressOutput) CustomDomains() AppIngressCustomDomainArrayOutput {
 	return o.ApplyT(func(v AppIngress) []AppIngressCustomDomain { return v.CustomDomains }).(AppIngressCustomDomainArrayOutput)
@@ -593,6 +602,16 @@ func (o AppIngressPtrOutput) AllowInsecureConnections() pulumi.BoolPtrOutput {
 		}
 		return v.AllowInsecureConnections
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+func (o AppIngressPtrOutput) ClientCertificateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppIngress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more `customDomain` block as detailed below.

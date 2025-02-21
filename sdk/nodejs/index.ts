@@ -16,6 +16,7 @@ export * from "./util";
 // Export sub-modules:
 import * as aadb2c from "./aadb2c";
 import * as advisor from "./advisor";
+import * as aifoundry from "./aifoundry";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
 import * as appconfiguration from "./appconfiguration";
@@ -152,6 +153,7 @@ import * as workloadssap from "./workloadssap";
 export {
     aadb2c,
     advisor,
+    aifoundry,
     analysisservices,
     apimanagement,
     appconfiguration,

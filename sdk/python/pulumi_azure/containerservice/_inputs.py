@@ -7053,7 +7053,7 @@ if not MYPY:
         """
         secret_rotation_interval: NotRequired[pulumi.Input[str]]
         """
-        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+        The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
 
         > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """
@@ -7069,7 +7069,7 @@ class KubernetesClusterKeyVaultSecretsProviderArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param pulumi.Input[bool] secret_rotation_enabled: Should the secret store CSI driver on the AKS cluster be enabled?
-        :param pulumi.Input[str] secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+        :param pulumi.Input[str] secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
                
                > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """
@@ -7108,7 +7108,7 @@ class KubernetesClusterKeyVaultSecretsProviderArgs:
     @pulumi.getter(name="secretRotationInterval")
     def secret_rotation_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
+        The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
 
         > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """

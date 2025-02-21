@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
-        /// The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        /// The Remote Debugging Version. Currently only `VS2022` is supported.
         /// </summary>
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
