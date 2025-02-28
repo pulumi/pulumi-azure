@@ -930,6 +930,15 @@ func Provider() tfbridge.ProviderInfo {
 					}
 					return pm, nil
 				},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Use default autonaming options, but set max length to 64 as allowed by Azure.
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "-",
+						Maxlen:    64,
+						Randlen:   7,
+						Transform: strings.ToLower,
+					}),
+				},
 			},
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
