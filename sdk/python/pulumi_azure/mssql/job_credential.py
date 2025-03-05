@@ -20,21 +20,32 @@ __all__ = ['JobCredentialArgs', 'JobCredential']
 class JobCredentialArgs:
     def __init__(__self__, *,
                  job_agent_id: pulumi.Input[str],
-                 password: pulumi.Input[str],
                  username: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 password_wo: Optional[pulumi.Input[str]] = None,
+                 password_wo_version: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a JobCredential resource.
         :param pulumi.Input[str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
-        :param pulumi.Input[str] password: The password part of the credential.
-        :param pulumi.Input[str] username: The username part of the credential.
+        :param pulumi.Input[str] username: The username to use for this Elastic Job credential.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
+        :param pulumi.Input[str] password: The password to use for this Elastic Job credential.
+        :param pulumi.Input[str] password_wo: The password to use for this Elastic Job credential.
+               
+               > **Note:** One of `password` or `password_wo` must be specified.
+        :param pulumi.Input[int] password_wo_version: An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
         """
         pulumi.set(__self__, "job_agent_id", job_agent_id)
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if password_wo is not None:
+            pulumi.set(__self__, "password_wo", password_wo)
+        if password_wo_version is not None:
+            pulumi.set(__self__, "password_wo_version", password_wo_version)
 
     @property
     @pulumi.getter(name="jobAgentId")
@@ -50,21 +61,9 @@ class JobCredentialArgs:
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        The password part of the credential.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The username part of the credential.
+        The username to use for this Elastic Job credential.
         """
         return pulumi.get(self, "username")
 
@@ -84,6 +83,44 @@ class JobCredentialArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to use for this Elastic Job credential.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="passwordWo")
+    def password_wo(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to use for this Elastic Job credential.
+
+        > **Note:** One of `password` or `password_wo` must be specified.
+        """
+        return pulumi.get(self, "password_wo")
+
+    @password_wo.setter
+    def password_wo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_wo", value)
+
+    @property
+    @pulumi.getter(name="passwordWoVersion")
+    def password_wo_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        """
+        return pulumi.get(self, "password_wo_version")
+
+    @password_wo_version.setter
+    def password_wo_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "password_wo_version", value)
+
 
 @pulumi.input_type
 class _JobCredentialState:
@@ -91,13 +128,19 @@ class _JobCredentialState:
                  job_agent_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_wo: Optional[pulumi.Input[str]] = None,
+                 password_wo_version: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering JobCredential resources.
         :param pulumi.Input[str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
-        :param pulumi.Input[str] password: The password part of the credential.
-        :param pulumi.Input[str] username: The username part of the credential.
+        :param pulumi.Input[str] password: The password to use for this Elastic Job credential.
+        :param pulumi.Input[str] password_wo: The password to use for this Elastic Job credential.
+               
+               > **Note:** One of `password` or `password_wo` must be specified.
+        :param pulumi.Input[int] password_wo_version: An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        :param pulumi.Input[str] username: The username to use for this Elastic Job credential.
         """
         if job_agent_id is not None:
             pulumi.set(__self__, "job_agent_id", job_agent_id)
@@ -105,6 +148,10 @@ class _JobCredentialState:
             pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_wo is not None:
+            pulumi.set(__self__, "password_wo", password_wo)
+        if password_wo_version is not None:
+            pulumi.set(__self__, "password_wo_version", password_wo_version)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -136,7 +183,7 @@ class _JobCredentialState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password part of the credential.
+        The password to use for this Elastic Job credential.
         """
         return pulumi.get(self, "password")
 
@@ -145,10 +192,36 @@ class _JobCredentialState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="passwordWo")
+    def password_wo(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to use for this Elastic Job credential.
+
+        > **Note:** One of `password` or `password_wo` must be specified.
+        """
+        return pulumi.get(self, "password_wo")
+
+    @password_wo.setter
+    def password_wo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_wo", value)
+
+    @property
+    @pulumi.getter(name="passwordWoVersion")
+    def password_wo_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        """
+        return pulumi.get(self, "password_wo_version")
+
+    @password_wo_version.setter
+    def password_wo_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "password_wo_version", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username part of the credential.
+        The username to use for this Elastic Job credential.
         """
         return pulumi.get(self, "username")
 
@@ -165,6 +238,8 @@ class JobCredential(pulumi.CustomResource):
                  job_agent_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_wo: Optional[pulumi.Input[str]] = None,
+                 password_wo_version: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -214,8 +289,12 @@ class JobCredential(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
-        :param pulumi.Input[str] password: The password part of the credential.
-        :param pulumi.Input[str] username: The username part of the credential.
+        :param pulumi.Input[str] password: The password to use for this Elastic Job credential.
+        :param pulumi.Input[str] password_wo: The password to use for this Elastic Job credential.
+               
+               > **Note:** One of `password` or `password_wo` must be specified.
+        :param pulumi.Input[int] password_wo_version: An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        :param pulumi.Input[str] username: The username to use for this Elastic Job credential.
         """
         ...
     @overload
@@ -284,6 +363,8 @@ class JobCredential(pulumi.CustomResource):
                  job_agent_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 password_wo: Optional[pulumi.Input[str]] = None,
+                 password_wo_version: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -298,9 +379,9 @@ class JobCredential(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_agent_id'")
             __props__.__dict__["job_agent_id"] = job_agent_id
             __props__.__dict__["name"] = name
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["password_wo"] = password_wo
+            __props__.__dict__["password_wo_version"] = password_wo_version
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
@@ -319,6 +400,8 @@ class JobCredential(pulumi.CustomResource):
             job_agent_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
+            password_wo: Optional[pulumi.Input[str]] = None,
+            password_wo_version: Optional[pulumi.Input[int]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'JobCredential':
         """
         Get an existing JobCredential resource's state with the given name, id, and optional extra
@@ -329,8 +412,12 @@ class JobCredential(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
-        :param pulumi.Input[str] password: The password part of the credential.
-        :param pulumi.Input[str] username: The username part of the credential.
+        :param pulumi.Input[str] password: The password to use for this Elastic Job credential.
+        :param pulumi.Input[str] password_wo: The password to use for this Elastic Job credential.
+               
+               > **Note:** One of `password` or `password_wo` must be specified.
+        :param pulumi.Input[int] password_wo_version: An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        :param pulumi.Input[str] username: The username to use for this Elastic Job credential.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,6 +426,8 @@ class JobCredential(pulumi.CustomResource):
         __props__.__dict__["job_agent_id"] = job_agent_id
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
+        __props__.__dict__["password_wo"] = password_wo
+        __props__.__dict__["password_wo_version"] = password_wo_version
         __props__.__dict__["username"] = username
         return JobCredential(resource_name, opts=opts, __props__=__props__)
 
@@ -360,17 +449,35 @@ class JobCredential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password part of the credential.
+        The password to use for this Elastic Job credential.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="passwordWo")
+    def password_wo(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password to use for this Elastic Job credential.
+
+        > **Note:** One of `password` or `password_wo` must be specified.
+        """
+        return pulumi.get(self, "password_wo")
+
+    @property
+    @pulumi.getter(name="passwordWoVersion")
+    def password_wo_version(self) -> pulumi.Output[Optional[int]]:
+        """
+        An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        """
+        return pulumi.get(self, "password_wo_version")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
         """
-        The username part of the credential.
+        The username to use for this Elastic Job credential.
         """
         return pulumi.get(self, "username")
 

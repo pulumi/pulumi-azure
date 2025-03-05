@@ -289,12 +289,18 @@ type ManagedInstance struct {
 	AzureActiveDirectoryAdministrator ManagedInstanceAzureActiveDirectoryAdministratorPtrOutput `pulumi:"azureActiveDirectoryAdministrator"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
+	// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+	//
+	// > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+	DatabaseFormat pulumi.StringPtrOutput `pulumi:"databaseFormat"`
 	// The Dns Zone where the SQL Managed Instance is located.
 	DnsZone pulumi.StringOutput `pulumi:"dnsZone"`
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrOutput `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+	// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+	HybridSecondaryUsage pulumi.StringPtrOutput `pulumi:"hybridSecondaryUsage"`
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrOutput `pulumi:"identity"`
 	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -404,12 +410,18 @@ type managedInstanceState struct {
 	AzureActiveDirectoryAdministrator *ManagedInstanceAzureActiveDirectoryAdministrator `pulumi:"azureActiveDirectoryAdministrator"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
+	// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+	//
+	// > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+	DatabaseFormat *string `pulumi:"databaseFormat"`
 	// The Dns Zone where the SQL Managed Instance is located.
 	DnsZone *string `pulumi:"dnsZone"`
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn *string `pulumi:"fqdn"`
+	// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+	HybridSecondaryUsage *string `pulumi:"hybridSecondaryUsage"`
 	// An `identity` block as defined below.
 	Identity *ManagedInstanceIdentity `pulumi:"identity"`
 	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -459,12 +471,18 @@ type ManagedInstanceState struct {
 	AzureActiveDirectoryAdministrator ManagedInstanceAzureActiveDirectoryAdministratorPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
+	// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+	//
+	// > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+	DatabaseFormat pulumi.StringPtrInput
 	// The Dns Zone where the SQL Managed Instance is located.
 	DnsZone pulumi.StringPtrInput
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringPtrInput
+	// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+	HybridSecondaryUsage pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrInput
 	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -518,8 +536,14 @@ type managedInstanceArgs struct {
 	AzureActiveDirectoryAdministrator *ManagedInstanceAzureActiveDirectoryAdministrator `pulumi:"azureActiveDirectoryAdministrator"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
+	// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+	//
+	// > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+	DatabaseFormat *string `pulumi:"databaseFormat"`
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
+	// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+	HybridSecondaryUsage *string `pulumi:"hybridSecondaryUsage"`
 	// An `identity` block as defined below.
 	Identity *ManagedInstanceIdentity `pulumi:"identity"`
 	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -570,8 +594,14 @@ type ManagedInstanceArgs struct {
 	AzureActiveDirectoryAdministrator ManagedInstanceAzureActiveDirectoryAdministratorPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
+	// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+	//
+	// > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+	DatabaseFormat pulumi.StringPtrInput
 	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
+	// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+	HybridSecondaryUsage pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrInput
 	// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -721,6 +751,13 @@ func (o ManagedInstanceOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+//
+// > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+func (o ManagedInstanceOutput) DatabaseFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.DatabaseFormat }).(pulumi.StringPtrOutput)
+}
+
 // The Dns Zone where the SQL Managed Instance is located.
 func (o ManagedInstanceOutput) DnsZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.DnsZone }).(pulumi.StringOutput)
@@ -734,6 +771,11 @@ func (o ManagedInstanceOutput) DnsZonePartnerId() pulumi.StringPtrOutput {
 // The fully qualified domain name of the Azure Managed SQL Instance
 func (o ManagedInstanceOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+func (o ManagedInstanceOutput) HybridSecondaryUsage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.HybridSecondaryUsage }).(pulumi.StringPtrOutput)
 }
 
 // An `identity` block as defined below.

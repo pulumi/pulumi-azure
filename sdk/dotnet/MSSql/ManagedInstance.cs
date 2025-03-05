@@ -296,6 +296,14 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+        /// 
+        /// &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        /// </summary>
+        [Output("databaseFormat")]
+        public Output<string?> DatabaseFormat { get; private set; } = null!;
+
+        /// <summary>
         /// The Dns Zone where the SQL Managed Instance is located.
         /// </summary>
         [Output("dnsZone")]
@@ -312,6 +320,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+        /// </summary>
+        [Output("hybridSecondaryUsage")]
+        public Output<string?> HybridSecondaryUsage { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -512,10 +526,24 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
+        /// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+        /// 
+        /// &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        /// </summary>
+        [Input("databaseFormat")]
+        public Input<string>? DatabaseFormat { get; set; }
+
+        /// <summary>
         /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }
+
+        /// <summary>
+        /// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+        /// </summary>
+        [Input("hybridSecondaryUsage")]
+        public Input<string>? HybridSecondaryUsage { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -676,6 +704,14 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
+        /// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+        /// 
+        /// &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        /// </summary>
+        [Input("databaseFormat")]
+        public Input<string>? DatabaseFormat { get; set; }
+
+        /// <summary>
         /// The Dns Zone where the SQL Managed Instance is located.
         /// </summary>
         [Input("dnsZone")]
@@ -692,6 +728,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+        /// </summary>
+        [Input("hybridSecondaryUsage")]
+        public Input<string>? HybridSecondaryUsage { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

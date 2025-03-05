@@ -96,6 +96,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         /// </summary>
         [Output("builtinLoggingEnabled")]
         public Output<bool?> BuiltinLoggingEnabled { get; private set; } = null!;
@@ -422,6 +424,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -678,6 +682,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }

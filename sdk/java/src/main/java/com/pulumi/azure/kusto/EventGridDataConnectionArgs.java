@@ -96,13 +96,32 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
      * The resource ID of the event grid that is subscribed to the storage account events.
      * 
      */
-    @Import(name="eventgridResourceId")
-    private @Nullable Output<String> eventgridResourceId;
+    @Import(name="eventgridEventSubscriptionId")
+    private @Nullable Output<String> eventgridEventSubscriptionId;
 
     /**
      * @return The resource ID of the event grid that is subscribed to the storage account events.
      * 
      */
+    public Optional<Output<String>> eventgridEventSubscriptionId() {
+        return Optional.ofNullable(this.eventgridEventSubscriptionId);
+    }
+
+    /**
+     * @deprecated
+     * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Import(name="eventgridResourceId")
+    private @Nullable Output<String> eventgridResourceId;
+
+    /**
+     * @deprecated
+     * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> eventgridResourceId() {
         return Optional.ofNullable(this.eventgridResourceId);
     }
@@ -156,13 +175,32 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
-    @Import(name="managedIdentityResourceId")
-    private @Nullable Output<String> managedIdentityResourceId;
+    @Import(name="managedIdentityId")
+    private @Nullable Output<String> managedIdentityId;
 
     /**
      * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
+    public Optional<Output<String>> managedIdentityId() {
+        return Optional.ofNullable(this.managedIdentityId);
+    }
+
+    /**
+     * @deprecated
+     * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Import(name="managedIdentityResourceId")
+    private @Nullable Output<String> managedIdentityResourceId;
+
+    /**
+     * @deprecated
+     * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> managedIdentityResourceId() {
         return Optional.ofNullable(this.managedIdentityResourceId);
     }
@@ -265,10 +303,12 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         this.dataFormat = $.dataFormat;
         this.databaseName = $.databaseName;
         this.databaseRoutingType = $.databaseRoutingType;
+        this.eventgridEventSubscriptionId = $.eventgridEventSubscriptionId;
         this.eventgridResourceId = $.eventgridResourceId;
         this.eventhubConsumerGroupName = $.eventhubConsumerGroupName;
         this.eventhubId = $.eventhubId;
         this.location = $.location;
+        this.managedIdentityId = $.managedIdentityId;
         this.managedIdentityResourceId = $.managedIdentityResourceId;
         this.mappingRuleName = $.mappingRuleName;
         this.name = $.name;
@@ -402,22 +442,47 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param eventgridResourceId The resource ID of the event grid that is subscribed to the storage account events.
+         * @param eventgridEventSubscriptionId The resource ID of the event grid that is subscribed to the storage account events.
          * 
          * @return builder
          * 
          */
+        public Builder eventgridEventSubscriptionId(@Nullable Output<String> eventgridEventSubscriptionId) {
+            $.eventgridEventSubscriptionId = eventgridEventSubscriptionId;
+            return this;
+        }
+
+        /**
+         * @param eventgridEventSubscriptionId The resource ID of the event grid that is subscribed to the storage account events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventgridEventSubscriptionId(String eventgridEventSubscriptionId) {
+            return eventgridEventSubscriptionId(Output.of(eventgridEventSubscriptionId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder eventgridResourceId(@Nullable Output<String> eventgridResourceId) {
             $.eventgridResourceId = eventgridResourceId;
             return this;
         }
 
         /**
-         * @param eventgridResourceId The resource ID of the event grid that is subscribed to the storage account events.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder eventgridResourceId(String eventgridResourceId) {
             return eventgridResourceId(Output.of(eventgridResourceId));
         }
@@ -486,22 +551,47 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+         * @param managedIdentityId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
          * 
          * @return builder
          * 
          */
+        public Builder managedIdentityId(@Nullable Output<String> managedIdentityId) {
+            $.managedIdentityId = managedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param managedIdentityId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentityId(String managedIdentityId) {
+            return managedIdentityId(Output.of(managedIdentityId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedIdentityResourceId(@Nullable Output<String> managedIdentityResourceId) {
             $.managedIdentityResourceId = managedIdentityResourceId;
             return this;
         }
 
         /**
-         * @param managedIdentityResourceId Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedIdentityResourceId(String managedIdentityResourceId) {
             return managedIdentityResourceId(Output.of(managedIdentityResourceId));
         }

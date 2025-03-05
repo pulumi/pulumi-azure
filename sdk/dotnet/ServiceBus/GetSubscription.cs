@@ -167,6 +167,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string AutoDeleteOnIdle;
         /// <summary>
+        /// Whether batched operations are enabled.
+        /// </summary>
+        public readonly bool BatchedOperationsEnabled;
+        /// <summary>
         /// Does the ServiceBus Subscription have dead letter support on filter evaluation exceptions?
         /// </summary>
         public readonly bool DeadLetteringOnFilterEvaluationError;
@@ -178,9 +182,6 @@ namespace Pulumi.Azure.ServiceBus
         /// The Default message timespan to live. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         /// </summary>
         public readonly string DefaultMessageTtl;
-        /// <summary>
-        /// Are batched operations enabled on this ServiceBus Subscription?
-        /// </summary>
         public readonly bool EnableBatchedOperations;
         /// <summary>
         /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -205,7 +206,7 @@ namespace Pulumi.Azure.ServiceBus
         public readonly string Name;
         public readonly string? NamespaceName;
         /// <summary>
-        /// Whether or not this ServiceBus Subscription supports session.
+        /// Whether this ServiceBus Subscription supports session.
         /// </summary>
         public readonly bool RequiresSession;
         public readonly string? ResourceGroupName;
@@ -215,6 +216,8 @@ namespace Pulumi.Azure.ServiceBus
         [OutputConstructor]
         private GetSubscriptionResult(
             string autoDeleteOnIdle,
+
+            bool batchedOperationsEnabled,
 
             bool deadLetteringOnFilterEvaluationError,
 
@@ -247,6 +250,7 @@ namespace Pulumi.Azure.ServiceBus
             string? topicName)
         {
             AutoDeleteOnIdle = autoDeleteOnIdle;
+            BatchedOperationsEnabled = batchedOperationsEnabled;
             DeadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
             DeadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             DefaultMessageTtl = defaultMessageTtl;

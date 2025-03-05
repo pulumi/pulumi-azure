@@ -101,7 +101,7 @@ type SqlPool struct {
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrOutput `pulumi:"dataEncrypted"`
-	// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+	// Is geo-backup policy enabled? Defaults to `true`.
 	GeoBackupPolicyEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupPolicyEnabled"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -111,7 +111,7 @@ type SqlPool struct {
 	Restore SqlPoolRestorePtrOutput `pulumi:"restore"`
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
@@ -164,7 +164,7 @@ type sqlPoolState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// Is transparent data encryption enabled?
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
-	// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+	// Is geo-backup policy enabled? Defaults to `true`.
 	GeoBackupPolicyEnabled *bool `pulumi:"geoBackupPolicyEnabled"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
 	Name *string `pulumi:"name"`
@@ -174,7 +174,7 @@ type sqlPoolState struct {
 	Restore *SqlPoolRestore `pulumi:"restore"`
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName *string `pulumi:"skuName"`
-	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
@@ -189,7 +189,7 @@ type SqlPoolState struct {
 	CreateMode pulumi.StringPtrInput
 	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrInput
-	// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+	// Is geo-backup policy enabled? Defaults to `true`.
 	GeoBackupPolicyEnabled pulumi.BoolPtrInput
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
 	Name pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type SqlPoolState struct {
 	Restore SqlPoolRestorePtrInput
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringPtrInput
-	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
 	StorageAccountType pulumi.StringPtrInput
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
@@ -218,7 +218,7 @@ type sqlPoolArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// Is transparent data encryption enabled?
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
-	// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+	// Is geo-backup policy enabled? Defaults to `true`.
 	GeoBackupPolicyEnabled *bool `pulumi:"geoBackupPolicyEnabled"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
 	Name *string `pulumi:"name"`
@@ -228,7 +228,7 @@ type sqlPoolArgs struct {
 	Restore *SqlPoolRestore `pulumi:"restore"`
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName string `pulumi:"skuName"`
-	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
@@ -244,7 +244,7 @@ type SqlPoolArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrInput
-	// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+	// Is geo-backup policy enabled? Defaults to `true`.
 	GeoBackupPolicyEnabled pulumi.BoolPtrInput
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
 	Name pulumi.StringPtrInput
@@ -254,7 +254,7 @@ type SqlPoolArgs struct {
 	Restore SqlPoolRestorePtrInput
 	// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
 	SkuName pulumi.StringInput
-	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+	// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
 	StorageAccountType pulumi.StringInput
 	// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
 	SynapseWorkspaceId pulumi.StringInput
@@ -364,7 +364,7 @@ func (o SqlPoolOutput) DataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.BoolPtrOutput { return v.DataEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+// Is geo-backup policy enabled? Defaults to `true`.
 func (o SqlPoolOutput) GeoBackupPolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.BoolPtrOutput { return v.GeoBackupPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -389,7 +389,7 @@ func (o SqlPoolOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.StorageAccountType }).(pulumi.StringOutput)
 }

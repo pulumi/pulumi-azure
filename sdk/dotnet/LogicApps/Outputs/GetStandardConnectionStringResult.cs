@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class GetStandardConnectionStringResult
     {
         /// <summary>
-        /// The name of this Logic App.
+        /// The name of the Logic App.
         /// </summary>
         public readonly string Name;
         /// <summary>

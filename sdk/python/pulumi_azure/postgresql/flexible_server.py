@@ -24,6 +24,8 @@ class FlexibleServerArgs:
                  resource_group_name: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -55,7 +57,11 @@ class FlexibleServerArgs:
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
-        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+               
+               > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
@@ -104,6 +110,10 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
+        if administrator_password_wo is not None:
+            pulumi.set(__self__, "administrator_password_wo", administrator_password_wo)
+        if administrator_password_wo_version is not None:
+            pulumi.set(__self__, "administrator_password_wo_version", administrator_password_wo_version)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
         if auto_grow_enabled is not None:
@@ -183,13 +193,39 @@ class FlexibleServerArgs:
     @pulumi.getter(name="administratorPassword")
     def administrator_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
     def administrator_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_password", value)
+
+    @property
+    @pulumi.getter(name="administratorPasswordWo")
+    def administrator_password_wo(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+
+        > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        """
+        return pulumi.get(self, "administrator_password_wo")
+
+    @administrator_password_wo.setter
+    def administrator_password_wo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_password_wo", value)
+
+    @property
+    @pulumi.getter(name="administratorPasswordWoVersion")
+    def administrator_password_wo_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        """
+        return pulumi.get(self, "administrator_password_wo_version")
+
+    @administrator_password_wo_version.setter
+    def administrator_password_wo_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "administrator_password_wo_version", value)
 
     @property
     @pulumi.getter
@@ -490,6 +526,8 @@ class _FlexibleServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  authentication: Optional[pulumi.Input['FlexibleServerAuthenticationArgs']] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -522,7 +560,11 @@ class _FlexibleServerState:
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
-        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+               
+               > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
         :param pulumi.Input['FlexibleServerAuthenticationArgs'] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
@@ -572,6 +614,10 @@ class _FlexibleServerState:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
+        if administrator_password_wo is not None:
+            pulumi.set(__self__, "administrator_password_wo", administrator_password_wo)
+        if administrator_password_wo_version is not None:
+            pulumi.set(__self__, "administrator_password_wo_version", administrator_password_wo_version)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
         if auto_grow_enabled is not None:
@@ -643,13 +689,39 @@ class _FlexibleServerState:
     @pulumi.getter(name="administratorPassword")
     def administrator_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "administrator_password")
 
     @administrator_password.setter
     def administrator_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_password", value)
+
+    @property
+    @pulumi.getter(name="administratorPasswordWo")
+    def administrator_password_wo(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+
+        > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        """
+        return pulumi.get(self, "administrator_password_wo")
+
+    @administrator_password_wo.setter
+    def administrator_password_wo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_password_wo", value)
+
+    @property
+    @pulumi.getter(name="administratorPasswordWoVersion")
+    def administrator_password_wo_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        """
+        return pulumi.get(self, "administrator_password_wo_version")
+
+    @administrator_password_wo_version.setter
+    def administrator_password_wo_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "administrator_password_wo_version", value)
 
     @property
     @pulumi.getter
@@ -976,6 +1048,8 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1093,7 +1167,11 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
-        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+               
+               > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
         :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
@@ -1246,6 +1324,8 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
+                 administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1281,6 +1361,8 @@ class FlexibleServer(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_password"] = None if administrator_password is None else pulumi.Output.secret(administrator_password)
+            __props__.__dict__["administrator_password_wo"] = administrator_password_wo
+            __props__.__dict__["administrator_password_wo_version"] = administrator_password_wo_version
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
             __props__.__dict__["backup_retention_days"] = backup_retention_days
@@ -1322,6 +1404,8 @@ class FlexibleServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_password: Optional[pulumi.Input[str]] = None,
+            administrator_password_wo: Optional[pulumi.Input[str]] = None,
+            administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
             authentication: Optional[pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
             auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1359,7 +1443,11 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
-        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+               
+               > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
         :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
@@ -1411,6 +1499,8 @@ class FlexibleServer(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_password"] = administrator_password
+        __props__.__dict__["administrator_password_wo"] = administrator_password_wo
+        __props__.__dict__["administrator_password_wo_version"] = administrator_password_wo_version
         __props__.__dict__["authentication"] = authentication
         __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
         __props__.__dict__["backup_retention_days"] = backup_retention_days
@@ -1454,9 +1544,27 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter(name="administratorPassword")
     def administrator_password(self) -> pulumi.Output[Optional[str]]:
         """
-        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         """
         return pulumi.get(self, "administrator_password")
+
+    @property
+    @pulumi.getter(name="administratorPasswordWo")
+    def administrator_password_wo(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+
+        > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        """
+        return pulumi.get(self, "administrator_password_wo")
+
+    @property
+    @pulumi.getter(name="administratorPasswordWoVersion")
+    def administrator_password_wo_version(self) -> pulumi.Output[Optional[int]]:
+        """
+        An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        """
+        return pulumi.get(self, "administrator_password_wo_version")
 
     @property
     @pulumi.getter

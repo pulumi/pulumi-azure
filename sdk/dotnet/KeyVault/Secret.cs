@@ -89,7 +89,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
         /// </summary>
         [Output("expirationDate")]
         public Output<string?> ExpirationDate { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }

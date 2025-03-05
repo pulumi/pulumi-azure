@@ -22,6 +22,11 @@ public final class GetAppIngress {
      */
     private Boolean allowInsecureConnections;
     /**
+     * @return The client certificate mode for the Ingress.
+     * 
+     */
+    private String clientCertificateMode;
+    /**
      * @return One or more `custom_domain` block as detailed below.
      * 
      */
@@ -69,6 +74,13 @@ public final class GetAppIngress {
      */
     public Boolean allowInsecureConnections() {
         return this.allowInsecureConnections;
+    }
+    /**
+     * @return The client certificate mode for the Ingress.
+     * 
+     */
+    public String clientCertificateMode() {
+        return this.clientCertificateMode;
     }
     /**
      * @return One or more `custom_domain` block as detailed below.
@@ -137,6 +149,7 @@ public final class GetAppIngress {
     @CustomType.Builder
     public static final class Builder {
         private Boolean allowInsecureConnections;
+        private String clientCertificateMode;
         private List<GetAppIngressCustomDomain> customDomains;
         private Integer exposedPort;
         private Boolean externalEnabled;
@@ -149,6 +162,7 @@ public final class GetAppIngress {
         public Builder(GetAppIngress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
+    	      this.clientCertificateMode = defaults.clientCertificateMode;
     	      this.customDomains = defaults.customDomains;
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
@@ -165,6 +179,14 @@ public final class GetAppIngress {
               throw new MissingRequiredPropertyException("GetAppIngress", "allowInsecureConnections");
             }
             this.allowInsecureConnections = allowInsecureConnections;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientCertificateMode(String clientCertificateMode) {
+            if (clientCertificateMode == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "clientCertificateMode");
+            }
+            this.clientCertificateMode = clientCertificateMode;
             return this;
         }
         @CustomType.Setter
@@ -243,6 +265,7 @@ public final class GetAppIngress {
         public GetAppIngress build() {
             final var _resultValue = new GetAppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
+            _resultValue.clientCertificateMode = clientCertificateMode;
             _resultValue.customDomains = customDomains;
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;

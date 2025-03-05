@@ -168,12 +168,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
-        Manages a Kubernetes Cluster Trusted Access Role Binding
-        > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
-        .
-
         ## Example Usage
 
         ```python
@@ -270,12 +264,6 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
                  args: ClusterTrustedAccessRoleBindingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
-        Manages a Kubernetes Cluster Trusted Access Role Binding
-        > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
-        .
-
         ## Example Usage
 
         ```python

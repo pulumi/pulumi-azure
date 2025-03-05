@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto Cluster Principal Assignment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {
- *     name: "KustoRG",
- *     location: "West Europe",
- * });
- * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "kustocluster",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     sku: {
- *         name: "Standard_D13_v2",
- *         capacity: 2,
- *     },
- * });
- * const exampleClusterPrincipalAssignment = new azure.kusto.ClusterPrincipalAssignment("example", {
- *     name: "KustoPrincipalAssignment",
- *     resourceGroupName: example.name,
- *     clusterName: exampleCluster.name,
- *     tenantId: current.then(current => current.tenantId),
- *     principalId: current.then(current => current.clientId),
- *     principalType: "App",
- *     role: "AllDatabasesAdmin",
- * });
- * ```
- *
  * ## Import
  *
  * Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
@@ -99,7 +68,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
      */
     public readonly role!: pulumi.Output<string>;
     /**
@@ -197,7 +166,7 @@ export interface ClusterPrincipalAssignmentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
      */
     role?: pulumi.Input<string>;
     /**
@@ -235,7 +204,7 @@ export interface ClusterPrincipalAssignmentArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
      */
     role: pulumi.Input<string>;
     /**

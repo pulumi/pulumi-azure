@@ -71,6 +71,7 @@ class KubernetesClusterArgs:
                  storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
                  support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_override: Optional[pulumi.Input['KubernetesClusterUpgradeOverrideArgs']] = None,
                  web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
@@ -187,6 +188,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['KubernetesClusterUpgradeOverrideArgs'] upgrade_override: A `upgrade_override` block as defined below.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -294,6 +296,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "support_plan", support_plan)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if upgrade_override is not None:
+            pulumi.set(__self__, "upgrade_override", upgrade_override)
         if web_app_routing is not None:
             pulumi.set(__self__, "web_app_routing", web_app_routing)
         if windows_profile is not None:
@@ -964,6 +968,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="upgradeOverride")
+    def upgrade_override(self) -> Optional[pulumi.Input['KubernetesClusterUpgradeOverrideArgs']]:
+        """
+        A `upgrade_override` block as defined below.
+        """
+        return pulumi.get(self, "upgrade_override")
+
+    @upgrade_override.setter
+    def upgrade_override(self, value: Optional[pulumi.Input['KubernetesClusterUpgradeOverrideArgs']]):
+        pulumi.set(self, "upgrade_override", value)
+
+    @property
     @pulumi.getter(name="webAppRouting")
     def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]:
         """
@@ -1080,6 +1096,7 @@ class _KubernetesClusterState:
                  storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
                  support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_override: Optional[pulumi.Input['KubernetesClusterUpgradeOverrideArgs']] = None,
                  web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
@@ -1207,6 +1224,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['KubernetesClusterUpgradeOverrideArgs'] upgrade_override: A `upgrade_override` block as defined below.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -1338,6 +1356,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "support_plan", support_plan)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if upgrade_override is not None:
+            pulumi.set(__self__, "upgrade_override", upgrade_override)
         if web_app_routing is not None:
             pulumi.set(__self__, "web_app_routing", web_app_routing)
         if windows_profile is not None:
@@ -2140,6 +2160,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="upgradeOverride")
+    def upgrade_override(self) -> Optional[pulumi.Input['KubernetesClusterUpgradeOverrideArgs']]:
+        """
+        A `upgrade_override` block as defined below.
+        """
+        return pulumi.get(self, "upgrade_override")
+
+    @upgrade_override.setter
+    def upgrade_override(self, value: Optional[pulumi.Input['KubernetesClusterUpgradeOverrideArgs']]):
+        pulumi.set(self, "upgrade_override", value)
+
+    @property
     @pulumi.getter(name="webAppRouting")
     def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]:
         """
@@ -2247,6 +2279,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[Union['KubernetesClusterStorageProfileArgs', 'KubernetesClusterStorageProfileArgsDict']]] = None,
                  support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_override: Optional[pulumi.Input[Union['KubernetesClusterUpgradeOverrideArgs', 'KubernetesClusterUpgradeOverrideArgsDict']]] = None,
                  web_app_routing: Optional[pulumi.Input[Union['KubernetesClusterWebAppRoutingArgs', 'KubernetesClusterWebAppRoutingArgsDict']]] = None,
                  windows_profile: Optional[pulumi.Input[Union['KubernetesClusterWindowsProfileArgs', 'KubernetesClusterWindowsProfileArgsDict']]] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input[Union['KubernetesClusterWorkloadAutoscalerProfileArgs', 'KubernetesClusterWorkloadAutoscalerProfileArgsDict']]] = None,
@@ -2408,6 +2441,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterStorageProfileArgs', 'KubernetesClusterStorageProfileArgsDict']] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Union['KubernetesClusterUpgradeOverrideArgs', 'KubernetesClusterUpgradeOverrideArgsDict']] upgrade_override: A `upgrade_override` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterWebAppRoutingArgs', 'KubernetesClusterWebAppRoutingArgsDict']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterWindowsProfileArgs', 'KubernetesClusterWindowsProfileArgsDict']] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterWorkloadAutoscalerProfileArgs', 'KubernetesClusterWorkloadAutoscalerProfileArgsDict']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -2532,6 +2566,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[Union['KubernetesClusterStorageProfileArgs', 'KubernetesClusterStorageProfileArgsDict']]] = None,
                  support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_override: Optional[pulumi.Input[Union['KubernetesClusterUpgradeOverrideArgs', 'KubernetesClusterUpgradeOverrideArgsDict']]] = None,
                  web_app_routing: Optional[pulumi.Input[Union['KubernetesClusterWebAppRoutingArgs', 'KubernetesClusterWebAppRoutingArgsDict']]] = None,
                  windows_profile: Optional[pulumi.Input[Union['KubernetesClusterWindowsProfileArgs', 'KubernetesClusterWindowsProfileArgsDict']]] = None,
                  workload_autoscaler_profile: Optional[pulumi.Input[Union['KubernetesClusterWorkloadAutoscalerProfileArgs', 'KubernetesClusterWorkloadAutoscalerProfileArgsDict']]] = None,
@@ -2599,6 +2634,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["support_plan"] = support_plan
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_override"] = upgrade_override
             __props__.__dict__["web_app_routing"] = web_app_routing
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
@@ -2687,6 +2723,7 @@ class KubernetesCluster(pulumi.CustomResource):
             storage_profile: Optional[pulumi.Input[Union['KubernetesClusterStorageProfileArgs', 'KubernetesClusterStorageProfileArgsDict']]] = None,
             support_plan: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            upgrade_override: Optional[pulumi.Input[Union['KubernetesClusterUpgradeOverrideArgs', 'KubernetesClusterUpgradeOverrideArgsDict']]] = None,
             web_app_routing: Optional[pulumi.Input[Union['KubernetesClusterWebAppRoutingArgs', 'KubernetesClusterWebAppRoutingArgsDict']]] = None,
             windows_profile: Optional[pulumi.Input[Union['KubernetesClusterWindowsProfileArgs', 'KubernetesClusterWindowsProfileArgsDict']]] = None,
             workload_autoscaler_profile: Optional[pulumi.Input[Union['KubernetesClusterWorkloadAutoscalerProfileArgs', 'KubernetesClusterWorkloadAutoscalerProfileArgsDict']]] = None,
@@ -2819,6 +2856,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KubernetesClusterStorageProfileArgs', 'KubernetesClusterStorageProfileArgsDict']] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Union['KubernetesClusterUpgradeOverrideArgs', 'KubernetesClusterUpgradeOverrideArgsDict']] upgrade_override: A `upgrade_override` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterWebAppRoutingArgs', 'KubernetesClusterWebAppRoutingArgsDict']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterWindowsProfileArgs', 'KubernetesClusterWindowsProfileArgsDict']] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input[Union['KubernetesClusterWorkloadAutoscalerProfileArgs', 'KubernetesClusterWorkloadAutoscalerProfileArgsDict']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -2893,6 +2931,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["storage_profile"] = storage_profile
         __props__.__dict__["support_plan"] = support_plan
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["upgrade_override"] = upgrade_override
         __props__.__dict__["web_app_routing"] = web_app_routing
         __props__.__dict__["windows_profile"] = windows_profile
         __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
@@ -3446,6 +3485,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="upgradeOverride")
+    def upgrade_override(self) -> pulumi.Output[Optional['outputs.KubernetesClusterUpgradeOverride']]:
+        """
+        A `upgrade_override` block as defined below.
+        """
+        return pulumi.get(self, "upgrade_override")
 
     @property
     @pulumi.getter(name="webAppRouting")

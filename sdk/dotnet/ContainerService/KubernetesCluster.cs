@@ -525,6 +525,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `upgrade_override` block as defined below.
+        /// </summary>
+        [Output("upgradeOverride")]
+        public Output<Outputs.KubernetesClusterUpgradeOverride?> UpgradeOverride { get; private set; } = null!;
+
+        /// <summary>
         /// A `web_app_routing` block as defined below.
         /// </summary>
         [Output("webAppRouting")]
@@ -995,6 +1001,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `upgrade_override` block as defined below.
+        /// </summary>
+        [Input("upgradeOverride")]
+        public Input<Inputs.KubernetesClusterUpgradeOverrideArgs>? UpgradeOverride { get; set; }
 
         /// <summary>
         /// A `web_app_routing` block as defined below.
@@ -1528,6 +1540,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `upgrade_override` block as defined below.
+        /// </summary>
+        [Input("upgradeOverride")]
+        public Input<Inputs.KubernetesClusterUpgradeOverrideGetArgs>? UpgradeOverride { get; set; }
 
         /// <summary>
         /// A `web_app_routing` block as defined below.

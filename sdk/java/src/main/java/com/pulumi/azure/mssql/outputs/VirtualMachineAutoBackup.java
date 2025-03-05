@@ -16,12 +16,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineAutoBackup {
     /**
-     * @return Enable or disable encryption for backups. Defaults to `false`.
+     * @deprecated
+     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
      * 
      */
+    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
     private @Nullable Boolean encryptionEnabled;
     /**
-     * @return Encryption password to use. Must be specified when encryption is enabled.
+     * @return Encryption password to use. Setting a password will enable encryption.
      * 
      */
     private @Nullable String encryptionPassword;
@@ -53,14 +55,16 @@ public final class VirtualMachineAutoBackup {
 
     private VirtualMachineAutoBackup() {}
     /**
-     * @return Enable or disable encryption for backups. Defaults to `false`.
+     * @deprecated
+     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
      * 
      */
+    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
     public Optional<Boolean> encryptionEnabled() {
         return Optional.ofNullable(this.encryptionEnabled);
     }
     /**
-     * @return Encryption password to use. Must be specified when encryption is enabled.
+     * @return Encryption password to use. Setting a password will enable encryption.
      * 
      */
     public Optional<String> encryptionPassword() {

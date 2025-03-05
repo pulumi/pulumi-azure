@@ -89,7 +89,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
      */
     public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface SecretState {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface SecretArgs {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
      */
     expirationDate?: pulumi.Input<string>;
     /**

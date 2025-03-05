@@ -100,7 +100,7 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly dataEncrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * Is geo-backup policy enabled? Defaults to `true`.
      */
     public readonly geoBackupPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -120,7 +120,7 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      */
     public readonly storageAccountType!: pulumi.Output<string>;
     /**
@@ -201,7 +201,7 @@ export interface SqlPoolState {
      */
     dataEncrypted?: pulumi.Input<boolean>;
     /**
-     * Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * Is geo-backup policy enabled? Defaults to `true`.
      */
     geoBackupPolicyEnabled?: pulumi.Input<boolean>;
     /**
@@ -221,7 +221,7 @@ export interface SqlPoolState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface SqlPoolArgs {
      */
     dataEncrypted?: pulumi.Input<boolean>;
     /**
-     * Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * Is geo-backup policy enabled? Defaults to `true`.
      */
     geoBackupPolicyEnabled?: pulumi.Input<boolean>;
     /**
@@ -271,7 +271,7 @@ export interface SqlPoolArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      */
     storageAccountType: pulumi.Input<string>;
     /**

@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -166,6 +167,38 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:pim/eligibleRoleAssignment:EligibleRoleAssignment")
 public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource {
+    /**
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="condition", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> condition;
+
+    /**
+     * @return The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> condition() {
+        return Codegen.optional(this.condition);
+    }
+    /**
+     * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * 
+     */
+    @Export(name="conditionVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> conditionVersion;
+
+    /**
+     * @return The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * 
+     */
+    public Output<Optional<String>> conditionVersion() {
+        return Codegen.optional(this.conditionVersion);
+    }
     /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      * 

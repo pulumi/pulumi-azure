@@ -115,6 +115,8 @@ export class Container extends pulumi.CustomResource {
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      *
+     * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     *
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
     public readonly storageAccountName!: pulumi.Output<string | undefined>;
@@ -209,6 +211,8 @@ export interface ContainerState {
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      *
+     * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     *
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
     storageAccountName?: pulumi.Input<string>;
@@ -248,6 +252,8 @@ export interface ContainerArgs {
     storageAccountId?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      *
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */

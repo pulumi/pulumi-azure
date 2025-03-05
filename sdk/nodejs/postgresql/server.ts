@@ -78,9 +78,19 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
+     *
+     * * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+     */
+    public readonly administratorLoginPasswordWo!: pulumi.Output<string | undefined>;
+    /**
+     * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+     */
+    public readonly administratorLoginPasswordWoVersion!: pulumi.Output<number | undefined>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
@@ -183,6 +193,8 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["administratorLoginPasswordWo"] = state ? state.administratorLoginPasswordWo : undefined;
+            resourceInputs["administratorLoginPasswordWoVersion"] = state ? state.administratorLoginPasswordWoVersion : undefined;
             resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
@@ -219,6 +231,8 @@ export class Server extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
+            resourceInputs["administratorLoginPasswordWo"] = args ? args.administratorLoginPasswordWo : undefined;
+            resourceInputs["administratorLoginPasswordWoVersion"] = args ? args.administratorLoginPasswordWoVersion : undefined;
             resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
@@ -256,9 +270,19 @@ export interface ServerState {
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
     administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
+     *
+     * * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+     */
+    administratorLoginPasswordWo?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+     */
+    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
@@ -356,9 +380,19 @@ export interface ServerArgs {
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
     administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
+     *
+     * * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+     */
+    administratorLoginPasswordWo?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+     */
+    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */

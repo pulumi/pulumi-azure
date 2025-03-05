@@ -24,6 +24,8 @@ class EligibleRoleAssignmentArgs:
                  principal_id: pulumi.Input[str],
                  role_definition_id: pulumi.Input[str],
                  scope: pulumi.Input[str],
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
                  justification: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
                  ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
@@ -32,6 +34,10 @@ class EligibleRoleAssignmentArgs:
         :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
@@ -39,6 +45,10 @@ class EligibleRoleAssignmentArgs:
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
         pulumi.set(__self__, "scope", scope)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
         if justification is not None:
             pulumi.set(__self__, "justification", justification)
         if schedule is not None:
@@ -84,6 +94,32 @@ class EligibleRoleAssignmentArgs:
 
     @property
     @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter
     def justification(self) -> Optional[pulumi.Input[str]]:
         """
         The justification of the role assignment. Changing this forces a new resource to be created.
@@ -122,6 +158,8 @@ class EligibleRoleAssignmentArgs:
 @pulumi.input_type
 class _EligibleRoleAssignmentState:
     def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
                  justification: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  principal_type: Optional[pulumi.Input[str]] = None,
@@ -131,6 +169,10 @@ class _EligibleRoleAssignmentState:
                  ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None):
         """
         Input properties used for looking up and filtering EligibleRoleAssignment resources.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: Type of principal to which the role will be assigned.
@@ -139,6 +181,10 @@ class _EligibleRoleAssignmentState:
         :param pulumi.Input[str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
         if justification is not None:
             pulumi.set(__self__, "justification", justification)
         if principal_id is not None:
@@ -153,6 +199,32 @@ class _EligibleRoleAssignmentState:
             pulumi.set(__self__, "scope", scope)
         if ticket is not None:
             pulumi.set(__self__, "ticket", ticket)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_version", value)
 
     @property
     @pulumi.getter
@@ -244,6 +316,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
                  justification: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
@@ -322,6 +396,10 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
@@ -419,6 +497,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
                  justification: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
@@ -434,6 +514,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EligibleRoleAssignmentArgs.__new__(EligibleRoleAssignmentArgs)
 
+            __props__.__dict__["condition"] = condition
+            __props__.__dict__["condition_version"] = condition_version
             __props__.__dict__["justification"] = justification
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
@@ -457,6 +539,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            condition: Optional[pulumi.Input[str]] = None,
+            condition_version: Optional[pulumi.Input[str]] = None,
             justification: Optional[pulumi.Input[str]] = None,
             principal_id: Optional[pulumi.Input[str]] = None,
             principal_type: Optional[pulumi.Input[str]] = None,
@@ -471,6 +555,10 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
         :param pulumi.Input[str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: Type of principal to which the role will be assigned.
@@ -483,6 +571,8 @@ class EligibleRoleAssignment(pulumi.CustomResource):
 
         __props__ = _EligibleRoleAssignmentState.__new__(_EligibleRoleAssignmentState)
 
+        __props__.__dict__["condition"] = condition
+        __props__.__dict__["condition_version"] = condition_version
         __props__.__dict__["justification"] = justification
         __props__.__dict__["principal_id"] = principal_id
         __props__.__dict__["principal_type"] = principal_type
@@ -491,6 +581,24 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         __props__.__dict__["ticket"] = ticket
         return EligibleRoleAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> pulumi.Output[Optional[str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        """
+        return pulumi.get(self, "condition_version")
 
     @property
     @pulumi.getter

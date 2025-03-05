@@ -15,61 +15,85 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
 
     public static final GetNamespaceDisasterRecoveryConfigPlainArgs Empty = new GetNamespaceDisasterRecoveryConfigPlainArgs();
 
+    /**
+     * The Shared access policies used to access the connection string for the alias.
+     * 
+     */
     @Import(name="aliasAuthorizationRuleId")
     private @Nullable String aliasAuthorizationRuleId;
 
+    /**
+     * @return The Shared access policies used to access the connection string for the alias.
+     * 
+     */
     public Optional<String> aliasAuthorizationRuleId() {
         return Optional.ofNullable(this.aliasAuthorizationRuleId);
     }
 
+    /**
+     * The name of this Service Bus Disaster Recovery Config.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return The name of this Service Bus Disaster Recovery Config.
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * The ID of the Service Bus Namespace.
+     * 
+     */
     @Import(name="namespaceId")
     private @Nullable String namespaceId;
 
+    /**
+     * @return The ID of the Service Bus Namespace.
+     * 
+     */
     public Optional<String> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
     }
 
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
     @Import(name="namespaceName")
     private @Nullable String namespaceName;
 
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
 
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
     @Import(name="resourceGroupName")
     private @Nullable String resourceGroupName;
 
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -102,16 +126,34 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
             $ = new GetNamespaceDisasterRecoveryConfigPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder aliasAuthorizationRuleId(@Nullable String aliasAuthorizationRuleId) {
             $.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
             return this;
         }
 
+        /**
+         * @param name The name of this Service Bus Disaster Recovery Config.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param namespaceId The ID of the Service Bus Namespace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceId(@Nullable String namespaceId) {
             $.namespaceId = namespaceId;
             return this;
@@ -121,10 +163,10 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
          * @return builder
          * 
          * @deprecated
-         * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
         public Builder namespaceName(@Nullable String namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -134,10 +176,10 @@ public final class GetNamespaceDisasterRecoveryConfigPlainArgs extends com.pulum
          * @return builder
          * 
          * @deprecated
-         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+         * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;

@@ -10,8 +10,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -130,28 +132,60 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The password part of the credential.
+     * The password to use for this Elastic Job credential.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
-    private Output<String> password;
+    private Output</* @Nullable */ String> password;
 
     /**
-     * @return The password part of the credential.
+     * @return The password to use for this Elastic Job credential.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Output<Optional<String>> password() {
+        return Codegen.optional(this.password);
     }
     /**
-     * The username part of the credential.
+     * The password to use for this Elastic Job credential.
+     * 
+     * &gt; **Note:** One of `password` or `password_wo` must be specified.
+     * 
+     */
+    @Export(name="passwordWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> passwordWo;
+
+    /**
+     * @return The password to use for this Elastic Job credential.
+     * 
+     * &gt; **Note:** One of `password` or `password_wo` must be specified.
+     * 
+     */
+    public Output<Optional<String>> passwordWo() {
+        return Codegen.optional(this.passwordWo);
+    }
+    /**
+     * An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * 
+     */
+    @Export(name="passwordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> passwordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * 
+     */
+    public Output<Optional<Integer>> passwordWoVersion() {
+        return Codegen.optional(this.passwordWoVersion);
+    }
+    /**
+     * The username to use for this Elastic Job credential.
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**
-     * @return The username part of the credential.
+     * @return The username to use for this Elastic Job credential.
      * 
      */
     public Output<String> username() {

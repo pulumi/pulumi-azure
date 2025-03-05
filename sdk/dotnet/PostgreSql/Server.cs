@@ -67,10 +67,24 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
         /// </summary>
         [Output("administratorLoginPassword")]
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// 
+        /// * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
+        /// </summary>
+        [Output("administratorLoginPasswordWo")]
+        public Output<string?> AdministratorLoginPasswordWo { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// </summary>
+        [Output("administratorLoginPasswordWoVersion")]
+        public Output<int?> AdministratorLoginPasswordWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -258,7 +272,7 @@ namespace Pulumi.Azure.PostgreSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -269,6 +283,20 @@ namespace Pulumi.Azure.PostgreSql
                 _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// 
+        /// * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
+        /// </summary>
+        [Input("administratorLoginPasswordWo")]
+        public Input<string>? AdministratorLoginPasswordWo { get; set; }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// </summary>
+        [Input("administratorLoginPasswordWoVersion")]
+        public Input<int>? AdministratorLoginPasswordWoVersion { get; set; }
 
         /// <summary>
         /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -414,7 +442,7 @@ namespace Pulumi.Azure.PostgreSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -425,6 +453,20 @@ namespace Pulumi.Azure.PostgreSql
                 _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// 
+        /// * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
+        /// </summary>
+        [Input("administratorLoginPasswordWo")]
+        public Input<string>? AdministratorLoginPasswordWo { get; set; }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// </summary>
+        [Input("administratorLoginPasswordWoVersion")]
+        public Input<int>? AdministratorLoginPasswordWoVersion { get; set; }
 
         /// <summary>
         /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.

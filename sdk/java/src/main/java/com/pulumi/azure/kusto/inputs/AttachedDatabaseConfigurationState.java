@@ -33,6 +33,21 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
     }
 
     /**
+     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="clusterId")
+    private @Nullable Output<String> clusterId;
+
+    /**
+     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> clusterId() {
+        return Optional.ofNullable(this.clusterId);
+    }
+
+    /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      * 
      */
@@ -48,16 +63,20 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
     }
 
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @deprecated
+     * `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="clusterResourceId")
     private @Nullable Output<String> clusterResourceId;
 
     /**
-     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @deprecated
+     * `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> clusterResourceId() {
         return Optional.ofNullable(this.clusterResourceId);
     }
@@ -156,6 +175,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
 
     private AttachedDatabaseConfigurationState(AttachedDatabaseConfigurationState $) {
         this.attachedDatabaseNames = $.attachedDatabaseNames;
+        this.clusterId = $.clusterId;
         this.clusterName = $.clusterName;
         this.clusterResourceId = $.clusterResourceId;
         this.databaseName = $.databaseName;
@@ -216,6 +236,27 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
+         * @param clusterId The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterId(@Nullable Output<String> clusterId) {
+            $.clusterId = clusterId;
+            return this;
+        }
+
+        /**
+         * @param clusterId The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterId(String clusterId) {
+            return clusterId(Output.of(clusterId));
+        }
+
+        /**
          * @param clusterName Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -237,22 +278,26 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param clusterResourceId The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder clusterResourceId(@Nullable Output<String> clusterResourceId) {
             $.clusterResourceId = clusterResourceId;
             return this;
         }
 
         /**
-         * @param clusterResourceId The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder clusterResourceId(String clusterResourceId) {
             return clusterResourceId(Output.of(clusterResourceId));
         }

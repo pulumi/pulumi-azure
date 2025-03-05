@@ -32,7 +32,7 @@ class ClusterPrincipalAssignmentArgs:
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto cluster principal assignment. Changing this forces a new resource to be created.
         """
@@ -97,7 +97,7 @@ class ClusterPrincipalAssignmentArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
         """
-        The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 
@@ -150,7 +150,7 @@ class _ClusterPrincipalAssignmentState:
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_name: The name of the tenant.
         """
@@ -249,7 +249,7 @@ class _ClusterPrincipalAssignmentState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 
@@ -298,34 +298,6 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         """
         Manages a Kusto Cluster Principal Assignment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="KustoRG",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
-            sku={
-                "name": "Standard_D13_v2",
-                "capacity": 2,
-            })
-        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("example",
-            name="KustoPrincipalAssignment",
-            resource_group_name=example.name,
-            cluster_name=example_cluster.name,
-            tenant_id=current.tenant_id,
-            principal_id=current.client_id,
-            principal_type="App",
-            role="AllDatabasesAdmin")
-        ```
-
         ## Import
 
         Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
@@ -341,7 +313,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: The object id of the principal. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         """
         ...
@@ -352,34 +324,6 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto Cluster Principal Assignment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example",
-            name="KustoRG",
-            location="West Europe")
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
-            sku={
-                "name": "Standard_D13_v2",
-                "capacity": 2,
-            })
-        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("example",
-            name="KustoPrincipalAssignment",
-            resource_group_name=example.name,
-            cluster_name=example_cluster.name,
-            tenant_id=current.tenant_id,
-            principal_id=current.client_id,
-            principal_type="App",
-            role="AllDatabasesAdmin")
-        ```
 
         ## Import
 
@@ -473,7 +417,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_name: The name of the principal.
         :param pulumi.Input[str] principal_type: The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role: The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The tenant id in which the principal resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_name: The name of the tenant.
         """
@@ -544,7 +488,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role")
 

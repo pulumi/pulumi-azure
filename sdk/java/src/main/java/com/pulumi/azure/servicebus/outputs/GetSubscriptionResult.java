@@ -20,6 +20,11 @@ public final class GetSubscriptionResult {
      */
     private String autoDeleteOnIdle;
     /**
+     * @return Whether batched operations are enabled.
+     * 
+     */
+    private Boolean batchedOperationsEnabled;
+    /**
      * @return Does the ServiceBus Subscription have dead letter support on filter evaluation exceptions?
      * 
      */
@@ -34,10 +39,6 @@ public final class GetSubscriptionResult {
      * 
      */
     private String defaultMessageTtl;
-    /**
-     * @return Are batched operations enabled on this ServiceBus Subscription?
-     * 
-     */
     private Boolean enableBatchedOperations;
     /**
      * @return The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -67,30 +68,30 @@ public final class GetSubscriptionResult {
     private String name;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     private @Nullable String namespaceName;
     /**
-     * @return Whether or not this ServiceBus Subscription supports session.
+     * @return Whether this ServiceBus Subscription supports session.
      * 
      */
     private Boolean requiresSession;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     private @Nullable String resourceGroupName;
     private @Nullable String topicId;
     /**
      * @deprecated
-     * `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     private @Nullable String topicName;
 
     private GetSubscriptionResult() {}
@@ -100,6 +101,13 @@ public final class GetSubscriptionResult {
      */
     public String autoDeleteOnIdle() {
         return this.autoDeleteOnIdle;
+    }
+    /**
+     * @return Whether batched operations are enabled.
+     * 
+     */
+    public Boolean batchedOperationsEnabled() {
+        return this.batchedOperationsEnabled;
     }
     /**
      * @return Does the ServiceBus Subscription have dead letter support on filter evaluation exceptions?
@@ -122,10 +130,6 @@ public final class GetSubscriptionResult {
     public String defaultMessageTtl() {
         return this.defaultMessageTtl;
     }
-    /**
-     * @return Are batched operations enabled on this ServiceBus Subscription?
-     * 
-     */
     public Boolean enableBatchedOperations() {
         return this.enableBatchedOperations;
     }
@@ -169,15 +173,15 @@ public final class GetSubscriptionResult {
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
     /**
-     * @return Whether or not this ServiceBus Subscription supports session.
+     * @return Whether this ServiceBus Subscription supports session.
      * 
      */
     public Boolean requiresSession() {
@@ -185,10 +189,10 @@ public final class GetSubscriptionResult {
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -197,10 +201,10 @@ public final class GetSubscriptionResult {
     }
     /**
      * @deprecated
-     * `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> topicName() {
         return Optional.ofNullable(this.topicName);
     }
@@ -215,6 +219,7 @@ public final class GetSubscriptionResult {
     @CustomType.Builder
     public static final class Builder {
         private String autoDeleteOnIdle;
+        private Boolean batchedOperationsEnabled;
         private Boolean deadLetteringOnFilterEvaluationError;
         private Boolean deadLetteringOnMessageExpiration;
         private String defaultMessageTtl;
@@ -234,6 +239,7 @@ public final class GetSubscriptionResult {
         public Builder(GetSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoDeleteOnIdle = defaults.autoDeleteOnIdle;
+    	      this.batchedOperationsEnabled = defaults.batchedOperationsEnabled;
     	      this.deadLetteringOnFilterEvaluationError = defaults.deadLetteringOnFilterEvaluationError;
     	      this.deadLetteringOnMessageExpiration = defaults.deadLetteringOnMessageExpiration;
     	      this.defaultMessageTtl = defaults.defaultMessageTtl;
@@ -257,6 +263,14 @@ public final class GetSubscriptionResult {
               throw new MissingRequiredPropertyException("GetSubscriptionResult", "autoDeleteOnIdle");
             }
             this.autoDeleteOnIdle = autoDeleteOnIdle;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder batchedOperationsEnabled(Boolean batchedOperationsEnabled) {
+            if (batchedOperationsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "batchedOperationsEnabled");
+            }
+            this.batchedOperationsEnabled = batchedOperationsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -374,6 +388,7 @@ public final class GetSubscriptionResult {
         public GetSubscriptionResult build() {
             final var _resultValue = new GetSubscriptionResult();
             _resultValue.autoDeleteOnIdle = autoDeleteOnIdle;
+            _resultValue.batchedOperationsEnabled = batchedOperationsEnabled;
             _resultValue.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
             _resultValue.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             _resultValue.defaultMessageTtl = defaultMessageTtl;

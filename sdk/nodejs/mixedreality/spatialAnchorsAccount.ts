@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spatial Anchors Account.
  *
+ * > **Note:** The `azure.mixedreality.SpatialAnchorsAccount` resource has been deprecated because the service is retiring from 2024-11-20 and will be removed in v5.0 of the AzureRM Provider.
+ *
  * ## Example Usage
  *
  * ```typescript

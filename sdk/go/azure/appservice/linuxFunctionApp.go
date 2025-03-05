@@ -93,6 +93,8 @@ type LinuxFunctionApp struct {
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrOutput `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+	//
+	// > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
 	BuiltinLoggingEnabled pulumi.BoolPtrOutput `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
@@ -241,6 +243,8 @@ type linuxFunctionAppState struct {
 	// A `backup` block as defined below.
 	Backup *LinuxFunctionAppBackup `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+	//
+	// > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -342,6 +346,8 @@ type LinuxFunctionAppState struct {
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrInput
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+	//
+	// > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -447,6 +453,8 @@ type linuxFunctionAppArgs struct {
 	// A `backup` block as defined below.
 	Backup *LinuxFunctionAppBackup `pulumi:"backup"`
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+	//
+	// > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -531,6 +539,8 @@ type LinuxFunctionAppArgs struct {
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrInput
 	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+	//
+	// > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -712,6 +722,8 @@ func (o LinuxFunctionAppOutput) Backup() LinuxFunctionAppBackupPtrOutput {
 }
 
 // Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+//
+// > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
 func (o LinuxFunctionAppOutput) BuiltinLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.BuiltinLoggingEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,14 +47,14 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The password part of the credential.
+     * The password to use for this Elastic Job credential.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password part of the credential.
+     * @return The password to use for this Elastic Job credential.
      * 
      */
     public Optional<Output<String>> password() {
@@ -61,14 +62,48 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The username part of the credential.
+     * The password to use for this Elastic Job credential.
+     * 
+     * &gt; **Note:** One of `password` or `password_wo` must be specified.
+     * 
+     */
+    @Import(name="passwordWo")
+    private @Nullable Output<String> passwordWo;
+
+    /**
+     * @return The password to use for this Elastic Job credential.
+     * 
+     * &gt; **Note:** One of `password` or `password_wo` must be specified.
+     * 
+     */
+    public Optional<Output<String>> passwordWo() {
+        return Optional.ofNullable(this.passwordWo);
+    }
+
+    /**
+     * An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * 
+     */
+    @Import(name="passwordWoVersion")
+    private @Nullable Output<Integer> passwordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+     * 
+     */
+    public Optional<Output<Integer>> passwordWoVersion() {
+        return Optional.ofNullable(this.passwordWoVersion);
+    }
+
+    /**
+     * The username to use for this Elastic Job credential.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username part of the credential.
+     * @return The username to use for this Elastic Job credential.
      * 
      */
     public Optional<Output<String>> username() {
@@ -81,6 +116,8 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
         this.jobAgentId = $.jobAgentId;
         this.name = $.name;
         this.password = $.password;
+        this.passwordWo = $.passwordWo;
+        this.passwordWoVersion = $.passwordWoVersion;
         this.username = $.username;
     }
 
@@ -145,7 +182,7 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param password The password part of the credential.
+         * @param password The password to use for this Elastic Job credential.
          * 
          * @return builder
          * 
@@ -156,7 +193,7 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param password The password part of the credential.
+         * @param password The password to use for this Elastic Job credential.
          * 
          * @return builder
          * 
@@ -166,7 +203,53 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param username The username part of the credential.
+         * @param passwordWo The password to use for this Elastic Job credential.
+         * 
+         * &gt; **Note:** One of `password` or `password_wo` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWo(@Nullable Output<String> passwordWo) {
+            $.passwordWo = passwordWo;
+            return this;
+        }
+
+        /**
+         * @param passwordWo The password to use for this Elastic Job credential.
+         * 
+         * &gt; **Note:** One of `password` or `password_wo` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWo(String passwordWo) {
+            return passwordWo(Output.of(passwordWo));
+        }
+
+        /**
+         * @param passwordWoVersion An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWoVersion(@Nullable Output<Integer> passwordWoVersion) {
+            $.passwordWoVersion = passwordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param passwordWoVersion An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWoVersion(Integer passwordWoVersion) {
+            return passwordWoVersion(Output.of(passwordWoVersion));
+        }
+
+        /**
+         * @param username The username to use for this Elastic Job credential.
          * 
          * @return builder
          * 
@@ -177,7 +260,7 @@ public final class JobCredentialState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param username The username part of the credential.
+         * @param username The username to use for this Elastic Job credential.
          * 
          * @return builder
          * 

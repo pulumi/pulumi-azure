@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
 export { MonitorArgs, MonitorState } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
