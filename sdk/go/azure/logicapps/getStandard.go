@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := logicapps.LookupStandard(ctx, &logicapps.LookupStandardArgs{
-//				Name:              "logicappstd",
+//				Name:              "example-logic-app",
 //				ResourceGroupName: "example-rg",
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ func LookupStandard(ctx *pulumi.Context, args *LookupStandardArgs, opts ...pulum
 
 // A collection of arguments for invoking getStandard.
 type LookupStandardArgs struct {
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -80,6 +80,8 @@ type LookupStandardResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Whether the Logic App is enabled.
 	Enabled bool `pulumi:"enabled"`
+	// Whether the default FTP basic authentication publishing profile is enabled.
+	FtpPublishBasicAuthenticationEnabled bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// Whether the Logic App can only be accessed via HTTPS.
 	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
@@ -99,6 +101,8 @@ type LookupStandardResult struct {
 	// Whether Public Network Access should be enabled or not.
 	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	// Whether the default SCM basic authentication publishing profile is enabled.
+	ScmPublishBasicAuthenticationEnabled bool `pulumi:"scmPublishBasicAuthenticationEnabled"`
 	// A `siteConfig` object as defined below.
 	SiteConfig GetStandardSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
@@ -130,7 +134,7 @@ func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, op
 
 // A collection of arguments for invoking getStandard.
 type LookupStandardOutputArgs struct {
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -202,6 +206,11 @@ func (o LookupStandardResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStandardResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Whether the default FTP basic authentication publishing profile is enabled.
+func (o LookupStandardResultOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupStandardResult) bool { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
+}
+
 // Whether the Logic App can only be accessed via HTTPS.
 func (o LookupStandardResultOutput) HttpsOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStandardResult) bool { return v.HttpsOnly }).(pulumi.BoolOutput)
@@ -249,6 +258,11 @@ func (o LookupStandardResultOutput) PublicNetworkAccess() pulumi.StringOutput {
 
 func (o LookupStandardResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Whether the default SCM basic authentication publishing profile is enabled.
+func (o LookupStandardResultOutput) ScmPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupStandardResult) bool { return v.ScmPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 // A `siteConfig` object as defined below.

@@ -103,6 +103,7 @@ __all__ = [
     'KubernetesClusterServiceMeshProfileCertificateAuthority',
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterStorageProfile',
+    'KubernetesClusterUpgradeOverride',
     'KubernetesClusterWebAppRouting',
     'KubernetesClusterWebAppRoutingWebAppRoutingIdentity',
     'KubernetesClusterWindowsProfile',
@@ -7579,6 +7580,8 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         :param Sequence['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs'] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
         :param Sequence[str] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+               
+               > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         if allowed_host_ports is not None:
             pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
@@ -7608,6 +7611,8 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
     def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+
+        > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -8213,6 +8218,63 @@ class KubernetesClusterStorageProfile(dict):
         Is the Snapshot Controller enabled? Defaults to `true`.
         """
         return pulumi.get(self, "snapshot_controller_enabled")
+
+
+@pulumi.output_type
+class KubernetesClusterUpgradeOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceUpgradeEnabled":
+            suggest = "force_upgrade_enabled"
+        elif key == "effectiveUntil":
+            suggest = "effective_until"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterUpgradeOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterUpgradeOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterUpgradeOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_upgrade_enabled: bool,
+                 effective_until: Optional[str] = None):
+        """
+        :param bool force_upgrade_enabled: Whether to force upgrade the cluster. Possible values are `true` or `false`.
+               
+               !> **Note:** The `force_upgrade_enabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `force_upgrade_enabled` option with extreme caution only.
+        :param str effective_until: Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgrade_override` values are effective. This field must be set for the `upgrade_override` values to take effect. The date-time must be within the next 30 days.
+               
+               > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effective_until` value expires as the upgrade proceeds.
+        """
+        pulumi.set(__self__, "force_upgrade_enabled", force_upgrade_enabled)
+        if effective_until is not None:
+            pulumi.set(__self__, "effective_until", effective_until)
+
+    @property
+    @pulumi.getter(name="forceUpgradeEnabled")
+    def force_upgrade_enabled(self) -> bool:
+        """
+        Whether to force upgrade the cluster. Possible values are `true` or `false`.
+
+        !> **Note:** The `force_upgrade_enabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `force_upgrade_enabled` option with extreme caution only.
+        """
+        return pulumi.get(self, "force_upgrade_enabled")
+
+    @property
+    @pulumi.getter(name="effectiveUntil")
+    def effective_until(self) -> Optional[str]:
+        """
+        Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgrade_override` values are effective. This field must be set for the `upgrade_override` values to take effect. The date-time must be within the next 30 days.
+
+        > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effective_until` value expires as the upgrade proceeds.
+        """
+        return pulumi.get(self, "effective_until")
 
 
 @pulumi.output_type

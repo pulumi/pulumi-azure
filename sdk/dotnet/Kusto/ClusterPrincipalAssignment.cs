@@ -12,50 +12,6 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto Cluster Principal Assignment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Azure.Core.GetClientConfig.Invoke();
-    /// 
-    ///     var example = new Azure.Core.ResourceGroup("example", new()
-    ///     {
-    ///         Name = "KustoRG",
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
-    ///     {
-    ///         Name = "kustocluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///         {
-    ///             Name = "Standard_D13_v2",
-    ///             Capacity = 2,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("example", new()
-    ///     {
-    ///         Name = "KustoPrincipalAssignment",
-    ///         ResourceGroupName = example.Name,
-    ///         ClusterName = exampleCluster.Name,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
-    ///         PrincipalType = "App",
-    ///         Role = "AllDatabasesAdmin",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
@@ -104,7 +60,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        /// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -198,7 +154,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        /// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -254,7 +210,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+        /// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

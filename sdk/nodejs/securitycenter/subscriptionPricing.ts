@@ -99,7 +99,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
-     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      */
     public readonly subplan!: pulumi.Output<string | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface SubscriptionPricingState {
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      */
     subplan?: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface SubscriptionPricingArgs {
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      */
     subplan?: pulumi.Input<string>;
     /**

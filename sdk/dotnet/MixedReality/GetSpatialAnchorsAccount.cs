@@ -14,6 +14,8 @@ namespace Pulumi.Azure.MixedReality
         /// <summary>
         /// Get information about an Azure Spatial Anchors Account.
         /// 
+        /// &gt; **Note:** The `azure.mixedreality.SpatialAnchorsAccount` data source has been deprecated because the service is retiring from 2024-11-20 and will be removed in v5.0 of the AzureRM Provider.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -43,6 +45,8 @@ namespace Pulumi.Azure.MixedReality
         /// <summary>
         /// Get information about an Azure Spatial Anchors Account.
         /// 
+        /// &gt; **Note:** The `azure.mixedreality.SpatialAnchorsAccount` data source has been deprecated because the service is retiring from 2024-11-20 and will be removed in v5.0 of the AzureRM Provider.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -71,6 +75,8 @@ namespace Pulumi.Azure.MixedReality
 
         /// <summary>
         /// Get information about an Azure Spatial Anchors Account.
+        /// 
+        /// &gt; **Note:** The `azure.mixedreality.SpatialAnchorsAccount` data source has been deprecated because the service is retiring from 2024-11-20 and will be removed in v5.0 of the AzureRM Provider.
         /// 
         /// ## Example Usage
         /// 

@@ -40,7 +40,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     @Import(name="appSettings")
@@ -49,7 +49,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -57,14 +57,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+     * If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     @Import(name="bundleVersion")
     private @Nullable Output<String> bundleVersion;
 
     /**
-     * @return If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+     * @return If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     public Optional<Output<String>> bundleVersion() {
@@ -132,14 +132,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+     * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
      * 
      */
     @Import(name="defaultHostname")
     private @Nullable Output<String> defaultHostname;
 
     /**
-     * @return The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+     * @return The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
      * 
      */
     public Optional<Output<String>> defaultHostname() {
@@ -159,6 +159,21 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+
+    /**
+     * Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="ftpPublishBasicAuthenticationEnabled")
+    private @Nullable Output<Boolean> ftpPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> ftpPublishBasicAuthenticationEnabled() {
+        return Optional.ofNullable(this.ftpPublishBasicAuthenticationEnabled);
     }
 
     /**
@@ -192,14 +207,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Logic App kind - will be `functionapp,workflowapp`
+     * The Logic App kind.
      * 
      */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
     /**
-     * @return The Logic App kind - will be `functionapp,workflowapp`
+     * @return The Logic App kind.
      * 
      */
     public Optional<Output<String>> kind() {
@@ -222,14 +237,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * Specifies the name of the Logic App. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * @return Specifies the name of the Logic App. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -237,14 +252,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
     @Import(name="outboundIpAddresses")
     private @Nullable Output<String> outboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
     public Optional<Output<String>> outboundIpAddresses() {
@@ -298,6 +313,21 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
+    }
+
+    /**
+     * Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="scmPublishBasicAuthenticationEnabled")
+    private @Nullable Output<Boolean> scmPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> scmPublishBasicAuthenticationEnabled() {
+        return Optional.ofNullable(this.scmPublishBasicAuthenticationEnabled);
     }
 
     /**
@@ -400,16 +430,12 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     /**
      * The runtime version associated with the Logic App. Defaults to `~4`.
      * 
-     * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
-     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return The runtime version associated with the Logic App. Defaults to `~4`.
-     * 
-     * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
      * 
      */
     public Optional<Output<String>> version() {
@@ -421,6 +447,21 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
+    }
+
+    /**
+     * Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+     * 
+     */
+    @Import(name="vnetContentShareEnabled")
+    private @Nullable Output<Boolean> vnetContentShareEnabled;
+
+    /**
+     * @return Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> vnetContentShareEnabled() {
+        return Optional.ofNullable(this.vnetContentShareEnabled);
     }
 
     private StandardState() {}
@@ -435,6 +476,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         this.customDomainVerificationId = $.customDomainVerificationId;
         this.defaultHostname = $.defaultHostname;
         this.enabled = $.enabled;
+        this.ftpPublishBasicAuthenticationEnabled = $.ftpPublishBasicAuthenticationEnabled;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.kind = $.kind;
@@ -444,6 +486,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         this.possibleOutboundIpAddresses = $.possibleOutboundIpAddresses;
         this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
+        this.scmPublishBasicAuthenticationEnabled = $.scmPublishBasicAuthenticationEnabled;
         this.siteConfig = $.siteConfig;
         this.siteCredentials = $.siteCredentials;
         this.storageAccountAccessKey = $.storageAccountAccessKey;
@@ -453,6 +496,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         this.useExtensionBundle = $.useExtensionBundle;
         this.version = $.version;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
+        this.vnetContentShareEnabled = $.vnetContentShareEnabled;
     }
 
     public static Builder builder() {
@@ -497,7 +541,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+         * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
          * 
          * @return builder
          * 
@@ -510,7 +554,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+         * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
          * 
          * @return builder
          * 
@@ -520,7 +564,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleVersion If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+         * @param bundleVersion If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
          * 
          * @return builder
          * 
@@ -531,7 +575,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleVersion If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+         * @param bundleVersion If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
          * 
          * @return builder
          * 
@@ -635,7 +679,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultHostname The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+         * @param defaultHostname The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
          * 
          * @return builder
          * 
@@ -646,7 +690,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultHostname The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+         * @param defaultHostname The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
          * 
          * @return builder
          * 
@@ -674,6 +718,27 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param ftpPublishBasicAuthenticationEnabled Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ftpPublishBasicAuthenticationEnabled(@Nullable Output<Boolean> ftpPublishBasicAuthenticationEnabled) {
+            $.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param ftpPublishBasicAuthenticationEnabled Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
+            return ftpPublishBasicAuthenticationEnabled(Output.of(ftpPublishBasicAuthenticationEnabled));
         }
 
         /**
@@ -719,7 +784,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind The Logic App kind - will be `functionapp,workflowapp`
+         * @param kind The Logic App kind.
          * 
          * @return builder
          * 
@@ -730,7 +795,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind The Logic App kind - will be `functionapp,workflowapp`
+         * @param kind The Logic App kind.
          * 
          * @return builder
          * 
@@ -761,7 +826,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Logic App Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Logic App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -772,7 +837,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Logic App Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Logic App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -782,7 +847,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+         * @param outboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
          * 
          * @return builder
          * 
@@ -793,7 +858,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+         * @param outboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
          * 
          * @return builder
          * 
@@ -867,6 +932,27 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param scmPublishBasicAuthenticationEnabled Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmPublishBasicAuthenticationEnabled(@Nullable Output<Boolean> scmPublishBasicAuthenticationEnabled) {
+            $.scmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param scmPublishBasicAuthenticationEnabled Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scmPublishBasicAuthenticationEnabled(Boolean scmPublishBasicAuthenticationEnabled) {
+            return scmPublishBasicAuthenticationEnabled(Output.of(scmPublishBasicAuthenticationEnabled));
         }
 
         /**
@@ -1017,8 +1103,6 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param version The runtime version associated with the Logic App. Defaults to `~4`.
          * 
-         * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
-         * 
          * @return builder
          * 
          */
@@ -1029,8 +1113,6 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version The runtime version associated with the Logic App. Defaults to `~4`.
-         * 
-         * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
          * 
          * @return builder
          * 
@@ -1046,6 +1128,27 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
 
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param vnetContentShareEnabled Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetContentShareEnabled(@Nullable Output<Boolean> vnetContentShareEnabled) {
+            $.vnetContentShareEnabled = vnetContentShareEnabled;
+            return this;
+        }
+
+        /**
+         * @param vnetContentShareEnabled Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetContentShareEnabled(Boolean vnetContentShareEnabled) {
+            return vnetContentShareEnabled(Output.of(vnetContentShareEnabled));
         }
 
         public StandardState build() {

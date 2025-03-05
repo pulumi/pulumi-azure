@@ -14,62 +14,6 @@ import (
 
 // Manages a Kusto Cluster Principal Assignment.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/kusto"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("KustoRG"),
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("kustocluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Sku: &kusto.ClusterSkuArgs{
-//					Name:     pulumi.String("Standard_D13_v2"),
-//					Capacity: pulumi.Int(2),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kusto.NewClusterPrincipalAssignment(ctx, "example", &kusto.ClusterPrincipalAssignmentArgs{
-//				Name:              pulumi.String("KustoPrincipalAssignment"),
-//				ResourceGroupName: example.Name,
-//				ClusterName:       exampleCluster.Name,
-//				TenantId:          pulumi.String(current.TenantId),
-//				PrincipalId:       pulumi.String(current.ClientId),
-//				PrincipalType:     pulumi.String("App"),
-//				Role:              pulumi.String("AllDatabasesAdmin"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.
@@ -92,7 +36,7 @@ type ClusterPrincipalAssignment struct {
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
@@ -160,7 +104,7 @@ type clusterPrincipalAssignmentState struct {
 	PrincipalType *string `pulumi:"principalType"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
 	Role *string `pulumi:"role"`
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId *string `pulumi:"tenantId"`
@@ -181,7 +125,7 @@ type ClusterPrincipalAssignmentState struct {
 	PrincipalType pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
 	Role pulumi.StringPtrInput
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId pulumi.StringPtrInput
@@ -204,7 +148,7 @@ type clusterPrincipalAssignmentArgs struct {
 	PrincipalType string `pulumi:"principalType"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
 	Role string `pulumi:"role"`
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId string `pulumi:"tenantId"`
@@ -222,7 +166,7 @@ type ClusterPrincipalAssignmentArgs struct {
 	PrincipalType pulumi.StringInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+	// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
 	Role pulumi.StringInput
 	// The tenant id in which the principal resides. Changing this forces a new resource to be created.
 	TenantId pulumi.StringInput
@@ -345,7 +289,7 @@ func (o ClusterPrincipalAssignmentOutput) ResourceGroupName() pulumi.StringOutpu
 	return o.ApplyT(func(v *ClusterPrincipalAssignment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+// The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
 func (o ClusterPrincipalAssignmentOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPrincipalAssignment) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

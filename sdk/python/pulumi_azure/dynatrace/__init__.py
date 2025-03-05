@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_monitor import *
 from .monitor import *
 from .tag_rules import *
 from ._inputs import *

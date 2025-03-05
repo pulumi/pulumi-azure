@@ -2113,12 +2113,9 @@ if not MYPY:
         Blob endpoint for the storage account where backups will be kept.
         """
         encryption_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Enable or disable encryption for backups. Defaults to `false`.
-        """
         encryption_password: NotRequired[pulumi.Input[str]]
         """
-        Encryption password to use. Must be specified when encryption is enabled.
+        Encryption password to use. Setting a password will enable encryption.
         """
         manual_schedule: NotRequired[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgsDict']]
         """
@@ -2145,14 +2142,16 @@ class VirtualMachineAutoBackupArgs:
         :param pulumi.Input[int] retention_period_in_days: Retention period of backups, in days. Valid values are from `1` to `30`.
         :param pulumi.Input[str] storage_account_access_key: Access key for the storage account where backups will be kept.
         :param pulumi.Input[str] storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
-        :param pulumi.Input[bool] encryption_enabled: Enable or disable encryption for backups. Defaults to `false`.
-        :param pulumi.Input[str] encryption_password: Encryption password to use. Must be specified when encryption is enabled.
+        :param pulumi.Input[str] encryption_password: Encryption password to use. Setting a password will enable encryption.
         :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs'] manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param pulumi.Input[bool] system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         pulumi.set(__self__, "storage_blob_endpoint", storage_blob_endpoint)
+        if encryption_enabled is not None:
+            warnings.warn("""`encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""", DeprecationWarning)
+            pulumi.log.warn("""encryption_enabled is deprecated: `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""")
         if encryption_enabled is not None:
             pulumi.set(__self__, "encryption_enabled", encryption_enabled)
         if encryption_password is not None:
@@ -2200,10 +2199,8 @@ class VirtualMachineAutoBackupArgs:
 
     @property
     @pulumi.getter(name="encryptionEnabled")
+    @_utilities.deprecated("""`encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""")
     def encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enable or disable encryption for backups. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_enabled")
 
     @encryption_enabled.setter
@@ -2214,7 +2211,7 @@ class VirtualMachineAutoBackupArgs:
     @pulumi.getter(name="encryptionPassword")
     def encryption_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Encryption password to use. Must be specified when encryption is enabled.
+        Encryption password to use. Setting a password will enable encryption.
         """
         return pulumi.get(self, "encryption_password")
 

@@ -3589,6 +3589,879 @@ export namespace appservice {
         keyVaultId: string;
     }
 
+    export interface AppFlexConsumptionAuthSettings {
+        /**
+         * An `activeDirectory` block as defined above.
+         */
+        activeDirectory?: outputs.appservice.AppFlexConsumptionAuthSettingsActiveDirectory;
+        /**
+         * Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+         */
+        additionalLoginParameters?: {[key: string]: string};
+        /**
+         * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+         */
+        allowedExternalRedirectUrls: string[];
+        /**
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         *
+         * > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
+         */
+        defaultProvider: string;
+        /**
+         * Should the Authentication / Authorization feature be enabled for the Linux Web App?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.AppFlexConsumptionAuthSettingsFacebook;
+        /**
+         * A `github` block as defined below.
+         */
+        github?: outputs.appservice.AppFlexConsumptionAuthSettingsGithub;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.AppFlexConsumptionAuthSettingsGoogle;
+        /**
+         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         *
+         * > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.AppFlexConsumptionAuthSettingsMicrosoft;
+        /**
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+         */
+        runtimeVersion: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.AppFlexConsumptionAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+         */
+        unauthenticatedClientAction: string;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsActiveDirectory {
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         *
+         * > **Note:** The `clientId` value is always considered an allowed audience.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
+         */
+        appSecret?: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
+         */
+        appSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsGithub {
+        /**
+         * The ID of the GitHub app used for login.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
+         */
+        clientSecret?: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsTwitter {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
+         */
+        consumerSecret?: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
+         */
+        consumerSecretSettingName?: string;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2 {
+        /**
+         * An `activeDirectoryV2` block as defined below.
+         */
+        activeDirectoryV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2;
+        /**
+         * An `appleV2` block as defined below.
+         */
+        appleV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2AppleV2;
+        /**
+         * Should the AuthV2 Settings be enabled. Defaults to `false`.
+         */
+        authEnabled?: boolean;
+        /**
+         * An `azureStaticWebAppV2` block as defined below.
+         */
+        azureStaticWebAppV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2;
+        /**
+         * The path to the App Auth settings.
+         *
+         * > **Note:** Relative Paths are evaluated from the Site Root directory.
+         */
+        configFilePath?: string;
+        /**
+         * Zero or more `customOidcV2` blocks as defined below.
+         */
+        customOidcV2s?: outputs.appservice.AppFlexConsumptionAuthSettingsV2CustomOidcV2[];
+        /**
+         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         *
+         * > **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         */
+        defaultProvider?: string;
+        /**
+         * The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+         *
+         * > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
+         */
+        excludedPaths?: string[];
+        /**
+         * A `facebookV2` block as defined below.
+         */
+        facebookV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2FacebookV2;
+        /**
+         * The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+         */
+        forwardProxyConvention?: string;
+        /**
+         * The name of the custom header containing the host of the request.
+         */
+        forwardProxyCustomHostHeaderName?: string;
+        /**
+         * The name of the custom header containing the scheme of the request.
+         */
+        forwardProxyCustomSchemeHeaderName?: string;
+        /**
+         * A `githubV2` block as defined below.
+         */
+        githubV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2GithubV2;
+        /**
+         * A `googleV2` block as defined below.
+         */
+        googleV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2GoogleV2;
+        /**
+         * The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+         */
+        httpRouteApiPrefix?: string;
+        /**
+         * A `login` block as defined below.
+         */
+        login: outputs.appservice.AppFlexConsumptionAuthSettingsV2Login;
+        /**
+         * A `microsoftV2` block as defined below.
+         */
+        microsoftV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2MicrosoftV2;
+        /**
+         * Should the authentication flow be used for all requests.
+         */
+        requireAuthentication?: boolean;
+        /**
+         * Should HTTPS be required on connections? Defaults to `true`.
+         */
+        requireHttps?: boolean;
+        /**
+         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         */
+        runtimeVersion?: string;
+        /**
+         * A `twitterV2` block as defined below.
+         */
+        twitterV2?: outputs.appservice.AppFlexConsumptionAuthSettingsV2TwitterV2;
+        /**
+         * The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+         */
+        unauthenticatedAction?: string;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2 {
+        /**
+         * The list of allowed Applications for the Default Authorisation Policy.
+         */
+        allowedApplications?: string[];
+        /**
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         *
+         * > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The list of allowed Group Names for the Default Authorisation Policy.
+         */
+        allowedGroups?: string[];
+        /**
+         * The list of allowed Identities for the Default Authorisation Policy.
+         */
+        allowedIdentities?: string[];
+        /**
+         * The ID of the Client to use to authenticate with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
+        clientSecretCertificateThumbprint?: string;
+        /**
+         * The App Setting name that contains the client secret of the Client.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        clientSecretSettingName?: string;
+        /**
+         * A list of Allowed Client Applications in the JWT Claim.
+         */
+        jwtAllowedClientApplications?: string[];
+        /**
+         * A list of Allowed Groups in the JWT Claim.
+         */
+        jwtAllowedGroups?: string[];
+        /**
+         * A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+         */
+        loginParameters?: {[key: string]: string};
+        /**
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+         *
+         * > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+         */
+        tenantAuthEndpoint: string;
+        /**
+         * Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+         */
+        wwwAuthenticationDisabled?: boolean;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2AppleV2 {
+        /**
+         * The OpenID Connect Client ID for the Apple web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Apple Login.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        clientSecretSettingName: string;
+        /**
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+         */
+        loginScopes: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2 {
+        /**
+         * The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+         */
+        clientId: string;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2CustomOidcV2 {
+        /**
+         * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+         */
+        authorisationEndpoint: string;
+        /**
+         * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+         */
+        certificationUri: string;
+        /**
+         * The Client Credential Method used.
+         */
+        clientCredentialMethod: string;
+        /**
+         * The ID of the Client to use to authenticate with the Custom OIDC.
+         */
+        clientId: string;
+        /**
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        issuerEndpoint: string;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         *
+         * > **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+         */
+        name: string;
+        /**
+         * The name of the claim that contains the users name.
+         */
+        nameClaimType?: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
+         */
+        openidConfigurationEndpoint: string;
+        /**
+         * The list of the scopes that should be requested while authenticating.
+         */
+        scopes?: string[];
+        /**
+         * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+         */
+        tokenEndpoint: string;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2FacebookV2 {
+        /**
+         * The App ID of the Facebook app used for login.
+         */
+        appId: string;
+        /**
+         * The app setting name that contains the `appSecret` value used for Facebook Login.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        appSecretSettingName: string;
+        /**
+         * The version of the Facebook API to be used while logging in.
+         */
+        graphApiVersion: string;
+        /**
+         * The list of scopes that should be requested as part of Facebook Login authentication.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2GithubV2 {
+        /**
+         * The ID of the GitHub app used for login..
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for GitHub Login.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2GoogleV2 {
+        /**
+         * Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The app setting name that contains the `clientSecret` value used for Google Login.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2Login {
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         *
+         * > **Note:** URLs within the current domain are always implicitly allowed.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+         */
+        cookieExpirationConvention?: string;
+        /**
+         * The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+         */
+        cookieExpirationTime?: string;
+        /**
+         * The endpoint to which logout requests should be made.
+         */
+        logoutEndpoint?: string;
+        /**
+         * The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+         */
+        nonceExpirationTime?: string;
+        /**
+         * Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+         */
+        preserveUrlFragmentsForLogins?: boolean;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+         */
+        tokenRefreshExtensionTime?: number;
+        /**
+         * Should the Token Store configuration Enabled. Defaults to `false`
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * The directory path in the App Filesystem in which the tokens will be stored.
+         */
+        tokenStorePath?: string;
+        /**
+         * The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+         */
+        tokenStoreSasSettingName?: string;
+        /**
+         * Should the nonce be validated while completing the login flow. Defaults to `true`.
+         */
+        validateNonce?: boolean;
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2MicrosoftV2 {
+        /**
+         * Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        clientSecretSettingName: string;
+        /**
+         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         */
+        loginScopes?: string[];
+    }
+
+    export interface AppFlexConsumptionAuthSettingsV2TwitterV2 {
+        /**
+         * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+         */
+        consumerKey: string;
+        /**
+         * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         *
+         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         */
+        consumerSecretSettingName: string;
+    }
+
+    export interface AppFlexConsumptionConnectionString {
+        /**
+         * The name which should be used for this Connection.
+         */
+        name: string;
+        /**
+         * Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+         */
+        type: string;
+        /**
+         * The connection string value.
+         */
+        value: string;
+    }
+
+    export interface AppFlexConsumptionIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+         *
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: string;
+    }
+
+    export interface AppFlexConsumptionSiteConfig {
+        /**
+         * The URL of the API definition that describes this Linux Function App.
+         */
+        apiDefinitionUrl?: string;
+        /**
+         * The ID of the API Management API for this Linux Function App.
+         */
+        apiManagementApiId?: string;
+        /**
+         * The App command line to launch.
+         */
+        appCommandLine?: string;
+        /**
+         * An `appServiceLogs` block as defined above.
+         */
+        appServiceLogs?: outputs.appservice.AppFlexConsumptionSiteConfigAppServiceLogs;
+        /**
+         * The Connection String for linking the Linux Function App to Application Insights.
+         */
+        applicationInsightsConnectionString?: string;
+        /**
+         * The Instrumentation Key for connecting the Linux Function App to Application Insights.
+         */
+        applicationInsightsKey?: string;
+        /**
+         * The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+         */
+        containerRegistryManagedIdentityClientId?: string;
+        /**
+         * Should connections for Azure Container Registry use Managed Identity.
+         */
+        containerRegistryUseManagedIdentity?: boolean;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors?: outputs.appservice.AppFlexConsumptionSiteConfigCors;
+        /**
+         * Specifies a list of Default Documents for the Linux Web App.
+         */
+        defaultDocuments: string[];
+        /**
+         * Is detailed error logging enabled
+         */
+        detailedErrorLoggingEnabled: boolean;
+        /**
+         * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+         */
+        elasticInstanceMinimum: number;
+        /**
+         * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
+         */
+        healthCheckEvictionTimeInMin?: number;
+        /**
+         * The path to be checked for this function app health.
+         */
+        healthCheckPath?: string;
+        /**
+         * Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        ipRestrictionDefaultAction?: string;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions?: outputs.appservice.AppFlexConsumptionSiteConfigIpRestriction[];
+        /**
+         * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+         */
+        loadBalancingMode?: string;
+        /**
+         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+         */
+        managedPipelineMode?: string;
+        /**
+         * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
+         */
+        minimumTlsVersion?: string;
+        /**
+         * Should Remote Debugging be enabled. Defaults to `false`.
+         */
+        remoteDebuggingEnabled?: boolean;
+        /**
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+         */
+        remoteDebuggingVersion: string;
+        /**
+         * Should Scale Monitoring of the Functions Runtime be enabled?
+         *
+         * > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+         */
+        runtimeScaleMonitoringEnabled?: boolean;
+        /**
+         * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         */
+        scmIpRestrictionDefaultAction?: string;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions?: outputs.appservice.AppFlexConsumptionSiteConfigScmIpRestriction[];
+        /**
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         */
+        scmMinimumTlsVersion?: string;
+        /**
+         * The SCM Type in use by the Linux Function App.
+         */
+        scmType: string;
+        /**
+         * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
+         */
+        scmUseMainIpRestriction?: boolean;
+        /**
+         * Should the Linux Web App use a 32-bit worker.
+         */
+        use32BitWorker?: boolean;
+        /**
+         * Should Web Sockets be enabled. Defaults to `false`.
+         */
+        websocketsEnabled?: boolean;
+        /**
+         * The number of Workers for this Linux Function App.
+         */
+        workerCount: number;
+    }
+
+    export interface AppFlexConsumptionSiteConfigAppServiceLogs {
+        /**
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+         */
+        diskQuotaMb?: number;
+        /**
+         * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+         *
+         * > **Note:** This block is not supported on Consumption plans.
+         */
+        retentionPeriodDays?: number;
+    }
+
+    export interface AppFlexConsumptionSiteConfigCors {
+        /**
+         * Specifies a list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins?: string[];
+        /**
+         * Are credentials allowed in CORS requests? Defaults to `false`.
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface AppFlexConsumptionSiteConfigIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.AppFlexConsumptionSiteConfigIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         *
+         * > **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface AppFlexConsumptionSiteConfigIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface AppFlexConsumptionSiteConfigScmIpRestriction {
+        /**
+         * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
+         * A `headers` block as defined above.
+         */
+        headers?: outputs.appservice.AppFlexConsumptionSiteConfigScmIpRestrictionHeaders;
+        /**
+         * The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+         */
+        ipAddress?: string;
+        /**
+         * The name which should be used for this `ipRestriction`.
+         */
+        name: string;
+        /**
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
+         */
+        priority?: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
+        serviceTag?: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         *
+         * > **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
+         */
+        virtualNetworkSubnetId?: string;
+    }
+
+    export interface AppFlexConsumptionSiteConfigScmIpRestrictionHeaders {
+        /**
+         * Specifies a list of Azure Front Door IDs.
+         */
+        xAzureFdids?: string[];
+        /**
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+         */
+        xFdHealthProbe?: string;
+        /**
+         * Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+         */
+        xForwardedFors?: string[];
+        /**
+         * Specifies a list of Hosts for which matching should be applied.
+         */
+        xForwardedHosts?: string[];
+    }
+
+    export interface AppFlexConsumptionSiteCredential {
+        /**
+         * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+         */
+        name: string;
+        /**
+         * The Site Credentials Password used for publishing.
+         */
+        password: string;
+    }
+
+    export interface AppFlexConsumptionStickySettings {
+        /**
+         * A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         */
+        appSettingNames?: string[];
+        /**
+         * A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+         */
+        connectionStringNames?: string[];
+    }
+
     export interface AppServiceAuthSettings {
         /**
          * A `activeDirectory` block as defined below.
@@ -12793,7 +13666,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
          *
          * > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -13946,7 +14819,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `javaVersion`.
          *
          * > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -16746,7 +17619,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+         * The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
          */
         nodeVersion?: string;
         /**
@@ -30114,6 +30987,10 @@ export namespace containerapp {
          */
         allowInsecureConnections: boolean;
         /**
+         * The client certificate mode for the Ingress.
+         */
+        clientCertificateMode: string;
+        /**
          * One or more `customDomain` block as detailed below.
          */
         customDomains: outputs.containerapp.GetAppIngressCustomDomain[];
@@ -33688,6 +34565,8 @@ export namespace containerservice {
         applicationSecurityGroupIds?: string[];
         /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+         *
+         * > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
          */
         nodePublicIpTags?: {[key: string]: string};
     }
@@ -33841,6 +34720,21 @@ export namespace containerservice {
          * Is the Snapshot Controller enabled? Defaults to `true`.
          */
         snapshotControllerEnabled?: boolean;
+    }
+
+    export interface KubernetesClusterUpgradeOverride {
+        /**
+         * Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
+         *
+         * > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
+         */
+        effectiveUntil?: string;
+        /**
+         * Whether to force upgrade the cluster. Possible values are `true` or `false`.
+         *
+         * !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+         */
+        forceUpgradeEnabled: boolean;
     }
 
     export interface KubernetesClusterWebAppRouting {
@@ -39067,6 +39961,65 @@ export namespace domainservices {
 }
 
 export namespace dynatrace {
+    export interface GetMonitorEnvironmentProperty {
+        environmentInfos: outputs.dynatrace.GetMonitorEnvironmentPropertyEnvironmentInfo[];
+    }
+
+    export interface GetMonitorEnvironmentPropertyEnvironmentInfo {
+        environmentId: string;
+    }
+
+    export interface GetMonitorIdentity {
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of identity used for the resource.
+         */
+        type: string;
+    }
+
+    export interface GetMonitorPlan {
+        /**
+         * Different billing cycles.
+         */
+        billingCycle: string;
+        /**
+         * Date when plan was applied.
+         */
+        effectiveDate: string;
+        /**
+         * Plan id as published by Dynatrace.
+         */
+        plan: string;
+        /**
+         * Different usage type.
+         */
+        usageType: string;
+    }
+
+    export interface GetMonitorUser {
+        /**
+         * Country of the user.
+         */
+        country: string;
+        /**
+         * Email of the user used by Dynatrace for contacting them if needed.
+         */
+        email: string;
+        /**
+         * First name of the user.
+         */
+        firstName: string;
+        /**
+         * Last name of the user.
+         */
+        lastName: string;
+        /**
+         * phone number of the user by Dynatrace for contacting them if needed.
+         */
+        phoneNumber: string;
+    }
+
     export interface MonitorIdentity {
         principalId: string;
         tenantId: string;
@@ -46988,7 +47941,7 @@ export namespace logicapps {
 
     export interface GetStandardConnectionString {
         /**
-         * The name of this Logic App.
+         * The name of the Logic App.
          */
         name: string;
         /**
@@ -47130,7 +48083,7 @@ export namespace logicapps {
          */
         ipAddress?: string;
         /**
-         * The name of this Logic App.
+         * The name of the Logic App.
          */
         name: string;
         /**
@@ -47180,7 +48133,7 @@ export namespace logicapps {
          */
         ipAddress?: string;
         /**
-         * The name of this Logic App.
+         * The name of the Logic App.
          */
         name: string;
         /**
@@ -47389,9 +48342,9 @@ export namespace logicapps {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
          *
-         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+         * > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
          *
-         * > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: string[];
         /**
@@ -47452,7 +48405,9 @@ export namespace logicapps {
          */
         ipRestrictions: outputs.logicapps.StandardSiteConfigIpRestriction[];
         /**
-         * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+         * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+         *
+         * > **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
          */
         linuxFxVersion: string;
         /**
@@ -47548,7 +48503,7 @@ export namespace logicapps {
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+         * > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
          */
         virtualNetworkSubnetId?: string;
     }
@@ -47600,7 +48555,7 @@ export namespace logicapps {
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          *
-         * > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+         * > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          */
         virtualNetworkSubnetId?: string;
     }
@@ -52320,11 +53275,11 @@ export namespace mssql {
 
     export interface VirtualMachineAutoBackup {
         /**
-         * Enable or disable encryption for backups. Defaults to `false`.
+         * @deprecated `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
          */
-        encryptionEnabled?: boolean;
+        encryptionEnabled: boolean;
         /**
-         * Encryption password to use. Must be specified when encryption is enabled.
+         * Encryption password to use. Setting a password will enable encryption.
          */
         encryptionPassword?: string;
         /**
@@ -64939,7 +65894,7 @@ export namespace storage {
          */
         periodSinceCreationInDays: number;
         /**
-         * Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+         * Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
          */
         state: string;
     }

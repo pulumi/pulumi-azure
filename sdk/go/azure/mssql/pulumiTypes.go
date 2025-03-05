@@ -4284,9 +4284,9 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) WeeklyInterval() pulumi.IntPt
 }
 
 type VirtualMachineAutoBackup struct {
-	// Enable or disable encryption for backups. Defaults to `false`.
+	// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
 	EncryptionEnabled *bool `pulumi:"encryptionEnabled"`
-	// Encryption password to use. Must be specified when encryption is enabled.
+	// Encryption password to use. Setting a password will enable encryption.
 	EncryptionPassword *string `pulumi:"encryptionPassword"`
 	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
 	ManualSchedule *VirtualMachineAutoBackupManualSchedule `pulumi:"manualSchedule"`
@@ -4312,9 +4312,9 @@ type VirtualMachineAutoBackupInput interface {
 }
 
 type VirtualMachineAutoBackupArgs struct {
-	// Enable or disable encryption for backups. Defaults to `false`.
+	// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
 	EncryptionEnabled pulumi.BoolPtrInput `pulumi:"encryptionEnabled"`
-	// Encryption password to use. Must be specified when encryption is enabled.
+	// Encryption password to use. Setting a password will enable encryption.
 	EncryptionPassword pulumi.StringPtrInput `pulumi:"encryptionPassword"`
 	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
 	ManualSchedule VirtualMachineAutoBackupManualSchedulePtrInput `pulumi:"manualSchedule"`
@@ -4405,12 +4405,12 @@ func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutputWithC
 	}).(VirtualMachineAutoBackupPtrOutput)
 }
 
-// Enable or disable encryption for backups. Defaults to `false`.
+// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
 func (o VirtualMachineAutoBackupOutput) EncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackup) *bool { return v.EncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Encryption password to use. Must be specified when encryption is enabled.
+// Encryption password to use. Setting a password will enable encryption.
 func (o VirtualMachineAutoBackupOutput) EncryptionPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackup) *string { return v.EncryptionPassword }).(pulumi.StringPtrOutput)
 }
@@ -4464,7 +4464,7 @@ func (o VirtualMachineAutoBackupPtrOutput) Elem() VirtualMachineAutoBackupOutput
 	}).(VirtualMachineAutoBackupOutput)
 }
 
-// Enable or disable encryption for backups. Defaults to `false`.
+// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
 func (o VirtualMachineAutoBackupPtrOutput) EncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackup) *bool {
 		if v == nil {
@@ -4474,7 +4474,7 @@ func (o VirtualMachineAutoBackupPtrOutput) EncryptionEnabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Encryption password to use. Must be specified when encryption is enabled.
+// Encryption password to use. Setting a password will enable encryption.
 func (o VirtualMachineAutoBackupPtrOutput) EncryptionPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackup) *string {
 		if v == nil {

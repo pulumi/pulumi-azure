@@ -51,7 +51,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        /// &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

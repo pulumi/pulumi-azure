@@ -13,6 +13,4173 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetLinuxWebAppAuthSettingActiveDirectory struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+}
+
+// GetLinuxWebAppAuthSettingActiveDirectoryInput is an input type that accepts GetLinuxWebAppAuthSettingActiveDirectoryArgs and GetLinuxWebAppAuthSettingActiveDirectoryOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingActiveDirectoryInput` via:
+//
+//	GetLinuxWebAppAuthSettingActiveDirectoryArgs{...}
+type GetLinuxWebAppAuthSettingActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingActiveDirectoryOutput() GetLinuxWebAppAuthSettingActiveDirectoryOutput
+	ToGetLinuxWebAppAuthSettingActiveDirectoryOutputWithContext(context.Context) GetLinuxWebAppAuthSettingActiveDirectoryOutput
+}
+
+type GetLinuxWebAppAuthSettingActiveDirectoryArgs struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+}
+
+func (GetLinuxWebAppAuthSettingActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingActiveDirectoryArgs) ToGetLinuxWebAppAuthSettingActiveDirectoryOutput() GetLinuxWebAppAuthSettingActiveDirectoryOutput {
+	return i.ToGetLinuxWebAppAuthSettingActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingActiveDirectoryArgs) ToGetLinuxWebAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingActiveDirectoryOutput)
+}
+
+// GetLinuxWebAppAuthSettingActiveDirectoryArrayInput is an input type that accepts GetLinuxWebAppAuthSettingActiveDirectoryArray and GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingActiveDirectoryArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingActiveDirectoryArray{ GetLinuxWebAppAuthSettingActiveDirectoryArgs{...} }
+type GetLinuxWebAppAuthSettingActiveDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutput() GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput
+	ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingActiveDirectoryArray []GetLinuxWebAppAuthSettingActiveDirectoryInput
+
+func (GetLinuxWebAppAuthSettingActiveDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingActiveDirectoryArray) ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutput() GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingActiveDirectoryArray) ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingActiveDirectoryOutput) ToGetLinuxWebAppAuthSettingActiveDirectoryOutput() GetLinuxWebAppAuthSettingActiveDirectoryOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingActiveDirectoryOutput) ToGetLinuxWebAppAuthSettingActiveDirectoryOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingActiveDirectoryOutput {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetLinuxWebAppAuthSettingActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingActiveDirectoryOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingActiveDirectory) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingActiveDirectoryOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingActiveDirectory) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingActiveDirectory)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput) ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutput() GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput) ToGetLinuxWebAppAuthSettingActiveDirectoryArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingActiveDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingActiveDirectory {
+		return vs[0].([]GetLinuxWebAppAuthSettingActiveDirectory)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingActiveDirectoryOutput)
+}
+
+type GetLinuxWebAppAuthSettingFacebook struct {
+	// The App ID of the Facebook app used for login.
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook login.
+	AppSecret string `pulumi:"appSecret"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName string `pulumi:"appSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetLinuxWebAppAuthSettingFacebookInput is an input type that accepts GetLinuxWebAppAuthSettingFacebookArgs and GetLinuxWebAppAuthSettingFacebookOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingFacebookInput` via:
+//
+//	GetLinuxWebAppAuthSettingFacebookArgs{...}
+type GetLinuxWebAppAuthSettingFacebookInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingFacebookOutput() GetLinuxWebAppAuthSettingFacebookOutput
+	ToGetLinuxWebAppAuthSettingFacebookOutputWithContext(context.Context) GetLinuxWebAppAuthSettingFacebookOutput
+}
+
+type GetLinuxWebAppAuthSettingFacebookArgs struct {
+	// The App ID of the Facebook app used for login.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName pulumi.StringInput `pulumi:"appSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingFacebookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingFacebookArgs) ToGetLinuxWebAppAuthSettingFacebookOutput() GetLinuxWebAppAuthSettingFacebookOutput {
+	return i.ToGetLinuxWebAppAuthSettingFacebookOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingFacebookArgs) ToGetLinuxWebAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingFacebookOutput)
+}
+
+// GetLinuxWebAppAuthSettingFacebookArrayInput is an input type that accepts GetLinuxWebAppAuthSettingFacebookArray and GetLinuxWebAppAuthSettingFacebookArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingFacebookArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingFacebookArray{ GetLinuxWebAppAuthSettingFacebookArgs{...} }
+type GetLinuxWebAppAuthSettingFacebookArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingFacebookArrayOutput() GetLinuxWebAppAuthSettingFacebookArrayOutput
+	ToGetLinuxWebAppAuthSettingFacebookArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingFacebookArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingFacebookArray []GetLinuxWebAppAuthSettingFacebookInput
+
+func (GetLinuxWebAppAuthSettingFacebookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingFacebookArray) ToGetLinuxWebAppAuthSettingFacebookArrayOutput() GetLinuxWebAppAuthSettingFacebookArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingFacebookArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingFacebookArray) ToGetLinuxWebAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingFacebookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingFacebookArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingFacebookOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingFacebookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingFacebookOutput) ToGetLinuxWebAppAuthSettingFacebookOutput() GetLinuxWebAppAuthSettingFacebookOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingFacebookOutput) ToGetLinuxWebAppAuthSettingFacebookOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingFacebookOutput {
+	return o
+}
+
+// The App ID of the Facebook app used for login.
+func (o GetLinuxWebAppAuthSettingFacebookOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingFacebook) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The App Secret of the Facebook app used for Facebook login.
+func (o GetLinuxWebAppAuthSettingFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `appSecret` value used for Facebook login.
+func (o GetLinuxWebAppAuthSettingFacebookOutput) AppSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingFacebook) string { return v.AppSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingFacebookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingFacebookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingFacebook)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingFacebookArrayOutput) ToGetLinuxWebAppAuthSettingFacebookArrayOutput() GetLinuxWebAppAuthSettingFacebookArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingFacebookArrayOutput) ToGetLinuxWebAppAuthSettingFacebookArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingFacebookArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingFacebookArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingFacebookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingFacebook {
+		return vs[0].([]GetLinuxWebAppAuthSettingFacebook)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingFacebookOutput)
+}
+
+type GetLinuxWebAppAuthSettingGithub struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetLinuxWebAppAuthSettingGithubInput is an input type that accepts GetLinuxWebAppAuthSettingGithubArgs and GetLinuxWebAppAuthSettingGithubOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingGithubInput` via:
+//
+//	GetLinuxWebAppAuthSettingGithubArgs{...}
+type GetLinuxWebAppAuthSettingGithubInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingGithubOutput() GetLinuxWebAppAuthSettingGithubOutput
+	ToGetLinuxWebAppAuthSettingGithubOutputWithContext(context.Context) GetLinuxWebAppAuthSettingGithubOutput
+}
+
+type GetLinuxWebAppAuthSettingGithubArgs struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingGithubArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingGithubArgs) ToGetLinuxWebAppAuthSettingGithubOutput() GetLinuxWebAppAuthSettingGithubOutput {
+	return i.ToGetLinuxWebAppAuthSettingGithubOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingGithubArgs) ToGetLinuxWebAppAuthSettingGithubOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGithubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingGithubOutput)
+}
+
+// GetLinuxWebAppAuthSettingGithubArrayInput is an input type that accepts GetLinuxWebAppAuthSettingGithubArray and GetLinuxWebAppAuthSettingGithubArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingGithubArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingGithubArray{ GetLinuxWebAppAuthSettingGithubArgs{...} }
+type GetLinuxWebAppAuthSettingGithubArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingGithubArrayOutput() GetLinuxWebAppAuthSettingGithubArrayOutput
+	ToGetLinuxWebAppAuthSettingGithubArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingGithubArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingGithubArray []GetLinuxWebAppAuthSettingGithubInput
+
+func (GetLinuxWebAppAuthSettingGithubArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingGithubArray) ToGetLinuxWebAppAuthSettingGithubArrayOutput() GetLinuxWebAppAuthSettingGithubArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingGithubArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingGithubArray) ToGetLinuxWebAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGithubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingGithubArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingGithubOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingGithubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingGithubOutput) ToGetLinuxWebAppAuthSettingGithubOutput() GetLinuxWebAppAuthSettingGithubOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingGithubOutput) ToGetLinuxWebAppAuthSettingGithubOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGithubOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingGithubOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGithub) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingGithubOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGithub) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingGithubOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGithub) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingGithubOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGithub) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingGithubArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingGithubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingGithub)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingGithubArrayOutput) ToGetLinuxWebAppAuthSettingGithubArrayOutput() GetLinuxWebAppAuthSettingGithubArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingGithubArrayOutput) ToGetLinuxWebAppAuthSettingGithubArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGithubArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingGithubArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingGithubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingGithub {
+		return vs[0].([]GetLinuxWebAppAuthSettingGithub)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingGithubOutput)
+}
+
+type GetLinuxWebAppAuthSettingGoogle struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetLinuxWebAppAuthSettingGoogleInput is an input type that accepts GetLinuxWebAppAuthSettingGoogleArgs and GetLinuxWebAppAuthSettingGoogleOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingGoogleInput` via:
+//
+//	GetLinuxWebAppAuthSettingGoogleArgs{...}
+type GetLinuxWebAppAuthSettingGoogleInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingGoogleOutput() GetLinuxWebAppAuthSettingGoogleOutput
+	ToGetLinuxWebAppAuthSettingGoogleOutputWithContext(context.Context) GetLinuxWebAppAuthSettingGoogleOutput
+}
+
+type GetLinuxWebAppAuthSettingGoogleArgs struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingGoogleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingGoogleArgs) ToGetLinuxWebAppAuthSettingGoogleOutput() GetLinuxWebAppAuthSettingGoogleOutput {
+	return i.ToGetLinuxWebAppAuthSettingGoogleOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingGoogleArgs) ToGetLinuxWebAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingGoogleOutput)
+}
+
+// GetLinuxWebAppAuthSettingGoogleArrayInput is an input type that accepts GetLinuxWebAppAuthSettingGoogleArray and GetLinuxWebAppAuthSettingGoogleArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingGoogleArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingGoogleArray{ GetLinuxWebAppAuthSettingGoogleArgs{...} }
+type GetLinuxWebAppAuthSettingGoogleArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingGoogleArrayOutput() GetLinuxWebAppAuthSettingGoogleArrayOutput
+	ToGetLinuxWebAppAuthSettingGoogleArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingGoogleArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingGoogleArray []GetLinuxWebAppAuthSettingGoogleInput
+
+func (GetLinuxWebAppAuthSettingGoogleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingGoogleArray) ToGetLinuxWebAppAuthSettingGoogleArrayOutput() GetLinuxWebAppAuthSettingGoogleArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingGoogleArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingGoogleArray) ToGetLinuxWebAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGoogleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingGoogleArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingGoogleOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingGoogleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingGoogleOutput) ToGetLinuxWebAppAuthSettingGoogleOutput() GetLinuxWebAppAuthSettingGoogleOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingGoogleOutput) ToGetLinuxWebAppAuthSettingGoogleOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGoogleOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGoogle) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingGoogleOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGoogle) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingGoogleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingGoogleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingGoogle)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingGoogleArrayOutput) ToGetLinuxWebAppAuthSettingGoogleArrayOutput() GetLinuxWebAppAuthSettingGoogleArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingGoogleArrayOutput) ToGetLinuxWebAppAuthSettingGoogleArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingGoogleArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingGoogleArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingGoogleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingGoogle {
+		return vs[0].([]GetLinuxWebAppAuthSettingGoogle)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingGoogleOutput)
+}
+
+type GetLinuxWebAppAuthSettingMicrosoft struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// GetLinuxWebAppAuthSettingMicrosoftInput is an input type that accepts GetLinuxWebAppAuthSettingMicrosoftArgs and GetLinuxWebAppAuthSettingMicrosoftOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingMicrosoftInput` via:
+//
+//	GetLinuxWebAppAuthSettingMicrosoftArgs{...}
+type GetLinuxWebAppAuthSettingMicrosoftInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingMicrosoftOutput() GetLinuxWebAppAuthSettingMicrosoftOutput
+	ToGetLinuxWebAppAuthSettingMicrosoftOutputWithContext(context.Context) GetLinuxWebAppAuthSettingMicrosoftOutput
+}
+
+type GetLinuxWebAppAuthSettingMicrosoftArgs struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret used by the app for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingMicrosoftArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingMicrosoftArgs) ToGetLinuxWebAppAuthSettingMicrosoftOutput() GetLinuxWebAppAuthSettingMicrosoftOutput {
+	return i.ToGetLinuxWebAppAuthSettingMicrosoftOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingMicrosoftArgs) ToGetLinuxWebAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingMicrosoftOutput)
+}
+
+// GetLinuxWebAppAuthSettingMicrosoftArrayInput is an input type that accepts GetLinuxWebAppAuthSettingMicrosoftArray and GetLinuxWebAppAuthSettingMicrosoftArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingMicrosoftArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingMicrosoftArray{ GetLinuxWebAppAuthSettingMicrosoftArgs{...} }
+type GetLinuxWebAppAuthSettingMicrosoftArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingMicrosoftArrayOutput() GetLinuxWebAppAuthSettingMicrosoftArrayOutput
+	ToGetLinuxWebAppAuthSettingMicrosoftArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingMicrosoftArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingMicrosoftArray []GetLinuxWebAppAuthSettingMicrosoftInput
+
+func (GetLinuxWebAppAuthSettingMicrosoftArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingMicrosoftArray) ToGetLinuxWebAppAuthSettingMicrosoftArrayOutput() GetLinuxWebAppAuthSettingMicrosoftArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingMicrosoftArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingMicrosoftArray) ToGetLinuxWebAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingMicrosoftArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingMicrosoftArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingMicrosoftOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingMicrosoftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingMicrosoftOutput) ToGetLinuxWebAppAuthSettingMicrosoftOutput() GetLinuxWebAppAuthSettingMicrosoftOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingMicrosoftOutput) ToGetLinuxWebAppAuthSettingMicrosoftOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingMicrosoftOutput {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingMicrosoftOutput) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingMicrosoft) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingMicrosoftArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingMicrosoftArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingMicrosoft)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingMicrosoftArrayOutput) ToGetLinuxWebAppAuthSettingMicrosoftArrayOutput() GetLinuxWebAppAuthSettingMicrosoftArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingMicrosoftArrayOutput) ToGetLinuxWebAppAuthSettingMicrosoftArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingMicrosoftArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingMicrosoftArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingMicrosoftOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingMicrosoft {
+		return vs[0].([]GetLinuxWebAppAuthSettingMicrosoft)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingMicrosoftOutput)
+}
+
+type GetLinuxWebAppAuthSettingTwitter struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecret string `pulumi:"consumerSecret"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName string `pulumi:"consumerSecretSettingName"`
+}
+
+// GetLinuxWebAppAuthSettingTwitterInput is an input type that accepts GetLinuxWebAppAuthSettingTwitterArgs and GetLinuxWebAppAuthSettingTwitterOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingTwitterInput` via:
+//
+//	GetLinuxWebAppAuthSettingTwitterArgs{...}
+type GetLinuxWebAppAuthSettingTwitterInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingTwitterOutput() GetLinuxWebAppAuthSettingTwitterOutput
+	ToGetLinuxWebAppAuthSettingTwitterOutputWithContext(context.Context) GetLinuxWebAppAuthSettingTwitterOutput
+}
+
+type GetLinuxWebAppAuthSettingTwitterArgs struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName pulumi.StringInput `pulumi:"consumerSecretSettingName"`
+}
+
+func (GetLinuxWebAppAuthSettingTwitterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingTwitterArgs) ToGetLinuxWebAppAuthSettingTwitterOutput() GetLinuxWebAppAuthSettingTwitterOutput {
+	return i.ToGetLinuxWebAppAuthSettingTwitterOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingTwitterArgs) ToGetLinuxWebAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingTwitterOutput)
+}
+
+// GetLinuxWebAppAuthSettingTwitterArrayInput is an input type that accepts GetLinuxWebAppAuthSettingTwitterArray and GetLinuxWebAppAuthSettingTwitterArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingTwitterArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingTwitterArray{ GetLinuxWebAppAuthSettingTwitterArgs{...} }
+type GetLinuxWebAppAuthSettingTwitterArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingTwitterArrayOutput() GetLinuxWebAppAuthSettingTwitterArrayOutput
+	ToGetLinuxWebAppAuthSettingTwitterArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingTwitterArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingTwitterArray []GetLinuxWebAppAuthSettingTwitterInput
+
+func (GetLinuxWebAppAuthSettingTwitterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingTwitterArray) ToGetLinuxWebAppAuthSettingTwitterArrayOutput() GetLinuxWebAppAuthSettingTwitterArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingTwitterArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingTwitterArray) ToGetLinuxWebAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingTwitterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingTwitterArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingTwitterOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingTwitterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingTwitterOutput) ToGetLinuxWebAppAuthSettingTwitterOutput() GetLinuxWebAppAuthSettingTwitterOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingTwitterOutput) ToGetLinuxWebAppAuthSettingTwitterOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingTwitterOutput {
+	return o
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+func (o GetLinuxWebAppAuthSettingTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+// The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetLinuxWebAppAuthSettingTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingTwitter) string { return v.ConsumerSecret }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetLinuxWebAppAuthSettingTwitterOutput) ConsumerSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingTwitter) string { return v.ConsumerSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingTwitterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingTwitterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingTwitter)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingTwitterArrayOutput) ToGetLinuxWebAppAuthSettingTwitterArrayOutput() GetLinuxWebAppAuthSettingTwitterArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingTwitterArrayOutput) ToGetLinuxWebAppAuthSettingTwitterArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingTwitterArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingTwitterArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingTwitterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingTwitter {
+		return vs[0].([]GetLinuxWebAppAuthSettingTwitter)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingTwitterOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2 struct {
+	// An `activeDirectoryV2` block as defined below.
+	ActiveDirectoryV2s []GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2 `pulumi:"activeDirectoryV2s"`
+	// An `appleV2` block as defined below.
+	AppleV2s []GetLinuxWebAppAuthSettingsV2AppleV2 `pulumi:"appleV2s"`
+	// Are the AuthV2 Settings enabled.
+	AuthEnabled bool `pulumi:"authEnabled"`
+	// An `azureStaticWebAppV2` block as defined below.
+	AzureStaticWebAppV2s []GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2 `pulumi:"azureStaticWebAppV2s"`
+	// The path to the App Auth settings.
+	ConfigFilePath string `pulumi:"configFilePath"`
+	// Zero or more `customOidcV2` blocks as defined below.
+	CustomOidcV2s []GetLinuxWebAppAuthSettingsV2CustomOidcV2 `pulumi:"customOidcV2s"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider string `pulumi:"defaultProvider"`
+	// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+	ExcludedPaths []string `pulumi:"excludedPaths"`
+	// A `facebookV2` block as defined below.
+	FacebookV2s []GetLinuxWebAppAuthSettingsV2FacebookV2 `pulumi:"facebookV2s"`
+	// The convention used to determine the url of the request made.
+	ForwardProxyConvention string `pulumi:"forwardProxyConvention"`
+	// The name of the custom header containing the host of the request.
+	ForwardProxyCustomHostHeaderName string `pulumi:"forwardProxyCustomHostHeaderName"`
+	// The name of the custom header containing the scheme of the request.
+	ForwardProxyCustomSchemeHeaderName string `pulumi:"forwardProxyCustomSchemeHeaderName"`
+	// A `githubV2` block as defined below.
+	GithubV2s []GetLinuxWebAppAuthSettingsV2GithubV2 `pulumi:"githubV2s"`
+	// A `googleV2` block as defined below.
+	GoogleV2s []GetLinuxWebAppAuthSettingsV2GoogleV2 `pulumi:"googleV2s"`
+	// The prefix that should precede all the authentication and authorisation paths.
+	HttpRouteApiPrefix string `pulumi:"httpRouteApiPrefix"`
+	// A `login` block as defined below.
+	Logins []GetLinuxWebAppAuthSettingsV2Login `pulumi:"logins"`
+	// A `microsoftV2` block as defined below.
+	MicrosoftV2s []GetLinuxWebAppAuthSettingsV2MicrosoftV2 `pulumi:"microsoftV2s"`
+	// Is the authentication flow used for all requests.
+	RequireAuthentication bool `pulumi:"requireAuthentication"`
+	// Is HTTPS required on connections?
+	RequireHttps bool `pulumi:"requireHttps"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// A `twitterV2` block as defined below.
+	TwitterV2s []GetLinuxWebAppAuthSettingsV2TwitterV2 `pulumi:"twitterV2s"`
+	// The action to take for requests made without authentication.
+	UnauthenticatedAction string `pulumi:"unauthenticatedAction"`
+}
+
+// GetLinuxWebAppAuthSettingsV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2Args and GetLinuxWebAppAuthSettingsV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2Args{...}
+type GetLinuxWebAppAuthSettingsV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2Output() GetLinuxWebAppAuthSettingsV2Output
+	ToGetLinuxWebAppAuthSettingsV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2Args struct {
+	// An `activeDirectoryV2` block as defined below.
+	ActiveDirectoryV2s GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput `pulumi:"activeDirectoryV2s"`
+	// An `appleV2` block as defined below.
+	AppleV2s GetLinuxWebAppAuthSettingsV2AppleV2ArrayInput `pulumi:"appleV2s"`
+	// Are the AuthV2 Settings enabled.
+	AuthEnabled pulumi.BoolInput `pulumi:"authEnabled"`
+	// An `azureStaticWebAppV2` block as defined below.
+	AzureStaticWebAppV2s GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput `pulumi:"azureStaticWebAppV2s"`
+	// The path to the App Auth settings.
+	ConfigFilePath pulumi.StringInput `pulumi:"configFilePath"`
+	// Zero or more `customOidcV2` blocks as defined below.
+	CustomOidcV2s GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayInput `pulumi:"customOidcV2s"`
+	// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
+	// A `facebookV2` block as defined below.
+	FacebookV2s GetLinuxWebAppAuthSettingsV2FacebookV2ArrayInput `pulumi:"facebookV2s"`
+	// The convention used to determine the url of the request made.
+	ForwardProxyConvention pulumi.StringInput `pulumi:"forwardProxyConvention"`
+	// The name of the custom header containing the host of the request.
+	ForwardProxyCustomHostHeaderName pulumi.StringInput `pulumi:"forwardProxyCustomHostHeaderName"`
+	// The name of the custom header containing the scheme of the request.
+	ForwardProxyCustomSchemeHeaderName pulumi.StringInput `pulumi:"forwardProxyCustomSchemeHeaderName"`
+	// A `githubV2` block as defined below.
+	GithubV2s GetLinuxWebAppAuthSettingsV2GithubV2ArrayInput `pulumi:"githubV2s"`
+	// A `googleV2` block as defined below.
+	GoogleV2s GetLinuxWebAppAuthSettingsV2GoogleV2ArrayInput `pulumi:"googleV2s"`
+	// The prefix that should precede all the authentication and authorisation paths.
+	HttpRouteApiPrefix pulumi.StringInput `pulumi:"httpRouteApiPrefix"`
+	// A `login` block as defined below.
+	Logins GetLinuxWebAppAuthSettingsV2LoginArrayInput `pulumi:"logins"`
+	// A `microsoftV2` block as defined below.
+	MicrosoftV2s GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayInput `pulumi:"microsoftV2s"`
+	// Is the authentication flow used for all requests.
+	RequireAuthentication pulumi.BoolInput `pulumi:"requireAuthentication"`
+	// Is HTTPS required on connections?
+	RequireHttps pulumi.BoolInput `pulumi:"requireHttps"`
+	// The Runtime Version of the Authentication and Authorisation feature of this App.
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// A `twitterV2` block as defined below.
+	TwitterV2s GetLinuxWebAppAuthSettingsV2TwitterV2ArrayInput `pulumi:"twitterV2s"`
+	// The action to take for requests made without authentication.
+	UnauthenticatedAction pulumi.StringInput `pulumi:"unauthenticatedAction"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2Args) ToGetLinuxWebAppAuthSettingsV2Output() GetLinuxWebAppAuthSettingsV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2Args) ToGetLinuxWebAppAuthSettingsV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2Array and GetLinuxWebAppAuthSettingsV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2Array{ GetLinuxWebAppAuthSettingsV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2ArrayOutput() GetLinuxWebAppAuthSettingsV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2Array []GetLinuxWebAppAuthSettingsV2Input
+
+func (GetLinuxWebAppAuthSettingsV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2Array) ToGetLinuxWebAppAuthSettingsV2ArrayOutput() GetLinuxWebAppAuthSettingsV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2Array) ToGetLinuxWebAppAuthSettingsV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2Output) ToGetLinuxWebAppAuthSettingsV2Output() GetLinuxWebAppAuthSettingsV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2Output) ToGetLinuxWebAppAuthSettingsV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2Output {
+	return o
+}
+
+// An `activeDirectoryV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) ActiveDirectoryV2s() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
+		return v.ActiveDirectoryV2s
+	}).(GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
+}
+
+// An `appleV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) AppleV2s() GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2AppleV2 { return v.AppleV2s }).(GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput)
+}
+
+// Are the AuthV2 Settings enabled.
+func (o GetLinuxWebAppAuthSettingsV2Output) AuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) bool { return v.AuthEnabled }).(pulumi.BoolOutput)
+}
+
+// An `azureStaticWebAppV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) AzureStaticWebAppV2s() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2 {
+		return v.AzureStaticWebAppV2s
+	}).(GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
+}
+
+// The path to the App Auth settings.
+func (o GetLinuxWebAppAuthSettingsV2Output) ConfigFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.ConfigFilePath }).(pulumi.StringOutput)
+}
+
+// Zero or more `customOidcV2` blocks as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) CustomOidcV2s() GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2CustomOidcV2 {
+		return v.CustomOidcV2s
+	}).(GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput)
+}
+
+// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticatedAction` is set to `RedirectToLoginPage`.
+func (o GetLinuxWebAppAuthSettingsV2Output) DefaultProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.DefaultProvider }).(pulumi.StringOutput)
+}
+
+// The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
+func (o GetLinuxWebAppAuthSettingsV2Output) ExcludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
+}
+
+// A `facebookV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) FacebookV2s() GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2FacebookV2 { return v.FacebookV2s }).(GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput)
+}
+
+// The convention used to determine the url of the request made.
+func (o GetLinuxWebAppAuthSettingsV2Output) ForwardProxyConvention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.ForwardProxyConvention }).(pulumi.StringOutput)
+}
+
+// The name of the custom header containing the host of the request.
+func (o GetLinuxWebAppAuthSettingsV2Output) ForwardProxyCustomHostHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.ForwardProxyCustomHostHeaderName }).(pulumi.StringOutput)
+}
+
+// The name of the custom header containing the scheme of the request.
+func (o GetLinuxWebAppAuthSettingsV2Output) ForwardProxyCustomSchemeHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.ForwardProxyCustomSchemeHeaderName }).(pulumi.StringOutput)
+}
+
+// A `githubV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) GithubV2s() GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2GithubV2 { return v.GithubV2s }).(GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput)
+}
+
+// A `googleV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) GoogleV2s() GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2GoogleV2 { return v.GoogleV2s }).(GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput)
+}
+
+// The prefix that should precede all the authentication and authorisation paths.
+func (o GetLinuxWebAppAuthSettingsV2Output) HttpRouteApiPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.HttpRouteApiPrefix }).(pulumi.StringOutput)
+}
+
+// A `login` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) Logins() GetLinuxWebAppAuthSettingsV2LoginArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2Login { return v.Logins }).(GetLinuxWebAppAuthSettingsV2LoginArrayOutput)
+}
+
+// A `microsoftV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) MicrosoftV2s() GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2MicrosoftV2 { return v.MicrosoftV2s }).(GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput)
+}
+
+// Is the authentication flow used for all requests.
+func (o GetLinuxWebAppAuthSettingsV2Output) RequireAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) bool { return v.RequireAuthentication }).(pulumi.BoolOutput)
+}
+
+// Is HTTPS required on connections?
+func (o GetLinuxWebAppAuthSettingsV2Output) RequireHttps() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) bool { return v.RequireHttps }).(pulumi.BoolOutput)
+}
+
+// The Runtime Version of the Authentication and Authorisation feature of this App.
+func (o GetLinuxWebAppAuthSettingsV2Output) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// A `twitterV2` block as defined below.
+func (o GetLinuxWebAppAuthSettingsV2Output) TwitterV2s() GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) []GetLinuxWebAppAuthSettingsV2TwitterV2 { return v.TwitterV2s }).(GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput)
+}
+
+// The action to take for requests made without authentication.
+func (o GetLinuxWebAppAuthSettingsV2Output) UnauthenticatedAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2) string { return v.UnauthenticatedAction }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2ArrayOutput() GetLinuxWebAppAuthSettingsV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2 struct {
+	// The list of allowed Applications for the Default Authorisation Policy.
+	AllowedApplications []string `pulumi:"allowedApplications"`
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The list of allowed Group Names for the Default Authorisation Policy.
+	AllowedGroups []string `pulumi:"allowedGroups"`
+	// The list of allowed Identities for the Default Authorisation Policy.
+	AllowedIdentities []string `pulumi:"allowedIdentities"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The thumbprint of the certificate used for signing purposes.
+	ClientSecretCertificateThumbprint string `pulumi:"clientSecretCertificateThumbprint"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Allowed Client Applications in the JWT Claim.
+	JwtAllowedClientApplications []string `pulumi:"jwtAllowedClientApplications"`
+	// The list of Allowed Groups in the JWT Claim.
+	JwtAllowedGroups []string `pulumi:"jwtAllowedGroups"`
+	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+	LoginParameters map[string]string `pulumi:"loginParameters"`
+	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
+	// Is the www-authenticate provider omitted from the request?
+	WwwAuthenticationDisabled bool `pulumi:"wwwAuthenticationDisabled"`
+}
+
+// GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args and GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args{...}
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output
+	ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args struct {
+	// The list of allowed Applications for the Default Authorisation Policy.
+	AllowedApplications pulumi.StringArrayInput `pulumi:"allowedApplications"`
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The list of allowed Group Names for the Default Authorisation Policy.
+	AllowedGroups pulumi.StringArrayInput `pulumi:"allowedGroups"`
+	// The list of allowed Identities for the Default Authorisation Policy.
+	AllowedIdentities pulumi.StringArrayInput `pulumi:"allowedIdentities"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The thumbprint of the certificate used for signing purposes.
+	ClientSecretCertificateThumbprint pulumi.StringInput `pulumi:"clientSecretCertificateThumbprint"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Allowed Client Applications in the JWT Claim.
+	JwtAllowedClientApplications pulumi.StringArrayInput `pulumi:"jwtAllowedClientApplications"`
+	// The list of Allowed Groups in the JWT Claim.
+	JwtAllowedGroups pulumi.StringArrayInput `pulumi:"jwtAllowedGroups"`
+	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
+	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
+	// Is the www-authenticate provider omitted from the request?
+	WwwAuthenticationDisabled pulumi.BoolInput `pulumi:"wwwAuthenticationDisabled"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array and GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array{ GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array []GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Input
+
+func (GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return o
+}
+
+// The list of allowed Applications for the Default Authorisation Policy.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedApplications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedApplications }).(pulumi.StringArrayOutput)
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The list of allowed Group Names for the Default Authorisation Policy.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedGroups }).(pulumi.StringArrayOutput)
+}
+
+// The list of allowed Identities for the Default Authorisation Policy.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) AllowedIdentities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.AllowedIdentities }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The thumbprint of the certificate used for signing purposes.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) ClientSecretCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) string {
+		return v.ClientSecretCertificateThumbprint
+	}).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Allowed Client Applications in the JWT Claim.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) JwtAllowedClientApplications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.JwtAllowedClientApplications }).(pulumi.StringArrayOutput)
+}
+
+// The list of Allowed Groups in the JWT Claim.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) JwtAllowedGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) []string { return v.JwtAllowedGroups }).(pulumi.StringArrayOutput)
+}
+
+// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) map[string]string { return v.LoginParameters }).(pulumi.StringMapOutput)
+}
+
+// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
+}
+
+// Is the www-authenticate provider omitted from the request?
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output) WwwAuthenticationDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2) bool { return v.WwwAuthenticationDisabled }).(pulumi.BoolOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput() GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2AppleV2 struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetLinuxWebAppAuthSettingsV2AppleV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2AppleV2Args and GetLinuxWebAppAuthSettingsV2AppleV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2AppleV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2AppleV2Args{...}
+type GetLinuxWebAppAuthSettingsV2AppleV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2AppleV2Output() GetLinuxWebAppAuthSettingsV2AppleV2Output
+	ToGetLinuxWebAppAuthSettingsV2AppleV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2AppleV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2AppleV2Args struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2AppleV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AppleV2Args) ToGetLinuxWebAppAuthSettingsV2AppleV2Output() GetLinuxWebAppAuthSettingsV2AppleV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2AppleV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AppleV2Args) ToGetLinuxWebAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AppleV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2AppleV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2AppleV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2AppleV2Array and GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2AppleV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2AppleV2Array{ GetLinuxWebAppAuthSettingsV2AppleV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2AppleV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput() GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2AppleV2Array []GetLinuxWebAppAuthSettingsV2AppleV2Input
+
+func (GetLinuxWebAppAuthSettingsV2AppleV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AppleV2Array) ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput() GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AppleV2Array) ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2AppleV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2AppleV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AppleV2Output) ToGetLinuxWebAppAuthSettingsV2AppleV2Output() GetLinuxWebAppAuthSettingsV2AppleV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AppleV2Output) ToGetLinuxWebAppAuthSettingsV2AppleV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AppleV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2AppleV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2AppleV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2AppleV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2AppleV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingsV2AppleV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2AppleV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2AppleV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput() GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2AppleV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2AppleV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2AppleV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2AppleV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2AppleV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2 struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+}
+
+// GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args and GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args{...}
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output
+	ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array and GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array{ GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array []GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Input
+
+func (GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput() GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2 struct {
+	// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+	AuthorisationEndpoint string `pulumi:"authorisationEndpoint"`
+	// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+	CertificationUri string `pulumi:"certificationUri"`
+	// The Client Credential Method used.
+	ClientCredentialMethod string `pulumi:"clientCredentialMethod"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+	IssuerEndpoint string `pulumi:"issuerEndpoint"`
+	// The name of this Linux Web App.
+	Name string `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType string `pulumi:"nameClaimType"`
+	// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
+	OpenidConfigurationEndpoint string `pulumi:"openidConfigurationEndpoint"`
+	// The list of the scopes that are requested while authenticating.
+	Scopes []string `pulumi:"scopes"`
+	// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+}
+
+// GetLinuxWebAppAuthSettingsV2CustomOidcV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2CustomOidcV2Args and GetLinuxWebAppAuthSettingsV2CustomOidcV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2CustomOidcV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2CustomOidcV2Args{...}
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2CustomOidcV2Output() GetLinuxWebAppAuthSettingsV2CustomOidcV2Output
+	ToGetLinuxWebAppAuthSettingsV2CustomOidcV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2CustomOidcV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2Args struct {
+	// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+	AuthorisationEndpoint pulumi.StringInput `pulumi:"authorisationEndpoint"`
+	// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+	CertificationUri pulumi.StringInput `pulumi:"certificationUri"`
+	// The Client Credential Method used.
+	ClientCredentialMethod pulumi.StringInput `pulumi:"clientCredentialMethod"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+	IssuerEndpoint pulumi.StringInput `pulumi:"issuerEndpoint"`
+	// The name of this Linux Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the claim that contains the users name.
+	NameClaimType pulumi.StringInput `pulumi:"nameClaimType"`
+	// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
+	OpenidConfigurationEndpoint pulumi.StringInput `pulumi:"openidConfigurationEndpoint"`
+	// The list of the scopes that are requested while authenticating.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2CustomOidcV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2CustomOidcV2Args) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2Output() GetLinuxWebAppAuthSettingsV2CustomOidcV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2CustomOidcV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2CustomOidcV2Args) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2CustomOidcV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2CustomOidcV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2CustomOidcV2Array and GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2CustomOidcV2Array{ GetLinuxWebAppAuthSettingsV2CustomOidcV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput() GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2Array []GetLinuxWebAppAuthSettingsV2CustomOidcV2Input
+
+func (GetLinuxWebAppAuthSettingsV2CustomOidcV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2CustomOidcV2Array) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput() GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2CustomOidcV2Array) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2Output() GetLinuxWebAppAuthSettingsV2CustomOidcV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2CustomOidcV2Output {
+	return o
+}
+
+// The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) AuthorisationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.AuthorisationEndpoint }).(pulumi.StringOutput)
+}
+
+// The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) CertificationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.CertificationUri }).(pulumi.StringOutput)
+}
+
+// The Client Credential Method used.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) ClientCredentialMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.ClientCredentialMethod }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) IssuerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.IssuerEndpoint }).(pulumi.StringOutput)
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the claim that contains the users name.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) NameClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.NameClaimType }).(pulumi.StringOutput)
+}
+
+// The endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) OpenidConfigurationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.OpenidConfigurationEndpoint }).(pulumi.StringOutput)
+}
+
+// The list of the scopes that are requested while authenticating.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2Output) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2CustomOidcV2) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2CustomOidcV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput() GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2CustomOidcV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2CustomOidcV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2CustomOidcV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2CustomOidcV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2FacebookV2 struct {
+	// The App ID of the Facebook app used for login.
+	AppId string `pulumi:"appId"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName string `pulumi:"appSecretSettingName"`
+	// The version of the Facebook API to be used while logging in.
+	GraphApiVersion string `pulumi:"graphApiVersion"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetLinuxWebAppAuthSettingsV2FacebookV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2FacebookV2Args and GetLinuxWebAppAuthSettingsV2FacebookV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2FacebookV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2FacebookV2Args{...}
+type GetLinuxWebAppAuthSettingsV2FacebookV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2FacebookV2Output() GetLinuxWebAppAuthSettingsV2FacebookV2Output
+	ToGetLinuxWebAppAuthSettingsV2FacebookV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2FacebookV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2FacebookV2Args struct {
+	// The App ID of the Facebook app used for login.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The app setting name that contains the `appSecret` value used for Facebook login.
+	AppSecretSettingName pulumi.StringInput `pulumi:"appSecretSettingName"`
+	// The version of the Facebook API to be used while logging in.
+	GraphApiVersion pulumi.StringInput `pulumi:"graphApiVersion"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2FacebookV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2FacebookV2Args) ToGetLinuxWebAppAuthSettingsV2FacebookV2Output() GetLinuxWebAppAuthSettingsV2FacebookV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2FacebookV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2FacebookV2Args) ToGetLinuxWebAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2FacebookV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2FacebookV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2FacebookV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2FacebookV2Array and GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2FacebookV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2FacebookV2Array{ GetLinuxWebAppAuthSettingsV2FacebookV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2FacebookV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput() GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2FacebookV2Array []GetLinuxWebAppAuthSettingsV2FacebookV2Input
+
+func (GetLinuxWebAppAuthSettingsV2FacebookV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2FacebookV2Array) ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput() GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2FacebookV2Array) ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2FacebookV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2FacebookV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2Output) ToGetLinuxWebAppAuthSettingsV2FacebookV2Output() GetLinuxWebAppAuthSettingsV2FacebookV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2Output) ToGetLinuxWebAppAuthSettingsV2FacebookV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2FacebookV2Output {
+	return o
+}
+
+// The App ID of the Facebook app used for login.
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2Output) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2FacebookV2) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the `appSecret` value used for Facebook login.
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2Output) AppSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2FacebookV2) string { return v.AppSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The version of the Facebook API to be used while logging in.
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2Output) GraphApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2FacebookV2) string { return v.GraphApiVersion }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2FacebookV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2FacebookV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput() GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2FacebookV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2FacebookV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2FacebookV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2FacebookV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2GithubV2 struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetLinuxWebAppAuthSettingsV2GithubV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2GithubV2Args and GetLinuxWebAppAuthSettingsV2GithubV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2GithubV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2GithubV2Args{...}
+type GetLinuxWebAppAuthSettingsV2GithubV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2GithubV2Output() GetLinuxWebAppAuthSettingsV2GithubV2Output
+	ToGetLinuxWebAppAuthSettingsV2GithubV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2GithubV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2GithubV2Args struct {
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2GithubV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GithubV2Args) ToGetLinuxWebAppAuthSettingsV2GithubV2Output() GetLinuxWebAppAuthSettingsV2GithubV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2GithubV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GithubV2Args) ToGetLinuxWebAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GithubV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2GithubV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2GithubV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2GithubV2Array and GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2GithubV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2GithubV2Array{ GetLinuxWebAppAuthSettingsV2GithubV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2GithubV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput() GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2GithubV2Array []GetLinuxWebAppAuthSettingsV2GithubV2Input
+
+func (GetLinuxWebAppAuthSettingsV2GithubV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GithubV2Array) ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput() GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GithubV2Array) ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2GithubV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2GithubV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GithubV2Output) ToGetLinuxWebAppAuthSettingsV2GithubV2Output() GetLinuxWebAppAuthSettingsV2GithubV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GithubV2Output) ToGetLinuxWebAppAuthSettingsV2GithubV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GithubV2Output {
+	return o
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2GithubV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GithubV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2GithubV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GithubV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingsV2GithubV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GithubV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2GithubV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput() GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2GithubV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2GithubV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2GithubV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2GithubV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2GithubV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2GoogleV2 struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetLinuxWebAppAuthSettingsV2GoogleV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2GoogleV2Args and GetLinuxWebAppAuthSettingsV2GoogleV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2GoogleV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2GoogleV2Args{...}
+type GetLinuxWebAppAuthSettingsV2GoogleV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2GoogleV2Output() GetLinuxWebAppAuthSettingsV2GoogleV2Output
+	ToGetLinuxWebAppAuthSettingsV2GoogleV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2GoogleV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2GoogleV2Args struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2GoogleV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GoogleV2Args) ToGetLinuxWebAppAuthSettingsV2GoogleV2Output() GetLinuxWebAppAuthSettingsV2GoogleV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2GoogleV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GoogleV2Args) ToGetLinuxWebAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GoogleV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2GoogleV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2GoogleV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2GoogleV2Array and GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2GoogleV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2GoogleV2Array{ GetLinuxWebAppAuthSettingsV2GoogleV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2GoogleV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput() GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2GoogleV2Array []GetLinuxWebAppAuthSettingsV2GoogleV2Input
+
+func (GetLinuxWebAppAuthSettingsV2GoogleV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GoogleV2Array) ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput() GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2GoogleV2Array) ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2GoogleV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2GoogleV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2Output) ToGetLinuxWebAppAuthSettingsV2GoogleV2Output() GetLinuxWebAppAuthSettingsV2GoogleV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2Output) ToGetLinuxWebAppAuthSettingsV2GoogleV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GoogleV2Output {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GoogleV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GoogleV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GoogleV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2GoogleV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2GoogleV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput() GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2GoogleV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2GoogleV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2GoogleV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2GoogleV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2Login struct {
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The method by which cookies expire.
+	CookieExpirationConvention string `pulumi:"cookieExpirationConvention"`
+	// The time after the request is made when the session cookie should expire.
+	CookieExpirationTime string `pulumi:"cookieExpirationTime"`
+	// The endpoint to which logout requests are made.
+	LogoutEndpoint string `pulumi:"logoutEndpoint"`
+	// The time after the request is made when the nonce should expire.
+	NonceExpirationTime string `pulumi:"nonceExpirationTime"`
+	// Are the fragments from the request preserved after the login request is made.
+	PreserveUrlFragmentsForLogins bool `pulumi:"preserveUrlFragmentsForLogins"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionTime float64 `pulumi:"tokenRefreshExtensionTime"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled bool `pulumi:"tokenStoreEnabled"`
+	// The directory path in the App Filesystem in which the tokens are stored.
+	TokenStorePath string `pulumi:"tokenStorePath"`
+	// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+	TokenStoreSasSettingName string `pulumi:"tokenStoreSasSettingName"`
+	// Is the nonce validated while completing the login flow.
+	ValidateNonce bool `pulumi:"validateNonce"`
+}
+
+// GetLinuxWebAppAuthSettingsV2LoginInput is an input type that accepts GetLinuxWebAppAuthSettingsV2LoginArgs and GetLinuxWebAppAuthSettingsV2LoginOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2LoginInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2LoginArgs{...}
+type GetLinuxWebAppAuthSettingsV2LoginInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2LoginOutput() GetLinuxWebAppAuthSettingsV2LoginOutput
+	ToGetLinuxWebAppAuthSettingsV2LoginOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2LoginOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2LoginArgs struct {
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The method by which cookies expire.
+	CookieExpirationConvention pulumi.StringInput `pulumi:"cookieExpirationConvention"`
+	// The time after the request is made when the session cookie should expire.
+	CookieExpirationTime pulumi.StringInput `pulumi:"cookieExpirationTime"`
+	// The endpoint to which logout requests are made.
+	LogoutEndpoint pulumi.StringInput `pulumi:"logoutEndpoint"`
+	// The time after the request is made when the nonce should expire.
+	NonceExpirationTime pulumi.StringInput `pulumi:"nonceExpirationTime"`
+	// Are the fragments from the request preserved after the login request is made.
+	PreserveUrlFragmentsForLogins pulumi.BoolInput `pulumi:"preserveUrlFragmentsForLogins"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+	TokenRefreshExtensionTime pulumi.Float64Input `pulumi:"tokenRefreshExtensionTime"`
+	// Is the Token Store configuration Enabled.
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	// The directory path in the App Filesystem in which the tokens are stored.
+	TokenStorePath pulumi.StringInput `pulumi:"tokenStorePath"`
+	// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+	TokenStoreSasSettingName pulumi.StringInput `pulumi:"tokenStoreSasSettingName"`
+	// Is the nonce validated while completing the login flow.
+	ValidateNonce pulumi.BoolInput `pulumi:"validateNonce"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2LoginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2LoginArgs) ToGetLinuxWebAppAuthSettingsV2LoginOutput() GetLinuxWebAppAuthSettingsV2LoginOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2LoginOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2LoginArgs) ToGetLinuxWebAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2LoginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2LoginOutput)
+}
+
+// GetLinuxWebAppAuthSettingsV2LoginArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2LoginArray and GetLinuxWebAppAuthSettingsV2LoginArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2LoginArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2LoginArray{ GetLinuxWebAppAuthSettingsV2LoginArgs{...} }
+type GetLinuxWebAppAuthSettingsV2LoginArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2LoginArrayOutput() GetLinuxWebAppAuthSettingsV2LoginArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2LoginArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2LoginArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2LoginArray []GetLinuxWebAppAuthSettingsV2LoginInput
+
+func (GetLinuxWebAppAuthSettingsV2LoginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2LoginArray) ToGetLinuxWebAppAuthSettingsV2LoginArrayOutput() GetLinuxWebAppAuthSettingsV2LoginArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2LoginArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2LoginArray) ToGetLinuxWebAppAuthSettingsV2LoginArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2LoginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2LoginArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2LoginOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2LoginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) ToGetLinuxWebAppAuthSettingsV2LoginOutput() GetLinuxWebAppAuthSettingsV2LoginOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) ToGetLinuxWebAppAuthSettingsV2LoginOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2LoginOutput {
+	return o
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The method by which cookies expire.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) CookieExpirationConvention() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) string { return v.CookieExpirationConvention }).(pulumi.StringOutput)
+}
+
+// The time after the request is made when the session cookie should expire.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) CookieExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) string { return v.CookieExpirationTime }).(pulumi.StringOutput)
+}
+
+// The endpoint to which logout requests are made.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) LogoutEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
+}
+
+// The time after the request is made when the nonce should expire.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) NonceExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) string { return v.NonceExpirationTime }).(pulumi.StringOutput)
+}
+
+// Are the fragments from the request preserved after the login request is made.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) PreserveUrlFragmentsForLogins() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) bool { return v.PreserveUrlFragmentsForLogins }).(pulumi.BoolOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) TokenRefreshExtensionTime() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) float64 { return v.TokenRefreshExtensionTime }).(pulumi.Float64Output)
+}
+
+// Is the Token Store configuration Enabled.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) bool { return v.TokenStoreEnabled }).(pulumi.BoolOutput)
+}
+
+// The directory path in the App Filesystem in which the tokens are stored.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) TokenStorePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) string { return v.TokenStorePath }).(pulumi.StringOutput)
+}
+
+// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) TokenStoreSasSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) string { return v.TokenStoreSasSettingName }).(pulumi.StringOutput)
+}
+
+// Is the nonce validated while completing the login flow.
+func (o GetLinuxWebAppAuthSettingsV2LoginOutput) ValidateNonce() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2Login) bool { return v.ValidateNonce }).(pulumi.BoolOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2LoginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2LoginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2Login)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2LoginArrayOutput) ToGetLinuxWebAppAuthSettingsV2LoginArrayOutput() GetLinuxWebAppAuthSettingsV2LoginArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2LoginArrayOutput) ToGetLinuxWebAppAuthSettingsV2LoginArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2LoginArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2LoginArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2LoginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2Login {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2Login)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2LoginOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2 struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName string `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes []string `pulumi:"loginScopes"`
+}
+
+// GetLinuxWebAppAuthSettingsV2MicrosoftV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2MicrosoftV2Args and GetLinuxWebAppAuthSettingsV2MicrosoftV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2MicrosoftV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2MicrosoftV2Args{...}
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2MicrosoftV2Output() GetLinuxWebAppAuthSettingsV2MicrosoftV2Output
+	ToGetLinuxWebAppAuthSettingsV2MicrosoftV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2MicrosoftV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2Args struct {
+	// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The OAuth 2.0 client ID used by the app for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+	ClientSecretSettingName pulumi.StringInput `pulumi:"clientSecretSettingName"`
+	// The list of Login scopes that are requested as part of Microsoft Account authentication.
+	LoginScopes pulumi.StringArrayInput `pulumi:"loginScopes"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2MicrosoftV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2MicrosoftV2Args) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2Output() GetLinuxWebAppAuthSettingsV2MicrosoftV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2MicrosoftV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2MicrosoftV2Args) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2MicrosoftV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2MicrosoftV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2MicrosoftV2Array and GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2MicrosoftV2Array{ GetLinuxWebAppAuthSettingsV2MicrosoftV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput() GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2Array []GetLinuxWebAppAuthSettingsV2MicrosoftV2Input
+
+func (GetLinuxWebAppAuthSettingsV2MicrosoftV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2MicrosoftV2Array) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput() GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2MicrosoftV2Array) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2Output() GetLinuxWebAppAuthSettingsV2MicrosoftV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2MicrosoftV2Output {
+	return o
+}
+
+// The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2MicrosoftV2) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The OAuth 2.0 client ID used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2MicrosoftV2) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) ClientSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2MicrosoftV2) string { return v.ClientSecretSettingName }).(pulumi.StringOutput)
+}
+
+// The list of Login scopes that are requested as part of Microsoft Account authentication.
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2Output) LoginScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2MicrosoftV2) []string { return v.LoginScopes }).(pulumi.StringArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2MicrosoftV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput() GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2MicrosoftV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2MicrosoftV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2MicrosoftV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2MicrosoftV2Output)
+}
+
+type GetLinuxWebAppAuthSettingsV2TwitterV2 struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey string `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName string `pulumi:"consumerSecretSettingName"`
+}
+
+// GetLinuxWebAppAuthSettingsV2TwitterV2Input is an input type that accepts GetLinuxWebAppAuthSettingsV2TwitterV2Args and GetLinuxWebAppAuthSettingsV2TwitterV2Output values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2TwitterV2Input` via:
+//
+//	GetLinuxWebAppAuthSettingsV2TwitterV2Args{...}
+type GetLinuxWebAppAuthSettingsV2TwitterV2Input interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2TwitterV2Output() GetLinuxWebAppAuthSettingsV2TwitterV2Output
+	ToGetLinuxWebAppAuthSettingsV2TwitterV2OutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2TwitterV2Output
+}
+
+type GetLinuxWebAppAuthSettingsV2TwitterV2Args struct {
+	// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+	ConsumerSecretSettingName pulumi.StringInput `pulumi:"consumerSecretSettingName"`
+}
+
+func (GetLinuxWebAppAuthSettingsV2TwitterV2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2TwitterV2Args) ToGetLinuxWebAppAuthSettingsV2TwitterV2Output() GetLinuxWebAppAuthSettingsV2TwitterV2Output {
+	return i.ToGetLinuxWebAppAuthSettingsV2TwitterV2OutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2TwitterV2Args) ToGetLinuxWebAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2TwitterV2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2TwitterV2Output)
+}
+
+// GetLinuxWebAppAuthSettingsV2TwitterV2ArrayInput is an input type that accepts GetLinuxWebAppAuthSettingsV2TwitterV2Array and GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppAuthSettingsV2TwitterV2ArrayInput` via:
+//
+//	GetLinuxWebAppAuthSettingsV2TwitterV2Array{ GetLinuxWebAppAuthSettingsV2TwitterV2Args{...} }
+type GetLinuxWebAppAuthSettingsV2TwitterV2ArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput() GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput
+	ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(context.Context) GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput
+}
+
+type GetLinuxWebAppAuthSettingsV2TwitterV2Array []GetLinuxWebAppAuthSettingsV2TwitterV2Input
+
+func (GetLinuxWebAppAuthSettingsV2TwitterV2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppAuthSettingsV2TwitterV2Array) ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput() GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return i.ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppAuthSettingsV2TwitterV2Array) ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2TwitterV2Output struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2TwitterV2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2Output) ToGetLinuxWebAppAuthSettingsV2TwitterV2Output() GetLinuxWebAppAuthSettingsV2TwitterV2Output {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2Output) ToGetLinuxWebAppAuthSettingsV2TwitterV2OutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2TwitterV2Output {
+	return o
+}
+
+// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2Output) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2TwitterV2) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2Output) ConsumerSecretSettingName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppAuthSettingsV2TwitterV2) string { return v.ConsumerSecretSettingName }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppAuthSettingsV2TwitterV2)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput() GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput) ToGetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutputWithContext(ctx context.Context) GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppAuthSettingsV2TwitterV2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppAuthSettingsV2TwitterV2 {
+		return vs[0].([]GetLinuxWebAppAuthSettingsV2TwitterV2)[vs[1].(int)]
+	}).(GetLinuxWebAppAuthSettingsV2TwitterV2Output)
+}
+
+type GetLinuxWebAppBackup struct {
+	// Is the Backup enabled?
+	Enabled bool `pulumi:"enabled"`
+	// The name of this Linux Web App.
+	Name string `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedules []GetLinuxWebAppBackupSchedule `pulumi:"schedules"`
+	// The SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+}
+
+// GetLinuxWebAppBackupInput is an input type that accepts GetLinuxWebAppBackupArgs and GetLinuxWebAppBackupOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppBackupInput` via:
+//
+//	GetLinuxWebAppBackupArgs{...}
+type GetLinuxWebAppBackupInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppBackupOutput() GetLinuxWebAppBackupOutput
+	ToGetLinuxWebAppBackupOutputWithContext(context.Context) GetLinuxWebAppBackupOutput
+}
+
+type GetLinuxWebAppBackupArgs struct {
+	// Is the Backup enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The name of this Linux Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedules GetLinuxWebAppBackupScheduleArrayInput `pulumi:"schedules"`
+	// The SAS URL to the container.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+}
+
+func (GetLinuxWebAppBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppBackup)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppBackupArgs) ToGetLinuxWebAppBackupOutput() GetLinuxWebAppBackupOutput {
+	return i.ToGetLinuxWebAppBackupOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppBackupArgs) ToGetLinuxWebAppBackupOutputWithContext(ctx context.Context) GetLinuxWebAppBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppBackupOutput)
+}
+
+// GetLinuxWebAppBackupArrayInput is an input type that accepts GetLinuxWebAppBackupArray and GetLinuxWebAppBackupArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppBackupArrayInput` via:
+//
+//	GetLinuxWebAppBackupArray{ GetLinuxWebAppBackupArgs{...} }
+type GetLinuxWebAppBackupArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppBackupArrayOutput() GetLinuxWebAppBackupArrayOutput
+	ToGetLinuxWebAppBackupArrayOutputWithContext(context.Context) GetLinuxWebAppBackupArrayOutput
+}
+
+type GetLinuxWebAppBackupArray []GetLinuxWebAppBackupInput
+
+func (GetLinuxWebAppBackupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppBackup)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppBackupArray) ToGetLinuxWebAppBackupArrayOutput() GetLinuxWebAppBackupArrayOutput {
+	return i.ToGetLinuxWebAppBackupArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppBackupArray) ToGetLinuxWebAppBackupArrayOutputWithContext(ctx context.Context) GetLinuxWebAppBackupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppBackupArrayOutput)
+}
+
+type GetLinuxWebAppBackupOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppBackup)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppBackupOutput) ToGetLinuxWebAppBackupOutput() GetLinuxWebAppBackupOutput {
+	return o
+}
+
+func (o GetLinuxWebAppBackupOutput) ToGetLinuxWebAppBackupOutputWithContext(ctx context.Context) GetLinuxWebAppBackupOutput {
+	return o
+}
+
+// Is the Backup enabled?
+func (o GetLinuxWebAppBackupOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackup) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppBackupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schedule` block as defined below.
+func (o GetLinuxWebAppBackupOutput) Schedules() GetLinuxWebAppBackupScheduleArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackup) []GetLinuxWebAppBackupSchedule { return v.Schedules }).(GetLinuxWebAppBackupScheduleArrayOutput)
+}
+
+// The SAS URL to the container.
+func (o GetLinuxWebAppBackupOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackup) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppBackupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppBackupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppBackup)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppBackupArrayOutput) ToGetLinuxWebAppBackupArrayOutput() GetLinuxWebAppBackupArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppBackupArrayOutput) ToGetLinuxWebAppBackupArrayOutputWithContext(ctx context.Context) GetLinuxWebAppBackupArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppBackupArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppBackupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppBackup {
+		return vs[0].([]GetLinuxWebAppBackup)[vs[1].(int)]
+	}).(GetLinuxWebAppBackupOutput)
+}
+
+type GetLinuxWebAppBackupSchedule struct {
+	// How often the backup will be executed.
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should take place.
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	// Will the service keep at least one backup, regardless of age of backup.
+	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
+	// The time of the last backup attempt.
+	LastExecutionTime string `pulumi:"lastExecutionTime"`
+	// After how many days backups should be deleted.
+	RetentionPeriodDays int `pulumi:"retentionPeriodDays"`
+	// When the schedule should start in RFC-3339 format.
+	StartTime string `pulumi:"startTime"`
+}
+
+// GetLinuxWebAppBackupScheduleInput is an input type that accepts GetLinuxWebAppBackupScheduleArgs and GetLinuxWebAppBackupScheduleOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppBackupScheduleInput` via:
+//
+//	GetLinuxWebAppBackupScheduleArgs{...}
+type GetLinuxWebAppBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppBackupScheduleOutput() GetLinuxWebAppBackupScheduleOutput
+	ToGetLinuxWebAppBackupScheduleOutputWithContext(context.Context) GetLinuxWebAppBackupScheduleOutput
+}
+
+type GetLinuxWebAppBackupScheduleArgs struct {
+	// How often the backup will be executed.
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	// The unit of time for how often the backup should take place.
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	// Will the service keep at least one backup, regardless of age of backup.
+	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
+	// The time of the last backup attempt.
+	LastExecutionTime pulumi.StringInput `pulumi:"lastExecutionTime"`
+	// After how many days backups should be deleted.
+	RetentionPeriodDays pulumi.IntInput `pulumi:"retentionPeriodDays"`
+	// When the schedule should start in RFC-3339 format.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (GetLinuxWebAppBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppBackupScheduleArgs) ToGetLinuxWebAppBackupScheduleOutput() GetLinuxWebAppBackupScheduleOutput {
+	return i.ToGetLinuxWebAppBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppBackupScheduleArgs) ToGetLinuxWebAppBackupScheduleOutputWithContext(ctx context.Context) GetLinuxWebAppBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppBackupScheduleOutput)
+}
+
+// GetLinuxWebAppBackupScheduleArrayInput is an input type that accepts GetLinuxWebAppBackupScheduleArray and GetLinuxWebAppBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppBackupScheduleArrayInput` via:
+//
+//	GetLinuxWebAppBackupScheduleArray{ GetLinuxWebAppBackupScheduleArgs{...} }
+type GetLinuxWebAppBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppBackupScheduleArrayOutput() GetLinuxWebAppBackupScheduleArrayOutput
+	ToGetLinuxWebAppBackupScheduleArrayOutputWithContext(context.Context) GetLinuxWebAppBackupScheduleArrayOutput
+}
+
+type GetLinuxWebAppBackupScheduleArray []GetLinuxWebAppBackupScheduleInput
+
+func (GetLinuxWebAppBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppBackupScheduleArray) ToGetLinuxWebAppBackupScheduleArrayOutput() GetLinuxWebAppBackupScheduleArrayOutput {
+	return i.ToGetLinuxWebAppBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppBackupScheduleArray) ToGetLinuxWebAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetLinuxWebAppBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppBackupScheduleArrayOutput)
+}
+
+type GetLinuxWebAppBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppBackupScheduleOutput) ToGetLinuxWebAppBackupScheduleOutput() GetLinuxWebAppBackupScheduleOutput {
+	return o
+}
+
+func (o GetLinuxWebAppBackupScheduleOutput) ToGetLinuxWebAppBackupScheduleOutputWithContext(ctx context.Context) GetLinuxWebAppBackupScheduleOutput {
+	return o
+}
+
+// How often the backup will be executed.
+func (o GetLinuxWebAppBackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackupSchedule) int { return v.FrequencyInterval }).(pulumi.IntOutput)
+}
+
+// The unit of time for how often the backup should take place.
+func (o GetLinuxWebAppBackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+}
+
+// Will the service keep at least one backup, regardless of age of backup.
+func (o GetLinuxWebAppBackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackupSchedule) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
+}
+
+// The time of the last backup attempt.
+func (o GetLinuxWebAppBackupScheduleOutput) LastExecutionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackupSchedule) string { return v.LastExecutionTime }).(pulumi.StringOutput)
+}
+
+// After how many days backups should be deleted.
+func (o GetLinuxWebAppBackupScheduleOutput) RetentionPeriodDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackupSchedule) int { return v.RetentionPeriodDays }).(pulumi.IntOutput)
+}
+
+// When the schedule should start in RFC-3339 format.
+func (o GetLinuxWebAppBackupScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppBackupSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppBackupSchedule)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppBackupScheduleArrayOutput) ToGetLinuxWebAppBackupScheduleArrayOutput() GetLinuxWebAppBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppBackupScheduleArrayOutput) ToGetLinuxWebAppBackupScheduleArrayOutputWithContext(ctx context.Context) GetLinuxWebAppBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppBackupSchedule {
+		return vs[0].([]GetLinuxWebAppBackupSchedule)[vs[1].(int)]
+	}).(GetLinuxWebAppBackupScheduleOutput)
+}
+
+type GetLinuxWebAppConnectionString struct {
+	// The name of this Linux Web App.
+	Name string `pulumi:"name"`
+	// The Azure Storage Type.
+	Type string `pulumi:"type"`
+	// The Connection String value.
+	Value string `pulumi:"value"`
+}
+
+// GetLinuxWebAppConnectionStringInput is an input type that accepts GetLinuxWebAppConnectionStringArgs and GetLinuxWebAppConnectionStringOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppConnectionStringInput` via:
+//
+//	GetLinuxWebAppConnectionStringArgs{...}
+type GetLinuxWebAppConnectionStringInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppConnectionStringOutput() GetLinuxWebAppConnectionStringOutput
+	ToGetLinuxWebAppConnectionStringOutputWithContext(context.Context) GetLinuxWebAppConnectionStringOutput
+}
+
+type GetLinuxWebAppConnectionStringArgs struct {
+	// The name of this Linux Web App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Azure Storage Type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The Connection String value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetLinuxWebAppConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppConnectionString)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppConnectionStringArgs) ToGetLinuxWebAppConnectionStringOutput() GetLinuxWebAppConnectionStringOutput {
+	return i.ToGetLinuxWebAppConnectionStringOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppConnectionStringArgs) ToGetLinuxWebAppConnectionStringOutputWithContext(ctx context.Context) GetLinuxWebAppConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppConnectionStringOutput)
+}
+
+// GetLinuxWebAppConnectionStringArrayInput is an input type that accepts GetLinuxWebAppConnectionStringArray and GetLinuxWebAppConnectionStringArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppConnectionStringArrayInput` via:
+//
+//	GetLinuxWebAppConnectionStringArray{ GetLinuxWebAppConnectionStringArgs{...} }
+type GetLinuxWebAppConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppConnectionStringArrayOutput() GetLinuxWebAppConnectionStringArrayOutput
+	ToGetLinuxWebAppConnectionStringArrayOutputWithContext(context.Context) GetLinuxWebAppConnectionStringArrayOutput
+}
+
+type GetLinuxWebAppConnectionStringArray []GetLinuxWebAppConnectionStringInput
+
+func (GetLinuxWebAppConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppConnectionString)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppConnectionStringArray) ToGetLinuxWebAppConnectionStringArrayOutput() GetLinuxWebAppConnectionStringArrayOutput {
+	return i.ToGetLinuxWebAppConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppConnectionStringArray) ToGetLinuxWebAppConnectionStringArrayOutputWithContext(ctx context.Context) GetLinuxWebAppConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppConnectionStringArrayOutput)
+}
+
+type GetLinuxWebAppConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppConnectionString)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppConnectionStringOutput) ToGetLinuxWebAppConnectionStringOutput() GetLinuxWebAppConnectionStringOutput {
+	return o
+}
+
+func (o GetLinuxWebAppConnectionStringOutput) ToGetLinuxWebAppConnectionStringOutputWithContext(ctx context.Context) GetLinuxWebAppConnectionStringOutput {
+	return o
+}
+
+// The name of this Linux Web App.
+func (o GetLinuxWebAppConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Type.
+func (o GetLinuxWebAppConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Connection String value.
+func (o GetLinuxWebAppConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppConnectionString)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppConnectionStringArrayOutput) ToGetLinuxWebAppConnectionStringArrayOutput() GetLinuxWebAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppConnectionStringArrayOutput) ToGetLinuxWebAppConnectionStringArrayOutputWithContext(ctx context.Context) GetLinuxWebAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppConnectionString {
+		return vs[0].([]GetLinuxWebAppConnectionString)[vs[1].(int)]
+	}).(GetLinuxWebAppConnectionStringOutput)
+}
+
+type GetLinuxWebAppIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Linux Web App.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+	TenantId string `pulumi:"tenantId"`
+	// The Azure Storage Type.
+	Type string `pulumi:"type"`
+}
+
+// GetLinuxWebAppIdentityInput is an input type that accepts GetLinuxWebAppIdentityArgs and GetLinuxWebAppIdentityOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppIdentityInput` via:
+//
+//	GetLinuxWebAppIdentityArgs{...}
+type GetLinuxWebAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppIdentityOutput() GetLinuxWebAppIdentityOutput
+	ToGetLinuxWebAppIdentityOutputWithContext(context.Context) GetLinuxWebAppIdentityOutput
+}
+
+type GetLinuxWebAppIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Linux Web App.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Azure Storage Type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetLinuxWebAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppIdentity)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppIdentityArgs) ToGetLinuxWebAppIdentityOutput() GetLinuxWebAppIdentityOutput {
+	return i.ToGetLinuxWebAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppIdentityArgs) ToGetLinuxWebAppIdentityOutputWithContext(ctx context.Context) GetLinuxWebAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppIdentityOutput)
+}
+
+// GetLinuxWebAppIdentityArrayInput is an input type that accepts GetLinuxWebAppIdentityArray and GetLinuxWebAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppIdentityArrayInput` via:
+//
+//	GetLinuxWebAppIdentityArray{ GetLinuxWebAppIdentityArgs{...} }
+type GetLinuxWebAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppIdentityArrayOutput() GetLinuxWebAppIdentityArrayOutput
+	ToGetLinuxWebAppIdentityArrayOutputWithContext(context.Context) GetLinuxWebAppIdentityArrayOutput
+}
+
+type GetLinuxWebAppIdentityArray []GetLinuxWebAppIdentityInput
+
+func (GetLinuxWebAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppIdentity)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppIdentityArray) ToGetLinuxWebAppIdentityArrayOutput() GetLinuxWebAppIdentityArrayOutput {
+	return i.ToGetLinuxWebAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppIdentityArray) ToGetLinuxWebAppIdentityArrayOutputWithContext(ctx context.Context) GetLinuxWebAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppIdentityArrayOutput)
+}
+
+type GetLinuxWebAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppIdentity)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppIdentityOutput) ToGetLinuxWebAppIdentityOutput() GetLinuxWebAppIdentityOutput {
+	return o
+}
+
+func (o GetLinuxWebAppIdentityOutput) ToGetLinuxWebAppIdentityOutputWithContext(ctx context.Context) GetLinuxWebAppIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Linux Web App.
+func (o GetLinuxWebAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+func (o GetLinuxWebAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+func (o GetLinuxWebAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Type.
+func (o GetLinuxWebAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppIdentity)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppIdentityArrayOutput) ToGetLinuxWebAppIdentityArrayOutput() GetLinuxWebAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppIdentityArrayOutput) ToGetLinuxWebAppIdentityArrayOutputWithContext(ctx context.Context) GetLinuxWebAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppIdentityArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppIdentity {
+		return vs[0].([]GetLinuxWebAppIdentity)[vs[1].(int)]
+	}).(GetLinuxWebAppIdentityOutput)
+}
+
+type GetLinuxWebAppLog struct {
+	// A `applicationLogs` block as defined above.
+	ApplicationLogs []GetLinuxWebAppLogApplicationLog `pulumi:"applicationLogs"`
+	// Is Detailed Error Messaging enabled.
+	DetailedErrorMessages bool `pulumi:"detailedErrorMessages"`
+	// Is Failed Request Tracing enabled.
+	FailedRequestTracing bool `pulumi:"failedRequestTracing"`
+	// An `httpLogs` block as defined above.
+	HttpLogs []GetLinuxWebAppLogHttpLog `pulumi:"httpLogs"`
+}
+
+// GetLinuxWebAppLogInput is an input type that accepts GetLinuxWebAppLogArgs and GetLinuxWebAppLogOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogInput` via:
+//
+//	GetLinuxWebAppLogArgs{...}
+type GetLinuxWebAppLogInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogOutput() GetLinuxWebAppLogOutput
+	ToGetLinuxWebAppLogOutputWithContext(context.Context) GetLinuxWebAppLogOutput
+}
+
+type GetLinuxWebAppLogArgs struct {
+	// A `applicationLogs` block as defined above.
+	ApplicationLogs GetLinuxWebAppLogApplicationLogArrayInput `pulumi:"applicationLogs"`
+	// Is Detailed Error Messaging enabled.
+	DetailedErrorMessages pulumi.BoolInput `pulumi:"detailedErrorMessages"`
+	// Is Failed Request Tracing enabled.
+	FailedRequestTracing pulumi.BoolInput `pulumi:"failedRequestTracing"`
+	// An `httpLogs` block as defined above.
+	HttpLogs GetLinuxWebAppLogHttpLogArrayInput `pulumi:"httpLogs"`
+}
+
+func (GetLinuxWebAppLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLog)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogArgs) ToGetLinuxWebAppLogOutput() GetLinuxWebAppLogOutput {
+	return i.ToGetLinuxWebAppLogOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogArgs) ToGetLinuxWebAppLogOutputWithContext(ctx context.Context) GetLinuxWebAppLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogOutput)
+}
+
+// GetLinuxWebAppLogArrayInput is an input type that accepts GetLinuxWebAppLogArray and GetLinuxWebAppLogArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogArrayInput` via:
+//
+//	GetLinuxWebAppLogArray{ GetLinuxWebAppLogArgs{...} }
+type GetLinuxWebAppLogArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogArrayOutput() GetLinuxWebAppLogArrayOutput
+	ToGetLinuxWebAppLogArrayOutputWithContext(context.Context) GetLinuxWebAppLogArrayOutput
+}
+
+type GetLinuxWebAppLogArray []GetLinuxWebAppLogInput
+
+func (GetLinuxWebAppLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLog)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogArray) ToGetLinuxWebAppLogArrayOutput() GetLinuxWebAppLogArrayOutput {
+	return i.ToGetLinuxWebAppLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogArray) ToGetLinuxWebAppLogArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogArrayOutput)
+}
+
+type GetLinuxWebAppLogOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLog)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogOutput) ToGetLinuxWebAppLogOutput() GetLinuxWebAppLogOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogOutput) ToGetLinuxWebAppLogOutputWithContext(ctx context.Context) GetLinuxWebAppLogOutput {
+	return o
+}
+
+// A `applicationLogs` block as defined above.
+func (o GetLinuxWebAppLogOutput) ApplicationLogs() GetLinuxWebAppLogApplicationLogArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLog) []GetLinuxWebAppLogApplicationLog { return v.ApplicationLogs }).(GetLinuxWebAppLogApplicationLogArrayOutput)
+}
+
+// Is Detailed Error Messaging enabled.
+func (o GetLinuxWebAppLogOutput) DetailedErrorMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLog) bool { return v.DetailedErrorMessages }).(pulumi.BoolOutput)
+}
+
+// Is Failed Request Tracing enabled.
+func (o GetLinuxWebAppLogOutput) FailedRequestTracing() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLog) bool { return v.FailedRequestTracing }).(pulumi.BoolOutput)
+}
+
+// An `httpLogs` block as defined above.
+func (o GetLinuxWebAppLogOutput) HttpLogs() GetLinuxWebAppLogHttpLogArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLog) []GetLinuxWebAppLogHttpLog { return v.HttpLogs }).(GetLinuxWebAppLogHttpLogArrayOutput)
+}
+
+type GetLinuxWebAppLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLog)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogArrayOutput) ToGetLinuxWebAppLogArrayOutput() GetLinuxWebAppLogArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogArrayOutput) ToGetLinuxWebAppLogArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppLog {
+		return vs[0].([]GetLinuxWebAppLog)[vs[1].(int)]
+	}).(GetLinuxWebAppLogOutput)
+}
+
+type GetLinuxWebAppLogApplicationLog struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages []GetLinuxWebAppLogApplicationLogAzureBlobStorage `pulumi:"azureBlobStorages"`
+	// The logging level.
+	FileSystemLevel string `pulumi:"fileSystemLevel"`
+}
+
+// GetLinuxWebAppLogApplicationLogInput is an input type that accepts GetLinuxWebAppLogApplicationLogArgs and GetLinuxWebAppLogApplicationLogOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogApplicationLogInput` via:
+//
+//	GetLinuxWebAppLogApplicationLogArgs{...}
+type GetLinuxWebAppLogApplicationLogInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogApplicationLogOutput() GetLinuxWebAppLogApplicationLogOutput
+	ToGetLinuxWebAppLogApplicationLogOutputWithContext(context.Context) GetLinuxWebAppLogApplicationLogOutput
+}
+
+type GetLinuxWebAppLogApplicationLogArgs struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayInput `pulumi:"azureBlobStorages"`
+	// The logging level.
+	FileSystemLevel pulumi.StringInput `pulumi:"fileSystemLevel"`
+}
+
+func (GetLinuxWebAppLogApplicationLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogApplicationLogArgs) ToGetLinuxWebAppLogApplicationLogOutput() GetLinuxWebAppLogApplicationLogOutput {
+	return i.ToGetLinuxWebAppLogApplicationLogOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogApplicationLogArgs) ToGetLinuxWebAppLogApplicationLogOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogApplicationLogOutput)
+}
+
+// GetLinuxWebAppLogApplicationLogArrayInput is an input type that accepts GetLinuxWebAppLogApplicationLogArray and GetLinuxWebAppLogApplicationLogArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogApplicationLogArrayInput` via:
+//
+//	GetLinuxWebAppLogApplicationLogArray{ GetLinuxWebAppLogApplicationLogArgs{...} }
+type GetLinuxWebAppLogApplicationLogArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogApplicationLogArrayOutput() GetLinuxWebAppLogApplicationLogArrayOutput
+	ToGetLinuxWebAppLogApplicationLogArrayOutputWithContext(context.Context) GetLinuxWebAppLogApplicationLogArrayOutput
+}
+
+type GetLinuxWebAppLogApplicationLogArray []GetLinuxWebAppLogApplicationLogInput
+
+func (GetLinuxWebAppLogApplicationLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogApplicationLogArray) ToGetLinuxWebAppLogApplicationLogArrayOutput() GetLinuxWebAppLogApplicationLogArrayOutput {
+	return i.ToGetLinuxWebAppLogApplicationLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogApplicationLogArray) ToGetLinuxWebAppLogApplicationLogArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogApplicationLogArrayOutput)
+}
+
+type GetLinuxWebAppLogApplicationLogOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogApplicationLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogApplicationLogOutput) ToGetLinuxWebAppLogApplicationLogOutput() GetLinuxWebAppLogApplicationLogOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogApplicationLogOutput) ToGetLinuxWebAppLogApplicationLogOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogOutput {
+	return o
+}
+
+// A `azureBlobStorage` block as defined above.
+func (o GetLinuxWebAppLogApplicationLogOutput) AzureBlobStorages() GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogApplicationLog) []GetLinuxWebAppLogApplicationLogAzureBlobStorage {
+		return v.AzureBlobStorages
+	}).(GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput)
+}
+
+// The logging level.
+func (o GetLinuxWebAppLogApplicationLogOutput) FileSystemLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogApplicationLog) string { return v.FileSystemLevel }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppLogApplicationLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogApplicationLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogApplicationLog)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogApplicationLogArrayOutput) ToGetLinuxWebAppLogApplicationLogArrayOutput() GetLinuxWebAppLogApplicationLogArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogApplicationLogArrayOutput) ToGetLinuxWebAppLogApplicationLogArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogApplicationLogArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppLogApplicationLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppLogApplicationLog {
+		return vs[0].([]GetLinuxWebAppLogApplicationLog)[vs[1].(int)]
+	}).(GetLinuxWebAppLogApplicationLogOutput)
+}
+
+type GetLinuxWebAppLogApplicationLogAzureBlobStorage struct {
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level string `pulumi:"level"`
+	// The retention period in days.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The SAS url to an Azure blob container.
+	SasUrl string `pulumi:"sasUrl"`
+}
+
+// GetLinuxWebAppLogApplicationLogAzureBlobStorageInput is an input type that accepts GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs and GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogApplicationLogAzureBlobStorageInput` via:
+//
+//	GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs{...}
+type GetLinuxWebAppLogApplicationLogAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutput() GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput
+	ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutputWithContext(context.Context) GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput
+}
+
+type GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs struct {
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level pulumi.StringInput `pulumi:"level"`
+	// The retention period in days.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The SAS url to an Azure blob container.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutput() GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput {
+	return i.ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput)
+}
+
+// GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayInput is an input type that accepts GetLinuxWebAppLogApplicationLogAzureBlobStorageArray and GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayInput` via:
+//
+//	GetLinuxWebAppLogApplicationLogAzureBlobStorageArray{ GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs{...} }
+type GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput() GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput
+	ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(context.Context) GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput
+}
+
+type GetLinuxWebAppLogApplicationLogAzureBlobStorageArray []GetLinuxWebAppLogApplicationLogAzureBlobStorageInput
+
+func (GetLinuxWebAppLogApplicationLogAzureBlobStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogApplicationLogAzureBlobStorageArray) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput() GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return i.ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogApplicationLogAzureBlobStorageArray) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput)
+}
+
+type GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutput() GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput {
+	return o
+}
+
+// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogApplicationLogAzureBlobStorage) string { return v.Level }).(pulumi.StringOutput)
+}
+
+// The retention period in days.
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogApplicationLogAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The SAS url to an Azure blob container.
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogApplicationLogAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogApplicationLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput() GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput) ToGetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppLogApplicationLogAzureBlobStorage {
+		return vs[0].([]GetLinuxWebAppLogApplicationLogAzureBlobStorage)[vs[1].(int)]
+	}).(GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput)
+}
+
+type GetLinuxWebAppLogHttpLog struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages []GetLinuxWebAppLogHttpLogAzureBlobStorage `pulumi:"azureBlobStorages"`
+	// A `fileSystem` block as defined above.
+	FileSystems []GetLinuxWebAppLogHttpLogFileSystem `pulumi:"fileSystems"`
+}
+
+// GetLinuxWebAppLogHttpLogInput is an input type that accepts GetLinuxWebAppLogHttpLogArgs and GetLinuxWebAppLogHttpLogOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogHttpLogInput` via:
+//
+//	GetLinuxWebAppLogHttpLogArgs{...}
+type GetLinuxWebAppLogHttpLogInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogHttpLogOutput() GetLinuxWebAppLogHttpLogOutput
+	ToGetLinuxWebAppLogHttpLogOutputWithContext(context.Context) GetLinuxWebAppLogHttpLogOutput
+}
+
+type GetLinuxWebAppLogHttpLogArgs struct {
+	// A `azureBlobStorage` block as defined above.
+	AzureBlobStorages GetLinuxWebAppLogHttpLogAzureBlobStorageArrayInput `pulumi:"azureBlobStorages"`
+	// A `fileSystem` block as defined above.
+	FileSystems GetLinuxWebAppLogHttpLogFileSystemArrayInput `pulumi:"fileSystems"`
+}
+
+func (GetLinuxWebAppLogHttpLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogHttpLogArgs) ToGetLinuxWebAppLogHttpLogOutput() GetLinuxWebAppLogHttpLogOutput {
+	return i.ToGetLinuxWebAppLogHttpLogOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogHttpLogArgs) ToGetLinuxWebAppLogHttpLogOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogHttpLogOutput)
+}
+
+// GetLinuxWebAppLogHttpLogArrayInput is an input type that accepts GetLinuxWebAppLogHttpLogArray and GetLinuxWebAppLogHttpLogArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogHttpLogArrayInput` via:
+//
+//	GetLinuxWebAppLogHttpLogArray{ GetLinuxWebAppLogHttpLogArgs{...} }
+type GetLinuxWebAppLogHttpLogArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogHttpLogArrayOutput() GetLinuxWebAppLogHttpLogArrayOutput
+	ToGetLinuxWebAppLogHttpLogArrayOutputWithContext(context.Context) GetLinuxWebAppLogHttpLogArrayOutput
+}
+
+type GetLinuxWebAppLogHttpLogArray []GetLinuxWebAppLogHttpLogInput
+
+func (GetLinuxWebAppLogHttpLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogHttpLogArray) ToGetLinuxWebAppLogHttpLogArrayOutput() GetLinuxWebAppLogHttpLogArrayOutput {
+	return i.ToGetLinuxWebAppLogHttpLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogHttpLogArray) ToGetLinuxWebAppLogHttpLogArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogHttpLogArrayOutput)
+}
+
+type GetLinuxWebAppLogHttpLogOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogHttpLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogHttpLogOutput) ToGetLinuxWebAppLogHttpLogOutput() GetLinuxWebAppLogHttpLogOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogOutput) ToGetLinuxWebAppLogHttpLogOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogOutput {
+	return o
+}
+
+// A `azureBlobStorage` block as defined above.
+func (o GetLinuxWebAppLogHttpLogOutput) AzureBlobStorages() GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogHttpLog) []GetLinuxWebAppLogHttpLogAzureBlobStorage {
+		return v.AzureBlobStorages
+	}).(GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput)
+}
+
+// A `fileSystem` block as defined above.
+func (o GetLinuxWebAppLogHttpLogOutput) FileSystems() GetLinuxWebAppLogHttpLogFileSystemArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogHttpLog) []GetLinuxWebAppLogHttpLogFileSystem { return v.FileSystems }).(GetLinuxWebAppLogHttpLogFileSystemArrayOutput)
+}
+
+type GetLinuxWebAppLogHttpLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogHttpLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogHttpLog)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogHttpLogArrayOutput) ToGetLinuxWebAppLogHttpLogArrayOutput() GetLinuxWebAppLogHttpLogArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogArrayOutput) ToGetLinuxWebAppLogHttpLogArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppLogHttpLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppLogHttpLog {
+		return vs[0].([]GetLinuxWebAppLogHttpLog)[vs[1].(int)]
+	}).(GetLinuxWebAppLogHttpLogOutput)
+}
+
+type GetLinuxWebAppLogHttpLogAzureBlobStorage struct {
+	// The retention period in days.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The SAS url to an Azure blob container.
+	SasUrl string `pulumi:"sasUrl"`
+}
+
+// GetLinuxWebAppLogHttpLogAzureBlobStorageInput is an input type that accepts GetLinuxWebAppLogHttpLogAzureBlobStorageArgs and GetLinuxWebAppLogHttpLogAzureBlobStorageOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogHttpLogAzureBlobStorageInput` via:
+//
+//	GetLinuxWebAppLogHttpLogAzureBlobStorageArgs{...}
+type GetLinuxWebAppLogHttpLogAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutput() GetLinuxWebAppLogHttpLogAzureBlobStorageOutput
+	ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutputWithContext(context.Context) GetLinuxWebAppLogHttpLogAzureBlobStorageOutput
+}
+
+type GetLinuxWebAppLogHttpLogAzureBlobStorageArgs struct {
+	// The retention period in days.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The SAS url to an Azure blob container.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (GetLinuxWebAppLogHttpLogAzureBlobStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogHttpLogAzureBlobStorageArgs) ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutput() GetLinuxWebAppLogHttpLogAzureBlobStorageOutput {
+	return i.ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogHttpLogAzureBlobStorageArgs) ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogHttpLogAzureBlobStorageOutput)
+}
+
+// GetLinuxWebAppLogHttpLogAzureBlobStorageArrayInput is an input type that accepts GetLinuxWebAppLogHttpLogAzureBlobStorageArray and GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogHttpLogAzureBlobStorageArrayInput` via:
+//
+//	GetLinuxWebAppLogHttpLogAzureBlobStorageArray{ GetLinuxWebAppLogHttpLogAzureBlobStorageArgs{...} }
+type GetLinuxWebAppLogHttpLogAzureBlobStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput() GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput
+	ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(context.Context) GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput
+}
+
+type GetLinuxWebAppLogHttpLogAzureBlobStorageArray []GetLinuxWebAppLogHttpLogAzureBlobStorageInput
+
+func (GetLinuxWebAppLogHttpLogAzureBlobStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogHttpLogAzureBlobStorageArray) ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput() GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return i.ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogHttpLogAzureBlobStorageArray) ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput)
+}
+
+type GetLinuxWebAppLogHttpLogAzureBlobStorageOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogHttpLogAzureBlobStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageOutput) ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutput() GetLinuxWebAppLogHttpLogAzureBlobStorageOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageOutput) ToGetLinuxWebAppLogHttpLogAzureBlobStorageOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogAzureBlobStorageOutput {
+	return o
+}
+
+// The retention period in days.
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogHttpLogAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The SAS url to an Azure blob container.
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogHttpLogAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogHttpLogAzureBlobStorage)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput) ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput() GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput) ToGetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppLogHttpLogAzureBlobStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppLogHttpLogAzureBlobStorage {
+		return vs[0].([]GetLinuxWebAppLogHttpLogAzureBlobStorage)[vs[1].(int)]
+	}).(GetLinuxWebAppLogHttpLogAzureBlobStorageOutput)
+}
+
+type GetLinuxWebAppLogHttpLogFileSystem struct {
+	// The retention period in days.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The maximum size in megabytes that log files can use.
+	RetentionInMb int `pulumi:"retentionInMb"`
+}
+
+// GetLinuxWebAppLogHttpLogFileSystemInput is an input type that accepts GetLinuxWebAppLogHttpLogFileSystemArgs and GetLinuxWebAppLogHttpLogFileSystemOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogHttpLogFileSystemInput` via:
+//
+//	GetLinuxWebAppLogHttpLogFileSystemArgs{...}
+type GetLinuxWebAppLogHttpLogFileSystemInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogHttpLogFileSystemOutput() GetLinuxWebAppLogHttpLogFileSystemOutput
+	ToGetLinuxWebAppLogHttpLogFileSystemOutputWithContext(context.Context) GetLinuxWebAppLogHttpLogFileSystemOutput
+}
+
+type GetLinuxWebAppLogHttpLogFileSystemArgs struct {
+	// The retention period in days.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The maximum size in megabytes that log files can use.
+	RetentionInMb pulumi.IntInput `pulumi:"retentionInMb"`
+}
+
+func (GetLinuxWebAppLogHttpLogFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogHttpLogFileSystemArgs) ToGetLinuxWebAppLogHttpLogFileSystemOutput() GetLinuxWebAppLogHttpLogFileSystemOutput {
+	return i.ToGetLinuxWebAppLogHttpLogFileSystemOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogHttpLogFileSystemArgs) ToGetLinuxWebAppLogHttpLogFileSystemOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogHttpLogFileSystemOutput)
+}
+
+// GetLinuxWebAppLogHttpLogFileSystemArrayInput is an input type that accepts GetLinuxWebAppLogHttpLogFileSystemArray and GetLinuxWebAppLogHttpLogFileSystemArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppLogHttpLogFileSystemArrayInput` via:
+//
+//	GetLinuxWebAppLogHttpLogFileSystemArray{ GetLinuxWebAppLogHttpLogFileSystemArgs{...} }
+type GetLinuxWebAppLogHttpLogFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppLogHttpLogFileSystemArrayOutput() GetLinuxWebAppLogHttpLogFileSystemArrayOutput
+	ToGetLinuxWebAppLogHttpLogFileSystemArrayOutputWithContext(context.Context) GetLinuxWebAppLogHttpLogFileSystemArrayOutput
+}
+
+type GetLinuxWebAppLogHttpLogFileSystemArray []GetLinuxWebAppLogHttpLogFileSystemInput
+
+func (GetLinuxWebAppLogHttpLogFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppLogHttpLogFileSystemArray) ToGetLinuxWebAppLogHttpLogFileSystemArrayOutput() GetLinuxWebAppLogHttpLogFileSystemArrayOutput {
+	return i.ToGetLinuxWebAppLogHttpLogFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppLogHttpLogFileSystemArray) ToGetLinuxWebAppLogHttpLogFileSystemArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppLogHttpLogFileSystemArrayOutput)
+}
+
+type GetLinuxWebAppLogHttpLogFileSystemOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogHttpLogFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogHttpLogFileSystemOutput) ToGetLinuxWebAppLogHttpLogFileSystemOutput() GetLinuxWebAppLogHttpLogFileSystemOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogFileSystemOutput) ToGetLinuxWebAppLogHttpLogFileSystemOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogFileSystemOutput {
+	return o
+}
+
+// The retention period in days.
+func (o GetLinuxWebAppLogHttpLogFileSystemOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogHttpLogFileSystem) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// The maximum size in megabytes that log files can use.
+func (o GetLinuxWebAppLogHttpLogFileSystemOutput) RetentionInMb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppLogHttpLogFileSystem) int { return v.RetentionInMb }).(pulumi.IntOutput)
+}
+
+type GetLinuxWebAppLogHttpLogFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppLogHttpLogFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppLogHttpLogFileSystem)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppLogHttpLogFileSystemArrayOutput) ToGetLinuxWebAppLogHttpLogFileSystemArrayOutput() GetLinuxWebAppLogHttpLogFileSystemArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogFileSystemArrayOutput) ToGetLinuxWebAppLogHttpLogFileSystemArrayOutputWithContext(ctx context.Context) GetLinuxWebAppLogHttpLogFileSystemArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppLogHttpLogFileSystemArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppLogHttpLogFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppLogHttpLogFileSystem {
+		return vs[0].([]GetLinuxWebAppLogHttpLogFileSystem)[vs[1].(int)]
+	}).(GetLinuxWebAppLogHttpLogFileSystemOutput)
+}
+
+type GetLinuxWebAppSiteConfig struct {
+	// Is this Linux Web App is Always On enabled.
+	AlwaysOn bool `pulumi:"alwaysOn"`
+	// The ID of the APIM configuration for this Linux Web App.
+	ApiDefinitionUrl string `pulumi:"apiDefinitionUrl"`
+	// The ID of the API Management API for this Linux Web App.
+	ApiManagementApiId string `pulumi:"apiManagementApiId"`
+	// The command line used to launch this app.
+	AppCommandLine string `pulumi:"appCommandLine"`
+	// A `applicationStack` block as defined above.
+	ApplicationStacks []GetLinuxWebAppSiteConfigApplicationStack `pulumi:"applicationStacks"`
+	// A `autoHealSetting` block as defined above.
+	AutoHealSettings []GetLinuxWebAppSiteConfigAutoHealSetting `pulumi:"autoHealSettings"`
+	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+	ContainerRegistryManagedIdentityClientId string `pulumi:"containerRegistryManagedIdentityClientId"`
+	// Do connections for Azure Container Registry use Managed Identity.
+	ContainerRegistryUseManagedIdentity bool `pulumi:"containerRegistryUseManagedIdentity"`
+	// A `cors` block as defined above.
+	Cors []GetLinuxWebAppSiteConfigCor `pulumi:"cors"`
+	// The list of Default Documents for the Linux Web App.
+	DefaultDocuments []string `pulumi:"defaultDocuments"`
+	// Is Detailed Error Logging enabled.
+	DetailedErrorLoggingEnabled bool `pulumi:"detailedErrorLoggingEnabled"`
+	// The State of FTP / FTPS service.
+	FtpsState string `pulumi:"ftpsState"`
+	// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+	HealthCheckEvictionTimeInMin int `pulumi:"healthCheckEvictionTimeInMin"`
+	// The path to the Health Check endpoint.
+	HealthCheckPath string `pulumi:"healthCheckPath"`
+	// Is HTTP2.0 enabled.
+	Http2Enabled bool `pulumi:"http2Enabled"`
+	// The Default action for traffic that does not match any `ipRestriction` rule.
+	IpRestrictionDefaultAction string `pulumi:"ipRestrictionDefaultAction"`
+	// A `ipRestriction` block as defined above.
+	IpRestrictions []GetLinuxWebAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// The `LinuxFXVersion` string.
+	LinuxFxVersion string `pulumi:"linuxFxVersion"`
+	// The site Load Balancing Mode.
+	LoadBalancingMode string `pulumi:"loadBalancingMode"`
+	// Is the Local MySQL enabled.
+	LocalMysqlEnabled bool `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode.
+	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	// The Minimum version of TLS for requests.
+	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
+	// Is Remote Debugging enabled.
+	RemoteDebuggingEnabled bool `pulumi:"remoteDebuggingEnabled"`
+	// The Remote Debugging Version.
+	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
+	// The Default action for traffic that does not match any `scmIpRestriction` rule.
+	ScmIpRestrictionDefaultAction string `pulumi:"scmIpRestrictionDefaultAction"`
+	// A `scmIpRestriction` block as defined above.
+	ScmIpRestrictions []GetLinuxWebAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	// The Minimum version of TLS for requests to SCM.
+	ScmMinimumTlsVersion string `pulumi:"scmMinimumTlsVersion"`
+	// The Source Control Management Type in use.
+	ScmType string `pulumi:"scmType"`
+	// Is the Linux Web App `ipRestriction` configuration used for the SCM also.
+	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
+	// Does the Linux Web App use a 32-bit worker.
+	Use32BitWorker bool `pulumi:"use32BitWorker"`
+	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled bool `pulumi:"vnetRouteAllEnabled"`
+	// Are Web Sockets enabled?
+	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
+	// The number of Workers for this Linux App Service.
+	WorkerCount int `pulumi:"workerCount"`
+}
+
+// GetLinuxWebAppSiteConfigInput is an input type that accepts GetLinuxWebAppSiteConfigArgs and GetLinuxWebAppSiteConfigOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigInput` via:
+//
+//	GetLinuxWebAppSiteConfigArgs{...}
+type GetLinuxWebAppSiteConfigInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigOutput() GetLinuxWebAppSiteConfigOutput
+	ToGetLinuxWebAppSiteConfigOutputWithContext(context.Context) GetLinuxWebAppSiteConfigOutput
+}
+
+type GetLinuxWebAppSiteConfigArgs struct {
+	// Is this Linux Web App is Always On enabled.
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	// The ID of the APIM configuration for this Linux Web App.
+	ApiDefinitionUrl pulumi.StringInput `pulumi:"apiDefinitionUrl"`
+	// The ID of the API Management API for this Linux Web App.
+	ApiManagementApiId pulumi.StringInput `pulumi:"apiManagementApiId"`
+	// The command line used to launch this app.
+	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
+	// A `applicationStack` block as defined above.
+	ApplicationStacks GetLinuxWebAppSiteConfigApplicationStackArrayInput `pulumi:"applicationStacks"`
+	// A `autoHealSetting` block as defined above.
+	AutoHealSettings GetLinuxWebAppSiteConfigAutoHealSettingArrayInput `pulumi:"autoHealSettings"`
+	// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+	ContainerRegistryManagedIdentityClientId pulumi.StringInput `pulumi:"containerRegistryManagedIdentityClientId"`
+	// Do connections for Azure Container Registry use Managed Identity.
+	ContainerRegistryUseManagedIdentity pulumi.BoolInput `pulumi:"containerRegistryUseManagedIdentity"`
+	// A `cors` block as defined above.
+	Cors GetLinuxWebAppSiteConfigCorArrayInput `pulumi:"cors"`
+	// The list of Default Documents for the Linux Web App.
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	// Is Detailed Error Logging enabled.
+	DetailedErrorLoggingEnabled pulumi.BoolInput `pulumi:"detailedErrorLoggingEnabled"`
+	// The State of FTP / FTPS service.
+	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+	HealthCheckEvictionTimeInMin pulumi.IntInput `pulumi:"healthCheckEvictionTimeInMin"`
+	// The path to the Health Check endpoint.
+	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
+	// Is HTTP2.0 enabled.
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// The Default action for traffic that does not match any `ipRestriction` rule.
+	IpRestrictionDefaultAction pulumi.StringInput `pulumi:"ipRestrictionDefaultAction"`
+	// A `ipRestriction` block as defined above.
+	IpRestrictions GetLinuxWebAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// The `LinuxFXVersion` string.
+	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
+	// The site Load Balancing Mode.
+	LoadBalancingMode pulumi.StringInput `pulumi:"loadBalancingMode"`
+	// Is the Local MySQL enabled.
+	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode.
+	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	// The Minimum version of TLS for requests.
+	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
+	// Is Remote Debugging enabled.
+	RemoteDebuggingEnabled pulumi.BoolInput `pulumi:"remoteDebuggingEnabled"`
+	// The Remote Debugging Version.
+	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	// The Default action for traffic that does not match any `scmIpRestriction` rule.
+	ScmIpRestrictionDefaultAction pulumi.StringInput `pulumi:"scmIpRestrictionDefaultAction"`
+	// A `scmIpRestriction` block as defined above.
+	ScmIpRestrictions GetLinuxWebAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	// The Minimum version of TLS for requests to SCM.
+	ScmMinimumTlsVersion pulumi.StringInput `pulumi:"scmMinimumTlsVersion"`
+	// The Source Control Management Type in use.
+	ScmType pulumi.StringInput `pulumi:"scmType"`
+	// Is the Linux Web App `ipRestriction` configuration used for the SCM also.
+	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
+	// Does the Linux Web App use a 32-bit worker.
+	Use32BitWorker pulumi.BoolInput `pulumi:"use32BitWorker"`
+	// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+	VnetRouteAllEnabled pulumi.BoolInput `pulumi:"vnetRouteAllEnabled"`
+	// Are Web Sockets enabled?
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+	// The number of Workers for this Linux App Service.
+	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
+}
+
+func (GetLinuxWebAppSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigArgs) ToGetLinuxWebAppSiteConfigOutput() GetLinuxWebAppSiteConfigOutput {
+	return i.ToGetLinuxWebAppSiteConfigOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigArgs) ToGetLinuxWebAppSiteConfigOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigOutput)
+}
+
+// GetLinuxWebAppSiteConfigArrayInput is an input type that accepts GetLinuxWebAppSiteConfigArray and GetLinuxWebAppSiteConfigArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigArray{ GetLinuxWebAppSiteConfigArgs{...} }
+type GetLinuxWebAppSiteConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigArrayOutput() GetLinuxWebAppSiteConfigArrayOutput
+	ToGetLinuxWebAppSiteConfigArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigArray []GetLinuxWebAppSiteConfigInput
+
+func (GetLinuxWebAppSiteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigArray) ToGetLinuxWebAppSiteConfigArrayOutput() GetLinuxWebAppSiteConfigArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigArray) ToGetLinuxWebAppSiteConfigArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigOutput) ToGetLinuxWebAppSiteConfigOutput() GetLinuxWebAppSiteConfigOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigOutput) ToGetLinuxWebAppSiteConfigOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigOutput {
+	return o
+}
+
+// Is this Linux Web App is Always On enabled.
+func (o GetLinuxWebAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
+}
+
+// The ID of the APIM configuration for this Linux Web App.
+func (o GetLinuxWebAppSiteConfigOutput) ApiDefinitionUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ApiDefinitionUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the API Management API for this Linux Web App.
+func (o GetLinuxWebAppSiteConfigOutput) ApiManagementApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ApiManagementApiId }).(pulumi.StringOutput)
+}
+
+// The command line used to launch this app.
+func (o GetLinuxWebAppSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.AppCommandLine }).(pulumi.StringOutput)
+}
+
+// A `applicationStack` block as defined above.
+func (o GetLinuxWebAppSiteConfigOutput) ApplicationStacks() GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigApplicationStack {
+		return v.ApplicationStacks
+	}).(GetLinuxWebAppSiteConfigApplicationStackArrayOutput)
+}
+
+// A `autoHealSetting` block as defined above.
+func (o GetLinuxWebAppSiteConfigOutput) AutoHealSettings() GetLinuxWebAppSiteConfigAutoHealSettingArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigAutoHealSetting { return v.AutoHealSettings }).(GetLinuxWebAppSiteConfigAutoHealSettingArrayOutput)
+}
+
+// The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
+func (o GetLinuxWebAppSiteConfigOutput) ContainerRegistryManagedIdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ContainerRegistryManagedIdentityClientId }).(pulumi.StringOutput)
+}
+
+// Do connections for Azure Container Registry use Managed Identity.
+func (o GetLinuxWebAppSiteConfigOutput) ContainerRegistryUseManagedIdentity() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.ContainerRegistryUseManagedIdentity }).(pulumi.BoolOutput)
+}
+
+// A `cors` block as defined above.
+func (o GetLinuxWebAppSiteConfigOutput) Cors() GetLinuxWebAppSiteConfigCorArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigCor { return v.Cors }).(GetLinuxWebAppSiteConfigCorArrayOutput)
+}
+
+// The list of Default Documents for the Linux Web App.
+func (o GetLinuxWebAppSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
+}
+
+// Is Detailed Error Logging enabled.
+func (o GetLinuxWebAppSiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolOutput)
+}
+
+// The State of FTP / FTPS service.
+func (o GetLinuxWebAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
+func (o GetLinuxWebAppSiteConfigOutput) HealthCheckEvictionTimeInMin() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) int { return v.HealthCheckEvictionTimeInMin }).(pulumi.IntOutput)
+}
+
+// The path to the Health Check endpoint.
+func (o GetLinuxWebAppSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
+}
+
+// Is HTTP2.0 enabled.
+func (o GetLinuxWebAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
+}
+
+// The Default action for traffic that does not match any `ipRestriction` rule.
+func (o GetLinuxWebAppSiteConfigOutput) IpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.IpRestrictionDefaultAction }).(pulumi.StringOutput)
+}
+
+// A `ipRestriction` block as defined above.
+func (o GetLinuxWebAppSiteConfigOutput) IpRestrictions() GetLinuxWebAppSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigIpRestriction { return v.IpRestrictions }).(GetLinuxWebAppSiteConfigIpRestrictionArrayOutput)
+}
+
+// The `LinuxFXVersion` string.
+func (o GetLinuxWebAppSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.LinuxFxVersion }).(pulumi.StringOutput)
+}
+
+// The site Load Balancing Mode.
+func (o GetLinuxWebAppSiteConfigOutput) LoadBalancingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.LoadBalancingMode }).(pulumi.StringOutput)
+}
+
+// Is the Local MySQL enabled.
+func (o GetLinuxWebAppSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.LocalMysqlEnabled }).(pulumi.BoolOutput)
+}
+
+// The Managed Pipeline Mode.
+func (o GetLinuxWebAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
+}
+
+// The Minimum version of TLS for requests.
+func (o GetLinuxWebAppSiteConfigOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+// Is Remote Debugging enabled.
+func (o GetLinuxWebAppSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolOutput)
+}
+
+// The Remote Debugging Version.
+func (o GetLinuxWebAppSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.RemoteDebuggingVersion }).(pulumi.StringOutput)
+}
+
+// The Default action for traffic that does not match any `scmIpRestriction` rule.
+func (o GetLinuxWebAppSiteConfigOutput) ScmIpRestrictionDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ScmIpRestrictionDefaultAction }).(pulumi.StringOutput)
+}
+
+// A `scmIpRestriction` block as defined above.
+func (o GetLinuxWebAppSiteConfigOutput) ScmIpRestrictions() GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) []GetLinuxWebAppSiteConfigScmIpRestriction {
+		return v.ScmIpRestrictions
+	}).(GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// The Minimum version of TLS for requests to SCM.
+func (o GetLinuxWebAppSiteConfigOutput) ScmMinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ScmMinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+// The Source Control Management Type in use.
+func (o GetLinuxWebAppSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
+}
+
+// Is the Linux Web App `ipRestriction` configuration used for the SCM also.
+func (o GetLinuxWebAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
+}
+
+// Does the Linux Web App use a 32-bit worker.
+func (o GetLinuxWebAppSiteConfigOutput) Use32BitWorker() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.Use32BitWorker }).(pulumi.BoolOutput)
+}
+
+// Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
+func (o GetLinuxWebAppSiteConfigOutput) VnetRouteAllEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.VnetRouteAllEnabled }).(pulumi.BoolOutput)
+}
+
+// Are Web Sockets enabled?
+func (o GetLinuxWebAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
+}
+
+// The number of Workers for this Linux App Service.
+func (o GetLinuxWebAppSiteConfigOutput) WorkerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) int { return v.WorkerCount }).(pulumi.IntOutput)
+}
+
+type GetLinuxWebAppSiteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigArrayOutput) ToGetLinuxWebAppSiteConfigArrayOutput() GetLinuxWebAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigArrayOutput) ToGetLinuxWebAppSiteConfigArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfig {
+		return vs[0].([]GetLinuxWebAppSiteConfig)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigOutput)
+}
+
+type GetLinuxWebAppSiteConfigApplicationStack struct {
+	// The docker image, including tag, used by this Linux Web App.
+	DockerImageName string `pulumi:"dockerImageName"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryPassword string `pulumi:"dockerRegistryPassword"`
+	// The URL of the container registry where the `dockerImageName` is located.
+	DockerRegistryUrl string `pulumi:"dockerRegistryUrl"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryUsername string `pulumi:"dockerRegistryUsername"`
+	// The version of .NET in use.
+	DotnetVersion string `pulumi:"dotnetVersion"`
+	GoVersion     string `pulumi:"goVersion"`
+	// The Java server type.
+	JavaServer string `pulumi:"javaServer"`
+	// The Version of the `javaServer` in use.
+	JavaServerVersion string `pulumi:"javaServerVersion"`
+	// The Version of Java in use.
+	JavaVersion string `pulumi:"javaVersion"`
+	// The version of Node in use.
+	NodeVersion string `pulumi:"nodeVersion"`
+	// The version of PHP in use.
+	PhpVersion string `pulumi:"phpVersion"`
+	// The version of Python in use.
+	PythonVersion string `pulumi:"pythonVersion"`
+	// The version of Ruby in use.
+	RubyVersion string `pulumi:"rubyVersion"`
+}
+
+// GetLinuxWebAppSiteConfigApplicationStackInput is an input type that accepts GetLinuxWebAppSiteConfigApplicationStackArgs and GetLinuxWebAppSiteConfigApplicationStackOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigApplicationStackInput` via:
+//
+//	GetLinuxWebAppSiteConfigApplicationStackArgs{...}
+type GetLinuxWebAppSiteConfigApplicationStackInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigApplicationStackOutput() GetLinuxWebAppSiteConfigApplicationStackOutput
+	ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(context.Context) GetLinuxWebAppSiteConfigApplicationStackOutput
+}
+
+type GetLinuxWebAppSiteConfigApplicationStackArgs struct {
+	// The docker image, including tag, used by this Linux Web App.
+	DockerImageName pulumi.StringInput `pulumi:"dockerImageName"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryPassword pulumi.StringInput `pulumi:"dockerRegistryPassword"`
+	// The URL of the container registry where the `dockerImageName` is located.
+	DockerRegistryUrl pulumi.StringInput `pulumi:"dockerRegistryUrl"`
+	// The User Name to use for authentication against the registry to pull the image.
+	DockerRegistryUsername pulumi.StringInput `pulumi:"dockerRegistryUsername"`
+	// The version of .NET in use.
+	DotnetVersion pulumi.StringInput `pulumi:"dotnetVersion"`
+	GoVersion     pulumi.StringInput `pulumi:"goVersion"`
+	// The Java server type.
+	JavaServer pulumi.StringInput `pulumi:"javaServer"`
+	// The Version of the `javaServer` in use.
+	JavaServerVersion pulumi.StringInput `pulumi:"javaServerVersion"`
+	// The Version of Java in use.
+	JavaVersion pulumi.StringInput `pulumi:"javaVersion"`
+	// The version of Node in use.
+	NodeVersion pulumi.StringInput `pulumi:"nodeVersion"`
+	// The version of PHP in use.
+	PhpVersion pulumi.StringInput `pulumi:"phpVersion"`
+	// The version of Python in use.
+	PythonVersion pulumi.StringInput `pulumi:"pythonVersion"`
+	// The version of Ruby in use.
+	RubyVersion pulumi.StringInput `pulumi:"rubyVersion"`
+}
+
+func (GetLinuxWebAppSiteConfigApplicationStackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigApplicationStackArgs) ToGetLinuxWebAppSiteConfigApplicationStackOutput() GetLinuxWebAppSiteConfigApplicationStackOutput {
+	return i.ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigApplicationStackArgs) ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigApplicationStackOutput)
+}
+
+// GetLinuxWebAppSiteConfigApplicationStackArrayInput is an input type that accepts GetLinuxWebAppSiteConfigApplicationStackArray and GetLinuxWebAppSiteConfigApplicationStackArrayOutput values.
+// You can construct a concrete instance of `GetLinuxWebAppSiteConfigApplicationStackArrayInput` via:
+//
+//	GetLinuxWebAppSiteConfigApplicationStackArray{ GetLinuxWebAppSiteConfigApplicationStackArgs{...} }
+type GetLinuxWebAppSiteConfigApplicationStackArrayInput interface {
+	pulumi.Input
+
+	ToGetLinuxWebAppSiteConfigApplicationStackArrayOutput() GetLinuxWebAppSiteConfigApplicationStackArrayOutput
+	ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(context.Context) GetLinuxWebAppSiteConfigApplicationStackArrayOutput
+}
+
+type GetLinuxWebAppSiteConfigApplicationStackArray []GetLinuxWebAppSiteConfigApplicationStackInput
+
+func (GetLinuxWebAppSiteConfigApplicationStackArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (i GetLinuxWebAppSiteConfigApplicationStackArray) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutput() GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
+	return i.ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(context.Background())
+}
+
+func (i GetLinuxWebAppSiteConfigApplicationStackArray) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLinuxWebAppSiteConfigApplicationStackArrayOutput)
+}
+
+type GetLinuxWebAppSiteConfigApplicationStackOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigApplicationStackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) ToGetLinuxWebAppSiteConfigApplicationStackOutput() GetLinuxWebAppSiteConfigApplicationStackOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) ToGetLinuxWebAppSiteConfigApplicationStackOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackOutput {
+	return o
+}
+
+// The docker image, including tag, used by this Linux Web App.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerImageName }).(pulumi.StringOutput)
+}
+
+// The User Name to use for authentication against the registry to pull the image.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerRegistryPassword }).(pulumi.StringOutput)
+}
+
+// The URL of the container registry where the `dockerImageName` is located.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerRegistryUrl }).(pulumi.StringOutput)
+}
+
+// The User Name to use for authentication against the registry to pull the image.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DockerRegistryUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DockerRegistryUsername }).(pulumi.StringOutput)
+}
+
+// The version of .NET in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) DotnetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.DotnetVersion }).(pulumi.StringOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) GoVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.GoVersion }).(pulumi.StringOutput)
+}
+
+// The Java server type.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) JavaServer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.JavaServer }).(pulumi.StringOutput)
+}
+
+// The Version of the `javaServer` in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) JavaServerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.JavaServerVersion }).(pulumi.StringOutput)
+}
+
+// The Version of Java in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) JavaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.JavaVersion }).(pulumi.StringOutput)
+}
+
+// The version of Node in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) NodeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.NodeVersion }).(pulumi.StringOutput)
+}
+
+// The version of PHP in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) PhpVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.PhpVersion }).(pulumi.StringOutput)
+}
+
+// The version of Python in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) PythonVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.PythonVersion }).(pulumi.StringOutput)
+}
+
+// The version of Ruby in use.
+func (o GetLinuxWebAppSiteConfigApplicationStackOutput) RubyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.RubyVersion }).(pulumi.StringOutput)
+}
+
+type GetLinuxWebAppSiteConfigApplicationStackArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLinuxWebAppSiteConfigApplicationStackArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLinuxWebAppSiteConfigApplicationStack)(nil)).Elem()
+}
+
+func (o GetLinuxWebAppSiteConfigApplicationStackArrayOutput) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutput() GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigApplicationStackArrayOutput) ToGetLinuxWebAppSiteConfigApplicationStackArrayOutputWithContext(ctx context.Context) GetLinuxWebAppSiteConfigApplicationStackArrayOutput {
+	return o
+}
+
+func (o GetLinuxWebAppSiteConfigApplicationStackArrayOutput) Index(i pulumi.IntInput) GetLinuxWebAppSiteConfigApplicationStackOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLinuxWebAppSiteConfigApplicationStack {
+		return vs[0].([]GetLinuxWebAppSiteConfigApplicationStack)[vs[1].(int)]
+	}).(GetLinuxWebAppSiteConfigApplicationStackOutput)
+}
+
 type GetLinuxWebAppSiteConfigAutoHealSetting struct {
 	// A `action` block as defined above.
 	Actions []GetLinuxWebAppSiteConfigAutoHealSettingAction `pulumi:"actions"`
@@ -13566,6 +17733,64 @@ func (o GetWindowsWebAppStorageAccountArrayOutput) Index(i pulumi.IntInput) GetW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingActiveDirectoryInput)(nil)).Elem(), GetLinuxWebAppAuthSettingActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingActiveDirectoryArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingActiveDirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingFacebookInput)(nil)).Elem(), GetLinuxWebAppAuthSettingFacebookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingFacebookArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingFacebookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingGithubInput)(nil)).Elem(), GetLinuxWebAppAuthSettingGithubArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingGithubArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingGithubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingGoogleInput)(nil)).Elem(), GetLinuxWebAppAuthSettingGoogleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingGoogleArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingGoogleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingMicrosoftInput)(nil)).Elem(), GetLinuxWebAppAuthSettingMicrosoftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingMicrosoftArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingMicrosoftArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingTwitterInput)(nil)).Elem(), GetLinuxWebAppAuthSettingTwitterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingTwitterArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingTwitterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AppleV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2AppleV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AppleV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2AppleV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2CustomOidcV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2CustomOidcV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2CustomOidcV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2FacebookV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2FacebookV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2FacebookV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2FacebookV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GithubV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2GithubV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GithubV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2GithubV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GoogleV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2GoogleV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2GoogleV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2GoogleV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2LoginInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2LoginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2LoginArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2LoginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2MicrosoftV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2MicrosoftV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2MicrosoftV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2TwitterV2Input)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2TwitterV2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppAuthSettingsV2TwitterV2ArrayInput)(nil)).Elem(), GetLinuxWebAppAuthSettingsV2TwitterV2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppBackupInput)(nil)).Elem(), GetLinuxWebAppBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppBackupArrayInput)(nil)).Elem(), GetLinuxWebAppBackupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppBackupScheduleInput)(nil)).Elem(), GetLinuxWebAppBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppBackupScheduleArrayInput)(nil)).Elem(), GetLinuxWebAppBackupScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppConnectionStringInput)(nil)).Elem(), GetLinuxWebAppConnectionStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppConnectionStringArrayInput)(nil)).Elem(), GetLinuxWebAppConnectionStringArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppIdentityInput)(nil)).Elem(), GetLinuxWebAppIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppIdentityArrayInput)(nil)).Elem(), GetLinuxWebAppIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogInput)(nil)).Elem(), GetLinuxWebAppLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogArrayInput)(nil)).Elem(), GetLinuxWebAppLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogApplicationLogInput)(nil)).Elem(), GetLinuxWebAppLogApplicationLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogApplicationLogArrayInput)(nil)).Elem(), GetLinuxWebAppLogApplicationLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogApplicationLogAzureBlobStorageInput)(nil)).Elem(), GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayInput)(nil)).Elem(), GetLinuxWebAppLogApplicationLogAzureBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogHttpLogInput)(nil)).Elem(), GetLinuxWebAppLogHttpLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogHttpLogArrayInput)(nil)).Elem(), GetLinuxWebAppLogHttpLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogHttpLogAzureBlobStorageInput)(nil)).Elem(), GetLinuxWebAppLogHttpLogAzureBlobStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogHttpLogAzureBlobStorageArrayInput)(nil)).Elem(), GetLinuxWebAppLogHttpLogAzureBlobStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogHttpLogFileSystemInput)(nil)).Elem(), GetLinuxWebAppLogHttpLogFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppLogHttpLogFileSystemArrayInput)(nil)).Elem(), GetLinuxWebAppLogHttpLogFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigInput)(nil)).Elem(), GetLinuxWebAppSiteConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStackInput)(nil)).Elem(), GetLinuxWebAppSiteConfigApplicationStackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigApplicationStackArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigApplicationStackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingArrayInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLinuxWebAppSiteConfigAutoHealSettingActionInput)(nil)).Elem(), GetLinuxWebAppSiteConfigAutoHealSettingActionArgs{})
@@ -13762,6 +17987,64 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStickySettingArrayInput)(nil)).Elem(), GetWindowsWebAppStickySettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsWebAppStorageAccountArrayInput)(nil)).Elem(), GetWindowsWebAppStorageAccountArray{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingActiveDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingFacebookOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingFacebookArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingGithubOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingGithubArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingGoogleOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingGoogleArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingMicrosoftOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingMicrosoftArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingTwitterOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingTwitterArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2AppleV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2AppleV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2CustomOidcV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2CustomOidcV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2FacebookV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2FacebookV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2GithubV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2GithubV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2GoogleV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2GoogleV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2LoginOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2LoginArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2MicrosoftV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2MicrosoftV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2TwitterV2Output{})
+	pulumi.RegisterOutputType(GetLinuxWebAppAuthSettingsV2TwitterV2ArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppBackupOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppBackupArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppBackupScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppConnectionStringOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogApplicationLogOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogApplicationLogArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogApplicationLogAzureBlobStorageOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogApplicationLogAzureBlobStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogHttpLogOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogHttpLogArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogHttpLogAzureBlobStorageOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogHttpLogAzureBlobStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogHttpLogFileSystemOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppLogHttpLogFileSystemArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigApplicationStackOutput{})
+	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigApplicationStackArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetLinuxWebAppSiteConfigAutoHealSettingActionOutput{})

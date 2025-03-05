@@ -150,7 +150,11 @@ export class EventGridDataConnection extends pulumi.CustomResource {
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
-    public readonly eventgridResourceId!: pulumi.Output<string | undefined>;
+    public readonly eventgridEventSubscriptionId!: pulumi.Output<string>;
+    /**
+     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
+     */
+    public readonly eventgridResourceId!: pulumi.Output<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -166,7 +170,11 @@ export class EventGridDataConnection extends pulumi.CustomResource {
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
-    public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
+    public readonly managedIdentityId!: pulumi.Output<string>;
+    /**
+     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
+     */
+    public readonly managedIdentityResourceId!: pulumi.Output<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
@@ -210,10 +218,12 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
+            resourceInputs["eventgridEventSubscriptionId"] = state ? state.eventgridEventSubscriptionId : undefined;
             resourceInputs["eventgridResourceId"] = state ? state.eventgridResourceId : undefined;
             resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedIdentityId"] = state ? state.managedIdentityId : undefined;
             resourceInputs["managedIdentityResourceId"] = state ? state.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -246,10 +256,12 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
+            resourceInputs["eventgridEventSubscriptionId"] = args ? args.eventgridEventSubscriptionId : undefined;
             resourceInputs["eventgridResourceId"] = args ? args.eventgridResourceId : undefined;
             resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
             resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedIdentityId"] = args ? args.managedIdentityId : undefined;
             resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -290,6 +302,10 @@ export interface EventGridDataConnectionState {
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
+    eventgridEventSubscriptionId?: pulumi.Input<string>;
+    /**
+     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
+     */
     eventgridResourceId?: pulumi.Input<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -305,6 +321,10 @@ export interface EventGridDataConnectionState {
     location?: pulumi.Input<string>;
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    managedIdentityId?: pulumi.Input<string>;
+    /**
+     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      */
     managedIdentityResourceId?: pulumi.Input<string>;
     /**
@@ -360,6 +380,10 @@ export interface EventGridDataConnectionArgs {
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
+    eventgridEventSubscriptionId?: pulumi.Input<string>;
+    /**
+     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
+     */
     eventgridResourceId?: pulumi.Input<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -375,6 +399,10 @@ export interface EventGridDataConnectionArgs {
     location?: pulumi.Input<string>;
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+     */
+    managedIdentityId?: pulumi.Input<string>;
+    /**
+     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      */
     managedIdentityResourceId?: pulumi.Input<string>;
     /**

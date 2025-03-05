@@ -28,6 +28,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServiceMeshProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterStorageProfileArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterUpgradeOverrideArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWorkloadAutoscalerProfileArgs;
@@ -1169,6 +1170,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `upgrade_override` block as defined below.
+     * 
+     */
+    @Import(name="upgradeOverride")
+    private @Nullable Output<KubernetesClusterUpgradeOverrideArgs> upgradeOverride;
+
+    /**
+     * @return A `upgrade_override` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterUpgradeOverrideArgs>> upgradeOverride() {
+        return Optional.ofNullable(this.upgradeOverride);
+    }
+
+    /**
      * A `web_app_routing` block as defined below.
      * 
      */
@@ -1300,6 +1316,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.storageProfile = $.storageProfile;
         this.supportPlan = $.supportPlan;
         this.tags = $.tags;
+        this.upgradeOverride = $.upgradeOverride;
         this.webAppRouting = $.webAppRouting;
         this.windowsProfile = $.windowsProfile;
         this.workloadAutoscalerProfile = $.workloadAutoscalerProfile;
@@ -2829,6 +2846,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param upgradeOverride A `upgrade_override` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeOverride(@Nullable Output<KubernetesClusterUpgradeOverrideArgs> upgradeOverride) {
+            $.upgradeOverride = upgradeOverride;
+            return this;
+        }
+
+        /**
+         * @param upgradeOverride A `upgrade_override` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder upgradeOverride(KubernetesClusterUpgradeOverrideArgs upgradeOverride) {
+            return upgradeOverride(Output.of(upgradeOverride));
         }
 
         /**

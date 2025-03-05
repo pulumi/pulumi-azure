@@ -161,6 +161,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string AutoDeleteOnIdle;
         /// <summary>
+        /// Boolean flag which controls whether server-side batched operations are enabled.
+        /// </summary>
+        public readonly bool BatchedOperationsEnabled;
+        /// <summary>
         /// Boolean flag which controls whether the Queue has dead letter support when a message expires.
         /// </summary>
         public readonly bool DeadLetteringOnMessageExpiration;
@@ -172,18 +176,13 @@ namespace Pulumi.Azure.ServiceBus
         /// The ISO 8601 timespan duration during which duplicates can be detected.
         /// </summary>
         public readonly string DuplicateDetectionHistoryTimeWindow;
-        /// <summary>
-        /// Boolean flag which controls whether server-side batched operations are enabled.
-        /// </summary>
         public readonly bool EnableBatchedOperations;
+        public readonly bool EnableExpress;
+        public readonly bool EnablePartitioning;
         /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
-        public readonly bool EnableExpress;
-        /// <summary>
-        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
-        /// </summary>
-        public readonly bool EnablePartitioning;
+        public readonly bool ExpressEnabled;
         /// <summary>
         /// The name of a Queue or Topic to automatically forward dead lettered messages to.
         /// </summary>
@@ -212,6 +211,10 @@ namespace Pulumi.Azure.ServiceBus
         public readonly string? NamespaceId;
         public readonly string? NamespaceName;
         /// <summary>
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
+        /// </summary>
+        public readonly bool PartitioningEnabled;
+        /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection.
         /// </summary>
         public readonly bool RequiresDuplicateDetection;
@@ -229,6 +232,8 @@ namespace Pulumi.Azure.ServiceBus
         private GetQueueResult(
             string autoDeleteOnIdle,
 
+            bool batchedOperationsEnabled,
+
             bool deadLetteringOnMessageExpiration,
 
             string defaultMessageTtl,
@@ -240,6 +245,8 @@ namespace Pulumi.Azure.ServiceBus
             bool enableExpress,
 
             bool enablePartitioning,
+
+            bool expressEnabled,
 
             string forwardDeadLetteredMessagesTo,
 
@@ -259,6 +266,8 @@ namespace Pulumi.Azure.ServiceBus
 
             string? namespaceName,
 
+            bool partitioningEnabled,
+
             bool requiresDuplicateDetection,
 
             bool requiresSession,
@@ -268,12 +277,14 @@ namespace Pulumi.Azure.ServiceBus
             string status)
         {
             AutoDeleteOnIdle = autoDeleteOnIdle;
+            BatchedOperationsEnabled = batchedOperationsEnabled;
             DeadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             DefaultMessageTtl = defaultMessageTtl;
             DuplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
             EnableBatchedOperations = enableBatchedOperations;
             EnableExpress = enableExpress;
             EnablePartitioning = enablePartitioning;
+            ExpressEnabled = expressEnabled;
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
             Id = id;
@@ -283,6 +294,7 @@ namespace Pulumi.Azure.ServiceBus
             Name = name;
             NamespaceId = namespaceId;
             NamespaceName = namespaceName;
+            PartitioningEnabled = partitioningEnabled;
             RequiresDuplicateDetection = requiresDuplicateDetection;
             RequiresSession = requiresSession;
             ResourceGroupName = resourceGroupName;

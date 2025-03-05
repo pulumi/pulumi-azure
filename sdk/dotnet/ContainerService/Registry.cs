@@ -108,6 +108,63 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
+    /// ### Attaching A Container Registry To A Kubernetes Cluster)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
+    ///     {
+    ///         Name = "containerRegistry1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Premium",
+    ///     });
+    /// 
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     {
+    ///         Name = "example-aks1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "exampleaks1",
+    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         {
+    ///             Name = "default",
+    ///             NodeCount = 1,
+    ///             VmSize = "Standard_D2_v2",
+    ///         },
+    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
+    ///     {
+    ///         PrincipalId = exampleKubernetesCluster.KubeletIdentity.Apply(kubeletIdentity =&gt; kubeletIdentity.ObjectId),
+    ///         RoleDefinitionName = "AcrPull",
+    ///         Scope = exampleRegistry.Id,
+    ///         SkipServicePrincipalAadCheck = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Container Registries can be imported using the `resource id`, e.g.

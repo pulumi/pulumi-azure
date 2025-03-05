@@ -391,6 +391,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `upgradeOverride` block as defined below.
+     */
+    public readonly upgradeOverride!: pulumi.Output<outputs.containerservice.KubernetesClusterUpgradeOverride | undefined>;
+    /**
      * A `webAppRouting` block as defined below.
      */
     public readonly webAppRouting!: pulumi.Output<outputs.containerservice.KubernetesClusterWebAppRouting | undefined>;
@@ -485,6 +489,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
             resourceInputs["supportPlan"] = state ? state.supportPlan : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["upgradeOverride"] = state ? state.upgradeOverride : undefined;
             resourceInputs["webAppRouting"] = state ? state.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
             resourceInputs["workloadAutoscalerProfile"] = state ? state.workloadAutoscalerProfile : undefined;
@@ -547,6 +552,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["supportPlan"] = args ? args.supportPlan : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradeOverride"] = args ? args.upgradeOverride : undefined;
             resourceInputs["webAppRouting"] = args ? args.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["workloadAutoscalerProfile"] = args ? args.workloadAutoscalerProfile : undefined;
@@ -885,6 +891,10 @@ export interface KubernetesClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * A `upgradeOverride` block as defined below.
+     */
+    upgradeOverride?: pulumi.Input<inputs.containerservice.KubernetesClusterUpgradeOverride>;
+    /**
      * A `webAppRouting` block as defined below.
      */
     webAppRouting?: pulumi.Input<inputs.containerservice.KubernetesClusterWebAppRouting>;
@@ -1176,6 +1186,10 @@ export interface KubernetesClusterArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `upgradeOverride` block as defined below.
+     */
+    upgradeOverride?: pulumi.Input<inputs.containerservice.KubernetesClusterUpgradeOverride>;
     /**
      * A `webAppRouting` block as defined below.
      */

@@ -40,9 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.ServicePlan;
+ * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.logicapps.Standard;
  * import com.pulumi.azure.logicapps.StandardArgs;
  * import java.util.List;
@@ -59,34 +58,31 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("azure-functions-test-rg")
+ *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("functionsapptestsa")
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("azure-functions-test-service-plan")
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
+ *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind("elastic")
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("WorkflowStandard")
- *                 .size("WS1")
- *                 .build())
+ *             .osType("Windows")
+ *             .skuName("WS1")
  *             .build());
  * 
  *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()
- *             .name("test-azure-functions")
+ *             .name("example-logic-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAzurermAppServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .appSettings(Map.ofEntries(
@@ -102,8 +98,6 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### For Container Mode)
- * 
- * &gt; **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -137,12 +131,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("azure-functions-test-rg")
+ *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("functionsapptestsa")
+ *             .name("examplestorageaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Standard")
@@ -150,7 +144,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("azure-functions-test-service-plan")
+ *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("Linux")
@@ -162,7 +156,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()
- *             .name("test-azure-functions")
+ *             .name("example-logic-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -212,7 +206,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -221,21 +215,21 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     public Output<Map<String,String>> appSettings() {
         return this.appSettings;
     }
     /**
-     * If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+     * If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     @Export(name="bundleVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleVersion;
 
     /**
-     * @return If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+     * @return If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     public Output<Optional<String>> bundleVersion() {
@@ -298,14 +292,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.customDomainVerificationId;
     }
     /**
-     * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+     * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
      * 
      */
     @Export(name="defaultHostname", refs={String.class}, tree="[0]")
     private Output<String> defaultHostname;
 
     /**
-     * @return The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+     * @return The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
      * 
      */
     public Output<String> defaultHostname() {
@@ -324,6 +318,20 @@ public class Standard extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="ftpPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ftpPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> ftpPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.ftpPublishBasicAuthenticationEnabled);
     }
     /**
      * Can the Logic App only be accessed via HTTPS? Defaults to `false`.
@@ -354,14 +362,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The Logic App kind - will be `functionapp,workflowapp`
+     * The Logic App kind.
      * 
      */
     @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
-     * @return The Logic App kind - will be `functionapp,workflowapp`
+     * @return The Logic App kind.
      * 
      */
     public Output<String> kind() {
@@ -382,28 +390,28 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * Specifies the name of the Logic App. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * @return Specifies the name of the Logic App. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
     @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> outboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
     public Output<String> outboundIpAddresses() {
@@ -454,6 +462,20 @@ public class Standard extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="scmPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> scmPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> scmPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.scmPublishBasicAuthenticationEnabled);
     }
     /**
      * A `site_config` object as defined below.
@@ -548,16 +570,12 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * The runtime version associated with the Logic App. Defaults to `~4`.
      * 
-     * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
-     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
      * @return The runtime version associated with the Logic App. Defaults to `~4`.
-     * 
-     * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
      * 
      */
     public Output<Optional<String>> version() {
@@ -568,6 +586,20 @@ public class Standard extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
+     * Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+     * 
+     */
+    @Export(name="vnetContentShareEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> vnetContentShareEnabled;
+
+    /**
+     * @return Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> vnetContentShareEnabled() {
+        return Codegen.optional(this.vnetContentShareEnabled);
     }
 
     /**

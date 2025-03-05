@@ -153,14 +153,14 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataEncrypted);
     }
     /**
-     * Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * Is geo-backup policy enabled? Defaults to `true`.
      * 
      */
     @Export(name="geoBackupPolicyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> geoBackupPolicyEnabled;
 
     /**
-     * @return Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * @return Is geo-backup policy enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> geoBackupPolicyEnabled() {
@@ -223,14 +223,14 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Export(name="storageAccountType", refs={String.class}, tree="[0]")
     private Output<String> storageAccountType;
 
     /**
-     * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Output<String> storageAccountType() {

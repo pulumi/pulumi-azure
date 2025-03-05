@@ -798,9 +798,9 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
 
-        > **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[str]]
         """
@@ -824,9 +824,9 @@ class StandardIdentityArgs:
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
                
-               > **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -856,9 +856,9 @@ class StandardIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
 
-        > **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -937,7 +937,9 @@ if not MYPY:
         """
         linux_fx_version: NotRequired[pulumi.Input[str]]
         """
-        Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+
+        > **Note:** You must set `os_type` in `appservice.ServicePlan` to `Linux` when this property is set.
         """
         min_tls_version: NotRequired[pulumi.Input[str]]
         """
@@ -1029,7 +1031,9 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
-        :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+               
+               > **Note:** You must set `os_type` in `appservice.ServicePlan` to `Linux` when this property is set.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
                
                > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
@@ -1223,7 +1227,9 @@ class StandardSiteConfigArgs:
     @pulumi.getter(name="linuxFxVersion")
     def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+
+        > **Note:** You must set `os_type` in `appservice.ServicePlan` to `Linux` when this property is set.
         """
         return pulumi.get(self, "linux_fx_version")
 
@@ -1451,7 +1457,7 @@ if not MYPY:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        > **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
 elif False:
     StandardSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1475,7 +1481,7 @@ class StandardSiteConfigIpRestrictionArgs:
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+               > **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1570,7 +1576,7 @@ class StandardSiteConfigIpRestrictionArgs:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        > **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -1701,7 +1707,7 @@ if not MYPY:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        > **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
 elif False:
     StandardSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
@@ -1725,7 +1731,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
-               > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+               > **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1820,7 +1826,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
         """
         The Virtual Network Subnet ID used for this IP Restriction.
 
-        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        > **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
@@ -2972,7 +2978,7 @@ if not MYPY:
         """
         name: str
         """
-        The name of this Logic App.
+        The name of the Logic App.
         """
         action: NotRequired[str]
         """
@@ -3009,7 +3015,7 @@ class GetStandardSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param 'GetStandardSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
-        :param str name: The name of this Logic App.
+        :param str name: The name of the Logic App.
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
@@ -3045,7 +3051,7 @@ class GetStandardSiteConfigIpRestrictionArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of this Logic App.
+        The name of the Logic App.
         """
         return pulumi.get(self, "name")
 
@@ -3214,7 +3220,7 @@ if not MYPY:
         """
         name: str
         """
-        The name of this Logic App.
+        The name of the Logic App.
         """
         action: NotRequired[str]
         """
@@ -3251,7 +3257,7 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param 'GetStandardSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
-        :param str name: The name of this Logic App.
+        :param str name: The name of the Logic App.
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
@@ -3287,7 +3293,7 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of this Logic App.
+        The name of the Logic App.
         """
         return pulumi.get(self, "name")
 

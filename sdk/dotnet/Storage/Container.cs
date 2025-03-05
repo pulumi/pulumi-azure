@@ -122,6 +122,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// 
+        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string?> StorageAccountName { get; private set; } = null!;
@@ -220,6 +222,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// 
+        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
@@ -298,6 +302,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        /// 
+        /// &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

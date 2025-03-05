@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Synapse
         public Output<bool?> DataEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+        /// Is geo-backup policy enabled? Defaults to `true`.
         /// </summary>
         [Output("geoBackupPolicyEnabled")]
         public Output<bool?> GeoBackupPolicyEnabled { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string> StorageAccountType { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+        /// Is geo-backup policy enabled? Defaults to `true`.
         /// </summary>
         [Input("geoBackupPolicyEnabled")]
         public Input<bool>? GeoBackupPolicyEnabled { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Synapse
         public Input<bool>? DataEncrypted { get; set; }
 
         /// <summary>
-        /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+        /// Is geo-backup policy enabled? Defaults to `true`.
         /// </summary>
         [Input("geoBackupPolicyEnabled")]
         public Input<bool>? GeoBackupPolicyEnabled { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+        /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

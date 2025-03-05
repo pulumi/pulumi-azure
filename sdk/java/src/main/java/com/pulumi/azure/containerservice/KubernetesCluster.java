@@ -31,6 +31,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServiceMeshProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterStorageProfile;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterUpgradeOverride;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRouting;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWindowsProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWorkloadAutoscalerProfile;
@@ -1181,6 +1182,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * A `upgrade_override` block as defined below.
+     * 
+     */
+    @Export(name="upgradeOverride", refs={KubernetesClusterUpgradeOverride.class}, tree="[0]")
+    private Output</* @Nullable */ KubernetesClusterUpgradeOverride> upgradeOverride;
+
+    /**
+     * @return A `upgrade_override` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterUpgradeOverride>> upgradeOverride() {
+        return Codegen.optional(this.upgradeOverride);
     }
     /**
      * A `web_app_routing` block as defined below.

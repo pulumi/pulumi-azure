@@ -51,12 +51,16 @@ public final class KubernetesClusterNodePoolNodeNetworkProfileArgs extends com.p
     /**
      * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+     * 
      */
     @Import(name="nodePublicIpTags")
     private @Nullable Output<Map<String,String>> nodePublicIpTags;
 
     /**
      * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
      * 
      */
     public Optional<Output<Map<String,String>>> nodePublicIpTags() {
@@ -154,6 +158,8 @@ public final class KubernetesClusterNodePoolNodeNetworkProfileArgs extends com.p
         /**
          * @param nodePublicIpTags Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
+         * 
          * @return builder
          * 
          */
@@ -164,6 +170,8 @@ public final class KubernetesClusterNodePoolNodeNetworkProfileArgs extends com.p
 
         /**
          * @param nodePublicIpTags Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
          * 
          * @return builder
          * 

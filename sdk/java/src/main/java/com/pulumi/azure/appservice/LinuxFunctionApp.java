@@ -169,12 +169,16 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
+     * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+     * 
      */
     @Export(name="builtinLoggingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> builtinLoggingEnabled;
 
     /**
      * @return Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+     * 
+     * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
      * 
      */
     public Output<Optional<Boolean>> builtinLoggingEnabled() {

@@ -28,7 +28,7 @@ class GetStandardResult:
     """
     A collection of values returned by getStandard.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, resource_group_name=None, scm_publish_basic_authentication_enabled=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -56,6 +56,9 @@ class GetStandardResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled and not isinstance(ftp_publish_basic_authentication_enabled, bool):
+            raise TypeError("Expected argument 'ftp_publish_basic_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if https_only and not isinstance(https_only, bool):
             raise TypeError("Expected argument 'https_only' to be a bool")
         pulumi.set(__self__, "https_only", https_only)
@@ -86,6 +89,9 @@ class GetStandardResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if scm_publish_basic_authentication_enabled and not isinstance(scm_publish_basic_authentication_enabled, bool):
+            raise TypeError("Expected argument 'scm_publish_basic_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "scm_publish_basic_authentication_enabled", scm_publish_basic_authentication_enabled)
         if site_config and not isinstance(site_config, dict):
             raise TypeError("Expected argument 'site_config' to be a dict")
         pulumi.set(__self__, "site_config", site_config)
@@ -187,6 +193,14 @@ class GetStandardResult:
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> bool:
+        """
+        Whether the default FTP basic authentication publishing profile is enabled.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @property
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> bool:
         """
@@ -262,6 +276,14 @@ class GetStandardResult:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="scmPublishBasicAuthenticationEnabled")
+    def scm_publish_basic_authentication_enabled(self) -> bool:
+        """
+        Whether the default SCM basic authentication publishing profile is enabled.
+        """
+        return pulumi.get(self, "scm_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="siteConfig")
@@ -351,6 +373,7 @@ class AwaitableGetStandardResult(GetStandardResult):
             custom_domain_verification_id=self.custom_domain_verification_id,
             default_hostname=self.default_hostname,
             enabled=self.enabled,
+            ftp_publish_basic_authentication_enabled=self.ftp_publish_basic_authentication_enabled,
             https_only=self.https_only,
             id=self.id,
             identities=self.identities,
@@ -361,6 +384,7 @@ class AwaitableGetStandardResult(GetStandardResult):
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
             public_network_access=self.public_network_access,
             resource_group_name=self.resource_group_name,
+            scm_publish_basic_authentication_enabled=self.scm_publish_basic_authentication_enabled,
             site_config=self.site_config,
             site_credentials=self.site_credentials,
             storage_account_access_key=self.storage_account_access_key,
@@ -385,13 +409,13 @@ def get_standard(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.logicapps.get_standard(name="logicappstd",
+    example = azure.logicapps.get_standard(name="example-logic-app",
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
 
 
-    :param str name: The name of this Logic App.
+    :param str name: The name of the Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
     :param Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict'] site_config: A `site_config` object as defined below.
     """
@@ -412,6 +436,7 @@ def get_standard(name: Optional[str] = None,
         custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
         default_hostname=pulumi.get(__ret__, 'default_hostname'),
         enabled=pulumi.get(__ret__, 'enabled'),
+        ftp_publish_basic_authentication_enabled=pulumi.get(__ret__, 'ftp_publish_basic_authentication_enabled'),
         https_only=pulumi.get(__ret__, 'https_only'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
@@ -422,6 +447,7 @@ def get_standard(name: Optional[str] = None,
         possible_outbound_ip_addresses=pulumi.get(__ret__, 'possible_outbound_ip_addresses'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        scm_publish_basic_authentication_enabled=pulumi.get(__ret__, 'scm_publish_basic_authentication_enabled'),
         site_config=pulumi.get(__ret__, 'site_config'),
         site_credentials=pulumi.get(__ret__, 'site_credentials'),
         storage_account_access_key=pulumi.get(__ret__, 'storage_account_access_key'),
@@ -444,13 +470,13 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.logicapps.get_standard(name="logicappstd",
+    example = azure.logicapps.get_standard(name="example-logic-app",
         resource_group_name="example-rg")
     pulumi.export("id", example.id)
     ```
 
 
-    :param str name: The name of this Logic App.
+    :param str name: The name of the Logic App.
     :param str resource_group_name: The name of the Resource Group where the Logic App exists.
     :param Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict'] site_config: A `site_config` object as defined below.
     """
@@ -470,6 +496,7 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
         custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
         default_hostname=pulumi.get(__response__, 'default_hostname'),
         enabled=pulumi.get(__response__, 'enabled'),
+        ftp_publish_basic_authentication_enabled=pulumi.get(__response__, 'ftp_publish_basic_authentication_enabled'),
         https_only=pulumi.get(__response__, 'https_only'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
@@ -480,6 +507,7 @@ def get_standard_output(name: Optional[pulumi.Input[str]] = None,
         possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        scm_publish_basic_authentication_enabled=pulumi.get(__response__, 'scm_publish_basic_authentication_enabled'),
         site_config=pulumi.get(__response__, 'site_config'),
         site_credentials=pulumi.get(__response__, 'site_credentials'),
         storage_account_access_key=pulumi.get(__response__, 'storage_account_access_key'),

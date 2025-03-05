@@ -40,11 +40,11 @@ export interface GetSubscriptionArgs {
      */
     name: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
     /**
@@ -52,7 +52,7 @@ export interface GetSubscriptionArgs {
      */
     topicId?: string;
     /**
-     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     topicName?: string;
 }
@@ -66,6 +66,10 @@ export interface GetSubscriptionResult {
      */
     readonly autoDeleteOnIdle: string;
     /**
+     * Whether batched operations are enabled.
+     */
+    readonly batchedOperationsEnabled: boolean;
+    /**
      * Does the ServiceBus Subscription have dead letter support on filter evaluation exceptions?
      */
     readonly deadLetteringOnFilterEvaluationError: boolean;
@@ -77,9 +81,6 @@ export interface GetSubscriptionResult {
      * The Default message timespan to live. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
     readonly defaultMessageTtl: string;
-    /**
-     * Are batched operations enabled on this ServiceBus Subscription?
-     */
     readonly enableBatchedOperations: boolean;
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -103,20 +104,20 @@ export interface GetSubscriptionResult {
     readonly maxDeliveryCount: number;
     readonly name: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
     /**
-     * Whether or not this ServiceBus Subscription supports session.
+     * Whether this ServiceBus Subscription supports session.
      */
     readonly requiresSession: boolean;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     readonly topicId?: string;
     /**
-     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     readonly topicName?: string;
 }
@@ -156,11 +157,11 @@ export interface GetSubscriptionOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -168,7 +169,7 @@ export interface GetSubscriptionOutputArgs {
      */
     topicId?: pulumi.Input<string>;
     /**
-     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      */
     topicName?: pulumi.Input<string>;
 }

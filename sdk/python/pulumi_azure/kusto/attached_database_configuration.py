@@ -22,9 +22,10 @@ __all__ = ['AttachedDatabaseConfigurationArgs', 'AttachedDatabaseConfiguration']
 class AttachedDatabaseConfigurationArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
-                 cluster_resource_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,18 +33,24 @@ class AttachedDatabaseConfigurationArgs:
         """
         The set of arguments for constructing a AttachedDatabaseConfiguration resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         :param pulumi.Input['AttachedDatabaseConfigurationSharingArgs'] sharing: A `sharing` block as defined below.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if cluster_resource_id is not None:
+            warnings.warn("""`cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""cluster_resource_id is deprecated: `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+        if cluster_resource_id is not None:
+            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         if default_principal_modification_kind is not None:
             pulumi.set(__self__, "default_principal_modification_kind", default_principal_modification_kind)
         if location is not None:
@@ -64,18 +71,6 @@ class AttachedDatabaseConfigurationArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "cluster_name", value)
-
-    @property
-    @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> pulumi.Input[str]:
-        """
-        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "cluster_resource_id")
-
-    @cluster_resource_id.setter
-    def cluster_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_resource_id", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -100,6 +95,28 @@ class AttachedDatabaseConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    @_utilities.deprecated("""`cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cluster_resource_id")
+
+    @cluster_resource_id.setter
+    def cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_resource_id", value)
 
     @property
     @pulumi.getter(name="defaultPrincipalModificationKind")
@@ -154,6 +171,7 @@ class AttachedDatabaseConfigurationArgs:
 class _AttachedDatabaseConfigurationState:
     def __init__(__self__, *,
                  attached_database_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -165,8 +183,8 @@ class _AttachedDatabaseConfigurationState:
         """
         Input properties used for looking up and filtering AttachedDatabaseConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+        :param pulumi.Input[str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -176,8 +194,13 @@ class _AttachedDatabaseConfigurationState:
         """
         if attached_database_names is not None:
             pulumi.set(__self__, "attached_database_names", attached_database_names)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_resource_id is not None:
+            warnings.warn("""`cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""cluster_resource_id is deprecated: `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""")
         if cluster_resource_id is not None:
             pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         if database_name is not None:
@@ -206,6 +229,18 @@ class _AttachedDatabaseConfigurationState:
         pulumi.set(self, "attached_database_names", value)
 
     @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -219,10 +254,8 @@ class _AttachedDatabaseConfigurationState:
 
     @property
     @pulumi.getter(name="clusterResourceId")
+    @_utilities.deprecated("""`cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""")
     def cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_resource_id")
 
     @cluster_resource_id.setter
@@ -307,6 +340,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -381,8 +415,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -474,6 +508,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -491,11 +526,10 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AttachedDatabaseConfigurationArgs.__new__(AttachedDatabaseConfigurationArgs)
 
+            __props__.__dict__["cluster_id"] = cluster_id
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if cluster_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_resource_id'")
             __props__.__dict__["cluster_resource_id"] = cluster_resource_id
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
@@ -519,6 +553,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             attached_database_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            cluster_id: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             cluster_resource_id: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
@@ -535,8 +570,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+        :param pulumi.Input[str] cluster_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_principal_modification_kind: The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         :param pulumi.Input[str] location: Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
@@ -549,6 +584,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__ = _AttachedDatabaseConfigurationState.__new__(_AttachedDatabaseConfigurationState)
 
         __props__.__dict__["attached_database_names"] = attached_database_names
+        __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["cluster_name"] = cluster_name
         __props__.__dict__["cluster_resource_id"] = cluster_resource_id
         __props__.__dict__["database_name"] = database_name
@@ -568,6 +604,14 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "attached_database_names")
 
     @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> pulumi.Output[str]:
+        """
+        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
@@ -577,10 +621,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterResourceId")
+    @_utilities.deprecated("""`cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.""")
     def cluster_resource_id(self) -> pulumi.Output[str]:
-        """
-        The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_resource_id")
 
     @property

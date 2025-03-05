@@ -118,6 +118,8 @@ def get_spatial_anchors_account(name: Optional[str] = None,
     """
     Get information about an Azure Spatial Anchors Account.
 
+    > **Note:** The `mixedreality.SpatialAnchorsAccount` data source has been deprecated because the service is retiring from 2024-11-20 and will be removed in v5.0 of the AzureRM Provider.
+
     ## Example Usage
 
     ```python
@@ -152,6 +154,8 @@ def get_spatial_anchors_account_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpatialAnchorsAccountResult]:
     """
     Get information about an Azure Spatial Anchors Account.
+
+    > **Note:** The `mixedreality.SpatialAnchorsAccount` data source has been deprecated because the service is retiring from 2024-11-20 and will be removed in v5.0 of the AzureRM Provider.
 
     ## Example Usage
 

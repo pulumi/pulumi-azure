@@ -13,7 +13,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNamespaceDisasterRecoveryConfigResult {
     private @Nullable String aliasAuthorizationRuleId;
+    /**
+     * @return The primary access key for the authorization rule `RootManageSharedAccessKey`.
+     * 
+     */
     private String defaultPrimaryKey;
+    /**
+     * @return The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+     * 
+     */
     private String defaultSecondaryKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,32 +29,52 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
      */
     private String id;
     private String name;
-    private @Nullable String namespaceId;
+    private String namespaceId;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
-    private @Nullable String namespaceName;
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    private String namespaceName;
+    /**
+     * @return The ID of the Service Bus Namespace to replicate to.
+     * 
+     */
     private String partnerNamespaceId;
+    /**
+     * @return The alias Primary Connection String for the ServiceBus Namespace.
+     * 
+     */
     private String primaryConnectionStringAlias;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
-    private @Nullable String resourceGroupName;
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    private String resourceGroupName;
+    /**
+     * @return The alias Secondary Connection String for the ServiceBus Namespace
+     * 
+     */
     private String secondaryConnectionStringAlias;
 
     private GetNamespaceDisasterRecoveryConfigResult() {}
     public Optional<String> aliasAuthorizationRuleId() {
         return Optional.ofNullable(this.aliasAuthorizationRuleId);
     }
+    /**
+     * @return The primary access key for the authorization rule `RootManageSharedAccessKey`.
+     * 
+     */
     public String defaultPrimaryKey() {
         return this.defaultPrimaryKey;
     }
+    /**
+     * @return The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+     * 
+     */
     public String defaultSecondaryKey() {
         return this.defaultSecondaryKey;
     }
@@ -60,33 +88,45 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     public String name() {
         return this.name;
     }
-    public Optional<String> namespaceId() {
-        return Optional.ofNullable(this.namespaceId);
+    public String namespaceId() {
+        return this.namespaceId;
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
-    public Optional<String> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
+    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    public String namespaceName() {
+        return this.namespaceName;
     }
+    /**
+     * @return The ID of the Service Bus Namespace to replicate to.
+     * 
+     */
     public String partnerNamespaceId() {
         return this.partnerNamespaceId;
     }
+    /**
+     * @return The alias Primary Connection String for the ServiceBus Namespace.
+     * 
+     */
     public String primaryConnectionStringAlias() {
         return this.primaryConnectionStringAlias;
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider. */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider. */
+    public String resourceGroupName() {
+        return this.resourceGroupName;
     }
+    /**
+     * @return The alias Secondary Connection String for the ServiceBus Namespace
+     * 
+     */
     public String secondaryConnectionStringAlias() {
         return this.secondaryConnectionStringAlias;
     }
@@ -105,11 +145,11 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
         private String defaultSecondaryKey;
         private String id;
         private String name;
-        private @Nullable String namespaceId;
-        private @Nullable String namespaceName;
+        private String namespaceId;
+        private String namespaceName;
         private String partnerNamespaceId;
         private String primaryConnectionStringAlias;
-        private @Nullable String resourceGroupName;
+        private String resourceGroupName;
         private String secondaryConnectionStringAlias;
         public Builder() {}
         public Builder(GetNamespaceDisasterRecoveryConfigResult defaults) {
@@ -166,14 +206,18 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceId(@Nullable String namespaceId) {
-
+        public Builder namespaceId(String namespaceId) {
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "namespaceId");
+            }
             this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceName(@Nullable String namespaceName) {
-
+        public Builder namespaceName(String namespaceName) {
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "namespaceName");
+            }
             this.namespaceName = namespaceName;
             return this;
         }
@@ -194,8 +238,10 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-
+        public Builder resourceGroupName(String resourceGroupName) {
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "resourceGroupName");
+            }
             this.resourceGroupName = resourceGroupName;
             return this;
         }

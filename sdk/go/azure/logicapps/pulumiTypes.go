@@ -1570,9 +1570,9 @@ func (o StandardConnectionStringArrayOutput) Index(i pulumi.IntInput) StandardCo
 type StandardIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
 	//
-	// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1596,9 +1596,9 @@ type StandardIdentityInput interface {
 type StandardIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
 	//
-	// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1687,9 +1687,9 @@ func (o StandardIdentityOutput) ToStandardIdentityPtrOutputWithContext(ctx conte
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
 //
-// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o StandardIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StandardIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1735,9 +1735,9 @@ func (o StandardIdentityPtrOutput) Elem() StandardIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Logic App has been created. More details are available below.
 //
-// > **NOTE:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** The `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o StandardIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StandardIdentity) []string {
 		if v == nil {
@@ -1800,7 +1800,9 @@ type StandardSiteConfig struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions []StandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
-	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+	//
+	// > **Note:** You must set `osType` in `appservice.ServicePlan` to `Linux` when this property is set.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 	//
@@ -1868,7 +1870,9 @@ type StandardSiteConfigArgs struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions StandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
-	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+	// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+	//
+	// > **Note:** You must set `osType` in `appservice.ServicePlan` to `Linux` when this property is set.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
 	//
@@ -2031,7 +2035,9 @@ func (o StandardSiteConfigOutput) IpRestrictions() StandardSiteConfigIpRestricti
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigIpRestriction { return v.IpRestrictions }).(StandardSiteConfigIpRestrictionArrayOutput)
 }
 
-// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+//
+// > **Note:** You must set `osType` in `appservice.ServicePlan` to `Linux` when this property is set.
 func (o StandardSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
@@ -2225,7 +2231,9 @@ func (o StandardSiteConfigPtrOutput) IpRestrictions() StandardSiteConfigIpRestri
 	}).(StandardSiteConfigIpRestrictionArrayOutput)
 }
 
-// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+//
+// > **Note:** You must set `osType` in `appservice.ServicePlan` to `Linux` when this property is set.
 func (o StandardSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {
@@ -2524,7 +2532,7 @@ type StandardSiteConfigIpRestriction struct {
 	ServiceTag *string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	//
-	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+	// > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2554,7 +2562,7 @@ type StandardSiteConfigIpRestrictionArgs struct {
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	//
-	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+	// > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2641,7 +2649,7 @@ func (o StandardSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutp
 
 // The Virtual Network Subnet ID used for this IP Restriction.
 //
-// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+// > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
 func (o StandardSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2875,7 +2883,7 @@ type StandardSiteConfigScmIpRestriction struct {
 	ServiceTag *string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	//
-	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+	// > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2905,7 +2913,7 @@ type StandardSiteConfigScmIpRestrictionArgs struct {
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	//
-	// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+	// > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2994,7 +3002,7 @@ func (o StandardSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrO
 
 // The Virtual Network Subnet ID used for this IP Restriction.
 //
-// > **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
+// > **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
 func (o StandardSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -4674,7 +4682,7 @@ func (o WorkflowIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetStandardConnectionString struct {
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The Type of Managed Identity assigned to this Logic App Workflow.
 	Type  string `pulumi:"type"`
@@ -4693,7 +4701,7 @@ type GetStandardConnectionStringInput interface {
 }
 
 type GetStandardConnectionStringArgs struct {
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Type of Managed Identity assigned to this Logic App Workflow.
 	Type  pulumi.StringInput `pulumi:"type"`
@@ -4751,7 +4759,7 @@ func (o GetStandardConnectionStringOutput) ToGetStandardConnectionStringOutputWi
 	return o
 }
 
-// The name of this Logic App.
+// The name of the Logic App.
 func (o GetStandardConnectionStringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStandardConnectionString) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5605,7 +5613,7 @@ type GetStandardSiteConfigIpRestriction struct {
 	Headers GetStandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority *int `pulumi:"priority"`
@@ -5633,7 +5641,7 @@ type GetStandardSiteConfigIpRestrictionArgs struct {
 	Headers GetStandardSiteConfigIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -5709,7 +5717,7 @@ func (o GetStandardSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOu
 	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of this Logic App.
+// The name of the Logic App.
 func (o GetStandardSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5835,7 +5843,7 @@ type GetStandardSiteConfigScmIpRestriction struct {
 	Headers GetStandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority *int `pulumi:"priority"`
@@ -5863,7 +5871,7 @@ type GetStandardSiteConfigScmIpRestrictionArgs struct {
 	Headers GetStandardSiteConfigScmIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The name of this Logic App.
+	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -5941,7 +5949,7 @@ func (o GetStandardSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPt
 	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The name of this Logic App.
+// The name of the Logic App.
 func (o GetStandardSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }

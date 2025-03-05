@@ -12,9 +12,6 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class VirtualMachineAutoBackupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enable or disable encryption for backups. Defaults to `false`.
-        /// </summary>
         [Input("encryptionEnabled")]
         public Input<bool>? EncryptionEnabled { get; set; }
 
@@ -22,7 +19,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         private Input<string>? _encryptionPassword;
 
         /// <summary>
-        /// Encryption password to use. Must be specified when encryption is enabled.
+        /// Encryption password to use. Setting a password will enable encryption.
         /// </summary>
         public Input<string>? EncryptionPassword
         {

@@ -110,7 +110,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     @Import(name="virtualNetworkSubnetId")
@@ -119,7 +119,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -285,7 +285,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 
          * @return builder
          * 

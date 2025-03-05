@@ -4653,6 +4653,7 @@ class GetAppIdentityResult(dict):
 class GetAppIngressResult(dict):
     def __init__(__self__, *,
                  allow_insecure_connections: bool,
+                 client_certificate_mode: str,
                  custom_domains: Sequence['outputs.GetAppIngressCustomDomainResult'],
                  exposed_port: int,
                  external_enabled: bool,
@@ -4663,6 +4664,7 @@ class GetAppIngressResult(dict):
                  transport: str):
         """
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
+        :param str client_certificate_mode: The client certificate mode for the Ingress.
         :param Sequence['GetAppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param int exposed_port: The exposed port on the container for the Ingress traffic.
         :param bool external_enabled: Is this an external Ingress.
@@ -4673,6 +4675,7 @@ class GetAppIngressResult(dict):
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
         pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
+        pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
         pulumi.set(__self__, "custom_domains", custom_domains)
         pulumi.set(__self__, "exposed_port", exposed_port)
         pulumi.set(__self__, "external_enabled", external_enabled)
@@ -4689,6 +4692,14 @@ class GetAppIngressResult(dict):
         Should this ingress allow insecure connections?
         """
         return pulumi.get(self, "allow_insecure_connections")
+
+    @property
+    @pulumi.getter(name="clientCertificateMode")
+    def client_certificate_mode(self) -> str:
+        """
+        The client certificate mode for the Ingress.
+        """
+        return pulumi.get(self, "client_certificate_mode")
 
     @property
     @pulumi.getter(name="customDomains")

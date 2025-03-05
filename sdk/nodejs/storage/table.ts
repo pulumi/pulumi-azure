@@ -79,6 +79,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The Resource Manager ID of this Storage Table.
+     */
+    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class Table extends pulumi.CustomResource {
             const state = argsOrState as TableState | undefined;
             resourceInputs["acls"] = state ? state.acls : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
@@ -107,6 +112,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["acls"] = args ? args.acls : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Table.__pulumiType, name, resourceInputs, opts);
@@ -125,6 +131,10 @@ export interface TableState {
      * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Resource Manager ID of this Storage Table.
+     */
+    resourceManagerId?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */

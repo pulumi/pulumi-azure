@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// The name of this Logic App.
+        /// The name of the Logic App.
         /// </summary>
         public readonly string Name;
         /// <summary>

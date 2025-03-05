@@ -73,8 +73,14 @@ type Server struct {
 
 	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
+	//
+	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+	AdministratorLoginPasswordWo pulumi.StringPtrOutput `pulumi:"administratorLoginPasswordWo"`
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion pulumi.IntPtrOutput `pulumi:"administratorLoginPasswordWoVersion"`
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
@@ -174,8 +180,14 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
+	//
+	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+	AdministratorLoginPasswordWo *string `pulumi:"administratorLoginPasswordWo"`
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
@@ -227,8 +239,14 @@ type serverState struct {
 type ServerState struct {
 	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
+	//
+	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+	AdministratorLoginPasswordWo pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// Backup retention days for the server, supported values are between `7` and `35` days.
@@ -284,8 +302,14 @@ func (ServerState) ElementType() reflect.Type {
 type serverArgs struct {
 	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
+	//
+	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+	AdministratorLoginPasswordWo *string `pulumi:"administratorLoginPasswordWo"`
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
@@ -336,8 +360,14 @@ type serverArgs struct {
 type ServerArgs struct {
 	// The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
+	//
+	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+	AdministratorLoginPasswordWo pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// Backup retention days for the server, supported values are between `7` and `35` days.
@@ -476,9 +506,21 @@ func (o ServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
+// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 func (o ServerOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
+}
+
+// The Password associated with the `administratorLogin` for the PostgreSQL Server.
+//
+// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
+func (o ServerOutput) AdministratorLoginPasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPasswordWo }).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+func (o ServerOutput) AdministratorLoginPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.AdministratorLoginPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.

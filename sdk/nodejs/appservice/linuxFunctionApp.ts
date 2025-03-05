@@ -97,6 +97,8 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
     public readonly backup!: pulumi.Output<outputs.appservice.LinuxFunctionAppBackup | undefined>;
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+     *
+     * > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      */
     public readonly builtinLoggingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -402,6 +404,8 @@ export interface LinuxFunctionAppState {
     backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppBackup>;
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+     *
+     * > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      */
     builtinLoggingEnabled?: pulumi.Input<boolean>;
     /**
@@ -590,6 +594,8 @@ export interface LinuxFunctionAppArgs {
     backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppBackup>;
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+     *
+     * > **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      */
     builtinLoggingEnabled?: pulumi.Input<boolean>;
     /**

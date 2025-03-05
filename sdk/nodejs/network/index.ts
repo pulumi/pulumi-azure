@@ -390,6 +390,11 @@ export type NetworkManagerSubscriptionConnection = import("./networkManagerSubsc
 export const NetworkManagerSubscriptionConnection: typeof import("./networkManagerSubscriptionConnection").NetworkManagerSubscriptionConnection = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerSubscriptionConnection"], () => require("./networkManagerSubscriptionConnection"));
 
+export { NetworkManagerVerifierWorkspaceArgs, NetworkManagerVerifierWorkspaceState } from "./networkManagerVerifierWorkspace";
+export type NetworkManagerVerifierWorkspace = import("./networkManagerVerifierWorkspace").NetworkManagerVerifierWorkspace;
+export const NetworkManagerVerifierWorkspace: typeof import("./networkManagerVerifierWorkspace").NetworkManagerVerifierWorkspace = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerVerifierWorkspace"], () => require("./networkManagerVerifierWorkspace"));
+
 export { NetworkSecurityGroupArgs, NetworkSecurityGroupState } from "./networkSecurityGroup";
 export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
 export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
@@ -694,6 +699,8 @@ const _module = {
                 return new NetworkManagerStaticMember(name, <any>undefined, { urn })
             case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
                 return new NetworkManagerSubscriptionConnection(name, <any>undefined, { urn })
+            case "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace":
+                return new NetworkManagerVerifierWorkspace(name, <any>undefined, { urn })
             case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
             case "azure:network/networkSecurityRule:NetworkSecurityRule":
@@ -827,6 +834,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConne
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSecurityAdminConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerStaticMember", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSubscriptionConnection", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerVerifierWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkWatcher", _module)

@@ -66,6 +66,8 @@ class LinuxFunctionAppArgs:
         :param pulumi.Input['LinuxFunctionAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['LinuxFunctionAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+               
+               > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
@@ -260,6 +262,8 @@ class LinuxFunctionAppArgs:
     def builtin_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+
+        > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -643,6 +647,8 @@ class _LinuxFunctionAppState:
         :param pulumi.Input['LinuxFunctionAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['LinuxFunctionAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+               
+               > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
@@ -834,6 +840,8 @@ class _LinuxFunctionAppState:
     def builtin_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+
+        > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -1395,6 +1403,8 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+               
+               > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
@@ -1657,6 +1667,8 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+               
+               > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
@@ -1794,6 +1806,8 @@ class LinuxFunctionApp(pulumi.CustomResource):
     def builtin_logging_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+
+        > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 

@@ -110,6 +110,16 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     */
+    public readonly condition!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+     */
+    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      */
     public readonly justification!: pulumi.Output<string>;
@@ -151,6 +161,8 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EligibleRoleAssignmentState | undefined;
+            resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["conditionVersion"] = state ? state.conditionVersion : undefined;
             resourceInputs["justification"] = state ? state.justification : undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
             resourceInputs["principalType"] = state ? state.principalType : undefined;
@@ -169,6 +181,8 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
             resourceInputs["justification"] = args ? args.justification : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
@@ -186,6 +200,16 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EligibleRoleAssignment resources.
  */
 export interface EligibleRoleAssignmentState {
+    /**
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+     */
+    conditionVersion?: pulumi.Input<string>;
     /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      */
@@ -220,6 +244,16 @@ export interface EligibleRoleAssignmentState {
  * The set of arguments for constructing a EligibleRoleAssignment resource.
  */
 export interface EligibleRoleAssignmentArgs {
+    /**
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     */
+    condition?: pulumi.Input<string>;
+    /**
+     * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `conditionVersion` is required when specifying `condition` and vice versa.
+     */
+    conditionVersion?: pulumi.Input<string>;
     /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      */

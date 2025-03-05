@@ -13,12 +13,9 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class VirtualMachineAutoBackup
     {
-        /// <summary>
-        /// Enable or disable encryption for backups. Defaults to `false`.
-        /// </summary>
         public readonly bool? EncryptionEnabled;
         /// <summary>
-        /// Encryption password to use. Must be specified when encryption is enabled.
+        /// Encryption password to use. Setting a password will enable encryption.
         /// </summary>
         public readonly string? EncryptionPassword;
         /// <summary>

@@ -93,12 +93,16 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
+     * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+     * 
      */
     @Import(name="builtinLoggingEnabled")
     private @Nullable Output<Boolean> builtinLoggingEnabled;
 
     /**
      * @return Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+     * 
+     * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
      * 
      */
     public Optional<Output<Boolean>> builtinLoggingEnabled() {
@@ -702,6 +706,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param builtinLoggingEnabled Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
          * 
+         * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+         * 
          * @return builder
          * 
          */
@@ -712,6 +718,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param builtinLoggingEnabled Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+         * 
+         * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
          * 
          * @return builder
          * 

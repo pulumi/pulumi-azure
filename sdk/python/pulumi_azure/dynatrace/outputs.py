@@ -23,6 +23,11 @@ __all__ = [
     'TagRulesLogRuleFilteringTag',
     'TagRulesMetricRule',
     'TagRulesMetricRuleFilteringTag',
+    'GetMonitorEnvironmentPropertyResult',
+    'GetMonitorEnvironmentPropertyEnvironmentInfoResult',
+    'GetMonitorIdentityResult',
+    'GetMonitorPlanResult',
+    'GetMonitorUserResult',
 ]
 
 @pulumi.output_type
@@ -426,5 +431,174 @@ class TagRulesMetricRuleFilteringTag(dict):
         Value of the filtering tag. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetMonitorEnvironmentPropertyResult(dict):
+    def __init__(__self__, *,
+                 environment_infos: Sequence['outputs.GetMonitorEnvironmentPropertyEnvironmentInfoResult']):
+        pulumi.set(__self__, "environment_infos", environment_infos)
+
+    @property
+    @pulumi.getter(name="environmentInfos")
+    def environment_infos(self) -> Sequence['outputs.GetMonitorEnvironmentPropertyEnvironmentInfoResult']:
+        return pulumi.get(self, "environment_infos")
+
+
+@pulumi.output_type
+class GetMonitorEnvironmentPropertyEnvironmentInfoResult(dict):
+    def __init__(__self__, *,
+                 environment_id: str):
+        pulumi.set(__self__, "environment_id", environment_id)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> str:
+        return pulumi.get(self, "environment_id")
+
+
+@pulumi.output_type
+class GetMonitorIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str type: The type of identity used for the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetMonitorPlanResult(dict):
+    def __init__(__self__, *,
+                 billing_cycle: str,
+                 effective_date: str,
+                 plan: str,
+                 usage_type: str):
+        """
+        :param str billing_cycle: Different billing cycles.
+        :param str effective_date: Date when plan was applied.
+        :param str plan: Plan id as published by Dynatrace.
+        :param str usage_type: Different usage type.
+        """
+        pulumi.set(__self__, "billing_cycle", billing_cycle)
+        pulumi.set(__self__, "effective_date", effective_date)
+        pulumi.set(__self__, "plan", plan)
+        pulumi.set(__self__, "usage_type", usage_type)
+
+    @property
+    @pulumi.getter(name="billingCycle")
+    def billing_cycle(self) -> str:
+        """
+        Different billing cycles.
+        """
+        return pulumi.get(self, "billing_cycle")
+
+    @property
+    @pulumi.getter(name="effectiveDate")
+    def effective_date(self) -> str:
+        """
+        Date when plan was applied.
+        """
+        return pulumi.get(self, "effective_date")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> str:
+        """
+        Plan id as published by Dynatrace.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="usageType")
+    def usage_type(self) -> str:
+        """
+        Different usage type.
+        """
+        return pulumi.get(self, "usage_type")
+
+
+@pulumi.output_type
+class GetMonitorUserResult(dict):
+    def __init__(__self__, *,
+                 country: str,
+                 email: str,
+                 first_name: str,
+                 last_name: str,
+                 phone_number: str):
+        """
+        :param str country: Country of the user.
+        :param str email: Email of the user used by Dynatrace for contacting them if needed.
+        :param str first_name: First name of the user.
+        :param str last_name: Last name of the user.
+        :param str phone_number: phone number of the user by Dynatrace for contacting them if needed.
+        """
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter
+    def country(self) -> str:
+        """
+        Country of the user.
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        Email of the user used by Dynatrace for contacting them if needed.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        """
+        First name of the user.
+        """
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        """
+        Last name of the user.
+        """
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> str:
+        """
+        phone number of the user by Dynatrace for contacting them if needed.
+        """
+        return pulumi.get(self, "phone_number")
 
 

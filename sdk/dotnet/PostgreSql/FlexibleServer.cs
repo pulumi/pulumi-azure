@@ -158,10 +158,24 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         /// </summary>
         [Output("administratorPassword")]
         public Output<string?> AdministratorPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        /// 
+        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        /// </summary>
+        [Output("administratorPasswordWo")]
+        public Output<string?> AdministratorPasswordWo { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// </summary>
+        [Output("administratorPasswordWoVersion")]
+        public Output<int?> AdministratorPasswordWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// An `authentication` block as defined below.
@@ -394,7 +408,7 @@ namespace Pulumi.Azure.PostgreSql
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -405,6 +419,20 @@ namespace Pulumi.Azure.PostgreSql
                 _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        /// 
+        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        /// </summary>
+        [Input("administratorPasswordWo")]
+        public Input<string>? AdministratorPasswordWo { get; set; }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// </summary>
+        [Input("administratorPasswordWoVersion")]
+        public Input<int>? AdministratorPasswordWoVersion { get; set; }
 
         /// <summary>
         /// An `authentication` block as defined below.
@@ -595,7 +623,7 @@ namespace Pulumi.Azure.PostgreSql
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -606,6 +634,20 @@ namespace Pulumi.Azure.PostgreSql
                 _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+        /// 
+        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+        /// </summary>
+        [Input("administratorPasswordWo")]
+        public Input<string>? AdministratorPasswordWo { get; set; }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// </summary>
+        [Input("administratorPasswordWoVersion")]
+        public Input<int>? AdministratorPasswordWoVersion { get; set; }
 
         /// <summary>
         /// An `authentication` block as defined below.

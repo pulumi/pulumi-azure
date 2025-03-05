@@ -114,6 +114,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The Resource Manager ID of this Storage Table.
+     * 
+     */
+    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
+    private Output<String> resourceManagerId;
+
+    /**
+     * @return The Resource Manager ID of this Storage Table.
+     * 
+     */
+    public Output<String> resourceManagerId() {
+        return this.resourceManagerId;
+    }
+    /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */

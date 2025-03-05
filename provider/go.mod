@@ -7,7 +7,7 @@ toolchain go1.22.7
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
 	github.com/hashicorp/go-azure-sdk/sdk v0.20250213.1092825
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.1.3
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.104.0

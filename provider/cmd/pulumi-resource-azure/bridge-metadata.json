@@ -6203,6 +6203,10 @@
                     }
                 }
             },
+            "azurerm_data_protection_backup_vault_customer_managed_key": {
+                "current": "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey",
+                "majorVersion": 6
+            },
             "azurerm_data_protection_resource_guard": {
                 "current": "azure:dataprotection/resourceGuard:ResourceGuard",
                 "majorVersion": 6,
@@ -8540,6 +8544,302 @@
                     }
                 }
             },
+            "azurerm_function_app_flex_consumption": {
+                "current": "azure:appservice/appFlexConsumption:AppFlexConsumption",
+                "majorVersion": 6,
+                "fields": {
+                    "auth_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "active_directory": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_audiences": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "allowed_external_redirect_urls": {
+                                    "maxItemsOne": false
+                                },
+                                "facebook": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "oauth_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "github": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "oauth_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "google": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "oauth_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "microsoft": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "oauth_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "twitter": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "auth_settings_v2": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "active_directory_v2": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_applications": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_audiences": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_groups": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_identities": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jwt_allowed_client_applications": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jwt_allowed_groups": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "apple_v2": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "login_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "azure_static_web_app_v2": {
+                                    "maxItemsOne": true
+                                },
+                                "custom_oidc_v2": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "excluded_paths": {
+                                    "maxItemsOne": false
+                                },
+                                "facebook_v2": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "login_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "github_v2": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "login_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "google_v2": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_audiences": {
+                                                "maxItemsOne": false
+                                            },
+                                            "login_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "login": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_external_redirect_urls": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "microsoft_v2": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_audiences": {
+                                                "maxItemsOne": false
+                                            },
+                                            "login_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "twitter_v2": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "connection_string": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "outbound_ip_address_list": {
+                        "maxItemsOne": false
+                    },
+                    "possible_outbound_ip_address_list": {
+                        "maxItemsOne": false
+                    },
+                    "site_config": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "app_service_logs": {
+                                    "maxItemsOne": true
+                                },
+                                "cors": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_origins": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "default_documents": {
+                                    "maxItemsOne": false
+                                },
+                                "ip_restriction": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "headers": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "x_azure_fdid": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "x_fd_health_probe": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "x_forwarded_for": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "x_forwarded_host": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "scm_ip_restriction": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "headers": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "x_azure_fdid": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "x_fd_health_probe": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "x_forwarded_for": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "x_forwarded_host": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "site_credential": {
+                        "maxItemsOne": false
+                    },
+                    "sticky_settings": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "app_setting_names": {
+                                    "maxItemsOne": false
+                                },
+                                "connection_string_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_function_app_function": {
                 "current": "azure:appservice/functionAppFunction:FunctionAppFunction",
                 "majorVersion": 6,
@@ -10557,6 +10857,9 @@
                         "maxItemsOne": true
                     },
                     "storage_profile": {
+                        "maxItemsOne": true
+                    },
+                    "upgrade_override": {
                         "maxItemsOne": true
                     },
                     "web_app_routing": {
@@ -15592,6 +15895,10 @@
             },
             "azurerm_network_manager_subscription_connection": {
                 "current": "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection",
+                "majorVersion": 6
+            },
+            "azurerm_network_manager_verifier_workspace": {
+                "current": "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace",
                 "majorVersion": 6
             },
             "azurerm_network_profile": {
@@ -25566,6 +25873,31 @@
                 "majorVersion": 6,
                 "fields": {
                     "name_servers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_dynatrace_monitor": {
+                "current": "azure:dynatrace/getMonitor:getMonitor",
+                "majorVersion": 6,
+                "fields": {
+                    "environment_properties": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "environment_info": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": false
+                    },
+                    "plan": {
+                        "maxItemsOne": false
+                    },
+                    "user": {
                         "maxItemsOne": false
                     }
                 }

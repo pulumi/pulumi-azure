@@ -49,6 +49,8 @@ class ShareArgs:
                
                > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+               
+               > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
         pulumi.set(__self__, "quota", quota)
         if access_tier is not None:
@@ -169,6 +171,8 @@ class ShareArgs:
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+
+        > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -211,6 +215,8 @@ class _ShareState:
                
                > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+               
+               > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         :param pulumi.Input[str] url: The URL of the File Share
         """
         if access_tier is not None:
@@ -353,6 +359,8 @@ class _ShareState:
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+
+        > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -451,6 +459,8 @@ class Share(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+               
+               > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
         ...
     @overload
@@ -592,6 +602,8 @@ class Share(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+               
+               > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         :param pulumi.Input[str] url: The URL of the File Share
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -691,6 +703,8 @@ class Share(pulumi.CustomResource):
     def storage_account_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+
+        > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
         return pulumi.get(self, "storage_account_name")
 

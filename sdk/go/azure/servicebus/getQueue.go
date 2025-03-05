@@ -56,9 +56,9 @@ type LookupQueueArgs struct {
 	Name string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -66,18 +66,19 @@ type LookupQueueArgs struct {
 type LookupQueueResult struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle string `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether server-side batched operations are enabled.
+	BatchedOperationsEnabled bool `pulumi:"batchedOperationsEnabled"`
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on a message itself.
 	DefaultMessageTtl string `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected.
 	DuplicateDetectionHistoryTimeWindow string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Boolean flag which controls whether server-side batched operations are enabled.
-	EnableBatchedOperations bool `pulumi:"enableBatchedOperations"`
+	EnableBatchedOperations             bool   `pulumi:"enableBatchedOperations"`
+	EnableExpress                       bool   `pulumi:"enableExpress"`
+	EnablePartitioning                  bool   `pulumi:"enablePartitioning"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
-	EnablePartitioning bool `pulumi:"enablePartitioning"`
+	ExpressEnabled bool `pulumi:"expressEnabled"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
@@ -92,13 +93,15 @@ type LookupQueueResult struct {
 	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
 	Name               string  `pulumi:"name"`
 	NamespaceId        *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
+	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
+	PartitioningEnabled bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Queue requires duplicate detection.
 	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
 	RequiresSession bool `pulumi:"requiresSession"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
 	Status string `pulumi:"status"`
@@ -119,9 +122,9 @@ type LookupQueueOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
 	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -149,6 +152,11 @@ func (o LookupQueueResultOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
 }
 
+// Boolean flag which controls whether server-side batched operations are enabled.
+func (o LookupQueueResultOutput) BatchedOperationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupQueueResult) bool { return v.BatchedOperationsEnabled }).(pulumi.BoolOutput)
+}
+
 // Boolean flag which controls whether the Queue has dead letter support when a message expires.
 func (o LookupQueueResultOutput) DeadLetteringOnMessageExpiration() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolOutput)
@@ -164,19 +172,21 @@ func (o LookupQueueResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.St
 	return o.ApplyT(func(v LookupQueueResult) string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls whether server-side batched operations are enabled.
 func (o LookupQueueResultOutput) EnableBatchedOperations() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
 }
 
-// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
 func (o LookupQueueResultOutput) EnableExpress() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.EnableExpress }).(pulumi.BoolOutput)
 }
 
-// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
 func (o LookupQueueResultOutput) EnablePartitioning() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.EnablePartitioning }).(pulumi.BoolOutput)
+}
+
+// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+func (o LookupQueueResultOutput) ExpressEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupQueueResult) bool { return v.ExpressEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -217,9 +227,14 @@ func (o LookupQueueResultOutput) NamespaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 func (o LookupQueueResultOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+}
+
+// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
+func (o LookupQueueResultOutput) PartitioningEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupQueueResult) bool { return v.PartitioningEnabled }).(pulumi.BoolOutput)
 }
 
 // Boolean flag which controls whether the Queue requires duplicate detection.
@@ -232,7 +247,7 @@ func (o LookupQueueResultOutput) RequiresSession() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.RequiresSession }).(pulumi.BoolOutput)
 }
 
-// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 func (o LookupQueueResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }

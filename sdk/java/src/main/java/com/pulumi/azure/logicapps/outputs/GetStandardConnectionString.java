@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetStandardConnectionString {
     /**
-     * @return The name of this Logic App.
+     * @return The name of the Logic App.
      * 
      */
     private String name;
@@ -24,7 +24,7 @@ public final class GetStandardConnectionString {
 
     private GetStandardConnectionString() {}
     /**
-     * @return The name of this Logic App.
+     * @return The name of the Logic App.
      * 
      */
     public String name() {

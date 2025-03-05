@@ -33,14 +33,14 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
      * 
      */
     @Import(name="expirationDate")
     private @Nullable Output<String> expirationDate;
 
     /**
-     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> expirationDate() {
@@ -178,7 +178,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
          * 
          * @return builder
          * 

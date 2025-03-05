@@ -82,6 +82,25 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     * 
+     * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     * 
+     */
+    @Import(name="databaseFormat")
+    private @Nullable Output<String> databaseFormat;
+
+    /**
+     * @return Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     * 
+     * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     * 
+     */
+    public Optional<Output<String>> databaseFormat() {
+        return Optional.ofNullable(this.databaseFormat);
+    }
+
+    /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
      * 
      */
@@ -94,6 +113,21 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> dnsZonePartnerId() {
         return Optional.ofNullable(this.dnsZonePartnerId);
+    }
+
+    /**
+     * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     * 
+     */
+    @Import(name="hybridSecondaryUsage")
+    private @Nullable Output<String> hybridSecondaryUsage;
+
+    /**
+     * @return Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     * 
+     */
+    public Optional<Output<String>> hybridSecondaryUsage() {
+        return Optional.ofNullable(this.hybridSecondaryUsage);
     }
 
     /**
@@ -377,7 +411,9 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.administratorLoginPassword = $.administratorLoginPassword;
         this.azureActiveDirectoryAdministrator = $.azureActiveDirectoryAdministrator;
         this.collation = $.collation;
+        this.databaseFormat = $.databaseFormat;
         this.dnsZonePartnerId = $.dnsZonePartnerId;
+        this.hybridSecondaryUsage = $.hybridSecondaryUsage;
         this.identity = $.identity;
         this.licenseType = $.licenseType;
         this.location = $.location;
@@ -501,6 +537,31 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param databaseFormat Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+         * 
+         * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseFormat(@Nullable Output<String> databaseFormat) {
+            $.databaseFormat = databaseFormat;
+            return this;
+        }
+
+        /**
+         * @param databaseFormat Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+         * 
+         * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseFormat(String databaseFormat) {
+            return databaseFormat(Output.of(databaseFormat));
+        }
+
+        /**
          * @param dnsZonePartnerId The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
          * 
          * @return builder
@@ -519,6 +580,27 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder dnsZonePartnerId(String dnsZonePartnerId) {
             return dnsZonePartnerId(Output.of(dnsZonePartnerId));
+        }
+
+        /**
+         * @param hybridSecondaryUsage Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridSecondaryUsage(@Nullable Output<String> hybridSecondaryUsage) {
+            $.hybridSecondaryUsage = hybridSecondaryUsage;
+            return this;
+        }
+
+        /**
+         * @param hybridSecondaryUsage Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridSecondaryUsage(String hybridSecondaryUsage) {
+            return hybridSecondaryUsage(Output.of(hybridSecondaryUsage));
         }
 
         /**

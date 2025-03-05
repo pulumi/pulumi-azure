@@ -48,18 +48,52 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
      * 
      */
     @Import(name="administratorPassword")
     private @Nullable Output<String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
      * 
      */
     public Optional<Output<String>> administratorPassword() {
         return Optional.ofNullable(this.administratorPassword);
+    }
+
+    /**
+     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+     * 
+     * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * 
+     */
+    @Import(name="administratorPasswordWo")
+    private @Nullable Output<String> administratorPasswordWo;
+
+    /**
+     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+     * 
+     * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * 
+     */
+    public Optional<Output<String>> administratorPasswordWo() {
+        return Optional.ofNullable(this.administratorPasswordWo);
+    }
+
+    /**
+     * An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * 
+     */
+    @Import(name="administratorPasswordWoVersion")
+    private @Nullable Output<Integer> administratorPasswordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * 
+     */
+    public Optional<Output<Integer>> administratorPasswordWoVersion() {
+        return Optional.ofNullable(this.administratorPasswordWoVersion);
     }
 
     /**
@@ -459,6 +493,8 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     private FlexibleServerArgs(FlexibleServerArgs $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorPassword = $.administratorPassword;
+        this.administratorPasswordWo = $.administratorPasswordWo;
+        this.administratorPasswordWoVersion = $.administratorPasswordWoVersion;
         this.authentication = $.authentication;
         this.autoGrowEnabled = $.autoGrowEnabled;
         this.backupRetentionDays = $.backupRetentionDays;
@@ -533,7 +569,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * @param administratorPassword The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
          * 
          * @return builder
          * 
@@ -544,13 +580,59 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * @param administratorPassword The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
          * 
          * @return builder
          * 
          */
         public Builder administratorPassword(String administratorPassword) {
             return administratorPassword(Output.of(administratorPassword));
+        }
+
+        /**
+         * @param administratorPasswordWo The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+         * 
+         * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorPasswordWo(@Nullable Output<String> administratorPasswordWo) {
+            $.administratorPasswordWo = administratorPasswordWo;
+            return this;
+        }
+
+        /**
+         * @param administratorPasswordWo The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
+         * 
+         * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorPasswordWo(String administratorPasswordWo) {
+            return administratorPasswordWo(Output.of(administratorPasswordWo));
+        }
+
+        /**
+         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorPasswordWoVersion(@Nullable Output<Integer> administratorPasswordWoVersion) {
+            $.administratorPasswordWoVersion = administratorPasswordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorPasswordWoVersion(Integer administratorPasswordWoVersion) {
+            return administratorPasswordWoVersion(Output.of(administratorPasswordWoVersion));
         }
 
         /**

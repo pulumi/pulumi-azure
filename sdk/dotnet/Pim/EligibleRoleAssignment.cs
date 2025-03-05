@@ -126,6 +126,20 @@ namespace Pulumi.Azure.Pim
     public partial class EligibleRoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("condition")]
+        public Output<string?> Condition { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        /// </summary>
+        [Output("conditionVersion")]
+        public Output<string?> ConditionVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The justification of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("justification")]
@@ -214,6 +228,20 @@ namespace Pulumi.Azure.Pim
     public sealed class EligibleRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("condition")]
+        public Input<string>? Condition { get; set; }
+
+        /// <summary>
+        /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        /// </summary>
+        [Input("conditionVersion")]
+        public Input<string>? ConditionVersion { get; set; }
+
+        /// <summary>
         /// The justification of the role assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("justification")]
@@ -257,6 +285,20 @@ namespace Pulumi.Azure.Pim
 
     public sealed class EligibleRoleAssignmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("condition")]
+        public Input<string>? Condition { get; set; }
+
+        /// <summary>
+        /// The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+        /// </summary>
+        [Input("conditionVersion")]
+        public Input<string>? ConditionVersion { get; set; }
+
         /// <summary>
         /// The justification of the role assignment. Changing this forces a new resource to be created.
         /// </summary>

@@ -237,15 +237,27 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * The resource ID of the event grid that is subscribed to the storage account events.
      * 
      */
-    @Export(name="eventgridResourceId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> eventgridResourceId;
+    @Export(name="eventgridEventSubscriptionId", refs={String.class}, tree="[0]")
+    private Output<String> eventgridEventSubscriptionId;
 
     /**
      * @return The resource ID of the event grid that is subscribed to the storage account events.
      * 
      */
-    public Output<Optional<String>> eventgridResourceId() {
-        return Codegen.optional(this.eventgridResourceId);
+    public Output<String> eventgridEventSubscriptionId() {
+        return this.eventgridEventSubscriptionId;
+    }
+    /**
+     * @deprecated
+     * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Export(name="eventgridResourceId", refs={String.class}, tree="[0]")
+    private Output<String> eventgridResourceId;
+
+    public Output<String> eventgridResourceId() {
+        return this.eventgridResourceId;
     }
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
@@ -293,15 +305,27 @@ public class EventGridDataConnection extends com.pulumi.resources.CustomResource
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
-    @Export(name="managedIdentityResourceId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> managedIdentityResourceId;
+    @Export(name="managedIdentityId", refs={String.class}, tree="[0]")
+    private Output<String> managedIdentityId;
 
     /**
      * @return Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      * 
      */
-    public Output<Optional<String>> managedIdentityResourceId() {
-        return Codegen.optional(this.managedIdentityResourceId);
+    public Output<String> managedIdentityId() {
+        return this.managedIdentityId;
+    }
+    /**
+     * @deprecated
+     * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Export(name="managedIdentityResourceId", refs={String.class}, tree="[0]")
+    private Output<String> managedIdentityResourceId;
+
+    public Output<String> managedIdentityResourceId() {
+        return this.managedIdentityResourceId;
     }
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.

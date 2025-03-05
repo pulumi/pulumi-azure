@@ -128,6 +128,8 @@ export class Share extends pulumi.CustomResource {
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      *
+     * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     *
      * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */
     public readonly storageAccountName!: pulumi.Output<string | undefined>;
@@ -231,6 +233,8 @@ export interface ShareState {
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      *
+     * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     *
      * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */
     storageAccountName?: pulumi.Input<string>;
@@ -284,6 +288,8 @@ export interface ShareArgs {
     storageAccountId?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+     *
+     * > **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      *
      * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */

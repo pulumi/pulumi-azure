@@ -43,11 +43,11 @@ export interface GetQueueArgs {
      */
     namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
     namespaceName?: string;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
     resourceGroupName?: string;
 }
@@ -61,6 +61,10 @@ export interface GetQueueResult {
      */
     readonly autoDeleteOnIdle: string;
     /**
+     * Boolean flag which controls whether server-side batched operations are enabled.
+     */
+    readonly batchedOperationsEnabled: boolean;
+    /**
      * Boolean flag which controls whether the Queue has dead letter support when a message expires.
      */
     readonly deadLetteringOnMessageExpiration: boolean;
@@ -72,18 +76,13 @@ export interface GetQueueResult {
      * The ISO 8601 timespan duration during which duplicates can be detected.
      */
     readonly duplicateDetectionHistoryTimeWindow: string;
-    /**
-     * Boolean flag which controls whether server-side batched operations are enabled.
-     */
     readonly enableBatchedOperations: boolean;
+    readonly enableExpress: boolean;
+    readonly enablePartitioning: boolean;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
      */
-    readonly enableExpress: boolean;
-    /**
-     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
-     */
-    readonly enablePartitioning: boolean;
+    readonly expressEnabled: boolean;
     /**
      * The name of a Queue or Topic to automatically forward dead lettered messages to.
      */
@@ -111,9 +110,13 @@ export interface GetQueueResult {
     readonly name: string;
     readonly namespaceId?: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
     readonly namespaceName?: string;
+    /**
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
+     */
+    readonly partitioningEnabled: boolean;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection.
      */
@@ -123,7 +126,7 @@ export interface GetQueueResult {
      */
     readonly requiresSession: boolean;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
     readonly resourceGroupName?: string;
     /**
@@ -170,11 +173,11 @@ export interface GetQueueOutputArgs {
      */
     namespaceId?: pulumi.Input<string>;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
      */
     resourceGroupName?: pulumi.Input<string>;
 }

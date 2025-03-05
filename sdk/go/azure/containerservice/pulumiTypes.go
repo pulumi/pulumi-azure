@@ -15699,6 +15699,8 @@ type KubernetesClusterNodePoolNodeNetworkProfile struct {
 	// A list of Application Security Group IDs which should be associated with this Node Pool.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 	NodePublicIpTags map[string]string `pulumi:"nodePublicIpTags"`
 }
 
@@ -15719,6 +15721,8 @@ type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
 	// A list of Application Security Group IDs which should be associated with this Node Pool.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 	NodePublicIpTags pulumi.StringMapInput `pulumi:"nodePublicIpTags"`
 }
 
@@ -15812,6 +15816,8 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ApplicationSecurityGr
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+//
+// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) map[string]string { return v.NodePublicIpTags }).(pulumi.StringMapOutput)
 }
@@ -15861,6 +15867,8 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ApplicationSecurit
 }
 
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+//
+// > **Note:** To set the application security group, you must allow at least one host port. Without this, the configuration will fail silently. [Learn More](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#allow-host-port-connections-and-add-node-pools-to-application-security-groups).
 func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) map[string]string {
 		if v == nil {
@@ -17396,6 +17404,178 @@ func (o KubernetesClusterStorageProfilePtrOutput) SnapshotControllerEnabled() pu
 			return nil
 		}
 		return v.SnapshotControllerEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterUpgradeOverride struct {
+	// Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
+	//
+	// > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
+	EffectiveUntil *string `pulumi:"effectiveUntil"`
+	// Whether to force upgrade the cluster. Possible values are `true` or `false`.
+	//
+	// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+	ForceUpgradeEnabled bool `pulumi:"forceUpgradeEnabled"`
+}
+
+// KubernetesClusterUpgradeOverrideInput is an input type that accepts KubernetesClusterUpgradeOverrideArgs and KubernetesClusterUpgradeOverrideOutput values.
+// You can construct a concrete instance of `KubernetesClusterUpgradeOverrideInput` via:
+//
+//	KubernetesClusterUpgradeOverrideArgs{...}
+type KubernetesClusterUpgradeOverrideInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterUpgradeOverrideOutput() KubernetesClusterUpgradeOverrideOutput
+	ToKubernetesClusterUpgradeOverrideOutputWithContext(context.Context) KubernetesClusterUpgradeOverrideOutput
+}
+
+type KubernetesClusterUpgradeOverrideArgs struct {
+	// Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
+	//
+	// > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
+	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
+	// Whether to force upgrade the cluster. Possible values are `true` or `false`.
+	//
+	// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+	ForceUpgradeEnabled pulumi.BoolInput `pulumi:"forceUpgradeEnabled"`
+}
+
+func (KubernetesClusterUpgradeOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterUpgradeOverride)(nil)).Elem()
+}
+
+func (i KubernetesClusterUpgradeOverrideArgs) ToKubernetesClusterUpgradeOverrideOutput() KubernetesClusterUpgradeOverrideOutput {
+	return i.ToKubernetesClusterUpgradeOverrideOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterUpgradeOverrideArgs) ToKubernetesClusterUpgradeOverrideOutputWithContext(ctx context.Context) KubernetesClusterUpgradeOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterUpgradeOverrideOutput)
+}
+
+func (i KubernetesClusterUpgradeOverrideArgs) ToKubernetesClusterUpgradeOverridePtrOutput() KubernetesClusterUpgradeOverridePtrOutput {
+	return i.ToKubernetesClusterUpgradeOverridePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterUpgradeOverrideArgs) ToKubernetesClusterUpgradeOverridePtrOutputWithContext(ctx context.Context) KubernetesClusterUpgradeOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterUpgradeOverrideOutput).ToKubernetesClusterUpgradeOverridePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterUpgradeOverridePtrInput is an input type that accepts KubernetesClusterUpgradeOverrideArgs, KubernetesClusterUpgradeOverridePtr and KubernetesClusterUpgradeOverridePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterUpgradeOverridePtrInput` via:
+//
+//	        KubernetesClusterUpgradeOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterUpgradeOverridePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterUpgradeOverridePtrOutput() KubernetesClusterUpgradeOverridePtrOutput
+	ToKubernetesClusterUpgradeOverridePtrOutputWithContext(context.Context) KubernetesClusterUpgradeOverridePtrOutput
+}
+
+type kubernetesClusterUpgradeOverridePtrType KubernetesClusterUpgradeOverrideArgs
+
+func KubernetesClusterUpgradeOverridePtr(v *KubernetesClusterUpgradeOverrideArgs) KubernetesClusterUpgradeOverridePtrInput {
+	return (*kubernetesClusterUpgradeOverridePtrType)(v)
+}
+
+func (*kubernetesClusterUpgradeOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterUpgradeOverride)(nil)).Elem()
+}
+
+func (i *kubernetesClusterUpgradeOverridePtrType) ToKubernetesClusterUpgradeOverridePtrOutput() KubernetesClusterUpgradeOverridePtrOutput {
+	return i.ToKubernetesClusterUpgradeOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterUpgradeOverridePtrType) ToKubernetesClusterUpgradeOverridePtrOutputWithContext(ctx context.Context) KubernetesClusterUpgradeOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterUpgradeOverridePtrOutput)
+}
+
+type KubernetesClusterUpgradeOverrideOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterUpgradeOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterUpgradeOverride)(nil)).Elem()
+}
+
+func (o KubernetesClusterUpgradeOverrideOutput) ToKubernetesClusterUpgradeOverrideOutput() KubernetesClusterUpgradeOverrideOutput {
+	return o
+}
+
+func (o KubernetesClusterUpgradeOverrideOutput) ToKubernetesClusterUpgradeOverrideOutputWithContext(ctx context.Context) KubernetesClusterUpgradeOverrideOutput {
+	return o
+}
+
+func (o KubernetesClusterUpgradeOverrideOutput) ToKubernetesClusterUpgradeOverridePtrOutput() KubernetesClusterUpgradeOverridePtrOutput {
+	return o.ToKubernetesClusterUpgradeOverridePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterUpgradeOverrideOutput) ToKubernetesClusterUpgradeOverridePtrOutputWithContext(ctx context.Context) KubernetesClusterUpgradeOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterUpgradeOverride) *KubernetesClusterUpgradeOverride {
+		return &v
+	}).(KubernetesClusterUpgradeOverridePtrOutput)
+}
+
+// Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
+//
+// > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
+func (o KubernetesClusterUpgradeOverrideOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterUpgradeOverride) *string { return v.EffectiveUntil }).(pulumi.StringPtrOutput)
+}
+
+// Whether to force upgrade the cluster. Possible values are `true` or `false`.
+//
+// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+func (o KubernetesClusterUpgradeOverrideOutput) ForceUpgradeEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v KubernetesClusterUpgradeOverride) bool { return v.ForceUpgradeEnabled }).(pulumi.BoolOutput)
+}
+
+type KubernetesClusterUpgradeOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterUpgradeOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterUpgradeOverride)(nil)).Elem()
+}
+
+func (o KubernetesClusterUpgradeOverridePtrOutput) ToKubernetesClusterUpgradeOverridePtrOutput() KubernetesClusterUpgradeOverridePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterUpgradeOverridePtrOutput) ToKubernetesClusterUpgradeOverridePtrOutputWithContext(ctx context.Context) KubernetesClusterUpgradeOverridePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterUpgradeOverridePtrOutput) Elem() KubernetesClusterUpgradeOverrideOutput {
+	return o.ApplyT(func(v *KubernetesClusterUpgradeOverride) KubernetesClusterUpgradeOverride {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterUpgradeOverride
+		return ret
+	}).(KubernetesClusterUpgradeOverrideOutput)
+}
+
+// Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
+//
+// > **Note:** This only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
+func (o KubernetesClusterUpgradeOverridePtrOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterUpgradeOverride) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveUntil
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to force upgrade the cluster. Possible values are `true` or `false`.
+//
+// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+func (o KubernetesClusterUpgradeOverridePtrOutput) ForceUpgradeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterUpgradeOverride) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForceUpgradeEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -25541,6 +25721,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfileInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfilePtrInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterUpgradeOverrideInput)(nil)).Elem(), KubernetesClusterUpgradeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterUpgradeOverridePtrInput)(nil)).Elem(), KubernetesClusterUpgradeOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingPtrInput)(nil)).Elem(), KubernetesClusterWebAppRoutingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWebAppRoutingWebAppRoutingIdentityInput)(nil)).Elem(), KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs{})
@@ -25823,6 +26005,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterStorageProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterStorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterUpgradeOverrideOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterUpgradeOverridePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWebAppRoutingWebAppRoutingIdentityOutput{})

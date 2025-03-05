@@ -140,6 +140,20 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
         return this.attachedDatabaseNames;
     }
     /**
+     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
+    private Output<String> clusterId;
+
+    /**
+     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> clusterId() {
+        return this.clusterId;
+    }
+    /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      * 
      */
@@ -154,16 +168,14 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
         return this.clusterName;
     }
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @deprecated
+     * `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> clusterResourceId;
 
-    /**
-     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> clusterResourceId() {
         return this.clusterResourceId;
     }

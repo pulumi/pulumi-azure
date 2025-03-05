@@ -8362,6 +8362,8 @@ func (o GetAppIdentityArrayOutput) Index(i pulumi.IntInput) GetAppIdentityOutput
 type GetAppIngress struct {
 	// Should this ingress allow insecure connections?
 	AllowInsecureConnections bool `pulumi:"allowInsecureConnections"`
+	// The client certificate mode for the Ingress.
+	ClientCertificateMode string `pulumi:"clientCertificateMode"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains []GetAppIngressCustomDomain `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -8394,6 +8396,8 @@ type GetAppIngressInput interface {
 type GetAppIngressArgs struct {
 	// Should this ingress allow insecure connections?
 	AllowInsecureConnections pulumi.BoolInput `pulumi:"allowInsecureConnections"`
+	// The client certificate mode for the Ingress.
+	ClientCertificateMode pulumi.StringInput `pulumi:"clientCertificateMode"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains GetAppIngressCustomDomainArrayInput `pulumi:"customDomains"`
 	// The exposed port on the container for the Ingress traffic.
@@ -8466,6 +8470,11 @@ func (o GetAppIngressOutput) ToGetAppIngressOutputWithContext(ctx context.Contex
 // Should this ingress allow insecure connections?
 func (o GetAppIngressOutput) AllowInsecureConnections() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAppIngress) bool { return v.AllowInsecureConnections }).(pulumi.BoolOutput)
+}
+
+// The client certificate mode for the Ingress.
+func (o GetAppIngressOutput) ClientCertificateMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngress) string { return v.ClientCertificateMode }).(pulumi.StringOutput)
 }
 
 // One or more `customDomain` block as detailed below.

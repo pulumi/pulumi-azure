@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps
         /// {
         ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
         ///     {
-        ///         Name = "logicappstd",
+        ///         Name = "example-logic-app",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.LogicApps
         /// {
         ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
         ///     {
-        ///         Name = "logicappstd",
+        ///         Name = "example-logic-app",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.LogicApps
         /// {
         ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
         ///     {
-        ///         Name = "logicappstd",
+        ///         Name = "example-logic-app",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class GetStandardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Logic App.
+        /// The name of the Logic App.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class GetStandardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of this Logic App.
+        /// The name of the Logic App.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -193,6 +193,10 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// Whether the default FTP basic authentication publishing profile is enabled.
+        /// </summary>
+        public readonly bool FtpPublishBasicAuthenticationEnabled;
+        /// <summary>
         /// Whether the Logic App can only be accessed via HTTPS.
         /// </summary>
         public readonly bool HttpsOnly;
@@ -229,6 +233,10 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string PublicNetworkAccess;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// Whether the default SCM basic authentication publishing profile is enabled.
+        /// </summary>
+        public readonly bool ScmPublishBasicAuthenticationEnabled;
         /// <summary>
         /// A `site_config` object as defined below.
         /// </summary>
@@ -286,6 +294,8 @@ namespace Pulumi.Azure.LogicApps
 
             bool enabled,
 
+            bool ftpPublishBasicAuthenticationEnabled,
+
             bool httpsOnly,
 
             string id,
@@ -305,6 +315,8 @@ namespace Pulumi.Azure.LogicApps
             string publicNetworkAccess,
 
             string resourceGroupName,
+
+            bool scmPublishBasicAuthenticationEnabled,
 
             Outputs.GetStandardSiteConfigResult siteConfig,
 
@@ -333,6 +345,7 @@ namespace Pulumi.Azure.LogicApps
             CustomDomainVerificationId = customDomainVerificationId;
             DefaultHostname = defaultHostname;
             Enabled = enabled;
+            FtpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             HttpsOnly = httpsOnly;
             Id = id;
             Identities = identities;
@@ -343,6 +356,7 @@ namespace Pulumi.Azure.LogicApps
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
             PublicNetworkAccess = publicNetworkAccess;
             ResourceGroupName = resourceGroupName;
+            ScmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
             SiteConfig = siteConfig;
             SiteCredentials = siteCredentials;
             StorageAccountAccessKey = storageAccountAccessKey;

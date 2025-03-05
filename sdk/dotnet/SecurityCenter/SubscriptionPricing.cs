@@ -101,7 +101,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subplan")]
         public Output<string?> Subplan { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subplan")]
         public Input<string>? Subplan { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// Resource type pricing subplan. Contact your MSFT representative for possible values.
+        /// Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subplan")]
         public Input<string>? Subplan { get; set; }

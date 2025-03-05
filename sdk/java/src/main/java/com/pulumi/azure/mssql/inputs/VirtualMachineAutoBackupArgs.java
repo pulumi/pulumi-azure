@@ -20,29 +20,33 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
     public static final VirtualMachineAutoBackupArgs Empty = new VirtualMachineAutoBackupArgs();
 
     /**
-     * Enable or disable encryption for backups. Defaults to `false`.
+     * @deprecated
+     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
      * 
      */
+    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
     @Import(name="encryptionEnabled")
     private @Nullable Output<Boolean> encryptionEnabled;
 
     /**
-     * @return Enable or disable encryption for backups. Defaults to `false`.
+     * @deprecated
+     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
      * 
      */
+    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
     public Optional<Output<Boolean>> encryptionEnabled() {
         return Optional.ofNullable(this.encryptionEnabled);
     }
 
     /**
-     * Encryption password to use. Must be specified when encryption is enabled.
+     * Encryption password to use. Setting a password will enable encryption.
      * 
      */
     @Import(name="encryptionPassword")
     private @Nullable Output<String> encryptionPassword;
 
     /**
-     * @return Encryption password to use. Must be specified when encryption is enabled.
+     * @return Encryption password to use. Setting a password will enable encryption.
      * 
      */
     public Optional<Output<String>> encryptionPassword() {
@@ -155,28 +159,32 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionEnabled Enable or disable encryption for backups. Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+         * 
          */
+        @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
         public Builder encryptionEnabled(@Nullable Output<Boolean> encryptionEnabled) {
             $.encryptionEnabled = encryptionEnabled;
             return this;
         }
 
         /**
-         * @param encryptionEnabled Enable or disable encryption for backups. Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+         * 
          */
+        @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
         public Builder encryptionEnabled(Boolean encryptionEnabled) {
             return encryptionEnabled(Output.of(encryptionEnabled));
         }
 
         /**
-         * @param encryptionPassword Encryption password to use. Must be specified when encryption is enabled.
+         * @param encryptionPassword Encryption password to use. Setting a password will enable encryption.
          * 
          * @return builder
          * 
@@ -187,7 +195,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionPassword Encryption password to use. Must be specified when encryption is enabled.
+         * @param encryptionPassword Encryption password to use. Setting a password will enable encryption.
          * 
          * @return builder
          * 

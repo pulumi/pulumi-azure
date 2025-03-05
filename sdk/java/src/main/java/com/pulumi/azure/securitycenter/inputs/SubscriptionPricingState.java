@@ -48,14 +48,14 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subplan")
     private @Nullable Output<String> subplan;
 
     /**
-     * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * @return Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subplan() {
@@ -157,7 +157,7 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
+         * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class SubscriptionPricingState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values.
+         * @param subplan Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

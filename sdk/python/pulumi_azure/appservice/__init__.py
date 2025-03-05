@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .active_slot import *
 from .app_connection import *
+from .app_flex_consumption import *
 from .app_service import *
 from .certificate import *
 from .certificate_binding import *

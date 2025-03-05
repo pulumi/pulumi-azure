@@ -2873,6 +2873,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dev_test_lab":                          {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":              {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 
+			"azurerm_dynatrace_monitor": {
+				Tok: azureDataSource(azureDynatrace, "getMonitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "dynatrace_monitors.html.markdown",
+				},
+			},
+
 			"azurerm_availability_set": {
 				Tok: azureDataSource(azureCompute, "getAvailabilitySet"),
 				// TODO: Added for backwards compatibility. Remove in pulumi-azure v6.

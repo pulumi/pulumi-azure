@@ -70,7 +70,9 @@ public final class StandardSiteConfig {
      */
     private @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
     /**
-     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+     * 
+     * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
      * 
      */
     private @Nullable String linuxFxVersion;
@@ -214,7 +216,9 @@ public final class StandardSiteConfig {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
     /**
-     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+     * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+     * 
+     * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
      * 
      */
     public Optional<String> linuxFxVersion() {

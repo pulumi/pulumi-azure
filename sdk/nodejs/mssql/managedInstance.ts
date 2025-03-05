@@ -253,6 +253,12 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     *
+     * > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     */
+    public readonly databaseFormat!: pulumi.Output<string | undefined>;
+    /**
      * The Dns Zone where the SQL Managed Instance is located.
      */
     public /*out*/ readonly dnsZone!: pulumi.Output<string>;
@@ -264,6 +270,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
+     * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     */
+    public readonly hybridSecondaryUsage!: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -356,9 +366,11 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             resourceInputs["azureActiveDirectoryAdministrator"] = state ? state.azureActiveDirectoryAdministrator : undefined;
             resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["databaseFormat"] = state ? state.databaseFormat : undefined;
             resourceInputs["dnsZone"] = state ? state.dnsZone : undefined;
             resourceInputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["hybridSecondaryUsage"] = state ? state.hybridSecondaryUsage : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -401,7 +413,9 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
             resourceInputs["azureActiveDirectoryAdministrator"] = args ? args.azureActiveDirectoryAdministrator : undefined;
             resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["databaseFormat"] = args ? args.databaseFormat : undefined;
             resourceInputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
+            resourceInputs["hybridSecondaryUsage"] = args ? args.hybridSecondaryUsage : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -453,6 +467,12 @@ export interface ManagedInstanceState {
      */
     collation?: pulumi.Input<string>;
     /**
+     * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     *
+     * > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     */
+    databaseFormat?: pulumi.Input<string>;
+    /**
      * The Dns Zone where the SQL Managed Instance is located.
      */
     dnsZone?: pulumi.Input<string>;
@@ -464,6 +484,10 @@ export interface ManagedInstanceState {
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
     fqdn?: pulumi.Input<string>;
+    /**
+     * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     */
+    hybridSecondaryUsage?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -561,9 +585,19 @@ export interface ManagedInstanceArgs {
      */
     collation?: pulumi.Input<string>;
     /**
+     * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     *
+     * > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     */
+    databaseFormat?: pulumi.Input<string>;
+    /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     dnsZonePartnerId?: pulumi.Input<string>;
+    /**
+     * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     */
+    hybridSecondaryUsage?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

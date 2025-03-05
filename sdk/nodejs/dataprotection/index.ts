@@ -70,6 +70,11 @@ export type BackupVault = import("./backupVault").BackupVault;
 export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
 utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
 
+export { BackupVaultCustomerManagedKeyArgs, BackupVaultCustomerManagedKeyState } from "./backupVaultCustomerManagedKey";
+export type BackupVaultCustomerManagedKey = import("./backupVaultCustomerManagedKey").BackupVaultCustomerManagedKey;
+export const BackupVaultCustomerManagedKey: typeof import("./backupVaultCustomerManagedKey").BackupVaultCustomerManagedKey = null as any;
+utilities.lazyLoad(exports, ["BackupVaultCustomerManagedKey"], () => require("./backupVaultCustomerManagedKey"));
+
 export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
 export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
 export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
@@ -111,6 +116,8 @@ const _module = {
                 return new BackupPolicyPostgresqlFlexibleServer(name, <any>undefined, { urn })
             case "azure:dataprotection/backupVault:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey":
+                return new BackupVaultCustomerManagedKey(name, <any>undefined, { urn })
             case "azure:dataprotection/resourceGuard:ResourceGuard":
                 return new ResourceGuard(name, <any>undefined, { urn })
             default:
@@ -131,4 +138,5 @@ pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyMysql
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVault", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVaultCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/resourceGuard", _module)

@@ -11,6 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := servicebus.LookupNamespaceDisasterRecoveryConfig(ctx, &servicebus.LookupNamespaceDisasterRecoveryConfigArgs{
+//				Name:        "existing",
+//				NamespaceId: pulumi.StringRef("example-namespace-id"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceDisasterRecoveryConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamespaceDisasterRecoveryConfigResult
@@ -23,31 +52,39 @@ func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupName
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigArgs struct {
+	// The Shared access policies used to access the connection string for the alias.
 	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
-	Name                     string  `pulumi:"name"`
-	NamespaceId              *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// The name of this Service Bus Disaster Recovery Config.
+	Name string `pulumi:"name"`
+	// The ID of the Service Bus Namespace.
+	NamespaceId *string `pulumi:"namespaceId"`
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigResult struct {
 	AliasAuthorizationRuleId *string `pulumi:"aliasAuthorizationRuleId"`
-	DefaultPrimaryKey        string  `pulumi:"defaultPrimaryKey"`
-	DefaultSecondaryKey      string  `pulumi:"defaultSecondaryKey"`
+	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+	DefaultPrimaryKey string `pulumi:"defaultPrimaryKey"`
+	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
-	Name        string  `pulumi:"name"`
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
-	NamespaceName                *string `pulumi:"namespaceName"`
-	PartnerNamespaceId           string  `pulumi:"partnerNamespaceId"`
-	PrimaryConnectionStringAlias string  `pulumi:"primaryConnectionStringAlias"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
-	ResourceGroupName              *string `pulumi:"resourceGroupName"`
-	SecondaryConnectionStringAlias string  `pulumi:"secondaryConnectionStringAlias"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	NamespaceId string `pulumi:"namespaceId"`
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+	NamespaceName string `pulumi:"namespaceName"`
+	// The ID of the Service Bus Namespace to replicate to.
+	PartnerNamespaceId string `pulumi:"partnerNamespaceId"`
+	// The alias Primary Connection String for the ServiceBus Namespace.
+	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The alias Secondary Connection String for the ServiceBus Namespace
+	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
 }
 
 func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args LookupNamespaceDisasterRecoveryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceDisasterRecoveryConfigResultOutput {
@@ -61,12 +98,15 @@ func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args Looku
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
 type LookupNamespaceDisasterRecoveryConfigOutputArgs struct {
+	// The Shared access policies used to access the connection string for the alias.
 	AliasAuthorizationRuleId pulumi.StringPtrInput `pulumi:"aliasAuthorizationRuleId"`
-	Name                     pulumi.StringInput    `pulumi:"name"`
-	NamespaceId              pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// The name of this Service Bus Disaster Recovery Config.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Service Bus Namespace.
+	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
+	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 }
 
@@ -93,10 +133,12 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) AliasAuthorizationRul
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.AliasAuthorizationRuleId }).(pulumi.StringPtrOutput)
 }
 
+// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) DefaultPrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.DefaultPrimaryKey }).(pulumi.StringOutput)
 }
 
+// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) DefaultSecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.DefaultSecondaryKey }).(pulumi.StringOutput)
 }
@@ -110,28 +152,31 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) Name() pulumi.StringO
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
-// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
-func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) NamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
+// The ID of the Service Bus Namespace to replicate to.
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) PartnerNamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.PartnerNamespaceId }).(pulumi.StringOutput)
 }
 
+// The alias Primary Connection String for the ServiceBus Namespace.
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) PrimaryConnectionStringAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.PrimaryConnectionStringAlias }).(pulumi.StringOutput)
 }
 
-// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 4.0 of the AzureRM Provider.
-func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
+func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The alias Secondary Connection String for the ServiceBus Namespace
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) SecondaryConnectionStringAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceDisasterRecoveryConfigResult) string { return v.SecondaryConnectionStringAlias }).(pulumi.StringOutput)
 }

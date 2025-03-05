@@ -28,8 +28,10 @@ class EventGridDataConnectionArgs:
                  blob_storage_event_type: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
                  database_routing_type: Optional[pulumi.Input[str]] = None,
+                 eventgrid_event_subscription_id: Optional[pulumi.Input[str]] = None,
                  eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_id: Optional[pulumi.Input[str]] = None,
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -46,9 +48,9 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
-        :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
+        :param pulumi.Input[str] eventgrid_event_subscription_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] skip_first_record: is the first record of every file ignored? Defaults to `false`.
@@ -66,10 +68,20 @@ class EventGridDataConnectionArgs:
             pulumi.set(__self__, "data_format", data_format)
         if database_routing_type is not None:
             pulumi.set(__self__, "database_routing_type", database_routing_type)
+        if eventgrid_event_subscription_id is not None:
+            pulumi.set(__self__, "eventgrid_event_subscription_id", eventgrid_event_subscription_id)
+        if eventgrid_resource_id is not None:
+            warnings.warn("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""eventgrid_resource_id is deprecated: `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
         if eventgrid_resource_id is not None:
             pulumi.set(__self__, "eventgrid_resource_id", eventgrid_resource_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_identity_id is not None:
+            pulumi.set(__self__, "managed_identity_id", managed_identity_id)
+        if managed_identity_resource_id is not None:
+            warnings.warn("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""managed_identity_resource_id is deprecated: `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
         if managed_identity_resource_id is not None:
             pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
@@ -190,11 +202,21 @@ class EventGridDataConnectionArgs:
         pulumi.set(self, "database_routing_type", value)
 
     @property
-    @pulumi.getter(name="eventgridResourceId")
-    def eventgrid_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="eventgridEventSubscriptionId")
+    def eventgrid_event_subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the event grid that is subscribed to the storage account events.
         """
+        return pulumi.get(self, "eventgrid_event_subscription_id")
+
+    @eventgrid_event_subscription_id.setter
+    def eventgrid_event_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventgrid_event_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="eventgridResourceId")
+    @_utilities.deprecated("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def eventgrid_resource_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "eventgrid_resource_id")
 
     @eventgrid_resource_id.setter
@@ -214,11 +236,21 @@ class EventGridDataConnectionArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="managedIdentityId")
+    def managed_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
+        return pulumi.get(self, "managed_identity_id")
+
+    @managed_identity_id.setter
+    def managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity_id", value)
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    @_utilities.deprecated("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "managed_identity_resource_id")
 
     @managed_identity_resource_id.setter
@@ -282,10 +314,12 @@ class _EventGridDataConnectionState:
                  data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  database_routing_type: Optional[pulumi.Input[str]] = None,
+                 eventgrid_event_subscription_id: Optional[pulumi.Input[str]] = None,
                  eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_id: Optional[pulumi.Input[str]] = None,
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -300,11 +334,11 @@ class _EventGridDataConnectionState:
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
-        :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
+        :param pulumi.Input[str] eventgrid_event_subscription_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -322,6 +356,11 @@ class _EventGridDataConnectionState:
             pulumi.set(__self__, "database_name", database_name)
         if database_routing_type is not None:
             pulumi.set(__self__, "database_routing_type", database_routing_type)
+        if eventgrid_event_subscription_id is not None:
+            pulumi.set(__self__, "eventgrid_event_subscription_id", eventgrid_event_subscription_id)
+        if eventgrid_resource_id is not None:
+            warnings.warn("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""eventgrid_resource_id is deprecated: `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
         if eventgrid_resource_id is not None:
             pulumi.set(__self__, "eventgrid_resource_id", eventgrid_resource_id)
         if eventhub_consumer_group_name is not None:
@@ -330,6 +369,11 @@ class _EventGridDataConnectionState:
             pulumi.set(__self__, "eventhub_id", eventhub_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_identity_id is not None:
+            pulumi.set(__self__, "managed_identity_id", managed_identity_id)
+        if managed_identity_resource_id is not None:
+            warnings.warn("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""managed_identity_resource_id is deprecated: `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
         if managed_identity_resource_id is not None:
             pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
@@ -406,11 +450,21 @@ class _EventGridDataConnectionState:
         pulumi.set(self, "database_routing_type", value)
 
     @property
-    @pulumi.getter(name="eventgridResourceId")
-    def eventgrid_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="eventgridEventSubscriptionId")
+    def eventgrid_event_subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the event grid that is subscribed to the storage account events.
         """
+        return pulumi.get(self, "eventgrid_event_subscription_id")
+
+    @eventgrid_event_subscription_id.setter
+    def eventgrid_event_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventgrid_event_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="eventgridResourceId")
+    @_utilities.deprecated("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def eventgrid_resource_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "eventgrid_resource_id")
 
     @eventgrid_resource_id.setter
@@ -454,11 +508,21 @@ class _EventGridDataConnectionState:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="managedIdentityId")
+    def managed_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
+        return pulumi.get(self, "managed_identity_id")
+
+    @managed_identity_id.setter
+    def managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity_id", value)
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    @_utilities.deprecated("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "managed_identity_resource_id")
 
     @managed_identity_resource_id.setter
@@ -548,10 +612,12 @@ class EventGridDataConnection(pulumi.CustomResource):
                  data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  database_routing_type: Optional[pulumi.Input[str]] = None,
+                 eventgrid_event_subscription_id: Optional[pulumi.Input[str]] = None,
                  eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_id: Optional[pulumi.Input[str]] = None,
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -652,11 +718,11 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
-        :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
+        :param pulumi.Input[str] eventgrid_event_subscription_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -775,10 +841,12 @@ class EventGridDataConnection(pulumi.CustomResource):
                  data_format: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  database_routing_type: Optional[pulumi.Input[str]] = None,
+                 eventgrid_event_subscription_id: Optional[pulumi.Input[str]] = None,
                  eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_id: Optional[pulumi.Input[str]] = None,
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -804,6 +872,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["database_routing_type"] = database_routing_type
+            __props__.__dict__["eventgrid_event_subscription_id"] = eventgrid_event_subscription_id
             __props__.__dict__["eventgrid_resource_id"] = eventgrid_resource_id
             if eventhub_consumer_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_consumer_group_name'")
@@ -812,6 +881,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'eventhub_id'")
             __props__.__dict__["eventhub_id"] = eventhub_id
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_identity_id"] = managed_identity_id
             __props__.__dict__["managed_identity_resource_id"] = managed_identity_resource_id
             __props__.__dict__["mapping_rule_name"] = mapping_rule_name
             __props__.__dict__["name"] = name
@@ -838,10 +908,12 @@ class EventGridDataConnection(pulumi.CustomResource):
             data_format: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             database_routing_type: Optional[pulumi.Input[str]] = None,
+            eventgrid_event_subscription_id: Optional[pulumi.Input[str]] = None,
             eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
             eventhub_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            managed_identity_id: Optional[pulumi.Input[str]] = None,
             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
             mapping_rule_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -861,11 +933,11 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
-        :param pulumi.Input[str] eventgrid_resource_id: The resource ID of the event grid that is subscribed to the storage account events.
+        :param pulumi.Input[str] eventgrid_event_subscription_id: The resource ID of the event grid that is subscribed to the storage account events.
         :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
+        :param pulumi.Input[str] managed_identity_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -882,10 +954,12 @@ class EventGridDataConnection(pulumi.CustomResource):
         __props__.__dict__["data_format"] = data_format
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["database_routing_type"] = database_routing_type
+        __props__.__dict__["eventgrid_event_subscription_id"] = eventgrid_event_subscription_id
         __props__.__dict__["eventgrid_resource_id"] = eventgrid_resource_id
         __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
         __props__.__dict__["eventhub_id"] = eventhub_id
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_identity_id"] = managed_identity_id
         __props__.__dict__["managed_identity_resource_id"] = managed_identity_resource_id
         __props__.__dict__["mapping_rule_name"] = mapping_rule_name
         __props__.__dict__["name"] = name
@@ -936,11 +1010,17 @@ class EventGridDataConnection(pulumi.CustomResource):
         return pulumi.get(self, "database_routing_type")
 
     @property
-    @pulumi.getter(name="eventgridResourceId")
-    def eventgrid_resource_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="eventgridEventSubscriptionId")
+    def eventgrid_event_subscription_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the event grid that is subscribed to the storage account events.
         """
+        return pulumi.get(self, "eventgrid_event_subscription_id")
+
+    @property
+    @pulumi.getter(name="eventgridResourceId")
+    @_utilities.deprecated("""`eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def eventgrid_resource_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "eventgrid_resource_id")
 
     @property
@@ -968,11 +1048,17 @@ class EventGridDataConnection(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="managedIdentityId")
+    def managed_identity_id(self) -> pulumi.Output[str]:
         """
         Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         """
+        return pulumi.get(self, "managed_identity_id")
+
+    @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    @_utilities.deprecated("""`managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.""")
+    def managed_identity_resource_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "managed_identity_resource_id")
 
     @property

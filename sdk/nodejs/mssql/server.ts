@@ -163,9 +163,19 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
+     *
+     * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+     */
+    public readonly administratorLoginPasswordWo!: pulumi.Output<string | undefined>;
+    /**
+     * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+     */
+    public readonly administratorLoginPasswordWoVersion!: pulumi.Output<number | undefined>;
     /**
      * An `azureadAdministrator` block as defined below.
      */
@@ -252,6 +262,8 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            resourceInputs["administratorLoginPasswordWo"] = state ? state.administratorLoginPasswordWo : undefined;
+            resourceInputs["administratorLoginPasswordWoVersion"] = state ? state.administratorLoginPasswordWoVersion : undefined;
             resourceInputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
             resourceInputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
             resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
@@ -277,6 +289,8 @@ export class Server extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
+            resourceInputs["administratorLoginPasswordWo"] = args?.administratorLoginPasswordWo ? pulumi.secret(args.administratorLoginPasswordWo) : undefined;
+            resourceInputs["administratorLoginPasswordWoVersion"] = args ? args.administratorLoginPasswordWoVersion : undefined;
             resourceInputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
             resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -296,7 +310,7 @@ export class Server extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sql/sqlServer:SqlServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword", "administratorLoginPasswordWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
@@ -311,9 +325,19 @@ export interface ServerState {
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      */
     administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
+     *
+     * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+     */
+    administratorLoginPasswordWo?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+     */
+    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
     /**
      * An `azureadAdministrator` block as defined below.
      */
@@ -395,9 +419,19 @@ export interface ServerArgs {
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      */
     administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
+     *
+     * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+     */
+    administratorLoginPasswordWo?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+     */
+    administratorLoginPasswordWoVersion?: pulumi.Input<number>;
     /**
      * An `azureadAdministrator` block as defined below.
      */

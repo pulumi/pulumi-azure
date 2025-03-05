@@ -18,6 +18,7 @@ from .backup_policy_mysql_flexible_server import *
 from .backup_policy_postgresql import *
 from .backup_policy_postgresql_flexible_server import *
 from .backup_vault import *
+from .backup_vault_customer_managed_key import *
 from .get_backup_vault import *
 from .resource_guard import *
 from ._inputs import *
