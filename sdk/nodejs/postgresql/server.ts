@@ -82,12 +82,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
-     *
-     * * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-     */
-    public readonly administratorLoginPasswordWo!: pulumi.Output<string | undefined>;
-    /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
     public readonly administratorLoginPasswordWoVersion!: pulumi.Output<number | undefined>;
@@ -193,7 +187,6 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            resourceInputs["administratorLoginPasswordWo"] = state ? state.administratorLoginPasswordWo : undefined;
             resourceInputs["administratorLoginPasswordWoVersion"] = state ? state.administratorLoginPasswordWoVersion : undefined;
             resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
@@ -231,7 +224,6 @@ export class Server extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
-            resourceInputs["administratorLoginPasswordWo"] = args ? args.administratorLoginPasswordWo : undefined;
             resourceInputs["administratorLoginPasswordWoVersion"] = args ? args.administratorLoginPasswordWoVersion : undefined;
             resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
@@ -273,12 +265,6 @@ export interface ServerState {
      * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
     administratorLoginPassword?: pulumi.Input<string>;
-    /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
-     *
-     * * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-     */
-    administratorLoginPasswordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
@@ -383,12 +369,6 @@ export interface ServerArgs {
      * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
     administratorLoginPassword?: pulumi.Input<string>;
-    /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Server.
-     *
-     * * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-     */
-    administratorLoginPasswordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */

@@ -25,7 +25,6 @@ class ServerArgs:
                  version: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
@@ -44,9 +43,6 @@ class ServerArgs:
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-               
-               > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -76,8 +72,6 @@ class ServerArgs:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        if administrator_login_password_wo is not None:
-            pulumi.set(__self__, "administrator_login_password_wo", administrator_login_password_wo)
         if administrator_login_password_wo_version is not None:
             pulumi.set(__self__, "administrator_login_password_wo_version", administrator_login_password_wo_version)
         if azuread_administrator is not None:
@@ -150,20 +144,6 @@ class ServerArgs:
     @administrator_login_password.setter
     def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_login_password", value)
-
-    @property
-    @pulumi.getter(name="administratorLoginPasswordWo")
-    def administrator_login_password_wo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-
-        > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        """
-        return pulumi.get(self, "administrator_login_password_wo")
-
-    @administrator_login_password_wo.setter
-    def administrator_login_password_wo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "administrator_login_password_wo", value)
 
     @property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
@@ -325,7 +305,6 @@ class _ServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
@@ -346,9 +325,6 @@ class _ServerState:
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-               
-               > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -380,8 +356,6 @@ class _ServerState:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        if administrator_login_password_wo is not None:
-            pulumi.set(__self__, "administrator_login_password_wo", administrator_login_password_wo)
         if administrator_login_password_wo_version is not None:
             pulumi.set(__self__, "administrator_login_password_wo_version", administrator_login_password_wo_version)
         if azuread_administrator is not None:
@@ -438,20 +412,6 @@ class _ServerState:
     @administrator_login_password.setter
     def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_login_password", value)
-
-    @property
-    @pulumi.getter(name="administratorLoginPasswordWo")
-    def administrator_login_password_wo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-
-        > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        """
-        return pulumi.get(self, "administrator_login_password_wo")
-
-    @administrator_login_password_wo.setter
-    def administrator_login_password_wo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "administrator_login_password_wo", value)
 
     @property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
@@ -663,7 +623,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
@@ -799,9 +758,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-               
-               > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -966,7 +922,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
@@ -992,7 +947,6 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
-            __props__.__dict__["administrator_login_password_wo"] = None if administrator_login_password_wo is None else pulumi.Output.secret(administrator_login_password_wo)
             __props__.__dict__["administrator_login_password_wo_version"] = administrator_login_password_wo_version
             __props__.__dict__["azuread_administrator"] = azuread_administrator
             __props__.__dict__["connection_policy"] = connection_policy
@@ -1015,7 +969,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["restorable_dropped_database_ids"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:sql/sqlServer:SqlServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword", "administratorLoginPasswordWo"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'azure:mssql/server:Server',
@@ -1029,7 +983,6 @@ class Server(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_login_password: Optional[pulumi.Input[str]] = None,
-            administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
             administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
             azuread_administrator: Optional[pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
             connection_policy: Optional[pulumi.Input[str]] = None,
@@ -1055,9 +1008,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-               
-               > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -1091,7 +1041,6 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_login_password"] = administrator_login_password
-        __props__.__dict__["administrator_login_password_wo"] = administrator_login_password_wo
         __props__.__dict__["administrator_login_password_wo_version"] = administrator_login_password_wo_version
         __props__.__dict__["azuread_administrator"] = azuread_administrator
         __props__.__dict__["connection_policy"] = connection_policy
@@ -1125,16 +1074,6 @@ class Server(pulumi.CustomResource):
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         """
         return pulumi.get(self, "administrator_login_password")
-
-    @property
-    @pulumi.getter(name="administratorLoginPasswordWo")
-    def administrator_login_password_wo(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-
-        > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        """
-        return pulumi.get(self, "administrator_login_password_wo")
 
     @property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")

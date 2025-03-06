@@ -54,21 +54,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Password associated with the `administrator_login` for the MySQL Flexible Server.
-     * 
-     */
-    @Import(name="administratorPasswordWo")
-    private @Nullable Output<String> administratorPasswordWo;
-
-    /**
-     * @return The Password associated with the `administrator_login` for the MySQL Flexible Server.
-     * 
-     */
-    public Optional<Output<String>> administratorPasswordWo() {
-        return Optional.ofNullable(this.administratorPasswordWo);
-    }
-
-    /**
      * An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
      * 
      * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
@@ -453,7 +438,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     private FlexibleServerState(FlexibleServerState $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorPassword = $.administratorPassword;
-        this.administratorPasswordWo = $.administratorPasswordWo;
         this.administratorPasswordWoVersion = $.administratorPasswordWoVersion;
         this.backupRetentionDays = $.backupRetentionDays;
         this.createMode = $.createMode;
@@ -538,27 +522,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          */
         public Builder administratorPassword(String administratorPassword) {
             return administratorPassword(Output.of(administratorPassword));
-        }
-
-        /**
-         * @param administratorPasswordWo The Password associated with the `administrator_login` for the MySQL Flexible Server.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder administratorPasswordWo(@Nullable Output<String> administratorPasswordWo) {
-            $.administratorPasswordWo = administratorPasswordWo;
-            return this;
-        }
-
-        /**
-         * @param administratorPasswordWo The Password associated with the `administrator_login` for the MySQL Flexible Server.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder administratorPasswordWo(String administratorPasswordWo) {
-            return administratorPasswordWo(Output.of(administratorPasswordWo));
         }
 
         /**

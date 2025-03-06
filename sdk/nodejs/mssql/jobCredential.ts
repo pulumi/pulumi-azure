@@ -93,12 +93,6 @@ export class JobCredential extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * The password to use for this Elastic Job credential.
-     *
-     * > **Note:** One of `password` or `passwordWo` must be specified.
-     */
-    public readonly passwordWo!: pulumi.Output<string | undefined>;
-    /**
      * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      */
     public readonly passwordWoVersion!: pulumi.Output<number | undefined>;
@@ -123,7 +117,6 @@ export class JobCredential extends pulumi.CustomResource {
             resourceInputs["jobAgentId"] = state ? state.jobAgentId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordWo"] = state ? state.passwordWo : undefined;
             resourceInputs["passwordWoVersion"] = state ? state.passwordWoVersion : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
@@ -137,7 +130,6 @@ export class JobCredential extends pulumi.CustomResource {
             resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["passwordWo"] = args ? args.passwordWo : undefined;
             resourceInputs["passwordWoVersion"] = args ? args.passwordWoVersion : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
@@ -165,12 +157,6 @@ export interface JobCredentialState {
      */
     password?: pulumi.Input<string>;
     /**
-     * The password to use for this Elastic Job credential.
-     *
-     * > **Note:** One of `password` or `passwordWo` must be specified.
-     */
-    passwordWo?: pulumi.Input<string>;
-    /**
      * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      */
     passwordWoVersion?: pulumi.Input<number>;
@@ -196,12 +182,6 @@ export interface JobCredentialArgs {
      * The password to use for this Elastic Job credential.
      */
     password?: pulumi.Input<string>;
-    /**
-     * The password to use for this Elastic Job credential.
-     *
-     * > **Note:** One of `password` or `passwordWo` must be specified.
-     */
-    passwordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      */

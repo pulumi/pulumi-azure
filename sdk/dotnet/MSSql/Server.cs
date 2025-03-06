@@ -191,14 +191,6 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-        /// 
-        /// &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        /// </summary>
-        [Output("administratorLoginPasswordWo")]
-        public Output<string?> AdministratorLoginPasswordWo { get; private set; } = null!;
-
-        /// <summary>
         /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         /// </summary>
         [Output("administratorLoginPasswordWoVersion")]
@@ -334,7 +326,6 @@ namespace Pulumi.Azure.MSSql
                 AdditionalSecretOutputs =
                 {
                     "administratorLoginPassword",
-                    "administratorLoginPasswordWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -378,24 +369,6 @@ namespace Pulumi.Azure.MSSql
             {
                 var emptySecret = Output.CreateSecret(0);
                 _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("administratorLoginPasswordWo")]
-        private Input<string>? _administratorLoginPasswordWo;
-
-        /// <summary>
-        /// The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-        /// 
-        /// &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        /// </summary>
-        public Input<string>? AdministratorLoginPasswordWo
-        {
-            get => _administratorLoginPasswordWo;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _administratorLoginPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 
@@ -526,24 +499,6 @@ namespace Pulumi.Azure.MSSql
             {
                 var emptySecret = Output.CreateSecret(0);
                 _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("administratorLoginPasswordWo")]
-        private Input<string>? _administratorLoginPasswordWo;
-
-        /// <summary>
-        /// The Password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). 
-        /// 
-        /// &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        /// </summary>
-        public Input<string>? AdministratorLoginPasswordWo
-        {
-            get => _administratorLoginPasswordWo;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _administratorLoginPasswordWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

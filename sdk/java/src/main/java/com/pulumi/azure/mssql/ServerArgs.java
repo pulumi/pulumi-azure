@@ -52,25 +52,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-     * 
-     * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-     * 
-     */
-    @Import(name="administratorLoginPasswordWo")
-    private @Nullable Output<String> administratorLoginPasswordWo;
-
-    /**
-     * @return The Password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-     * 
-     * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-     * 
-     */
-    public Optional<Output<String>> administratorLoginPasswordWo() {
-        return Optional.ofNullable(this.administratorLoginPasswordWo);
-    }
-
-    /**
      * An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
      * 
      */
@@ -305,7 +286,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     private ServerArgs(ServerArgs $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorLoginPassword = $.administratorLoginPassword;
-        this.administratorLoginPasswordWo = $.administratorLoginPasswordWo;
         this.administratorLoginPasswordWoVersion = $.administratorLoginPasswordWoVersion;
         this.azureadAdministrator = $.azureadAdministrator;
         this.connectionPolicy = $.connectionPolicy;
@@ -380,31 +360,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder administratorLoginPassword(String administratorLoginPassword) {
             return administratorLoginPassword(Output.of(administratorLoginPassword));
-        }
-
-        /**
-         * @param administratorLoginPasswordWo The Password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-         * 
-         * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder administratorLoginPasswordWo(@Nullable Output<String> administratorLoginPasswordWo) {
-            $.administratorLoginPasswordWo = administratorLoginPasswordWo;
-            return this;
-        }
-
-        /**
-         * @param administratorLoginPasswordWo The Password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-         * 
-         * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder administratorLoginPasswordWo(String administratorLoginPasswordWo) {
-            return administratorLoginPasswordWo(Output.of(administratorLoginPasswordWo));
         }
 
         /**

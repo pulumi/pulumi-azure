@@ -195,10 +195,6 @@ type Server struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
-	// The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-	//
-	// > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
-	AdministratorLoginPasswordWo pulumi.StringPtrOutput `pulumi:"administratorLoginPasswordWo"`
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion pulumi.IntPtrOutput `pulumi:"administratorLoginPasswordWoVersion"`
 	// An `azureadAdministrator` block as defined below.
@@ -265,12 +261,8 @@ func NewServer(ctx *pulumi.Context,
 	if args.AdministratorLoginPassword != nil {
 		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringPtrInput)
 	}
-	if args.AdministratorLoginPasswordWo != nil {
-		args.AdministratorLoginPasswordWo = pulumi.ToSecret(args.AdministratorLoginPasswordWo).(pulumi.StringPtrInput)
-	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"administratorLoginPassword",
-		"administratorLoginPasswordWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -300,10 +292,6 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-	//
-	// > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
-	AdministratorLoginPasswordWo *string `pulumi:"administratorLoginPasswordWo"`
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// An `azureadAdministrator` block as defined below.
@@ -353,10 +341,6 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-	//
-	// > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
-	AdministratorLoginPasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// An `azureadAdministrator` block as defined below.
@@ -410,10 +394,6 @@ type serverArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-	//
-	// > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
-	AdministratorLoginPasswordWo *string `pulumi:"administratorLoginPasswordWo"`
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// An `azureadAdministrator` block as defined below.
@@ -460,10 +440,6 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-	//
-	// > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
-	AdministratorLoginPasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// An `azureadAdministrator` block as defined below.
@@ -599,13 +575,6 @@ func (o ServerOutput) AdministratorLogin() pulumi.StringOutput {
 // The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 func (o ServerOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
-}
-
-// The Password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-//
-// > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
-func (o ServerOutput) AdministratorLoginPasswordWo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.

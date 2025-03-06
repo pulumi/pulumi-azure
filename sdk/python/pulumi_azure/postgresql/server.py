@@ -27,7 +27,6 @@ class ServerArgs:
                  version: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -56,9 +55,6 @@ class ServerArgs:
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server.
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Server.
-               
-               * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -86,8 +82,6 @@ class ServerArgs:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        if administrator_login_password_wo is not None:
-            pulumi.set(__self__, "administrator_login_password_wo", administrator_login_password_wo)
         if administrator_login_password_wo_version is not None:
             pulumi.set(__self__, "administrator_login_password_wo_version", administrator_login_password_wo_version)
         if auto_grow_enabled is not None:
@@ -196,20 +190,6 @@ class ServerArgs:
     @administrator_login_password.setter
     def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_login_password", value)
-
-    @property
-    @pulumi.getter(name="administratorLoginPasswordWo")
-    def administrator_login_password_wo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Password associated with the `administrator_login` for the PostgreSQL Server.
-
-        * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-        """
-        return pulumi.get(self, "administrator_login_password_wo")
-
-    @administrator_login_password_wo.setter
-    def administrator_login_password_wo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "administrator_login_password_wo", value)
 
     @property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
@@ -411,7 +391,6 @@ class _ServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -437,9 +416,6 @@ class _ServerState:
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server.
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Server.
-               
-               * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -472,8 +448,6 @@ class _ServerState:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        if administrator_login_password_wo is not None:
-            pulumi.set(__self__, "administrator_login_password_wo", administrator_login_password_wo)
         if administrator_login_password_wo_version is not None:
             pulumi.set(__self__, "administrator_login_password_wo_version", administrator_login_password_wo_version)
         if auto_grow_enabled is not None:
@@ -540,20 +514,6 @@ class _ServerState:
     @administrator_login_password.setter
     def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_login_password", value)
-
-    @property
-    @pulumi.getter(name="administratorLoginPasswordWo")
-    def administrator_login_password_wo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Password associated with the `administrator_login` for the PostgreSQL Server.
-
-        * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-        """
-        return pulumi.get(self, "administrator_login_password_wo")
-
-    @administrator_login_password_wo.setter
-    def administrator_login_password_wo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "administrator_login_password_wo", value)
 
     @property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")
@@ -821,7 +781,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -884,9 +843,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server.
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Server.
-               
-               * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -974,7 +930,6 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1006,7 +961,6 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
-            __props__.__dict__["administrator_login_password_wo"] = administrator_login_password_wo
             __props__.__dict__["administrator_login_password_wo_version"] = administrator_login_password_wo_version
             __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
             __props__.__dict__["backup_retention_days"] = backup_retention_days
@@ -1050,7 +1004,6 @@ class Server(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_login_password: Optional[pulumi.Input[str]] = None,
-            administrator_login_password_wo: Optional[pulumi.Input[str]] = None,
             administrator_login_password_wo_version: Optional[pulumi.Input[int]] = None,
             auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1081,9 +1034,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server.
-        :param pulumi.Input[str] administrator_login_password_wo: The Password associated with the `administrator_login` for the PostgreSQL Server.
-               
-               * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
         :param pulumi.Input[int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
@@ -1118,7 +1068,6 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_login_password"] = administrator_login_password
-        __props__.__dict__["administrator_login_password_wo"] = administrator_login_password_wo
         __props__.__dict__["administrator_login_password_wo_version"] = administrator_login_password_wo_version
         __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
         __props__.__dict__["backup_retention_days"] = backup_retention_days
@@ -1157,16 +1106,6 @@ class Server(pulumi.CustomResource):
         The Password associated with the `administrator_login` for the PostgreSQL Server.
         """
         return pulumi.get(self, "administrator_login_password")
-
-    @property
-    @pulumi.getter(name="administratorLoginPasswordWo")
-    def administrator_login_password_wo(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Password associated with the `administrator_login` for the PostgreSQL Server.
-
-        * > **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-        """
-        return pulumi.get(self, "administrator_login_password_wo")
 
     @property
     @pulumi.getter(name="administratorLoginPasswordWoVersion")

@@ -146,24 +146,6 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * The password to use for this Elastic Job credential.
-     * 
-     * &gt; **Note:** One of `password` or `password_wo` must be specified.
-     * 
-     */
-    @Export(name="passwordWo", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> passwordWo;
-
-    /**
-     * @return The password to use for this Elastic Job credential.
-     * 
-     * &gt; **Note:** One of `password` or `password_wo` must be specified.
-     * 
-     */
-    public Output<Optional<String>> passwordWo() {
-        return Codegen.optional(this.passwordWo);
-    }
-    /**
      * An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
      * 
      */

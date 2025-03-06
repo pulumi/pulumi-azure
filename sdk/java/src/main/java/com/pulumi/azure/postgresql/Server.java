@@ -118,24 +118,6 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administratorLoginPassword);
     }
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Server.
-     * 
-     * * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-     * 
-     */
-    @Export(name="administratorLoginPasswordWo", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> administratorLoginPasswordWo;
-
-    /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Server.
-     * 
-     * * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-     * 
-     */
-    public Output<Optional<String>> administratorLoginPasswordWo() {
-        return Codegen.optional(this.administratorLoginPasswordWo);
-    }
-    /**
      * An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
      * 
      */

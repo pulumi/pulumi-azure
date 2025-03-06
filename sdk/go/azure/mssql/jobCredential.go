@@ -95,10 +95,6 @@ type JobCredential struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The password to use for this Elastic Job credential.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// The password to use for this Elastic Job credential.
-	//
-	// > **Note:** One of `password` or `passwordWo` must be specified.
-	PasswordWo pulumi.StringPtrOutput `pulumi:"passwordWo"`
 	// An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrOutput `pulumi:"passwordWoVersion"`
 	// The username to use for this Elastic Job credential.
@@ -154,10 +150,6 @@ type jobCredentialState struct {
 	Name *string `pulumi:"name"`
 	// The password to use for this Elastic Job credential.
 	Password *string `pulumi:"password"`
-	// The password to use for this Elastic Job credential.
-	//
-	// > **Note:** One of `password` or `passwordWo` must be specified.
-	PasswordWo *string `pulumi:"passwordWo"`
 	// An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// The username to use for this Elastic Job credential.
@@ -171,10 +163,6 @@ type JobCredentialState struct {
 	Name pulumi.StringPtrInput
 	// The password to use for this Elastic Job credential.
 	Password pulumi.StringPtrInput
-	// The password to use for this Elastic Job credential.
-	//
-	// > **Note:** One of `password` or `passwordWo` must be specified.
-	PasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrInput
 	// The username to use for this Elastic Job credential.
@@ -192,10 +180,6 @@ type jobCredentialArgs struct {
 	Name *string `pulumi:"name"`
 	// The password to use for this Elastic Job credential.
 	Password *string `pulumi:"password"`
-	// The password to use for this Elastic Job credential.
-	//
-	// > **Note:** One of `password` or `passwordWo` must be specified.
-	PasswordWo *string `pulumi:"passwordWo"`
 	// An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// The username to use for this Elastic Job credential.
@@ -210,10 +194,6 @@ type JobCredentialArgs struct {
 	Name pulumi.StringPtrInput
 	// The password to use for this Elastic Job credential.
 	Password pulumi.StringPtrInput
-	// The password to use for this Elastic Job credential.
-	//
-	// > **Note:** One of `password` or `passwordWo` must be specified.
-	PasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrInput
 	// The username to use for this Elastic Job credential.
@@ -320,13 +300,6 @@ func (o JobCredentialOutput) Name() pulumi.StringOutput {
 // The password to use for this Elastic Job credential.
 func (o JobCredentialOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCredential) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The password to use for this Elastic Job credential.
-//
-// > **Note:** One of `password` or `passwordWo` must be specified.
-func (o JobCredentialOutput) PasswordWo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobCredential) pulumi.StringPtrOutput { return v.PasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.

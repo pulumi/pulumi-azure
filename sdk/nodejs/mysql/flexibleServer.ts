@@ -109,10 +109,6 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly administratorPassword!: pulumi.Output<string | undefined>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-     */
-    public readonly administratorPasswordWo!: pulumi.Output<string | undefined>;
-    /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      *
      * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
@@ -235,7 +231,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             const state = argsOrState as FlexibleServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
-            resourceInputs["administratorPasswordWo"] = state ? state.administratorPasswordWo : undefined;
             resourceInputs["administratorPasswordWoVersion"] = state ? state.administratorPasswordWoVersion : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
@@ -267,7 +262,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
-            resourceInputs["administratorPasswordWo"] = args ? args.administratorPasswordWo : undefined;
             resourceInputs["administratorPasswordWoVersion"] = args ? args.administratorPasswordWoVersion : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
@@ -312,10 +306,6 @@ export interface FlexibleServerState {
      * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      */
     administratorPassword?: pulumi.Input<string>;
-    /**
-     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-     */
-    administratorPasswordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      *
@@ -437,10 +427,6 @@ export interface FlexibleServerArgs {
      * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      */
     administratorPassword?: pulumi.Input<string>;
-    /**
-     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-     */
-    administratorPasswordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      *

@@ -73,14 +73,6 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
-        /// 
-        /// * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-        /// </summary>
-        [Output("administratorLoginPasswordWo")]
-        public Output<string?> AdministratorLoginPasswordWo { get; private set; } = null!;
-
-        /// <summary>
         /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         /// </summary>
         [Output("administratorLoginPasswordWoVersion")]
@@ -285,14 +277,6 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
-        /// 
-        /// * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-        /// </summary>
-        [Input("administratorLoginPasswordWo")]
-        public Input<string>? AdministratorLoginPasswordWo { get; set; }
-
-        /// <summary>
         /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
         /// </summary>
         [Input("administratorLoginPasswordWoVersion")]
@@ -453,14 +437,6 @@ namespace Pulumi.Azure.PostgreSql
                 _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
-
-        /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
-        /// 
-        /// * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required when `create_mode` is `Default`.
-        /// </summary>
-        [Input("administratorLoginPasswordWo")]
-        public Input<string>? AdministratorLoginPasswordWo { get; set; }
 
         /// <summary>
         /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.

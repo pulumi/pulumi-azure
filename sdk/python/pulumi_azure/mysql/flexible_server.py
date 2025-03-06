@@ -24,7 +24,6 @@ class FlexibleServerArgs:
                  resource_group_name: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
-                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -50,7 +49,6 @@ class FlexibleServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the MySQL Flexible Server.
         :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
                
                > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
@@ -90,8 +88,6 @@ class FlexibleServerArgs:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
-        if administrator_password_wo is not None:
-            pulumi.set(__self__, "administrator_password_wo", administrator_password_wo)
         if administrator_password_wo_version is not None:
             pulumi.set(__self__, "administrator_password_wo_version", administrator_password_wo_version)
         if backup_retention_days is not None:
@@ -168,18 +164,6 @@ class FlexibleServerArgs:
     @administrator_password.setter
     def administrator_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_password", value)
-
-    @property
-    @pulumi.getter(name="administratorPasswordWo")
-    def administrator_password_wo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        """
-        return pulumi.get(self, "administrator_password_wo")
-
-    @administrator_password_wo.setter
-    def administrator_password_wo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "administrator_password_wo", value)
 
     @property
     @pulumi.getter(name="administratorPasswordWoVersion")
@@ -438,7 +422,6 @@ class _FlexibleServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
-                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -467,7 +450,6 @@ class _FlexibleServerState:
         Input properties used for looking up and filtering FlexibleServer resources.
         :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the MySQL Flexible Server.
         :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
                
                > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
@@ -510,8 +492,6 @@ class _FlexibleServerState:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_password is not None:
             pulumi.set(__self__, "administrator_password", administrator_password)
-        if administrator_password_wo is not None:
-            pulumi.set(__self__, "administrator_password_wo", administrator_password_wo)
         if administrator_password_wo_version is not None:
             pulumi.set(__self__, "administrator_password_wo_version", administrator_password_wo_version)
         if backup_retention_days is not None:
@@ -584,18 +564,6 @@ class _FlexibleServerState:
     @administrator_password.setter
     def administrator_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "administrator_password", value)
-
-    @property
-    @pulumi.getter(name="administratorPasswordWo")
-    def administrator_password_wo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        """
-        return pulumi.get(self, "administrator_password_wo")
-
-    @administrator_password_wo.setter
-    def administrator_password_wo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "administrator_password_wo", value)
 
     @property
     @pulumi.getter(name="administratorPasswordWoVersion")
@@ -904,7 +872,6 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
-                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -990,7 +957,6 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the MySQL Flexible Server.
         :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
                
                > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
@@ -1108,7 +1074,6 @@ class FlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_password: Optional[pulumi.Input[str]] = None,
-                 administrator_password_wo: Optional[pulumi.Input[str]] = None,
                  administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -1141,7 +1106,6 @@ class FlexibleServer(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_password"] = None if administrator_password is None else pulumi.Output.secret(administrator_password)
-            __props__.__dict__["administrator_password_wo"] = administrator_password_wo
             __props__.__dict__["administrator_password_wo_version"] = administrator_password_wo_version
             __props__.__dict__["backup_retention_days"] = backup_retention_days
             __props__.__dict__["create_mode"] = create_mode
@@ -1182,7 +1146,6 @@ class FlexibleServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_password: Optional[pulumi.Input[str]] = None,
-            administrator_password_wo: Optional[pulumi.Input[str]] = None,
             administrator_password_wo_version: Optional[pulumi.Input[int]] = None,
             backup_retention_days: Optional[pulumi.Input[int]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
@@ -1216,7 +1179,6 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        :param pulumi.Input[str] administrator_password_wo: The Password associated with the `administrator_login` for the MySQL Flexible Server.
         :param pulumi.Input[int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
                
                > **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
@@ -1261,7 +1223,6 @@ class FlexibleServer(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = administrator_login
         __props__.__dict__["administrator_password"] = administrator_password
-        __props__.__dict__["administrator_password_wo"] = administrator_password_wo
         __props__.__dict__["administrator_password_wo_version"] = administrator_password_wo_version
         __props__.__dict__["backup_retention_days"] = backup_retention_days
         __props__.__dict__["create_mode"] = create_mode
@@ -1303,14 +1264,6 @@ class FlexibleServer(pulumi.CustomResource):
         The Password associated with the `administrator_login` for the MySQL Flexible Server.
         """
         return pulumi.get(self, "administrator_password")
-
-    @property
-    @pulumi.getter(name="administratorPasswordWo")
-    def administrator_password_wo(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Password associated with the `administrator_login` for the MySQL Flexible Server.
-        """
-        return pulumi.get(self, "administrator_password_wo")
 
     @property
     @pulumi.getter(name="administratorPasswordWoVersion")

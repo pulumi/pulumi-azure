@@ -140,12 +140,6 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly administratorPassword!: pulumi.Output<string | undefined>;
     /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
-     *
-     * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
-     */
-    public readonly administratorPasswordWo!: pulumi.Output<string | undefined>;
-    /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      */
     public readonly administratorPasswordWoVersion!: pulumi.Output<number | undefined>;
@@ -282,7 +276,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             const state = argsOrState as FlexibleServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
-            resourceInputs["administratorPasswordWo"] = state ? state.administratorPasswordWo : undefined;
             resourceInputs["administratorPasswordWoVersion"] = state ? state.administratorPasswordWoVersion : undefined;
             resourceInputs["authentication"] = state ? state.authentication : undefined;
             resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
@@ -316,7 +309,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
-            resourceInputs["administratorPasswordWo"] = args ? args.administratorPasswordWo : undefined;
             resourceInputs["administratorPasswordWoVersion"] = args ? args.administratorPasswordWoVersion : undefined;
             resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
@@ -367,12 +359,6 @@ export interface FlexibleServerState {
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      */
     administratorPassword?: pulumi.Input<string>;
-    /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
-     *
-     * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
-     */
-    administratorPasswordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      */
@@ -512,12 +498,6 @@ export interface FlexibleServerArgs {
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      */
     administratorPassword?: pulumi.Input<string>;
-    /**
-     * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
-     *
-     * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
-     */
-    administratorPasswordWo?: pulumi.Input<string>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      */

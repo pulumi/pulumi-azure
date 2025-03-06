@@ -63,25 +63,6 @@ public final class JobCredentialArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password to use for this Elastic Job credential.
-     * 
-     * &gt; **Note:** One of `password` or `password_wo` must be specified.
-     * 
-     */
-    @Import(name="passwordWo")
-    private @Nullable Output<String> passwordWo;
-
-    /**
-     * @return The password to use for this Elastic Job credential.
-     * 
-     * &gt; **Note:** One of `password` or `password_wo` must be specified.
-     * 
-     */
-    public Optional<Output<String>> passwordWo() {
-        return Optional.ofNullable(this.passwordWo);
-    }
-
-    /**
      * An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
      * 
      */
@@ -117,7 +98,6 @@ public final class JobCredentialArgs extends com.pulumi.resources.ResourceArgs {
         this.jobAgentId = $.jobAgentId;
         this.name = $.name;
         this.password = $.password;
-        this.passwordWo = $.passwordWo;
         this.passwordWoVersion = $.passwordWoVersion;
         this.username = $.username;
     }
@@ -201,31 +181,6 @@ public final class JobCredentialArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
-        }
-
-        /**
-         * @param passwordWo The password to use for this Elastic Job credential.
-         * 
-         * &gt; **Note:** One of `password` or `password_wo` must be specified.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordWo(@Nullable Output<String> passwordWo) {
-            $.passwordWo = passwordWo;
-            return this;
-        }
-
-        /**
-         * @param passwordWo The password to use for this Elastic Job credential.
-         * 
-         * &gt; **Note:** One of `password` or `password_wo` must be specified.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordWo(String passwordWo) {
-            return passwordWo(Output.of(passwordWo));
         }
 
         /**

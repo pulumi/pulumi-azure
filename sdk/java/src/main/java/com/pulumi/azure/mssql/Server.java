@@ -241,24 +241,6 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administratorLoginPassword);
     }
     /**
-     * The Password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-     * 
-     * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-     * 
-     */
-    @Export(name="administratorLoginPasswordWo", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> administratorLoginPasswordWo;
-
-    /**
-     * @return The Password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
-     * 
-     * &gt; **Note:** Either `administrator_login_password` or `administrator_login_password_wo` is required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-     * 
-     */
-    public Output<Optional<String>> administratorLoginPasswordWo() {
-        return Codegen.optional(this.administratorLoginPasswordWo);
-    }
-    /**
      * An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
      * 
      */
@@ -546,8 +528,7 @@ public class Server extends com.pulumi.resources.CustomResource {
                 Output.of(Alias.builder().type("azure:sql/sqlServer:SqlServer").build())
             ))
             .additionalSecretOutputs(List.of(
-                "administratorLoginPassword",
-                "administratorLoginPasswordWo"
+                "administratorLoginPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -126,8 +126,6 @@ type FlexibleServer struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-	AdministratorPasswordWo pulumi.StringPtrOutput `pulumi:"administratorPasswordWo"`
 	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
 	//
 	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
@@ -235,8 +233,6 @@ type flexibleServerState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-	AdministratorPasswordWo *string `pulumi:"administratorPasswordWo"`
 	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
 	//
 	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
@@ -305,8 +301,6 @@ type FlexibleServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-	AdministratorPasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
 	//
 	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
@@ -379,8 +373,6 @@ type flexibleServerArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-	AdministratorPasswordWo *string `pulumi:"administratorPasswordWo"`
 	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
 	//
 	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
@@ -444,8 +436,6 @@ type FlexibleServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-	AdministratorPasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
 	//
 	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
@@ -598,11 +588,6 @@ func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {
 // The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 func (o FlexibleServerOutput) AdministratorPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
-}
-
-// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
-func (o FlexibleServerOutput) AdministratorPasswordWo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.AdministratorPasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.

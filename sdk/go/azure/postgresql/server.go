@@ -75,10 +75,6 @@ type Server struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
-	//
-	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-	AdministratorLoginPasswordWo pulumi.StringPtrOutput `pulumi:"administratorLoginPasswordWo"`
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion pulumi.IntPtrOutput `pulumi:"administratorLoginPasswordWoVersion"`
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -182,10 +178,6 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
-	//
-	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-	AdministratorLoginPasswordWo *string `pulumi:"administratorLoginPasswordWo"`
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -241,10 +233,6 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
-	//
-	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-	AdministratorLoginPasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -304,10 +292,6 @@ type serverArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
-	//
-	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-	AdministratorLoginPasswordWo *string `pulumi:"administratorLoginPasswordWo"`
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -362,10 +346,6 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
-	//
-	// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-	AdministratorLoginPasswordWo pulumi.StringPtrInput
 	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
 	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
@@ -509,13 +489,6 @@ func (o ServerOutput) AdministratorLogin() pulumi.StringOutput {
 // The Password associated with the `administratorLogin` for the PostgreSQL Server.
 func (o ServerOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
-}
-
-// The Password associated with the `administratorLogin` for the PostgreSQL Server.
-//
-// * > **Note:** Either `administratorLoginPassword` or `administratorLoginPasswordWo` is required when `createMode` is `Default`.
-func (o ServerOutput) AdministratorLoginPasswordWo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
