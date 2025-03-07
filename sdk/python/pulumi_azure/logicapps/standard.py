@@ -31,17 +31,20 @@ class StandardArgs:
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
                  storage_account_share_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Standard resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
@@ -50,25 +53,26 @@ class StandardArgs:
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
-        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
                
                > **Note:** Setting this property will also set it in the Site Config.
+        :param pulumi.Input[bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
-               
-               > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
+        :param pulumi.Input[bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -86,6 +90,8 @@ class StandardArgs:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -96,6 +102,8 @@ class StandardArgs:
             pulumi.set(__self__, "name", name)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if scm_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "scm_publish_basic_authentication_enabled", scm_publish_basic_authentication_enabled)
         if site_config is not None:
             pulumi.set(__self__, "site_config", site_config)
         if storage_account_share_name is not None:
@@ -108,6 +116,8 @@ class StandardArgs:
             pulumi.set(__self__, "version", version)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_content_share_enabled is not None:
+            pulumi.set(__self__, "vnet_content_share_enabled", vnet_content_share_enabled)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -163,7 +173,7 @@ class StandardArgs:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
-        > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -175,7 +185,7 @@ class StandardArgs:
     @pulumi.getter(name="bundleVersion")
     def bundle_version(self) -> Optional[pulumi.Input[str]]:
         """
-        If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+        If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         """
         return pulumi.get(self, "bundle_version")
 
@@ -232,6 +242,18 @@ class StandardArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @ftp_publish_basic_authentication_enabled.setter
+    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
+
+    @property
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -271,7 +293,7 @@ class StandardArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Logic App Changing this forces a new resource to be created.
+        Specifies the name of the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -292,6 +314,18 @@ class StandardArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="scmPublishBasicAuthenticationEnabled")
+    def scm_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "scm_publish_basic_authentication_enabled")
+
+    @scm_publish_basic_authentication_enabled.setter
+    def scm_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="siteConfig")
@@ -343,8 +377,6 @@ class StandardArgs:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         The runtime version associated with the Logic App. Defaults to `~4`.
-
-        > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
         return pulumi.get(self, "version")
 
@@ -361,6 +393,18 @@ class StandardArgs:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="vnetContentShareEnabled")
+    def vnet_content_share_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_content_share_enabled")
+
+    @vnet_content_share_enabled.setter
+    def vnet_content_share_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_content_share_enabled", value)
+
 
 @pulumi.input_type
 class _StandardState:
@@ -374,6 +418,7 @@ class _StandardState:
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  default_hostname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -383,6 +428,7 @@ class _StandardState:
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -391,31 +437,34 @@ class _StandardState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Standard resources.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
-        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+        :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
+        :param pulumi.Input[str] kind: The Logic App kind.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
-        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        :param pulumi.Input[str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
                
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
@@ -423,8 +472,7 @@ class _StandardState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
-               
-               > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
+        :param pulumi.Input[bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         if app_service_plan_id is not None:
             pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -444,6 +492,8 @@ class _StandardState:
             pulumi.set(__self__, "default_hostname", default_hostname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -462,6 +512,8 @@ class _StandardState:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if scm_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "scm_publish_basic_authentication_enabled", scm_publish_basic_authentication_enabled)
         if site_config is not None:
             pulumi.set(__self__, "site_config", site_config)
         if site_credentials is not None:
@@ -480,6 +532,8 @@ class _StandardState:
             pulumi.set(__self__, "version", version)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_content_share_enabled is not None:
+            pulumi.set(__self__, "vnet_content_share_enabled", vnet_content_share_enabled)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -499,7 +553,7 @@ class _StandardState:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
-        > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -511,7 +565,7 @@ class _StandardState:
     @pulumi.getter(name="bundleVersion")
     def bundle_version(self) -> Optional[pulumi.Input[str]]:
         """
-        If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+        If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         """
         return pulumi.get(self, "bundle_version")
 
@@ -571,7 +625,7 @@ class _StandardState:
     @pulumi.getter(name="defaultHostname")
     def default_hostname(self) -> Optional[pulumi.Input[str]]:
         """
-        The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+        The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
         """
         return pulumi.get(self, "default_hostname")
 
@@ -590,6 +644,18 @@ class _StandardState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @ftp_publish_basic_authentication_enabled.setter
+    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -619,7 +685,7 @@ class _StandardState:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The Logic App kind - will be `functionapp,workflowapp`
+        The Logic App kind.
         """
         return pulumi.get(self, "kind")
 
@@ -643,7 +709,7 @@ class _StandardState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Logic App Changing this forces a new resource to be created.
+        Specifies the name of the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -655,7 +721,7 @@ class _StandardState:
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
@@ -700,6 +766,18 @@ class _StandardState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="scmPublishBasicAuthenticationEnabled")
+    def scm_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "scm_publish_basic_authentication_enabled")
+
+    @scm_publish_basic_authentication_enabled.setter
+    def scm_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="siteConfig")
@@ -787,8 +865,6 @@ class _StandardState:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         The runtime version associated with the Logic App. Defaults to `~4`.
-
-        > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
         return pulumi.get(self, "version")
 
@@ -805,6 +881,18 @@ class _StandardState:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="vnetContentShareEnabled")
+    def vnet_content_share_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_content_share_enabled")
+
+    @vnet_content_share_enabled.setter
+    def vnet_content_share_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vnet_content_share_enabled", value)
+
 
 class Standard(pulumi.CustomResource):
     @overload
@@ -818,12 +906,14 @@ class Standard(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -832,6 +922,7 @@ class Standard(pulumi.CustomResource):
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Logic App (Standard / Single Tenant)
@@ -845,28 +936,25 @@ class Standard(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
+            name="example",
             location="West Europe")
         example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+            name="examplestorageaccount",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            kind="elastic",
-            sku={
-                "tier": "WorkflowStandard",
-                "size": "WS1",
-            })
+            os_type="Windows",
+            sku_name="WS1")
         example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            app_service_plan_id=example_azurerm_app_service_plan["id"],
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             app_settings={
@@ -877,23 +965,21 @@ class Standard(pulumi.CustomResource):
 
         ### For Container Mode)
 
-        > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
-
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
+            name="example",
             location="West Europe")
         example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+            name="examplestorageaccount",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
             kind="Linux",
@@ -903,7 +989,7 @@ class Standard(pulumi.CustomResource):
                 "size": "WS1",
             })
         example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -932,28 +1018,29 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
-        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
                
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
-               
-               > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
+        :param pulumi.Input[bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         ...
     @overload
@@ -973,28 +1060,25 @@ class Standard(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
+            name="example",
             location="West Europe")
         example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+            name="examplestorageaccount",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            kind="elastic",
-            sku={
-                "tier": "WorkflowStandard",
-                "size": "WS1",
-            })
+            os_type="Windows",
+            sku_name="WS1")
         example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            app_service_plan_id=example_azurerm_app_service_plan["id"],
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             app_settings={
@@ -1005,23 +1089,21 @@ class Standard(pulumi.CustomResource):
 
         ### For Container Mode)
 
-        > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
-
         ```python
         import pulumi
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="azure-functions-test-rg",
+            name="example",
             location="West Europe")
         example_account = azure.storage.Account("example",
-            name="functionsapptestsa",
+            name="examplestorageaccount",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
+            name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
             kind="Linux",
@@ -1031,7 +1113,7 @@ class Standard(pulumi.CustomResource):
                 "size": "WS1",
             })
         example_standard = azure.logicapps.Standard("example",
-            name="test-azure-functions",
+            name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
@@ -1077,12 +1159,14 @@ class Standard(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scm_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -1091,6 +1175,7 @@ class Standard(pulumi.CustomResource):
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1109,6 +1194,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -1117,6 +1203,7 @@ class Standard(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scm_publish_basic_authentication_enabled"] = scm_publish_basic_authentication_enabled
             __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")
@@ -1129,6 +1216,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["use_extension_bundle"] = use_extension_bundle
             __props__.__dict__["version"] = version
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["vnet_content_share_enabled"] = vnet_content_share_enabled
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1156,6 +1244,7 @@ class Standard(pulumi.CustomResource):
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
             kind: Optional[pulumi.Input[str]] = None,
@@ -1165,6 +1254,7 @@ class Standard(pulumi.CustomResource):
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             public_network_access: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            scm_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             site_config: Optional[pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -1173,7 +1263,8 @@ class Standard(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             use_extension_bundle: Optional[pulumi.Input[bool]] = None,
             version: Optional[pulumi.Input[str]] = None,
-            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None) -> 'Standard':
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+            vnet_content_share_enabled: Optional[pulumi.Input[bool]] = None) -> 'Standard':
         """
         Get an existing Standard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1184,25 +1275,27 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
-        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        :param pulumi.Input[str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+        :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
         :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
+        :param pulumi.Input[str] kind: The Logic App kind.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
-        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        :param pulumi.Input[str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
                
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
@@ -1210,8 +1303,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App. Defaults to `~4`.
-               
-               > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
+        :param pulumi.Input[bool] vnet_content_share_enabled: Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1226,6 +1318,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["kind"] = kind
@@ -1235,6 +1328,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
         __props__.__dict__["public_network_access"] = public_network_access
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["scm_publish_basic_authentication_enabled"] = scm_publish_basic_authentication_enabled
         __props__.__dict__["site_config"] = site_config
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
@@ -1244,6 +1338,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["use_extension_bundle"] = use_extension_bundle
         __props__.__dict__["version"] = version
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+        __props__.__dict__["vnet_content_share_enabled"] = vnet_content_share_enabled
         return Standard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1260,7 +1355,7 @@ class Standard(pulumi.CustomResource):
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
-        > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1268,7 +1363,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="bundleVersion")
     def bundle_version(self) -> pulumi.Output[Optional[str]]:
         """
-        If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+        If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         """
         return pulumi.get(self, "bundle_version")
 
@@ -1308,7 +1403,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="defaultHostname")
     def default_hostname(self) -> pulumi.Output[str]:
         """
-        The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
+        The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
         """
         return pulumi.get(self, "default_hostname")
 
@@ -1319,6 +1414,14 @@ class Standard(pulumi.CustomResource):
         Is the Logic App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -1340,7 +1443,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        The Logic App kind - will be `functionapp,workflowapp`
+        The Logic App kind.
         """
         return pulumi.get(self, "kind")
 
@@ -1356,7 +1459,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Logic App Changing this forces a new resource to be created.
+        Specifies the name of the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1364,7 +1467,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
@@ -1393,6 +1496,14 @@ class Standard(pulumi.CustomResource):
         The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="scmPublishBasicAuthenticationEnabled")
+    def scm_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "scm_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="siteConfig")
@@ -1452,8 +1563,6 @@ class Standard(pulumi.CustomResource):
     def version(self) -> pulumi.Output[Optional[str]]:
         """
         The runtime version associated with the Logic App. Defaults to `~4`.
-
-        > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         """
         return pulumi.get(self, "version")
 
@@ -1461,4 +1570,12 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
+    @pulumi.getter(name="vnetContentShareEnabled")
+    def vnet_content_share_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_content_share_enabled")
 

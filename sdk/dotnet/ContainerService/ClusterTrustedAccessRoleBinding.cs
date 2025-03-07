@@ -10,12 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
-    /// &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
-    /// 
-    /// Manages a Kubernetes Cluster Trusted Access Role Binding
-    /// &gt; **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
-    /// .
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

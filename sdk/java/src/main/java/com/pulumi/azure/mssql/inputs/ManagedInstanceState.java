@@ -81,6 +81,25 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     * 
+     * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     * 
+     */
+    @Import(name="databaseFormat")
+    private @Nullable Output<String> databaseFormat;
+
+    /**
+     * @return Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     * 
+     * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     * 
+     */
+    public Optional<Output<String>> databaseFormat() {
+        return Optional.ofNullable(this.databaseFormat);
+    }
+
+    /**
      * The Dns Zone where the SQL Managed Instance is located.
      * 
      */
@@ -123,6 +142,21 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> fqdn() {
         return Optional.ofNullable(this.fqdn);
+    }
+
+    /**
+     * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     * 
+     */
+    @Import(name="hybridSecondaryUsage")
+    private @Nullable Output<String> hybridSecondaryUsage;
+
+    /**
+     * @return Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     * 
+     */
+    public Optional<Output<String>> hybridSecondaryUsage() {
+        return Optional.ofNullable(this.hybridSecondaryUsage);
     }
 
     /**
@@ -406,9 +440,11 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         this.administratorLoginPassword = $.administratorLoginPassword;
         this.azureActiveDirectoryAdministrator = $.azureActiveDirectoryAdministrator;
         this.collation = $.collation;
+        this.databaseFormat = $.databaseFormat;
         this.dnsZone = $.dnsZone;
         this.dnsZonePartnerId = $.dnsZonePartnerId;
         this.fqdn = $.fqdn;
+        this.hybridSecondaryUsage = $.hybridSecondaryUsage;
         this.identity = $.identity;
         this.licenseType = $.licenseType;
         this.location = $.location;
@@ -532,6 +568,31 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param databaseFormat Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+         * 
+         * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseFormat(@Nullable Output<String> databaseFormat) {
+            $.databaseFormat = databaseFormat;
+            return this;
+        }
+
+        /**
+         * @param databaseFormat Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+         * 
+         * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseFormat(String databaseFormat) {
+            return databaseFormat(Output.of(databaseFormat));
+        }
+
+        /**
          * @param dnsZone The Dns Zone where the SQL Managed Instance is located.
          * 
          * @return builder
@@ -592,6 +653,27 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder fqdn(String fqdn) {
             return fqdn(Output.of(fqdn));
+        }
+
+        /**
+         * @param hybridSecondaryUsage Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridSecondaryUsage(@Nullable Output<String> hybridSecondaryUsage) {
+            $.hybridSecondaryUsage = hybridSecondaryUsage;
+            return this;
+        }
+
+        /**
+         * @param hybridSecondaryUsage Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridSecondaryUsage(String hybridSecondaryUsage) {
+            return hybridSecondaryUsage(Output.of(hybridSecondaryUsage));
         }
 
         /**

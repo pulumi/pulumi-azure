@@ -88,13 +88,19 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The password part of the credential.
+        /// The password to use for this Elastic Job credential.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The username part of the credential.
+        /// An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        /// </summary>
+        [Output("passwordWoVersion")]
+        public Output<int?> PasswordWoVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The username to use for this Elastic Job credential.
         /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
@@ -161,11 +167,11 @@ namespace Pulumi.Azure.MSSql
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("password", required: true)]
+        [Input("password")]
         private Input<string>? _password;
 
         /// <summary>
-        /// The password part of the credential.
+        /// The password to use for this Elastic Job credential.
         /// </summary>
         public Input<string>? Password
         {
@@ -178,7 +184,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// The username part of the credential.
+        /// An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<int>? PasswordWoVersion { get; set; }
+
+        /// <summary>
+        /// The username to use for this Elastic Job credential.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
@@ -207,7 +219,7 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _password;
 
         /// <summary>
-        /// The password part of the credential.
+        /// The password to use for this Elastic Job credential.
         /// </summary>
         public Input<string>? Password
         {
@@ -220,7 +232,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// The username part of the credential.
+        /// An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        /// </summary>
+        [Input("passwordWoVersion")]
+        public Input<int>? PasswordWoVersion { get; set; }
+
+        /// <summary>
+        /// The username to use for this Elastic Job credential.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

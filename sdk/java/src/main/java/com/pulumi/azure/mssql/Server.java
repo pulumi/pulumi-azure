@@ -14,6 +14,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -226,18 +227,32 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.administratorLogin;
     }
     /**
-     * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
+     * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      * 
      */
     @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
-     * @return The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
+     * @return The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      * 
      */
     public Output<Optional<String>> administratorLoginPassword() {
         return Codegen.optional(this.administratorLoginPassword);
+    }
+    /**
+     * An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+     * 
+     */
+    @Export(name="administratorLoginPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> administratorLoginPasswordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+     * 
+     */
+    public Output<Optional<Integer>> administratorLoginPasswordWoVersion() {
+        return Codegen.optional(this.administratorLoginPasswordWoVersion);
     }
     /**
      * An `azuread_administrator` block as defined below.

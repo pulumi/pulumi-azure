@@ -117,14 +117,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentType);
     }
     /**
-     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expirationDate;
 
     /**
-     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
+     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> expirationDate() {

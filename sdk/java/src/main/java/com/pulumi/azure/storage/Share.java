@@ -238,6 +238,8 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
      * 
+     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     * 
      * @deprecated
      * This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.
      * 
@@ -248,6 +250,8 @@ public class Share extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
      */
     public Output<Optional<String>> storageAccountName() {

@@ -337,6 +337,24 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.collation);
     }
     /**
+     * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     * 
+     * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     * 
+     */
+    @Export(name="databaseFormat", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> databaseFormat;
+
+    /**
+     * @return Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+     * 
+     * &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+     * 
+     */
+    public Output<Optional<String>> databaseFormat() {
+        return Codegen.optional(this.databaseFormat);
+    }
+    /**
      * The Dns Zone where the SQL Managed Instance is located.
      * 
      */
@@ -377,6 +395,20 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> fqdn() {
         return this.fqdn;
+    }
+    /**
+     * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     * 
+     */
+    @Export(name="hybridSecondaryUsage", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> hybridSecondaryUsage;
+
+    /**
+     * @return Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+     * 
+     */
+    public Output<Optional<String>> hybridSecondaryUsage() {
+        return Codegen.optional(this.hybridSecondaryUsage);
     }
     /**
      * An `identity` block as defined below.

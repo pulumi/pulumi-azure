@@ -17,14 +17,14 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetStandardPlainArgs Empty = new GetStandardPlainArgs();
 
     /**
-     * The name of this Logic App.
+     * The name of the Logic App.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of this Logic App.
+     * @return The name of the Logic App.
      * 
      */
     public String name() {
@@ -88,7 +88,7 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of this Logic App.
+         * @param name The name of the Logic App.
          * 
          * @return builder
          * 

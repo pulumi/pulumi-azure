@@ -30,7 +30,7 @@ public final class GetStandardSiteConfigIpRestriction {
      */
     private @Nullable String ipAddress;
     /**
-     * @return The name of this Logic App.
+     * @return The name of the Logic App.
      * 
      */
     private String name;
@@ -73,7 +73,7 @@ public final class GetStandardSiteConfigIpRestriction {
         return Optional.ofNullable(this.ipAddress);
     }
     /**
-     * @return The name of this Logic App.
+     * @return The name of the Logic App.
      * 
      */
     public String name() {

@@ -19,6 +19,40 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
     public static final EligibleRoleAssignmentArgs Empty = new EligibleRoleAssignmentArgs();
 
     /**
+     * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="condition")
+    private @Nullable Output<String> condition;
+
+    /**
+     * @return The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> condition() {
+        return Optional.ofNullable(this.condition);
+    }
+
+    /**
+     * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * 
+     */
+    @Import(name="conditionVersion")
+    private @Nullable Output<String> conditionVersion;
+
+    /**
+     * @return The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+     * 
+     */
+    public Optional<Output<String>> conditionVersion() {
+        return Optional.ofNullable(this.conditionVersion);
+    }
+
+    /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      * 
      */
@@ -111,6 +145,8 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
     private EligibleRoleAssignmentArgs() {}
 
     private EligibleRoleAssignmentArgs(EligibleRoleAssignmentArgs $) {
+        this.condition = $.condition;
+        this.conditionVersion = $.conditionVersion;
         this.justification = $.justification;
         this.principalId = $.principalId;
         this.roleDefinitionId = $.roleDefinitionId;
@@ -135,6 +171,52 @@ public final class EligibleRoleAssignmentArgs extends com.pulumi.resources.Resou
 
         public Builder(EligibleRoleAssignmentArgs defaults) {
             $ = new EligibleRoleAssignmentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param condition The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder condition(@Nullable Output<String> condition) {
+            $.condition = condition;
+            return this;
+        }
+
+        /**
+         * @param condition The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder condition(String condition) {
+            return condition(Output.of(condition));
+        }
+
+        /**
+         * @param conditionVersion The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionVersion(@Nullable Output<String> conditionVersion) {
+            $.conditionVersion = conditionVersion;
+            return this;
+        }
+
+        /**
+         * @param conditionVersion The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `condition_version` is required when specifying `condition` and vice versa.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder conditionVersion(String conditionVersion) {
+            return conditionVersion(Output.of(conditionVersion));
         }
 
         /**

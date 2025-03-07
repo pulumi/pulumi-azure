@@ -155,8 +155,10 @@ type FlexibleServer struct {
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	AdministratorPasswordWoVersion pulumi.IntPtrOutput `pulumi:"administratorPasswordWoVersion"`
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationOutput `pulumi:"authentication"`
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
@@ -274,8 +276,10 @@ type flexibleServerState struct {
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	AdministratorPasswordWoVersion *int `pulumi:"administratorPasswordWoVersion"`
 	// An `authentication` block as defined below.
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
@@ -354,8 +358,10 @@ type FlexibleServerState struct {
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	AdministratorPasswordWoVersion pulumi.IntPtrInput
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationPtrInput
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
@@ -438,8 +444,10 @@ type flexibleServerArgs struct {
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	AdministratorPasswordWoVersion *int `pulumi:"administratorPasswordWoVersion"`
 	// An `authentication` block as defined below.
 	Authentication *FlexibleServerAuthentication `pulumi:"authentication"`
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
@@ -517,8 +525,10 @@ type FlexibleServerArgs struct {
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	AdministratorPasswordWoVersion pulumi.IntPtrInput
 	// An `authentication` block as defined below.
 	Authentication FlexibleServerAuthenticationPtrInput
 	// Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
@@ -684,9 +694,14 @@ func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
+// The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
 func (o FlexibleServerOutput) AdministratorPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+func (o FlexibleServerOutput) AdministratorPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.IntPtrOutput { return v.AdministratorPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // An `authentication` block as defined below.

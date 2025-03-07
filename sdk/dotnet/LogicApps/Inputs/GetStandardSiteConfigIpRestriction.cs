@@ -31,7 +31,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public string? IpAddress { get; set; }
 
         /// <summary>
-        /// The name of this Logic App.
+        /// The name of the Logic App.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

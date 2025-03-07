@@ -32,38 +32,38 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     @Import(name="namespaceName")
     private @Nullable String namespaceName;
 
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
 
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     @Import(name="resourceGroupName")
     private @Nullable String resourceGroupName;
 
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -85,19 +85,19 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
 
     /**
      * @deprecated
-     * `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     @Import(name="topicName")
     private @Nullable String topicName;
 
     /**
      * @deprecated
-     * `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+     * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
     public Optional<String> topicName() {
         return Optional.ofNullable(this.topicName);
     }
@@ -145,10 +145,10 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          * @deprecated
-         * `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+         * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+        @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
         public Builder namespaceName(@Nullable String namespaceName) {
             $.namespaceName = namespaceName;
             return this;
@@ -158,10 +158,10 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          * @deprecated
-         * `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+         * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+        @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
@@ -182,10 +182,10 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
          * @return builder
          * 
          * @deprecated
-         * `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.
+         * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider. */
+        @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
         public Builder topicName(@Nullable String topicName) {
             $.topicName = topicName;
             return this;

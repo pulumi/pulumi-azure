@@ -1148,6 +1148,562 @@ func (o TagRulesMetricRuleFilteringTagArrayOutput) Index(i pulumi.IntInput) TagR
 	}).(TagRulesMetricRuleFilteringTagOutput)
 }
 
+type GetMonitorEnvironmentProperty struct {
+	EnvironmentInfos []GetMonitorEnvironmentPropertyEnvironmentInfo `pulumi:"environmentInfos"`
+}
+
+// GetMonitorEnvironmentPropertyInput is an input type that accepts GetMonitorEnvironmentPropertyArgs and GetMonitorEnvironmentPropertyOutput values.
+// You can construct a concrete instance of `GetMonitorEnvironmentPropertyInput` via:
+//
+//	GetMonitorEnvironmentPropertyArgs{...}
+type GetMonitorEnvironmentPropertyInput interface {
+	pulumi.Input
+
+	ToGetMonitorEnvironmentPropertyOutput() GetMonitorEnvironmentPropertyOutput
+	ToGetMonitorEnvironmentPropertyOutputWithContext(context.Context) GetMonitorEnvironmentPropertyOutput
+}
+
+type GetMonitorEnvironmentPropertyArgs struct {
+	EnvironmentInfos GetMonitorEnvironmentPropertyEnvironmentInfoArrayInput `pulumi:"environmentInfos"`
+}
+
+func (GetMonitorEnvironmentPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (i GetMonitorEnvironmentPropertyArgs) ToGetMonitorEnvironmentPropertyOutput() GetMonitorEnvironmentPropertyOutput {
+	return i.ToGetMonitorEnvironmentPropertyOutputWithContext(context.Background())
+}
+
+func (i GetMonitorEnvironmentPropertyArgs) ToGetMonitorEnvironmentPropertyOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorEnvironmentPropertyOutput)
+}
+
+// GetMonitorEnvironmentPropertyArrayInput is an input type that accepts GetMonitorEnvironmentPropertyArray and GetMonitorEnvironmentPropertyArrayOutput values.
+// You can construct a concrete instance of `GetMonitorEnvironmentPropertyArrayInput` via:
+//
+//	GetMonitorEnvironmentPropertyArray{ GetMonitorEnvironmentPropertyArgs{...} }
+type GetMonitorEnvironmentPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitorEnvironmentPropertyArrayOutput() GetMonitorEnvironmentPropertyArrayOutput
+	ToGetMonitorEnvironmentPropertyArrayOutputWithContext(context.Context) GetMonitorEnvironmentPropertyArrayOutput
+}
+
+type GetMonitorEnvironmentPropertyArray []GetMonitorEnvironmentPropertyInput
+
+func (GetMonitorEnvironmentPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (i GetMonitorEnvironmentPropertyArray) ToGetMonitorEnvironmentPropertyArrayOutput() GetMonitorEnvironmentPropertyArrayOutput {
+	return i.ToGetMonitorEnvironmentPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitorEnvironmentPropertyArray) ToGetMonitorEnvironmentPropertyArrayOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorEnvironmentPropertyArrayOutput)
+}
+
+type GetMonitorEnvironmentPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorEnvironmentPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (o GetMonitorEnvironmentPropertyOutput) ToGetMonitorEnvironmentPropertyOutput() GetMonitorEnvironmentPropertyOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyOutput) ToGetMonitorEnvironmentPropertyOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyOutput) EnvironmentInfos() GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return o.ApplyT(func(v GetMonitorEnvironmentProperty) []GetMonitorEnvironmentPropertyEnvironmentInfo {
+		return v.EnvironmentInfos
+	}).(GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput)
+}
+
+type GetMonitorEnvironmentPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorEnvironmentPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (o GetMonitorEnvironmentPropertyArrayOutput) ToGetMonitorEnvironmentPropertyArrayOutput() GetMonitorEnvironmentPropertyArrayOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyArrayOutput) ToGetMonitorEnvironmentPropertyArrayOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyArrayOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyArrayOutput) Index(i pulumi.IntInput) GetMonitorEnvironmentPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitorEnvironmentProperty {
+		return vs[0].([]GetMonitorEnvironmentProperty)[vs[1].(int)]
+	}).(GetMonitorEnvironmentPropertyOutput)
+}
+
+type GetMonitorEnvironmentPropertyEnvironmentInfo struct {
+	EnvironmentId string `pulumi:"environmentId"`
+}
+
+// GetMonitorEnvironmentPropertyEnvironmentInfoInput is an input type that accepts GetMonitorEnvironmentPropertyEnvironmentInfoArgs and GetMonitorEnvironmentPropertyEnvironmentInfoOutput values.
+// You can construct a concrete instance of `GetMonitorEnvironmentPropertyEnvironmentInfoInput` via:
+//
+//	GetMonitorEnvironmentPropertyEnvironmentInfoArgs{...}
+type GetMonitorEnvironmentPropertyEnvironmentInfoInput interface {
+	pulumi.Input
+
+	ToGetMonitorEnvironmentPropertyEnvironmentInfoOutput() GetMonitorEnvironmentPropertyEnvironmentInfoOutput
+	ToGetMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(context.Context) GetMonitorEnvironmentPropertyEnvironmentInfoOutput
+}
+
+type GetMonitorEnvironmentPropertyEnvironmentInfoArgs struct {
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
+}
+
+func (GetMonitorEnvironmentPropertyEnvironmentInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (i GetMonitorEnvironmentPropertyEnvironmentInfoArgs) ToGetMonitorEnvironmentPropertyEnvironmentInfoOutput() GetMonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return i.ToGetMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(context.Background())
+}
+
+func (i GetMonitorEnvironmentPropertyEnvironmentInfoArgs) ToGetMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorEnvironmentPropertyEnvironmentInfoOutput)
+}
+
+// GetMonitorEnvironmentPropertyEnvironmentInfoArrayInput is an input type that accepts GetMonitorEnvironmentPropertyEnvironmentInfoArray and GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput values.
+// You can construct a concrete instance of `GetMonitorEnvironmentPropertyEnvironmentInfoArrayInput` via:
+//
+//	GetMonitorEnvironmentPropertyEnvironmentInfoArray{ GetMonitorEnvironmentPropertyEnvironmentInfoArgs{...} }
+type GetMonitorEnvironmentPropertyEnvironmentInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput() GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput
+	ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(context.Context) GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput
+}
+
+type GetMonitorEnvironmentPropertyEnvironmentInfoArray []GetMonitorEnvironmentPropertyEnvironmentInfoInput
+
+func (GetMonitorEnvironmentPropertyEnvironmentInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (i GetMonitorEnvironmentPropertyEnvironmentInfoArray) ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput() GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return i.ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitorEnvironmentPropertyEnvironmentInfoArray) ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput)
+}
+
+type GetMonitorEnvironmentPropertyEnvironmentInfoOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorEnvironmentPropertyEnvironmentInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (o GetMonitorEnvironmentPropertyEnvironmentInfoOutput) ToGetMonitorEnvironmentPropertyEnvironmentInfoOutput() GetMonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyEnvironmentInfoOutput) ToGetMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyEnvironmentInfoOutput) EnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorEnvironmentPropertyEnvironmentInfo) string { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+type GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (o GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput) ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput() GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput) ToGetMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(ctx context.Context) GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return o
+}
+
+func (o GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput) Index(i pulumi.IntInput) GetMonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitorEnvironmentPropertyEnvironmentInfo {
+		return vs[0].([]GetMonitorEnvironmentPropertyEnvironmentInfo)[vs[1].(int)]
+	}).(GetMonitorEnvironmentPropertyEnvironmentInfoOutput)
+}
+
+type GetMonitorIdentity struct {
+	PrincipalId string `pulumi:"principalId"`
+	TenantId    string `pulumi:"tenantId"`
+	// The type of identity used for the resource.
+	Type string `pulumi:"type"`
+}
+
+// GetMonitorIdentityInput is an input type that accepts GetMonitorIdentityArgs and GetMonitorIdentityOutput values.
+// You can construct a concrete instance of `GetMonitorIdentityInput` via:
+//
+//	GetMonitorIdentityArgs{...}
+type GetMonitorIdentityInput interface {
+	pulumi.Input
+
+	ToGetMonitorIdentityOutput() GetMonitorIdentityOutput
+	ToGetMonitorIdentityOutputWithContext(context.Context) GetMonitorIdentityOutput
+}
+
+type GetMonitorIdentityArgs struct {
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetMonitorIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorIdentity)(nil)).Elem()
+}
+
+func (i GetMonitorIdentityArgs) ToGetMonitorIdentityOutput() GetMonitorIdentityOutput {
+	return i.ToGetMonitorIdentityOutputWithContext(context.Background())
+}
+
+func (i GetMonitorIdentityArgs) ToGetMonitorIdentityOutputWithContext(ctx context.Context) GetMonitorIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorIdentityOutput)
+}
+
+// GetMonitorIdentityArrayInput is an input type that accepts GetMonitorIdentityArray and GetMonitorIdentityArrayOutput values.
+// You can construct a concrete instance of `GetMonitorIdentityArrayInput` via:
+//
+//	GetMonitorIdentityArray{ GetMonitorIdentityArgs{...} }
+type GetMonitorIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitorIdentityArrayOutput() GetMonitorIdentityArrayOutput
+	ToGetMonitorIdentityArrayOutputWithContext(context.Context) GetMonitorIdentityArrayOutput
+}
+
+type GetMonitorIdentityArray []GetMonitorIdentityInput
+
+func (GetMonitorIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorIdentity)(nil)).Elem()
+}
+
+func (i GetMonitorIdentityArray) ToGetMonitorIdentityArrayOutput() GetMonitorIdentityArrayOutput {
+	return i.ToGetMonitorIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitorIdentityArray) ToGetMonitorIdentityArrayOutputWithContext(ctx context.Context) GetMonitorIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorIdentityArrayOutput)
+}
+
+type GetMonitorIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorIdentity)(nil)).Elem()
+}
+
+func (o GetMonitorIdentityOutput) ToGetMonitorIdentityOutput() GetMonitorIdentityOutput {
+	return o
+}
+
+func (o GetMonitorIdentityOutput) ToGetMonitorIdentityOutputWithContext(ctx context.Context) GetMonitorIdentityOutput {
+	return o
+}
+
+func (o GetMonitorIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetMonitorIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the resource.
+func (o GetMonitorIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetMonitorIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorIdentity)(nil)).Elem()
+}
+
+func (o GetMonitorIdentityArrayOutput) ToGetMonitorIdentityArrayOutput() GetMonitorIdentityArrayOutput {
+	return o
+}
+
+func (o GetMonitorIdentityArrayOutput) ToGetMonitorIdentityArrayOutputWithContext(ctx context.Context) GetMonitorIdentityArrayOutput {
+	return o
+}
+
+func (o GetMonitorIdentityArrayOutput) Index(i pulumi.IntInput) GetMonitorIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitorIdentity {
+		return vs[0].([]GetMonitorIdentity)[vs[1].(int)]
+	}).(GetMonitorIdentityOutput)
+}
+
+type GetMonitorPlan struct {
+	// Different billing cycles.
+	BillingCycle string `pulumi:"billingCycle"`
+	// Date when plan was applied.
+	EffectiveDate string `pulumi:"effectiveDate"`
+	// Plan id as published by Dynatrace.
+	Plan string `pulumi:"plan"`
+	// Different usage type.
+	UsageType string `pulumi:"usageType"`
+}
+
+// GetMonitorPlanInput is an input type that accepts GetMonitorPlanArgs and GetMonitorPlanOutput values.
+// You can construct a concrete instance of `GetMonitorPlanInput` via:
+//
+//	GetMonitorPlanArgs{...}
+type GetMonitorPlanInput interface {
+	pulumi.Input
+
+	ToGetMonitorPlanOutput() GetMonitorPlanOutput
+	ToGetMonitorPlanOutputWithContext(context.Context) GetMonitorPlanOutput
+}
+
+type GetMonitorPlanArgs struct {
+	// Different billing cycles.
+	BillingCycle pulumi.StringInput `pulumi:"billingCycle"`
+	// Date when plan was applied.
+	EffectiveDate pulumi.StringInput `pulumi:"effectiveDate"`
+	// Plan id as published by Dynatrace.
+	Plan pulumi.StringInput `pulumi:"plan"`
+	// Different usage type.
+	UsageType pulumi.StringInput `pulumi:"usageType"`
+}
+
+func (GetMonitorPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorPlan)(nil)).Elem()
+}
+
+func (i GetMonitorPlanArgs) ToGetMonitorPlanOutput() GetMonitorPlanOutput {
+	return i.ToGetMonitorPlanOutputWithContext(context.Background())
+}
+
+func (i GetMonitorPlanArgs) ToGetMonitorPlanOutputWithContext(ctx context.Context) GetMonitorPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorPlanOutput)
+}
+
+// GetMonitorPlanArrayInput is an input type that accepts GetMonitorPlanArray and GetMonitorPlanArrayOutput values.
+// You can construct a concrete instance of `GetMonitorPlanArrayInput` via:
+//
+//	GetMonitorPlanArray{ GetMonitorPlanArgs{...} }
+type GetMonitorPlanArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitorPlanArrayOutput() GetMonitorPlanArrayOutput
+	ToGetMonitorPlanArrayOutputWithContext(context.Context) GetMonitorPlanArrayOutput
+}
+
+type GetMonitorPlanArray []GetMonitorPlanInput
+
+func (GetMonitorPlanArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorPlan)(nil)).Elem()
+}
+
+func (i GetMonitorPlanArray) ToGetMonitorPlanArrayOutput() GetMonitorPlanArrayOutput {
+	return i.ToGetMonitorPlanArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitorPlanArray) ToGetMonitorPlanArrayOutputWithContext(ctx context.Context) GetMonitorPlanArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorPlanArrayOutput)
+}
+
+type GetMonitorPlanOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorPlan)(nil)).Elem()
+}
+
+func (o GetMonitorPlanOutput) ToGetMonitorPlanOutput() GetMonitorPlanOutput {
+	return o
+}
+
+func (o GetMonitorPlanOutput) ToGetMonitorPlanOutputWithContext(ctx context.Context) GetMonitorPlanOutput {
+	return o
+}
+
+// Different billing cycles.
+func (o GetMonitorPlanOutput) BillingCycle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorPlan) string { return v.BillingCycle }).(pulumi.StringOutput)
+}
+
+// Date when plan was applied.
+func (o GetMonitorPlanOutput) EffectiveDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorPlan) string { return v.EffectiveDate }).(pulumi.StringOutput)
+}
+
+// Plan id as published by Dynatrace.
+func (o GetMonitorPlanOutput) Plan() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorPlan) string { return v.Plan }).(pulumi.StringOutput)
+}
+
+// Different usage type.
+func (o GetMonitorPlanOutput) UsageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorPlan) string { return v.UsageType }).(pulumi.StringOutput)
+}
+
+type GetMonitorPlanArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorPlanArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorPlan)(nil)).Elem()
+}
+
+func (o GetMonitorPlanArrayOutput) ToGetMonitorPlanArrayOutput() GetMonitorPlanArrayOutput {
+	return o
+}
+
+func (o GetMonitorPlanArrayOutput) ToGetMonitorPlanArrayOutputWithContext(ctx context.Context) GetMonitorPlanArrayOutput {
+	return o
+}
+
+func (o GetMonitorPlanArrayOutput) Index(i pulumi.IntInput) GetMonitorPlanOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitorPlan {
+		return vs[0].([]GetMonitorPlan)[vs[1].(int)]
+	}).(GetMonitorPlanOutput)
+}
+
+type GetMonitorUser struct {
+	// Country of the user.
+	Country string `pulumi:"country"`
+	// Email of the user used by Dynatrace for contacting them if needed.
+	Email string `pulumi:"email"`
+	// First name of the user.
+	FirstName string `pulumi:"firstName"`
+	// Last name of the user.
+	LastName string `pulumi:"lastName"`
+	// phone number of the user by Dynatrace for contacting them if needed.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+
+// GetMonitorUserInput is an input type that accepts GetMonitorUserArgs and GetMonitorUserOutput values.
+// You can construct a concrete instance of `GetMonitorUserInput` via:
+//
+//	GetMonitorUserArgs{...}
+type GetMonitorUserInput interface {
+	pulumi.Input
+
+	ToGetMonitorUserOutput() GetMonitorUserOutput
+	ToGetMonitorUserOutputWithContext(context.Context) GetMonitorUserOutput
+}
+
+type GetMonitorUserArgs struct {
+	// Country of the user.
+	Country pulumi.StringInput `pulumi:"country"`
+	// Email of the user used by Dynatrace for contacting them if needed.
+	Email pulumi.StringInput `pulumi:"email"`
+	// First name of the user.
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// Last name of the user.
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	// phone number of the user by Dynatrace for contacting them if needed.
+	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+}
+
+func (GetMonitorUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorUser)(nil)).Elem()
+}
+
+func (i GetMonitorUserArgs) ToGetMonitorUserOutput() GetMonitorUserOutput {
+	return i.ToGetMonitorUserOutputWithContext(context.Background())
+}
+
+func (i GetMonitorUserArgs) ToGetMonitorUserOutputWithContext(ctx context.Context) GetMonitorUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorUserOutput)
+}
+
+// GetMonitorUserArrayInput is an input type that accepts GetMonitorUserArray and GetMonitorUserArrayOutput values.
+// You can construct a concrete instance of `GetMonitorUserArrayInput` via:
+//
+//	GetMonitorUserArray{ GetMonitorUserArgs{...} }
+type GetMonitorUserArrayInput interface {
+	pulumi.Input
+
+	ToGetMonitorUserArrayOutput() GetMonitorUserArrayOutput
+	ToGetMonitorUserArrayOutputWithContext(context.Context) GetMonitorUserArrayOutput
+}
+
+type GetMonitorUserArray []GetMonitorUserInput
+
+func (GetMonitorUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorUser)(nil)).Elem()
+}
+
+func (i GetMonitorUserArray) ToGetMonitorUserArrayOutput() GetMonitorUserArrayOutput {
+	return i.ToGetMonitorUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetMonitorUserArray) ToGetMonitorUserArrayOutputWithContext(ctx context.Context) GetMonitorUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMonitorUserArrayOutput)
+}
+
+type GetMonitorUserOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMonitorUser)(nil)).Elem()
+}
+
+func (o GetMonitorUserOutput) ToGetMonitorUserOutput() GetMonitorUserOutput {
+	return o
+}
+
+func (o GetMonitorUserOutput) ToGetMonitorUserOutputWithContext(ctx context.Context) GetMonitorUserOutput {
+	return o
+}
+
+// Country of the user.
+func (o GetMonitorUserOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorUser) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// Email of the user used by Dynatrace for contacting them if needed.
+func (o GetMonitorUserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorUser) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// First name of the user.
+func (o GetMonitorUserOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorUser) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Last name of the user.
+func (o GetMonitorUserOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorUser) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// phone number of the user by Dynatrace for contacting them if needed.
+func (o GetMonitorUserOutput) PhoneNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMonitorUser) string { return v.PhoneNumber }).(pulumi.StringOutput)
+}
+
+type GetMonitorUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMonitorUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMonitorUser)(nil)).Elem()
+}
+
+func (o GetMonitorUserArrayOutput) ToGetMonitorUserArrayOutput() GetMonitorUserArrayOutput {
+	return o
+}
+
+func (o GetMonitorUserArrayOutput) ToGetMonitorUserArrayOutputWithContext(ctx context.Context) GetMonitorUserArrayOutput {
+	return o
+}
+
+func (o GetMonitorUserArrayOutput) Index(i pulumi.IntInput) GetMonitorUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMonitorUser {
+		return vs[0].([]GetMonitorUser)[vs[1].(int)]
+	}).(GetMonitorUserOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityInput)(nil)).Elem(), MonitorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityPtrInput)(nil)).Elem(), MonitorIdentityArgs{})
@@ -1163,6 +1719,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRulePtrInput)(nil)).Elem(), TagRulesMetricRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRuleFilteringTagInput)(nil)).Elem(), TagRulesMetricRuleFilteringTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagRulesMetricRuleFilteringTagArrayInput)(nil)).Elem(), TagRulesMetricRuleFilteringTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorEnvironmentPropertyInput)(nil)).Elem(), GetMonitorEnvironmentPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorEnvironmentPropertyArrayInput)(nil)).Elem(), GetMonitorEnvironmentPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorEnvironmentPropertyEnvironmentInfoInput)(nil)).Elem(), GetMonitorEnvironmentPropertyEnvironmentInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorEnvironmentPropertyEnvironmentInfoArrayInput)(nil)).Elem(), GetMonitorEnvironmentPropertyEnvironmentInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorIdentityInput)(nil)).Elem(), GetMonitorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorIdentityArrayInput)(nil)).Elem(), GetMonitorIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorPlanInput)(nil)).Elem(), GetMonitorPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorPlanArrayInput)(nil)).Elem(), GetMonitorPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorUserInput)(nil)).Elem(), GetMonitorUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorUserArrayInput)(nil)).Elem(), GetMonitorUserArray{})
 	pulumi.RegisterOutputType(MonitorIdentityOutput{})
 	pulumi.RegisterOutputType(MonitorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPlanOutput{})
@@ -1177,4 +1743,14 @@ func init() {
 	pulumi.RegisterOutputType(TagRulesMetricRulePtrOutput{})
 	pulumi.RegisterOutputType(TagRulesMetricRuleFilteringTagOutput{})
 	pulumi.RegisterOutputType(TagRulesMetricRuleFilteringTagArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorEnvironmentPropertyOutput{})
+	pulumi.RegisterOutputType(GetMonitorEnvironmentPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorEnvironmentPropertyEnvironmentInfoOutput{})
+	pulumi.RegisterOutputType(GetMonitorEnvironmentPropertyEnvironmentInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorIdentityOutput{})
+	pulumi.RegisterOutputType(GetMonitorIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorPlanOutput{})
+	pulumi.RegisterOutputType(GetMonitorPlanArrayOutput{})
+	pulumi.RegisterOutputType(GetMonitorUserOutput{})
+	pulumi.RegisterOutputType(GetMonitorUserArrayOutput{})
 }

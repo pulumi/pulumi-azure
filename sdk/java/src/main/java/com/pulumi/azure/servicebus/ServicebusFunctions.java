@@ -476,18 +476,223 @@ public final class ServicebusFunctions {
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", TypeShape.of(GetNamespaceAuthorizationRuleResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("example-namespace-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args) {
         return getNamespaceDisasterRecoveryConfig(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("example-namespace-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfigPlain(GetNamespaceDisasterRecoveryConfigPlainArgs args) {
         return getNamespaceDisasterRecoveryConfigPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("example-namespace-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", TypeShape.of(GetNamespaceDisasterRecoveryConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("example-namespace-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", TypeShape.of(GetNamespaceDisasterRecoveryConfigResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.servicebus.ServicebusFunctions;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceDisasterRecoveryConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicebusFunctions.getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs.builder()
+     *             .name("existing")
+     *             .namespaceId("example-namespace-id")
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfigPlain(GetNamespaceDisasterRecoveryConfigPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", TypeShape.of(GetNamespaceDisasterRecoveryConfigResult.class), args, Utilities.withVersion(options));
     }

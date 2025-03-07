@@ -64,14 +64,14 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
     }
 
     /**
-     * The name of this Logic App.
+     * The name of the Logic App.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of this Logic App.
+     * @return The name of the Logic App.
      * 
      */
     public Output<String> name() {
@@ -217,7 +217,7 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
         }
 
         /**
-         * @param name The name of this Logic App.
+         * @param name The name of the Logic App.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class GetStandardSiteConfigIpRestrictionArgs extends com.pulumi.res
         }
 
         /**
-         * @param name The name of this Logic App.
+         * @param name The name of the Logic App.
          * 
          * @return builder
          * 

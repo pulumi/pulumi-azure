@@ -104,18 +104,32 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.administratorLogin;
     }
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+     * The Password associated with the `administrator_login` for the PostgreSQL Server.
      * 
      */
     @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+     * @return The Password associated with the `administrator_login` for the PostgreSQL Server.
      * 
      */
     public Output<Optional<String>> administratorLoginPassword() {
         return Codegen.optional(this.administratorLoginPassword);
+    }
+    /**
+     * An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+     * 
+     */
+    @Export(name="administratorLoginPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> administratorLoginPasswordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+     * 
+     */
+    public Output<Optional<Integer>> administratorLoginPasswordWoVersion() {
+        return Codegen.optional(this.administratorLoginPasswordWoVersion);
     }
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.

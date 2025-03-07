@@ -105,9 +105,15 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      */
     public readonly administratorPassword!: pulumi.Output<string | undefined>;
+    /**
+     * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+     *
+     * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+     */
+    public readonly administratorPasswordWoVersion!: pulumi.Output<number | undefined>;
     /**
      * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      */
@@ -225,6 +231,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             const state = argsOrState as FlexibleServerState | undefined;
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
+            resourceInputs["administratorPasswordWoVersion"] = state ? state.administratorPasswordWoVersion : undefined;
             resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
@@ -255,6 +262,7 @@ export class FlexibleServer extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
+            resourceInputs["administratorPasswordWoVersion"] = args ? args.administratorPasswordWoVersion : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
@@ -295,9 +303,15 @@ export interface FlexibleServerState {
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      */
     administratorPassword?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+     *
+     * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+     */
+    administratorPasswordWoVersion?: pulumi.Input<number>;
     /**
      * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      */
@@ -410,9 +424,15 @@ export interface FlexibleServerArgs {
      */
     administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      */
     administratorPassword?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+     *
+     * > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+     */
+    administratorPasswordWoVersion?: pulumi.Input<number>;
     /**
      * The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
      */

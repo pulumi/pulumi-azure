@@ -150,14 +150,14 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceType);
     }
     /**
-     * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subplan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subplan;
 
     /**
-     * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * @return Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> subplan() {

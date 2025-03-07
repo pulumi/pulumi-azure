@@ -48,6 +48,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Resource Manager ID of this Storage Table.
+     * 
+     */
+    @Import(name="resourceManagerId")
+    private @Nullable Output<String> resourceManagerId;
+
+    /**
+     * @return The Resource Manager ID of this Storage Table.
+     * 
+     */
+    public Optional<Output<String>> resourceManagerId() {
+        return Optional.ofNullable(this.resourceManagerId);
+    }
+
+    /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */
@@ -67,6 +82,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     private TableState(TableState $) {
         this.acls = $.acls;
         this.name = $.name;
+        this.resourceManagerId = $.resourceManagerId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -138,6 +154,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param resourceManagerId The Resource Manager ID of this Storage Table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
+            $.resourceManagerId = resourceManagerId;
+            return this;
+        }
+
+        /**
+         * @param resourceManagerId The Resource Manager ID of this Storage Table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerId(String resourceManagerId) {
+            return resourceManagerId(Output.of(resourceManagerId));
         }
 
         /**

@@ -1673,8 +1673,13 @@ func Provider() tfbridge.ProviderInfo {
 				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:sql/firewallRule:FirewallRule")}},
 				TransformFromState: fixMssqlServerID,
 			},
-			"azurerm_mssql_job_agent":      {Tok: azureResource(azureMSSQL, "JobAgent")},
-			"azurerm_mssql_job_credential": {Tok: azureResource(azureMSSQL, "JobCredential")},
+			"azurerm_mssql_job_agent": {Tok: azureResource(azureMSSQL, "JobAgent")},
+			"azurerm_mssql_job_credential": {
+				Tok: azureResource(azureMSSQL, "JobCredential"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"password_wo": {Omit: true}, // write-only, see https://github.com/pulumi/pulumi/issues/16600
+				},
+			},
 			"azurerm_mssql_managed_database": {
 				Tok:     azureResource(azureMSSQL, "ManagedDatabase"),
 				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/managedDatabase:ManagedDatabase")}},
@@ -1707,6 +1712,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server": {
 				Tok:     azureResource(azureMSSQL, "Server"),
 				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:sql/sqlServer:SqlServer")}},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"administrator_login_password_wo": {Omit: true}, // write-only, see https://github.com/pulumi/pulumi/issues/16600
+				},
 			},
 			"azurerm_mssql_server_dns_alias":                         {Tok: azureResource(azureMSSQL, "ServerDnsAlias")},
 			"azurerm_mssql_server_extended_auditing_policy":          {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
@@ -1726,7 +1734,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
 
 			// MySQL
-			"azurerm_mysql_flexible_server":               {Tok: azureResource(azureMySQL, "FlexibleServer")},
+			"azurerm_mysql_flexible_server": {
+				Tok: azureResource(azureMySQL, "FlexibleServer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"administrator_password_wo": {Omit: true}, // write-only, see https://github.com/pulumi/pulumi/issues/16600
+				},
+			},
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
 			"azurerm_mysql_flexible_server_active_directory_administrator": {
@@ -1742,15 +1755,25 @@ func Provider() tfbridge.ProviderInfo {
 					"name": {Name: "name"},
 				},
 			},
-			"azurerm_postgresql_database":             {Tok: azureResource(azurePostgresql, "Database")},
-			"azurerm_postgresql_firewall_rule":        {Tok: azureResource(azurePostgresql, "FirewallRule")},
-			"azurerm_postgresql_server":               {Tok: azureResource(azurePostgresql, "Server")},
+			"azurerm_postgresql_database":      {Tok: azureResource(azurePostgresql, "Database")},
+			"azurerm_postgresql_firewall_rule": {Tok: azureResource(azurePostgresql, "FirewallRule")},
+			"azurerm_postgresql_server": {
+				Tok: azureResource(azurePostgresql, "Server"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"administrator_login_password_wo": {Omit: true}, // write-only, see https://github.com/pulumi/pulumi/issues/16600
+				},
+			},
 			"azurerm_postgresql_virtual_network_rule": {Tok: azureResource(azurePostgresql, "VirtualNetworkRule")},
 			"azurerm_postgresql_server_key":           {Tok: azureResource(azurePostgresql, "ServerKey")},
 			"azurerm_postgresql_active_directory_administrator": {
 				Tok: azureResource(azurePostgresql, "ActiveDirectoryAdministrator"),
 			},
-			"azurerm_postgresql_flexible_server": {Tok: azureResource(azurePostgresql, "FlexibleServer")},
+			"azurerm_postgresql_flexible_server": {
+				Tok: azureResource(azurePostgresql, "FlexibleServer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"administrator_password_wo": {Omit: true}, // write-only, see https://github.com/pulumi/pulumi/issues/16600
+				},
+			},
 			"azurerm_postgresql_flexible_server_firewall_rule": {
 				Tok: azureResource(azurePostgresql, "FlexibleServerFirewallRule"),
 			},
@@ -2872,6 +2895,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_databox_edge_device":                   {Tok: azureDataSource(azureDataboxEdge, "getDevice")},
 			"azurerm_dev_test_lab":                          {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":              {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
+
+			"azurerm_dynatrace_monitor": {
+				Tok: azureDataSource(azureDynatrace, "getMonitor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "dynatrace_monitors.html.markdown",
+				},
+			},
 
 			"azurerm_availability_set": {
 				Tok: azureDataSource(azureCompute, "getAvailabilitySet"),

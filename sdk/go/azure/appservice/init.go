@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActiveSlot{}
 	case "azure:appservice/appConnection:AppConnection":
 		r = &AppConnection{}
+	case "azure:appservice/appFlexConsumption:AppFlexConsumption":
+		r = &AppFlexConsumption{}
 	case "azure:appservice/appService:AppService":
 		r = &AppService{}
 	case "azure:appservice/certificate:Certificate":
@@ -126,6 +128,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/appConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/appFlexConsumption",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

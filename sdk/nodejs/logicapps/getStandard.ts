@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.logicapps.getStandard({
- *     name: "logicappstd",
+ *     name: "example-logic-app",
  *     resourceGroupName: "example-rg",
  * });
  * export const id = example.then(example => example.id);
@@ -36,7 +36,7 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetStandardArgs {
     /**
-     * The name of this Logic App.
+     * The name of the Logic App.
      */
     name: string;
     /**
@@ -90,6 +90,10 @@ export interface GetStandardResult {
      */
     readonly enabled: boolean;
     /**
+     * Whether the default FTP basic authentication publishing profile is enabled.
+     */
+    readonly ftpPublishBasicAuthenticationEnabled: boolean;
+    /**
      * Whether the Logic App can only be accessed via HTTPS.
      */
     readonly httpsOnly: boolean;
@@ -126,6 +130,10 @@ export interface GetStandardResult {
      */
     readonly publicNetworkAccess: string;
     readonly resourceGroupName: string;
+    /**
+     * Whether the default SCM basic authentication publishing profile is enabled.
+     */
+    readonly scmPublishBasicAuthenticationEnabled: boolean;
     /**
      * A `siteConfig` object as defined below.
      */
@@ -173,7 +181,7 @@ export interface GetStandardResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.logicapps.getStandard({
- *     name: "logicappstd",
+ *     name: "example-logic-app",
  *     resourceGroupName: "example-rg",
  * });
  * export const id = example.then(example => example.id);
@@ -193,7 +201,7 @@ export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.Inv
  */
 export interface GetStandardOutputArgs {
     /**
-     * The name of this Logic App.
+     * The name of the Logic App.
      */
     name: pulumi.Input<string>;
     /**

@@ -148,6 +148,8 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
      * 
+     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     * 
      * @deprecated
      * This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.
      * 
@@ -158,6 +160,8 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
      * @deprecated
      * This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.
@@ -379,6 +383,8 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountName Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
          * 
+         * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -393,6 +399,8 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageAccountName Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+         * 
+         * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
          * 
          * @return builder
          * 

@@ -19,6 +19,64 @@ __all__ = [
     'AppConnectionAuthenticationArgsDict',
     'AppConnectionSecretStoreArgs',
     'AppConnectionSecretStoreArgsDict',
+    'AppFlexConsumptionAuthSettingsArgs',
+    'AppFlexConsumptionAuthSettingsArgsDict',
+    'AppFlexConsumptionAuthSettingsActiveDirectoryArgs',
+    'AppFlexConsumptionAuthSettingsActiveDirectoryArgsDict',
+    'AppFlexConsumptionAuthSettingsFacebookArgs',
+    'AppFlexConsumptionAuthSettingsFacebookArgsDict',
+    'AppFlexConsumptionAuthSettingsGithubArgs',
+    'AppFlexConsumptionAuthSettingsGithubArgsDict',
+    'AppFlexConsumptionAuthSettingsGoogleArgs',
+    'AppFlexConsumptionAuthSettingsGoogleArgsDict',
+    'AppFlexConsumptionAuthSettingsMicrosoftArgs',
+    'AppFlexConsumptionAuthSettingsMicrosoftArgsDict',
+    'AppFlexConsumptionAuthSettingsTwitterArgs',
+    'AppFlexConsumptionAuthSettingsTwitterArgsDict',
+    'AppFlexConsumptionAuthSettingsV2Args',
+    'AppFlexConsumptionAuthSettingsV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args',
+    'AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2AppleV2Args',
+    'AppFlexConsumptionAuthSettingsV2AppleV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args',
+    'AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2CustomOidcV2Args',
+    'AppFlexConsumptionAuthSettingsV2CustomOidcV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2FacebookV2Args',
+    'AppFlexConsumptionAuthSettingsV2FacebookV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2GithubV2Args',
+    'AppFlexConsumptionAuthSettingsV2GithubV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2GoogleV2Args',
+    'AppFlexConsumptionAuthSettingsV2GoogleV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2LoginArgs',
+    'AppFlexConsumptionAuthSettingsV2LoginArgsDict',
+    'AppFlexConsumptionAuthSettingsV2MicrosoftV2Args',
+    'AppFlexConsumptionAuthSettingsV2MicrosoftV2ArgsDict',
+    'AppFlexConsumptionAuthSettingsV2TwitterV2Args',
+    'AppFlexConsumptionAuthSettingsV2TwitterV2ArgsDict',
+    'AppFlexConsumptionConnectionStringArgs',
+    'AppFlexConsumptionConnectionStringArgsDict',
+    'AppFlexConsumptionIdentityArgs',
+    'AppFlexConsumptionIdentityArgsDict',
+    'AppFlexConsumptionSiteConfigArgs',
+    'AppFlexConsumptionSiteConfigArgsDict',
+    'AppFlexConsumptionSiteConfigAppServiceLogsArgs',
+    'AppFlexConsumptionSiteConfigAppServiceLogsArgsDict',
+    'AppFlexConsumptionSiteConfigCorsArgs',
+    'AppFlexConsumptionSiteConfigCorsArgsDict',
+    'AppFlexConsumptionSiteConfigIpRestrictionArgs',
+    'AppFlexConsumptionSiteConfigIpRestrictionArgsDict',
+    'AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs',
+    'AppFlexConsumptionSiteConfigIpRestrictionHeadersArgsDict',
+    'AppFlexConsumptionSiteConfigScmIpRestrictionArgs',
+    'AppFlexConsumptionSiteConfigScmIpRestrictionArgsDict',
+    'AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs',
+    'AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgsDict',
+    'AppFlexConsumptionSiteCredentialArgs',
+    'AppFlexConsumptionSiteCredentialArgsDict',
+    'AppFlexConsumptionStickySettingsArgs',
+    'AppFlexConsumptionStickySettingsArgsDict',
     'AppServiceAuthSettingsArgs',
     'AppServiceAuthSettingsArgsDict',
     'AppServiceAuthSettingsActiveDirectoryArgs',
@@ -1027,6 +1085,4162 @@ class AppConnectionSecretStoreArgs:
     @key_vault_id.setter
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        active_directory: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 active_directory: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsActiveDirectoryArgs']] = None,
+                 additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 facebook: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsFacebookArgs']] = None,
+                 github: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsGithubArgs']] = None,
+                 google: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsGoogleArgs']] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 microsoft: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsMicrosoftArgs']] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 twitter: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsTwitterArgs']] = None,
+                 unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        :param pulumi.Input[str] default_provider: The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+               
+               > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsGithubArgs'] github: A `github` block as defined below.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+               
+               > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if additional_login_parameters is not None:
+            pulumi.set(__self__, "additional_login_parameters", additional_login_parameters)
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if facebook is not None:
+            pulumi.set(__self__, "facebook", facebook)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if google is not None:
+            pulumi.set(__self__, "google", google)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if microsoft is not None:
+            pulumi.set(__self__, "microsoft", microsoft)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if token_refresh_extension_hours is not None:
+            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if twitter is not None:
+            pulumi.set(__self__, "twitter", twitter)
+        if unauthenticated_client_action is not None:
+            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsActiveDirectoryArgs']]:
+        """
+        An `active_directory` block as defined above.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="additionalLoginParameters")
+    def additional_login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        return pulumi.get(self, "additional_login_parameters")
+
+    @additional_login_parameters.setter
+    def additional_login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_login_parameters", value)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+
+        > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter
+    def facebook(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsFacebookArgs']]:
+        """
+        A `facebook` block as defined below.
+        """
+        return pulumi.get(self, "facebook")
+
+    @facebook.setter
+    def facebook(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsFacebookArgs']]):
+        pulumi.set(self, "facebook", value)
+
+    @property
+    @pulumi.getter
+    def github(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsGithubArgs']]:
+        """
+        A `github` block as defined below.
+        """
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsGithubArgs']]):
+        pulumi.set(self, "github", value)
+
+    @property
+    @pulumi.getter
+    def google(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsGoogleArgs']]:
+        """
+        A `google` block as defined below.
+        """
+        return pulumi.get(self, "google")
+
+    @google.setter
+    def google(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsGoogleArgs']]):
+        pulumi.set(self, "google", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+
+        > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter
+    def microsoft(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsMicrosoftArgs']]:
+        """
+        A `microsoft` block as defined below.
+        """
+        return pulumi.get(self, "microsoft")
+
+    @microsoft.setter
+    def microsoft(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsMicrosoftArgs']]):
+        pulumi.set(self, "microsoft", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionHours")
+    def token_refresh_extension_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_hours")
+
+    @token_refresh_extension_hours.setter
+    def token_refresh_extension_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_hours", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter
+    def twitter(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsTwitterArgs']]:
+        """
+        A `twitter` block as defined below.
+        """
+        return pulumi.get(self, "twitter")
+
+    @twitter.setter
+    def twitter(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsTwitterArgs']]):
+        pulumi.set(self, "twitter", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedClientAction")
+    def unauthenticated_client_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+        return pulumi.get(self, "unauthenticated_client_action")
+
+    @unauthenticated_client_action.setter
+    def unauthenticated_client_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_client_action", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+               
+               > **Note:** The `client_id` value is always considered an allowed audience.
+        :param pulumi.Input[str] client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsFacebookArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        if app_secret is not None:
+            pulumi.set(__self__, "app_secret", app_secret)
+        if app_secret_setting_name is not None:
+            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @app_secret.setter
+    def app_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsGithubArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
+        :param pulumi.Input[str] client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsGoogleArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsMicrosoftArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsTwitterArgs:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret: Optional[pulumi.Input[str]] = None,
+                 consumer_secret_setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret: The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        if consumer_secret is not None:
+            pulumi.set(__self__, "consumer_secret", consumer_secret)
+        if consumer_secret_setting_name is not None:
+            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecret")
+    def consumer_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        return pulumi.get(self, "consumer_secret")
+
+    @consumer_secret.setter
+    def consumer_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['AppFlexConsumptionAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['AppFlexConsumptionAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2Args:
+    def __init__(__self__, *,
+                 login: pulumi.Input['AppFlexConsumptionAuthSettingsV2LoginArgs'],
+                 active_directory_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args']] = None,
+                 apple_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2AppleV2Args']] = None,
+                 auth_enabled: Optional[pulumi.Input[bool]] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 config_file_path: Optional[pulumi.Input[str]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 default_provider: Optional[pulumi.Input[str]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 facebook_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2FacebookV2Args']] = None,
+                 forward_proxy_convention: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
+                 forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
+                 github_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2GithubV2Args']] = None,
+                 google_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2GoogleV2Args']] = None,
+                 http_route_api_prefix: Optional[pulumi.Input[str]] = None,
+                 microsoft_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2MicrosoftV2Args']] = None,
+                 require_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_https: Optional[pulumi.Input[bool]] = None,
+                 runtime_version: Optional[pulumi.Input[str]] = None,
+                 twitter_v2: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2TwitterV2Args']] = None,
+                 unauthenticated_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
+               
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
+        :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+               
+               > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+               
+               > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
+        :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
+        :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
+        :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        :param pulumi.Input['AppFlexConsumptionAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        pulumi.set(__self__, "login", login)
+        if active_directory_v2 is not None:
+            pulumi.set(__self__, "active_directory_v2", active_directory_v2)
+        if apple_v2 is not None:
+            pulumi.set(__self__, "apple_v2", apple_v2)
+        if auth_enabled is not None:
+            pulumi.set(__self__, "auth_enabled", auth_enabled)
+        if azure_static_web_app_v2 is not None:
+            pulumi.set(__self__, "azure_static_web_app_v2", azure_static_web_app_v2)
+        if config_file_path is not None:
+            pulumi.set(__self__, "config_file_path", config_file_path)
+        if custom_oidc_v2s is not None:
+            pulumi.set(__self__, "custom_oidc_v2s", custom_oidc_v2s)
+        if default_provider is not None:
+            pulumi.set(__self__, "default_provider", default_provider)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if facebook_v2 is not None:
+            pulumi.set(__self__, "facebook_v2", facebook_v2)
+        if forward_proxy_convention is not None:
+            pulumi.set(__self__, "forward_proxy_convention", forward_proxy_convention)
+        if forward_proxy_custom_host_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_host_header_name", forward_proxy_custom_host_header_name)
+        if forward_proxy_custom_scheme_header_name is not None:
+            pulumi.set(__self__, "forward_proxy_custom_scheme_header_name", forward_proxy_custom_scheme_header_name)
+        if github_v2 is not None:
+            pulumi.set(__self__, "github_v2", github_v2)
+        if google_v2 is not None:
+            pulumi.set(__self__, "google_v2", google_v2)
+        if http_route_api_prefix is not None:
+            pulumi.set(__self__, "http_route_api_prefix", http_route_api_prefix)
+        if microsoft_v2 is not None:
+            pulumi.set(__self__, "microsoft_v2", microsoft_v2)
+        if require_authentication is not None:
+            pulumi.set(__self__, "require_authentication", require_authentication)
+        if require_https is not None:
+            pulumi.set(__self__, "require_https", require_https)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if twitter_v2 is not None:
+            pulumi.set(__self__, "twitter_v2", twitter_v2)
+        if unauthenticated_action is not None:
+            pulumi.set(__self__, "unauthenticated_action", unauthenticated_action)
+
+    @property
+    @pulumi.getter
+    def login(self) -> pulumi.Input['AppFlexConsumptionAuthSettingsV2LoginArgs']:
+        """
+        A `login` block as defined below.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: pulumi.Input['AppFlexConsumptionAuthSettingsV2LoginArgs']):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="activeDirectoryV2")
+    def active_directory_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args']]:
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        return pulumi.get(self, "active_directory_v2")
+
+    @active_directory_v2.setter
+    def active_directory_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args']]):
+        pulumi.set(self, "active_directory_v2", value)
+
+    @property
+    @pulumi.getter(name="appleV2")
+    def apple_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2AppleV2Args']]:
+        """
+        An `apple_v2` block as defined below.
+        """
+        return pulumi.get(self, "apple_v2")
+
+    @apple_v2.setter
+    def apple_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2AppleV2Args']]):
+        pulumi.set(self, "apple_v2", value)
+
+    @property
+    @pulumi.getter(name="authEnabled")
+    def auth_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "auth_enabled")
+
+    @auth_enabled.setter
+    def auth_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auth_enabled", value)
+
+    @property
+    @pulumi.getter(name="azureStaticWebAppV2")
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args']]:
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        return pulumi.get(self, "azure_static_web_app_v2")
+
+    @azure_static_web_app_v2.setter
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args']]):
+        pulumi.set(self, "azure_static_web_app_v2", value)
+
+    @property
+    @pulumi.getter(name="configFilePath")
+    def config_file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        return pulumi.get(self, "config_file_path")
+
+    @config_file_path.setter
+    def config_file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file_path", value)
+
+    @property
+    @pulumi.getter(name="customOidcV2s")
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2Args']]]]:
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_oidc_v2s")
+
+    @custom_oidc_v2s.setter
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2Args']]]]):
+        pulumi.set(self, "custom_oidc_v2s", value)
+
+    @property
+    @pulumi.getter(name="defaultProvider")
+    def default_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        return pulumi.get(self, "default_provider")
+
+    @default_provider.setter
+    def default_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_provider", value)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="facebookV2")
+    def facebook_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2FacebookV2Args']]:
+        """
+        A `facebook_v2` block as defined below.
+        """
+        return pulumi.get(self, "facebook_v2")
+
+    @facebook_v2.setter
+    def facebook_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2FacebookV2Args']]):
+        pulumi.set(self, "facebook_v2", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyConvention")
+    def forward_proxy_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        return pulumi.get(self, "forward_proxy_convention")
+
+    @forward_proxy_convention.setter
+    def forward_proxy_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_convention", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomHostHeaderName")
+    def forward_proxy_custom_host_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the host of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_host_header_name")
+
+    @forward_proxy_custom_host_header_name.setter
+    def forward_proxy_custom_host_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_host_header_name", value)
+
+    @property
+    @pulumi.getter(name="forwardProxyCustomSchemeHeaderName")
+    def forward_proxy_custom_scheme_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        return pulumi.get(self, "forward_proxy_custom_scheme_header_name")
+
+    @forward_proxy_custom_scheme_header_name.setter
+    def forward_proxy_custom_scheme_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_proxy_custom_scheme_header_name", value)
+
+    @property
+    @pulumi.getter(name="githubV2")
+    def github_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2GithubV2Args']]:
+        """
+        A `github_v2` block as defined below.
+        """
+        return pulumi.get(self, "github_v2")
+
+    @github_v2.setter
+    def github_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2GithubV2Args']]):
+        pulumi.set(self, "github_v2", value)
+
+    @property
+    @pulumi.getter(name="googleV2")
+    def google_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2GoogleV2Args']]:
+        """
+        A `google_v2` block as defined below.
+        """
+        return pulumi.get(self, "google_v2")
+
+    @google_v2.setter
+    def google_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2GoogleV2Args']]):
+        pulumi.set(self, "google_v2", value)
+
+    @property
+    @pulumi.getter(name="httpRouteApiPrefix")
+    def http_route_api_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        return pulumi.get(self, "http_route_api_prefix")
+
+    @http_route_api_prefix.setter
+    def http_route_api_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_route_api_prefix", value)
+
+    @property
+    @pulumi.getter(name="microsoftV2")
+    def microsoft_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2MicrosoftV2Args']]:
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_v2")
+
+    @microsoft_v2.setter
+    def microsoft_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2MicrosoftV2Args']]):
+        pulumi.set(self, "microsoft_v2", value)
+
+    @property
+    @pulumi.getter(name="requireAuthentication")
+    def require_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the authentication flow be used for all requests.
+        """
+        return pulumi.get(self, "require_authentication")
+
+    @require_authentication.setter
+    def require_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireHttps")
+    def require_https(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        return pulumi.get(self, "require_https")
+
+    @require_https.setter
+    def require_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_https", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version", value)
+
+    @property
+    @pulumi.getter(name="twitterV2")
+    def twitter_v2(self) -> Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2TwitterV2Args']]:
+        """
+        A `twitter_v2` block as defined below.
+        """
+        return pulumi.get(self, "twitter_v2")
+
+    @twitter_v2.setter
+    def twitter_v2(self, value: Optional[pulumi.Input['AppFlexConsumptionAuthSettingsV2TwitterV2Args']]):
+        pulumi.set(self, "twitter_v2", value)
+
+    @property
+    @pulumi.getter(name="unauthenticatedAction")
+    def unauthenticated_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+        return pulumi.get(self, "unauthenticated_action")
+
+    @unauthenticated_action.setter
+    def unauthenticated_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unauthenticated_action", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_auth_endpoint: pulumi.Input[str],
+                 allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 jwt_allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 jwt_allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 www_authentication_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+               
+               > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+               
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        :param pulumi.Input[bool] www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        if allowed_applications is not None:
+            pulumi.set(__self__, "allowed_applications", allowed_applications)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_groups is not None:
+            pulumi.set(__self__, "allowed_groups", allowed_groups)
+        if allowed_identities is not None:
+            pulumi.set(__self__, "allowed_identities", allowed_identities)
+        if client_secret_certificate_thumbprint is not None:
+            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if jwt_allowed_client_applications is not None:
+            pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
+        if jwt_allowed_groups is not None:
+            pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
+        if login_parameters is not None:
+            pulumi.set(__self__, "login_parameters", login_parameters)
+        if www_authentication_disabled is not None:
+            pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> pulumi.Input[str]:
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **Note:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @tenant_auth_endpoint.setter
+    def tenant_auth_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_auth_endpoint", value)
+
+    @property
+    @pulumi.getter(name="allowedApplications")
+    def allowed_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_applications")
+
+    @allowed_applications.setter
+    def allowed_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_applications", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="allowedGroups")
+    def allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_groups")
+
+    @allowed_groups.setter
+    def allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="allowedIdentities")
+    def allowed_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        return pulumi.get(self, "allowed_identities")
+
+    @allowed_identities.setter
+    def allowed_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_identities", value)
+
+    @property
+    @pulumi.getter(name="clientSecretCertificateThumbprint")
+    def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        return pulumi.get(self, "client_secret_certificate_thumbprint")
+
+    @client_secret_certificate_thumbprint.setter
+    def client_secret_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedClientApplications")
+    def jwt_allowed_client_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_client_applications")
+
+    @jwt_allowed_client_applications.setter
+    def jwt_allowed_client_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_client_applications", value)
+
+    @property
+    @pulumi.getter(name="jwtAllowedGroups")
+    def jwt_allowed_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        return pulumi.get(self, "jwt_allowed_groups")
+
+    @jwt_allowed_groups.setter
+    def jwt_allowed_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jwt_allowed_groups", value)
+
+    @property
+    @pulumi.getter(name="loginParameters")
+    def login_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        return pulumi.get(self, "login_parameters")
+
+    @login_parameters.setter
+    def login_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "login_parameters", value)
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+        return pulumi.get(self, "www_authentication_disabled")
+
+    @www_authentication_disabled.setter
+    def www_authentication_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "www_authentication_disabled", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2AppleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Apple web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Apple Login.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: A list of Login Scopes provided by this Authentication Provider.
+               
+               > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **Note:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 openid_configuration_endpoint: pulumi.Input[str],
+                 authorisation_endpoint: Optional[pulumi.Input[str]] = None,
+                 certification_uri: Optional[pulumi.Input[str]] = None,
+                 client_credential_method: Optional[pulumi.Input[str]] = None,
+                 client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+                 issuer_endpoint: Optional[pulumi.Input[str]] = None,
+                 name_claim_type: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with the Custom OIDC.
+        :param pulumi.Input[str] name: The name of the Custom OIDC Authentication Provider.
+               
+               > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] client_credential_method: The Client Credential Method used.
+        :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        :param pulumi.Input[str] issuer_endpoint: The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of the scopes that should be requested while authenticating.
+        :param pulumi.Input[str] token_endpoint: The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "openid_configuration_endpoint", openid_configuration_endpoint)
+        if authorisation_endpoint is not None:
+            pulumi.set(__self__, "authorisation_endpoint", authorisation_endpoint)
+        if certification_uri is not None:
+            pulumi.set(__self__, "certification_uri", certification_uri)
+        if client_credential_method is not None:
+            pulumi.set(__self__, "client_credential_method", client_credential_method)
+        if client_secret_setting_name is not None:
+            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if issuer_endpoint is not None:
+            pulumi.set(__self__, "issuer_endpoint", issuer_endpoint)
+        if name_claim_type is not None:
+            pulumi.set(__self__, "name_claim_type", name_claim_type)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openidConfigurationEndpoint")
+    def openid_configuration_endpoint(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        return pulumi.get(self, "openid_configuration_endpoint")
+
+    @openid_configuration_endpoint.setter
+    def openid_configuration_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "openid_configuration_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorisationEndpoint")
+    def authorisation_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "authorisation_endpoint")
+
+    @authorisation_endpoint.setter
+    def authorisation_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorisation_endpoint", value)
+
+    @property
+    @pulumi.getter(name="certificationUri")
+    def certification_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "certification_uri")
+
+    @certification_uri.setter
+    def certification_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certification_uri", value)
+
+    @property
+    @pulumi.getter(name="clientCredentialMethod")
+    def client_credential_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Credential Method used.
+        """
+        return pulumi.get(self, "client_credential_method")
+
+    @client_credential_method.setter
+    def client_credential_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_credential_method", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="issuerEndpoint")
+    def issuer_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "issuer_endpoint")
+
+    @issuer_endpoint.setter
+    def issuer_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nameClaimType")
+    def name_claim_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the claim that contains the users name.
+        """
+        return pulumi.get(self, "name_claim_type")
+
+    @name_claim_type.setter
+    def name_claim_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_claim_type", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2FacebookV2Args:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[str],
+                 app_secret_setting_name: pulumi.Input[str],
+                 graph_api_version: Optional[pulumi.Input[str]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login.
+        :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook Login.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        :param pulumi.Input[str] graph_api_version: The version of the Facebook API to be used while logging in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+        if graph_api_version is not None:
+            pulumi.set(__self__, "graph_api_version", graph_api_version)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[str]:
+        """
+        The App ID of the Facebook app used for login.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appSecretSettingName")
+    def app_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "app_secret_setting_name")
+
+    @app_secret_setting_name.setter
+    def app_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="graphApiVersion")
+    def graph_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        return pulumi.get(self, "graph_api_version")
+
+    @graph_api_version.setter
+    def graph_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graph_api_version", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2GithubV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login..
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the GitHub app used for login..
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2GoogleV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google Login.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2LoginArgs:
+    def __init__(__self__, *,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
+                 cookie_expiration_time: Optional[pulumi.Input[str]] = None,
+                 logout_endpoint: Optional[pulumi.Input[str]] = None,
+                 nonce_expiration_time: Optional[pulumi.Input[str]] = None,
+                 preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+                 token_refresh_extension_time: Optional[pulumi.Input[float]] = None,
+                 token_store_enabled: Optional[pulumi.Input[bool]] = None,
+                 token_store_path: Optional[pulumi.Input[str]] = None,
+                 token_store_sas_setting_name: Optional[pulumi.Input[str]] = None,
+                 validate_nonce: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+               
+               > **Note:** URLs within the current domain are always implicitly allowed.
+        :param pulumi.Input[str] cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        :param pulumi.Input[str] cookie_expiration_time: The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        :param pulumi.Input[str] logout_endpoint: The endpoint to which logout requests should be made.
+        :param pulumi.Input[str] nonce_expiration_time: The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        :param pulumi.Input[bool] preserve_url_fragments_for_logins: Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        :param pulumi.Input[float] token_refresh_extension_time: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        :param pulumi.Input[bool] token_store_enabled: Should the Token Store configuration Enabled. Defaults to `false`
+        :param pulumi.Input[str] token_store_path: The directory path in the App Filesystem in which the tokens will be stored.
+        :param pulumi.Input[str] token_store_sas_setting_name: The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        :param pulumi.Input[bool] validate_nonce: Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        if allowed_external_redirect_urls is not None:
+            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+        if cookie_expiration_convention is not None:
+            pulumi.set(__self__, "cookie_expiration_convention", cookie_expiration_convention)
+        if cookie_expiration_time is not None:
+            pulumi.set(__self__, "cookie_expiration_time", cookie_expiration_time)
+        if logout_endpoint is not None:
+            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+        if nonce_expiration_time is not None:
+            pulumi.set(__self__, "nonce_expiration_time", nonce_expiration_time)
+        if preserve_url_fragments_for_logins is not None:
+            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+        if token_refresh_extension_time is not None:
+            pulumi.set(__self__, "token_refresh_extension_time", token_refresh_extension_time)
+        if token_store_enabled is not None:
+            pulumi.set(__self__, "token_store_enabled", token_store_enabled)
+        if token_store_path is not None:
+            pulumi.set(__self__, "token_store_path", token_store_path)
+        if token_store_sas_setting_name is not None:
+            pulumi.set(__self__, "token_store_sas_setting_name", token_store_sas_setting_name)
+        if validate_nonce is not None:
+            pulumi.set(__self__, "validate_nonce", validate_nonce)
+
+    @property
+    @pulumi.getter(name="allowedExternalRedirectUrls")
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        return pulumi.get(self, "allowed_external_redirect_urls")
+
+    @allowed_external_redirect_urls.setter
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_external_redirect_urls", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationConvention")
+    def cookie_expiration_convention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        return pulumi.get(self, "cookie_expiration_convention")
+
+    @cookie_expiration_convention.setter
+    def cookie_expiration_convention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_convention", value)
+
+    @property
+    @pulumi.getter(name="cookieExpirationTime")
+    def cookie_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        return pulumi.get(self, "cookie_expiration_time")
+
+    @cookie_expiration_time.setter
+    def cookie_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint to which logout requests should be made.
+        """
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logout_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nonceExpirationTime")
+    def nonce_expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        return pulumi.get(self, "nonce_expiration_time")
+
+    @nonce_expiration_time.setter
+    def nonce_expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nonce_expiration_time", value)
+
+    @property
+    @pulumi.getter(name="preserveUrlFragmentsForLogins")
+    def preserve_url_fragments_for_logins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_url_fragments_for_logins")
+
+    @preserve_url_fragments_for_logins.setter
+    def preserve_url_fragments_for_logins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_url_fragments_for_logins", value)
+
+    @property
+    @pulumi.getter(name="tokenRefreshExtensionTime")
+    def token_refresh_extension_time(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        return pulumi.get(self, "token_refresh_extension_time")
+
+    @token_refresh_extension_time.setter
+    def token_refresh_extension_time(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "token_refresh_extension_time", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreEnabled")
+    def token_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        return pulumi.get(self, "token_store_enabled")
+
+    @token_store_enabled.setter
+    def token_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_store_enabled", value)
+
+    @property
+    @pulumi.getter(name="tokenStorePath")
+    def token_store_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        return pulumi.get(self, "token_store_path")
+
+    @token_store_path.setter
+    def token_store_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_path", value)
+
+    @property
+    @pulumi.getter(name="tokenStoreSasSettingName")
+    def token_store_sas_setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        return pulumi.get(self, "token_store_sas_setting_name")
+
+    @token_store_sas_setting_name.setter
+    def token_store_sas_setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_store_sas_setting_name", value)
+
+    @property
+    @pulumi.getter(name="validateNonce")
+    def validate_nonce(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+        return pulumi.get(self, "validate_nonce")
+
+    @validate_nonce.setter
+    def validate_nonce(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_nonce", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2MicrosoftV2Args:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret_setting_name: pulumi.Input[str],
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
+        :param pulumi.Input[str] client_secret_setting_name: The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if login_scopes is not None:
+            pulumi.set(__self__, "login_scopes", login_scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecretSettingName")
+    def client_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "client_secret_setting_name")
+
+    @client_secret_setting_name.setter
+    def client_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret_setting_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @property
+    @pulumi.getter(name="loginScopes")
+    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+        return pulumi.get(self, "login_scopes")
+
+    @login_scopes.setter
+    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_scopes", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    AppFlexConsumptionAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionAuthSettingsV2TwitterV2Args:
+    def __init__(__self__, *,
+                 consumer_key: pulumi.Input[str],
+                 consumer_secret_setting_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] consumer_key: The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+               
+               !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        pulumi.set(__self__, "consumer_key", consumer_key)
+        pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+
+    @property
+    @pulumi.getter(name="consumerKey")
+    def consumer_key(self) -> pulumi.Input[str]:
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        return pulumi.get(self, "consumer_key")
+
+    @consumer_key.setter
+    def consumer_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_key", value)
+
+    @property
+    @pulumi.getter(name="consumerSecretSettingName")
+    def consumer_secret_setting_name(self) -> pulumi.Input[str]:
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        return pulumi.get(self, "consumer_secret_setting_name")
+
+    @consumer_secret_setting_name.setter
+    def consumer_secret_setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_secret_setting_name", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Connection.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    AppFlexConsumptionConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionConnectionStringArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Connection.
+        :param pulumi.Input[str] type: Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        :param pulumi.Input[str] value: The connection string value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The connection string value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    AppFlexConsumptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+               
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigArgsDict(TypedDict):
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition that describes this Linux Function App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the API Management API for this Linux Function App.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        app_service_logs: NotRequired[pulumi.Input['AppFlexConsumptionSiteConfigAppServiceLogsArgsDict']]
+        """
+        An `app_service_logs` block as defined above.
+        """
+        application_insights_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for linking the Linux Function App to Application Insights.
+        """
+        application_insights_key: NotRequired[pulumi.Input[str]]
+        """
+        The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['AppFlexConsumptionSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is detailed error logging enabled
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to be checked for this function app health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+
+        > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The SCM Type in use by the Linux Function App.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App use a 32-bit worker.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Linux Function App.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigArgs:
+    def __init__(__self__, *,
+                 api_definition_url: Optional[pulumi.Input[str]] = None,
+                 api_management_api_id: Optional[pulumi.Input[str]] = None,
+                 app_command_line: Optional[pulumi.Input[str]] = None,
+                 app_service_logs: Optional[pulumi.Input['AppFlexConsumptionSiteConfigAppServiceLogsArgs']] = None,
+                 application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 application_insights_key: Optional[pulumi.Input[str]] = None,
+                 container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
+                 cors: Optional[pulumi.Input['AppFlexConsumptionSiteConfigCorsArgs']] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+                 elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+                 health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
+                 health_check_path: Optional[pulumi.Input[str]] = None,
+                 http2_enabled: Optional[pulumi.Input[bool]] = None,
+                 ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgs']]]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_debugging_version: Optional[pulumi.Input[str]] = None,
+                 runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 scm_ip_restriction_default_action: Optional[pulumi.Input[str]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+                 use32_bit_worker: Optional[pulumi.Input[bool]] = None,
+                 websockets_enabled: Optional[pulumi.Input[bool]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] api_definition_url: The URL of the API definition that describes this Linux Function App.
+        :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Linux Function App.
+        :param pulumi.Input[str] app_command_line: The App command line to launch.
+        :param pulumi.Input['AppFlexConsumptionSiteConfigAppServiceLogsArgs'] app_service_logs: An `app_service_logs` block as defined above.
+        :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
+        :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
+        :param pulumi.Input['AppFlexConsumptionSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
+        :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
+        :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        :param pulumi.Input[str] ip_restriction_default_action: The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
+        :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
+        :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
+               
+               > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
+        :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker.
+        :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param pulumi.Input[int] worker_count: The number of Workers for this Linux Function App.
+        """
+        if api_definition_url is not None:
+            pulumi.set(__self__, "api_definition_url", api_definition_url)
+        if api_management_api_id is not None:
+            pulumi.set(__self__, "api_management_api_id", api_management_api_id)
+        if app_command_line is not None:
+            pulumi.set(__self__, "app_command_line", app_command_line)
+        if app_service_logs is not None:
+            pulumi.set(__self__, "app_service_logs", app_service_logs)
+        if application_insights_connection_string is not None:
+            pulumi.set(__self__, "application_insights_connection_string", application_insights_connection_string)
+        if application_insights_key is not None:
+            pulumi.set(__self__, "application_insights_key", application_insights_key)
+        if container_registry_managed_identity_client_id is not None:
+            pulumi.set(__self__, "container_registry_managed_identity_client_id", container_registry_managed_identity_client_id)
+        if container_registry_use_managed_identity is not None:
+            pulumi.set(__self__, "container_registry_use_managed_identity", container_registry_use_managed_identity)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
+        if default_documents is not None:
+            pulumi.set(__self__, "default_documents", default_documents)
+        if detailed_error_logging_enabled is not None:
+            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+        if elastic_instance_minimum is not None:
+            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+        if health_check_eviction_time_in_min is not None:
+            pulumi.set(__self__, "health_check_eviction_time_in_min", health_check_eviction_time_in_min)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if http2_enabled is not None:
+            pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if ip_restriction_default_action is not None:
+            pulumi.set(__self__, "ip_restriction_default_action", ip_restriction_default_action)
+        if ip_restrictions is not None:
+            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if load_balancing_mode is not None:
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if managed_pipeline_mode is not None:
+            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+        if remote_debugging_version is not None:
+            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+        if runtime_scale_monitoring_enabled is not None:
+            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+        if scm_ip_restriction_default_action is not None:
+            pulumi.set(__self__, "scm_ip_restriction_default_action", scm_ip_restriction_default_action)
+        if scm_ip_restrictions is not None:
+            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+        if scm_minimum_tls_version is not None:
+            pulumi.set(__self__, "scm_minimum_tls_version", scm_minimum_tls_version)
+        if scm_type is not None:
+            pulumi.set(__self__, "scm_type", scm_type)
+        if scm_use_main_ip_restriction is not None:
+            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+        if use32_bit_worker is not None:
+            pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if websockets_enabled is not None:
+            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+        if worker_count is not None:
+            pulumi.set(__self__, "worker_count", worker_count)
+
+    @property
+    @pulumi.getter(name="apiDefinitionUrl")
+    def api_definition_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the API definition that describes this Linux Function App.
+        """
+        return pulumi.get(self, "api_definition_url")
+
+    @api_definition_url.setter
+    def api_definition_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_definition_url", value)
+
+    @property
+    @pulumi.getter(name="apiManagementApiId")
+    def api_management_api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management API for this Linux Function App.
+        """
+        return pulumi.get(self, "api_management_api_id")
+
+    @api_management_api_id.setter
+    def api_management_api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_api_id", value)
+
+    @property
+    @pulumi.getter(name="appCommandLine")
+    def app_command_line(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App command line to launch.
+        """
+        return pulumi.get(self, "app_command_line")
+
+    @app_command_line.setter
+    def app_command_line(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_command_line", value)
+
+    @property
+    @pulumi.getter(name="appServiceLogs")
+    def app_service_logs(self) -> Optional[pulumi.Input['AppFlexConsumptionSiteConfigAppServiceLogsArgs']]:
+        """
+        An `app_service_logs` block as defined above.
+        """
+        return pulumi.get(self, "app_service_logs")
+
+    @app_service_logs.setter
+    def app_service_logs(self, value: Optional[pulumi.Input['AppFlexConsumptionSiteConfigAppServiceLogsArgs']]):
+        pulumi.set(self, "app_service_logs", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsConnectionString")
+    def application_insights_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Connection String for linking the Linux Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_connection_string")
+
+    @application_insights_connection_string.setter
+    def application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_connection_string", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsKey")
+    def application_insights_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        """
+        return pulumi.get(self, "application_insights_key")
+
+    @application_insights_key.setter
+    def application_insights_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_key", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryManagedIdentityClientId")
+    def container_registry_managed_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        return pulumi.get(self, "container_registry_managed_identity_client_id")
+
+    @container_registry_managed_identity_client_id.setter
+    def container_registry_managed_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_managed_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryUseManagedIdentity")
+    def container_registry_use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        return pulumi.get(self, "container_registry_use_managed_identity")
+
+    @container_registry_use_managed_identity.setter
+    def container_registry_use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "container_registry_use_managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['AppFlexConsumptionSiteConfigCorsArgs']]:
+        """
+        A `cors` block as defined above.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['AppFlexConsumptionSiteConfigCorsArgs']]):
+        pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="defaultDocuments")
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        return pulumi.get(self, "default_documents")
+
+    @default_documents.setter
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_documents", value)
+
+    @property
+    @pulumi.getter(name="detailedErrorLoggingEnabled")
+    def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is detailed error logging enabled
+        """
+        return pulumi.get(self, "detailed_error_logging_enabled")
+
+    @detailed_error_logging_enabled.setter
+    def detailed_error_logging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "detailed_error_logging_enabled", value)
+
+    @property
+    @pulumi.getter(name="elasticInstanceMinimum")
+    def elastic_instance_minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        """
+        return pulumi.get(self, "elastic_instance_minimum")
+
+    @elastic_instance_minimum.setter
+    def elastic_instance_minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_instance_minimum", value)
+
+    @property
+    @pulumi.getter(name="healthCheckEvictionTimeInMin")
+    def health_check_eviction_time_in_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        return pulumi.get(self, "health_check_eviction_time_in_min")
+
+    @health_check_eviction_time_in_min.setter
+    def health_check_eviction_time_in_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_eviction_time_in_min", value)
+
+    @property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to be checked for this function app health.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @health_check_path.setter
+    def health_check_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_path", value)
+
+    @property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "http2_enabled")
+
+    @http2_enabled.setter
+    def http2_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http2_enabled", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictionDefaultAction")
+    def ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "ip_restriction_default_action")
+
+    @ip_restriction_default_action.setter
+    def ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_restriction_default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRestrictions")
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgs']]]]:
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "ip_restrictions")
+
+    @ip_restrictions.setter
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgs']]]]):
+        pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @load_balancing_mode.setter
+    def load_balancing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancing_mode", value)
+
+    @property
+    @pulumi.getter(name="managedPipelineMode")
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        return pulumi.get(self, "managed_pipeline_mode")
+
+    @managed_pipeline_mode.setter
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_pipeline_mode", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteDebuggingVersion")
+    def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        """
+        return pulumi.get(self, "remote_debugging_version")
+
+    @remote_debugging_version.setter
+    def remote_debugging_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_debugging_version", value)
+
+    @property
+    @pulumi.getter(name="runtimeScaleMonitoringEnabled")
+    def runtime_scale_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+
+        > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        """
+        return pulumi.get(self, "runtime_scale_monitoring_enabled")
+
+    @runtime_scale_monitoring_enabled.setter
+    def runtime_scale_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "runtime_scale_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictionDefaultAction")
+    def scm_ip_restriction_default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "scm_ip_restriction_default_action")
+
+    @scm_ip_restriction_default_action.setter
+    def scm_ip_restriction_default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_ip_restriction_default_action", value)
+
+    @property
+    @pulumi.getter(name="scmIpRestrictions")
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgs']]]]:
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        return pulumi.get(self, "scm_ip_restrictions")
+
+    @scm_ip_restrictions.setter
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgs']]]]):
+        pulumi.set(self, "scm_ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="scmMinimumTlsVersion")
+    def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        return pulumi.get(self, "scm_minimum_tls_version")
+
+    @scm_minimum_tls_version.setter
+    def scm_minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="scmType")
+    def scm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SCM Type in use by the Linux Function App.
+        """
+        return pulumi.get(self, "scm_type")
+
+    @scm_type.setter
+    def scm_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scm_type", value)
+
+    @property
+    @pulumi.getter(name="scmUseMainIpRestriction")
+    def scm_use_main_ip_restriction(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        return pulumi.get(self, "scm_use_main_ip_restriction")
+
+    @scm_use_main_ip_restriction.setter
+    def scm_use_main_ip_restriction(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scm_use_main_ip_restriction", value)
+
+    @property
+    @pulumi.getter(name="use32BitWorker")
+    def use32_bit_worker(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Linux Web App use a 32-bit worker.
+        """
+        return pulumi.get(self, "use32_bit_worker")
+
+    @use32_bit_worker.setter
+    def use32_bit_worker(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use32_bit_worker", value)
+
+    @property
+    @pulumi.getter(name="websocketsEnabled")
+    def websockets_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "websockets_enabled")
+
+    @websockets_enabled.setter
+    def websockets_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "websockets_enabled", value)
+
+    @property
+    @pulumi.getter(name="workerCount")
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Workers for this Linux Function App.
+        """
+        return pulumi.get(self, "worker_count")
+
+    @worker_count.setter
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "worker_count", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigAppServiceLogsArgsDict(TypedDict):
+        disk_quota_mb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+
+        > **Note:** This block is not supported on Consumption plans.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigAppServiceLogsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigAppServiceLogsArgs:
+    def __init__(__self__, *,
+                 disk_quota_mb: Optional[pulumi.Input[int]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        :param pulumi.Input[int] retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+               
+               > **Note:** This block is not supported on Consumption plans.
+        """
+        if disk_quota_mb is not None:
+            pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+
+    @property
+    @pulumi.getter(name="diskQuotaMb")
+    def disk_quota_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        """
+        return pulumi.get(self, "disk_quota_mb")
+
+    @disk_quota_mb.setter
+    def disk_quota_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_quota_mb", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+
+        > **Note:** This block is not supported on Consumption plans.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 support_credentials: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
+        :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if support_credentials is not None:
+            pulumi.set(__self__, "support_credentials", support_credentials)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="supportCredentials")
+    def support_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+        return pulumi.get(self, "support_credentials")
+
+    @support_credentials.setter
+    def support_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "support_credentials", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
+        :param pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+               
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigScmIpRestrictionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 service_tag: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        :param pulumi.Input[str] description: The Description of this IP Restriction.
+        :param pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
+        :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
+        :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+               
+               > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if service_tag is not None:
+            pulumi.set(__self__, "service_tag", service_tag)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        A `headers` block as defined above.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @service_tag.setter
+    def service_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_tag", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: Specifies a list of Azure Front Door IDs.
+        :param pulumi.Input[str] x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    AppFlexConsumptionSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionSiteCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Password used for publishing.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+
+if not MYPY:
+    class AppFlexConsumptionStickySettingsArgsDict(TypedDict):
+        app_setting_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        connection_string_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+elif False:
+    AppFlexConsumptionStickySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppFlexConsumptionStickySettingsArgs:
+    def __init__(__self__, *,
+                 app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_setting_names: A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_string_names: A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        if app_setting_names is not None:
+            pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if connection_string_names is not None:
+            pulumi.set(__self__, "connection_string_names", connection_string_names)
+
+    @property
+    @pulumi.getter(name="appSettingNames")
+    def app_setting_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "app_setting_names")
+
+    @app_setting_names.setter
+    def app_setting_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "app_setting_names", value)
+
+    @property
+    @pulumi.getter(name="connectionStringNames")
+    def connection_string_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        return pulumi.get(self, "connection_string_names")
+
+    @connection_string_names.setter
+    def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_string_names", value)
 
 
 if not MYPY:
@@ -22084,7 +26298,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
 
         > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -22139,7 +26353,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
                > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
                
                > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
@@ -22295,7 +26509,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
 
         > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -27590,7 +31804,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
 
         > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -27643,7 +31857,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
                
                > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
@@ -27797,7 +32011,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
 
         > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -41037,7 +45251,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
         """
         powershell_core_version: NotRequired[pulumi.Input[str]]
         """
@@ -41066,7 +45280,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
         """
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`. Defaults to `v4.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
-        :param pulumi.Input[str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        :param pulumi.Input[str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
         :param pulumi.Input[str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
         :param pulumi.Input[bool] use_custom_runtime: Does the Function App use a custom Application Stack?
         :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -41112,7 +45326,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, and `~22`.
         """
         return pulumi.get(self, "node_version")
 

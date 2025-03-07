@@ -1203,6 +1203,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appservice/appFlexConsumption",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/appFlexConsumption:AppFlexConsumption": "AppFlexConsumption"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appservice/appService",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -3927,6 +3935,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupVault:BackupVault": "BackupVault"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupVaultCustomerManagedKey",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey": "BackupVaultCustomerManagedKey"
   }
  },
  {
@@ -6751,6 +6767,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection": "NetworkManagerSubscriptionConnection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerVerifierWorkspace",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace": "NetworkManagerVerifierWorkspace"
   }
  },
  {

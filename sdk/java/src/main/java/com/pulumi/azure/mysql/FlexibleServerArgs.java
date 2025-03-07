@@ -40,18 +40,37 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+     * The Password associated with the `administrator_login` for the MySQL Flexible Server.
      * 
      */
     @Import(name="administratorPassword")
     private @Nullable Output<String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+     * @return The Password associated with the `administrator_login` for the MySQL Flexible Server.
      * 
      */
     public Optional<Output<String>> administratorPassword() {
         return Optional.ofNullable(this.administratorPassword);
+    }
+
+    /**
+     * An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * 
+     * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+     * 
+     */
+    @Import(name="administratorPasswordWoVersion")
+    private @Nullable Output<Integer> administratorPasswordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * 
+     * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+     * 
+     */
+    public Optional<Output<Integer>> administratorPasswordWoVersion() {
+        return Optional.ofNullable(this.administratorPasswordWoVersion);
     }
 
     /**
@@ -375,6 +394,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     private FlexibleServerArgs(FlexibleServerArgs $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorPassword = $.administratorPassword;
+        this.administratorPasswordWoVersion = $.administratorPasswordWoVersion;
         this.backupRetentionDays = $.backupRetentionDays;
         this.createMode = $.createMode;
         this.customerManagedKey = $.customerManagedKey;
@@ -437,7 +457,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+         * @param administratorPassword The Password associated with the `administrator_login` for the MySQL Flexible Server.
          * 
          * @return builder
          * 
@@ -448,13 +468,38 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+         * @param administratorPassword The Password associated with the `administrator_login` for the MySQL Flexible Server.
          * 
          * @return builder
          * 
          */
         public Builder administratorPassword(String administratorPassword) {
             return administratorPassword(Output.of(administratorPassword));
+        }
+
+        /**
+         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+         * 
+         * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorPasswordWoVersion(@Nullable Output<Integer> administratorPasswordWoVersion) {
+            $.administratorPasswordWoVersion = administratorPasswordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param administratorPasswordWoVersion An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+         * 
+         * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorPasswordWoVersion(Integer administratorPasswordWoVersion) {
+            return administratorPasswordWoVersion(Output.of(administratorPasswordWoVersion));
         }
 
         /**

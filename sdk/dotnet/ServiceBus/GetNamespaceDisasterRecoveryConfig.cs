@@ -11,12 +11,90 @@ namespace Pulumi.Azure.ServiceBus
 {
     public static class GetNamespaceDisasterRecoveryConfig
     {
+        /// <summary>
+        /// Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ServiceBus.GetNamespaceDisasterRecoveryConfig.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         NamespaceId = "example-namespace-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getNamespaceDisasterRecoveryConfigResult =&gt; getNamespaceDisasterRecoveryConfigResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetNamespaceDisasterRecoveryConfigResult> InvokeAsync(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ServiceBus.GetNamespaceDisasterRecoveryConfig.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         NamespaceId = "example-namespace-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getNamespaceDisasterRecoveryConfigResult =&gt; getNamespaceDisasterRecoveryConfigResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetNamespaceDisasterRecoveryConfigResult> Invoke(GetNamespaceDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ServiceBus.GetNamespaceDisasterRecoveryConfig.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         NamespaceId = "example-namespace-id",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getNamespaceDisasterRecoveryConfigResult =&gt; getNamespaceDisasterRecoveryConfigResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetNamespaceDisasterRecoveryConfigResult> Invoke(GetNamespaceDisasterRecoveryConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceDisasterRecoveryConfigResult>("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args ?? new GetNamespaceDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
     }
@@ -24,12 +102,21 @@ namespace Pulumi.Azure.ServiceBus
 
     public sealed class GetNamespaceDisasterRecoveryConfigArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Shared access policies used to access the connection string for the alias.
+        /// </summary>
         [Input("aliasAuthorizationRuleId")]
         public string? AliasAuthorizationRuleId { get; set; }
 
+        /// <summary>
+        /// The name of this Service Bus Disaster Recovery Config.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Service Bus Namespace.
+        /// </summary>
         [Input("namespaceId")]
         public string? NamespaceId { get; set; }
 
@@ -47,12 +134,21 @@ namespace Pulumi.Azure.ServiceBus
 
     public sealed class GetNamespaceDisasterRecoveryConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Shared access policies used to access the connection string for the alias.
+        /// </summary>
         [Input("aliasAuthorizationRuleId")]
         public Input<string>? AliasAuthorizationRuleId { get; set; }
 
+        /// <summary>
+        /// The name of this Service Bus Disaster Recovery Config.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Service Bus Namespace.
+        /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
 
@@ -73,18 +169,33 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class GetNamespaceDisasterRecoveryConfigResult
     {
         public readonly string? AliasAuthorizationRuleId;
+        /// <summary>
+        /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+        /// </summary>
         public readonly string DefaultPrimaryKey;
+        /// <summary>
+        /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        /// </summary>
         public readonly string DefaultSecondaryKey;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        public readonly string? NamespaceId;
-        public readonly string? NamespaceName;
+        public readonly string NamespaceId;
+        public readonly string NamespaceName;
+        /// <summary>
+        /// The ID of the Service Bus Namespace to replicate to.
+        /// </summary>
         public readonly string PartnerNamespaceId;
+        /// <summary>
+        /// The alias Primary Connection String for the ServiceBus Namespace.
+        /// </summary>
         public readonly string PrimaryConnectionStringAlias;
-        public readonly string? ResourceGroupName;
+        public readonly string ResourceGroupName;
+        /// <summary>
+        /// The alias Secondary Connection String for the ServiceBus Namespace
+        /// </summary>
         public readonly string SecondaryConnectionStringAlias;
 
         [OutputConstructor]
@@ -99,15 +210,15 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string? namespaceId,
+            string namespaceId,
 
-            string? namespaceName,
+            string namespaceName,
 
             string partnerNamespaceId,
 
             string primaryConnectionStringAlias,
 
-            string? resourceGroupName,
+            string resourceGroupName,
 
             string secondaryConnectionStringAlias)
         {

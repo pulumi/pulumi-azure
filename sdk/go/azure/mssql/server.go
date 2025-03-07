@@ -193,8 +193,10 @@ type Server struct {
 
 	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion pulumi.IntPtrOutput `pulumi:"administratorLoginPasswordWoVersion"`
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator ServerAzureadAdministratorPtrOutput `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -288,8 +290,10 @@ func GetServer(ctx *pulumi.Context,
 type serverState struct {
 	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -335,8 +339,10 @@ type serverState struct {
 type ServerState struct {
 	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -386,8 +392,10 @@ func (ServerState) ElementType() reflect.Type {
 type serverArgs struct {
 	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion *int `pulumi:"administratorLoginPasswordWoVersion"`
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -430,8 +438,10 @@ type serverArgs struct {
 type ServerArgs struct {
 	// The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+	AdministratorLoginPasswordWoVersion pulumi.IntPtrInput
 	// An `azureadAdministrator` block as defined below.
 	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -562,9 +572,14 @@ func (o ServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`.
+// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
 func (o ServerOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
+func (o ServerOutput) AdministratorLoginPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.AdministratorLoginPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // An `azureadAdministrator` block as defined below.

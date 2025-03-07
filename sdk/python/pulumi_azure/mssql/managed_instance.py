@@ -31,7 +31,9 @@ class ManagedInstanceArgs:
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_administrator: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -56,7 +58,11 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs'] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_format: Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+               
+               > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
@@ -86,8 +92,12 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "azure_active_directory_administrator", azure_active_directory_administrator)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
+        if database_format is not None:
+            pulumi.set(__self__, "database_format", database_format)
         if dns_zone_partner_id is not None:
             pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
+        if hybrid_secondary_usage is not None:
+            pulumi.set(__self__, "hybrid_secondary_usage", hybrid_secondary_usage)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -234,6 +244,20 @@ class ManagedInstanceArgs:
         pulumi.set(self, "collation", value)
 
     @property
+    @pulumi.getter(name="databaseFormat")
+    def database_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+
+        > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        """
+        return pulumi.get(self, "database_format")
+
+    @database_format.setter
+    def database_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_format", value)
+
+    @property
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -244,6 +268,18 @@ class ManagedInstanceArgs:
     @dns_zone_partner_id.setter
     def dns_zone_partner_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_zone_partner_id", value)
+
+    @property
+    @pulumi.getter(name="hybridSecondaryUsage")
+    def hybrid_secondary_usage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+        """
+        return pulumi.get(self, "hybrid_secondary_usage")
+
+    @hybrid_secondary_usage.setter
+    def hybrid_secondary_usage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hybrid_secondary_usage", value)
 
     @property
     @pulumi.getter
@@ -399,9 +435,11 @@ class _ManagedInstanceState:
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_administrator: Optional[pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs']] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[str]] = None,
                  dns_zone: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -426,9 +464,13 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input['ManagedInstanceAzureActiveDirectoryAdministratorArgs'] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_format: Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+               
+               > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         :param pulumi.Input[str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
+        :param pulumi.Input[str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -458,12 +500,16 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "azure_active_directory_administrator", azure_active_directory_administrator)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
+        if database_format is not None:
+            pulumi.set(__self__, "database_format", database_format)
         if dns_zone is not None:
             pulumi.set(__self__, "dns_zone", dns_zone)
         if dns_zone_partner_id is not None:
             pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if hybrid_secondary_usage is not None:
+            pulumi.set(__self__, "hybrid_secondary_usage", hybrid_secondary_usage)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if license_type is not None:
@@ -550,6 +596,20 @@ class _ManagedInstanceState:
         pulumi.set(self, "collation", value)
 
     @property
+    @pulumi.getter(name="databaseFormat")
+    def database_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+
+        > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        """
+        return pulumi.get(self, "database_format")
+
+    @database_format.setter
+    def database_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_format", value)
+
+    @property
     @pulumi.getter(name="dnsZone")
     def dns_zone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -584,6 +644,18 @@ class _ManagedInstanceState:
     @fqdn.setter
     def fqdn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="hybridSecondaryUsage")
+    def hybrid_secondary_usage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+        """
+        return pulumi.get(self, "hybrid_secondary_usage")
+
+    @hybrid_secondary_usage.setter
+    def hybrid_secondary_usage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hybrid_secondary_usage", value)
 
     @property
     @pulumi.getter
@@ -813,7 +885,9 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1023,7 +1097,11 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_format: Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+               
+               > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1254,7 +1332,9 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
+                 database_format: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+                 hybrid_secondary_usage: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1286,7 +1366,9 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["azure_active_directory_administrator"] = azure_active_directory_administrator
             __props__.__dict__["collation"] = collation
+            __props__.__dict__["database_format"] = database_format
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
+            __props__.__dict__["hybrid_secondary_usage"] = hybrid_secondary_usage
             __props__.__dict__["identity"] = identity
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")
@@ -1337,9 +1419,11 @@ class ManagedInstance(pulumi.CustomResource):
             administrator_login_password: Optional[pulumi.Input[str]] = None,
             azure_active_directory_administrator: Optional[pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
             collation: Optional[pulumi.Input[str]] = None,
+            database_format: Optional[pulumi.Input[str]] = None,
             dns_zone: Optional[pulumi.Input[str]] = None,
             dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
+            hybrid_secondary_usage: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1369,9 +1453,13 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_format: Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+               
+               > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         :param pulumi.Input[str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
+        :param pulumi.Input[str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
         :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1401,9 +1489,11 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["administrator_login_password"] = administrator_login_password
         __props__.__dict__["azure_active_directory_administrator"] = azure_active_directory_administrator
         __props__.__dict__["collation"] = collation
+        __props__.__dict__["database_format"] = database_format
         __props__.__dict__["dns_zone"] = dns_zone
         __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
         __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["hybrid_secondary_usage"] = hybrid_secondary_usage
         __props__.__dict__["identity"] = identity
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
@@ -1457,6 +1547,16 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "collation")
 
     @property
+    @pulumi.getter(name="databaseFormat")
+    def database_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
+
+        > **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        """
+        return pulumi.get(self, "database_format")
+
+    @property
     @pulumi.getter(name="dnsZone")
     def dns_zone(self) -> pulumi.Output[str]:
         """
@@ -1479,6 +1579,14 @@ class ManagedInstance(pulumi.CustomResource):
         The fully qualified domain name of the Azure Managed SQL Instance
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="hybridSecondaryUsage")
+    def hybrid_secondary_usage(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
+        """
+        return pulumi.get(self, "hybrid_secondary_usage")
 
     @property
     @pulumi.getter

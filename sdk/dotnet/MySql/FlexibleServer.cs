@@ -123,10 +123,18 @@ namespace Pulumi.Azure.MySql
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+        /// The Password associated with the `administrator_login` for the MySQL Flexible Server.
         /// </summary>
         [Output("administratorPassword")]
         public Output<string?> AdministratorPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// 
+        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+        /// </summary>
+        [Output("administratorPasswordWoVersion")]
+        public Output<int?> AdministratorPasswordWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
@@ -335,7 +343,7 @@ namespace Pulumi.Azure.MySql
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+        /// The Password associated with the `administrator_login` for the MySQL Flexible Server.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -346,6 +354,14 @@ namespace Pulumi.Azure.MySql
                 _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// 
+        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+        /// </summary>
+        [Input("administratorPasswordWoVersion")]
+        public Input<int>? AdministratorPasswordWoVersion { get; set; }
 
         /// <summary>
         /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
@@ -500,7 +516,7 @@ namespace Pulumi.Azure.MySql
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`.
+        /// The Password associated with the `administrator_login` for the MySQL Flexible Server.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -511,6 +527,14 @@ namespace Pulumi.Azure.MySql
                 _administratorPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+        /// 
+        /// &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+        /// </summary>
+        [Input("administratorPasswordWoVersion")]
+        public Input<int>? AdministratorPasswordWoVersion { get; set; }
 
         /// <summary>
         /// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.

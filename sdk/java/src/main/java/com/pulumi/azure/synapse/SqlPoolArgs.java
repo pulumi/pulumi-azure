@@ -65,14 +65,14 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * Is geo-backup policy enabled? Defaults to `true`.
      * 
      */
     @Import(name="geoBackupPolicyEnabled")
     private @Nullable Output<Boolean> geoBackupPolicyEnabled;
 
     /**
-     * @return Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+     * @return Is geo-backup policy enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> geoBackupPolicyEnabled() {
@@ -140,14 +140,14 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
     /**
-     * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+     * @return The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Output<String> storageAccountType() {
@@ -282,7 +282,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
+         * @param geoBackupPolicyEnabled Is geo-backup policy enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountType The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+         * @param storageAccountType The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountType The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
+         * @param storageAccountType The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 

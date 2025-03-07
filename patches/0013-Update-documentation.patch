@@ -998,7 +998,7 @@ index ed1f00c577..a4568c1ce0 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index 50052e74c1..f5cdd73f95 100644
+index d847c69797..dc19703131 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1704,7 +1704,7 @@ index 89198d584b..f2ec1a778a 100644
  ```hcl
  data "azurerm_client_config" "current" {}
 diff --git a/website/docs/r/key_vault_secret.html.markdown b/website/docs/r/key_vault_secret.html.markdown
-index c6387f8e37..ab11365777 100644
+index b09bbfe3c6..ed24ed0d1c 100644
 --- a/website/docs/r/key_vault_secret.html.markdown
 +++ b/website/docs/r/key_vault_secret.html.markdown
 @@ -11,11 +11,6 @@ description: |-
@@ -1720,7 +1720,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 10d2b33d77..e8e3c83199 100644
+index e5cfa9a774..d4572ea379 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -1743,7 +1743,7 @@ index 10d2b33d77..e8e3c83199 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -368,7 +362,7 @@ A `default_node_pool` block supports the following:
+@@ -370,7 +364,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1752,7 +1752,7 @@ index 10d2b33d77..e8e3c83199 100644
  
  * `host_encryption_enabled` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -424,7 +418,7 @@ A `default_node_pool` block supports the following:
+@@ -426,7 +420,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1761,7 +1761,7 @@ index 10d2b33d77..e8e3c83199 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -448,7 +442,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -450,7 +444,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1770,7 +1770,7 @@ index 10d2b33d77..e8e3c83199 100644
  
  -> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -679,8 +673,6 @@ A `network_profile` block supports the following:
+@@ -681,8 +675,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1779,7 +1779,7 @@ index 10d2b33d77..e8e3c83199 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1049,19 +1041,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1065,19 +1057,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1800,7 +1800,7 @@ index 10d2b33d77..e8e3c83199 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 41f3ee87c3..58938319cb 100644
+index 30172bfb1c..3a7b7af967 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -2054,7 +2054,7 @@ index 6ce94c3f96..96a0bc66c1 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index 1fcfad3a05..ce6ab37003 100644
+index d6f9a269bf..8aa6d1fa8a 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -2068,7 +2068,7 @@ index 1fcfad3a05..ce6ab37003 100644
  
  ```hcl
 diff --git a/website/docs/r/mssql_virtual_machine.html.markdown b/website/docs/r/mssql_virtual_machine.html.markdown
-index 4289b3af47..30eccc2326 100644
+index 44b31b0ba3..a09a3dfe09 100644
 --- a/website/docs/r/mssql_virtual_machine.html.markdown
 +++ b/website/docs/r/mssql_virtual_machine.html.markdown
 @@ -12,7 +12,7 @@ Manages a Microsoft SQL Virtual Machine

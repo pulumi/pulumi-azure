@@ -1891,7 +1891,7 @@ type AccountImmutabilityPolicy struct {
 	AllowProtectedAppendWrites bool `pulumi:"allowProtectedAppendWrites"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	PeriodSinceCreationInDays int `pulumi:"periodSinceCreationInDays"`
-	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
 	State string `pulumi:"state"`
 }
 
@@ -1911,7 +1911,7 @@ type AccountImmutabilityPolicyArgs struct {
 	AllowProtectedAppendWrites pulumi.BoolInput `pulumi:"allowProtectedAppendWrites"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	PeriodSinceCreationInDays pulumi.IntInput `pulumi:"periodSinceCreationInDays"`
-	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+	// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -2002,7 +2002,7 @@ func (o AccountImmutabilityPolicyOutput) PeriodSinceCreationInDays() pulumi.IntO
 	return o.ApplyT(func(v AccountImmutabilityPolicy) int { return v.PeriodSinceCreationInDays }).(pulumi.IntOutput)
 }
 
-// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
 func (o AccountImmutabilityPolicyOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountImmutabilityPolicy) string { return v.State }).(pulumi.StringOutput)
 }
@@ -2051,7 +2051,7 @@ func (o AccountImmutabilityPolicyPtrOutput) PeriodSinceCreationInDays() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+// Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. Changing from `Locked` forces a new resource to be created.
 func (o AccountImmutabilityPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountImmutabilityPolicy) *string {
 		if v == nil {

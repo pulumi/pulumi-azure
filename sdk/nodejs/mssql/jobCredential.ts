@@ -89,11 +89,15 @@ export class JobCredential extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The password part of the credential.
+     * The password to use for this Elastic Job credential.
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * The username part of the credential.
+     * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
+     */
+    public readonly passwordWoVersion!: pulumi.Output<number | undefined>;
+    /**
+     * The username to use for this Elastic Job credential.
      */
     public readonly username!: pulumi.Output<string>;
 
@@ -113,14 +117,12 @@ export class JobCredential extends pulumi.CustomResource {
             resourceInputs["jobAgentId"] = state ? state.jobAgentId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["passwordWoVersion"] = state ? state.passwordWoVersion : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as JobCredentialArgs | undefined;
             if ((!args || args.jobAgentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentId'");
-            }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
             }
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
@@ -128,6 +130,7 @@ export class JobCredential extends pulumi.CustomResource {
             resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["passwordWoVersion"] = args ? args.passwordWoVersion : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,11 +153,15 @@ export interface JobCredentialState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The password part of the credential.
+     * The password to use for this Elastic Job credential.
      */
     password?: pulumi.Input<string>;
     /**
-     * The username part of the credential.
+     * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
+     */
+    passwordWoVersion?: pulumi.Input<number>;
+    /**
+     * The username to use for this Elastic Job credential.
      */
     username?: pulumi.Input<string>;
 }
@@ -172,11 +179,15 @@ export interface JobCredentialArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The password part of the credential.
+     * The password to use for this Elastic Job credential.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
-     * The username part of the credential.
+     * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
+     */
+    passwordWoVersion?: pulumi.Input<number>;
+    /**
+     * The username to use for this Elastic Job credential.
      */
     username: pulumi.Input<string>;
 }

@@ -75,6 +75,8 @@ type Table struct {
 	Acls TableAclArrayOutput `pulumi:"acls"`
 	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Resource Manager ID of this Storage Table.
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
@@ -116,6 +118,8 @@ type tableState struct {
 	Acls []TableAcl `pulumi:"acls"`
 	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The Resource Manager ID of this Storage Table.
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
@@ -125,6 +129,8 @@ type TableState struct {
 	Acls TableAclArrayInput
 	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The Resource Manager ID of this Storage Table.
+	ResourceManagerId pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 }
@@ -247,6 +253,11 @@ func (o TableOutput) Acls() TableAclArrayOutput {
 // The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Resource Manager ID of this Storage Table.
+func (o TableOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
 // Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.

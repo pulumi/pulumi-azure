@@ -36,18 +36,33 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+     * The Password associated with the `administrator_login` for the PostgreSQL Server.
      * 
      */
     @Import(name="administratorLoginPassword")
     private @Nullable Output<String> administratorLoginPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+     * @return The Password associated with the `administrator_login` for the PostgreSQL Server.
      * 
      */
     public Optional<Output<String>> administratorLoginPassword() {
         return Optional.ofNullable(this.administratorLoginPassword);
+    }
+
+    /**
+     * An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+     * 
+     */
+    @Import(name="administratorLoginPasswordWoVersion")
+    private @Nullable Output<Integer> administratorLoginPasswordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+     * 
+     */
+    public Optional<Output<Integer>> administratorLoginPasswordWoVersion() {
+        return Optional.ofNullable(this.administratorLoginPasswordWoVersion);
     }
 
     /**
@@ -367,6 +382,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     private ServerState(ServerState $) {
         this.administratorLogin = $.administratorLogin;
         this.administratorLoginPassword = $.administratorLoginPassword;
+        this.administratorLoginPasswordWoVersion = $.administratorLoginPasswordWoVersion;
         this.autoGrowEnabled = $.autoGrowEnabled;
         this.backupRetentionDays = $.backupRetentionDays;
         this.createMode = $.createMode;
@@ -429,7 +445,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param administratorLoginPassword The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+         * @param administratorLoginPassword The Password associated with the `administrator_login` for the PostgreSQL Server.
          * 
          * @return builder
          * 
@@ -440,13 +456,34 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param administratorLoginPassword The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+         * @param administratorLoginPassword The Password associated with the `administrator_login` for the PostgreSQL Server.
          * 
          * @return builder
          * 
          */
         public Builder administratorLoginPassword(String administratorLoginPassword) {
             return administratorLoginPassword(Output.of(administratorLoginPassword));
+        }
+
+        /**
+         * @param administratorLoginPasswordWoVersion An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorLoginPasswordWoVersion(@Nullable Output<Integer> administratorLoginPasswordWoVersion) {
+            $.administratorLoginPasswordWoVersion = administratorLoginPasswordWoVersion;
+            return this;
+        }
+
+        /**
+         * @param administratorLoginPasswordWoVersion An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder administratorLoginPasswordWoVersion(Integer administratorLoginPasswordWoVersion) {
+            return administratorLoginPasswordWoVersion(Output.of(administratorLoginPasswordWoVersion));
         }
 
         /**

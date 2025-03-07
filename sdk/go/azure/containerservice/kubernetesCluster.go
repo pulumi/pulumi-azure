@@ -295,6 +295,8 @@ type KubernetesCluster struct {
 	SupportPlan pulumi.StringPtrOutput `pulumi:"supportPlan"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `upgradeOverride` block as defined below.
+	UpgradeOverride KubernetesClusterUpgradeOverridePtrOutput `pulumi:"upgradeOverride"`
 	// A `webAppRouting` block as defined below.
 	WebAppRouting KubernetesClusterWebAppRoutingPtrOutput `pulumi:"webAppRouting"`
 	// A `windowsProfile` block as defined below.
@@ -567,6 +569,8 @@ type kubernetesClusterState struct {
 	SupportPlan *string `pulumi:"supportPlan"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `upgradeOverride` block as defined below.
+	UpgradeOverride *KubernetesClusterUpgradeOverride `pulumi:"upgradeOverride"`
 	// A `webAppRouting` block as defined below.
 	WebAppRouting *KubernetesClusterWebAppRouting `pulumi:"webAppRouting"`
 	// A `windowsProfile` block as defined below.
@@ -797,6 +801,8 @@ type KubernetesClusterState struct {
 	SupportPlan pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `upgradeOverride` block as defined below.
+	UpgradeOverride KubernetesClusterUpgradeOverridePtrInput
 	// A `webAppRouting` block as defined below.
 	WebAppRouting KubernetesClusterWebAppRoutingPtrInput
 	// A `windowsProfile` block as defined below.
@@ -1009,6 +1015,8 @@ type kubernetesClusterArgs struct {
 	SupportPlan *string `pulumi:"supportPlan"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `upgradeOverride` block as defined below.
+	UpgradeOverride *KubernetesClusterUpgradeOverride `pulumi:"upgradeOverride"`
 	// A `webAppRouting` block as defined below.
 	WebAppRouting *KubernetesClusterWebAppRouting `pulumi:"webAppRouting"`
 	// A `windowsProfile` block as defined below.
@@ -1218,6 +1226,8 @@ type KubernetesClusterArgs struct {
 	SupportPlan pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `upgradeOverride` block as defined below.
+	UpgradeOverride KubernetesClusterUpgradeOverridePtrInput
 	// A `webAppRouting` block as defined below.
 	WebAppRouting KubernetesClusterWebAppRoutingPtrInput
 	// A `windowsProfile` block as defined below.
@@ -1734,6 +1744,11 @@ func (o KubernetesClusterOutput) SupportPlan() pulumi.StringPtrOutput {
 // A mapping of tags to assign to the resource.
 func (o KubernetesClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `upgradeOverride` block as defined below.
+func (o KubernetesClusterOutput) UpgradeOverride() KubernetesClusterUpgradeOverridePtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterUpgradeOverridePtrOutput { return v.UpgradeOverride }).(KubernetesClusterUpgradeOverridePtrOutput)
 }
 
 // A `webAppRouting` block as defined below.

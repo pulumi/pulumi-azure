@@ -184,18 +184,32 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.administratorLogin;
     }
     /**
-     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
      * 
      */
     @Export(name="administratorPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
+     * @return The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
      * 
      */
     public Output<Optional<String>> administratorPassword() {
         return Codegen.optional(this.administratorPassword);
+    }
+    /**
+     * An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * 
+     */
+    @Export(name="administratorPasswordWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> administratorPasswordWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * 
+     */
+    public Output<Optional<Integer>> administratorPasswordWoVersion() {
+        return Codegen.optional(this.administratorPasswordWoVersion);
     }
     /**
      * An `authentication` block as defined below.

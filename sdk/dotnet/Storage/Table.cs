@@ -72,6 +72,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Resource Manager ID of this Storage Table.
+        /// </summary>
+        [Output("resourceManagerId")]
+        public Output<string> ResourceManagerId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
@@ -172,6 +178,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The Resource Manager ID of this Storage Table.
+        /// </summary>
+        [Input("resourceManagerId")]
+        public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.

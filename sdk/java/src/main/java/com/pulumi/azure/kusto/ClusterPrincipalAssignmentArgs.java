@@ -92,14 +92,14 @@ public final class ClusterPrincipalAssignmentArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+     * The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="role", required=true)
     private Output<String> role;
 
     /**
-     * @return The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+     * @return The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> role() {
@@ -257,7 +257,7 @@ public final class ClusterPrincipalAssignmentArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param role The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+         * @param role The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ClusterPrincipalAssignmentArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param role The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
+         * @param role The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin`, `AllDatabasesViewer`, and `AllDatabasesMonitor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -124,8 +124,12 @@ type FlexibleServer struct {
 
 	// The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	//
+	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+	AdministratorPasswordWoVersion pulumi.IntPtrOutput `pulumi:"administratorPasswordWoVersion"`
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrOutput `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -227,8 +231,12 @@ func GetFlexibleServer(ctx *pulumi.Context,
 type flexibleServerState struct {
 	// The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	//
+	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+	AdministratorPasswordWoVersion *int `pulumi:"administratorPasswordWoVersion"`
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -291,8 +299,12 @@ type flexibleServerState struct {
 type FlexibleServerState struct {
 	// The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	//
+	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+	AdministratorPasswordWoVersion pulumi.IntPtrInput
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -359,8 +371,12 @@ func (FlexibleServerState) ElementType() reflect.Type {
 type flexibleServerArgs struct {
 	// The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	//
+	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+	AdministratorPasswordWoVersion *int `pulumi:"administratorPasswordWoVersion"`
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -418,8 +434,12 @@ type flexibleServerArgs struct {
 type FlexibleServerArgs struct {
 	// The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
 	AdministratorLogin pulumi.StringPtrInput
-	// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+	// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 	AdministratorPassword pulumi.StringPtrInput
+	// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+	//
+	// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+	AdministratorPasswordWoVersion pulumi.IntPtrInput
 	// The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
@@ -565,9 +585,16 @@ func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-// The Password associated with the `administratorLogin` for the MySQL Flexible Server. Required when `createMode` is `Default`.
+// The Password associated with the `administratorLogin` for the MySQL Flexible Server.
 func (o FlexibleServerOutput) AdministratorPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
+//
+// > **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
+func (o FlexibleServerOutput) AdministratorPasswordWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) pulumi.IntPtrOutput { return v.AdministratorPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`.

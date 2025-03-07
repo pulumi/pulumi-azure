@@ -69,11 +69,17 @@ class GetNamespaceDisasterRecoveryConfigResult:
     @property
     @pulumi.getter(name="defaultPrimaryKey")
     def default_primary_key(self) -> str:
+        """
+        The primary access key for the authorization rule `RootManageSharedAccessKey`.
+        """
         return pulumi.get(self, "default_primary_key")
 
     @property
     @pulumi.getter(name="defaultSecondaryKey")
     def default_secondary_key(self) -> str:
+        """
+        The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        """
         return pulumi.get(self, "default_secondary_key")
 
     @property
@@ -91,34 +97,43 @@ class GetNamespaceDisasterRecoveryConfigResult:
 
     @property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[str]:
+    def namespace_id(self) -> str:
         return pulumi.get(self, "namespace_id")
 
     @property
     @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
-    def namespace_name(self) -> Optional[str]:
+    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.""")
+    def namespace_name(self) -> str:
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="partnerNamespaceId")
     def partner_namespace_id(self) -> str:
+        """
+        The ID of the Service Bus Namespace to replicate to.
+        """
         return pulumi.get(self, "partner_namespace_id")
 
     @property
     @pulumi.getter(name="primaryConnectionStringAlias")
     def primary_connection_string_alias(self) -> str:
+        """
+        The alias Primary Connection String for the ServiceBus Namespace.
+        """
         return pulumi.get(self, "primary_connection_string_alias")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 4.0 of the AzureRM Provider.""")
-    def resource_group_name(self) -> Optional[str]:
+    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.""")
+    def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="secondaryConnectionStringAlias")
     def secondary_connection_string_alias(self) -> str:
+        """
+        The alias Secondary Connection String for the ServiceBus Namespace
+        """
         return pulumi.get(self, "secondary_connection_string_alias")
 
 
@@ -148,7 +163,23 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
                                            resource_group_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceDisasterRecoveryConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_namespace_disaster_recovery_config(name="existing",
+        namespace_id="example-namespace-id")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
+    :param str name: The name of this Service Bus Disaster Recovery Config.
+    :param str namespace_id: The ID of the Service Bus Namespace.
     """
     __args__ = dict()
     __args__['aliasAuthorizationRuleId'] = alias_authorization_rule_id
@@ -178,7 +209,23 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: O
                                                   resource_group_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Service Bus Disaster Recovery Config.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.servicebus.get_namespace_disaster_recovery_config(name="existing",
+        namespace_id="example-namespace-id")
+    pulumi.export("id", example.id)
+    ```
+
+
+    :param str alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
+    :param str name: The name of this Service Bus Disaster Recovery Config.
+    :param str namespace_id: The ID of the Service Bus Namespace.
     """
     __args__ = dict()
     __args__['aliasAuthorizationRuleId'] = alias_authorization_rule_id

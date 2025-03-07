@@ -108,11 +108,15 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly attachedDatabaseNames!: pulumi.Output<string[]>;
     /**
+     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     */
+    public readonly clusterId!: pulumi.Output<string>;
+    /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      */
     public readonly clusterResourceId!: pulumi.Output<string>;
     /**
@@ -154,6 +158,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AttachedDatabaseConfigurationState | undefined;
             resourceInputs["attachedDatabaseNames"] = state ? state.attachedDatabaseNames : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
@@ -167,15 +172,13 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterResourceId'");
-            }
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
@@ -200,11 +203,15 @@ export interface AttachedDatabaseConfigurationState {
      */
     attachedDatabaseNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     */
+    clusterId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      */
     clusterResourceId?: pulumi.Input<string>;
     /**
@@ -238,13 +245,17 @@ export interface AttachedDatabaseConfigurationState {
  */
 export interface AttachedDatabaseConfigurationArgs {
     /**
+     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     */
+    clusterId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+     * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    clusterResourceId: pulumi.Input<string>;
+    clusterResourceId?: pulumi.Input<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      */

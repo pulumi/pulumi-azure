@@ -127,9 +127,11 @@ type AttachedDatabaseConfiguration struct {
 
 	// The list of databases from the `clusterResourceId` which are currently attached to the cluster.
 	AttachedDatabaseNames pulumi.StringArrayOutput `pulumi:"attachedDatabaseNames"`
+	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// Deprecated: `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -154,9 +156,6 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
-	if args.ClusterResourceId == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterResourceId'")
 	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
@@ -189,9 +188,11 @@ func GetAttachedDatabaseConfiguration(ctx *pulumi.Context,
 type attachedDatabaseConfigurationState struct {
 	// The list of databases from the `clusterResourceId` which are currently attached to the cluster.
 	AttachedDatabaseNames []string `pulumi:"attachedDatabaseNames"`
+	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	ClusterId *string `pulumi:"clusterId"`
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// Deprecated: `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -210,9 +211,11 @@ type attachedDatabaseConfigurationState struct {
 type AttachedDatabaseConfigurationState struct {
 	// The list of databases from the `clusterResourceId` which are currently attached to the cluster.
 	AttachedDatabaseNames pulumi.StringArrayInput
+	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	ClusterId pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	// Deprecated: `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
 	ClusterResourceId pulumi.StringPtrInput
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
@@ -233,10 +236,12 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 }
 
 type attachedDatabaseConfigurationArgs struct {
+	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	ClusterId *string `pulumi:"clusterId"`
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-	ClusterResourceId string `pulumi:"clusterResourceId"`
+	// Deprecated: `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
@@ -253,10 +258,12 @@ type attachedDatabaseConfigurationArgs struct {
 
 // The set of arguments for constructing a AttachedDatabaseConfiguration resource.
 type AttachedDatabaseConfigurationArgs struct {
+	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+	ClusterId pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
-	// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-	ClusterResourceId pulumi.StringInput
+	// Deprecated: `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
+	ClusterResourceId pulumi.StringPtrInput
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
 	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
@@ -363,12 +370,17 @@ func (o AttachedDatabaseConfigurationOutput) AttachedDatabaseNames() pulumi.Stri
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringArrayOutput { return v.AttachedDatabaseNames }).(pulumi.StringArrayOutput)
 }
 
+// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+func (o AttachedDatabaseConfigurationOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+}
+
 // Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 func (o AttachedDatabaseConfigurationOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
 
-// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
+// Deprecated: `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
 func (o AttachedDatabaseConfigurationOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
 }

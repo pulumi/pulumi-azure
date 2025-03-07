@@ -63,6 +63,11 @@ public final class GetStandardResult {
      */
     private Boolean enabled;
     /**
+     * @return Whether the default FTP basic authentication publishing profile is enabled.
+     * 
+     */
+    private Boolean ftpPublishBasicAuthenticationEnabled;
+    /**
      * @return Whether the Logic App can only be accessed via HTTPS.
      * 
      */
@@ -108,6 +113,11 @@ public final class GetStandardResult {
      */
     private String publicNetworkAccess;
     private String resourceGroupName;
+    /**
+     * @return Whether the default SCM basic authentication publishing profile is enabled.
+     * 
+     */
+    private Boolean scmPublishBasicAuthenticationEnabled;
     /**
      * @return A `site_config` object as defined below.
      * 
@@ -219,6 +229,13 @@ public final class GetStandardResult {
         return this.enabled;
     }
     /**
+     * @return Whether the default FTP basic authentication publishing profile is enabled.
+     * 
+     */
+    public Boolean ftpPublishBasicAuthenticationEnabled() {
+        return this.ftpPublishBasicAuthenticationEnabled;
+    }
+    /**
      * @return Whether the Logic App can only be accessed via HTTPS.
      * 
      */
@@ -283,6 +300,13 @@ public final class GetStandardResult {
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * @return Whether the default SCM basic authentication publishing profile is enabled.
+     * 
+     */
+    public Boolean scmPublishBasicAuthenticationEnabled() {
+        return this.scmPublishBasicAuthenticationEnabled;
     }
     /**
      * @return A `site_config` object as defined below.
@@ -366,6 +390,7 @@ public final class GetStandardResult {
         private String customDomainVerificationId;
         private String defaultHostname;
         private Boolean enabled;
+        private Boolean ftpPublishBasicAuthenticationEnabled;
         private Boolean httpsOnly;
         private String id;
         private List<GetStandardIdentity> identities;
@@ -376,6 +401,7 @@ public final class GetStandardResult {
         private String possibleOutboundIpAddresses;
         private String publicNetworkAccess;
         private String resourceGroupName;
+        private Boolean scmPublishBasicAuthenticationEnabled;
         private GetStandardSiteConfig siteConfig;
         private List<GetStandardSiteCredential> siteCredentials;
         private String storageAccountAccessKey;
@@ -397,6 +423,7 @@ public final class GetStandardResult {
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
+    	      this.ftpPublishBasicAuthenticationEnabled = defaults.ftpPublishBasicAuthenticationEnabled;
     	      this.httpsOnly = defaults.httpsOnly;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -407,6 +434,7 @@ public final class GetStandardResult {
     	      this.possibleOutboundIpAddresses = defaults.possibleOutboundIpAddresses;
     	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.scmPublishBasicAuthenticationEnabled = defaults.scmPublishBasicAuthenticationEnabled;
     	      this.siteConfig = defaults.siteConfig;
     	      this.siteCredentials = defaults.siteCredentials;
     	      this.storageAccountAccessKey = defaults.storageAccountAccessKey;
@@ -494,6 +522,14 @@ public final class GetStandardResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
+            if (ftpPublishBasicAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "ftpPublishBasicAuthenticationEnabled");
+            }
+            this.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
             if (httpsOnly == null) {
               throw new MissingRequiredPropertyException("GetStandardResult", "httpsOnly");
@@ -574,6 +610,14 @@ public final class GetStandardResult {
               throw new MissingRequiredPropertyException("GetStandardResult", "resourceGroupName");
             }
             this.resourceGroupName = resourceGroupName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scmPublishBasicAuthenticationEnabled(Boolean scmPublishBasicAuthenticationEnabled) {
+            if (scmPublishBasicAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "scmPublishBasicAuthenticationEnabled");
+            }
+            this.scmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
             return this;
         }
         @CustomType.Setter
@@ -662,6 +706,7 @@ public final class GetStandardResult {
             _resultValue.customDomainVerificationId = customDomainVerificationId;
             _resultValue.defaultHostname = defaultHostname;
             _resultValue.enabled = enabled;
+            _resultValue.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             _resultValue.httpsOnly = httpsOnly;
             _resultValue.id = id;
             _resultValue.identities = identities;
@@ -672,6 +717,7 @@ public final class GetStandardResult {
             _resultValue.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
             _resultValue.publicNetworkAccess = publicNetworkAccess;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
             _resultValue.siteConfig = siteConfig;
             _resultValue.siteCredentials = siteCredentials;
             _resultValue.storageAccountAccessKey = storageAccountAccessKey;

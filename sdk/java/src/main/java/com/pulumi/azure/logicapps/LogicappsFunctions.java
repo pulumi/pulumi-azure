@@ -270,7 +270,7 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name("logicappstd")
+     *             .name("example-logic-app")
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
@@ -314,7 +314,7 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name("logicappstd")
+     *             .name("example-logic-app")
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
@@ -358,7 +358,7 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name("logicappstd")
+     *             .name("example-logic-app")
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
@@ -402,7 +402,7 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name("logicappstd")
+     *             .name("example-logic-app")
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
@@ -446,7 +446,7 @@ public final class LogicappsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = LogicappsFunctions.getStandard(GetStandardArgs.builder()
-     *             .name("logicappstd")
+     *             .name("example-logic-app")
      *             .resourceGroupName("example-rg")
      *             .build());
      * 

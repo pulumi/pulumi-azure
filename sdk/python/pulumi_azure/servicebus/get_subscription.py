@@ -26,10 +26,13 @@ class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_error=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_id=None, topic_name=None):
+    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_filter_evaluation_error=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_id=None, topic_name=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if batched_operations_enabled and not isinstance(batched_operations_enabled, bool):
+            raise TypeError("Expected argument 'batched_operations_enabled' to be a bool")
+        pulumi.set(__self__, "batched_operations_enabled", batched_operations_enabled)
         if dead_lettering_on_filter_evaluation_error and not isinstance(dead_lettering_on_filter_evaluation_error, bool):
             raise TypeError("Expected argument 'dead_lettering_on_filter_evaluation_error' to be a bool")
         pulumi.set(__self__, "dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
@@ -85,6 +88,14 @@ class GetSubscriptionResult:
         return pulumi.get(self, "auto_delete_on_idle")
 
     @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> bool:
+        """
+        Whether batched operations are enabled.
+        """
+        return pulumi.get(self, "batched_operations_enabled")
+
+    @property
     @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
     def dead_lettering_on_filter_evaluation_error(self) -> bool:
         """
@@ -111,9 +122,6 @@ class GetSubscriptionResult:
     @property
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> bool:
-        """
-        Are batched operations enabled on this ServiceBus Subscription?
-        """
         return pulumi.get(self, "enable_batched_operations")
 
     @property
@@ -163,7 +171,7 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""")
+    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.""")
     def namespace_name(self) -> Optional[str]:
         return pulumi.get(self, "namespace_name")
 
@@ -171,13 +179,13 @@ class GetSubscriptionResult:
     @pulumi.getter(name="requiresSession")
     def requires_session(self) -> bool:
         """
-        Whether or not this ServiceBus Subscription supports session.
+        Whether this ServiceBus Subscription supports session.
         """
         return pulumi.get(self, "requires_session")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""")
+    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.""")
     def resource_group_name(self) -> Optional[str]:
         return pulumi.get(self, "resource_group_name")
 
@@ -188,7 +196,7 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="topicName")
-    @_utilities.deprecated("""`topic_name` will be removed in favour of the property `topic_id` in version 4.0 of the AzureRM Provider.""")
+    @_utilities.deprecated("""`topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.""")
     def topic_name(self) -> Optional[str]:
         return pulumi.get(self, "topic_name")
 
@@ -200,6 +208,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             yield self
         return GetSubscriptionResult(
             auto_delete_on_idle=self.auto_delete_on_idle,
+            batched_operations_enabled=self.batched_operations_enabled,
             dead_lettering_on_filter_evaluation_error=self.dead_lettering_on_filter_evaluation_error,
             dead_lettering_on_message_expiration=self.dead_lettering_on_message_expiration,
             default_message_ttl=self.default_message_ttl,
@@ -252,6 +261,7 @@ def get_subscription(name: Optional[str] = None,
 
     return AwaitableGetSubscriptionResult(
         auto_delete_on_idle=pulumi.get(__ret__, 'auto_delete_on_idle'),
+        batched_operations_enabled=pulumi.get(__ret__, 'batched_operations_enabled'),
         dead_lettering_on_filter_evaluation_error=pulumi.get(__ret__, 'dead_lettering_on_filter_evaluation_error'),
         dead_lettering_on_message_expiration=pulumi.get(__ret__, 'dead_lettering_on_message_expiration'),
         default_message_ttl=pulumi.get(__ret__, 'default_message_ttl'),
@@ -301,6 +311,7 @@ def get_subscription_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSubscriptionResult(
         auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        batched_operations_enabled=pulumi.get(__response__, 'batched_operations_enabled'),
         dead_lettering_on_filter_evaluation_error=pulumi.get(__response__, 'dead_lettering_on_filter_evaluation_error'),
         dead_lettering_on_message_expiration=pulumi.get(__response__, 'dead_lettering_on_message_expiration'),
         default_message_ttl=pulumi.get(__response__, 'default_message_ttl'),
