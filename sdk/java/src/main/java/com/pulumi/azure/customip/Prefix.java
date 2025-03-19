@@ -119,7 +119,11 @@ import javax.annotation.Nullable;
  *             .location(test.location())
  *             .resourceGroupName(test.name())
  *             .parentCustomIpPrefixId(global.id())
- *             .cidr(global.cidr().applyValue(cidr -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *             .cidr(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                 .input(global.cidr())
+ *                 .newbits(16)
+ *                 .netnum(1)
+ *                 .build()).result())
  *             .zones("1")
  *             .build());
  * 

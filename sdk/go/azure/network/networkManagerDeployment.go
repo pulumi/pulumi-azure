@@ -225,6 +225,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: ",",
+//				Input:     exampleNetworkManagerAdminRule.SourcePortRanges,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = network.NewNetworkManagerDeployment(ctx, "example", &network.NetworkManagerDeploymentArgs{
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //				Location:         pulumi.String("eastus"),
@@ -233,14 +240,7 @@ import (
 //					exampleNetworkManagerSecurityAdminConfiguration.ID(),
 //				},
 //				Triggers: pulumi.StringMap{
-//					"source_port_ranges": pulumi.String(exampleNetworkManagerAdminRule.SourcePortRanges.ApplyT(func(sourcePortRanges interface{}) (std.JoinResult, error) {
-//						return std.JoinResult(interface{}(std.JoinOutput(ctx, std.JoinOutputArgs{
-//							Separator: ",",
-//							Input:     sourcePortRanges,
-//						}, nil))), nil
-//					}).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput)),
+//					"source_port_ranges": pulumi.String(invokeJoin.Result),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleNetworkManagerAdminRule,

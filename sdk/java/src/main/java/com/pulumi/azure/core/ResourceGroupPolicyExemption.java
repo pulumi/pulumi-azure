@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  *             .name("exampleAssignment")
  *             .resourceGroupId(exampleResourceGroup.id())
  *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
- *             .parameters(exampleResourceGroup.location().applyValue(location -> serializeJson(
+ *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("listOfAllowedLocations", jsonObject(
- *                         jsonProperty("value", jsonArray(location))
+ *                         jsonProperty("value", jsonArray(exampleResourceGroup.location()))
  *                     ))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", ResourceGroupPolicyExemptionArgs.builder()

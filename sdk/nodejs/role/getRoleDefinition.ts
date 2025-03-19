@@ -21,18 +21,18 @@ import * as utilities from "../utilities";
  *     name: "CustomRoleDef",
  *     scope: primary.then(primary => primary.id),
  * });
- * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinitionOutput({
+ * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinition({
  *     roleDefinitionId: roleDefinitionId,
  *     scope: primary.id,
  * }));
- * const custom_byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinitionOutput({
+ * const custom_byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
  *     name: name,
  *     scope: primary.id,
  * }));
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });
- * export const customRoleDefinitionId = custom.apply(custom => custom.id);
+ * export const customRoleDefinitionId = custom.then(custom => custom.id);
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
  */
@@ -113,18 +113,18 @@ export interface GetRoleDefinitionResult {
  *     name: "CustomRoleDef",
  *     scope: primary.then(primary => primary.id),
  * });
- * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinitionOutput({
+ * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinition({
  *     roleDefinitionId: roleDefinitionId,
  *     scope: primary.id,
  * }));
- * const custom_byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinitionOutput({
+ * const custom_byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
  *     name: name,
  *     scope: primary.id,
  * }));
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });
- * export const customRoleDefinitionId = custom.apply(custom => custom.id);
+ * export const customRoleDefinitionId = custom.then(custom => custom.id);
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
  */

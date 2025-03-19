@@ -235,7 +235,10 @@ import javax.annotation.Nullable;
  *             .location("eastus")
  *             .scopeAccess("SecurityAdmin")
  *             .configurationIds(exampleNetworkManagerSecurityAdminConfiguration.id())
- *             .triggers(Map.of("source_port_ranges", exampleNetworkManagerAdminRule.sourcePortRanges().applyValue(sourcePortRanges -> StdFunctions.join()).applyValue(invoke -> invoke.result())))
+ *             .triggers(Map.of("source_port_ranges", StdFunctions.join(JoinArgs.builder()
+ *                 .separator(",")
+ *                 .input(exampleNetworkManagerAdminRule.sourcePortRanges())
+ *                 .build()).result()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleNetworkManagerAdminRule)
  *                 .build());

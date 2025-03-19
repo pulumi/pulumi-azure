@@ -96,20 +96,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   global.Cidr,
+//				Newbits: 16,
+//				Netnum:  1,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = customip.NewPrefix(ctx, "regional", &customip.PrefixArgs{
 //				Name:                   pulumi.String("example-Regional-CustomIPPrefix"),
 //				Location:               pulumi.Any(test.Location),
 //				ResourceGroupName:      pulumi.Any(test.Name),
 //				ParentCustomIpPrefixId: global.ID(),
-//				Cidr: pulumi.String(global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
-//					return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-//						Input:   cidr,
-//						Newbits: 16,
-//						Netnum:  1,
-//					}, nil))), nil
-//				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Cidr:                   pulumi.String(invokeCidrsubnet.Result),
 //				Zones: pulumi.StringArray{
 //					pulumi.String("1"),
 //				},

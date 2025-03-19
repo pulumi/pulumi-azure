@@ -75,13 +75,28 @@ import (
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
 //						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   pulumi.String(invokeSplit.Result[float64(pulumi.Float64(len(invokeSplit1.Result))-1)]),
+//						RoleDefinitionId:   pulumi.String(invokeSplit.Result[float64(len(invokeSplit1.Result))-1]),
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"location": map[string]interface{}{
+//					"value": example.Location,
+//				},
+//				"storageAccountNamePrefix": map[string]interface{}{
+//					"value": "storeNamePrefix",
+//				},
+//				"storageAccountType": map[string]interface{}{
+//					"value": "Standard_LRS",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = managedapplication.NewApplication(ctx, "example", &managedapplication.ApplicationArgs{
 //				Name:                     pulumi.String("example-managedapplication"),
 //				Location:                 example.Location,
@@ -89,25 +104,7 @@ import (
 //				Kind:                     pulumi.String("ServiceCatalog"),
 //				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
 //				ApplicationDefinitionId:  exampleDefinition.ID(),
-//				ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"location": map[string]interface{}{
-//							"value": location,
-//						},
-//						"storageAccountNamePrefix": map[string]interface{}{
-//							"value": "storeNamePrefix",
-//						},
-//						"storageAccountType": map[string]interface{}{
-//							"value": "Standard_LRS",
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//				ParameterValues:          pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

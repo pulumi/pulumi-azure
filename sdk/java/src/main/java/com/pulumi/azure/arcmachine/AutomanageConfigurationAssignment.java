@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomanageConfigurationAssignment = new AutomanageConfigurationAssignment("exampleAutomanageConfigurationAssignment", AutomanageConfigurationAssignmentArgs.builder()
- *             .arcMachineId(example.applyValue(getResult -> getResult).applyValue(example -> example.applyValue(getResult -> getResult.id())))
+ *             .arcMachineId(example.applyValue(getResult -> getResult.id()))
  *             .configurationId(exampleConfiguration.id())
  *             .build());
  * 

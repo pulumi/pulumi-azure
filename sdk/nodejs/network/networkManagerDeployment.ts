@@ -135,7 +135,7 @@ import * as utilities from "../utilities";
  *     scopeAccess: "SecurityAdmin",
  *     configurationIds: [exampleNetworkManagerSecurityAdminConfiguration.id],
  *     triggers: {
- *         source_port_ranges: exampleNetworkManagerAdminRule.sourcePortRanges.apply(sourcePortRanges => std.joinOutput({
+ *         source_port_ranges: exampleNetworkManagerAdminRule.sourcePortRanges.apply(sourcePortRanges => std.join({
  *             separator: ",",
  *             input: sourcePortRanges,
  *         })).apply(invoke => invoke.result),

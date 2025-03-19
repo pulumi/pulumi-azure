@@ -41,12 +41,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := exampleResourceGroup.Name.ApplyT(func(name string) (arcmachine.GetResult, error) {
-//				return arcmachine.GetResult(interface{}(arcmachine.GetOutput(ctx, arcmachine.GetOutputArgs{
-//					Name:              arcMachineName,
-//					ResourceGroupName: name,
-//				}, nil))), nil
-//			}).(arcmachine.GetResultOutput)
+//			example, err := arcmachine.Get(ctx, &arcmachine.GetArgs{
+//				Name:              arcMachineName,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleConfiguration, err := automanage.NewConfiguration(ctx, "example", &automanage.ConfigurationArgs{
 //				Name:              pulumi.String("example-configuration"),
 //				ResourceGroupName: exampleResourceGroup.Name,
@@ -56,9 +57,7 @@ import (
 //				return err
 //			}
 //			_, err = arcmachine.NewAutomanageConfigurationAssignment(ctx, "example", &arcmachine.AutomanageConfigurationAssignmentArgs{
-//				ArcMachineId: pulumi.String(example.ApplyT(func(example arcmachine.GetResult) (*string, error) {
-//					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ArcMachineId:    pulumi.String(example.Id),
 //				ConfigurationId: exampleConfiguration.ID(),
 //			})
 //			if err != nil {

@@ -117,8 +117,8 @@ def get_sas(connection_string: Optional[str] = None,
         namespace_name=example_event_hub_namespace.name,
         eventhub_name=example_event_hub.name,
         resource_group_name=example_resource_group.name)
-    example_get_sas = example.apply(lambda example: azure.eventhub.get_sas_output(connection_string=example.primary_connection_string,
-        expiry="2023-06-23T00:00:00Z"))
+    example_get_sas = azure.eventhub.get_sas(connection_string=example.primary_connection_string,
+        expiry="2023-06-23T00:00:00Z")
     ```
 
 
@@ -174,8 +174,8 @@ def get_sas_output(connection_string: Optional[pulumi.Input[str]] = None,
         namespace_name=example_event_hub_namespace.name,
         eventhub_name=example_event_hub.name,
         resource_group_name=example_resource_group.name)
-    example_get_sas = example.apply(lambda example: azure.eventhub.get_sas_output(connection_string=example.primary_connection_string,
-        expiry="2023-06-23T00:00:00Z"))
+    example_get_sas = azure.eventhub.get_sas(connection_string=example.primary_connection_string,
+        expiry="2023-06-23T00:00:00Z")
     ```
 
 

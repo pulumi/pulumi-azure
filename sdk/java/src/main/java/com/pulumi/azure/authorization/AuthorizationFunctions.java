@@ -72,7 +72,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }
@@ -138,7 +138,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }
@@ -204,7 +204,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }
@@ -270,7 +270,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }
@@ -336,7 +336,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }
@@ -402,7 +402,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }
@@ -468,7 +468,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
      *     }
      * }

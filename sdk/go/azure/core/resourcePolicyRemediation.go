@@ -59,26 +59,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"listOfAllowedLocations": map[string]interface{}{
+//					"value": pulumi.StringArray{
+//						example.Location,
+//						"East US",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
 //			_, err = core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
 //				Name:               pulumi.String("assignment1"),
 //				ResourceId:         exampleVirtualNetwork.ID(),
 //				PolicyDefinitionId: exampleDefinition.ID(),
-//				Parameters: example.Location.ApplyT(func(location string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"listOfAllowedLocations": map[string]interface{}{
-//							"value": []string{
-//								location,
-//								"East US",
-//							},
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
+//				Parameters:         pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

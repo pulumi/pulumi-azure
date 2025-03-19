@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const example = exampleResourceGroup.name.apply(name => azure.arcmachine.getOutput({
+ * const example = exampleResourceGroup.name.apply(name => azure.arcmachine.get({
  *     name: arcMachineName,
  *     resourceGroupName: name,
  * }));
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  * });
  * const exampleAutomanageConfigurationAssignment = new azure.arcmachine.AutomanageConfigurationAssignment("example", {
- *     arcMachineId: example.apply(example => example.id),
+ *     arcMachineId: example.then(example => example.id),
  *     configurationId: exampleConfiguration.id,
  * });
  * ```

@@ -91,10 +91,10 @@ import javax.annotation.Nullable;
  *             .kind("ServiceCatalog")
  *             .managedResourceGroupName("infrastructureGroup")
  *             .applicationDefinitionId(exampleDefinition.id())
- *             .parameterValues(example.location().applyValue(location -> serializeJson(
+ *             .parameterValues(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("location", jsonObject(
- *                         jsonProperty("value", location)
+ *                         jsonProperty("value", example.location())
  *                     )),
  *                     jsonProperty("storageAccountNamePrefix", jsonObject(
  *                         jsonProperty("value", "storeNamePrefix")
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty("storageAccountType", jsonObject(
  *                         jsonProperty("value", "Standard_LRS")
  *                     ))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *     }

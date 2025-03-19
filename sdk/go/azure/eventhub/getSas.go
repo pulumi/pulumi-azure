@@ -72,12 +72,15 @@ import (
 //				EventhubName:      exampleEventHub.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			_ = example.ApplyT(func(example eventhub.GetAuthorizationRuleResult) (eventhub.GetSasResult, error) {
-//				return eventhub.GetSasResult(interface{}(eventhub.GetSasOutput(ctx, eventhub.GetSasOutputArgs{
-//					ConnectionString: example.PrimaryConnectionString,
-//					Expiry:           "2023-06-23T00:00:00Z",
-//				}, nil))), nil
-//			}).(eventhub.GetSasResultOutput)
+//			_, err = eventhub.GetSas(ctx, &eventhub.GetSasArgs{
+//				ConnectionString: example.ApplyT(func(example eventhub.GetAuthorizationRuleResult) (*string, error) {
+//					return &example.PrimaryConnectionString, nil
+//				}).(pulumi.StringPtrOutput),
+//				Expiry: "2023-06-23T00:00:00Z",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}

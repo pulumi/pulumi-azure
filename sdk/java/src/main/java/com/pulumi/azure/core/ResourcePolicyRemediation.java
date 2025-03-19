@@ -79,15 +79,15 @@ import javax.annotation.Nullable;
  *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(exampleDefinition.id())
- *             .parameters(example.location().applyValue(location -> serializeJson(
+ *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("listOfAllowedLocations", jsonObject(
  *                         jsonProperty("value", jsonArray(
- *                             location, 
+ *                             example.location(), 
  *                             "East US"
  *                         ))
  *                     ))
- *                 ))))
+ *                 )))
  *             .build());
  * 
  *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()

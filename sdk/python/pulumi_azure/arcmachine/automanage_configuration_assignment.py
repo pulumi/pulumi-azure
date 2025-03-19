@@ -125,8 +125,8 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example = example_resource_group.name.apply(lambda name: azure.arcmachine.get_output(name=arc_machine_name,
-            resource_group_name=name))
+        example = azure.arcmachine.get(name=arc_machine_name,
+            resource_group_name=example_resource_group.name)
         example_configuration = azure.automanage.Configuration("example",
             name="example-configuration",
             resource_group_name=example_resource_group.name,
@@ -172,8 +172,8 @@ class AutomanageConfigurationAssignment(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example = example_resource_group.name.apply(lambda name: azure.arcmachine.get_output(name=arc_machine_name,
-            resource_group_name=name))
+        example = azure.arcmachine.get(name=arc_machine_name,
+            resource_group_name=example_resource_group.name)
         example_configuration = azure.automanage.Configuration("example",
             name="example-configuration",
             resource_group_name=example_resource_group.name,
