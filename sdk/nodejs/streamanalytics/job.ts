@@ -113,6 +113,8 @@ export class Job extends pulumi.CustomResource {
     public /*out*/ readonly jobId!: pulumi.Output<string>;
     /**
      * The details of the job storage account. A `jobStorageAccount` block as defined below.
+     *
+     * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
     public readonly jobStorageAccounts!: pulumi.Output<outputs.streamanalytics.JobJobStorageAccount[] | undefined>;
     /**
@@ -259,6 +261,8 @@ export interface JobState {
     jobId?: pulumi.Input<string>;
     /**
      * The details of the job storage account. A `jobStorageAccount` block as defined below.
+     *
+     * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
     jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[]>;
     /**
@@ -337,6 +341,8 @@ export interface JobArgs {
     identity?: pulumi.Input<inputs.streamanalytics.JobIdentity>;
     /**
      * The details of the job storage account. A `jobStorageAccount` block as defined below.
+     *
+     * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
     jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[]>;
     /**

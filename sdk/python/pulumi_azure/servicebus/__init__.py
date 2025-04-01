@@ -15,6 +15,7 @@ from .get_topic import *
 from .get_topic_authorization_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *
+from .namespace_customer_managed_key import *
 from .namespace_disaster_recovery_config import *
 from .queue import *
 from .queue_authorization_rule import *

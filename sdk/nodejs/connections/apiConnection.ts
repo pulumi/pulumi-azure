@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
- *     name: "acctestsbn-conn-example",
+ *     name: "example-namespace",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Basic",
@@ -78,9 +78,9 @@ export class ApiConnection extends pulumi.CustomResource {
     }
 
     /**
-     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
      */
@@ -143,7 +143,7 @@ export class ApiConnection extends pulumi.CustomResource {
  */
 export interface ApiConnectionState {
     /**
-     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface ApiConnectionState {
  */
 export interface ApiConnectionArgs {
     /**
-     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection.
      */
     displayName?: pulumi.Input<string>;
     /**

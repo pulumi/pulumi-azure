@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
  *
- * > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporaryNameForRotation` must be specified when changing any of the following properties: `fipsEnabled`, `hostEncryptionEnabled`, `kubeletConfig`, `linuxOsConfig`, `maxPods`, `nodePublicIpEnabled`, `osDiskSizeGb`, `osDiskType`, `podSubnetId`, `snapshotId`, `ultraSsdEnabled`, `vmSize`, `vnetSubnetId`, `zones`.
+ * > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporaryNameForRotation` must be specified when changing any of the following properties: `fipsEnabled`, `hostEncryptionEnabled`, `kubeletConfig`, `kubeletDiskType`, `linuxOsConfig`, `maxPods`, `nodePublicIpEnabled`, `osDiskSizeGb`, `osDiskType`, `podSubnetId`, `snapshotId`, `ultraSsdEnabled`, `vmSize`, `vnetSubnetId`, `zones`.
  *
  * ## Example Usage
  *
@@ -126,7 +126,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
     /**
-     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
      */
     public readonly kubeletDiskType!: pulumi.Output<string>;
     /**
@@ -423,7 +423,7 @@ export interface KubernetesClusterNodePoolState {
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
-     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
      */
     kubeletDiskType?: pulumi.Input<string>;
     /**
@@ -610,7 +610,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolKubeletConfig>;
     /**
-     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
      */
     kubeletDiskType?: pulumi.Input<string>;
     /**

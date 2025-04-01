@@ -166,14 +166,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsNameLabel);
     }
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dnsNameLabelReusePolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsNameLabelReusePolicy;
 
     /**
-     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+     * @return The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> dnsNameLabelReusePolicy() {

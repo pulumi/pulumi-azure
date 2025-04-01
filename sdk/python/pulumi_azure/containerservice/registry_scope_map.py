@@ -201,7 +201,7 @@ class RegistryScopeMap(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
+        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ```python
         import pulumi
@@ -214,7 +214,7 @@ class RegistryScopeMap(pulumi.CustomResource):
             name="exampleregistry",
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku="Basic",
             admin_enabled=False,
             georeplications=[
                 {
@@ -257,7 +257,7 @@ class RegistryScopeMap(pulumi.CustomResource):
                  args: RegistryScopeMapArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
+        Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ```python
         import pulumi
@@ -270,7 +270,7 @@ class RegistryScopeMap(pulumi.CustomResource):
             name="exampleregistry",
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku="Basic",
             admin_enabled=False,
             georeplications=[
                 {

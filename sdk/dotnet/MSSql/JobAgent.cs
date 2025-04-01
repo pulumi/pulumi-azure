@@ -68,13 +68,19 @@ namespace Pulumi.Azure.MSSql
     public partial class JobAgent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        /// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         /// </summary>
         [Output("databaseId")]
         public Output<string> DatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.JobAgentIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -86,7 +92,13 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Database.
+        /// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to this Elastic Job Agent.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -138,13 +150,19 @@ namespace Pulumi.Azure.MSSql
     public sealed class JobAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        /// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         /// </summary>
         [Input("databaseId", required: true)]
         public Input<string> DatabaseId { get; set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.JobAgentIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -155,11 +173,17 @@ namespace Pulumi.Azure.MSSql
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Database.
+        /// A mapping of tags which should be assigned to this Elastic Job Agent.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -176,13 +200,19 @@ namespace Pulumi.Azure.MSSql
     public sealed class JobAgentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        /// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         /// </summary>
         [Input("databaseId")]
         public Input<string>? DatabaseId { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.JobAgentIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -193,11 +223,17 @@ namespace Pulumi.Azure.MSSql
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Database.
+        /// A mapping of tags which should be assigned to this Elastic Job Agent.
         /// </summary>
         public InputMap<string> Tags
         {

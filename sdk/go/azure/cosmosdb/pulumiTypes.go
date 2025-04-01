@@ -3877,6 +3877,121 @@ func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphU
 	}).(GremlinGraphUniqueKeyOutput)
 }
 
+type MongoClusterConnectionString struct {
+	// The description of the connection string.
+	Description *string `pulumi:"description"`
+	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
+	Value *string `pulumi:"value"`
+}
+
+// MongoClusterConnectionStringInput is an input type that accepts MongoClusterConnectionStringArgs and MongoClusterConnectionStringOutput values.
+// You can construct a concrete instance of `MongoClusterConnectionStringInput` via:
+//
+//	MongoClusterConnectionStringArgs{...}
+type MongoClusterConnectionStringInput interface {
+	pulumi.Input
+
+	ToMongoClusterConnectionStringOutput() MongoClusterConnectionStringOutput
+	ToMongoClusterConnectionStringOutputWithContext(context.Context) MongoClusterConnectionStringOutput
+}
+
+type MongoClusterConnectionStringArgs struct {
+	// The description of the connection string.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (MongoClusterConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterConnectionString)(nil)).Elem()
+}
+
+func (i MongoClusterConnectionStringArgs) ToMongoClusterConnectionStringOutput() MongoClusterConnectionStringOutput {
+	return i.ToMongoClusterConnectionStringOutputWithContext(context.Background())
+}
+
+func (i MongoClusterConnectionStringArgs) ToMongoClusterConnectionStringOutputWithContext(ctx context.Context) MongoClusterConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterConnectionStringOutput)
+}
+
+// MongoClusterConnectionStringArrayInput is an input type that accepts MongoClusterConnectionStringArray and MongoClusterConnectionStringArrayOutput values.
+// You can construct a concrete instance of `MongoClusterConnectionStringArrayInput` via:
+//
+//	MongoClusterConnectionStringArray{ MongoClusterConnectionStringArgs{...} }
+type MongoClusterConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToMongoClusterConnectionStringArrayOutput() MongoClusterConnectionStringArrayOutput
+	ToMongoClusterConnectionStringArrayOutputWithContext(context.Context) MongoClusterConnectionStringArrayOutput
+}
+
+type MongoClusterConnectionStringArray []MongoClusterConnectionStringInput
+
+func (MongoClusterConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoClusterConnectionString)(nil)).Elem()
+}
+
+func (i MongoClusterConnectionStringArray) ToMongoClusterConnectionStringArrayOutput() MongoClusterConnectionStringArrayOutput {
+	return i.ToMongoClusterConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i MongoClusterConnectionStringArray) ToMongoClusterConnectionStringArrayOutputWithContext(ctx context.Context) MongoClusterConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoClusterConnectionStringArrayOutput)
+}
+
+type MongoClusterConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoClusterConnectionString)(nil)).Elem()
+}
+
+func (o MongoClusterConnectionStringOutput) ToMongoClusterConnectionStringOutput() MongoClusterConnectionStringOutput {
+	return o
+}
+
+func (o MongoClusterConnectionStringOutput) ToMongoClusterConnectionStringOutputWithContext(ctx context.Context) MongoClusterConnectionStringOutput {
+	return o
+}
+
+// The description of the connection string.
+func (o MongoClusterConnectionStringOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoClusterConnectionString) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+func (o MongoClusterConnectionStringOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoClusterConnectionString) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
+func (o MongoClusterConnectionStringOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MongoClusterConnectionString) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type MongoClusterConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoClusterConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoClusterConnectionString)(nil)).Elem()
+}
+
+func (o MongoClusterConnectionStringArrayOutput) ToMongoClusterConnectionStringArrayOutput() MongoClusterConnectionStringArrayOutput {
+	return o
+}
+
+func (o MongoClusterConnectionStringArrayOutput) ToMongoClusterConnectionStringArrayOutputWithContext(ctx context.Context) MongoClusterConnectionStringArrayOutput {
+	return o
+}
+
+func (o MongoClusterConnectionStringArrayOutput) Index(i pulumi.IntInput) MongoClusterConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoClusterConnectionString {
+		return vs[0].([]MongoClusterConnectionString)[vs[1].(int)]
+	}).(MongoClusterConnectionStringOutput)
+}
+
 type MongoCollectionAutoscaleSettings struct {
 	// The maximum throughput of the MongoDB collection (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -7248,6 +7363,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphIndexPolicySpatialIndexArrayInput)(nil)).Elem(), GremlinGraphIndexPolicySpatialIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphUniqueKeyInput)(nil)).Elem(), GremlinGraphUniqueKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GremlinGraphUniqueKeyArrayInput)(nil)).Elem(), GremlinGraphUniqueKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterConnectionStringInput)(nil)).Elem(), MongoClusterConnectionStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MongoClusterConnectionStringArrayInput)(nil)).Elem(), MongoClusterConnectionStringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionAutoscaleSettingsInput)(nil)).Elem(), MongoCollectionAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionAutoscaleSettingsPtrInput)(nil)).Elem(), MongoCollectionAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionIndexInput)(nil)).Elem(), MongoCollectionIndexArgs{})
@@ -7357,6 +7474,8 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicySpatialIndexArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
+	pulumi.RegisterOutputType(MongoClusterConnectionStringOutput{})
+	pulumi.RegisterOutputType(MongoClusterConnectionStringArrayOutput{})
 	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MongoCollectionIndexOutput{})

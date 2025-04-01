@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+ * Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
  * 
  * ## Example Usage
  * 
@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * KeyVaults can be imported using the `resource id`, e.g.
+ * Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
@@ -36,34 +36,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition")
 public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies a text description about this KeyVault Role Definition.
+     * Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Specifies a text description about this KeyVault Role Definition.
+     * @return Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     * 
+     */
     @Export(name="managedHsmId", refs={String.class}, tree="[0]")
     private Output<String> managedHsmId;
 
+    /**
+     * @return The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     * 
+     */
     public Output<String> managedHsmId() {
         return this.managedHsmId;
     }
     /**
-     * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * @return The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      * 
      */
     public Output<String> name() {
@@ -98,14 +106,14 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
         return this.resourceManagerId;
     }
     /**
-     * Specify a name for this KeyVault Role Definition.
+     * Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleName;
 
     /**
-     * @return Specify a name for this KeyVault Role Definition.
+     * @return Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public Output<Optional<String>> roleName() {

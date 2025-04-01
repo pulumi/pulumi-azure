@@ -179,6 +179,8 @@ type FlexibleServer struct {
 	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **Note:** The replica server is always created in the same resource group and subscription as the source server.
 	SourceServerId pulumi.StringPtrOutput `pulumi:"sourceServerId"`
 	// A `storage` block as defined below.
 	Storage FlexibleServerStorageOutput `pulumi:"storage"`
@@ -286,6 +288,8 @@ type flexibleServerState struct {
 	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **Note:** The replica server is always created in the same resource group and subscription as the source server.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// A `storage` block as defined below.
 	Storage *FlexibleServerStorage `pulumi:"storage"`
@@ -354,6 +358,8 @@ type FlexibleServerState struct {
 	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **Note:** The replica server is always created in the same resource group and subscription as the source server.
 	SourceServerId pulumi.StringPtrInput
 	// A `storage` block as defined below.
 	Storage FlexibleServerStoragePtrInput
@@ -420,6 +426,8 @@ type flexibleServerArgs struct {
 	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName *string `pulumi:"skuName"`
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **Note:** The replica server is always created in the same resource group and subscription as the source server.
 	SourceServerId *string `pulumi:"sourceServerId"`
 	// A `storage` block as defined below.
 	Storage *FlexibleServerStorage `pulumi:"storage"`
@@ -483,6 +491,8 @@ type FlexibleServerArgs struct {
 	// > **NOTE:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
 	SkuName pulumi.StringPtrInput
 	// The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+	//
+	// > **Note:** The replica server is always created in the same resource group and subscription as the source server.
 	SourceServerId pulumi.StringPtrInput
 	// A `storage` block as defined below.
 	Storage FlexibleServerStoragePtrInput
@@ -700,6 +710,8 @@ func (o FlexibleServerOutput) SkuName() pulumi.StringOutput {
 }
 
 // The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+//
+// > **Note:** The replica server is always created in the same resource group and subscription as the source server.
 func (o FlexibleServerOutput) SourceServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.SourceServerId }).(pulumi.StringPtrOutput)
 }

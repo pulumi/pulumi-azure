@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
+// Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
 //
 // ```go
 // package main
@@ -38,7 +38,7 @@ import (
 //				Name:              pulumi.String("exampleregistry"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Sku:               pulumi.String("Premium"),
+//				Sku:               pulumi.String("Basic"),
 //				AdminEnabled:      pulumi.Bool(false),
 //				Georeplications: containerservice.RegistryGeoreplicationArray{
 //					&containerservice.RegistryGeoreplicationArgs{

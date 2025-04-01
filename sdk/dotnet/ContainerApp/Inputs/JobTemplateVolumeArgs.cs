@@ -13,6 +13,12 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class JobTemplateVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        /// </summary>
+        [Input("mountOptions")]
+        public Input<string>? MountOptions { get; set; }
+
+        /// <summary>
         /// The name of the volume.
         /// </summary>
         [Input("name", required: true)]

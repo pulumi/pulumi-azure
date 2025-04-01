@@ -312,6 +312,12 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// </summary>
+        [Output("virtualNetworkBackupRestoreEnabled")]
+        public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
+
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -613,6 +619,12 @@ namespace Pulumi.Azure.AppService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// </summary>
+        [Input("virtualNetworkBackupRestoreEnabled")]
+        public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
@@ -957,6 +969,12 @@ namespace Pulumi.Azure.AppService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// </summary>
+        [Input("virtualNetworkBackupRestoreEnabled")]
+        public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

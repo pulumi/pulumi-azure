@@ -74,7 +74,7 @@ type Embedded struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -129,7 +129,7 @@ type embeddedState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -146,7 +146,7 @@ type EmbeddedState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -167,7 +167,7 @@ type embeddedArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -185,7 +185,7 @@ type EmbeddedArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+	// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -303,7 +303,7 @@ func (o EmbeddedOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Embedded) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
 func (o EmbeddedOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Embedded) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

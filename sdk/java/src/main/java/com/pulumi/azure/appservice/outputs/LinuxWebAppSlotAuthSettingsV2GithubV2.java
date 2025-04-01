@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotAuthSettingsV2GithubV2 {
     /**
-     * @return The ID of the GitHub app used for login..
+     * @return The ID of the GitHub app used for login.
      * 
      */
     private String clientId;
@@ -32,7 +32,7 @@ public final class LinuxWebAppSlotAuthSettingsV2GithubV2 {
 
     private LinuxWebAppSlotAuthSettingsV2GithubV2() {}
     /**
-     * @return The ID of the GitHub app used for login..
+     * @return The ID of the GitHub app used for login.
      * 
      */
     public String clientId() {

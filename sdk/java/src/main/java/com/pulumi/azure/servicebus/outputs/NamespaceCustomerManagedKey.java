@@ -24,7 +24,7 @@ public final class NamespaceCustomerManagedKey {
      */
     private @Nullable Boolean infrastructureEncryptionEnabled;
     /**
-     * @return The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+     * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      * 
      */
     private String keyVaultKeyId;
@@ -45,7 +45,7 @@ public final class NamespaceCustomerManagedKey {
         return Optional.ofNullable(this.infrastructureEncryptionEnabled);
     }
     /**
-     * @return The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+     * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      * 
      */
     public String keyVaultKeyId() {

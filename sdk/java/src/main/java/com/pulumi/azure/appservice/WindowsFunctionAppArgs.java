@@ -492,6 +492,21 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="virtualNetworkBackupRestoreEnabled")
+    private @Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled;
+
+    /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> virtualNetworkBackupRestoreEnabled() {
+        return Optional.ofNullable(this.virtualNetworkBackupRestoreEnabled);
+    }
+
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
@@ -589,6 +604,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         this.storageKeyVaultSecretId = $.storageKeyVaultSecretId;
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
+        this.virtualNetworkBackupRestoreEnabled = $.virtualNetworkBackupRestoreEnabled;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
         this.vnetImagePullEnabled = $.vnetImagePullEnabled;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
@@ -1275,6 +1291,27 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param virtualNetworkBackupRestoreEnabled Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkBackupRestoreEnabled(@Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled) {
+            $.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkBackupRestoreEnabled Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
+            return virtualNetworkBackupRestoreEnabled(Output.of(virtualNetworkBackupRestoreEnabled));
         }
 
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {

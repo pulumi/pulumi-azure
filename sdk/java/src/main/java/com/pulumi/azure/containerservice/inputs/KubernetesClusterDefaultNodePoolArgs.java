@@ -142,14 +142,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     @Import(name="kubeletDiskType")
     private @Nullable Output<String> kubeletDiskType;
 
     /**
-     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<Output<String>> kubeletDiskType() {
@@ -791,7 +791,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param kubeletDiskType The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+         * @param kubeletDiskType The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param kubeletDiskType The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+         * @param kubeletDiskType The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
          * 
          * @return builder
          * 

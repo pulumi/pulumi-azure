@@ -78,7 +78,7 @@ type Namespace struct {
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
-	// The URL to access the ServiceBus Namespace.
+	// The URL to access the Service Bus Namespace.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrOutput `pulumi:"identity"`
@@ -90,7 +90,7 @@ type Namespace struct {
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `networkRuleSet` block as defined below.
 	NetworkRuleSet NamespaceNetworkRuleSetOutput `pulumi:"networkRuleSet"`
@@ -164,7 +164,7 @@ type namespaceState struct {
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
-	// The URL to access the ServiceBus Namespace.
+	// The URL to access the Service Bus Namespace.
 	Endpoint *string `pulumi:"endpoint"`
 	// An `identity` block as defined below.
 	Identity *NamespaceIdentity `pulumi:"identity"`
@@ -176,7 +176,7 @@ type namespaceState struct {
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `networkRuleSet` block as defined below.
 	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
@@ -208,7 +208,7 @@ type NamespaceState struct {
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
-	// The URL to access the ServiceBus Namespace.
+	// The URL to access the Service Bus Namespace.
 	Endpoint pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity NamespaceIdentityPtrInput
@@ -220,7 +220,7 @@ type NamespaceState struct {
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `networkRuleSet` block as defined below.
 	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
@@ -258,7 +258,7 @@ type namespaceArgs struct {
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `networkRuleSet` block as defined below.
 	NetworkRuleSet *NamespaceNetworkRuleSet `pulumi:"networkRuleSet"`
@@ -293,7 +293,7 @@ type NamespaceArgs struct {
 	//
 	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+	// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `networkRuleSet` block as defined below.
 	NetworkRuleSet NamespaceNetworkRuleSetPtrInput
@@ -429,7 +429,7 @@ func (o NamespaceOutput) DefaultSecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DefaultSecondaryKey }).(pulumi.StringOutput)
 }
 
-// The URL to access the ServiceBus Namespace.
+// The URL to access the Service Bus Namespace.
 func (o NamespaceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -456,7 +456,7 @@ func (o NamespaceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
 func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

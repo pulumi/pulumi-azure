@@ -20,26 +20,27 @@ __all__ = ['SecretArgs', 'Secret']
 class SecretArgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str],
-                 value: pulumi.Input[str],
                  content_type: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_wo_version: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Secret resource.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
-               
-               > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
-        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+               
+               > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
         pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "value", value)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
         if expiration_date is not None:
@@ -50,6 +51,10 @@ class SecretArgs:
             pulumi.set(__self__, "not_before_date", not_before_date)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_wo_version is not None:
+            pulumi.set(__self__, "value_wo_version", value_wo_version)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -62,20 +67,6 @@ class SecretArgs:
     @key_vault_id.setter
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
-
-        > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
 
     @property
     @pulumi.getter(name="contentType")
@@ -93,7 +84,7 @@ class SecretArgs:
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[pulumi.Input[str]]:
         """
-        Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "expiration_date")
 
@@ -137,6 +128,32 @@ class SecretArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+
+        > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        """
+        return pulumi.get(self, "value_wo_version")
+
+    @value_wo_version.setter
+    def value_wo_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value_wo_version", value)
+
 
 @pulumi.input_type
 class _SecretState:
@@ -150,12 +167,13 @@ class _SecretState:
                  resource_versionless_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 value_wo_version: Optional[pulumi.Input[int]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  versionless_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Secret resources.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
-        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -163,6 +181,7 @@ class _SecretState:
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -186,6 +205,8 @@ class _SecretState:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_wo_version is not None:
+            pulumi.set(__self__, "value_wo_version", value_wo_version)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if versionless_id is not None:
@@ -207,7 +228,7 @@ class _SecretState:
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[pulumi.Input[str]]:
         """
-        Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "expiration_date")
 
@@ -292,14 +313,26 @@ class _SecretState:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
-
-        > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
         return pulumi.get(self, "value")
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+
+        > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        """
+        return pulumi.get(self, "value_wo_version")
+
+    @value_wo_version.setter
+    def value_wo_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value_wo_version", value)
 
     @property
     @pulumi.getter
@@ -338,6 +371,7 @@ class Secret(pulumi.CustomResource):
                  not_before_date: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 value_wo_version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Manages a Key Vault Secret.
@@ -391,12 +425,13 @@ class Secret(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
-        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
@@ -477,6 +512,7 @@ class Secret(pulumi.CustomResource):
                  not_before_date: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
+                 value_wo_version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -494,9 +530,8 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["not_before_date"] = not_before_date
             __props__.__dict__["tags"] = tags
-            if value is None and not opts.urn:
-                raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
+            __props__.__dict__["value_wo_version"] = value_wo_version
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_versionless_id"] = None
             __props__.__dict__["version"] = None
@@ -522,6 +557,7 @@ class Secret(pulumi.CustomResource):
             resource_versionless_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None,
+            value_wo_version: Optional[pulumi.Input[int]] = None,
             version: Optional[pulumi.Input[str]] = None,
             versionless_id: Optional[pulumi.Input[str]] = None) -> 'Secret':
         """
@@ -532,7 +568,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
-        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
@@ -540,6 +576,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        :param pulumi.Input[int] value_wo_version: An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
                
                > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -558,6 +595,7 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["resource_versionless_id"] = resource_versionless_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["value"] = value
+        __props__.__dict__["value_wo_version"] = value_wo_version
         __props__.__dict__["version"] = version
         __props__.__dict__["versionless_id"] = versionless_id
         return Secret(resource_name, opts=opts, __props__=__props__)
@@ -574,7 +612,7 @@ class Secret(pulumi.CustomResource):
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
-        Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
         return pulumi.get(self, "expiration_date")
 
@@ -628,13 +666,21 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueWoVersion")
+    def value_wo_version(self) -> pulumi.Output[Optional[int]]:
+        """
+        An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
 
         > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\\n/", "\\n")` or `base64encode(file("my_secret_file"))`, respectively.
         """
-        return pulumi.get(self, "value")
+        return pulumi.get(self, "value_wo_version")
 
     @property
     @pulumi.getter

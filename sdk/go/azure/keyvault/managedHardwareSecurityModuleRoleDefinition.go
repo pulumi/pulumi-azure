@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+// Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 //
 // ## Import
 //
-// KeyVaults can be imported using the `resource id`, e.g.
+// Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
@@ -24,16 +24,17 @@ import (
 type ManagedHardwareSecurityModuleRoleDefinition struct {
 	pulumi.CustomResourceState
 
-	// Specifies a text description about this KeyVault Role Definition.
-	Description  pulumi.StringPtrOutput `pulumi:"description"`
-	ManagedHsmId pulumi.StringOutput    `pulumi:"managedHsmId"`
-	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+	// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+	ManagedHsmId pulumi.StringOutput `pulumi:"managedHsmId"`
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `permission` blocks as defined below.
 	Permissions ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput `pulumi:"permissions"`
 	// The ID of the role definition resource without Key Vault base URL.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
-	// Specify a name for this KeyVault Role Definition.
+	// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
@@ -72,32 +73,34 @@ func GetManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleDefinition resources.
 type managedHardwareSecurityModuleRoleDefinitionState struct {
-	// Specifies a text description about this KeyVault Role Definition.
-	Description  *string `pulumi:"description"`
+	// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+	Description *string `pulumi:"description"`
+	// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	ManagedHsmId *string `pulumi:"managedHsmId"`
-	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	Name *string `pulumi:"name"`
 	// One or more `permission` blocks as defined below.
 	Permissions []ManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
 	// The ID of the role definition resource without Key Vault base URL.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
-	// Specify a name for this KeyVault Role Definition.
+	// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
 	RoleName *string `pulumi:"roleName"`
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType *string `pulumi:"roleType"`
 }
 
 type ManagedHardwareSecurityModuleRoleDefinitionState struct {
-	// Specifies a text description about this KeyVault Role Definition.
-	Description  pulumi.StringPtrInput
+	// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+	Description pulumi.StringPtrInput
+	// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	ManagedHsmId pulumi.StringPtrInput
-	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	Name pulumi.StringPtrInput
 	// One or more `permission` blocks as defined below.
 	Permissions ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput
 	// The ID of the role definition resource without Key Vault base URL.
 	ResourceManagerId pulumi.StringPtrInput
-	// Specify a name for this KeyVault Role Definition.
+	// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
 	RoleName pulumi.StringPtrInput
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType pulumi.StringPtrInput
@@ -108,27 +111,29 @@ func (ManagedHardwareSecurityModuleRoleDefinitionState) ElementType() reflect.Ty
 }
 
 type managedHardwareSecurityModuleRoleDefinitionArgs struct {
-	// Specifies a text description about this KeyVault Role Definition.
-	Description  *string `pulumi:"description"`
-	ManagedHsmId string  `pulumi:"managedHsmId"`
-	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+	// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+	Description *string `pulumi:"description"`
+	// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+	ManagedHsmId string `pulumi:"managedHsmId"`
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	Name *string `pulumi:"name"`
 	// One or more `permission` blocks as defined below.
 	Permissions []ManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
-	// Specify a name for this KeyVault Role Definition.
+	// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
 	RoleName *string `pulumi:"roleName"`
 }
 
 // The set of arguments for constructing a ManagedHardwareSecurityModuleRoleDefinition resource.
 type ManagedHardwareSecurityModuleRoleDefinitionArgs struct {
-	// Specifies a text description about this KeyVault Role Definition.
-	Description  pulumi.StringPtrInput
+	// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+	Description pulumi.StringPtrInput
+	// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	ManagedHsmId pulumi.StringInput
-	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 	Name pulumi.StringPtrInput
 	// One or more `permission` blocks as defined below.
 	Permissions ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput
-	// Specify a name for this KeyVault Role Definition.
+	// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
 	RoleName pulumi.StringPtrInput
 }
 
@@ -219,16 +224,17 @@ func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) ToManagedHardwareSecu
 	return o
 }
 
-// Specifies a text description about this KeyVault Role Definition.
+// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
 func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) ManagedHsmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringOutput { return v.ManagedHsmId }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
 func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -245,7 +251,7 @@ func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) ResourceManagerId() p
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-// Specify a name for this KeyVault Role Definition.
+// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
 func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) RoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
 }

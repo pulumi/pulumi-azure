@@ -198,6 +198,10 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * Whether backup and restore operations over the linked virtual network are enabled.
+     */
+    readonly virtualNetworkBackupRestoreEnabled: boolean;
+    /**
      * The subnet id which the Windows Function App is vNet Integrated with.
      */
     readonly virtualNetworkSubnetId: string;

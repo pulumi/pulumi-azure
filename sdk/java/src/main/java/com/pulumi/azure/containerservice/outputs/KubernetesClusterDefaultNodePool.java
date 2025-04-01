@@ -62,7 +62,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
     /**
-     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     private @Nullable String kubeletDiskType;
@@ -262,7 +262,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.kubeletConfig);
     }
     /**
-     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<String> kubeletDiskType() {

@@ -94,7 +94,7 @@ type Secret struct {
 
 	// Specifies the content type for the Key Vault Secret.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -109,9 +109,11 @@ type Secret struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
+	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
-	Value pulumi.StringOutput `pulumi:"value"`
+	ValueWoVersion pulumi.IntPtrOutput `pulumi:"valueWoVersion"`
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The Base ID of the Key Vault Secret.
@@ -128,11 +130,8 @@ func NewSecret(ctx *pulumi.Context,
 	if args.KeyVaultId == nil {
 		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
 	}
-	if args.Value == nil {
-		return nil, errors.New("invalid value for required argument 'Value'")
-	}
 	if args.Value != nil {
-		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringInput)
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"value",
@@ -163,7 +162,7 @@ func GetSecret(ctx *pulumi.Context,
 type secretState struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType *string `pulumi:"contentType"`
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -178,9 +177,11 @@ type secretState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	Value *string `pulumi:"value"`
+	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
-	Value *string `pulumi:"value"`
+	ValueWoVersion *int `pulumi:"valueWoVersion"`
 	// The current version of the Key Vault Secret.
 	Version *string `pulumi:"version"`
 	// The Base ID of the Key Vault Secret.
@@ -190,7 +191,7 @@ type secretState struct {
 type SecretState struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType pulumi.StringPtrInput
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrInput
 	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -205,9 +206,11 @@ type SecretState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	Value pulumi.StringPtrInput
+	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
-	Value pulumi.StringPtrInput
+	ValueWoVersion pulumi.IntPtrInput
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringPtrInput
 	// The Base ID of the Key Vault Secret.
@@ -221,7 +224,7 @@ func (SecretState) ElementType() reflect.Type {
 type secretArgs struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType *string `pulumi:"contentType"`
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -232,16 +235,18 @@ type secretArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	Value *string `pulumi:"value"`
+	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
-	Value string `pulumi:"value"`
+	ValueWoVersion *int `pulumi:"valueWoVersion"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType pulumi.StringPtrInput
-	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 	ExpirationDate pulumi.StringPtrInput
 	// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -252,9 +257,11 @@ type SecretArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+	Value pulumi.StringPtrInput
+	// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 	//
 	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
-	Value pulumi.StringInput
+	ValueWoVersion pulumi.IntPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -349,7 +356,7 @@ func (o SecretOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
 func (o SecretOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
@@ -385,10 +392,15 @@ func (o SecretOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+func (o SecretOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
 //
 // > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
-func (o SecretOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+func (o SecretOutput) ValueWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.IntPtrOutput { return v.ValueWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // The current version of the Key Vault Secret.

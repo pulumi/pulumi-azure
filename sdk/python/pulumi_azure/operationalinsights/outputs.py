@@ -116,7 +116,7 @@ class AnalyticsWorkspaceIdentity(dict):
         """
         :param str type: Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Log Analytics Workspace has been created.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Log Analytics Workspace has been created.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
@@ -133,7 +133,7 @@ class AnalyticsWorkspaceIdentity(dict):
         """
         Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Log Analytics Workspace has been created.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Log Analytics Workspace has been created.
         """
         return pulumi.get(self, "type")
 

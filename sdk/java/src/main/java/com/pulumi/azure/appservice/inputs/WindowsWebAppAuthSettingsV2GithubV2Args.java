@@ -18,14 +18,14 @@ public final class WindowsWebAppAuthSettingsV2GithubV2Args extends com.pulumi.re
     public static final WindowsWebAppAuthSettingsV2GithubV2Args Empty = new WindowsWebAppAuthSettingsV2GithubV2Args();
 
     /**
-     * The ID of the GitHub app used for login..
+     * The ID of the GitHub app used for login.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the GitHub app used for login..
+     * @return The ID of the GitHub app used for login.
      * 
      */
     public Output<String> clientId() {
@@ -93,7 +93,7 @@ public final class WindowsWebAppAuthSettingsV2GithubV2Args extends com.pulumi.re
         }
 
         /**
-         * @param clientId The ID of the GitHub app used for login..
+         * @param clientId The ID of the GitHub app used for login.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class WindowsWebAppAuthSettingsV2GithubV2Args extends com.pulumi.re
         }
 
         /**
-         * @param clientId The ID of the GitHub app used for login..
+         * @param clientId The ID of the GitHub app used for login.
          * 
          * @return builder
          * 

@@ -690,7 +690,7 @@ class ReplicationRecoveryPlanBootRecoveryGroup(dict):
         """
         :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
-        :param Sequence[str] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        :param Sequence[str] replicated_protected_items: One or more protected VM IDs.
         """
         if post_actions is not None:
             pulumi.set(__self__, "post_actions", post_actions)
@@ -719,7 +719,7 @@ class ReplicationRecoveryPlanBootRecoveryGroup(dict):
     @pulumi.getter(name="replicatedProtectedItems")
     def replicated_protected_items(self) -> Optional[Sequence[str]]:
         """
-        One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        One or more protected VM IDs.
         """
         return pulumi.get(self, "replicated_protected_items")
 

@@ -139,6 +139,8 @@ type LookupLinuxFunctionAppResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The current usage state. Possible values are `Normal` and `Exceeded`.
 	Usage string `pulumi:"usage"`
+	// Whether backup and restore operations over the linked virtual network are enabled.
+	VirtualNetworkBackupRestoreEnabled bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
@@ -378,6 +380,11 @@ func (o LookupLinuxFunctionAppResultOutput) Tags() pulumi.StringMapOutput {
 // The current usage state. Possible values are `Normal` and `Exceeded`.
 func (o LookupLinuxFunctionAppResultOutput) Usage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.Usage }).(pulumi.StringOutput)
+}
+
+// Whether backup and restore operations over the linked virtual network are enabled.
+func (o LookupLinuxFunctionAppResultOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.

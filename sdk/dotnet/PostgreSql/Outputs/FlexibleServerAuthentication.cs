@@ -14,11 +14,11 @@ namespace Pulumi.Azure.PostgreSql.Outputs
     public sealed class FlexibleServerAuthentication
     {
         /// <summary>
-        /// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        /// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         /// </summary>
         public readonly bool? ActiveDirectoryAuthEnabled;
         /// <summary>
-        /// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        /// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         /// </summary>
         public readonly bool? PasswordAuthEnabled;
         /// <summary>

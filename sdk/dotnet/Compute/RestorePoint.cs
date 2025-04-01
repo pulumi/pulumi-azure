@@ -12,6 +12,114 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Virtual Machine Restore Point.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-network",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     {
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     {
+    ///         Name = "example-machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "~/.ssh/id_rsa.pub",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///             },
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRestorePointCollection = new Azure.Compute.RestorePointCollection("example", new()
+    ///     {
+    ///         Name = "example-collection",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = exampleLinuxVirtualMachine.Location,
+    ///         SourceVirtualMachineId = exampleLinuxVirtualMachine.Id,
+    ///     });
+    /// 
+    ///     var exampleRestorePoint = new Azure.Compute.RestorePoint("example", new()
+    ///     {
+    ///         Name = "example-restore-point",
+    ///         VirtualMachineRestorePointCollectionId = exampleRestorePointCollection.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Machine Restore Point can be imported using the `resource id`, e.g.
@@ -24,7 +132,7 @@ namespace Pulumi.Azure.Compute
     public partial class RestorePoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("crashConsistencyModeEnabled")]
         public Output<bool?> CrashConsistencyModeEnabled { get; private set; } = null!;
@@ -41,6 +149,9 @@ namespace Pulumi.Azure.Compute
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("virtualMachineRestorePointCollectionId")]
         public Output<string> VirtualMachineRestorePointCollectionId { get; private set; } = null!;
 
@@ -91,7 +202,7 @@ namespace Pulumi.Azure.Compute
     public sealed class RestorePointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("crashConsistencyModeEnabled")]
         public Input<bool>? CrashConsistencyModeEnabled { get; set; }
@@ -114,6 +225,9 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualMachineRestorePointCollectionId", required: true)]
         public Input<string> VirtualMachineRestorePointCollectionId { get; set; } = null!;
 
@@ -126,7 +240,7 @@ namespace Pulumi.Azure.Compute
     public sealed class RestorePointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("crashConsistencyModeEnabled")]
         public Input<bool>? CrashConsistencyModeEnabled { get; set; }
@@ -149,6 +263,9 @@ namespace Pulumi.Azure.Compute
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("virtualMachineRestorePointCollectionId")]
         public Input<string>? VirtualMachineRestorePointCollectionId { get; set; }
 

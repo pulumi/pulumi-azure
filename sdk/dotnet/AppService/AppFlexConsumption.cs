@@ -58,8 +58,14 @@ namespace Pulumi.Azure.AppService
     ///         Name = "example-linux-function-app",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageContainerType = "blobContainer",
-    ///         StorageContainerEndpoint = exampleContainer.Id,
+    ///         StorageContainerEndpoint = Output.Tuple(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).Apply(values =&gt;
+    ///         {
+    ///             var primaryBlobEndpoint = values.Item1;
+    ///             var name = values.Item2;
+    ///             return $"{primaryBlobEndpoint}{name}";
+    ///         }),
     ///         StorageAuthenticationType = "StorageAccountConnectionString",
     ///         StorageAccessKey = exampleAccount.PrimaryAccessKey,
     ///         RuntimeName = "node",
@@ -156,7 +162,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.AppFlexConsumptionIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Linux Function App.
+        /// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         /// </summary>
         [Output("instanceMemoryInMb")]
         public Output<int?> InstanceMemoryInMb { get; private set; } = null!;
@@ -260,13 +266,13 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// 
-        /// &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+        /// &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         /// </summary>
         [Output("storageAccessKey")]
         public Output<string?> StorageAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        /// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         /// </summary>
         [Output("storageAuthenticationType")]
         public Output<string> StorageAuthenticationType { get; private set; } = null!;
@@ -286,7 +292,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         /// 
-        /// &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+        /// &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         /// </summary>
         [Output("storageUserAssignedIdentityId")]
         public Output<string?> StorageUserAssignedIdentityId { get; private set; } = null!;
@@ -435,7 +441,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.AppFlexConsumptionIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Linux Function App.
+        /// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         /// </summary>
         [Input("instanceMemoryInMb")]
         public Input<int>? InstanceMemoryInMb { get; set; }
@@ -503,13 +509,13 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// 
-        /// &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+        /// &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         /// </summary>
         [Input("storageAccessKey")]
         public Input<string>? StorageAccessKey { get; set; }
 
         /// <summary>
-        /// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        /// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         /// </summary>
         [Input("storageAuthenticationType", required: true)]
         public Input<string> StorageAuthenticationType { get; set; } = null!;
@@ -529,7 +535,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         /// 
-        /// &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+        /// &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         /// </summary>
         [Input("storageUserAssignedIdentityId")]
         public Input<string>? StorageUserAssignedIdentityId { get; set; }
@@ -669,7 +675,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.AppFlexConsumptionIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Linux Function App.
+        /// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         /// </summary>
         [Input("instanceMemoryInMb")]
         public Input<int>? InstanceMemoryInMb { get; set; }
@@ -795,13 +801,13 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// 
-        /// &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+        /// &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         /// </summary>
         [Input("storageAccessKey")]
         public Input<string>? StorageAccessKey { get; set; }
 
         /// <summary>
-        /// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        /// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         /// </summary>
         [Input("storageAuthenticationType")]
         public Input<string>? StorageAuthenticationType { get; set; }
@@ -821,7 +827,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         /// 
-        /// &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+        /// &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         /// </summary>
         [Input("storageUserAssignedIdentityId")]
         public Input<string>? StorageUserAssignedIdentityId { get; set; }

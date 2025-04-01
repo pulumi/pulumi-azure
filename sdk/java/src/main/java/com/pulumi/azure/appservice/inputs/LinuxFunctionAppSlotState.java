@@ -594,6 +594,21 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="virtualNetworkBackupRestoreEnabled")
+    private @Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled;
+
+    /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> virtualNetworkBackupRestoreEnabled() {
+        return Optional.ofNullable(this.virtualNetworkBackupRestoreEnabled);
+    }
+
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
@@ -602,14 +617,18 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
      * 
      */
     @Import(name="vnetImagePullEnabled")
     private @Nullable Output<Boolean> vnetImagePullEnabled;
 
     /**
-     * @return Is container image pull over virtual network enabled? Defaults to `false`.
+     * @return Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     * 
+     * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
      * 
      */
     public Optional<Output<Boolean>> vnetImagePullEnabled() {
@@ -671,6 +690,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         this.storageKeyVaultSecretId = $.storageKeyVaultSecretId;
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
+        this.virtualNetworkBackupRestoreEnabled = $.virtualNetworkBackupRestoreEnabled;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
         this.vnetImagePullEnabled = $.vnetImagePullEnabled;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
@@ -1533,6 +1553,27 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param virtualNetworkBackupRestoreEnabled Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkBackupRestoreEnabled(@Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled) {
+            $.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkBackupRestoreEnabled Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
+            return virtualNetworkBackupRestoreEnabled(Output.of(virtualNetworkBackupRestoreEnabled));
+        }
+
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
@@ -1543,7 +1584,9 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * @param vnetImagePullEnabled Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
          * 
          * @return builder
          * 
@@ -1554,7 +1597,9 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vnetImagePullEnabled Is container image pull over virtual network enabled? Defaults to `false`.
+         * @param vnetImagePullEnabled Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+         * 
+         * &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
          * 
          * @return builder
          * 

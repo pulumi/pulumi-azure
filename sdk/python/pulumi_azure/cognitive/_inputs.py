@@ -220,6 +220,11 @@ if not MYPY:
         """
         The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         """
+        bypass: NotRequired[pulumi.Input[str]]
+        """
+        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        *
+        """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
@@ -235,14 +240,19 @@ elif False:
 class AIServicesNetworkAclsArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
+                 bypass: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+               *
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
         :param pulumi.Input[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
@@ -259,6 +269,19 @@ class AIServicesNetworkAclsArgs:
     @default_action.setter
     def default_action(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        *
+        """
+        return pulumi.get(self, "bypass")
+
+    @bypass.setter
+    def bypass(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bypass", value)
 
     @property
     @pulumi.getter(name="ipRules")

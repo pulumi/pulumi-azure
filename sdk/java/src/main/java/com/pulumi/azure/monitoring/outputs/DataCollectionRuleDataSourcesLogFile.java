@@ -20,7 +20,7 @@ public final class DataCollectionRuleDataSourcesLogFile {
      */
     private List<String> filePatterns;
     /**
-     * @return The data format of the log files. possible value is `text`.
+     * @return The data format of the log files. Possible values are `text` and `json`.
      * 
      */
     private String format;
@@ -49,7 +49,7 @@ public final class DataCollectionRuleDataSourcesLogFile {
         return this.filePatterns;
     }
     /**
-     * @return The data format of the log files. possible value is `text`.
+     * @return The data format of the log files. Possible values are `text` and `json`.
      * 
      */
     public String format() {

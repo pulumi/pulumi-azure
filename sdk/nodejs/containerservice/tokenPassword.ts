@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Container Registry Token Password.
+ * Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
  *
  * ## Import
  *

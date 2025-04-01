@@ -7,6 +7,7 @@ import com.pulumi.azure.network.outputs.GetVirtualHubConnectionRoutingPropagated
 import com.pulumi.azure.network.outputs.GetVirtualHubConnectionRoutingStaticVnetRoute;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -38,6 +39,11 @@ public final class GetVirtualHubConnectionRouting {
      * 
      */
     private String staticVnetLocalRouteOverrideCriteria;
+    /**
+     * @return Whether the static routes should be propagated to the Virtual Hub or not.
+     * 
+     */
+    private Boolean staticVnetPropagateStaticRoutesEnabled;
     /**
      * @return A `static_vnet_route` block as defined below.
      * 
@@ -81,6 +87,13 @@ public final class GetVirtualHubConnectionRouting {
         return this.staticVnetLocalRouteOverrideCriteria;
     }
     /**
+     * @return Whether the static routes should be propagated to the Virtual Hub or not.
+     * 
+     */
+    public Boolean staticVnetPropagateStaticRoutesEnabled() {
+        return this.staticVnetPropagateStaticRoutesEnabled;
+    }
+    /**
      * @return A `static_vnet_route` block as defined below.
      * 
      */
@@ -102,6 +115,7 @@ public final class GetVirtualHubConnectionRouting {
         private String outboundRouteMapId;
         private List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables;
         private String staticVnetLocalRouteOverrideCriteria;
+        private Boolean staticVnetPropagateStaticRoutesEnabled;
         private List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
         public Builder() {}
         public Builder(GetVirtualHubConnectionRouting defaults) {
@@ -111,6 +125,7 @@ public final class GetVirtualHubConnectionRouting {
     	      this.outboundRouteMapId = defaults.outboundRouteMapId;
     	      this.propagatedRouteTables = defaults.propagatedRouteTables;
     	      this.staticVnetLocalRouteOverrideCriteria = defaults.staticVnetLocalRouteOverrideCriteria;
+    	      this.staticVnetPropagateStaticRoutesEnabled = defaults.staticVnetPropagateStaticRoutesEnabled;
     	      this.staticVnetRoutes = defaults.staticVnetRoutes;
         }
 
@@ -158,6 +173,14 @@ public final class GetVirtualHubConnectionRouting {
             return this;
         }
         @CustomType.Setter
+        public Builder staticVnetPropagateStaticRoutesEnabled(Boolean staticVnetPropagateStaticRoutesEnabled) {
+            if (staticVnetPropagateStaticRoutesEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "staticVnetPropagateStaticRoutesEnabled");
+            }
+            this.staticVnetPropagateStaticRoutesEnabled = staticVnetPropagateStaticRoutesEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder staticVnetRoutes(List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes) {
             if (staticVnetRoutes == null) {
               throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "staticVnetRoutes");
@@ -175,6 +198,7 @@ public final class GetVirtualHubConnectionRouting {
             _resultValue.outboundRouteMapId = outboundRouteMapId;
             _resultValue.propagatedRouteTables = propagatedRouteTables;
             _resultValue.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
+            _resultValue.staticVnetPropagateStaticRoutesEnabled = staticVnetPropagateStaticRoutesEnabled;
             _resultValue.staticVnetRoutes = staticVnetRoutes;
             return _resultValue;
         }

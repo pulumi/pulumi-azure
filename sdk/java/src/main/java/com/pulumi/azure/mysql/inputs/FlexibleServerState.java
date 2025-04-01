@@ -369,12 +369,16 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     /**
      * The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
+     * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
+     * 
      */
     @Import(name="sourceServerId")
     private @Nullable Output<String> sourceServerId;
 
     /**
      * @return The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
      * 
      */
     public Optional<Output<String>> sourceServerId() {
@@ -954,6 +958,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         /**
          * @param sourceServerId The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
          * 
+         * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
+         * 
          * @return builder
          * 
          */
@@ -964,6 +970,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param sourceServerId The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
          * 
          * @return builder
          * 

@@ -210,7 +210,7 @@ type AnalyticsWorkspaceIdentity struct {
 	TenantId    *string  `pulumi:"tenantId"`
 	// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
 	Type string `pulumi:"type"`
 }
 
@@ -232,7 +232,7 @@ type AnalyticsWorkspaceIdentityArgs struct {
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+	// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -328,7 +328,7 @@ func (o AnalyticsWorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 
 // Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
 func (o AnalyticsWorkspaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsWorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -387,7 +387,7 @@ func (o AnalyticsWorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 
 // Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+// > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
 func (o AnalyticsWorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspaceIdentity) *string {
 		if v == nil {

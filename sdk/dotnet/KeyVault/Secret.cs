@@ -89,7 +89,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         /// </summary>
         [Output("expirationDate")]
         public Output<string?> ExpirationDate { get; private set; } = null!;
@@ -132,11 +132,17 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+        /// </summary>
+        [Output("value")]
+        public Output<string?> Value { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
         /// 
         /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
-        [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        [Output("valueWoVersion")]
+        public Output<int?> ValueWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// The current version of the Key Vault Secret.
@@ -207,7 +213,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -242,13 +248,11 @@ namespace Pulumi.Azure.KeyVault
             set => _tags = value;
         }
 
-        [Input("value", required: true)]
+        [Input("value")]
         private Input<string>? _value;
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
-        /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
         public Input<string>? Value
         {
@@ -259,6 +263,14 @@ namespace Pulumi.Azure.KeyVault
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// </summary>
+        [Input("valueWoVersion")]
+        public Input<int>? ValueWoVersion { get; set; }
 
         public SecretArgs()
         {
@@ -275,7 +287,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
@@ -327,8 +339,6 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
-        /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
         public Input<string>? Value
         {
@@ -339,6 +349,14 @@ namespace Pulumi.Azure.KeyVault
                 _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// </summary>
+        [Input("valueWoVersion")]
+        public Input<int>? ValueWoVersion { get; set; }
 
         /// <summary>
         /// The current version of the Key Vault Secret.

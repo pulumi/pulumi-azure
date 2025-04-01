@@ -56,7 +56,7 @@ class GroupArgs:
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
                
                > **Note:** DNS label/name is not supported when deploying to virtual networks.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
                
                > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
@@ -206,7 +206,7 @@ class GroupArgs:
     @pulumi.getter(name="dnsNameLabelReusePolicy")
     def dns_name_label_reuse_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_name_label_reuse_policy")
 
@@ -447,7 +447,7 @@ class _GroupState:
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
                
                > **Note:** DNS label/name is not supported when deploying to virtual networks.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
                
                > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
@@ -584,7 +584,7 @@ class _GroupState:
     @pulumi.getter(name="dnsNameLabelReusePolicy")
     def dns_name_label_reuse_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_name_label_reuse_policy")
 
@@ -928,7 +928,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
                
                > **Note:** DNS label/name is not supported when deploying to virtual networks.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
                
                > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
@@ -1139,7 +1139,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
                
                > **Note:** DNS label/name is not supported when deploying to virtual networks.
-        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
                
                > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
@@ -1237,7 +1237,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="dnsNameLabelReusePolicy")
     def dns_name_label_reuse_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_name_label_reuse_policy")
 

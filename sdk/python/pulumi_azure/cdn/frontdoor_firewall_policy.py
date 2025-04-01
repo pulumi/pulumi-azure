@@ -29,6 +29,7 @@ class FrontdoorFirewallPolicyArgs:
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
+                 log_scrubbing: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,9 @@ class FrontdoorFirewallPolicyArgs:
                > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
                
                !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        :param pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs'] log_scrubbing: A `log_scrubbing` block as defined below.
+               
+               !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -71,6 +75,8 @@ class FrontdoorFirewallPolicyArgs:
             pulumi.set(__self__, "enabled", enabled)
         if js_challenge_cookie_expiration_in_minutes is not None:
             pulumi.set(__self__, "js_challenge_cookie_expiration_in_minutes", js_challenge_cookie_expiration_in_minutes)
+        if log_scrubbing is not None:
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if managed_rules is not None:
             pulumi.set(__self__, "managed_rules", managed_rules)
         if name is not None:
@@ -185,6 +191,20 @@ class FrontdoorFirewallPolicyArgs:
         pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
 
     @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]:
+        """
+        A `log_scrubbing` block as defined below.
+
+        !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        """
+        return pulumi.get(self, "log_scrubbing")
+
+    @log_scrubbing.setter
+    def log_scrubbing(self, value: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]):
+        pulumi.set(self, "log_scrubbing", value)
+
+    @property
     @pulumi.getter(name="managedRules")
     def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]]:
         """
@@ -256,6 +276,7 @@ class _FrontdoorFirewallPolicyState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
+                 log_scrubbing: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -276,6 +297,9 @@ class _FrontdoorFirewallPolicyState:
                > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
                
                !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        :param pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs'] log_scrubbing: A `log_scrubbing` block as defined below.
+               
+               !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
@@ -301,6 +325,8 @@ class _FrontdoorFirewallPolicyState:
             pulumi.set(__self__, "frontend_endpoint_ids", frontend_endpoint_ids)
         if js_challenge_cookie_expiration_in_minutes is not None:
             pulumi.set(__self__, "js_challenge_cookie_expiration_in_minutes", js_challenge_cookie_expiration_in_minutes)
+        if log_scrubbing is not None:
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if managed_rules is not None:
             pulumi.set(__self__, "managed_rules", managed_rules)
         if mode is not None:
@@ -393,6 +419,20 @@ class _FrontdoorFirewallPolicyState:
     @js_challenge_cookie_expiration_in_minutes.setter
     def js_challenge_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "js_challenge_cookie_expiration_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]:
+        """
+        A `log_scrubbing` block as defined below.
+
+        !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        """
+        return pulumi.get(self, "log_scrubbing")
+
+    @log_scrubbing.setter
+    def log_scrubbing(self, value: Optional[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs']]):
+        pulumi.set(self, "log_scrubbing", value)
 
     @property
     @pulumi.getter(name="managedRules")
@@ -505,6 +545,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
+                 log_scrubbing: Optional[pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -539,6 +580,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             redirect_url="https://www.contoso.com",
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+            js_challenge_cookie_expiration_in_minutes=45,
+            log_scrubbing={
+                "enabled": True,
+                "scrubbing_rules": [{
+                    "enabled": True,
+                    "match_variable": "RequestCookieNames",
+                    "operator": "Equals",
+                    "selector": "ChocolateChip",
+                }],
+            },
             custom_rules=[
                 {
                     "name": "Rule1",
@@ -561,7 +612,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                 {
                     "name": "Rule2",
                     "enabled": True,
-                    "priority": 2,
+                    "priority": 50,
                     "rate_limit_duration_in_minutes": 1,
                     "rate_limit_threshold": 10,
                     "type": "MatchRule",
@@ -586,11 +637,27 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                         },
                     ],
                 },
+                {
+                    "name": "CustomJSChallenge",
+                    "enabled": True,
+                    "priority": 100,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
+                    "type": "MatchRule",
+                    "action": "JSChallenge",
+                    "match_conditions": [{
+                        "match_variable": "RemoteAddr",
+                        "operator": "IPMatch",
+                        "negation_condition": False,
+                        "match_values": ["192.168.1.0/24"],
+                    }],
+                },
             ],
             managed_rules=[
                 {
                     "type": "DefaultRuleSet",
                     "version": "1.0",
+                    "action": "Log",
                     "exclusions": [{
                         "match_variable": "QueryStringArgNames",
                         "operator": "Equals",
@@ -626,11 +693,35 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                 },
                 {
                     "type": "Microsoft_BotManagerRuleSet",
-                    "version": "1.0",
+                    "version": "1.1",
                     "action": "Log",
+                    "overrides": [{
+                        "rule_group_name": "BadBots",
+                        "rules": [{
+                            "action": "JSChallenge",
+                            "enabled": True,
+                            "rule_id": "Bot100200",
+                        }],
+                    }],
                 },
             ])
         ```
+
+        ## `scrubbing_rule` Examples:
+
+        The following table shows examples of `scrubbing_rule`'s that can be used to protect sensitive data:
+
+        | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
+        | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
+        | `RequestHeaderNames`         | Equals         | keyToBlock    | {"matchVariableName":"HeaderValue:keyToBlock","matchVariableValue":"****"}    |
+        | `RequestCookieNames`         | Equals         | cookieToBlock | {"matchVariableName":"CookieValue:cookieToBlock","matchVariableValue":"****"} |
+        | `RequestBodyPostArgNames`    | Equals         | var           | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"}        |
+        | `RequestBodyJsonArgNames`    | Equals         | JsonValue     | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"}             |
+        | `QueryStringArgNames`        | Equals         | foo           | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"}       |
+        | `RequestIPAddress`           | Equals Any     | Not Supported | {"matchVariableName":"ClientIP","matchVariableValue":"****"}                  |
+        | `RequestUri`                 | Equals Any     | Not Supported | {"matchVariableName":"URI","matchVariableValue":"****"}                       |
+
+        ***
 
         ## Import
 
@@ -651,6 +742,9 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
                
                !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']] log_scrubbing: A `log_scrubbing` block as defined below.
+               
+               !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
@@ -695,6 +789,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             redirect_url="https://www.contoso.com",
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+            js_challenge_cookie_expiration_in_minutes=45,
+            log_scrubbing={
+                "enabled": True,
+                "scrubbing_rules": [{
+                    "enabled": True,
+                    "match_variable": "RequestCookieNames",
+                    "operator": "Equals",
+                    "selector": "ChocolateChip",
+                }],
+            },
             custom_rules=[
                 {
                     "name": "Rule1",
@@ -717,7 +821,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                 {
                     "name": "Rule2",
                     "enabled": True,
-                    "priority": 2,
+                    "priority": 50,
                     "rate_limit_duration_in_minutes": 1,
                     "rate_limit_threshold": 10,
                     "type": "MatchRule",
@@ -742,11 +846,27 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                         },
                     ],
                 },
+                {
+                    "name": "CustomJSChallenge",
+                    "enabled": True,
+                    "priority": 100,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
+                    "type": "MatchRule",
+                    "action": "JSChallenge",
+                    "match_conditions": [{
+                        "match_variable": "RemoteAddr",
+                        "operator": "IPMatch",
+                        "negation_condition": False,
+                        "match_values": ["192.168.1.0/24"],
+                    }],
+                },
             ],
             managed_rules=[
                 {
                     "type": "DefaultRuleSet",
                     "version": "1.0",
+                    "action": "Log",
                     "exclusions": [{
                         "match_variable": "QueryStringArgNames",
                         "operator": "Equals",
@@ -782,11 +902,35 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                 },
                 {
                     "type": "Microsoft_BotManagerRuleSet",
-                    "version": "1.0",
+                    "version": "1.1",
                     "action": "Log",
+                    "overrides": [{
+                        "rule_group_name": "BadBots",
+                        "rules": [{
+                            "action": "JSChallenge",
+                            "enabled": True,
+                            "rule_id": "Bot100200",
+                        }],
+                    }],
                 },
             ])
         ```
+
+        ## `scrubbing_rule` Examples:
+
+        The following table shows examples of `scrubbing_rule`'s that can be used to protect sensitive data:
+
+        | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
+        | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
+        | `RequestHeaderNames`         | Equals         | keyToBlock    | {"matchVariableName":"HeaderValue:keyToBlock","matchVariableValue":"****"}    |
+        | `RequestCookieNames`         | Equals         | cookieToBlock | {"matchVariableName":"CookieValue:cookieToBlock","matchVariableValue":"****"} |
+        | `RequestBodyPostArgNames`    | Equals         | var           | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"}        |
+        | `RequestBodyJsonArgNames`    | Equals         | JsonValue     | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"}             |
+        | `QueryStringArgNames`        | Equals         | foo           | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"}       |
+        | `RequestIPAddress`           | Equals Any     | Not Supported | {"matchVariableName":"ClientIP","matchVariableValue":"****"}                  |
+        | `RequestUri`                 | Equals Any     | Not Supported | {"matchVariableName":"URI","matchVariableValue":"****"}                       |
+
+        ***
 
         ## Import
 
@@ -816,6 +960,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
+                 log_scrubbing: Optional[pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -838,6 +983,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["js_challenge_cookie_expiration_in_minutes"] = js_challenge_cookie_expiration_in_minutes
+            __props__.__dict__["log_scrubbing"] = log_scrubbing
             __props__.__dict__["managed_rules"] = managed_rules
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
@@ -869,6 +1015,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             js_challenge_cookie_expiration_in_minutes: Optional[pulumi.Input[int]] = None,
+            log_scrubbing: Optional[pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
             managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -894,6 +1041,9 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
                
                !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']] log_scrubbing: A `log_scrubbing` block as defined below.
+               
+               !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
@@ -917,6 +1067,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["frontend_endpoint_ids"] = frontend_endpoint_ids
         __props__.__dict__["js_challenge_cookie_expiration_in_minutes"] = js_challenge_cookie_expiration_in_minutes
+        __props__.__dict__["log_scrubbing"] = log_scrubbing
         __props__.__dict__["managed_rules"] = managed_rules
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
@@ -978,6 +1129,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         """
         return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
+
+    @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> pulumi.Output[Optional['outputs.FrontdoorFirewallPolicyLogScrubbing']]:
+        """
+        A `log_scrubbing` block as defined below.
+
+        !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        """
+        return pulumi.get(self, "log_scrubbing")
 
     @property
     @pulumi.getter(name="managedRules")

@@ -27,7 +27,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPermission {
      */
     private List<String> notActions;
     /**
-     * @return (Optional) A list of data action permission granted.
+     * @return A list of data action permission granted.
      * 
      */
     private List<String> notDataActions;
@@ -55,7 +55,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPermission {
         return this.notActions;
     }
     /**
-     * @return (Optional) A list of data action permission granted.
+     * @return A list of data action permission granted.
      * 
      */
     public List<String> notDataActions() {

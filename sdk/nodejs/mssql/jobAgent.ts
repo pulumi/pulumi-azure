@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,11 +77,15 @@ export class JobAgent extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
     public readonly databaseId!: pulumi.Output<string>;
     /**
-     * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.mssql.JobAgentIdentity | undefined>;
+    /**
+     * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -87,7 +93,11 @@ export class JobAgent extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the Database.
+     * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags which should be assigned to this Elastic Job Agent.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -105,8 +115,10 @@ export class JobAgent extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as JobAgentState | undefined;
             resourceInputs["databaseId"] = state ? state.databaseId : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as JobAgentArgs | undefined;
@@ -114,8 +126,10 @@ export class JobAgent extends pulumi.CustomResource {
                 throw new Error("Missing required property 'databaseId'");
             }
             resourceInputs["databaseId"] = args ? args.databaseId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -128,11 +142,15 @@ export class JobAgent extends pulumi.CustomResource {
  */
 export interface JobAgentState {
     /**
-     * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
     databaseId?: pulumi.Input<string>;
     /**
-     * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.mssql.JobAgentIdentity>;
+    /**
+     * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -140,7 +158,11 @@ export interface JobAgentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Database.
+     * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     */
+    sku?: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to this Elastic Job Agent.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -150,11 +172,15 @@ export interface JobAgentState {
  */
 export interface JobAgentArgs {
     /**
-     * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
     databaseId: pulumi.Input<string>;
     /**
-     * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.mssql.JobAgentIdentity>;
+    /**
+     * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -162,7 +188,11 @@ export interface JobAgentArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Database.
+     * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     */
+    sku?: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to this Elastic Job Agent.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

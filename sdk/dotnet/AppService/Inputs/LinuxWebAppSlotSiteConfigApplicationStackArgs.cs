@@ -99,7 +99,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? PhpVersion { get; set; }
 
         /// <summary>
-        /// The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        /// The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         /// </summary>
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }

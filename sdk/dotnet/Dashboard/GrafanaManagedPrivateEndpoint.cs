@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Dashboard
     ///         Name = "example-dg",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         GrafanaMajorVersion = "10",
+    ///         GrafanaMajorVersion = "11",
     ///         PublicNetworkAccessEnabled = false,
     ///         AzureMonitorWorkspaceIntegrations = new[]
     ///         {

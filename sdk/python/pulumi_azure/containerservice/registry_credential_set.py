@@ -224,7 +224,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
             name="exampleCredentialSet",
-            container_registry_id="azurerm_container_registry.example.id",
+            container_registry_id=example_registry.id,
             login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
@@ -281,7 +281,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
             name="exampleCredentialSet",
-            container_registry_id="azurerm_container_registry.example.id",
+            container_registry_id=example_registry.id,
             login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
@@ -342,7 +342,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
             name="exampleCredentialSet",
-            container_registry_id="azurerm_container_registry.example.id",
+            container_registry_id=example_registry.id,
             login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
@@ -399,7 +399,7 @@ class RegistryCredentialSet(pulumi.CustomResource):
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
             name="exampleCredentialSet",
-            container_registry_id="azurerm_container_registry.example.id",
+            container_registry_id=example_registry.id,
             login_server="docker.io",
             identity={
                 "type": "SystemAssigned",

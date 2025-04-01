@@ -105,7 +105,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> HostKeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// The integration runtime reference to associate with the Data Factory Linked Service.
+        /// The name of the integration runtime to associate with the Data Factory Linked Service.
         /// </summary>
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? HostKeyFingerprint { get; set; }
 
         /// <summary>
-        /// The integration runtime reference to associate with the Data Factory Linked Service.
+        /// The name of the integration runtime to associate with the Data Factory Linked Service.
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? HostKeyFingerprint { get; set; }
 
         /// <summary>
-        /// The integration runtime reference to associate with the Data Factory Linked Service.
+        /// The name of the integration runtime to associate with the Data Factory Linked Service.
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }

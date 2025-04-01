@@ -83,14 +83,14 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="grafanaMajorVersion", required=true)
     private Output<String> grafanaMajorVersion;
 
     /**
-     * @return Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * @return Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> grafanaMajorVersion() {
@@ -364,7 +364,7 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Possible values are `10`, `11`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

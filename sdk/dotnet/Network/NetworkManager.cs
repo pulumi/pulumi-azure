@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a Network Managers.
+    /// Manages a Network Manager.
     /// 
     /// ## Example Usage
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Import
     /// 
-    /// Network Managers can be imported using the `resource id`, e.g.
+    /// Network Manager can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
@@ -75,25 +75,25 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.NetworkManagerCrossTenantScope>> CrossTenantScopes { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the network manager.
+        /// A description of the Network Manager.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+        /// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+        /// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        /// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -105,13 +105,13 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.NetworkManagerScope> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+        /// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
         /// </summary>
         [Output("scopeAccesses")]
         public Output<ImmutableArray<string>> ScopeAccesses { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Network Managers.
+        /// A mapping of tags which should be assigned to the Network Manager.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -163,25 +163,25 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the network manager.
+        /// A description of the Network Manager.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+        /// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+        /// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        /// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -192,11 +192,11 @@ namespace Pulumi.Azure.Network
         [Input("scope", required: true)]
         public Input<Inputs.NetworkManagerScopeArgs> Scope { get; set; } = null!;
 
-        [Input("scopeAccesses", required: true)]
+        [Input("scopeAccesses")]
         private InputList<string>? _scopeAccesses;
 
         /// <summary>
-        /// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+        /// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
         /// </summary>
         public InputList<string> ScopeAccesses
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Network
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Network Managers.
+        /// A mapping of tags which should be assigned to the Network Manager.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -237,25 +237,25 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A description of the network manager.
+        /// A description of the Network Manager.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+        /// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+        /// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        /// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _scopeAccesses;
 
         /// <summary>
-        /// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+        /// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
         /// </summary>
         public InputList<string> ScopeAccesses
         {
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Network
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Network Managers.
+        /// A mapping of tags which should be assigned to the Network Manager.
         /// </summary>
         public InputMap<string> Tags
         {

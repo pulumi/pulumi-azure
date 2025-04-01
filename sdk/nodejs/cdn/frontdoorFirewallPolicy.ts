@@ -33,6 +33,16 @@ import * as utilities from "../utilities";
  *     redirectUrl: "https://www.contoso.com",
  *     customBlockResponseStatusCode: 403,
  *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+ *     jsChallengeCookieExpirationInMinutes: 45,
+ *     logScrubbing: {
+ *         enabled: true,
+ *         scrubbingRules: [{
+ *             enabled: true,
+ *             matchVariable: "RequestCookieNames",
+ *             operator: "Equals",
+ *             selector: "ChocolateChip",
+ *         }],
+ *     },
  *     customRules: [
  *         {
  *             name: "Rule1",
@@ -55,7 +65,7 @@ import * as utilities from "../utilities";
  *         {
  *             name: "Rule2",
  *             enabled: true,
- *             priority: 2,
+ *             priority: 50,
  *             rateLimitDurationInMinutes: 1,
  *             rateLimitThreshold: 10,
  *             type: "MatchRule",
@@ -80,11 +90,27 @@ import * as utilities from "../utilities";
  *                 },
  *             ],
  *         },
+ *         {
+ *             name: "CustomJSChallenge",
+ *             enabled: true,
+ *             priority: 100,
+ *             rateLimitDurationInMinutes: 1,
+ *             rateLimitThreshold: 10,
+ *             type: "MatchRule",
+ *             action: "JSChallenge",
+ *             matchConditions: [{
+ *                 matchVariable: "RemoteAddr",
+ *                 operator: "IPMatch",
+ *                 negationCondition: false,
+ *                 matchValues: ["192.168.1.0/24"],
+ *             }],
+ *         },
  *     ],
  *     managedRules: [
  *         {
  *             type: "DefaultRuleSet",
  *             version: "1.0",
+ *             action: "Log",
  *             exclusions: [{
  *                 matchVariable: "QueryStringArgNames",
  *                 operator: "Equals",
@@ -120,12 +146,36 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             type: "Microsoft_BotManagerRuleSet",
- *             version: "1.0",
+ *             version: "1.1",
  *             action: "Log",
+ *             overrides: [{
+ *                 ruleGroupName: "BadBots",
+ *                 rules: [{
+ *                     action: "JSChallenge",
+ *                     enabled: true,
+ *                     ruleId: "Bot100200",
+ *                 }],
+ *             }],
  *         },
  *     ],
  * });
  * ```
+ *
+ * ## `scrubbingRule` Examples:
+ *
+ * The following table shows examples of `scrubbingRule`'s that can be used to protect sensitive data:
+ *
+ * | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
+ * | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
+ * | `RequestHeaderNames`         | Equals         | keyToBlock    | {"matchVariableName":"HeaderValue:keyToBlock","matchVariableValue":"****"}    |
+ * | `RequestCookieNames`         | Equals         | cookieToBlock | {"matchVariableName":"CookieValue:cookieToBlock","matchVariableValue":"****"} |
+ * | `RequestBodyPostArgNames`    | Equals         | var           | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"}        |
+ * | `RequestBodyJsonArgNames`    | Equals         | JsonValue     | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"}             |
+ * | `QueryStringArgNames`        | Equals         | foo           | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"}       |
+ * | `RequestIPAddress`           | Equals Any     | Not Supported | {"matchVariableName":"ClientIP","matchVariableValue":"****"}                  |
+ * | `RequestUri`                 | Equals Any     | Not Supported | {"matchVariableName":"URI","matchVariableValue":"****"}                       |
+ *
+ * ***
  *
  * ## Import
  *
@@ -192,6 +242,12 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly jsChallengeCookieExpirationInMinutes!: pulumi.Output<number>;
     /**
+     * A `logScrubbing` block as defined below.
+     *
+     * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     */
+    public readonly logScrubbing!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
+    /**
      * One or more `managedRule` blocks as defined below.
      */
     public readonly managedRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
@@ -247,6 +303,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["frontendEndpointIds"] = state ? state.frontendEndpointIds : undefined;
             resourceInputs["jsChallengeCookieExpirationInMinutes"] = state ? state.jsChallengeCookieExpirationInMinutes : undefined;
+            resourceInputs["logScrubbing"] = state ? state.logScrubbing : undefined;
             resourceInputs["managedRules"] = state ? state.managedRules : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -271,6 +328,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["customRules"] = args ? args.customRules : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["jsChallengeCookieExpirationInMinutes"] = args ? args.jsChallengeCookieExpirationInMinutes : undefined;
+            resourceInputs["logScrubbing"] = args ? args.logScrubbing : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -318,6 +376,12 @@ export interface FrontdoorFirewallPolicyState {
      * !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
     jsChallengeCookieExpirationInMinutes?: pulumi.Input<number>;
+    /**
+     * A `logScrubbing` block as defined below.
+     *
+     * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     */
+    logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
@@ -384,6 +448,12 @@ export interface FrontdoorFirewallPolicyArgs {
      * !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
     jsChallengeCookieExpirationInMinutes?: pulumi.Input<number>;
+    /**
+     * A `logScrubbing` block as defined below.
+     *
+     * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     */
+    logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing>;
     /**
      * One or more `managedRule` blocks as defined below.
      */

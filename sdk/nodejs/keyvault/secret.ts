@@ -89,7 +89,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
     public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
@@ -118,10 +118,14 @@ export class Secret extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     */
+    public readonly value!: pulumi.Output<string | undefined>;
+    /**
+     * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
-    public readonly value!: pulumi.Output<string>;
+    public readonly valueWoVersion!: pulumi.Output<number | undefined>;
     /**
      * The current version of the Key Vault Secret.
      */
@@ -153,15 +157,13 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["resourceVersionlessId"] = state ? state.resourceVersionlessId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["valueWoVersion"] = state ? state.valueWoVersion : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
         } else {
             const args = argsOrState as SecretArgs | undefined;
             if ((!args || args.keyVaultId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
-            }
-            if ((!args || args.value === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'value'");
             }
             resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
@@ -170,6 +172,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
+            resourceInputs["valueWoVersion"] = args ? args.valueWoVersion : undefined;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceVersionlessId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -191,7 +194,7 @@ export interface SecretState {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -220,10 +223,14 @@ export interface SecretState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
-    value?: pulumi.Input<string>;
+    valueWoVersion?: pulumi.Input<number>;
     /**
      * The current version of the Key Vault Secret.
      */
@@ -243,7 +250,7 @@ export interface SecretArgs {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). Removing this forces a new resource to be created.
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
     expirationDate?: pulumi.Input<string>;
     /**
@@ -264,8 +271,12 @@ export interface SecretArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
-    value: pulumi.Input<string>;
+    valueWoVersion?: pulumi.Input<number>;
 }

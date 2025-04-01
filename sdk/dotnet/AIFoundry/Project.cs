@@ -88,8 +88,8 @@ namespace Pulumi.Azure.AIFoundry
     ///     var exampleProject = new Azure.AIFoundry.Project("example", new()
     ///     {
     ///         Name = "example",
-    ///         Location = exampleAzurermAiServicesHub.Location,
-    ///         AiServicesHubId = exampleAzurermAiServicesHub.Id,
+    ///         Location = exampleHub.Location,
+    ///         AiServicesHubId = exampleHub.Id,
     ///     });
     /// 
     /// });
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.AIFoundry
     public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        /// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         /// </summary>
         [Output("aiServicesHubId")]
         public Output<string> AiServicesHubId { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.AIFoundry
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        /// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         /// </summary>
         [Input("aiServicesHubId", required: true)]
         public Input<string> AiServicesHubId { get; set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.AIFoundry
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        /// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         /// </summary>
         [Input("aiServicesHubId")]
         public Input<string>? AiServicesHubId { get; set; }

@@ -144,8 +144,9 @@ type LinuxWebAppSlot struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
-	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	Tags                               pulumi.StringMapOutput `pulumi:"tags"`
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -261,8 +262,9 @@ type linuxWebAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags                               map[string]string `pulumi:"tags"`
+	VirtualNetworkBackupRestoreEnabled *bool             `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -338,8 +340,9 @@ type LinuxWebAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                   pulumi.StringMapInput
-	VirtualNetworkSubnetId pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -399,8 +402,9 @@ type linuxWebAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags                               map[string]string `pulumi:"tags"`
+	VirtualNetworkBackupRestoreEnabled *bool             `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -457,8 +461,9 @@ type LinuxWebAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
 	// A mapping of tags that should be assigned to the Linux Web App.
-	Tags                   pulumi.StringMapInput
-	VirtualNetworkSubnetId pulumi.StringPtrInput
+	Tags                               pulumi.StringMapInput
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -715,6 +720,10 @@ func (o LinuxWebAppSlotOutput) StorageAccounts() LinuxWebAppSlotStorageAccountAr
 // A mapping of tags that should be assigned to the Linux Web App.
 func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LinuxWebAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {

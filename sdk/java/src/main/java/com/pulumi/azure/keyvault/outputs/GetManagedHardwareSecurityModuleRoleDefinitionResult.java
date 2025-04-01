@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
     /**
-     * @return A list of assignable role scope. Possible values are `/` and `/keys`.
+     * @return A list of assignable role scopes. Possible values are `/` and `/keys`.
      * 
      */
     private List<String> assignableScopes;
     /**
-     * @return A text description of this role definition.
+     * @return A text description of the Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     private String description;
@@ -35,31 +35,31 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
      */
     private List<GetManagedHardwareSecurityModuleRoleDefinitionPermission> permissions;
     /**
-     * @return The ID of the role definition resource without base url.
+     * @return The ID of the Key Vault Managed Hardware Security Module Role Definition resource without base url.
      * 
      */
     private String resourceManagerId;
     /**
-     * @return The role name of the role definition.
+     * @return The display name of the Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     private String roleName;
     /**
-     * @return The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
+     * @return The type of the Key Vault Managed Hardware Security Module Role Definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
      * 
      */
     private String roleType;
 
     private GetManagedHardwareSecurityModuleRoleDefinitionResult() {}
     /**
-     * @return A list of assignable role scope. Possible values are `/` and `/keys`.
+     * @return A list of assignable role scopes. Possible values are `/` and `/keys`.
      * 
      */
     public List<String> assignableScopes() {
         return this.assignableScopes;
     }
     /**
-     * @return A text description of this role definition.
+     * @return A text description of the Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public String description() {
@@ -86,21 +86,21 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
         return this.permissions;
     }
     /**
-     * @return The ID of the role definition resource without base url.
+     * @return The ID of the Key Vault Managed Hardware Security Module Role Definition resource without base url.
      * 
      */
     public String resourceManagerId() {
         return this.resourceManagerId;
     }
     /**
-     * @return The role name of the role definition.
+     * @return The display name of the Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public String roleName() {
         return this.roleName;
     }
     /**
-     * @return The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
+     * @return The type of the Key Vault Managed Hardware Security Module Role Definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
      * 
      */
     public String roleType() {

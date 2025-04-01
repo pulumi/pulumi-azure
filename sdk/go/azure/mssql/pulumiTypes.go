@@ -1754,6 +1754,162 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobAgentIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+	Type string `pulumi:"type"`
+}
+
+// JobAgentIdentityInput is an input type that accepts JobAgentIdentityArgs and JobAgentIdentityOutput values.
+// You can construct a concrete instance of `JobAgentIdentityInput` via:
+//
+//	JobAgentIdentityArgs{...}
+type JobAgentIdentityInput interface {
+	pulumi.Input
+
+	ToJobAgentIdentityOutput() JobAgentIdentityOutput
+	ToJobAgentIdentityOutputWithContext(context.Context) JobAgentIdentityOutput
+}
+
+type JobAgentIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobAgentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAgentIdentity)(nil)).Elem()
+}
+
+func (i JobAgentIdentityArgs) ToJobAgentIdentityOutput() JobAgentIdentityOutput {
+	return i.ToJobAgentIdentityOutputWithContext(context.Background())
+}
+
+func (i JobAgentIdentityArgs) ToJobAgentIdentityOutputWithContext(ctx context.Context) JobAgentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAgentIdentityOutput)
+}
+
+func (i JobAgentIdentityArgs) ToJobAgentIdentityPtrOutput() JobAgentIdentityPtrOutput {
+	return i.ToJobAgentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i JobAgentIdentityArgs) ToJobAgentIdentityPtrOutputWithContext(ctx context.Context) JobAgentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAgentIdentityOutput).ToJobAgentIdentityPtrOutputWithContext(ctx)
+}
+
+// JobAgentIdentityPtrInput is an input type that accepts JobAgentIdentityArgs, JobAgentIdentityPtr and JobAgentIdentityPtrOutput values.
+// You can construct a concrete instance of `JobAgentIdentityPtrInput` via:
+//
+//	        JobAgentIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobAgentIdentityPtrInput interface {
+	pulumi.Input
+
+	ToJobAgentIdentityPtrOutput() JobAgentIdentityPtrOutput
+	ToJobAgentIdentityPtrOutputWithContext(context.Context) JobAgentIdentityPtrOutput
+}
+
+type jobAgentIdentityPtrType JobAgentIdentityArgs
+
+func JobAgentIdentityPtr(v *JobAgentIdentityArgs) JobAgentIdentityPtrInput {
+	return (*jobAgentIdentityPtrType)(v)
+}
+
+func (*jobAgentIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAgentIdentity)(nil)).Elem()
+}
+
+func (i *jobAgentIdentityPtrType) ToJobAgentIdentityPtrOutput() JobAgentIdentityPtrOutput {
+	return i.ToJobAgentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *jobAgentIdentityPtrType) ToJobAgentIdentityPtrOutputWithContext(ctx context.Context) JobAgentIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobAgentIdentityPtrOutput)
+}
+
+type JobAgentIdentityOutput struct{ *pulumi.OutputState }
+
+func (JobAgentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobAgentIdentity)(nil)).Elem()
+}
+
+func (o JobAgentIdentityOutput) ToJobAgentIdentityOutput() JobAgentIdentityOutput {
+	return o
+}
+
+func (o JobAgentIdentityOutput) ToJobAgentIdentityOutputWithContext(ctx context.Context) JobAgentIdentityOutput {
+	return o
+}
+
+func (o JobAgentIdentityOutput) ToJobAgentIdentityPtrOutput() JobAgentIdentityPtrOutput {
+	return o.ToJobAgentIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o JobAgentIdentityOutput) ToJobAgentIdentityPtrOutputWithContext(ctx context.Context) JobAgentIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobAgentIdentity) *JobAgentIdentity {
+		return &v
+	}).(JobAgentIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+func (o JobAgentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobAgentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+func (o JobAgentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobAgentIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobAgentIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (JobAgentIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobAgentIdentity)(nil)).Elem()
+}
+
+func (o JobAgentIdentityPtrOutput) ToJobAgentIdentityPtrOutput() JobAgentIdentityPtrOutput {
+	return o
+}
+
+func (o JobAgentIdentityPtrOutput) ToJobAgentIdentityPtrOutputWithContext(ctx context.Context) JobAgentIdentityPtrOutput {
+	return o
+}
+
+func (o JobAgentIdentityPtrOutput) Elem() JobAgentIdentityOutput {
+	return o.ApplyT(func(v *JobAgentIdentity) JobAgentIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret JobAgentIdentity
+		return ret
+	}).(JobAgentIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+func (o JobAgentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobAgentIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+func (o JobAgentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobAgentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobStepOutputTarget struct {
 	// The ID of the Elastic Job Credential to use when connecting to the output destination.
 	JobCredentialId string `pulumi:"jobCredentialId"`
@@ -7836,6 +7992,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupPartnerServerArrayInput)(nil)).Elem(), FailoverGroupPartnerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentIdentityInput)(nil)).Elem(), JobAgentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobAgentIdentityPtrInput)(nil)).Elem(), JobAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobStepOutputTargetInput)(nil)).Elem(), JobStepOutputTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobStepOutputTargetPtrInput)(nil)).Elem(), JobStepOutputTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTargetGroupJobTargetInput)(nil)).Elem(), JobTargetGroupJobTargetArgs{})
@@ -7924,6 +8082,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupPartnerServerArrayOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
+	pulumi.RegisterOutputType(JobAgentIdentityOutput{})
+	pulumi.RegisterOutputType(JobAgentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(JobStepOutputTargetOutput{})
 	pulumi.RegisterOutputType(JobStepOutputTargetPtrOutput{})
 	pulumi.RegisterOutputType(JobTargetGroupJobTargetOutput{})

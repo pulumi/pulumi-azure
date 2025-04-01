@@ -60,7 +60,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
     @pulumi.getter(name="assignableScopes")
     def assignable_scopes(self) -> Sequence[str]:
         """
-        A list of assignable role scope. Possible values are `/` and `/keys`.
+        A list of assignable role scopes. Possible values are `/` and `/keys`.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -68,7 +68,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        A text description of this role definition.
+        A text description of the Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "description")
 
@@ -102,7 +102,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
     @pulumi.getter(name="resourceManagerId")
     def resource_manager_id(self) -> str:
         """
-        The ID of the role definition resource without base url.
+        The ID of the Key Vault Managed Hardware Security Module Role Definition resource without base url.
         """
         return pulumi.get(self, "resource_manager_id")
 
@@ -110,7 +110,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
     @pulumi.getter(name="roleName")
     def role_name(self) -> str:
         """
-        The role name of the role definition.
+        The display name of the Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "role_name")
 
@@ -118,7 +118,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionResult:
     @pulumi.getter(name="roleType")
     def role_type(self) -> str:
         """
-        The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
+        The type of the Key Vault Managed Hardware Security Module Role Definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
         """
         return pulumi.get(self, "role_type")
 
@@ -144,10 +144,22 @@ def get_managed_hardware_security_module_role_definition(managed_hsm_id: Optiona
                                                          name: Optional[str] = None,
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHardwareSecurityModuleRoleDefinitionResult:
     """
-    Use this data source to access information about an existing KeyVault Role Definition.
+    Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_managed_hardware_security_module_role_definition(managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
+        name="21dbd100-6940-42c2-9190-5d6cb909625b")
+    pulumi.export("id", example.resource_manager_id)
+    ```
 
 
-    :param str name: The name in UUID notation of this KeyVault Role Definition.
+    :param str managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module.
+    :param str name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
     """
     __args__ = dict()
     __args__['managedHsmId'] = managed_hsm_id
@@ -169,10 +181,22 @@ def get_managed_hardware_security_module_role_definition_output(managed_hsm_id: 
                                                                 name: Optional[pulumi.Input[str]] = None,
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedHardwareSecurityModuleRoleDefinitionResult]:
     """
-    Use this data source to access information about an existing KeyVault Role Definition.
+    Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_managed_hardware_security_module_role_definition(managed_hsm_id=example_azurerm_key_vault_managed_hardware_security_module["id"],
+        name="21dbd100-6940-42c2-9190-5d6cb909625b")
+    pulumi.export("id", example.resource_manager_id)
+    ```
 
 
-    :param str name: The name in UUID notation of this KeyVault Role Definition.
+    :param str managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module.
+    :param str name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
     """
     __args__ = dict()
     __args__['managedHsmId'] = managed_hsm_id

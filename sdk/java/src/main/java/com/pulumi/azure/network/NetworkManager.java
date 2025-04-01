@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Network Managers.
+ * Manages a Network Manager.
  * 
  * ## Example Usage
  * 
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Managers can be imported using the `resource id`, e.g.
+ * Network Manager can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
@@ -104,56 +104,56 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
         return this.crossTenantScopes;
     }
     /**
-     * A description of the network manager.
+     * A description of the Network Manager.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the network manager.
+     * @return A description of the Network Manager.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * @return Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * @return Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * @return Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -174,28 +174,28 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
         return this.scope;
     }
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      * 
      */
     @Export(name="scopeAccesses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> scopeAccesses;
+    private Output</* @Nullable */ List<String>> scopeAccesses;
 
     /**
-     * @return A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * @return A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      * 
      */
-    public Output<List<String>> scopeAccesses() {
-        return this.scopeAccesses;
+    public Output<Optional<List<String>>> scopeAccesses() {
+        return Codegen.optional(this.scopeAccesses);
     }
     /**
-     * A mapping of tags which should be assigned to the Network Managers.
+     * A mapping of tags which should be assigned to the Network Manager.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Network Managers.
+     * @return A mapping of tags which should be assigned to the Network Manager.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

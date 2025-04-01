@@ -83,7 +83,7 @@ class KubernetesClusterNodePoolArgs:
                > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
@@ -342,7 +342,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -789,7 +789,7 @@ class _KubernetesClusterNodePoolState:
                > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
@@ -1028,7 +1028,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 
@@ -1493,7 +1493,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 
-        > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
+        > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `kubelet_disk_type`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
 
         ## Example Usage
 
@@ -1554,7 +1554,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
@@ -1613,7 +1613,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 
-        > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
+        > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `kubelet_disk_type`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
 
         ## Example Usage
 
@@ -1843,7 +1843,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
@@ -2013,7 +2013,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> pulumi.Output[str]:
         """
-        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         """
         return pulumi.get(self, "kubelet_disk_type")
 

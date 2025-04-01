@@ -45,6 +45,21 @@ namespace Pulumi.Azure.Cdn
     ///         RedirectUrl = "https://www.contoso.com",
     ///         CustomBlockResponseStatusCode = 403,
     ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+    ///         JsChallengeCookieExpirationInMinutes = 45,
+    ///         LogScrubbing = new Azure.Cdn.Inputs.FrontdoorFirewallPolicyLogScrubbingArgs
+    ///         {
+    ///             Enabled = true,
+    ///             ScrubbingRules = new[]
+    ///             {
+    ///                 new Azure.Cdn.Inputs.FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     MatchVariable = "RequestCookieNames",
+    ///                     Operator = "Equals",
+    ///                     Selector = "ChocolateChip",
+    ///                 },
+    ///             },
+    ///         },
     ///         CustomRules = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
@@ -75,7 +90,7 @@ namespace Pulumi.Azure.Cdn
     ///             {
     ///                 Name = "Rule2",
     ///                 Enabled = true,
-    ///                 Priority = 2,
+    ///                 Priority = 50,
     ///                 RateLimitDurationInMinutes = 1,
     ///                 RateLimitThreshold = 10,
     ///                 Type = "MatchRule",
@@ -110,6 +125,29 @@ namespace Pulumi.Azure.Cdn
     ///                     },
     ///                 },
     ///             },
+    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
+    ///             {
+    ///                 Name = "CustomJSChallenge",
+    ///                 Enabled = true,
+    ///                 Priority = 100,
+    ///                 RateLimitDurationInMinutes = 1,
+    ///                 RateLimitThreshold = 10,
+    ///                 Type = "MatchRule",
+    ///                 Action = "JSChallenge",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
+    ///                     {
+    ///                         MatchVariable = "RemoteAddr",
+    ///                         Operator = "IPMatch",
+    ///                         NegationCondition = false,
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "192.168.1.0/24",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///         ManagedRules = new[]
     ///         {
@@ -117,6 +155,7 @@ namespace Pulumi.Azure.Cdn
     ///             {
     ///                 Type = "DefaultRuleSet",
     ///                 Version = "1.0",
+    ///                 Action = "Log",
     ///                 Exclusions = new[]
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleExclusionArgs
@@ -176,14 +215,46 @@ namespace Pulumi.Azure.Cdn
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleArgs
     ///             {
     ///                 Type = "Microsoft_BotManagerRuleSet",
-    ///                 Version = "1.0",
+    ///                 Version = "1.1",
     ///                 Action = "Log",
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs
+    ///                     {
+    ///                         RuleGroupName = "BadBots",
+    ///                         Rules = new[]
+    ///                         {
+    ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs
+    ///                             {
+    ///                                 Action = "JSChallenge",
+    ///                                 Enabled = true,
+    ///                                 RuleId = "Bot100200",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## `scrubbing_rule` Examples:
+    /// 
+    /// The following table shows examples of `scrubbing_rule`'s that can be used to protect sensitive data:
+    /// 
+    /// | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
+    /// | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
+    /// | `RequestHeaderNames`         | Equals         | keyToBlock    | {"matchVariableName":"HeaderValue:keyToBlock","matchVariableValue":"****"}    |
+    /// | `RequestCookieNames`         | Equals         | cookieToBlock | {"matchVariableName":"CookieValue:cookieToBlock","matchVariableValue":"****"} |
+    /// | `RequestBodyPostArgNames`    | Equals         | var           | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"}        |
+    /// | `RequestBodyJsonArgNames`    | Equals         | JsonValue     | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"}             |
+    /// | `QueryStringArgNames`        | Equals         | foo           | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"}       |
+    /// | `RequestIPAddress`           | Equals Any     | Not Supported | {"matchVariableName":"ClientIP","matchVariableValue":"****"}                  |
+    /// | `RequestUri`                 | Equals Any     | Not Supported | {"matchVariableName":"URI","matchVariableValue":"****"}                       |
+    /// 
+    /// ***
     /// 
     /// ## Import
     /// 
@@ -235,6 +306,14 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Output("jsChallengeCookieExpirationInMinutes")]
         public Output<int> JsChallengeCookieExpirationInMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// A `log_scrubbing` block as defined below.
+        /// 
+        /// !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// </summary>
+        [Output("logScrubbing")]
+        public Output<Outputs.FrontdoorFirewallPolicyLogScrubbing?> LogScrubbing { get; private set; } = null!;
 
         /// <summary>
         /// One or more `managed_rule` blocks as defined below.
@@ -374,6 +453,14 @@ namespace Pulumi.Azure.Cdn
         [Input("jsChallengeCookieExpirationInMinutes")]
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
 
+        /// <summary>
+        /// A `log_scrubbing` block as defined below.
+        /// 
+        /// !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// </summary>
+        [Input("logScrubbing")]
+        public Input<Inputs.FrontdoorFirewallPolicyLogScrubbingArgs>? LogScrubbing { get; set; }
+
         [Input("managedRules")]
         private InputList<Inputs.FrontdoorFirewallPolicyManagedRuleArgs>? _managedRules;
 
@@ -497,6 +584,14 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("jsChallengeCookieExpirationInMinutes")]
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
+
+        /// <summary>
+        /// A `log_scrubbing` block as defined below.
+        /// 
+        /// !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// </summary>
+        [Input("logScrubbing")]
+        public Input<Inputs.FrontdoorFirewallPolicyLogScrubbingGetArgs>? LogScrubbing { get; set; }
 
         [Input("managedRules")]
         private InputList<Inputs.FrontdoorFirewallPolicyManagedRuleGetArgs>? _managedRules;

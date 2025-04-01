@@ -18,14 +18,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertificateArgs Empty = new CertificateArgs();
 
     /**
-     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="appServicePlanId")
     private @Nullable Output<String> appServicePlanId;
 
     /**
-     * @return The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * @return The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> appServicePlanId() {
@@ -181,7 +181,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServicePlanId The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+         * @param appServicePlanId The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appServicePlanId The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+         * @param appServicePlanId The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

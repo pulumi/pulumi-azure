@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var frontdoor = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName("Microsoft.Azure.Cdn")
+ *             .displayName("Microsoft.AzurefrontDoor-Cdn")
  *             .build());
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()

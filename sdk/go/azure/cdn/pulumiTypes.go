@@ -5460,6 +5460,308 @@ func (o FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulu
 	}).(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput)
 }
 
+type FrontdoorFirewallPolicyLogScrubbing struct {
+	// Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// One or more `scrubbingRule` blocks as defined below.
+	//
+	// > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+	ScrubbingRules []FrontdoorFirewallPolicyLogScrubbingScrubbingRule `pulumi:"scrubbingRules"`
+}
+
+// FrontdoorFirewallPolicyLogScrubbingInput is an input type that accepts FrontdoorFirewallPolicyLogScrubbingArgs and FrontdoorFirewallPolicyLogScrubbingOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyLogScrubbingInput` via:
+//
+//	FrontdoorFirewallPolicyLogScrubbingArgs{...}
+type FrontdoorFirewallPolicyLogScrubbingInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyLogScrubbingOutput() FrontdoorFirewallPolicyLogScrubbingOutput
+	ToFrontdoorFirewallPolicyLogScrubbingOutputWithContext(context.Context) FrontdoorFirewallPolicyLogScrubbingOutput
+}
+
+type FrontdoorFirewallPolicyLogScrubbingArgs struct {
+	// Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// One or more `scrubbingRule` blocks as defined below.
+	//
+	// > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+	ScrubbingRules FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayInput `pulumi:"scrubbingRules"`
+}
+
+func (FrontdoorFirewallPolicyLogScrubbingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbing)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingArgs) ToFrontdoorFirewallPolicyLogScrubbingOutput() FrontdoorFirewallPolicyLogScrubbingOutput {
+	return i.ToFrontdoorFirewallPolicyLogScrubbingOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingArgs) ToFrontdoorFirewallPolicyLogScrubbingOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyLogScrubbingOutput)
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingArgs) ToFrontdoorFirewallPolicyLogScrubbingPtrOutput() FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return i.ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingArgs) ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyLogScrubbingOutput).ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(ctx)
+}
+
+// FrontdoorFirewallPolicyLogScrubbingPtrInput is an input type that accepts FrontdoorFirewallPolicyLogScrubbingArgs, FrontdoorFirewallPolicyLogScrubbingPtr and FrontdoorFirewallPolicyLogScrubbingPtrOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyLogScrubbingPtrInput` via:
+//
+//	        FrontdoorFirewallPolicyLogScrubbingArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorFirewallPolicyLogScrubbingPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyLogScrubbingPtrOutput() FrontdoorFirewallPolicyLogScrubbingPtrOutput
+	ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(context.Context) FrontdoorFirewallPolicyLogScrubbingPtrOutput
+}
+
+type frontdoorFirewallPolicyLogScrubbingPtrType FrontdoorFirewallPolicyLogScrubbingArgs
+
+func FrontdoorFirewallPolicyLogScrubbingPtr(v *FrontdoorFirewallPolicyLogScrubbingArgs) FrontdoorFirewallPolicyLogScrubbingPtrInput {
+	return (*frontdoorFirewallPolicyLogScrubbingPtrType)(v)
+}
+
+func (*frontdoorFirewallPolicyLogScrubbingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorFirewallPolicyLogScrubbing)(nil)).Elem()
+}
+
+func (i *frontdoorFirewallPolicyLogScrubbingPtrType) ToFrontdoorFirewallPolicyLogScrubbingPtrOutput() FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return i.ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorFirewallPolicyLogScrubbingPtrType) ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyLogScrubbingPtrOutput)
+}
+
+type FrontdoorFirewallPolicyLogScrubbingOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyLogScrubbingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbing)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingOutput) ToFrontdoorFirewallPolicyLogScrubbingOutput() FrontdoorFirewallPolicyLogScrubbingOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingOutput) ToFrontdoorFirewallPolicyLogScrubbingOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingOutput) ToFrontdoorFirewallPolicyLogScrubbingPtrOutput() FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return o.ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingOutput) ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorFirewallPolicyLogScrubbing) *FrontdoorFirewallPolicyLogScrubbing {
+		return &v
+	}).(FrontdoorFirewallPolicyLogScrubbingPtrOutput)
+}
+
+// Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+func (o FrontdoorFirewallPolicyLogScrubbingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyLogScrubbing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `scrubbingRule` blocks as defined below.
+//
+// > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+func (o FrontdoorFirewallPolicyLogScrubbingOutput) ScrubbingRules() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyLogScrubbing) []FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
+		return v.ScrubbingRules
+	}).(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyLogScrubbingPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyLogScrubbingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorFirewallPolicyLogScrubbing)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingPtrOutput) ToFrontdoorFirewallPolicyLogScrubbingPtrOutput() FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingPtrOutput) ToFrontdoorFirewallPolicyLogScrubbingPtrOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingPtrOutput) Elem() FrontdoorFirewallPolicyLogScrubbingOutput {
+	return o.ApplyT(func(v *FrontdoorFirewallPolicyLogScrubbing) FrontdoorFirewallPolicyLogScrubbing {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorFirewallPolicyLogScrubbing
+		return ret
+	}).(FrontdoorFirewallPolicyLogScrubbingOutput)
+}
+
+// Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+func (o FrontdoorFirewallPolicyLogScrubbingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorFirewallPolicyLogScrubbing) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// One or more `scrubbingRule` blocks as defined below.
+//
+// > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+func (o FrontdoorFirewallPolicyLogScrubbingPtrOutput) ScrubbingRules() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput {
+	return o.ApplyT(func(v *FrontdoorFirewallPolicyLogScrubbing) []FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
+		if v == nil {
+			return nil
+		}
+		return v.ScrubbingRules
+	}).(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRule struct {
+	// Is this `scrubbingRule` enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+	//
+	// > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// When the `matchVariable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+	Operator *string `pulumi:"operator"`
+	// When the `matchVariable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbingRule` applies to.
+	//
+	// > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+	Selector *string `pulumi:"selector"`
+}
+
+// FrontdoorFirewallPolicyLogScrubbingScrubbingRuleInput is an input type that accepts FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs and FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyLogScrubbingScrubbingRuleInput` via:
+//
+//	FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs{...}
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRuleInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput
+	ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutputWithContext(context.Context) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput
+}
+
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs struct {
+	// Is this `scrubbingRule` enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+	//
+	// > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// When the `matchVariable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// When the `matchVariable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbingRule` applies to.
+	//
+	// > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+}
+
+func (FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbingScrubbingRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput {
+	return i.ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput)
+}
+
+// FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayInput is an input type that accepts FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray and FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayInput` via:
+//
+//	FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray{ FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs{...} }
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput
+	ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput
+}
+
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray []FrontdoorFirewallPolicyLogScrubbingScrubbingRuleInput
+
+func (FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyLogScrubbingScrubbingRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput {
+	return i.ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbingScrubbingRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput {
+	return o
+}
+
+// Is this `scrubbingRule` enabled? Defaults to `true`.
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyLogScrubbingScrubbingRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+//
+// > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyLogScrubbingScrubbingRule) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// When the `matchVariable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyLogScrubbingScrubbingRule) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// When the `matchVariable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbingRule` applies to.
+//
+// > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyLogScrubbingScrubbingRule) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyLogScrubbingScrubbingRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput() FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput) ToFrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
+		return vs[0].([]FrontdoorFirewallPolicyLogScrubbingScrubbingRule)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput)
+}
+
 type FrontdoorFirewallPolicyManagedRule struct {
 	// The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, or `Redirect`.
 	Action string `pulumi:"action"`
@@ -12853,6 +13155,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbingInput)(nil)).Elem(), FrontdoorFirewallPolicyLogScrubbingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbingPtrInput)(nil)).Elem(), FrontdoorFirewallPolicyLogScrubbingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbingScrubbingRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleExclusionInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleExclusionArgs{})
@@ -13021,6 +13327,10 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyLogScrubbingOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyLogScrubbingPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleExclusionOutput{})

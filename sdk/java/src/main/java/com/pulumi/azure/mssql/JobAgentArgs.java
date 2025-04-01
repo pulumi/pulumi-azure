@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mssql;
 
+import com.pulumi.azure.mssql.inputs.JobAgentIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,14 +19,14 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobAgentArgs Empty = new JobAgentArgs();
 
     /**
-     * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     @Import(name="databaseId", required=true)
     private Output<String> databaseId;
 
     /**
-     * @return The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * @return The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     public Output<String> databaseId() {
@@ -33,14 +34,29 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<JobAgentIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<JobAgentIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * @return The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -63,14 +79,29 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags which should be assigned to the Database.
+     * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     * 
+     */
+    @Import(name="sku")
+    private @Nullable Output<String> sku;
+
+    /**
+     * @return The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     * 
+     */
+    public Optional<Output<String>> sku() {
+        return Optional.ofNullable(this.sku);
+    }
+
+    /**
+     * A mapping of tags which should be assigned to this Elastic Job Agent.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Database.
+     * @return A mapping of tags which should be assigned to this Elastic Job Agent.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -81,8 +112,10 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
 
     private JobAgentArgs(JobAgentArgs $) {
         this.databaseId = $.databaseId;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
+        this.sku = $.sku;
         this.tags = $.tags;
     }
 
@@ -105,7 +138,7 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseId The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+         * @param databaseId The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
          * 
          * @return builder
          * 
@@ -116,7 +149,7 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseId The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+         * @param databaseId The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
          * 
          * @return builder
          * 
@@ -126,7 +159,28 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<JobAgentIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(JobAgentIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
+         * @param location The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
          * 
          * @return builder
          * 
@@ -137,7 +191,7 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+         * @param location The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
          * 
          * @return builder
          * 
@@ -168,7 +222,28 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Database.
+         * @param sku The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sku(@Nullable Output<String> sku) {
+            $.sku = sku;
+            return this;
+        }
+
+        /**
+         * @param sku The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sku(String sku) {
+            return sku(Output.of(sku));
+        }
+
+        /**
+         * @param tags A mapping of tags which should be assigned to this Elastic Job Agent.
          * 
          * @return builder
          * 
@@ -179,7 +254,7 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Database.
+         * @param tags A mapping of tags which should be assigned to this Elastic Job Agent.
          * 
          * @return builder
          * 

@@ -209,6 +209,11 @@ public final class GetWindowsFunctionAppResult {
      */
     private Map<String,String> tags;
     /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled.
+     * 
+     */
+    private Boolean virtualNetworkBackupRestoreEnabled;
+    /**
      * @return The subnet id which the Windows Function App is vNet Integrated with.
      * 
      */
@@ -483,6 +488,13 @@ public final class GetWindowsFunctionAppResult {
         return this.tags;
     }
     /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled.
+     * 
+     */
+    public Boolean virtualNetworkBackupRestoreEnabled() {
+        return this.virtualNetworkBackupRestoreEnabled;
+    }
+    /**
      * @return The subnet id which the Windows Function App is vNet Integrated with.
      * 
      */
@@ -544,6 +556,7 @@ public final class GetWindowsFunctionAppResult {
         private String storageKeyVaultSecretId;
         private Boolean storageUsesManagedIdentity;
         private Map<String,String> tags;
+        private Boolean virtualNetworkBackupRestoreEnabled;
         private String virtualNetworkSubnetId;
         private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
@@ -587,6 +600,7 @@ public final class GetWindowsFunctionAppResult {
     	      this.storageKeyVaultSecretId = defaults.storageKeyVaultSecretId;
     	      this.storageUsesManagedIdentity = defaults.storageUsesManagedIdentity;
     	      this.tags = defaults.tags;
+    	      this.virtualNetworkBackupRestoreEnabled = defaults.virtualNetworkBackupRestoreEnabled;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
     	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
@@ -926,6 +940,14 @@ public final class GetWindowsFunctionAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
+            if (virtualNetworkBackupRestoreEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppResult", "virtualNetworkBackupRestoreEnabled");
+            }
+            this.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             if (virtualNetworkSubnetId == null) {
               throw new MissingRequiredPropertyException("GetWindowsFunctionAppResult", "virtualNetworkSubnetId");
@@ -981,6 +1003,7 @@ public final class GetWindowsFunctionAppResult {
             _resultValue.storageKeyVaultSecretId = storageKeyVaultSecretId;
             _resultValue.storageUsesManagedIdentity = storageUsesManagedIdentity;
             _resultValue.tags = tags;
+            _resultValue.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
             _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;

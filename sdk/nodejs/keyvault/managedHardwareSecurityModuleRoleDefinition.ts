@@ -7,11 +7,11 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+ * Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
  *
  * ## Import
  *
- * KeyVaults can be imported using the `resource id`, e.g.
+ * Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
@@ -46,12 +46,15 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
     }
 
     /**
-     * Specifies a text description about this KeyVault Role Definition.
+     * Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     */
     public readonly managedHsmId!: pulumi.Output<string>;
     /**
-     * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -63,7 +66,7 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
      */
     public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
-     * Specify a name for this KeyVault Role Definition.
+     * Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      */
     public readonly roleName!: pulumi.Output<string | undefined>;
     /**
@@ -114,12 +117,15 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
  */
 export interface ManagedHardwareSecurityModuleRoleDefinitionState {
     /**
-     * Specifies a text description about this KeyVault Role Definition.
+     * Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     */
     managedHsmId?: pulumi.Input<string>;
     /**
-     * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -131,7 +137,7 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionState {
      */
     resourceManagerId?: pulumi.Input<string>;
     /**
-     * Specify a name for this KeyVault Role Definition.
+     * Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      */
     roleName?: pulumi.Input<string>;
     /**
@@ -145,12 +151,15 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionState {
  */
 export interface ManagedHardwareSecurityModuleRoleDefinitionArgs {
     /**
-     * Specifies a text description about this KeyVault Role Definition.
+     * Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     */
     managedHsmId: pulumi.Input<string>;
     /**
-     * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -158,7 +167,7 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionArgs {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermission>[]>;
     /**
-     * Specify a name for this KeyVault Role Definition.
+     * Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      */
     roleName?: pulumi.Input<string>;
 }

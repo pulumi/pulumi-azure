@@ -72,7 +72,9 @@ export class Capacity extends pulumi.CustomResource {
     }
 
     /**
-     * An array of administrator user identities. The member must be an Entra member user or a service principal.
+     * An array of administrator user identities. The member must be an Entra user or a service principal.
+     *
+     * > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      */
     public readonly administrationMembers!: pulumi.Output<string[] | undefined>;
     /**
@@ -140,7 +142,9 @@ export class Capacity extends pulumi.CustomResource {
  */
 export interface CapacityState {
     /**
-     * An array of administrator user identities. The member must be an Entra member user or a service principal.
+     * An array of administrator user identities. The member must be an Entra user or a service principal.
+     *
+     * > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      */
     administrationMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -170,7 +174,9 @@ export interface CapacityState {
  */
 export interface CapacityArgs {
     /**
-     * An array of administrator user identities. The member must be an Entra member user or a service principal.
+     * An array of administrator user identities. The member must be an Entra user or a service principal.
+     *
+     * > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      */
     administrationMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**

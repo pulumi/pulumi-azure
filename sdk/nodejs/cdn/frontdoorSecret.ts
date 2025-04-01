@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * const current = azure.core.getClientConfig({});
  * const frontdoor = azuread.getServicePrincipal({
- *     displayName: "Microsoft.Azure.Cdn",
+ *     displayName: "Microsoft.AzurefrontDoor-Cdn",
  * });
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-cdn-frontdoor",

@@ -54,6 +54,8 @@ class ApiArgs:
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
+               
+               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
         :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
@@ -207,6 +209,8 @@ class ApiArgs:
     def import_(self) -> Optional[pulumi.Input['ApiImportArgs']]:
         """
         A `import` block as documented below.
+
+        > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
         return pulumi.get(self, "import_")
 
@@ -435,6 +439,8 @@ class _ApiState:
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
+               
+               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[bool] is_current: Is this the current API Revision?
         :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input['ApiLicenseArgs'] license: A `license` block as documented below.
@@ -575,6 +581,8 @@ class _ApiState:
     def import_(self) -> Optional[pulumi.Input['ApiImportArgs']]:
         """
         A `import` block as documented below.
+
+        > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
         return pulumi.get(self, "import_")
 
@@ -893,6 +901,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']] import_: A `import` block as documented below.
+               
+               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']] license: A `license` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ApiOauth2AuthorizationArgs', 'ApiOauth2AuthorizationArgsDict']] oauth2_authorization: An `oauth2_authorization` block as documented below.
@@ -1088,6 +1098,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input[Union['ApiImportArgs', 'ApiImportArgsDict']] import_: A `import` block as documented below.
+               
+               > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         :param pulumi.Input[bool] is_current: Is this the current API Revision?
         :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input[Union['ApiLicenseArgs', 'ApiLicenseArgsDict']] license: A `license` block as documented below.
@@ -1188,6 +1200,8 @@ class Api(pulumi.CustomResource):
     def import_(self) -> pulumi.Output[Optional['outputs.ApiImport']]:
         """
         A `import` block as documented below.
+
+        > **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         """
         return pulumi.get(self, "import_")
 

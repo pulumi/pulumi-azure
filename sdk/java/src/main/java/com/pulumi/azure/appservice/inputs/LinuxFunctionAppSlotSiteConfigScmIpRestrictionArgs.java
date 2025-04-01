@@ -123,7 +123,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs extends co
     }
 
     /**
-     * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+     * The Virtual Network Subnet ID used for this IP Restriction.
      * 
      * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
@@ -132,7 +132,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs extends co
     private @Nullable Output<String> virtualNetworkSubnetId;
 
     /**
-     * @return The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
@@ -320,7 +320,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs extends co
         }
 
         /**
-         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
          * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 
@@ -333,7 +333,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs extends co
         }
 
         /**
-         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
          * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
          * 

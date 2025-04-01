@@ -17,12 +17,16 @@ public final class CollectorPolicyIpfxEmissionArgs extends com.pulumi.resources.
     /**
      * A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
      * 
+     * &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
+     * 
      */
     @Import(name="destinationTypes", required=true)
     private Output<String> destinationTypes;
 
     /**
      * @return A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+     * 
+     * &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
      * 
      */
     public Output<String> destinationTypes() {
@@ -56,6 +60,8 @@ public final class CollectorPolicyIpfxEmissionArgs extends com.pulumi.resources.
         /**
          * @param destinationTypes A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
          * 
+         * &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
+         * 
          * @return builder
          * 
          */
@@ -66,6 +72,8 @@ public final class CollectorPolicyIpfxEmissionArgs extends com.pulumi.resources.
 
         /**
          * @param destinationTypes A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+         * 
+         * &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
          * 
          * @return builder
          * 

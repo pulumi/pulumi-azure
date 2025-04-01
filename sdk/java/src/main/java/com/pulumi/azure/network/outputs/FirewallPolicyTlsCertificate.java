@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class FirewallPolicyTlsCertificate {
     /**
-     * @return The ID of the Key Vault, where the secret or certificate is stored.
+     * @return The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
      * 
      */
     private String keyVaultSecretId;
@@ -23,7 +23,7 @@ public final class FirewallPolicyTlsCertificate {
 
     private FirewallPolicyTlsCertificate() {}
     /**
-     * @return The ID of the Key Vault, where the secret or certificate is stored.
+     * @return The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
      * 
      */
     public String keyVaultSecretId() {

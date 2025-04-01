@@ -45,6 +45,11 @@ export type SharedPrivateLinkResource = import("./sharedPrivateLinkResource").Sh
 export const SharedPrivateLinkResource: typeof import("./sharedPrivateLinkResource").SharedPrivateLinkResource = null as any;
 utilities.lazyLoad(exports, ["SharedPrivateLinkResource"], () => require("./sharedPrivateLinkResource"));
 
+export { SocketioArgs, SocketioState } from "./socketio";
+export type Socketio = import("./socketio").Socketio;
+export const Socketio: typeof import("./socketio").Socketio = null as any;
+utilities.lazyLoad(exports, ["Socketio"], () => require("./socketio"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -62,6 +67,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource":
                 return new SharedPrivateLinkResource(name, <any>undefined, { urn })
+            case "azure:webpubsub/socketio:Socketio":
+                return new Socketio(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -73,3 +80,4 @@ pulumi.runtime.registerResourceModule("azure", "webpubsub/hub", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/networkAcl", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/service", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/sharedPrivateLinkResource", _module)
+pulumi.runtime.registerResourceModule("azure", "webpubsub/socketio", _module)

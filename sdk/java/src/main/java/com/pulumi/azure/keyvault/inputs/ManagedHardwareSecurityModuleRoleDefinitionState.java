@@ -18,36 +18,44 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
     public static final ManagedHardwareSecurityModuleRoleDefinitionState Empty = new ManagedHardwareSecurityModuleRoleDefinitionState();
 
     /**
-     * Specifies a text description about this KeyVault Role Definition.
+     * Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Specifies a text description about this KeyVault Role Definition.
+     * @return Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     * 
+     */
     @Import(name="managedHsmId")
     private @Nullable Output<String> managedHsmId;
 
+    /**
+     * @return The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+     * 
+     */
     public Optional<Output<String>> managedHsmId() {
         return Optional.ofNullable(this.managedHsmId);
     }
 
     /**
-     * The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+     * @return The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -85,14 +93,14 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
     }
 
     /**
-     * Specify a name for this KeyVault Role Definition.
+     * Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
     /**
-     * @return Specify a name for this KeyVault Role Definition.
+     * @return Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public Optional<Output<String>> roleName() {
@@ -145,7 +153,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         }
 
         /**
-         * @param description Specifies a text description about this KeyVault Role Definition.
+         * @param description Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
          * 
          * @return builder
          * 
@@ -156,7 +164,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         }
 
         /**
-         * @param description Specifies a text description about this KeyVault Role Definition.
+         * @param description Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
          * 
          * @return builder
          * 
@@ -165,17 +173,29 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
             return description(Output.of(description));
         }
 
+        /**
+         * @param managedHsmId The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedHsmId(@Nullable Output<String> managedHsmId) {
             $.managedHsmId = managedHsmId;
             return this;
         }
 
+        /**
+         * @param managedHsmId The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedHsmId(String managedHsmId) {
             return managedHsmId(Output.of(managedHsmId));
         }
 
         /**
-         * @param name The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+         * @param name The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
          * 
          * @return builder
          * 
@@ -186,7 +206,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         }
 
         /**
-         * @param name The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+         * @param name The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
          * 
          * @return builder
          * 
@@ -248,7 +268,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         }
 
         /**
-         * @param roleName Specify a name for this KeyVault Role Definition.
+         * @param roleName Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
          * 
          * @return builder
          * 
@@ -259,7 +279,7 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         }
 
         /**
-         * @param roleName Specify a name for this KeyVault Role Definition.
+         * @param roleName Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
          * 
          * @return builder
          * 

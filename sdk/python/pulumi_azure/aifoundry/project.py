@@ -31,7 +31,7 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] ai_services_hub_id: The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[str] description: The description of this AI Foundry Project.
         :param pulumi.Input[str] friendly_name: The display name of this AI Foundry Project.
         :param pulumi.Input[bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
@@ -60,7 +60,7 @@ class ProjectArgs:
     @pulumi.getter(name="aiServicesHubId")
     def ai_services_hub_id(self) -> pulumi.Input[str]:
         """
-        The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "ai_services_hub_id")
 
@@ -167,7 +167,7 @@ class _ProjectState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
-        :param pulumi.Input[str] ai_services_hub_id: The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[str] description: The description of this AI Foundry Project.
         :param pulumi.Input[str] friendly_name: The display name of this AI Foundry Project.
         :param pulumi.Input[bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
@@ -200,7 +200,7 @@ class _ProjectState:
     @pulumi.getter(name="aiServicesHubId")
     def ai_services_hub_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "ai_services_hub_id")
 
@@ -372,8 +372,8 @@ class Project(pulumi.CustomResource):
             })
         example_project = azure.aifoundry.Project("example",
             name="example",
-            location=example_azurerm_ai_services_hub["location"],
-            ai_services_hub_id=example_azurerm_ai_services_hub["id"])
+            location=example_hub.location,
+            ai_services_hub_id=example_hub.id)
         ```
 
         ## Import
@@ -386,7 +386,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ai_services_hub_id: The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[str] description: The description of this AI Foundry Project.
         :param pulumi.Input[str] friendly_name: The display name of this AI Foundry Project.
         :param pulumi.Input[bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
@@ -454,8 +454,8 @@ class Project(pulumi.CustomResource):
             })
         example_project = azure.aifoundry.Project("example",
             name="example",
-            location=example_azurerm_ai_services_hub["location"],
-            ai_services_hub_id=example_azurerm_ai_services_hub["id"])
+            location=example_hub.location,
+            ai_services_hub_id=example_hub.id)
         ```
 
         ## Import
@@ -535,7 +535,7 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ai_services_hub_id: The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        :param pulumi.Input[str] ai_services_hub_id: The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[str] description: The description of this AI Foundry Project.
         :param pulumi.Input[str] friendly_name: The display name of this AI Foundry Project.
         :param pulumi.Input[bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
@@ -564,7 +564,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="aiServicesHubId")
     def ai_services_hub_id(self) -> pulumi.Output[str]:
         """
-        The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+        The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
         """
         return pulumi.get(self, "ai_services_hub_id")
 

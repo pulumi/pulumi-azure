@@ -15,6 +15,8 @@ var _ = internal.GetEnvOrDefault
 
 type PolicyCustomRule struct {
 	// Type of action. Possible values are `Allow`, `Block` and `Log`.
+	//
+	// > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
 	Action string `pulumi:"action"`
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -47,6 +49,8 @@ type PolicyCustomRuleInput interface {
 
 type PolicyCustomRuleArgs struct {
 	// Type of action. Possible values are `Allow`, `Block` and `Log`.
+	//
+	// > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -118,6 +122,8 @@ func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutputWithContext(ctx context.
 }
 
 // Type of action. Possible values are `Allow`, `Block` and `Log`.
+//
+// > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
 func (o PolicyCustomRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }

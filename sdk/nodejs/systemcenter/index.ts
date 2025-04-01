@@ -25,6 +25,11 @@ export type VirtualMachineManagerServer = import("./virtualMachineManagerServer"
 export const VirtualMachineManagerServer: typeof import("./virtualMachineManagerServer").VirtualMachineManagerServer = null as any;
 utilities.lazyLoad(exports, ["VirtualMachineManagerServer"], () => require("./virtualMachineManagerServer"));
 
+export { VirtualMachineManagerVirtualMachineInstanceArgs, VirtualMachineManagerVirtualMachineInstanceState } from "./virtualMachineManagerVirtualMachineInstance";
+export type VirtualMachineManagerVirtualMachineInstance = import("./virtualMachineManagerVirtualMachineInstance").VirtualMachineManagerVirtualMachineInstance;
+export const VirtualMachineManagerVirtualMachineInstance: typeof import("./virtualMachineManagerVirtualMachineInstance").VirtualMachineManagerVirtualMachineInstance = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineManagerVirtualMachineInstance"], () => require("./virtualMachineManagerVirtualMachineInstance"));
+
 export { VirtualMachineManagerVirtualMachineTemplateArgs, VirtualMachineManagerVirtualMachineTemplateState } from "./virtualMachineManagerVirtualMachineTemplate";
 export type VirtualMachineManagerVirtualMachineTemplate = import("./virtualMachineManagerVirtualMachineTemplate").VirtualMachineManagerVirtualMachineTemplate;
 export const VirtualMachineManagerVirtualMachineTemplate: typeof import("./virtualMachineManagerVirtualMachineTemplate").VirtualMachineManagerVirtualMachineTemplate = null as any;
@@ -46,6 +51,8 @@ const _module = {
                 return new VirtualMachineManagerCloud(name, <any>undefined, { urn })
             case "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer":
                 return new VirtualMachineManagerServer(name, <any>undefined, { urn })
+            case "azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance":
+                return new VirtualMachineManagerVirtualMachineInstance(name, <any>undefined, { urn })
             case "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate":
                 return new VirtualMachineManagerVirtualMachineTemplate(name, <any>undefined, { urn })
             case "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork":
@@ -58,5 +65,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerAvailabilitySet", _module)
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerCloud", _module)
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerServer", _module)
+pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerVirtualMachineInstance", _module)
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerVirtualMachineTemplate", _module)
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerVirtualNetwork", _module)

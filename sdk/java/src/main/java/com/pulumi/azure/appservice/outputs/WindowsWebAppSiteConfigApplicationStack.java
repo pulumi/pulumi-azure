@@ -90,7 +90,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -111,7 +111,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     /**
      * @return The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+     * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
      * 
      */
     private @Nullable String tomcatVersion;
@@ -217,7 +217,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -244,7 +244,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     /**
      * @return The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+     * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
      * 
      */
     public Optional<String> tomcatVersion() {

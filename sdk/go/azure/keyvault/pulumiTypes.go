@@ -6175,7 +6175,7 @@ type GetManagedHardwareSecurityModuleRoleDefinitionPermission struct {
 	DataActions []string `pulumi:"dataActions"`
 	// A list of action permission excluded (but not denied).
 	NotActions []string `pulumi:"notActions"`
-	// (Optional) A list of data action permission granted.
+	// A list of data action permission granted.
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -6197,7 +6197,7 @@ type GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs struct {
 	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
 	// A list of action permission excluded (but not denied).
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-	// (Optional) A list of data action permission granted.
+	// A list of data action permission granted.
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -6267,7 +6267,7 @@ func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) NotActio
 	return o.ApplyT(func(v GetManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A list of data action permission granted.
+// A list of data action permission granted.
 func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }

@@ -13,6 +13,13 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class AIServicesNetworkAclsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        /// *
+        /// </summary>
+        [Input("bypass")]
+        public Input<string>? Bypass { get; set; }
+
+        /// <summary>
         /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]

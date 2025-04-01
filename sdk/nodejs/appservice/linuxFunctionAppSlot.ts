@@ -239,9 +239,15 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Linux Function App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
      */
     public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -299,6 +305,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageKeyVaultSecretId"] = state ? state.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
             resourceInputs["vnetImagePullEnabled"] = state ? state.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
@@ -338,6 +345,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["vnetImagePullEnabled"] = args ? args.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
@@ -516,9 +524,15 @@ export interface LinuxFunctionAppSlotState {
      * A mapping of tags which should be assigned to the Linux Function App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
      */
     vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**
@@ -649,9 +663,15 @@ export interface LinuxFunctionAppSlotArgs {
      * A mapping of tags which should be assigned to the Linux Function App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Is container image pull over virtual network enabled? Defaults to `false`.
+     * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+     *
+     * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
      */
     vnetImagePullEnabled?: pulumi.Input<boolean>;
     /**

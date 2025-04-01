@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
@@ -55,7 +57,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
 //				Name:              pulumi.String("example-app-service-plan"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -66,11 +68,16 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewAppFlexConsumption(ctx, "example", &appservice.AppFlexConsumptionArgs{
-//				Name:                      pulumi.String("example-linux-function-app"),
-//				ResourceGroupName:         example.Name,
-//				Location:                  example.Location,
-//				StorageContainerType:      pulumi.String("blobContainer"),
-//				StorageContainerEndpoint:  exampleContainer.ID(),
+//				Name:                 pulumi.String("example-linux-function-app"),
+//				ResourceGroupName:    example.Name,
+//				Location:             example.Location,
+//				ServicePlanId:        exampleServicePlan.ID(),
+//				StorageContainerType: pulumi.String("blobContainer"),
+//				StorageContainerEndpoint: pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					primaryBlobEndpoint := _args[0].(string)
+//					name := _args[1].(string)
+//					return fmt.Sprintf("%v%v", primaryBlobEndpoint, name), nil
+//				}).(pulumi.StringOutput),
 //				StorageAuthenticationType: pulumi.String("StorageAccountConnectionString"),
 //				StorageAccessKey:          exampleAccount.PrimaryAccessKey,
 //				RuntimeName:               pulumi.String("node"),
@@ -122,7 +129,7 @@ type AppFlexConsumption struct {
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrOutput `pulumi:"identity"`
-	// A mapping of tags which should be assigned to the Linux Function App.
+	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
 	InstanceMemoryInMb pulumi.IntPtrOutput `pulumi:"instanceMemoryInMb"`
 	// The Kind value for this Linux Function App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -158,9 +165,9 @@ type AppFlexConsumption struct {
 	StickySettings AppFlexConsumptionStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	//
-	// > **Note:** The`storageAccessKey` must be specified when `storageAuthenticationType` sets to `storageaccountconnectionstring`.
+	// > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
 	StorageAccessKey pulumi.StringPtrOutput `pulumi:"storageAccessKey"`
-	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
 	StorageAuthenticationType pulumi.StringOutput `pulumi:"storageAuthenticationType"`
 	// The backend storage container endpoint which will be used by this Function App.
 	StorageContainerEndpoint pulumi.StringOutput `pulumi:"storageContainerEndpoint"`
@@ -168,7 +175,7 @@ type AppFlexConsumption struct {
 	StorageContainerType pulumi.StringOutput `pulumi:"storageContainerType"`
 	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
 	//
-	// > **Note:** The`storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` sets to `userassignedidentity`.
+	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"storageUserAssignedIdentityId"`
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
@@ -267,7 +274,7 @@ type appFlexConsumptionState struct {
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// A `identity` block as defined below.
 	Identity *AppFlexConsumptionIdentity `pulumi:"identity"`
-	// A mapping of tags which should be assigned to the Linux Function App.
+	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
 	InstanceMemoryInMb *int `pulumi:"instanceMemoryInMb"`
 	// The Kind value for this Linux Function App.
 	Kind *string `pulumi:"kind"`
@@ -303,9 +310,9 @@ type appFlexConsumptionState struct {
 	StickySettings *AppFlexConsumptionStickySettings `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	//
-	// > **Note:** The`storageAccessKey` must be specified when `storageAuthenticationType` sets to `storageaccountconnectionstring`.
+	// > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
 	StorageAccessKey *string `pulumi:"storageAccessKey"`
-	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// The backend storage container endpoint which will be used by this Function App.
 	StorageContainerEndpoint *string `pulumi:"storageContainerEndpoint"`
@@ -313,7 +320,7 @@ type appFlexConsumptionState struct {
 	StorageContainerType *string `pulumi:"storageContainerType"`
 	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
 	//
-	// > **Note:** The`storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` sets to `userassignedidentity`.
+	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId *string `pulumi:"storageUserAssignedIdentityId"`
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
@@ -354,7 +361,7 @@ type AppFlexConsumptionState struct {
 	HostingEnvironmentId pulumi.StringPtrInput
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrInput
-	// A mapping of tags which should be assigned to the Linux Function App.
+	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
 	InstanceMemoryInMb pulumi.IntPtrInput
 	// The Kind value for this Linux Function App.
 	Kind pulumi.StringPtrInput
@@ -390,9 +397,9 @@ type AppFlexConsumptionState struct {
 	StickySettings AppFlexConsumptionStickySettingsPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	//
-	// > **Note:** The`storageAccessKey` must be specified when `storageAuthenticationType` sets to `storageaccountconnectionstring`.
+	// > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
 	StorageAccessKey pulumi.StringPtrInput
-	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// The backend storage container endpoint which will be used by this Function App.
 	StorageContainerEndpoint pulumi.StringPtrInput
@@ -400,7 +407,7 @@ type AppFlexConsumptionState struct {
 	StorageContainerType pulumi.StringPtrInput
 	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
 	//
-	// > **Note:** The`storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` sets to `userassignedidentity`.
+	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
@@ -439,7 +446,7 @@ type appFlexConsumptionArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// A `identity` block as defined below.
 	Identity *AppFlexConsumptionIdentity `pulumi:"identity"`
-	// A mapping of tags which should be assigned to the Linux Function App.
+	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
 	InstanceMemoryInMb *int `pulumi:"instanceMemoryInMb"`
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location *string `pulumi:"location"`
@@ -463,9 +470,9 @@ type appFlexConsumptionArgs struct {
 	StickySettings *AppFlexConsumptionStickySettings `pulumi:"stickySettings"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	//
-	// > **Note:** The`storageAccessKey` must be specified when `storageAuthenticationType` sets to `storageaccountconnectionstring`.
+	// > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
 	StorageAccessKey *string `pulumi:"storageAccessKey"`
-	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
 	StorageAuthenticationType string `pulumi:"storageAuthenticationType"`
 	// The backend storage container endpoint which will be used by this Function App.
 	StorageContainerEndpoint string `pulumi:"storageContainerEndpoint"`
@@ -473,7 +480,7 @@ type appFlexConsumptionArgs struct {
 	StorageContainerType string `pulumi:"storageContainerType"`
 	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
 	//
-	// > **Note:** The`storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` sets to `userassignedidentity`.
+	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId *string `pulumi:"storageUserAssignedIdentityId"`
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
@@ -509,7 +516,7 @@ type AppFlexConsumptionArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity AppFlexConsumptionIdentityPtrInput
-	// A mapping of tags which should be assigned to the Linux Function App.
+	// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
 	InstanceMemoryInMb pulumi.IntPtrInput
 	// The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
 	Location pulumi.StringPtrInput
@@ -533,9 +540,9 @@ type AppFlexConsumptionArgs struct {
 	StickySettings AppFlexConsumptionStickySettingsPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	//
-	// > **Note:** The`storageAccessKey` must be specified when `storageAuthenticationType` sets to `storageaccountconnectionstring`.
+	// > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
 	StorageAccessKey pulumi.StringPtrInput
-	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+	// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
 	StorageAuthenticationType pulumi.StringInput
 	// The backend storage container endpoint which will be used by this Function App.
 	StorageContainerEndpoint pulumi.StringInput
@@ -543,7 +550,7 @@ type AppFlexConsumptionArgs struct {
 	StorageContainerType pulumi.StringInput
 	// The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
 	//
-	// > **Note:** The`storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` sets to `userassignedidentity`.
+	// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 	StorageUserAssignedIdentityId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
@@ -706,7 +713,7 @@ func (o AppFlexConsumptionOutput) Identity() AppFlexConsumptionIdentityPtrOutput
 	return o.ApplyT(func(v *AppFlexConsumption) AppFlexConsumptionIdentityPtrOutput { return v.Identity }).(AppFlexConsumptionIdentityPtrOutput)
 }
 
-// A mapping of tags which should be assigned to the Linux Function App.
+// The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
 func (o AppFlexConsumptionOutput) InstanceMemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.IntPtrOutput { return v.InstanceMemoryInMb }).(pulumi.IntPtrOutput)
 }
@@ -793,12 +800,12 @@ func (o AppFlexConsumptionOutput) StickySettings() AppFlexConsumptionStickySetti
 
 // The access key which will be used to access the backend storage account for the Function App.
 //
-// > **Note:** The`storageAccessKey` must be specified when `storageAuthenticationType` sets to `storageaccountconnectionstring`.
+// > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
 func (o AppFlexConsumptionOutput) StorageAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringPtrOutput { return v.StorageAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+// The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
 func (o AppFlexConsumptionOutput) StorageAuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.StorageAuthenticationType }).(pulumi.StringOutput)
 }
@@ -815,7 +822,7 @@ func (o AppFlexConsumptionOutput) StorageContainerType() pulumi.StringOutput {
 
 // The user assigned Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
 //
-// > **Note:** The`storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` sets to `userassignedidentity`.
+// > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
 func (o AppFlexConsumptionOutput) StorageUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringPtrOutput { return v.StorageUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }

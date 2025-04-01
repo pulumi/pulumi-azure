@@ -133,12 +133,16 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The details of the job storage account. A `job_storage_account` block as defined below.
      * 
+     * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+     * 
      */
     @Import(name="jobStorageAccounts")
     private @Nullable Output<List<JobJobStorageAccountArgs>> jobStorageAccounts;
 
     /**
      * @return The details of the job storage account. A `job_storage_account` block as defined below.
+     * 
+     * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
      * 
      */
     public Optional<Output<List<JobJobStorageAccountArgs>>> jobStorageAccounts() {
@@ -482,6 +486,8 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
          * 
+         * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+         * 
          * @return builder
          * 
          */
@@ -493,6 +499,8 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
          * 
+         * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+         * 
          * @return builder
          * 
          */
@@ -502,6 +510,8 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param jobStorageAccounts The details of the job storage account. A `job_storage_account` block as defined below.
+         * 
+         * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
          * 
          * @return builder
          * 

@@ -287,6 +287,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Usage;
         /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled.
+        /// </summary>
+        public readonly bool VirtualNetworkBackupRestoreEnabled;
+        /// <summary>
         /// The subnet id which the Linux Web App is vNet Integrated with.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
@@ -371,6 +375,8 @@ namespace Pulumi.Azure.AppService
 
             string usage,
 
+            bool virtualNetworkBackupRestoreEnabled,
+
             string virtualNetworkSubnetId,
 
             bool webdeployPublishBasicAuthenticationEnabled)
@@ -412,6 +418,7 @@ namespace Pulumi.Azure.AppService
             StorageAccounts = storageAccounts;
             Tags = tags;
             Usage = usage;
+            VirtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
             WebdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
         }

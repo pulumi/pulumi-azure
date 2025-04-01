@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ServiceBus.Inputs
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        /// The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         /// </summary>
         [Input("keyVaultKeyId", required: true)]
         public Input<string> KeyVaultKeyId { get; set; } = null!;

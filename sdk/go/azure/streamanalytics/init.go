@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Job{}
 	case "azure:streamanalytics/jobSchedule:JobSchedule":
 		r = &JobSchedule{}
+	case "azure:streamanalytics/jobStorageAccount:JobStorageAccount":
+		r = &JobStorageAccount{}
 	case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
 		r = &ManagedPrivateEndpoint{}
 	case "azure:streamanalytics/outputBlob:OutputBlob":
@@ -101,6 +103,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"streamanalytics/jobSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"streamanalytics/jobStorageAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

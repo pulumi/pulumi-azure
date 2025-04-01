@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MongoClusterArgs', 'MongoCluster']
 
@@ -40,10 +42,8 @@ class MongoClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[str] create_mode: The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-               
-               > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         :param pulumi.Input[str] high_availability_mode: The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         :param pulumi.Input[str] location: The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -128,7 +128,7 @@ class MongoClusterArgs:
     @pulumi.getter(name="computeTier")
     def compute_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         """
         return pulumi.get(self, "compute_tier")
 
@@ -141,8 +141,6 @@ class MongoClusterArgs:
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-
-        > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         """
         return pulumi.get(self, "create_mode")
 
@@ -289,6 +287,7 @@ class _MongoClusterState:
                  administrator_password: Optional[pulumi.Input[str]] = None,
                  administrator_username: Optional[pulumi.Input[str]] = None,
                  compute_tier: Optional[pulumi.Input[str]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  high_availability_mode: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -306,10 +305,9 @@ class _MongoClusterState:
         Input properties used for looking up and filtering MongoCluster resources.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]] connection_strings: The list of `connection_strings` blocks as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-               
-               > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         :param pulumi.Input[str] high_availability_mode: The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         :param pulumi.Input[str] location: The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -329,6 +327,8 @@ class _MongoClusterState:
             pulumi.set(__self__, "administrator_username", administrator_username)
         if compute_tier is not None:
             pulumi.set(__self__, "compute_tier", compute_tier)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if high_availability_mode is not None:
@@ -384,7 +384,7 @@ class _MongoClusterState:
     @pulumi.getter(name="computeTier")
     def compute_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         """
         return pulumi.get(self, "compute_tier")
 
@@ -393,12 +393,22 @@ class _MongoClusterState:
         pulumi.set(self, "compute_tier", value)
 
     @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]:
+        """
+        The list of `connection_strings` blocks as defined below.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @connection_strings.setter
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]]]):
+        pulumi.set(self, "connection_strings", value)
+
+    @property
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-
-        > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         """
         return pulumi.get(self, "create_mode")
 
@@ -638,10 +648,8 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[str] create_mode: The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-               
-               > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         :param pulumi.Input[str] high_availability_mode: The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         :param pulumi.Input[str] location: The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -780,7 +788,8 @@ class MongoCluster(pulumi.CustomResource):
             __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword"])
+            __props__.__dict__["connection_strings"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword", "connectionStrings"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MongoCluster, __self__).__init__(
             'azure:cosmosdb/mongoCluster:MongoCluster',
@@ -795,6 +804,7 @@ class MongoCluster(pulumi.CustomResource):
             administrator_password: Optional[pulumi.Input[str]] = None,
             administrator_username: Optional[pulumi.Input[str]] = None,
             compute_tier: Optional[pulumi.Input[str]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             high_availability_mode: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -817,10 +827,9 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        :param pulumi.Input[str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]] connection_strings: The list of `connection_strings` blocks as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-               
-               > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         :param pulumi.Input[str] high_availability_mode: The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         :param pulumi.Input[str] location: The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -841,6 +850,7 @@ class MongoCluster(pulumi.CustomResource):
         __props__.__dict__["administrator_password"] = administrator_password
         __props__.__dict__["administrator_username"] = administrator_username
         __props__.__dict__["compute_tier"] = compute_tier
+        __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["create_mode"] = create_mode
         __props__.__dict__["high_availability_mode"] = high_availability_mode
         __props__.__dict__["location"] = location
@@ -876,17 +886,23 @@ class MongoCluster(pulumi.CustomResource):
     @pulumi.getter(name="computeTier")
     def compute_tier(self) -> pulumi.Output[Optional[str]]:
         """
-        The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         """
         return pulumi.get(self, "compute_tier")
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> pulumi.Output[Sequence['outputs.MongoClusterConnectionString']]:
+        """
+        The list of `connection_strings` blocks as defined below.
+        """
+        return pulumi.get(self, "connection_strings")
 
     @property
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-
-        > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         """
         return pulumi.get(self, "create_mode")
 

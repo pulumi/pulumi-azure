@@ -205,6 +205,10 @@ export class WindowsWebApp extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Windows Web App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -265,6 +269,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
@@ -303,6 +308,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
@@ -461,6 +467,10 @@ export interface WindowsWebAppState {
      * A mapping of tags which should be assigned to the Windows Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -578,6 +588,10 @@ export interface WindowsWebAppArgs {
      * A mapping of tags which should be assigned to the Windows Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

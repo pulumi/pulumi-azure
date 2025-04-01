@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppTemplateVolume {
     /**
+     * @return Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+     * 
+     */
+    private @Nullable String mountOptions;
+    /**
      * @return The name of the volume.
      * 
      */
@@ -29,6 +34,13 @@ public final class AppTemplateVolume {
     private @Nullable String storageType;
 
     private AppTemplateVolume() {}
+    /**
+     * @return Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+     * 
+     */
+    public Optional<String> mountOptions() {
+        return Optional.ofNullable(this.mountOptions);
+    }
     /**
      * @return The name of the volume.
      * 
@@ -60,17 +72,25 @@ public final class AppTemplateVolume {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String mountOptions;
         private String name;
         private @Nullable String storageName;
         private @Nullable String storageType;
         public Builder() {}
         public Builder(AppTemplateVolume defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.mountOptions = defaults.mountOptions;
     	      this.name = defaults.name;
     	      this.storageName = defaults.storageName;
     	      this.storageType = defaults.storageType;
         }
 
+        @CustomType.Setter
+        public Builder mountOptions(@Nullable String mountOptions) {
+
+            this.mountOptions = mountOptions;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
@@ -93,6 +113,7 @@ public final class AppTemplateVolume {
         }
         public AppTemplateVolume build() {
             final var _resultValue = new AppTemplateVolume();
+            _resultValue.mountOptions = mountOptions;
             _resultValue.name = name;
             _resultValue.storageName = storageName;
             _resultValue.storageType = storageType;

@@ -3566,7 +3566,7 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
         :param str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
-        :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param int max_pods: The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
@@ -3754,7 +3754,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="kubeletDiskType")
     def kubelet_disk_type(self) -> Optional[str]:
         """
-        The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "kubelet_disk_type")
 

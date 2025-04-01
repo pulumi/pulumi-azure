@@ -872,8 +872,6 @@ class SoftwareUpdateConfigurationLinux(dict):
                  reboot: Optional[str] = None):
         """
         :param Sequence[str] classifications_includeds: Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-               
-               > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         :param Sequence[str] excluded_packages: Specifies a list of packages to excluded from the Software Update Configuration.
         :param Sequence[str] included_packages: Specifies a list of packages to included from the Software Update Configuration.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
@@ -891,8 +889,6 @@ class SoftwareUpdateConfigurationLinux(dict):
     def classifications_includeds(self) -> Sequence[str]:
         """
         Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-
-        > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         """
         return pulumi.get(self, "classifications_includeds")
 
@@ -1458,8 +1454,6 @@ class SoftwareUpdateConfigurationWindows(dict):
                  reboot: Optional[str] = None):
         """
         :param Sequence[str] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-               
-               > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         :param Sequence[str] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
         :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
@@ -1477,8 +1471,6 @@ class SoftwareUpdateConfigurationWindows(dict):
     def classifications_includeds(self) -> Sequence[str]:
         """
         Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-
-        > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         """
         return pulumi.get(self, "classifications_includeds")
 

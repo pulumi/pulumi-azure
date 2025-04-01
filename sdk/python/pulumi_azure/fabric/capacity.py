@@ -31,7 +31,9 @@ class CapacityArgs:
         The set of arguments for constructing a Capacity resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input['CapacitySkuArgs'] sku: A `sku` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra member user or a service principal.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
+               
+               > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         :param pulumi.Input[str] location: The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Fabric Capacity.
@@ -75,7 +77,9 @@ class CapacityArgs:
     @pulumi.getter(name="administrationMembers")
     def administration_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of administrator user identities. The member must be an Entra member user or a service principal.
+        An array of administrator user identities. The member must be an Entra user or a service principal.
+
+        > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         """
         return pulumi.get(self, "administration_members")
 
@@ -131,7 +135,9 @@ class _CapacityState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Capacity resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra member user or a service principal.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
+               
+               > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         :param pulumi.Input[str] location: The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
@@ -155,7 +161,9 @@ class _CapacityState:
     @pulumi.getter(name="administrationMembers")
     def administration_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of administrator user identities. The member must be an Entra member user or a service principal.
+        An array of administrator user identities. The member must be an Entra user or a service principal.
+
+        > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         """
         return pulumi.get(self, "administration_members")
 
@@ -273,7 +281,9 @@ class Capacity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra member user or a service principal.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
+               
+               > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         :param pulumi.Input[str] location: The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
@@ -384,7 +394,9 @@ class Capacity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra member user or a service principal.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administration_members: An array of administrator user identities. The member must be an Entra user or a service principal.
+               
+               > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         :param pulumi.Input[str] location: The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
@@ -407,7 +419,9 @@ class Capacity(pulumi.CustomResource):
     @pulumi.getter(name="administrationMembers")
     def administration_members(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An array of administrator user identities. The member must be an Entra member user or a service principal.
+        An array of administrator user identities. The member must be an Entra user or a service principal.
+
+        > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         """
         return pulumi.get(self, "administration_members")
 

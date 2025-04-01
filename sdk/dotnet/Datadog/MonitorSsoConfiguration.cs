@@ -54,8 +54,8 @@ namespace Pulumi.Azure.Datadog
     ///     var exampleMonitorSsoConfiguration = new Azure.Datadog.MonitorSsoConfiguration("example", new()
     ///     {
     ///         DatadogMonitorId = exampleMonitor.Id,
-    ///         SingleSignOnEnabled = "Enable",
-    ///         EnterpriseApplicationId = "XXXX",
+    ///         SingleSignOn = "Enable",
+    ///         EnterpriseApplicationId = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
     /// });
@@ -97,8 +97,11 @@ namespace Pulumi.Azure.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+        /// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         /// </summary>
+        [Output("singleSignOn")]
+        public Output<string> SingleSignOn { get; private set; } = null!;
+
         [Output("singleSignOnEnabled")]
         public Output<string> SingleSignOnEnabled { get; private set; } = null!;
 
@@ -167,10 +170,13 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+        /// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         /// </summary>
-        [Input("singleSignOnEnabled", required: true)]
-        public Input<string> SingleSignOnEnabled { get; set; } = null!;
+        [Input("singleSignOn")]
+        public Input<string>? SingleSignOn { get; set; }
+
+        [Input("singleSignOnEnabled")]
+        public Input<string>? SingleSignOnEnabled { get; set; }
 
         public MonitorSsoConfigurationArgs()
         {
@@ -205,8 +211,11 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+        /// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         /// </summary>
+        [Input("singleSignOn")]
+        public Input<string>? SingleSignOn { get; set; }
+
         [Input("singleSignOnEnabled")]
         public Input<string>? SingleSignOnEnabled { get; set; }
 

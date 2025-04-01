@@ -20,16 +20,12 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
     /**
      * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
      * 
-     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-     * 
      */
     @Import(name="classificationsIncludeds", required=true)
     private Output<List<String>> classificationsIncludeds;
 
     /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-     * 
-     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public Output<List<String>> classificationsIncludeds() {
@@ -111,8 +107,6 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
         /**
          * @param classificationsIncludeds Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
          * 
-         * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-         * 
          * @return builder
          * 
          */
@@ -124,8 +118,6 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
         /**
          * @param classificationsIncludeds Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
          * 
-         * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-         * 
          * @return builder
          * 
          */
@@ -135,8 +127,6 @@ public final class SoftwareUpdateConfigurationLinuxArgs extends com.pulumi.resou
 
         /**
          * @param classificationsIncludeds Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-         * 
-         * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
          * 
          * @return builder
          * 

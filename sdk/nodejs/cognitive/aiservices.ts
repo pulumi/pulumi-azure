@@ -68,6 +68,8 @@ export class AIServices extends pulumi.CustomResource {
 
     /**
      * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      */
     public readonly customSubdomainName!: pulumi.Output<string | undefined>;
     /**
@@ -206,6 +208,8 @@ export class AIServices extends pulumi.CustomResource {
 export interface AIServicesState {
     /**
      * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      */
     customSubdomainName?: pulumi.Input<string>;
     /**
@@ -282,6 +286,8 @@ export interface AIServicesState {
 export interface AIServicesArgs {
     /**
      * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+     *
+     * > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      */
     customSubdomainName?: pulumi.Input<string>;
     /**

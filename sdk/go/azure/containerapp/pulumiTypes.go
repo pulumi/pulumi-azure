@@ -4318,6 +4318,8 @@ func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type AppTemplateVolume struct {
+	// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+	MountOptions *string `pulumi:"mountOptions"`
 	// The name of the volume.
 	Name string `pulumi:"name"`
 	// The name of the `AzureFile` storage.
@@ -4338,6 +4340,8 @@ type AppTemplateVolumeInput interface {
 }
 
 type AppTemplateVolumeArgs struct {
+	// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
 	// The name of the volume.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the `AzureFile` storage.
@@ -4395,6 +4399,11 @@ func (o AppTemplateVolumeOutput) ToAppTemplateVolumeOutput() AppTemplateVolumeOu
 
 func (o AppTemplateVolumeOutput) ToAppTemplateVolumeOutputWithContext(ctx context.Context) AppTemplateVolumeOutput {
 	return o
+}
+
+// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+func (o AppTemplateVolumeOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateVolume) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
 }
 
 // The name of the volume.
@@ -8012,6 +8021,8 @@ func (o JobTemplateInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput)
 }
 
 type JobTemplateVolume struct {
+	// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+	MountOptions *string `pulumi:"mountOptions"`
 	// The name of the volume.
 	Name string `pulumi:"name"`
 	// The name of the storage to use for the volume.
@@ -8032,6 +8043,8 @@ type JobTemplateVolumeInput interface {
 }
 
 type JobTemplateVolumeArgs struct {
+	// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
 	// The name of the volume.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the storage to use for the volume.
@@ -8089,6 +8102,11 @@ func (o JobTemplateVolumeOutput) ToJobTemplateVolumeOutput() JobTemplateVolumeOu
 
 func (o JobTemplateVolumeOutput) ToJobTemplateVolumeOutputWithContext(ctx context.Context) JobTemplateVolumeOutput {
 	return o
+}
+
+// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+func (o JobTemplateVolumeOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateVolume) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
 }
 
 // The name of the volume.
@@ -11881,6 +11899,8 @@ func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetAppTemplateVolume struct {
+	// Mount options used while mounting the AzureFile.
+	MountOptions string `pulumi:"mountOptions"`
 	// The name of the Container App.
 	Name string `pulumi:"name"`
 	// The name of the `AzureFile` storage.
@@ -11901,6 +11921,8 @@ type GetAppTemplateVolumeInput interface {
 }
 
 type GetAppTemplateVolumeArgs struct {
+	// Mount options used while mounting the AzureFile.
+	MountOptions pulumi.StringInput `pulumi:"mountOptions"`
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the `AzureFile` storage.
@@ -11958,6 +11980,11 @@ func (o GetAppTemplateVolumeOutput) ToGetAppTemplateVolumeOutput() GetAppTemplat
 
 func (o GetAppTemplateVolumeOutput) ToGetAppTemplateVolumeOutputWithContext(ctx context.Context) GetAppTemplateVolumeOutput {
 	return o
+}
+
+// Mount options used while mounting the AzureFile.
+func (o GetAppTemplateVolumeOutput) MountOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateVolume) string { return v.MountOptions }).(pulumi.StringOutput)
 }
 
 // The name of the Container App.

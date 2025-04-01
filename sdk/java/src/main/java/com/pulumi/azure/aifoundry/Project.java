@@ -115,8 +115,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()
  *             .name("example")
- *             .location(exampleAzurermAiServicesHub.location())
- *             .aiServicesHubId(exampleAzurermAiServicesHub.id())
+ *             .location(exampleHub.location())
+ *             .aiServicesHubId(exampleHub.id())
  *             .build());
  * 
  *     }
@@ -137,14 +137,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:aifoundry/project:Project")
 public class Project extends com.pulumi.resources.CustomResource {
     /**
-     * The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      * 
      */
     @Export(name="aiServicesHubId", refs={String.class}, tree="[0]")
     private Output<String> aiServicesHubId;
 
     /**
-     * @return The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * @return The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      * 
      */
     public Output<String> aiServicesHubId() {

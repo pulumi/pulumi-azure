@@ -246,14 +246,10 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     public readonly azureToAzureSettings!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
     /**
      * One or more `bootRecoveryGroup` blocks as defined below.
-     *
-     * > **NOTE:** At least one `bootRecoveryGroup` block will be required in the next major version of the AzureRM Provider.
      */
     public readonly bootRecoveryGroups!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup[]>;
     /**
      * One `failoverRecoveryGroup` block as defined below.
-     *
-     * > **NOTE:** `failoverRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
     public readonly failoverRecoveryGroup!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
     /**
@@ -266,8 +262,6 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     public readonly recoveryVaultId!: pulumi.Output<string>;
     /**
      * One `shutdownRecoveryGroup` block as defined below.
-     *
-     * > **NOTE:** `shutdownRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
     public readonly shutdownRecoveryGroup!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
     /**
@@ -344,14 +338,10 @@ export interface ReplicationRecoveryPlanState {
     azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
     /**
      * One or more `bootRecoveryGroup` blocks as defined below.
-     *
-     * > **NOTE:** At least one `bootRecoveryGroup` block will be required in the next major version of the AzureRM Provider.
      */
     bootRecoveryGroups?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup>[]>;
     /**
      * One `failoverRecoveryGroup` block as defined below.
-     *
-     * > **NOTE:** `failoverRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
     failoverRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
     /**
@@ -364,8 +354,6 @@ export interface ReplicationRecoveryPlanState {
     recoveryVaultId?: pulumi.Input<string>;
     /**
      * One `shutdownRecoveryGroup` block as defined below.
-     *
-     * > **NOTE:** `shutdownRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
     shutdownRecoveryGroup?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
     /**
@@ -388,14 +376,10 @@ export interface ReplicationRecoveryPlanArgs {
     azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
     /**
      * One or more `bootRecoveryGroup` blocks as defined below.
-     *
-     * > **NOTE:** At least one `bootRecoveryGroup` block will be required in the next major version of the AzureRM Provider.
      */
     bootRecoveryGroups: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup>[]>;
     /**
      * One `failoverRecoveryGroup` block as defined below.
-     *
-     * > **NOTE:** `failoverRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
     failoverRecoveryGroup: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
     /**
@@ -408,8 +392,6 @@ export interface ReplicationRecoveryPlanArgs {
     recoveryVaultId: pulumi.Input<string>;
     /**
      * One `shutdownRecoveryGroup` block as defined below.
-     *
-     * > **NOTE:** `shutdownRecoveryGroup` will be required in the next major version of the AzureRM Provider.
      */
     shutdownRecoveryGroup: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
     /**

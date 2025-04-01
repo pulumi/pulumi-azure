@@ -42,6 +42,12 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("staticVnetLocalRouteOverrideCriteria")]
         public Input<string>? StaticVnetLocalRouteOverrideCriteria { get; set; }
 
+        /// <summary>
+        /// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+        /// </summary>
+        [Input("staticVnetPropagateStaticRoutesEnabled")]
+        public Input<bool>? StaticVnetPropagateStaticRoutesEnabled { get; set; }
+
         [Input("staticVnetRoutes")]
         private InputList<Inputs.VirtualHubConnectionRoutingStaticVnetRouteArgs>? _staticVnetRoutes;
 

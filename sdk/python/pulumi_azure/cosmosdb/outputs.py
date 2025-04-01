@@ -43,6 +43,7 @@ __all__ = [
     'GremlinGraphIndexPolicyCompositeIndexIndex',
     'GremlinGraphIndexPolicySpatialIndex',
     'GremlinGraphUniqueKey',
+    'MongoClusterConnectionString',
     'MongoCollectionAutoscaleSettings',
     'MongoCollectionIndex',
     'MongoCollectionSystemIndex',
@@ -1394,6 +1395,49 @@ class GremlinGraphUniqueKey(dict):
         A list of paths to use for this unique key. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "paths")
+
+
+@pulumi.output_type
+class MongoClusterConnectionString(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str description: The description of the connection string.
+        :param str name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+        :param str value: The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the connection string.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -132,6 +132,8 @@ type LookupLinuxWebAppResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The current usage state. Possible values are `Normal` and `Exceeded`.
 	Usage string `pulumi:"usage"`
+	// Whether backup and restore operations over the linked virtual network are enabled.
+	VirtualNetworkBackupRestoreEnabled bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
@@ -355,6 +357,11 @@ func (o LookupLinuxWebAppResultOutput) Tags() pulumi.StringMapOutput {
 // The current usage state. Possible values are `Normal` and `Exceeded`.
 func (o LookupLinuxWebAppResultOutput) Usage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.Usage }).(pulumi.StringOutput)
+}
+
+// Whether backup and restore operations over the linked virtual network are enabled.
+func (o LookupLinuxWebAppResultOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolOutput)
 }
 
 // The subnet id which the Linux Web App is vNet Integrated with.

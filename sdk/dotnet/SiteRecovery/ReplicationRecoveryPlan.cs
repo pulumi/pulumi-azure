@@ -313,16 +313,12 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `boot_recovery_group` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Output("bootRecoveryGroups")]
         public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanBootRecoveryGroup>> BootRecoveryGroups { get; private set; } = null!;
 
         /// <summary>
         /// One `failover_recovery_group` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Output("failoverRecoveryGroup")]
         public Output<Outputs.ReplicationRecoveryPlanFailoverRecoveryGroup> FailoverRecoveryGroup { get; private set; } = null!;
@@ -341,8 +337,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One `shutdown_recovery_group` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Output("shutdownRecoveryGroup")]
         public Output<Outputs.ReplicationRecoveryPlanShutdownRecoveryGroup> ShutdownRecoveryGroup { get; private set; } = null!;
@@ -416,8 +410,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `boot_recovery_group` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs> BootRecoveryGroups
         {
@@ -427,8 +419,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One `failover_recovery_group` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("failoverRecoveryGroup", required: true)]
         public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs> FailoverRecoveryGroup { get; set; } = null!;
@@ -447,8 +437,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One `shutdown_recovery_group` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("shutdownRecoveryGroup", required: true)]
         public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs> ShutdownRecoveryGroup { get; set; } = null!;
@@ -484,8 +472,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `boot_recovery_group` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupGetArgs> BootRecoveryGroups
         {
@@ -495,8 +481,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One `failover_recovery_group` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("failoverRecoveryGroup")]
         public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupGetArgs>? FailoverRecoveryGroup { get; set; }
@@ -515,8 +499,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One `shutdown_recovery_group` block as defined below.
-        /// 
-        /// &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         /// </summary>
         [Input("shutdownRecoveryGroup")]
         public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupGetArgs>? ShutdownRecoveryGroup { get; set; }

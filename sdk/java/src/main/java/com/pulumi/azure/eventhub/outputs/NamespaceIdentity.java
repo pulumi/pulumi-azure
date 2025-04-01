@@ -14,31 +14,31 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NamespaceIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
     /**
-     * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     private @Nullable String principalId;
     /**
-     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     private String type;
 
     private NamespaceIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
@@ -47,21 +47,21 @@ public final class NamespaceIdentity {
         return this.identityIds == null ? List.of() : this.identityIds;
     }
     /**
-     * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public String type() {

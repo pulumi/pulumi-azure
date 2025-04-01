@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
  *             .name("content")
- *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountId(exampleAccount.id())
  *             .containerAccessType("private")
  *             .build());
  * 

@@ -550,6 +550,12 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    @Export(name="virtualNetworkBackupRestoreEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> virtualNetworkBackupRestoreEnabled;
+
+    public Output<Optional<Boolean>> virtualNetworkBackupRestoreEnabled() {
+        return Codegen.optional(this.virtualNetworkBackupRestoreEnabled);
+    }
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 

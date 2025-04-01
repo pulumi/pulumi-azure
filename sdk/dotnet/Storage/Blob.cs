@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
     ///         Name = "content",
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountId = exampleAccount.Id,
     ///         ContainerAccessType = "private",
     ///     });
     /// 

@@ -85,7 +85,7 @@ namespace Pulumi.Azure.PowerBI
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.PowerBI
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.PowerBI
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

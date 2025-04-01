@@ -14,22 +14,30 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionArgs extends co
 
     public static final GetManagedHardwareSecurityModuleRoleDefinitionArgs Empty = new GetManagedHardwareSecurityModuleRoleDefinitionArgs();
 
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module.
+     * 
+     */
     @Import(name="managedHsmId", required=true)
     private Output<String> managedHsmId;
 
+    /**
+     * @return The ID of the Key Vault Managed Hardware Security Module.
+     * 
+     */
     public Output<String> managedHsmId() {
         return this.managedHsmId;
     }
 
     /**
-     * The name in UUID notation of this KeyVault Role Definition.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name in UUID notation of this KeyVault Role Definition.
+     * @return The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
      * 
      */
     public Output<String> name() {
@@ -61,17 +69,29 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionArgs extends co
             $ = new GetManagedHardwareSecurityModuleRoleDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param managedHsmId The ID of the Key Vault Managed Hardware Security Module.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedHsmId(Output<String> managedHsmId) {
             $.managedHsmId = managedHsmId;
             return this;
         }
 
+        /**
+         * @param managedHsmId The ID of the Key Vault Managed Hardware Security Module.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedHsmId(String managedHsmId) {
             return managedHsmId(Output.of(managedHsmId));
         }
 
         /**
-         * @param name The name in UUID notation of this KeyVault Role Definition.
+         * @param name The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
          * 
          * @return builder
          * 
@@ -82,7 +102,7 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionArgs extends co
         }
 
         /**
-         * @param name The name in UUID notation of this KeyVault Role Definition.
+         * @param name The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
          * 
          * @return builder
          * 

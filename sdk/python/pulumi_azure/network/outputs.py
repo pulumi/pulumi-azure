@@ -6454,7 +6454,7 @@ class FirewallPolicyTlsCertificate(dict):
                  key_vault_secret_id: str,
                  name: str):
         """
-        :param str key_vault_secret_id: The ID of the Key Vault, where the secret or certificate is stored.
+        :param str key_vault_secret_id: The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
         :param str name: The name of the certificate.
         """
         pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
@@ -6464,7 +6464,7 @@ class FirewallPolicyTlsCertificate(dict):
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> str:
         """
-        The ID of the Key Vault, where the secret or certificate is stored.
+        The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -9438,6 +9438,8 @@ class VirtualHubConnectionRouting(dict):
             suggest = "propagated_route_table"
         elif key == "staticVnetLocalRouteOverrideCriteria":
             suggest = "static_vnet_local_route_override_criteria"
+        elif key == "staticVnetPropagateStaticRoutesEnabled":
+            suggest = "static_vnet_propagate_static_routes_enabled"
         elif key == "staticVnetRoutes":
             suggest = "static_vnet_routes"
 
@@ -9458,6 +9460,7 @@ class VirtualHubConnectionRouting(dict):
                  outbound_route_map_id: Optional[str] = None,
                  propagated_route_table: Optional['outputs.VirtualHubConnectionRoutingPropagatedRouteTable'] = None,
                  static_vnet_local_route_override_criteria: Optional[str] = None,
+                 static_vnet_propagate_static_routes_enabled: Optional[bool] = None,
                  static_vnet_routes: Optional[Sequence['outputs.VirtualHubConnectionRoutingStaticVnetRoute']] = None):
         """
         :param str associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
@@ -9465,6 +9468,7 @@ class VirtualHubConnectionRouting(dict):
         :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param 'VirtualHubConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
         :param str static_vnet_local_route_override_criteria: The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
+        :param bool static_vnet_propagate_static_routes_enabled: Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
         :param Sequence['VirtualHubConnectionRoutingStaticVnetRouteArgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
         """
         if associated_route_table_id is not None:
@@ -9477,6 +9481,8 @@ class VirtualHubConnectionRouting(dict):
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
         if static_vnet_local_route_override_criteria is not None:
             pulumi.set(__self__, "static_vnet_local_route_override_criteria", static_vnet_local_route_override_criteria)
+        if static_vnet_propagate_static_routes_enabled is not None:
+            pulumi.set(__self__, "static_vnet_propagate_static_routes_enabled", static_vnet_propagate_static_routes_enabled)
         if static_vnet_routes is not None:
             pulumi.set(__self__, "static_vnet_routes", static_vnet_routes)
 
@@ -9519,6 +9525,14 @@ class VirtualHubConnectionRouting(dict):
         The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "static_vnet_local_route_override_criteria")
+
+    @property
+    @pulumi.getter(name="staticVnetPropagateStaticRoutesEnabled")
+    def static_vnet_propagate_static_routes_enabled(self) -> Optional[bool]:
+        """
+        Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+        """
+        return pulumi.get(self, "static_vnet_propagate_static_routes_enabled")
 
     @property
     @pulumi.getter(name="staticVnetRoutes")
@@ -16730,6 +16744,7 @@ class GetVirtualHubConnectionRoutingResult(dict):
                  outbound_route_map_id: str,
                  propagated_route_tables: Sequence['outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult'],
                  static_vnet_local_route_override_criteria: str,
+                 static_vnet_propagate_static_routes_enabled: bool,
                  static_vnet_routes: Sequence['outputs.GetVirtualHubConnectionRoutingStaticVnetRouteResult']):
         """
         :param str associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
@@ -16737,6 +16752,7 @@ class GetVirtualHubConnectionRoutingResult(dict):
         :param str outbound_route_map_id: The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param Sequence['GetVirtualHubConnectionRoutingPropagatedRouteTableArgs'] propagated_route_tables: A `propagated_route_table` block as defined below.
         :param str static_vnet_local_route_override_criteria: The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+        :param bool static_vnet_propagate_static_routes_enabled: Whether the static routes should be propagated to the Virtual Hub or not.
         :param Sequence['GetVirtualHubConnectionRoutingStaticVnetRouteArgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
@@ -16744,6 +16760,7 @@ class GetVirtualHubConnectionRoutingResult(dict):
         pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
         pulumi.set(__self__, "static_vnet_local_route_override_criteria", static_vnet_local_route_override_criteria)
+        pulumi.set(__self__, "static_vnet_propagate_static_routes_enabled", static_vnet_propagate_static_routes_enabled)
         pulumi.set(__self__, "static_vnet_routes", static_vnet_routes)
 
     @property
@@ -16785,6 +16802,14 @@ class GetVirtualHubConnectionRoutingResult(dict):
         The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
         """
         return pulumi.get(self, "static_vnet_local_route_override_criteria")
+
+    @property
+    @pulumi.getter(name="staticVnetPropagateStaticRoutesEnabled")
+    def static_vnet_propagate_static_routes_enabled(self) -> bool:
+        """
+        Whether the static routes should be propagated to the Virtual Hub or not.
+        """
+        return pulumi.get(self, "static_vnet_propagate_static_routes_enabled")
 
     @property
     @pulumi.getter(name="staticVnetRoutes")

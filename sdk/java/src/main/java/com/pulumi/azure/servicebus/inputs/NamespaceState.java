@@ -112,14 +112,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL to access the ServiceBus Namespace.
+     * The URL to access the Service Bus Namespace.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The URL to access the ServiceBus Namespace.
+     * @return The URL to access the Service Bus Namespace.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -191,14 +191,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * @return Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -469,7 +469,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The URL to access the ServiceBus Namespace.
+         * @param endpoint The URL to access the Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The URL to access the ServiceBus Namespace.
+         * @param endpoint The URL to access the Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

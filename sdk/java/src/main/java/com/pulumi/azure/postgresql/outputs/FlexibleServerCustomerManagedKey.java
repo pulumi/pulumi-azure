@@ -13,38 +13,46 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlexibleServerCustomerManagedKey {
     /**
-     * @return The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+     * @return The versioned ID of the geo backup Key Vault Key.
+     * 
+     * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
      */
     private @Nullable String geoBackupKeyVaultKeyId;
     /**
-     * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * @return The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+     * 
+     * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
      * 
      * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable String geoBackupUserAssignedIdentityId;
     /**
-     * @return The ID of the Key Vault Key.
+     * @return The versioned ID of the Key Vault Key.
      * 
      */
     private String keyVaultKeyId;
     /**
-     * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+     * @return Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
      * 
      */
     private @Nullable String primaryUserAssignedIdentityId;
 
     private FlexibleServerCustomerManagedKey() {}
     /**
-     * @return The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+     * @return The versioned ID of the geo backup Key Vault Key.
+     * 
+     * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
      */
     public Optional<String> geoBackupKeyVaultKeyId() {
         return Optional.ofNullable(this.geoBackupKeyVaultKeyId);
     }
     /**
-     * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * @return The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+     * 
+     * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
      * 
      * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
@@ -53,14 +61,14 @@ public final class FlexibleServerCustomerManagedKey {
         return Optional.ofNullable(this.geoBackupUserAssignedIdentityId);
     }
     /**
-     * @return The ID of the Key Vault Key.
+     * @return The versioned ID of the Key Vault Key.
      * 
      */
     public String keyVaultKeyId() {
         return this.keyVaultKeyId;
     }
     /**
-     * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+     * @return Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
      * 
      */
     public Optional<String> primaryUserAssignedIdentityId() {

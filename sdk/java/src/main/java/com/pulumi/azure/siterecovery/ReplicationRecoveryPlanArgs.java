@@ -39,16 +39,12 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     /**
      * One or more `boot_recovery_group` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Import(name="bootRecoveryGroups", required=true)
     private Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups;
 
     /**
      * @return One or more `boot_recovery_group` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<List<ReplicationRecoveryPlanBootRecoveryGroupArgs>> bootRecoveryGroups() {
@@ -58,16 +54,12 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     /**
      * One `failover_recovery_group` block as defined below.
      * 
-     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Import(name="failoverRecoveryGroup", required=true)
     private Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup;
 
     /**
      * @return One `failover_recovery_group` block as defined below.
-     * 
-     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<ReplicationRecoveryPlanFailoverRecoveryGroupArgs> failoverRecoveryGroup() {
@@ -107,16 +99,12 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     /**
      * One `shutdown_recovery_group` block as defined below.
      * 
-     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Import(name="shutdownRecoveryGroup", required=true)
     private Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup;
 
     /**
      * @return One `shutdown_recovery_group` block as defined below.
-     * 
-     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<ReplicationRecoveryPlanShutdownRecoveryGroupArgs> shutdownRecoveryGroup() {
@@ -208,8 +196,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
@@ -221,8 +207,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
          * 
-         * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
@@ -232,8 +216,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
 
         /**
          * @param bootRecoveryGroups One or more `boot_recovery_group` blocks as defined below.
-         * 
-         * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
          * 
          * @return builder
          * 
@@ -245,8 +227,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param failoverRecoveryGroup One `failover_recovery_group` block as defined below.
          * 
-         * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
@@ -257,8 +237,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
 
         /**
          * @param failoverRecoveryGroup One `failover_recovery_group` block as defined below.
-         * 
-         * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
          * 
          * @return builder
          * 
@@ -312,8 +290,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param shutdownRecoveryGroup One `shutdown_recovery_group` block as defined below.
          * 
-         * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
-         * 
          * @return builder
          * 
          */
@@ -324,8 +300,6 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
 
         /**
          * @param shutdownRecoveryGroup One `shutdown_recovery_group` block as defined below.
-         * 
-         * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
          * 
          * @return builder
          * 

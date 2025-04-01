@@ -114,15 +114,19 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> AdministratorUsername { get; private set; } = null!;
 
         /// <summary>
-        /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         /// </summary>
         [Output("computeTier")]
         public Output<string?> ComputeTier { get; private set; } = null!;
 
         /// <summary>
+        /// The list of `connection_strings` blocks as defined below.
+        /// </summary>
+        [Output("connectionStrings")]
+        public Output<ImmutableArray<Outputs.MongoClusterConnectionString>> ConnectionStrings { get; private set; } = null!;
+
+        /// <summary>
         /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -225,6 +229,7 @@ namespace Pulumi.Azure.CosmosDB
                 AdditionalSecretOutputs =
                 {
                     "administratorPassword",
+                    "connectionStrings",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -272,15 +277,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AdministratorUsername { get; set; }
 
         /// <summary>
-        /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         /// </summary>
         [Input("computeTier")]
         public Input<string>? ComputeTier { get; set; }
 
         /// <summary>
         /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -400,15 +403,29 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AdministratorUsername { get; set; }
 
         /// <summary>
-        /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+        /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         /// </summary>
         [Input("computeTier")]
         public Input<string>? ComputeTier { get; set; }
 
+        [Input("connectionStrings")]
+        private InputList<Inputs.MongoClusterConnectionStringGetArgs>? _connectionStrings;
+
+        /// <summary>
+        /// The list of `connection_strings` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.MongoClusterConnectionStringGetArgs> ConnectionStrings
+        {
+            get => _connectionStrings ?? (_connectionStrings = new InputList<Inputs.MongoClusterConnectionStringGetArgs>());
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.MongoClusterConnectionStringGetArgs>());
+                _connectionStrings = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
+        }
+
         /// <summary>
         /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }

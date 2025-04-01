@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class GetAppTemplateVolumeResult
     {
         /// <summary>
+        /// Mount options used while mounting the AzureFile.
+        /// </summary>
+        public readonly string MountOptions;
+        /// <summary>
         /// The name of the Container App.
         /// </summary>
         public readonly string Name;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
         [OutputConstructor]
         private GetAppTemplateVolumeResult(
+            string mountOptions,
+
             string name,
 
             string storageName,
 
             string storageType)
         {
+            MountOptions = mountOptions;
             Name = name;
             StorageName = storageName;
             StorageType = storageType;

@@ -808,7 +808,7 @@ if not MYPY:
         """
         replicated_protected_items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        One or more protected VM IDs.
         """
 elif False:
     ReplicationRecoveryPlanBootRecoveryGroupArgsDict: TypeAlias = Mapping[str, Any]
@@ -822,7 +822,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_protected_items: One or more protected VM IDs.
         """
         if post_actions is not None:
             pulumi.set(__self__, "post_actions", post_actions)
@@ -859,7 +859,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
     @pulumi.getter(name="replicatedProtectedItems")
     def replicated_protected_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        One or more protected VM IDs.
         """
         return pulumi.get(self, "replicated_protected_items")
 

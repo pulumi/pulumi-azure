@@ -28,6 +28,7 @@ class DiscoveryVirtualInstanceArgs:
                  identity: Optional[pulumi.Input['DiscoveryVirtualInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_resources_network_access_type: Optional[pulumi.Input[str]] = None,
                  managed_storage_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -40,6 +41,7 @@ class DiscoveryVirtualInstanceArgs:
         :param pulumi.Input['DiscoveryVirtualInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
         :param pulumi.Input[str] managed_storage_account_name: The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAP Discovery Virtual Instance.
@@ -54,6 +56,8 @@ class DiscoveryVirtualInstanceArgs:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
             pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        if managed_resources_network_access_type is not None:
+            pulumi.set(__self__, "managed_resources_network_access_type", managed_resources_network_access_type)
         if managed_storage_account_name is not None:
             pulumi.set(__self__, "managed_storage_account_name", managed_storage_account_name)
         if name is not None:
@@ -146,6 +150,18 @@ class DiscoveryVirtualInstanceArgs:
         pulumi.set(self, "managed_resource_group_name", value)
 
     @property
+    @pulumi.getter(name="managedResourcesNetworkAccessType")
+    def managed_resources_network_access_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        """
+        return pulumi.get(self, "managed_resources_network_access_type")
+
+    @managed_resources_network_access_type.setter
+    def managed_resources_network_access_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resources_network_access_type", value)
+
+    @property
     @pulumi.getter(name="managedStorageAccountName")
     def managed_storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -190,6 +206,7 @@ class _DiscoveryVirtualInstanceState:
                  identity: Optional[pulumi.Input['DiscoveryVirtualInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_resources_network_access_type: Optional[pulumi.Input[str]] = None,
                  managed_storage_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -202,6 +219,7 @@ class _DiscoveryVirtualInstanceState:
         :param pulumi.Input['DiscoveryVirtualInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
         :param pulumi.Input[str] managed_storage_account_name: The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -218,6 +236,8 @@ class _DiscoveryVirtualInstanceState:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_name is not None:
             pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        if managed_resources_network_access_type is not None:
+            pulumi.set(__self__, "managed_resources_network_access_type", managed_resources_network_access_type)
         if managed_storage_account_name is not None:
             pulumi.set(__self__, "managed_storage_account_name", managed_storage_account_name)
         if name is not None:
@@ -290,6 +310,18 @@ class _DiscoveryVirtualInstanceState:
         pulumi.set(self, "managed_resource_group_name", value)
 
     @property
+    @pulumi.getter(name="managedResourcesNetworkAccessType")
+    def managed_resources_network_access_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        """
+        return pulumi.get(self, "managed_resources_network_access_type")
+
+    @managed_resources_network_access_type.setter
+    def managed_resources_network_access_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resources_network_access_type", value)
+
+    @property
     @pulumi.getter(name="managedStorageAccountName")
     def managed_storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -360,6 +392,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_resources_network_access_type: Optional[pulumi.Input[str]] = None,
                  managed_storage_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -409,6 +442,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
         :param pulumi.Input[str] managed_storage_account_name: The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -477,6 +511,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_resources_network_access_type: Optional[pulumi.Input[str]] = None,
                  managed_storage_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -500,6 +535,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+            __props__.__dict__["managed_resources_network_access_type"] = managed_resources_network_access_type
             __props__.__dict__["managed_storage_account_name"] = managed_storage_account_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -524,6 +560,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             identity: Optional[pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+            managed_resources_network_access_type: Optional[pulumi.Input[str]] = None,
             managed_storage_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -541,6 +578,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
         :param pulumi.Input[str] managed_storage_account_name: The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -556,6 +594,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+        __props__.__dict__["managed_resources_network_access_type"] = managed_resources_network_access_type
         __props__.__dict__["managed_storage_account_name"] = managed_storage_account_name
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -602,6 +641,14 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
+
+    @property
+    @pulumi.getter(name="managedResourcesNetworkAccessType")
+    def managed_resources_network_access_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        """
+        return pulumi.get(self, "managed_resources_network_access_type")
 
     @property
     @pulumi.getter(name="managedStorageAccountName")

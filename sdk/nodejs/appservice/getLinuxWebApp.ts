@@ -191,6 +191,10 @@ export interface GetLinuxWebAppResult {
      */
     readonly usage: string;
     /**
+     * Whether backup and restore operations over the linked virtual network are enabled.
+     */
+    readonly virtualNetworkBackupRestoreEnabled: boolean;
+    /**
      * The subnet id which the Linux Web App is vNet Integrated with.
      */
     readonly virtualNetworkSubnetId: string;

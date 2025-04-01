@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Waf.Inputs
     {
         /// <summary>
         /// Type of action. Possible values are `Allow`, `Block` and `Log`.
+        /// 
+        /// &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

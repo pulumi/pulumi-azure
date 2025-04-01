@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
  * 
- * &gt; **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
+ * &gt; **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `kubelet_disk_type`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
  * 
  * ## Example Usage
  * 
@@ -235,14 +235,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.kubeletConfig);
     }
     /**
-     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     @Export(name="kubeletDiskType", refs={String.class}, tree="[0]")
     private Output<String> kubeletDiskType;
 
     /**
-     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+     * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
      */
     public Output<String> kubeletDiskType() {

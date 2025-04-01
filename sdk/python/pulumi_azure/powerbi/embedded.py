@@ -30,7 +30,7 @@ class EmbeddedArgs:
         The set of arguments for constructing a Embedded resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
@@ -76,7 +76,7 @@ class EmbeddedArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -150,7 +150,7 @@ class _EmbeddedState:
         :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if administrators is not None:
@@ -232,7 +232,7 @@ class _EmbeddedState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -301,7 +301,7 @@ class Embedded(pulumi.CustomResource):
         :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -411,7 +411,7 @@ class Embedded(pulumi.CustomResource):
         :param pulumi.Input[str] mode: Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        :param pulumi.Input[str] sku_name: Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -471,7 +471,7 @@ class Embedded(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+        Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
         """
         return pulumi.get(self, "sku_name")
 

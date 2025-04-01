@@ -391,6 +391,9 @@ func (o AIServicesIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type AIServicesNetworkAcls struct {
+	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	// *
+	Bypass *string `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
@@ -411,6 +414,9 @@ type AIServicesNetworkAclsInput interface {
 }
 
 type AIServicesNetworkAclsArgs struct {
+	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+	// *
+	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
@@ -496,6 +502,12 @@ func (o AIServicesNetworkAclsOutput) ToAIServicesNetworkAclsPtrOutputWithContext
 	}).(AIServicesNetworkAclsPtrOutput)
 }
 
+// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+// *
+func (o AIServicesNetworkAclsOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AIServicesNetworkAcls) *string { return v.Bypass }).(pulumi.StringPtrOutput)
+}
+
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 func (o AIServicesNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AIServicesNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
@@ -533,6 +545,17 @@ func (o AIServicesNetworkAclsPtrOutput) Elem() AIServicesNetworkAclsOutput {
 		var ret AIServicesNetworkAcls
 		return ret
 	}).(AIServicesNetworkAclsOutput)
+}
+
+// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+// *
+func (o AIServicesNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AIServicesNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bypass
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.

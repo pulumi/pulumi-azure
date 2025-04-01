@@ -6723,6 +6723,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerIpamPool",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerIpamPool:NetworkManagerIpamPool": "NetworkManagerIpamPool"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkManagerManagementGroupConnection",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -8219,6 +8227,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "servicebus/namespaceCustomerManagedKey",
+  "fqn": "pulumi_azure.servicebus",
+  "classes": {
+   "azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey": "NamespaceCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "servicebus/namespaceDisasterRecoveryConfig",
   "fqn": "pulumi_azure.servicebus",
   "classes": {
@@ -8803,6 +8819,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "streamanalytics/jobStorageAccount",
+  "fqn": "pulumi_azure.streamanalytics",
+  "classes": {
+   "azure:streamanalytics/jobStorageAccount:JobStorageAccount": "JobStorageAccount"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "streamanalytics/managedPrivateEndpoint",
   "fqn": "pulumi_azure.streamanalytics",
   "classes": {
@@ -9139,6 +9163,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "systemcenter/virtualMachineManagerVirtualMachineInstance",
+  "fqn": "pulumi_azure.systemcenter",
+  "classes": {
+   "azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance": "VirtualMachineManagerVirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "systemcenter/virtualMachineManagerVirtualMachineTemplate",
   "fqn": "pulumi_azure.systemcenter",
   "classes": {
@@ -9247,6 +9279,14 @@ _utilities.register(
   "fqn": "pulumi_azure.webpubsub",
   "classes": {
    "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/socketio",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/socketio:Socketio": "Socketio"
   }
  },
  {

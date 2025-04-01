@@ -173,12 +173,16 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * A `import` block as documented below.
      * 
+     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * 
      */
     @Export(name="import", refs={ApiImport.class}, tree="[0]")
     private Output</* @Nullable */ ApiImport> import_;
 
     /**
      * @return A `import` block as documented below.
+     * 
+     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     public Output<Optional<ApiImport>> import_() {

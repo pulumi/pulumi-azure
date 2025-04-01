@@ -52,6 +52,8 @@ class JobArgs:
         :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+               
+               > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
@@ -211,6 +213,8 @@ class JobArgs:
     def job_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]:
         """
         The details of the job storage account. A `job_storage_account` block as defined below.
+
+        > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         """
         return pulumi.get(self, "job_storage_accounts")
 
@@ -351,6 +355,8 @@ class _JobState:
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] job_id: The Job ID assigned by the Stream Analytics Job.
         :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+               
+               > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
@@ -506,6 +512,8 @@ class _JobState:
     def job_storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]:
         """
         The details of the job storage account. A `job_storage_account` block as defined below.
+
+        > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         """
         return pulumi.get(self, "job_storage_accounts")
 
@@ -709,6 +717,8 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+               
+               > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
@@ -881,6 +891,8 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] job_id: The Job ID assigned by the Stream Analytics Job.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+               
+               > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
@@ -990,6 +1002,8 @@ class Job(pulumi.CustomResource):
     def job_storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.JobJobStorageAccount']]]:
         """
         The details of the job storage account. A `job_storage_account` block as defined below.
+
+        > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         """
         return pulumi.get(self, "job_storage_accounts")
 

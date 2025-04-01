@@ -177,6 +177,7 @@ export interface GetWindowsWebAppResult {
      * A mapping of tags assigned to the Windows Web App.
      */
     readonly tags: {[key: string]: string};
+    readonly virtualNetworkBackupRestoreEnabled: boolean;
     /**
      * The subnet id which the Windows Web App is vNet Integrated with.
      */

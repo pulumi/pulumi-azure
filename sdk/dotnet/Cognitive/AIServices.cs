@@ -56,6 +56,8 @@ namespace Pulumi.Azure.Cognitive
     {
         /// <summary>
         /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         /// </summary>
         [Output("customSubdomainName")]
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
@@ -211,6 +213,8 @@ namespace Pulumi.Azure.Cognitive
     {
         /// <summary>
         /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
@@ -323,6 +327,8 @@ namespace Pulumi.Azure.Cognitive
     {
         /// <summary>
         /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }

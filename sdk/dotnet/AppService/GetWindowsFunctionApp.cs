@@ -294,6 +294,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled.
+        /// </summary>
+        public readonly bool VirtualNetworkBackupRestoreEnabled;
+        /// <summary>
         /// The subnet id which the Windows Function App is vNet Integrated with.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
@@ -380,6 +384,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags,
 
+            bool virtualNetworkBackupRestoreEnabled,
+
             string virtualNetworkSubnetId,
 
             bool webdeployPublishBasicAuthenticationEnabled)
@@ -422,6 +428,7 @@ namespace Pulumi.Azure.AppService
             StorageKeyVaultSecretId = storageKeyVaultSecretId;
             StorageUsesManagedIdentity = storageUsesManagedIdentity;
             Tags = tags;
+            VirtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
             WebdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
         }

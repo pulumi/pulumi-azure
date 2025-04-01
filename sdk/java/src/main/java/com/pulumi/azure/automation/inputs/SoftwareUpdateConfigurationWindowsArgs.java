@@ -20,16 +20,12 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
     /**
      * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
-     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-     * 
      */
     @Import(name="classificationsIncludeds", required=true)
     private Output<List<String>> classificationsIncludeds;
 
     /**
      * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-     * 
-     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public Output<List<String>> classificationsIncludeds() {
@@ -111,8 +107,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         /**
          * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
          * 
-         * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-         * 
          * @return builder
          * 
          */
@@ -124,8 +118,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
         /**
          * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
          * 
-         * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-         * 
          * @return builder
          * 
          */
@@ -135,8 +127,6 @@ public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.res
 
         /**
          * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-         * 
-         * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
          * 
          * @return builder
          * 

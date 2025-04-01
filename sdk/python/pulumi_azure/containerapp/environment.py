@@ -57,7 +57,7 @@ class EnvironmentArgs:
                > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -234,7 +234,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="workloadProfiles")
     def workload_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]:
         """
-        The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        One or more `workload_profile` blocks as defined below.
         """
         return pulumi.get(self, "workload_profiles")
 
@@ -308,7 +308,7 @@ class _EnvironmentState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -570,7 +570,7 @@ class _EnvironmentState:
     @pulumi.getter(name="workloadProfiles")
     def workload_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentWorkloadProfileArgs']]]]:
         """
-        The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        One or more `workload_profile` blocks as defined below.
         """
         return pulumi.get(self, "workload_profiles")
 
@@ -669,7 +669,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -837,7 +837,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -1017,7 +1017,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="workloadProfiles")
     def workload_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentWorkloadProfile']]]:
         """
-        The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        One or more `workload_profile` blocks as defined below.
         """
         return pulumi.get(self, "workload_profiles")
 

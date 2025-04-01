@@ -70,7 +70,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        /// The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
         /// 
         /// &gt; **NOTE:** This property conflicts with `java_version`.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
         /// 
-        /// &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+        /// &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
         /// </summary>
         public readonly string? TomcatVersion;
 

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly ImmutableArray<string> NotActions;
         /// <summary>
-        /// (Optional) A list of data action permission granted.
+        /// A list of data action permission granted.
         /// </summary>
         public readonly ImmutableArray<string> NotDataActions;
 

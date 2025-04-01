@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
         /// </summary>
         public readonly bool? InfrastructureEncryptionEnabled;
         /// <summary>
-        /// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        /// The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         /// </summary>
         public readonly string KeyVaultKeyId;
 

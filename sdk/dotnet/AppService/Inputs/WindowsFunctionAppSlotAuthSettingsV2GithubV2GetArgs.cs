@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSlotAuthSettingsV2GithubV2GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the GitHub app used for login..
+        /// The ID of the GitHub app used for login.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;

@@ -17,8 +17,6 @@ namespace Pulumi.Azure.Automation.Inputs
 
         /// <summary>
         /// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-        /// 
-        /// &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         /// </summary>
         public InputList<string> ClassificationsIncludeds
         {

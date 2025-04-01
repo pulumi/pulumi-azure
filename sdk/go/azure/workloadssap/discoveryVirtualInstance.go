@@ -82,6 +82,8 @@ type DiscoveryVirtualInstance struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrOutput `pulumi:"managedResourceGroupName"`
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType pulumi.StringPtrOutput `pulumi:"managedResourcesNetworkAccessType"`
 	// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
 	ManagedStorageAccountName pulumi.StringPtrOutput `pulumi:"managedStorageAccountName"`
 	// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
@@ -146,6 +148,8 @@ type discoveryVirtualInstanceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType *string `pulumi:"managedResourcesNetworkAccessType"`
 	// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
 	ManagedStorageAccountName *string `pulumi:"managedStorageAccountName"`
 	// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
@@ -169,6 +173,8 @@ type DiscoveryVirtualInstanceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType pulumi.StringPtrInput
 	// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
 	ManagedStorageAccountName pulumi.StringPtrInput
 	// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
@@ -196,6 +202,8 @@ type discoveryVirtualInstanceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType *string `pulumi:"managedResourcesNetworkAccessType"`
 	// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
 	ManagedStorageAccountName *string `pulumi:"managedStorageAccountName"`
 	// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
@@ -220,6 +228,8 @@ type DiscoveryVirtualInstanceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType pulumi.StringPtrInput
 	// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
 	ManagedStorageAccountName pulumi.StringPtrInput
 	// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
@@ -342,6 +352,11 @@ func (o DiscoveryVirtualInstanceOutput) Location() pulumi.StringOutput {
 // The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
 func (o DiscoveryVirtualInstanceOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiscoveryVirtualInstance) pulumi.StringPtrOutput { return v.ManagedResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+func (o DiscoveryVirtualInstanceOutput) ManagedResourcesNetworkAccessType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiscoveryVirtualInstance) pulumi.StringPtrOutput { return v.ManagedResourcesNetworkAccessType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.

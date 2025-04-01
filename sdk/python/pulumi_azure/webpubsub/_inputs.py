@@ -29,6 +29,10 @@ __all__ = [
     'ServiceIdentityArgsDict',
     'ServiceLiveTraceArgs',
     'ServiceLiveTraceArgsDict',
+    'SocketioIdentityArgs',
+    'SocketioIdentityArgsDict',
+    'SocketioSkuArgs',
+    'SocketioSkuArgsDict',
 ]
 
 MYPY = False
@@ -573,5 +577,145 @@ class ServiceLiveTraceArgs:
     @messaging_logs_enabled.setter
     def messaging_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "messaging_logs_enabled", value)
+
+
+if not MYPY:
+    class SocketioIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+
+        > **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    SocketioIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SocketioIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+               
+               > **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+
+        > **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class SocketioSkuArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+
+        > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+        """
+elif False:
+    SocketioSkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SocketioSkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        :param pulumi.Input[int] capacity: The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+               
+               > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+
+        > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
 

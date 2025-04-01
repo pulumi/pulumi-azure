@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
-    /// Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+    /// Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
     /// 
     /// ## Import
     /// 
-    /// KeyVaults can be imported using the `resource id`, e.g.
+    /// Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
@@ -24,16 +24,19 @@ namespace Pulumi.Azure.KeyVault
     public partial class ManagedHardwareSecurityModuleRoleDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies a text description about this KeyVault Role Definition.
+        /// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        /// </summary>
         [Output("managedHsmId")]
         public Output<string> ManagedHsmId { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        /// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -51,7 +54,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ResourceManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a name for this KeyVault Role Definition.
+        /// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         /// </summary>
         [Output("roleName")]
         public Output<string?> RoleName { get; private set; } = null!;
@@ -109,16 +112,19 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleRoleDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a text description about this KeyVault Role Definition.
+        /// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        /// </summary>
         [Input("managedHsmId", required: true)]
         public Input<string> ManagedHsmId { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        /// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -136,7 +142,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specify a name for this KeyVault Role Definition.
+        /// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
@@ -150,16 +156,19 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleRoleDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a text description about this KeyVault Role Definition.
+        /// Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        /// </summary>
         [Input("managedHsmId")]
         public Input<string>? ManagedHsmId { get; set; }
 
         /// <summary>
-        /// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        /// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,7 +192,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
-        /// Specify a name for this KeyVault Role Definition.
+        /// Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }

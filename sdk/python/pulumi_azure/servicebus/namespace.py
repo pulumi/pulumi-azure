@@ -47,7 +47,7 @@ class NamespaceArgs:
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
@@ -183,7 +183,7 @@ class NamespaceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -271,14 +271,14 @@ class _NamespaceState:
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] endpoint: The URL to access the ServiceBus Namespace.
+        :param pulumi.Input[str] endpoint: The URL to access the Service Bus Namespace.
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
@@ -402,7 +402,7 @@ class _NamespaceState:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to access the ServiceBus Namespace.
+        The URL to access the Service Bus Namespace.
         """
         return pulumi.get(self, "endpoint")
 
@@ -464,7 +464,7 @@ class _NamespaceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -607,7 +607,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
@@ -758,14 +758,14 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] endpoint: The URL to access the ServiceBus Namespace.
+        :param pulumi.Input[str] endpoint: The URL to access the Service Bus Namespace.
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
@@ -852,7 +852,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
-        The URL to access the ServiceBus Namespace.
+        The URL to access the Service Bus Namespace.
         """
         return pulumi.get(self, "endpoint")
 
@@ -894,7 +894,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

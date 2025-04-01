@@ -1,13 +1,11 @@
 module github.com/pulumi/pulumi-azure/provider/v6
 
-go 1.22.3
-
-toolchain go1.22.7
+go 1.24.1
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-sdk/sdk v0.20250213.1092825
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.0
+	github.com/hashicorp/go-azure-sdk/sdk v0.20250314.1213156
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.1.3
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.105.0
@@ -37,13 +35,13 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys v0.10.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
-	github.com/Azure/go-autorest/autorest v0.11.29 // indirect
-	github.com/Azure/go-autorest/autorest/adal v0.9.23 // indirect
-	github.com/Azure/go-autorest/autorest/date v0.3.0 // indirect
+	github.com/Azure/go-autorest/autorest v0.11.30 // indirect
+	github.com/Azure/go-autorest/autorest/adal v0.9.24 // indirect
+	github.com/Azure/go-autorest/autorest/date v0.3.1 // indirect
 	github.com/Azure/go-autorest/autorest/to v0.4.0 // indirect
 	github.com/Azure/go-autorest/autorest/validation v0.3.1 // indirect
-	github.com/Azure/go-autorest/logger v0.2.1 // indirect
-	github.com/Azure/go-autorest/tracing v0.6.0 // indirect
+	github.com/Azure/go-autorest/logger v0.2.2 // indirect
+	github.com/Azure/go-autorest/tracing v0.6.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2 // indirect
 	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
@@ -93,7 +91,7 @@ require (
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
-	github.com/fatih/color v1.16.0 // indirect
+	github.com/fatih/color v1.18.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
@@ -104,12 +102,12 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/golang-jwt/jwt/v4 v4.5.1 // indirect
+	github.com/golang-jwt/jwt/v4 v4.5.2 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/golang/glog v1.2.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
-	github.com/google/go-cmp v0.6.0 // indirect
+	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/s2a-go v0.1.7 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
@@ -120,11 +118,11 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-helpers v0.71.0 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20250213.1092825 // indirect
+	github.com/hashicorp/go-azure-helpers v0.72.0 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20250314.1213156 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
-	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
+	github.com/hashicorp/go-cty v1.4.1 // indirect
 	github.com/hashicorp/go-getter v1.7.5 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
@@ -166,7 +164,7 @@ require (
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-localereader v0.0.1 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
@@ -247,17 +245,17 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.37.0 // indirect
 	gocloud.dev/secrets/hashivault v0.37.0 // indirect
-	golang.org/x/crypto v0.33.0 // indirect
+	golang.org/x/crypto v0.36.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
-	golang.org/x/mod v0.22.0 // indirect
-	golang.org/x/net v0.34.0 // indirect
+	golang.org/x/mod v0.24.0 // indirect
+	golang.org/x/net v0.37.0 // indirect
 	golang.org/x/oauth2 v0.23.0 // indirect
-	golang.org/x/sync v0.11.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/term v0.29.0 // indirect
-	golang.org/x/text v0.22.0 // indirect
+	golang.org/x/sync v0.12.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/term v0.30.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
-	golang.org/x/tools v0.23.0 // indirect
+	golang.org/x/tools v0.31.0 // indirect
 	golang.org/x/xerrors v0.0.0-20231012003039-104605ab7028 // indirect
 	google.golang.org/api v0.169.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
@@ -265,7 +263,7 @@ require (
 	google.golang.org/genproto/googleapis/api v0.0.0-20241015192408-796eee8c2d53 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20241015192408-796eee8c2d53 // indirect
 	google.golang.org/grpc v1.69.4 // indirect
-	google.golang.org/protobuf v1.36.3 // indirect
+	google.golang.org/protobuf v1.36.5 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

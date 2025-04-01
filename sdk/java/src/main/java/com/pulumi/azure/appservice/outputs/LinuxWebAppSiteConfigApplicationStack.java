@@ -79,7 +79,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String phpVersion;
     /**
-     * @return The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+     * @return The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     private @Nullable String pythonVersion;
@@ -180,7 +180,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.phpVersion);
     }
     /**
-     * @return The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+     * @return The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<String> pythonVersion() {

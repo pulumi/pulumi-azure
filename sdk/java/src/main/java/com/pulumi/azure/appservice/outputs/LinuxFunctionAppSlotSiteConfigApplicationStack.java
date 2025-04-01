@@ -30,7 +30,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
      * 
      */
     private @Nullable String nodeVersion;
@@ -40,7 +40,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String powershellCoreVersion;
     /**
-     * @return The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     private @Nullable String pythonVersion;
@@ -78,7 +78,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
      * 
      */
     public Optional<String> nodeVersion() {
@@ -92,7 +92,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.powershellCoreVersion);
     }
     /**
-     * @return The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<String> pythonVersion() {

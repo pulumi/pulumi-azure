@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.VirtualHubConnectionRoutingPropagatedRout
 import com.pulumi.azure.network.inputs.VirtualHubConnectionRoutingStaticVnetRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,6 +95,21 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
     }
 
     /**
+     * Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+     * 
+     */
+    @Import(name="staticVnetPropagateStaticRoutesEnabled")
+    private @Nullable Output<Boolean> staticVnetPropagateStaticRoutesEnabled;
+
+    /**
+     * @return Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> staticVnetPropagateStaticRoutesEnabled() {
+        return Optional.ofNullable(this.staticVnetPropagateStaticRoutesEnabled);
+    }
+
+    /**
      * A `static_vnet_route` block as defined below.
      * 
      */
@@ -116,6 +132,7 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
         this.outboundRouteMapId = $.outboundRouteMapId;
         this.propagatedRouteTable = $.propagatedRouteTable;
         this.staticVnetLocalRouteOverrideCriteria = $.staticVnetLocalRouteOverrideCriteria;
+        this.staticVnetPropagateStaticRoutesEnabled = $.staticVnetPropagateStaticRoutesEnabled;
         this.staticVnetRoutes = $.staticVnetRoutes;
     }
 
@@ -240,6 +257,27 @@ public final class VirtualHubConnectionRoutingArgs extends com.pulumi.resources.
          */
         public Builder staticVnetLocalRouteOverrideCriteria(String staticVnetLocalRouteOverrideCriteria) {
             return staticVnetLocalRouteOverrideCriteria(Output.of(staticVnetLocalRouteOverrideCriteria));
+        }
+
+        /**
+         * @param staticVnetPropagateStaticRoutesEnabled Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticVnetPropagateStaticRoutesEnabled(@Nullable Output<Boolean> staticVnetPropagateStaticRoutesEnabled) {
+            $.staticVnetPropagateStaticRoutesEnabled = staticVnetPropagateStaticRoutesEnabled;
+            return this;
+        }
+
+        /**
+         * @param staticVnetPropagateStaticRoutesEnabled Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticVnetPropagateStaticRoutesEnabled(Boolean staticVnetPropagateStaticRoutesEnabled) {
+            return staticVnetPropagateStaticRoutesEnabled(Output.of(staticVnetPropagateStaticRoutesEnabled));
         }
 
         /**

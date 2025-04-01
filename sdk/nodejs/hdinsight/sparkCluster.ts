@@ -200,6 +200,10 @@ export class SparkCluster extends pulumi.CustomResource {
      * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     public readonly tlsMinVersion!: pulumi.Output<string | undefined>;
+    /**
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SparkCluster resource with the given unique name, arguments, and options.
@@ -237,6 +241,7 @@ export class SparkCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tier"] = state ? state.tier : undefined;
             resourceInputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
+            resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as SparkClusterArgs | undefined;
             if ((!args || args.clusterVersion === undefined) && !opts.urn) {
@@ -278,6 +283,7 @@ export class SparkCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["httpsEndpoint"] = undefined /*out*/;
             resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
@@ -384,6 +390,10 @@ export interface SparkClusterState {
      * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     tlsMinVersion?: pulumi.Input<string>;
+    /**
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -476,4 +486,8 @@ export interface SparkClusterArgs {
      * > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     tlsMinVersion?: pulumi.Input<string>;
+    /**
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

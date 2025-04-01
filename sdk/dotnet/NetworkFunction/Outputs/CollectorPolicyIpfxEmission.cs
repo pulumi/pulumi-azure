@@ -15,6 +15,8 @@ namespace Pulumi.Azure.NetworkFunction.Outputs
     {
         /// <summary>
         /// A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+        /// 
+        /// &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
         /// </summary>
         public readonly string DestinationTypes;
 

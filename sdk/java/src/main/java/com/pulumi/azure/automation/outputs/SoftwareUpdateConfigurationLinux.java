@@ -16,8 +16,6 @@ public final class SoftwareUpdateConfigurationLinux {
     /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
      * 
-     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
-     * 
      */
     private List<String> classificationsIncludeds;
     /**
@@ -39,8 +37,6 @@ public final class SoftwareUpdateConfigurationLinux {
     private SoftwareUpdateConfigurationLinux() {}
     /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-     * 
-     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public List<String> classificationsIncludeds() {

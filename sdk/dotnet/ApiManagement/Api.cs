@@ -103,6 +103,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// A `import` block as documented below.
+        /// 
+        /// &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         /// </summary>
         [Output("import")]
         public Output<Outputs.ApiImport?> Import { get; private set; } = null!;
@@ -303,6 +305,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// A `import` block as documented below.
+        /// 
+        /// &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportArgs>? Import { get; set; }
@@ -459,6 +463,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// A `import` block as documented below.
+        /// 
+        /// &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportGetArgs>? Import { get; set; }

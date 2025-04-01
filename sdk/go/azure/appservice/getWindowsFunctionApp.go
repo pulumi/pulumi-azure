@@ -135,6 +135,8 @@ type LookupWindowsFunctionAppResult struct {
 	StorageUsesManagedIdentity bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags assigned to the Windows Function App.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled.
+	VirtualNetworkBackupRestoreEnabled bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	// The subnet id which the Windows Function App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
@@ -366,6 +368,11 @@ func (o LookupWindowsFunctionAppResultOutput) StorageUsesManagedIdentity() pulum
 // A mapping of tags assigned to the Windows Function App.
 func (o LookupWindowsFunctionAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether backup and restore operations over the linked virtual network are enabled.
+func (o LookupWindowsFunctionAppResultOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsFunctionAppResult) bool { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolOutput)
 }
 
 // The subnet id which the Windows Function App is vNet Integrated with.

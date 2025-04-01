@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// The data format of the log files. possible value is `text`.
+        /// The data format of the log files. Possible values are `text` and `json`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;

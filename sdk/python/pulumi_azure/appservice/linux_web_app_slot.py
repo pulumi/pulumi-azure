@@ -43,6 +43,7 @@ class LinuxWebAppSlotArgs:
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
@@ -120,6 +121,8 @@ class LinuxWebAppSlotArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if webdeploy_publish_basic_authentication_enabled is not None:
@@ -391,6 +394,15 @@ class LinuxWebAppSlotArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -463,6 +475,7 @@ class _LinuxWebAppSlotState:
                  site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
@@ -572,6 +585,8 @@ class _LinuxWebAppSlotState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if webdeploy_publish_basic_authentication_enabled is not None:
@@ -963,6 +978,15 @@ class _LinuxWebAppSlotState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -1027,6 +1051,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
@@ -1182,6 +1207,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  site_config: Optional[pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
@@ -1220,6 +1246,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
@@ -1277,6 +1304,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict']]]]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'LinuxWebAppSlot':
@@ -1363,6 +1391,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["site_credentials"] = site_credentials
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
@@ -1622,6 +1651,11 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         A mapping of tags that should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

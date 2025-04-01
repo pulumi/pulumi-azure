@@ -42,6 +42,8 @@ class AIServicesArgs:
                
                > **NOTE:** SKU `DC0` is the commitment tier for AI Services Account containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+               
+               > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         :param pulumi.Input['AIServicesCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the AI Services Account.
         :param pulumi.Input['AIServicesIdentityArgs'] identity: An `identity` block as defined below.
@@ -112,6 +114,8 @@ class AIServicesArgs:
     def custom_subdomain_name(self) -> Optional[pulumi.Input[str]]:
         """
         The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+
+        > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         """
         return pulumi.get(self, "custom_subdomain_name")
 
@@ -275,6 +279,8 @@ class _AIServicesState:
         """
         Input properties used for looking up and filtering AIServices resources.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+               
+               > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         :param pulumi.Input['AIServicesCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the AI Services Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the AI Services Account.
@@ -334,6 +340,8 @@ class _AIServicesState:
     def custom_subdomain_name(self) -> Optional[pulumi.Input[str]]:
         """
         The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+
+        > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         """
         return pulumi.get(self, "custom_subdomain_name")
 
@@ -589,6 +597,8 @@ class AIServices(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+               
+               > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         :param pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the AI Services Account.
         :param pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -737,6 +747,8 @@ class AIServices(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+               
+               > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         :param pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the AI Services Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the AI Services Account.
@@ -784,6 +796,8 @@ class AIServices(pulumi.CustomResource):
     def custom_subdomain_name(self) -> pulumi.Output[Optional[str]]:
         """
         The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+
+        > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
         """
         return pulumi.get(self, "custom_subdomain_name")
 

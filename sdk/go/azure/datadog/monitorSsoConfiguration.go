@@ -59,8 +59,8 @@ import (
 //			}
 //			_, err = datadog.NewMonitorSsoConfiguration(ctx, "example", &datadog.MonitorSsoConfigurationArgs{
 //				DatadogMonitorId:        exampleMonitor.ID(),
-//				SingleSignOnEnabled:     pulumi.String("Enable"),
-//				EnterpriseApplicationId: pulumi.String("XXXX"),
+//				SingleSignOn:            pulumi.String("Enable"),
+//				EnterpriseApplicationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +89,9 @@ type MonitorSsoConfiguration struct {
 	LoginUrl pulumi.StringOutput `pulumi:"loginUrl"`
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+	// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+	SingleSignOn pulumi.StringOutput `pulumi:"singleSignOn"`
+	// Deprecated: `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
 	SingleSignOnEnabled pulumi.StringOutput `pulumi:"singleSignOnEnabled"`
 }
 
@@ -105,9 +107,6 @@ func NewMonitorSsoConfiguration(ctx *pulumi.Context,
 	}
 	if args.EnterpriseApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'EnterpriseApplicationId'")
-	}
-	if args.SingleSignOnEnabled == nil {
-		return nil, errors.New("invalid value for required argument 'SingleSignOnEnabled'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitorSsoConfiguration
@@ -140,7 +139,9 @@ type monitorSsoConfigurationState struct {
 	LoginUrl *string `pulumi:"loginUrl"`
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name *string `pulumi:"name"`
-	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+	// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+	SingleSignOn *string `pulumi:"singleSignOn"`
+	// Deprecated: `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
 	SingleSignOnEnabled *string `pulumi:"singleSignOnEnabled"`
 }
 
@@ -153,7 +154,9 @@ type MonitorSsoConfigurationState struct {
 	LoginUrl pulumi.StringPtrInput
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringPtrInput
-	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+	// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+	SingleSignOn pulumi.StringPtrInput
+	// Deprecated: `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
 	SingleSignOnEnabled pulumi.StringPtrInput
 }
 
@@ -168,8 +171,10 @@ type monitorSsoConfigurationArgs struct {
 	EnterpriseApplicationId string `pulumi:"enterpriseApplicationId"`
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name *string `pulumi:"name"`
-	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
-	SingleSignOnEnabled string `pulumi:"singleSignOnEnabled"`
+	// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+	SingleSignOn *string `pulumi:"singleSignOn"`
+	// Deprecated: `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
+	SingleSignOnEnabled *string `pulumi:"singleSignOnEnabled"`
 }
 
 // The set of arguments for constructing a MonitorSsoConfiguration resource.
@@ -180,8 +185,10 @@ type MonitorSsoConfigurationArgs struct {
 	EnterpriseApplicationId pulumi.StringInput
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringPtrInput
-	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
-	SingleSignOnEnabled pulumi.StringInput
+	// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+	SingleSignOn pulumi.StringPtrInput
+	// Deprecated: `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
+	SingleSignOnEnabled pulumi.StringPtrInput
 }
 
 func (MonitorSsoConfigurationArgs) ElementType() reflect.Type {
@@ -291,7 +298,12 @@ func (o MonitorSsoConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+func (o MonitorSsoConfigurationOutput) SingleSignOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.SingleSignOn }).(pulumi.StringOutput)
+}
+
+// Deprecated: `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
 func (o MonitorSsoConfigurationOutput) SingleSignOnEnabled() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.SingleSignOnEnabled }).(pulumi.StringOutput)
 }

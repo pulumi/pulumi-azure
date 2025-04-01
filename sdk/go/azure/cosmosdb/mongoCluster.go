@@ -126,11 +126,11 @@ type MongoCluster struct {
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername pulumi.StringPtrOutput `pulumi:"administratorUsername"`
-	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier pulumi.StringPtrOutput `pulumi:"computeTier"`
+	// The list of `connectionStrings` blocks as defined below.
+	ConnectionStrings MongoClusterConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-	//
-	// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode pulumi.StringPtrOutput `pulumi:"highAvailabilityMode"`
@@ -173,6 +173,7 @@ func NewMongoCluster(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"administratorPassword",
+		"connectionStrings",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -202,11 +203,11 @@ type mongoClusterState struct {
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername *string `pulumi:"administratorUsername"`
-	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier *string `pulumi:"computeTier"`
+	// The list of `connectionStrings` blocks as defined below.
+	ConnectionStrings []MongoClusterConnectionString `pulumi:"connectionStrings"`
 	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-	//
-	// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
 	CreateMode *string `pulumi:"createMode"`
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode *string `pulumi:"highAvailabilityMode"`
@@ -239,11 +240,11 @@ type MongoClusterState struct {
 	AdministratorPassword pulumi.StringPtrInput
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername pulumi.StringPtrInput
-	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier pulumi.StringPtrInput
+	// The list of `connectionStrings` blocks as defined below.
+	ConnectionStrings MongoClusterConnectionStringArrayInput
 	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-	//
-	// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
 	CreateMode pulumi.StringPtrInput
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode pulumi.StringPtrInput
@@ -280,11 +281,9 @@ type mongoClusterArgs struct {
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername *string `pulumi:"administratorUsername"`
-	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier *string `pulumi:"computeTier"`
 	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-	//
-	// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
 	CreateMode *string `pulumi:"createMode"`
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode *string `pulumi:"highAvailabilityMode"`
@@ -318,11 +317,9 @@ type MongoClusterArgs struct {
 	AdministratorPassword pulumi.StringPtrInput
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
 	AdministratorUsername pulumi.StringPtrInput
-	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+	// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 	ComputeTier pulumi.StringPtrInput
 	// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-	//
-	// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
 	CreateMode pulumi.StringPtrInput
 	// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
 	HighAvailabilityMode pulumi.StringPtrInput
@@ -447,14 +444,17 @@ func (o MongoClusterOutput) AdministratorUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.AdministratorUsername }).(pulumi.StringPtrOutput)
 }
 
-// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
 func (o MongoClusterOutput) ComputeTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.ComputeTier }).(pulumi.StringPtrOutput)
 }
 
+// The list of `connectionStrings` blocks as defined below.
+func (o MongoClusterOutput) ConnectionStrings() MongoClusterConnectionStringArrayOutput {
+	return o.ApplyT(func(v *MongoCluster) MongoClusterConnectionStringArrayOutput { return v.ConnectionStrings }).(MongoClusterConnectionStringArrayOutput)
+}
+
 // The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-//
-// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
 func (o MongoClusterOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }

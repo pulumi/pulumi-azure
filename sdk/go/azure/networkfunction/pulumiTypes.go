@@ -15,6 +15,8 @@ var _ = internal.GetEnvOrDefault
 
 type CollectorPolicyIpfxEmission struct {
 	// A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+	//
+	// > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
 	DestinationTypes string `pulumi:"destinationTypes"`
 }
 
@@ -31,6 +33,8 @@ type CollectorPolicyIpfxEmissionInput interface {
 
 type CollectorPolicyIpfxEmissionArgs struct {
 	// A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+	//
+	// > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
 	DestinationTypes pulumi.StringInput `pulumi:"destinationTypes"`
 }
 
@@ -112,6 +116,8 @@ func (o CollectorPolicyIpfxEmissionOutput) ToCollectorPolicyIpfxEmissionPtrOutpu
 }
 
 // A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+//
+// > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
 func (o CollectorPolicyIpfxEmissionOutput) DestinationTypes() pulumi.StringOutput {
 	return o.ApplyT(func(v CollectorPolicyIpfxEmission) string { return v.DestinationTypes }).(pulumi.StringOutput)
 }
@@ -141,6 +147,8 @@ func (o CollectorPolicyIpfxEmissionPtrOutput) Elem() CollectorPolicyIpfxEmission
 }
 
 // A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+//
+// > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
 func (o CollectorPolicyIpfxEmissionPtrOutput) DestinationTypes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CollectorPolicyIpfxEmission) *string {
 		if v == nil {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
     /// 
-    /// &gt; **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
+    /// &gt; **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `kubelet_disk_type`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
     /// 
     /// ## Example Usage
     /// 
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNodePoolKubeletConfig?> KubeletConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         /// </summary>
         [Output("kubeletDiskType")]
         public Output<string> KubeletDiskType { get; private set; } = null!;
@@ -445,7 +445,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigArgs>? KubeletConfig { get; set; }
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         /// </summary>
         [Input("kubeletDiskType")]
         public Input<string>? KubeletDiskType { get; set; }
@@ -742,7 +742,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         /// </summary>
         [Input("kubeletDiskType")]
         public Input<string>? KubeletDiskType { get; set; }

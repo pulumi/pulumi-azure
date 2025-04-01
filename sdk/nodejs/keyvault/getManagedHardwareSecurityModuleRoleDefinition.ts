@@ -7,7 +7,20 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing KeyVault Role Definition.
+ * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.keyvault.getManagedHardwareSecurityModuleRoleDefinition({
+ *     managedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.id,
+ *     name: "21dbd100-6940-42c2-9190-5d6cb909625b",
+ * });
+ * export const id = example.then(example => example.resourceManagerId);
+ * ```
  */
 export function getManagedHardwareSecurityModuleRoleDefinition(args: GetManagedHardwareSecurityModuleRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHardwareSecurityModuleRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,9 +34,12 @@ export function getManagedHardwareSecurityModuleRoleDefinition(args: GetManagedH
  * A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.
  */
 export interface GetManagedHardwareSecurityModuleRoleDefinitionArgs {
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module.
+     */
     managedHsmId: string;
     /**
-     * The name in UUID notation of this KeyVault Role Definition.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
      */
     name: string;
 }
@@ -33,11 +49,11 @@ export interface GetManagedHardwareSecurityModuleRoleDefinitionArgs {
  */
 export interface GetManagedHardwareSecurityModuleRoleDefinitionResult {
     /**
-     * A list of assignable role scope. Possible values are `/` and `/keys`.
+     * A list of assignable role scopes. Possible values are `/` and `/keys`.
      */
     readonly assignableScopes: string[];
     /**
-     * A text description of this role definition.
+     * A text description of the Key Vault Managed Hardware Security Module Role Definition.
      */
     readonly description: string;
     /**
@@ -51,20 +67,33 @@ export interface GetManagedHardwareSecurityModuleRoleDefinitionResult {
      */
     readonly permissions: outputs.keyvault.GetManagedHardwareSecurityModuleRoleDefinitionPermission[];
     /**
-     * The ID of the role definition resource without base url.
+     * The ID of the Key Vault Managed Hardware Security Module Role Definition resource without base url.
      */
     readonly resourceManagerId: string;
     /**
-     * The role name of the role definition.
+     * The display name of the Key Vault Managed Hardware Security Module Role Definition.
      */
     readonly roleName: string;
     /**
-     * The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
+     * The type of the Key Vault Managed Hardware Security Module Role Definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
      */
     readonly roleType: string;
 }
 /**
- * Use this data source to access information about an existing KeyVault Role Definition.
+ * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.keyvault.getManagedHardwareSecurityModuleRoleDefinition({
+ *     managedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.id,
+ *     name: "21dbd100-6940-42c2-9190-5d6cb909625b",
+ * });
+ * export const id = example.then(example => example.resourceManagerId);
+ * ```
  */
 export function getManagedHardwareSecurityModuleRoleDefinitionOutput(args: GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,9 +107,12 @@ export function getManagedHardwareSecurityModuleRoleDefinitionOutput(args: GetMa
  * A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.
  */
 export interface GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs {
+    /**
+     * The ID of the Key Vault Managed Hardware Security Module.
+     */
     managedHsmId: pulumi.Input<string>;
     /**
-     * The name in UUID notation of this KeyVault Role Definition.
+     * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
      */
     name: pulumi.Input<string>;
 }

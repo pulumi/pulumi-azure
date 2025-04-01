@@ -92,8 +92,13 @@ import javax.annotation.Nullable;
  *             .name("example-linux-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
+ *             .servicePlanId(exampleServicePlan.id())
  *             .storageContainerType("blobContainer")
- *             .storageContainerEndpoint(exampleContainer.id())
+ *             .storageContainerEndpoint(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).applyValue(values -> {
+ *                 var primaryBlobEndpoint = values.t1;
+ *                 var name = values.t2;
+ *                 return String.format("%s%s", primaryBlobEndpoint,name);
+ *             }))
  *             .storageAuthenticationType("StorageAccountConnectionString")
  *             .storageAccessKey(exampleAccount.primaryAccessKey())
  *             .runtimeName("node")
@@ -290,14 +295,14 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * A mapping of tags which should be assigned to the Linux Function App.
+     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
      * 
      */
     @Export(name="instanceMemoryInMb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceMemoryInMb;
 
     /**
-     * @return A mapping of tags which should be assigned to the Linux Function App.
+     * @return The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
      * 
      */
     public Output<Optional<Integer>> instanceMemoryInMb() {
@@ -530,7 +535,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
      * 
      */
     @Export(name="storageAccessKey", refs={String.class}, tree="[0]")
@@ -539,21 +544,21 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * @return The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
      * 
      */
     public Output<Optional<String>> storageAccessKey() {
         return Codegen.optional(this.storageAccessKey);
     }
     /**
-     * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+     * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      * 
      */
     @Export(name="storageAuthenticationType", refs={String.class}, tree="[0]")
     private Output<String> storageAuthenticationType;
 
     /**
-     * @return The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+     * @return The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      * 
      */
     public Output<String> storageAuthenticationType() {
@@ -590,7 +595,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
-     * &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
      */
     @Export(name="storageUserAssignedIdentityId", refs={String.class}, tree="[0]")
@@ -599,7 +604,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
-     * &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
      */
     public Output<Optional<String>> storageUserAssignedIdentityId() {

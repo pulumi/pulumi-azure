@@ -112,6 +112,7 @@ namespace Pulumi.Azure.Oracle
     ///         CpuCoreCount = 2,
     ///         Hostname = "hostname",
     ///         SubnetId = exampleSubnet.Id,
+    ///         SystemVersion = "23.1.19.0.0.241015",
     ///     });
     /// 
     /// });
@@ -283,6 +284,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Operating system version of the Exadata image. System version must be &lt;= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+        /// </summary>
+        [Output("systemVersion")]
+        public Output<string?> SystemVersion { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Cloud VM Cluster.
@@ -510,6 +517,12 @@ namespace Pulumi.Azure.Oracle
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
+        /// <summary>
+        /// Operating system version of the Exadata image. System version must be &lt;= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+        /// </summary>
+        [Input("systemVersion")]
+        public Input<string>? SystemVersion { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -715,6 +728,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
+
+        /// <summary>
+        /// Operating system version of the Exadata image. System version must be &lt;= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+        /// </summary>
+        [Input("systemVersion")]
+        public Input<string>? SystemVersion { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

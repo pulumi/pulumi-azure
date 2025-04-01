@@ -327,16 +327,12 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
     /**
      * One or more `boot_recovery_group` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Export(name="bootRecoveryGroups", refs={List.class,ReplicationRecoveryPlanBootRecoveryGroup.class}, tree="[0,1]")
     private Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups;
 
     /**
      * @return One or more `boot_recovery_group` blocks as defined below.
-     * 
-     * &gt; **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<List<ReplicationRecoveryPlanBootRecoveryGroup>> bootRecoveryGroups() {
@@ -345,16 +341,12 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
     /**
      * One `failover_recovery_group` block as defined below.
      * 
-     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Export(name="failoverRecoveryGroup", refs={ReplicationRecoveryPlanFailoverRecoveryGroup.class}, tree="[0]")
     private Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup;
 
     /**
      * @return One `failover_recovery_group` block as defined below.
-     * 
-     * &gt; **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<ReplicationRecoveryPlanFailoverRecoveryGroup> failoverRecoveryGroup() {
@@ -391,16 +383,12 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
     /**
      * One `shutdown_recovery_group` block as defined below.
      * 
-     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
-     * 
      */
     @Export(name="shutdownRecoveryGroup", refs={ReplicationRecoveryPlanShutdownRecoveryGroup.class}, tree="[0]")
     private Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup;
 
     /**
      * @return One `shutdown_recovery_group` block as defined below.
-     * 
-     * &gt; **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<ReplicationRecoveryPlanShutdownRecoveryGroup> shutdownRecoveryGroup() {

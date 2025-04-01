@@ -36,6 +36,8 @@ type ThreeTierVirtualInstance struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrOutput `pulumi:"managedResourceGroupName"`
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType pulumi.StringPtrOutput `pulumi:"managedResourcesNetworkAccessType"`
 	// Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -108,6 +110,8 @@ type threeTierVirtualInstanceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType *string `pulumi:"managedResourcesNetworkAccessType"`
 	// Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -133,6 +137,8 @@ type ThreeTierVirtualInstanceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType pulumi.StringPtrInput
 	// Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -162,6 +168,8 @@ type threeTierVirtualInstanceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType *string `pulumi:"managedResourcesNetworkAccessType"`
 	// Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -188,6 +196,8 @@ type ThreeTierVirtualInstanceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
+	// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+	ManagedResourcesNetworkAccessType pulumi.StringPtrInput
 	// Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
@@ -312,6 +322,11 @@ func (o ThreeTierVirtualInstanceOutput) Location() pulumi.StringOutput {
 // The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
 func (o ThreeTierVirtualInstanceOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThreeTierVirtualInstance) pulumi.StringPtrOutput { return v.ManagedResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+func (o ThreeTierVirtualInstanceOutput) ManagedResourcesNetworkAccessType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreeTierVirtualInstance) pulumi.StringPtrOutput { return v.ManagedResourcesNetworkAccessType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.

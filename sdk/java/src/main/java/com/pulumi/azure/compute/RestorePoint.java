@@ -22,6 +22,115 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachine;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.RestorePointCollection;
+ * import com.pulumi.azure.compute.RestorePointCollectionArgs;
+ * import com.pulumi.azure.compute.RestorePoint;
+ * import com.pulumi.azure.compute.RestorePointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-network")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("internal")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .build());
+ * 
+ *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name("internal")
+ *                 .subnetId(exampleSubnet.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
+ *             .name("example-machine")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
+ *                 .username("adminuser")
+ *                 .publicKey(StdFunctions.file(FileArgs.builder()
+ *                     .input("~/.ssh/id_rsa.pub")
+ *                     .build()).result())
+ *                 .build())
+ *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
+ *                 .caching("ReadWrite")
+ *                 .storageAccountType("Standard_LRS")
+ *                 .build())
+ *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
+ *                 .publisher("Canonical")
+ *                 .offer("0001-com-ubuntu-server-jammy")
+ *                 .sku("22_04-lts")
+ *                 .version("latest")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRestorePointCollection = new RestorePointCollection("exampleRestorePointCollection", RestorePointCollectionArgs.builder()
+ *             .name("example-collection")
+ *             .resourceGroupName(example.name())
+ *             .location(exampleLinuxVirtualMachine.location())
+ *             .sourceVirtualMachineId(exampleLinuxVirtualMachine.id())
+ *             .build());
+ * 
+ *         var exampleRestorePoint = new RestorePoint("exampleRestorePoint", RestorePointArgs.builder()
+ *             .name("example-restore-point")
+ *             .virtualMachineRestorePointCollectionId(exampleRestorePointCollection.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -36,14 +145,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/restorePoint:RestorePoint")
 public class RestorePoint extends com.pulumi.resources.CustomResource {
     /**
-     * Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="crashConsistencyModeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> crashConsistencyModeEnabled;
 
     /**
-     * @return Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> crashConsistencyModeEnabled() {
@@ -77,9 +186,17 @@ public class RestorePoint extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="virtualMachineRestorePointCollectionId", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineRestorePointCollectionId;
 
+    /**
+     * @return Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> virtualMachineRestorePointCollectionId() {
         return this.virtualMachineRestorePointCollectionId;
     }

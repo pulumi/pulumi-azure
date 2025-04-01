@@ -56,6 +56,12 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<string?> ManagedResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        /// </summary>
+        [Output("managedResourcesNetworkAccessType")]
+        public Output<string?> ManagedResourcesNetworkAccessType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -168,6 +174,12 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string>? ManagedResourceGroupName { get; set; }
 
         /// <summary>
+        /// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        /// </summary>
+        [Input("managedResourcesNetworkAccessType")]
+        public Input<string>? ManagedResourcesNetworkAccessType { get; set; }
+
+        /// <summary>
         /// Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -246,6 +258,12 @@ namespace Pulumi.Azure.WorkloadsSAP
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        /// </summary>
+        [Input("managedResourcesNetworkAccessType")]
+        public Input<string>? ManagedResourcesNetworkAccessType { get; set; }
 
         /// <summary>
         /// Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.

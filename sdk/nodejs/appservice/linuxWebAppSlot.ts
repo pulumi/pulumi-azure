@@ -203,6 +203,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      * A mapping of tags that should be assigned to the Linux Web App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -262,6 +263,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
@@ -295,6 +297,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
@@ -447,6 +450,7 @@ export interface LinuxWebAppSlotState {
      * A mapping of tags that should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
@@ -553,6 +557,7 @@ export interface LinuxWebAppSlotArgs {
      * A mapping of tags that should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

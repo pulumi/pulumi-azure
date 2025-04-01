@@ -4648,7 +4648,7 @@ class DataCollectionRuleDataSourcesLogFile(dict):
                  settings: Optional['outputs.DataCollectionRuleDataSourcesLogFileSettings'] = None):
         """
         :param Sequence[str] file_patterns: Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
-        :param str format: The data format of the log files. possible value is `text`.
+        :param str format: The data format of the log files. Possible values are `text` and `json`.
         :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
         :param 'DataCollectionRuleDataSourcesLogFileSettingsArgs' settings: A `settings` block as defined below.
@@ -4672,7 +4672,7 @@ class DataCollectionRuleDataSourcesLogFile(dict):
     @pulumi.getter
     def format(self) -> str:
         """
-        The data format of the log files. possible value is `text`.
+        The data format of the log files. Possible values are `text` and `json`.
         """
         return pulumi.get(self, "format")
 
@@ -5923,7 +5923,7 @@ class DiagnosticSettingMetric(dict):
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional['outputs.DiagnosticSettingMetricRetentionPolicy']:
         return pulumi.get(self, "retention_policy")
 

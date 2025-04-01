@@ -14,21 +14,21 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class NamespaceIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
         /// 
         /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 

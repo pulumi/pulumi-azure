@@ -1087,6 +1087,364 @@ func (o ServiceLiveTracePtrOutput) MessagingLogsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type SocketioIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+	//
+	// > **Note:** `identityIds` is required when `type` is `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// SocketioIdentityInput is an input type that accepts SocketioIdentityArgs and SocketioIdentityOutput values.
+// You can construct a concrete instance of `SocketioIdentityInput` via:
+//
+//	SocketioIdentityArgs{...}
+type SocketioIdentityInput interface {
+	pulumi.Input
+
+	ToSocketioIdentityOutput() SocketioIdentityOutput
+	ToSocketioIdentityOutputWithContext(context.Context) SocketioIdentityOutput
+}
+
+type SocketioIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+	//
+	// > **Note:** `identityIds` is required when `type` is `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SocketioIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocketioIdentity)(nil)).Elem()
+}
+
+func (i SocketioIdentityArgs) ToSocketioIdentityOutput() SocketioIdentityOutput {
+	return i.ToSocketioIdentityOutputWithContext(context.Background())
+}
+
+func (i SocketioIdentityArgs) ToSocketioIdentityOutputWithContext(ctx context.Context) SocketioIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocketioIdentityOutput)
+}
+
+func (i SocketioIdentityArgs) ToSocketioIdentityPtrOutput() SocketioIdentityPtrOutput {
+	return i.ToSocketioIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i SocketioIdentityArgs) ToSocketioIdentityPtrOutputWithContext(ctx context.Context) SocketioIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocketioIdentityOutput).ToSocketioIdentityPtrOutputWithContext(ctx)
+}
+
+// SocketioIdentityPtrInput is an input type that accepts SocketioIdentityArgs, SocketioIdentityPtr and SocketioIdentityPtrOutput values.
+// You can construct a concrete instance of `SocketioIdentityPtrInput` via:
+//
+//	        SocketioIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type SocketioIdentityPtrInput interface {
+	pulumi.Input
+
+	ToSocketioIdentityPtrOutput() SocketioIdentityPtrOutput
+	ToSocketioIdentityPtrOutputWithContext(context.Context) SocketioIdentityPtrOutput
+}
+
+type socketioIdentityPtrType SocketioIdentityArgs
+
+func SocketioIdentityPtr(v *SocketioIdentityArgs) SocketioIdentityPtrInput {
+	return (*socketioIdentityPtrType)(v)
+}
+
+func (*socketioIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SocketioIdentity)(nil)).Elem()
+}
+
+func (i *socketioIdentityPtrType) ToSocketioIdentityPtrOutput() SocketioIdentityPtrOutput {
+	return i.ToSocketioIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *socketioIdentityPtrType) ToSocketioIdentityPtrOutputWithContext(ctx context.Context) SocketioIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocketioIdentityPtrOutput)
+}
+
+type SocketioIdentityOutput struct{ *pulumi.OutputState }
+
+func (SocketioIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocketioIdentity)(nil)).Elem()
+}
+
+func (o SocketioIdentityOutput) ToSocketioIdentityOutput() SocketioIdentityOutput {
+	return o
+}
+
+func (o SocketioIdentityOutput) ToSocketioIdentityOutputWithContext(ctx context.Context) SocketioIdentityOutput {
+	return o
+}
+
+func (o SocketioIdentityOutput) ToSocketioIdentityPtrOutput() SocketioIdentityPtrOutput {
+	return o.ToSocketioIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o SocketioIdentityOutput) ToSocketioIdentityPtrOutputWithContext(ctx context.Context) SocketioIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SocketioIdentity) *SocketioIdentity {
+		return &v
+	}).(SocketioIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+//
+// > **Note:** `identityIds` is required when `type` is `UserAssigned`.
+func (o SocketioIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SocketioIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o SocketioIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SocketioIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o SocketioIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SocketioIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+func (o SocketioIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SocketioIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SocketioIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (SocketioIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SocketioIdentity)(nil)).Elem()
+}
+
+func (o SocketioIdentityPtrOutput) ToSocketioIdentityPtrOutput() SocketioIdentityPtrOutput {
+	return o
+}
+
+func (o SocketioIdentityPtrOutput) ToSocketioIdentityPtrOutputWithContext(ctx context.Context) SocketioIdentityPtrOutput {
+	return o
+}
+
+func (o SocketioIdentityPtrOutput) Elem() SocketioIdentityOutput {
+	return o.ApplyT(func(v *SocketioIdentity) SocketioIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret SocketioIdentity
+		return ret
+	}).(SocketioIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+//
+// > **Note:** `identityIds` is required when `type` is `UserAssigned`.
+func (o SocketioIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SocketioIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SocketioIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocketioIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SocketioIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocketioIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+func (o SocketioIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocketioIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type SocketioSku struct {
+	// The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+	Capacity *int `pulumi:"capacity"`
+	// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+	Name string `pulumi:"name"`
+}
+
+// SocketioSkuInput is an input type that accepts SocketioSkuArgs and SocketioSkuOutput values.
+// You can construct a concrete instance of `SocketioSkuInput` via:
+//
+//	SocketioSkuArgs{...}
+type SocketioSkuInput interface {
+	pulumi.Input
+
+	ToSocketioSkuOutput() SocketioSkuOutput
+	ToSocketioSkuOutputWithContext(context.Context) SocketioSkuOutput
+}
+
+type SocketioSkuArgs struct {
+	// The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+	//
+	// > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SocketioSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocketioSku)(nil)).Elem()
+}
+
+func (i SocketioSkuArgs) ToSocketioSkuOutput() SocketioSkuOutput {
+	return i.ToSocketioSkuOutputWithContext(context.Background())
+}
+
+func (i SocketioSkuArgs) ToSocketioSkuOutputWithContext(ctx context.Context) SocketioSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocketioSkuOutput)
+}
+
+func (i SocketioSkuArgs) ToSocketioSkuPtrOutput() SocketioSkuPtrOutput {
+	return i.ToSocketioSkuPtrOutputWithContext(context.Background())
+}
+
+func (i SocketioSkuArgs) ToSocketioSkuPtrOutputWithContext(ctx context.Context) SocketioSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocketioSkuOutput).ToSocketioSkuPtrOutputWithContext(ctx)
+}
+
+// SocketioSkuPtrInput is an input type that accepts SocketioSkuArgs, SocketioSkuPtr and SocketioSkuPtrOutput values.
+// You can construct a concrete instance of `SocketioSkuPtrInput` via:
+//
+//	        SocketioSkuArgs{...}
+//
+//	or:
+//
+//	        nil
+type SocketioSkuPtrInput interface {
+	pulumi.Input
+
+	ToSocketioSkuPtrOutput() SocketioSkuPtrOutput
+	ToSocketioSkuPtrOutputWithContext(context.Context) SocketioSkuPtrOutput
+}
+
+type socketioSkuPtrType SocketioSkuArgs
+
+func SocketioSkuPtr(v *SocketioSkuArgs) SocketioSkuPtrInput {
+	return (*socketioSkuPtrType)(v)
+}
+
+func (*socketioSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SocketioSku)(nil)).Elem()
+}
+
+func (i *socketioSkuPtrType) ToSocketioSkuPtrOutput() SocketioSkuPtrOutput {
+	return i.ToSocketioSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *socketioSkuPtrType) ToSocketioSkuPtrOutputWithContext(ctx context.Context) SocketioSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SocketioSkuPtrOutput)
+}
+
+type SocketioSkuOutput struct{ *pulumi.OutputState }
+
+func (SocketioSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SocketioSku)(nil)).Elem()
+}
+
+func (o SocketioSkuOutput) ToSocketioSkuOutput() SocketioSkuOutput {
+	return o
+}
+
+func (o SocketioSkuOutput) ToSocketioSkuOutputWithContext(ctx context.Context) SocketioSkuOutput {
+	return o
+}
+
+func (o SocketioSkuOutput) ToSocketioSkuPtrOutput() SocketioSkuPtrOutput {
+	return o.ToSocketioSkuPtrOutputWithContext(context.Background())
+}
+
+func (o SocketioSkuOutput) ToSocketioSkuPtrOutputWithContext(ctx context.Context) SocketioSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SocketioSku) *SocketioSku {
+		return &v
+	}).(SocketioSkuPtrOutput)
+}
+
+// The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+//
+// > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+func (o SocketioSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SocketioSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+func (o SocketioSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SocketioSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SocketioSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (SocketioSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SocketioSku)(nil)).Elem()
+}
+
+func (o SocketioSkuPtrOutput) ToSocketioSkuPtrOutput() SocketioSkuPtrOutput {
+	return o
+}
+
+func (o SocketioSkuPtrOutput) ToSocketioSkuPtrOutputWithContext(ctx context.Context) SocketioSkuPtrOutput {
+	return o
+}
+
+func (o SocketioSkuPtrOutput) Elem() SocketioSkuOutput {
+	return o.ApplyT(func(v *SocketioSku) SocketioSku {
+		if v != nil {
+			return *v
+		}
+		var ret SocketioSku
+		return ret
+	}).(SocketioSkuOutput)
+}
+
+// The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+//
+// > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+func (o SocketioSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SocketioSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+func (o SocketioSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SocketioSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetPrivateLinkResourceSharedPrivateLinkResourceType struct {
 	// The description of the resource type that has been onboarded to private link service.
 	Description string `pulumi:"description"`
@@ -1208,6 +1566,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIdentityPtrInput)(nil)).Elem(), ServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLiveTraceInput)(nil)).Elem(), ServiceLiveTraceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLiveTracePtrInput)(nil)).Elem(), ServiceLiveTraceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocketioIdentityInput)(nil)).Elem(), SocketioIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocketioIdentityPtrInput)(nil)).Elem(), SocketioIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocketioSkuInput)(nil)).Elem(), SocketioSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SocketioSkuPtrInput)(nil)).Elem(), SocketioSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput)(nil)).Elem(), GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput)(nil)).Elem(), GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray{})
 	pulumi.RegisterOutputType(HubEventHandlerOutput{})
@@ -1224,6 +1586,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLiveTraceOutput{})
 	pulumi.RegisterOutputType(ServiceLiveTracePtrOutput{})
+	pulumi.RegisterOutputType(SocketioIdentityOutput{})
+	pulumi.RegisterOutputType(SocketioIdentityPtrOutput{})
+	pulumi.RegisterOutputType(SocketioSkuOutput{})
+	pulumi.RegisterOutputType(SocketioSkuPtrOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput{})
 	pulumi.RegisterOutputType(GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput{})
 }

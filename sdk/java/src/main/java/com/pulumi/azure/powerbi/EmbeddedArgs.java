@@ -94,14 +94,14 @@ public final class EmbeddedArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * @return Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      * 
      */
     public Output<String> skuName() {
@@ -269,7 +269,7 @@ public final class EmbeddedArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+         * @param skuName Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class EmbeddedArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+         * @param skuName Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
          * 
          * @return builder
          * 

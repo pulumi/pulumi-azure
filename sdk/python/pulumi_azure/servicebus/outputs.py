@@ -53,7 +53,7 @@ class NamespaceCustomerManagedKey(dict):
                  infrastructure_encryption_enabled: Optional[bool] = None):
         """
         :param str identity_id: The ID of the User Assigned Identity that has access to the key.
-        :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         :param bool infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "identity_id", identity_id)
@@ -73,7 +73,7 @@ class NamespaceCustomerManagedKey(dict):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> str:
         """
-        The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -115,12 +115,12 @@ class NamespaceIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
-        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -134,7 +134,7 @@ class NamespaceIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -142,7 +142,7 @@ class NamespaceIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
         > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
@@ -152,7 +152,7 @@ class NamespaceIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "principal_id")
 
@@ -160,7 +160,7 @@ class NamespaceIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -200,7 +200,7 @@ class NamespaceNetworkRuleSet(dict):
                  trusted_services_allowed: Optional[bool] = None):
         """
         :param str default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
-        :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         :param Sequence['NamespaceNetworkRuleSetNetworkRuleArgs'] network_rules: One or more `network_rules` blocks as defined below.
         :param bool public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
                
@@ -230,7 +230,7 @@ class NamespaceNetworkRuleSet(dict):
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[Sequence[str]]:
         """
-        One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -286,8 +286,8 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
                  subnet_id: str,
                  ignore_missing_vnet_service_endpoint: Optional[bool] = None):
         """
-        :param str subnet_id: The Subnet ID which should be able to access this ServiceBus Namespace.
-        :param bool ignore_missing_vnet_service_endpoint: Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        :param str subnet_id: The Subnet ID which should be able to access this Service Bus Namespace.
+        :param bool ignore_missing_vnet_service_endpoint: Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
@@ -297,7 +297,7 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The Subnet ID which should be able to access this ServiceBus Namespace.
+        The Subnet ID which should be able to access this Service Bus Namespace.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -305,7 +305,7 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
         """
-        Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 

@@ -459,12 +459,16 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
+     * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
+     * 
      */
     @Export(name="sourceServerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceServerId;
 
     /**
      * @return The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
      * 
      */
     public Output<Optional<String>> sourceServerId() {

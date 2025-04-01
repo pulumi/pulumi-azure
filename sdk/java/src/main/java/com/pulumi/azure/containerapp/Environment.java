@@ -347,14 +347,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * One or more `workload_profile` blocks as defined below.
      * 
      */
     @Export(name="workloadProfiles", refs={List.class,EnvironmentWorkloadProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EnvironmentWorkloadProfile>> workloadProfiles;
 
     /**
-     * @return The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * @return One or more `workload_profile` blocks as defined below.
      * 
      */
     public Output<Optional<List<EnvironmentWorkloadProfile>>> workloadProfiles() {

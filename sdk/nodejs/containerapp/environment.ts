@@ -150,7 +150,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+     * One or more `workloadProfile` blocks as defined below.
      */
     public readonly workloadProfiles!: pulumi.Output<outputs.containerapp.EnvironmentWorkloadProfile[] | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface EnvironmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+     * One or more `workloadProfile` blocks as defined below.
      */
     workloadProfiles?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentWorkloadProfile>[]>;
     /**
@@ -377,7 +377,7 @@ export interface EnvironmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+     * One or more `workloadProfile` blocks as defined below.
      */
     workloadProfiles?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentWorkloadProfile>[]>;
     /**

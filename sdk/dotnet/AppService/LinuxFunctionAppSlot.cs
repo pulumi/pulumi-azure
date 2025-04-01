@@ -306,11 +306,19 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// </summary>
+        [Output("virtualNetworkBackupRestoreEnabled")]
+        public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
+
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
         /// </summary>
         [Output("vnetImagePullEnabled")]
         public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
@@ -581,11 +589,19 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// </summary>
+        [Input("virtualNetworkBackupRestoreEnabled")]
+        public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
+
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }
@@ -898,11 +914,19 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// </summary>
+        [Input("virtualNetworkBackupRestoreEnabled")]
+        public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
+
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Is container image pull over virtual network enabled? Defaults to `false`.
+        /// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }

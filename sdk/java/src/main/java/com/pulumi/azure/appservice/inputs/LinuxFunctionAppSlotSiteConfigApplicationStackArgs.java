@@ -64,14 +64,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+     * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+     * @return The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -94,14 +94,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
     }
 
     /**
-     * The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -243,7 +243,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+         * @param nodeVersion The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param pythonVersion The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * @param pythonVersion The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackArgs extends co
         }
 
         /**
-         * @param pythonVersion The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * @param pythonVersion The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          * 
          * @return builder
          * 

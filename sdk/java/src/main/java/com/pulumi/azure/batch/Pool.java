@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
  *             .displayName("Test Acc Pool Auto")
- *             .vmSize("Standard_A1")
+ *             .vmSize("STANDARD_A1_V2")
  *             .nodeAgentSkuId("batch.node.ubuntu 20.04")
  *             .autoScale(PoolAutoScaleArgs.builder()
  *                 .evaluationInterval("PT15M")

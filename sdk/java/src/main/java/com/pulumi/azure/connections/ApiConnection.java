@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
- *             .name("acctestsbn-conn-example")
+ *             .name("example-namespace")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku("Basic")
@@ -93,18 +93,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:connections/apiConnection:ApiConnection")
 public class ApiConnection extends com.pulumi.resources.CustomResource {
     /**
-     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> displayName;
+    private Output<String> displayName;
 
     /**
-     * @return A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * @return A display name for this API Connection.
      * 
      */
-    public Output<Optional<String>> displayName() {
-        return Codegen.optional(this.displayName);
+    public Output<String> displayName() {
+        return this.displayName;
     }
     /**
      * The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.

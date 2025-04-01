@@ -164,14 +164,14 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A mapping of tags which should be assigned to the Linux Function App.
+     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
      * 
      */
     @Import(name="instanceMemoryInMb")
     private @Nullable Output<Integer> instanceMemoryInMb;
 
     /**
-     * @return A mapping of tags which should be assigned to the Linux Function App.
+     * @return The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
      * 
      */
     public Optional<Output<Integer>> instanceMemoryInMb() {
@@ -331,7 +331,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
      * 
      */
     @Import(name="storageAccessKey")
@@ -340,7 +340,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
      * 
      */
     public Optional<Output<String>> storageAccessKey() {
@@ -348,14 +348,14 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+     * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      * 
      */
     @Import(name="storageAuthenticationType", required=true)
     private Output<String> storageAuthenticationType;
 
     /**
-     * @return The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+     * @return The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      * 
      */
     public Output<String> storageAuthenticationType() {
@@ -395,7 +395,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     /**
      * The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
-     * &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
      */
     @Import(name="storageUserAssignedIdentityId")
@@ -404,7 +404,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
-     * &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
      */
     public Optional<Output<String>> storageUserAssignedIdentityId() {
@@ -725,7 +725,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param instanceMemoryInMb A mapping of tags which should be assigned to the Linux Function App.
+         * @param instanceMemoryInMb The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param instanceMemoryInMb A mapping of tags which should be assigned to the Linux Function App.
+         * @param instanceMemoryInMb The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
          * 
          * @return builder
          * 
@@ -958,7 +958,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageAccessKey The access key which will be used to access the backend storage account for the Function App.
          * 
-         * &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+         * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
          * 
          * @return builder
          * 
@@ -971,7 +971,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageAccessKey The access key which will be used to access the backend storage account for the Function App.
          * 
-         * &gt; **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+         * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
          * 
          * @return builder
          * 
@@ -981,7 +981,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAuthenticationType The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+         * @param storageAuthenticationType The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
          * 
          * @return builder
          * 
@@ -992,7 +992,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAuthenticationType The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+         * @param storageAuthenticationType The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
          * 
          * @return builder
          * 
@@ -1046,7 +1046,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
          * 
-         * &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+         * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
          * 
          * @return builder
          * 
@@ -1059,7 +1059,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
          * 
-         * &gt; **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+         * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
          * 
          * @return builder
          * 

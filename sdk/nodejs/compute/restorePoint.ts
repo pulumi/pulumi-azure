@@ -7,6 +7,75 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Machine Restore Point.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     ipConfigurations: [{
+ *         name: "internal",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: std.file({
+ *             input: "~/.ssh/id_rsa.pub",
+ *         }).then(invoke => invoke.result),
+ *     }],
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
+ *         version: "latest",
+ *     },
+ * });
+ * const exampleRestorePointCollection = new azure.compute.RestorePointCollection("example", {
+ *     name: "example-collection",
+ *     resourceGroupName: example.name,
+ *     location: exampleLinuxVirtualMachine.location,
+ *     sourceVirtualMachineId: exampleLinuxVirtualMachine.id,
+ * });
+ * const exampleRestorePoint = new azure.compute.RestorePoint("example", {
+ *     name: "example-restore-point",
+ *     virtualMachineRestorePointCollectionId: exampleRestorePointCollection.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual Machine Restore Point can be imported using the `resource id`, e.g.
@@ -44,7 +113,7 @@ export class RestorePoint extends pulumi.CustomResource {
     }
 
     /**
-     * Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly crashConsistencyModeEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -55,6 +124,9 @@ export class RestorePoint extends pulumi.CustomResource {
      * Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     */
     public readonly virtualMachineRestorePointCollectionId!: pulumi.Output<string>;
 
     /**
@@ -94,7 +166,7 @@ export class RestorePoint extends pulumi.CustomResource {
  */
 export interface RestorePointState {
     /**
-     * Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      */
     crashConsistencyModeEnabled?: pulumi.Input<boolean>;
     /**
@@ -105,6 +177,9 @@ export interface RestorePointState {
      * Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     */
     virtualMachineRestorePointCollectionId?: pulumi.Input<string>;
 }
 
@@ -113,7 +188,7 @@ export interface RestorePointState {
  */
 export interface RestorePointArgs {
     /**
-     * Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      */
     crashConsistencyModeEnabled?: pulumi.Input<boolean>;
     /**
@@ -124,5 +199,8 @@ export interface RestorePointArgs {
      * Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     */
     virtualMachineRestorePointCollectionId: pulumi.Input<string>;
 }

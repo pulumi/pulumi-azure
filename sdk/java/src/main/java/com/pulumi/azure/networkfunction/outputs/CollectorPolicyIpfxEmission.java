@@ -13,12 +13,16 @@ public final class CollectorPolicyIpfxEmission {
     /**
      * @return A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
      * 
+     * &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
+     * 
      */
     private String destinationTypes;
 
     private CollectorPolicyIpfxEmission() {}
     /**
      * @return A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+     * 
+     * &gt; **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
      * 
      */
     public String destinationTypes() {

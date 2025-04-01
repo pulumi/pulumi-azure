@@ -17,14 +17,18 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     public static final FlexibleServerCustomerManagedKeyArgs Empty = new FlexibleServerCustomerManagedKeyArgs();
 
     /**
-     * The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+     * The versioned ID of the geo backup Key Vault Key.
+     * 
+     * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
      */
     @Import(name="geoBackupKeyVaultKeyId")
     private @Nullable Output<String> geoBackupKeyVaultKeyId;
 
     /**
-     * @return The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+     * @return The versioned ID of the geo backup Key Vault Key.
+     * 
+     * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
      */
     public Optional<Output<String>> geoBackupKeyVaultKeyId() {
@@ -32,7 +36,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+     * 
+     * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
      * 
      * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
@@ -41,7 +47,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     private @Nullable Output<String> geoBackupUserAssignedIdentityId;
 
     /**
-     * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * @return The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+     * 
+     * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
      * 
      * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
      * 
@@ -51,14 +59,14 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID of the Key Vault Key.
+     * The versioned ID of the Key Vault Key.
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return The ID of the Key Vault Key.
+     * @return The versioned ID of the Key Vault Key.
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -66,14 +74,14 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+     * Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
      * 
      */
     @Import(name="primaryUserAssignedIdentityId")
     private @Nullable Output<String> primaryUserAssignedIdentityId;
 
     /**
-     * @return Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+     * @return Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
      * 
      */
     public Optional<Output<String>> primaryUserAssignedIdentityId() {
@@ -108,7 +116,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param geoBackupKeyVaultKeyId The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+         * @param geoBackupKeyVaultKeyId The versioned ID of the geo backup Key Vault Key.
+         * 
+         * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
          * 
          * @return builder
          * 
@@ -119,7 +129,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param geoBackupKeyVaultKeyId The ID of the geo backup Key Vault Key. It can&#39;t cross region and need Customer Managed Key in same region as geo backup.
+         * @param geoBackupKeyVaultKeyId The versioned ID of the geo backup Key Vault Key.
+         * 
+         * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
          * 
          * @return builder
          * 
@@ -129,7 +141,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param geoBackupUserAssignedIdentityId The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+         * @param geoBackupUserAssignedIdentityId The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+         * 
+         * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
          * 
          * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
          * 
@@ -142,7 +156,9 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param geoBackupUserAssignedIdentityId The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+         * @param geoBackupUserAssignedIdentityId The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+         * 
+         * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
          * 
          * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
          * 
@@ -154,7 +170,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key.
+         * @param keyVaultKeyId The versioned ID of the Key Vault Key.
          * 
          * @return builder
          * 
@@ -165,7 +181,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key.
+         * @param keyVaultKeyId The versioned ID of the Key Vault Key.
          * 
          * @return builder
          * 
@@ -175,7 +191,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
          * 
          * @return builder
          * 
@@ -186,7 +202,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
          * 
          * @return builder
          * 

@@ -3957,7 +3957,7 @@ if not MYPY:
         """
         scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         """
         scm_type: NotRequired[pulumi.Input[str]]
         """
@@ -4044,7 +4044,7 @@ class AppFlexConsumptionSiteConfigArgs:
                > **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param pulumi.Input[str] scm_ip_restriction_default_action: The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
-        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker.
@@ -4420,7 +4420,7 @@ class AppFlexConsumptionSiteConfigArgs:
     @pulumi.getter(name="scmMinimumTlsVersion")
     def scm_minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         """
         return pulumi.get(self, "scm_minimum_tls_version")
 
@@ -16241,7 +16241,7 @@ if not MYPY:
         """
         python_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         use_custom_runtime: NotRequired[pulumi.Input[bool]]
         """
@@ -16273,7 +16273,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
                > **NOTE:** The value `21` is currently in Preview for `java_version`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16`, `18` `20` and `22`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
-        :param pulumi.Input[str] python_version: The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param pulumi.Input[str] python_version: The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -16360,7 +16360,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -19198,7 +19198,7 @@ if not MYPY:
     class LinuxFunctionAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
         client_id: pulumi.Input[str]
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         client_secret_setting_name: pulumi.Input[str]
         """
@@ -19220,7 +19220,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
                  client_secret_setting_name: pulumi.Input[str],
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login..
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
@@ -19235,7 +19235,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         return pulumi.get(self, "client_id")
 
@@ -21019,7 +21019,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+        The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
         """
         powershell_core_version: NotRequired[pulumi.Input[str]]
         """
@@ -21027,7 +21027,7 @@ if not MYPY:
         """
         python_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         use_custom_runtime: NotRequired[pulumi.Input[bool]]
         """
@@ -21055,9 +21055,9 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0`, `8.0` and `9.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
-        :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+        :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
-        :param pulumi.Input[str] python_version: The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param pulumi.Input[str] python_version: The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[bool] use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param pulumi.Input[bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -21118,7 +21118,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+        The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
         """
         return pulumi.get(self, "node_version")
 
@@ -21142,7 +21142,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -21650,7 +21650,7 @@ if not MYPY:
         """
         virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
         """
-        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        The Virtual Network Subnet ID used for this IP Restriction.
 
         > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
@@ -21676,7 +21676,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
-        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
                > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
@@ -21785,7 +21785,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        The Virtual Network Subnet ID used for this IP Restriction.
 
         > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
@@ -26310,7 +26310,7 @@ if not MYPY:
         """
         python_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         ruby_version: NotRequired[pulumi.Input[str]]
         """
@@ -26359,7 +26359,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
-        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image_name is not None:
@@ -26537,7 +26537,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -29774,7 +29774,7 @@ if not MYPY:
     class LinuxWebAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
         client_id: pulumi.Input[str]
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         client_secret_setting_name: pulumi.Input[str]
         """
@@ -29796,7 +29796,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
                  client_secret_setting_name: pulumi.Input[str],
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login..
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
@@ -29811,7 +29811,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         return pulumi.get(self, "client_id")
 
@@ -31816,7 +31816,7 @@ if not MYPY:
         """
         python_version: NotRequired[pulumi.Input[str]]
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         ruby_version: NotRequired[pulumi.Input[str]]
         """
@@ -31863,7 +31863,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
-        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param pulumi.Input[str] ruby_version: The version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image_name is not None:
@@ -32039,7 +32039,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -38895,7 +38895,7 @@ if not MYPY:
     class WindowsFunctionAppAuthSettingsV2GithubV2ArgsDict(TypedDict):
         client_id: pulumi.Input[str]
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         client_secret_setting_name: pulumi.Input[str]
         """
@@ -38917,7 +38917,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2Args:
                  client_secret_setting_name: pulumi.Input[str],
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login..
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
@@ -38932,7 +38932,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2Args:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         return pulumi.get(self, "client_id")
 
@@ -43474,7 +43474,7 @@ if not MYPY:
     class WindowsFunctionAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
         client_id: pulumi.Input[str]
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         client_secret_setting_name: pulumi.Input[str]
         """
@@ -43496,7 +43496,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
                  client_secret_setting_name: pulumi.Input[str],
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login..
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
@@ -43511,7 +43511,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         return pulumi.get(self, "client_id")
 
@@ -45725,7 +45725,7 @@ if not MYPY:
         """
         virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
         """
-        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        The Virtual Network Subnet ID used for this IP Restriction.
 
         > **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
@@ -45751,7 +45751,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
-        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
                > **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
@@ -45860,7 +45860,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+        The Virtual Network Subnet ID used for this IP Restriction.
 
         > **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
         """
@@ -48361,7 +48361,7 @@ if not MYPY:
     class WindowsWebAppAuthSettingsV2GithubV2ArgsDict(TypedDict):
         client_id: pulumi.Input[str]
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         client_secret_setting_name: pulumi.Input[str]
         """
@@ -48383,7 +48383,7 @@ class WindowsWebAppAuthSettingsV2GithubV2Args:
                  client_secret_setting_name: pulumi.Input[str],
                  login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login..
+        :param pulumi.Input[str] client_id: The ID of the GitHub app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub Login.
                
                !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
@@ -48398,7 +48398,7 @@ class WindowsWebAppAuthSettingsV2GithubV2Args:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The ID of the GitHub app used for login..
+        The ID of the GitHub app used for login.
         """
         return pulumi.get(self, "client_id")
 
@@ -50438,7 +50438,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
 
         > **NOTE:** This property conflicts with `java_version`.
         """
@@ -50456,7 +50456,7 @@ if not MYPY:
         """
         The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
 
-        > **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+        > **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
         """
 elif False:
     WindowsWebAppSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
@@ -50507,7 +50507,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. 
                
                > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
-        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
                
                > **NOTE:** This property conflicts with `java_version`.
         :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
@@ -50516,7 +50516,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[bool] python: Specifies whether this is a Python app. Defaults to `false`.
         :param pulumi.Input[str] tomcat_version: The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
                
-               > **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+               > **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
@@ -50705,7 +50705,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
 
         > **NOTE:** This property conflicts with `java_version`.
         """
@@ -50747,7 +50747,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         """
         The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
 
-        > **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+        > **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
         """
         return pulumi.get(self, "tomcat_version")
 
@@ -56344,7 +56344,7 @@ if not MYPY:
         """
         node_version: NotRequired[pulumi.Input[str]]
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
 
         > **NOTE:** This property conflicts with `java_version`.
         """
@@ -56401,7 +56401,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
                
                > **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
-        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
                
                > **NOTE:** This property conflicts with `java_version`.
         :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
@@ -56587,7 +56587,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
 
         > **NOTE:** This property conflicts with `java_version`.
         """

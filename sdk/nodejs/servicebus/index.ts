@@ -55,6 +55,11 @@ export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").
 export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
 
+export { NamespaceCustomerManagedKeyArgs, NamespaceCustomerManagedKeyState } from "./namespaceCustomerManagedKey";
+export type NamespaceCustomerManagedKey = import("./namespaceCustomerManagedKey").NamespaceCustomerManagedKey;
+export const NamespaceCustomerManagedKey: typeof import("./namespaceCustomerManagedKey").NamespaceCustomerManagedKey = null as any;
+utilities.lazyLoad(exports, ["NamespaceCustomerManagedKey"], () => require("./namespaceCustomerManagedKey"));
+
 export { NamespaceDisasterRecoveryConfigArgs, NamespaceDisasterRecoveryConfigState } from "./namespaceDisasterRecoveryConfig";
 export type NamespaceDisasterRecoveryConfig = import("./namespaceDisasterRecoveryConfig").NamespaceDisasterRecoveryConfig;
 export const NamespaceDisasterRecoveryConfig: typeof import("./namespaceDisasterRecoveryConfig").NamespaceDisasterRecoveryConfig = null as any;
@@ -100,6 +105,8 @@ const _module = {
                 return new Namespace(name, <any>undefined, { urn })
             case "azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
+            case "azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey":
+                return new NamespaceCustomerManagedKey(name, <any>undefined, { urn })
             case "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig":
                 return new NamespaceDisasterRecoveryConfig(name, <any>undefined, { urn })
             case "azure:servicebus/queue:Queue":
@@ -121,6 +128,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespace", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceAuthorizationRule", _module)
+pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceDisasterRecoveryConfig", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/queueAuthorizationRule", _module)

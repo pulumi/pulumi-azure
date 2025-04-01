@@ -172,9 +172,13 @@ type LinuxFunctionAppSlot struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
-	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrOutput `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -304,9 +308,13 @@ type linuxFunctionAppSlotState struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
 	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -392,9 +400,13 @@ type LinuxFunctionAppSlotState struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   pulumi.StringMapInput
-	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	Tags pulumi.StringMapInput
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
@@ -466,9 +478,13 @@ type linuxFunctionAppSlotArgs struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
 	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -537,9 +553,13 @@ type LinuxFunctionAppSlotArgs struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Linux Function App.
-	Tags                   pulumi.StringMapInput
-	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Is container image pull over virtual network enabled? Defaults to `false`.
+	Tags pulumi.StringMapInput
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
 	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
@@ -825,11 +845,18 @@ func (o LinuxFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+func (o LinuxFunctionAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o LinuxFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Is container image pull over virtual network enabled? Defaults to `false`.
+// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
+//
+// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
 func (o LinuxFunctionAppSlotOutput) VnetImagePullEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.VnetImagePullEnabled }).(pulumi.BoolPtrOutput)
 }
