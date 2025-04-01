@@ -517,7 +517,11 @@ var metadata []byte
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
 	innerProvider := shim.NewProvider()
+	// TF renamed azurerm_extended_custom_location to azurerm_extended_location_custom_location in
+	// https://github.com/hashicorp/terraform-provider-azurerm/pull/28066. To avoid the "duplicate module member" error,
+	// we drop the old resource here. The Pulumi token is the same for old and new resource.
 	delete(innerProvider.ResourcesMap, "azurerm_extended_custom_location")
+
 	p := shimv2.NewProvider(innerProvider)
 
 	// Adjust the defaults if running in Azure Cloud Shell.
@@ -1373,12 +1377,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Eventgrid
 			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
 
-			// "azurerm_extended_custom_location": {
-			// 	Tok: azureResource(azureExtendedLocation, "CustomLocation"),
-			// 	Docs: &tfbridge.DocInfo{
-			// 		Source: "extended_location_custom_location.html.markdown",
-			// 	},
-			// },
 			"azurerm_extended_location_custom_location": {
 				Tok: azureResource(azureExtendedLocation, "CustomLocation"),
 				Docs: &tfbridge.DocInfo{
@@ -3625,8 +3623,6 @@ func Provider() tfbridge.ProviderInfo {
 		return azureResource(mod, name).String(), nil
 	}
 	prov.MustComputeTokens(tks.MappedModules("azurerm_", "", moduleMap, makeToken))
-
-	delete(prov.Resources, "azurerm_extended_custom_location")
 
 	prov.SetAutonaming(24, "")
 
