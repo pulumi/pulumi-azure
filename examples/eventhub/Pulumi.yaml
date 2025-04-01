@@ -1,3 +1,0 @@
-name: azure-eventhub
-runtime: nodejs
-description: Work with Azure Event Hubs
