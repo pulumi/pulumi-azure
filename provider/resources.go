@@ -364,7 +364,9 @@ var moduleMap = map[string]string{
 	"system_center":            azureSystemCenter,
 	"trusted_signing":          azureTrustedSigning,
 	"express_route":            azureExpressRoute,
-	"custom_extended_location": azureExtendedLocation,
+	"custom_extended_location": "ExtendedLocationDeprecated",
+	"extended_custom_location": "ExtendedLocationDeprecated",
+	"extended_location":        azureExtendedLocation,
 	"video_indexer":            azureVideoIndexer,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
@@ -1371,7 +1373,13 @@ func Provider() tfbridge.ProviderInfo {
 			// Eventgrid
 			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
 
-			"azurerm_extended_custom_location": {
+			// "azurerm_extended_custom_location": {
+			// 	Tok: azureResource("ExtendedLocationDeprecated", "CustomLocation"),
+			// 	Docs: &tfbridge.DocInfo{
+			// 		Source: "extended_location_custom_location.html.markdown",
+			// 	},
+			// },
+			"azurerm_extended_location_custom_location": {
 				Tok: azureResource(azureExtendedLocation, "CustomLocation"),
 				Docs: &tfbridge.DocInfo{
 					Source: "extended_location_custom_location.html.markdown",
@@ -3560,6 +3568,14 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("azurerm_sentinel_automation_rule",
 		azureResource(azureSentinel, "AuthomationRule"),
 		azureResource(azureSentinel, "AutomationRule"), azureSentinel, azureSentinel, nil)
+
+	prov.RenameResourceWithAlias("azurerm_extended_custom_location",
+		azureResource(azureExtendedLocation, "CustomLocation"),
+		azureResource(azureExtendedLocation, "CustomLocation"), azureExtendedLocation /*"ExtendedLocationDeprecated"*/, azureExtendedLocation, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "extended_location_custom_location.html.markdown",
+			},
+		})
 
 	// Deprecated, remove when we upgrade to terraform-provider-azurerm 3.0.
 	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))
